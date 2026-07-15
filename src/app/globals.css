@@ -1,0 +1,19 @@
+:root {
+  color: #1d2c24;
+  background: #f7f3e9;
+  font-family: "Noto Serif SC", "Songti SC", serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+main {
+  width: min(100% - 2rem, 70rem);
+  margin: 0 auto;
+  padding: 4rem 0;
+}
