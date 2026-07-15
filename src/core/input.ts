@@ -19,6 +19,7 @@ export type {
 
 const localDateTimePattern =
   /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}(?::\d{2}(?:\.\d{1,9})?)?$/;
+const availableTimeZoneIds = new Set(ZoneId.getAvailableZoneIds());
 
 const coordinateSchema = z.object({
   name: z.string().trim().min(1),
@@ -88,6 +89,10 @@ function freezeNormalizedInput(
 }
 
 function hasValidTimeZone(timeZone: string): boolean {
+  if (!availableTimeZoneIds.has(timeZone)) {
+    return false;
+  }
+
   try {
     ZoneId.of(timeZone);
     return true;

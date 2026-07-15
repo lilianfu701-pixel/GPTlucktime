@@ -83,6 +83,15 @@ describe("normalizeBirthInput", () => {
     expect(result).toMatchObject({ ok: false, code: "INVALID_TIME_ZONE" });
   });
 
+  it.each(["UTC+08:00", "GMT+08:00", "+08:00"])(
+    "rejects a fixed-offset time zone (%s)",
+    (timeZone) => {
+      const result = normalizeBirthInput({ ...valid, timeZone });
+
+      expect(result).toMatchObject({ ok: false, code: "INVALID_TIME_ZONE" });
+    },
+  );
+
   it("rejects local datetimes with a UTC offset", () => {
     const result = normalizeBirthInput({
       ...valid,
