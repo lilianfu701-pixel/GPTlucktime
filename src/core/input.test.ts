@@ -26,6 +26,15 @@ describe("normalizeBirthInput", () => {
     }
   });
 
+  it("accepts an ISO local date-time with minute precision", () => {
+    const result = normalizeBirthInput({
+      ...valid,
+      localDateTime: "1990-06-15T14:30",
+    });
+
+    expect(result).toMatchObject({ ok: true });
+  });
+
   it("trims names and preserves residence context without using it for calculation", () => {
     const residenceContext = {
       name: "  Los Angeles  ",
