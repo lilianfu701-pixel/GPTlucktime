@@ -20,6 +20,7 @@
     "next": "latest",
     "react": "latest",
     "react-dom": "latest",
+    "timezonecomplete": "^5.15.1",
     "zod": "latest"
   },
   "devDependencies": {
