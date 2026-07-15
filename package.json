@@ -9,8 +9,9 @@
     "test": "vitest",
     "test:run": "vitest run",
     "test:coverage": "vitest run --coverage",
-    "test:e2e": "playwright test",
-    "lint": "tsc --noEmit"
+    "test:e2e": "npm run build && node scripts/run-e2e.mjs",
+    "lint": "tsc --noEmit",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@js-joda/core": "latest",
@@ -31,7 +32,6 @@
     "@types/react-dom": "latest",
     "@vitest/coverage-v8": "latest",
     "jsdom": "latest",
-    "playwright": "latest",
     "typescript": "5.9.3",
     "vitest": "latest"
   }
