@@ -10,6 +10,7 @@ import type { CivilTimeResolution } from "../types";
 type CivilTimeErrorCode =
   | "DST_GAP"
   | "DST_AMBIGUOUS"
+  | "INVALID_CIVIL_TIME_RESOLUTION"
   | "INVALID_LOCAL_DATE_TIME"
   | "INVALID_TIME_ZONE";
 
@@ -85,6 +86,17 @@ export function resolveCivilTime(
   resolution?: CivilTimeResolution,
 ): CivilTimeResult {
   try {
+    if (
+      resolution !== undefined &&
+      resolution !== "earlier" &&
+      resolution !== "later"
+    ) {
+      return failure(
+        "INVALID_CIVIL_TIME_RESOLUTION",
+        "Civil time resolution must be either earlier or later.",
+      );
+    }
+
     const localTime = parseLocalDateTime(localDateTime);
     if (!localTime) {
       return failure(
