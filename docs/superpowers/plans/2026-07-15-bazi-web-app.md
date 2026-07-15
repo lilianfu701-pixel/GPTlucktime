@@ -255,8 +255,10 @@ import { describe, expect, it } from 'vitest';
 import { findSolarTerm } from './solar-terms';
 
 describe('findSolarTerm', () => {
-  it('finds 2024 lichun before 2024-02-05T00:00:00Z', () => {
-    expect(findSolarTerm(2024, 'lichun').utcIso < '2024-02-05T00:00:00.000Z').toBe(true);
+  it('finds 2024 lichun within two minutes of the published instant', () => {
+    const actual = Date.parse(findSolarTerm(2024, 'lichun').utcIso);
+    const expected = Date.parse('2024-02-04T08:26:53.000Z');
+    expect(Math.abs(actual - expected)).toBeLessThanOrEqual(120_000);
   });
 });
 ```
@@ -275,7 +277,7 @@ Implement Gregorian JDN using an integer calendar formula and return a numeric `
 
 Run: `npm run test:run -- src/core/time/solar-time.test.ts src/core/calendar/solar-terms.test.ts`
 
-Expected: PASS. Add a regression assertion that the calculated 2024 lichun instant is within 120 seconds of the checked golden value stored in the test fixture.
+Expected: PASS. The test locks the calculated 2024 lichun instant to `2024-02-04T08:26:53.000Z` with a 120-second tolerance.
 
 - [ ] **Step 5: Commit the time and solar-term adapter**
 
@@ -449,10 +451,16 @@ git commit -m "feat: build traceable static chart context"
 ```ts
 import { describe, expect, it } from 'vitest';
 import { toChartViewModel } from './chart-view-model';
+import { buildChartContext } from '../core/build-chart-context';
 
 describe('toChartViewModel', () => {
   it('groups static facts without adding interpretive language', () => {
-    const view = toChartViewModel({ /* fixture ChartContext */ } as never);
+    const context = buildChartContext({
+      localDateTime: '1990-06-15T14:30:00',
+      timeZone: 'Asia/Shanghai',
+      birthplace: { name: 'Shanghai', latitude: 31.2304, longitude: 121.4737 },
+    });
+    const view = toChartViewModel(context);
     expect(view.indicatorGroups.map((group) => group.id)).toContain('ten-gods');
     expect(JSON.stringify(view)).not.toMatch(/吉|凶|身强|身弱/);
   });
@@ -547,9 +555,16 @@ git commit -m "feat: collect birth details for chart"
 import { render, screen } from '@testing-library/react';
 import { expect, it } from 'vitest';
 import { ChartWorkbench } from './chart-workbench';
+import { toChartViewModel } from '../../lib/chart-view-model';
+import { buildChartContext } from '../../core/build-chart-context';
 
 it('renders four pillars, ten gods, natal Kyusei, and time audit', () => {
-  render(<ChartWorkbench chart={/* fixture view model */ {} as never} />);
+  const chart = toChartViewModel(buildChartContext({
+    localDateTime: '1990-06-15T14:30:00',
+    timeZone: 'Asia/Shanghai',
+    birthplace: { name: 'Shanghai', latitude: 31.2304, longitude: 121.4737 },
+  }));
+  render(<ChartWorkbench chart={chart} />);
   expect(screen.getByRole('heading', { name: '四柱命盘' })).toBeVisible();
   expect(screen.getByRole('heading', { name: '十神与藏干' })).toBeVisible();
   expect(screen.getByRole('heading', { name: '九星气学' })).toBeVisible();
