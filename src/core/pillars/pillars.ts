@@ -43,6 +43,7 @@ export interface PillarCalculation {
 
 interface ParsedTrueSolarTime {
   readonly localJulianDay: number;
+  readonly year: number;
   readonly hour: number;
 }
 
@@ -71,18 +72,16 @@ function parseTrueSolarTime(value: string): ParsedTrueSolarTime {
     second: 0,
     millisecond: 0,
   });
-  const offsetMinutes =
-    offsetText === "Z"
-      ? 0
-      : (offsetText[0] === "-" ? -1 : 1) *
-        (Number(offsetText.slice(1, 3)) * 60 + Number(offsetText.slice(4, 6)));
+  const offsetHours = offsetText === "Z" ? 0 : Number(offsetText.slice(1, 3));
+  const offsetMinutes = offsetText === "Z" ? 0 : Number(offsetText.slice(4, 6));
 
-  if (Math.abs(offsetMinutes) > 1439) {
+  if (offsetHours > 23 || offsetMinutes > 59) {
     throw new RangeError("True solar time has an invalid UTC offset.");
   }
 
   return Object.freeze({
     localJulianDay,
+    year: parts.year,
     hour: parts.hour,
   });
 }
@@ -153,6 +152,9 @@ export function calculatePillars(input: CalculatePillarsInput): PillarCalculatio
   }
 
   const trueSolar = parseTrueSolarTime(input.trueSolarIso);
+  if (input.localYear !== trueSolar.year) {
+    throw new RangeError("Local year must match the true-solar wall year.");
+  }
   const birthInstantJulianDay = utcIsoToJulianDay(input.utcIso);
   const currentLichun = termBoundary(
     input.localYear,
