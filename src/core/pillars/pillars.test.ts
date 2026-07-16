@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 
 import { julianDayToOffsetIso, utcIsoToJulianDay } from "../calendar/jdn";
 import { findSolarTerm } from "../calendar/solar-terms";
+import { calculateSolarTime } from "../time/solar-time";
 import { calculatePillars } from "./pillars";
 import { SIXTY_JIA_ZI } from "./tables";
 
@@ -14,16 +15,56 @@ function offsetFromUtc(utcIso: string, seconds: number): string {
   );
 }
 
+function offsetIsoToJulianDay(offsetIso: string): number {
+  const match = /^(.*)([+-])(\d{2}):(\d{2})$/.exec(offsetIso);
+  if (!match) {
+    throw new Error("Expected an ISO date-time with a numeric UTC offset.");
+  }
+
+  const [, localDateTime, sign, offsetHours, offsetMinutes] = match;
+  const offset =
+    (Number(offsetHours) * 60 + Number(offsetMinutes)) *
+    (sign === "-" ? -1 : 1);
+  return utcIsoToJulianDay(`${localDateTime}Z`) - offset / 1440;
+}
+
 describe("calculatePillars", () => {
+  it("uses the birth instant rather than true solar time for jie boundaries", () => {
+    const lichun = findSolarTerm(2024, "lichun").utcIso;
+    const utcIso = offsetFromUtc(lichun, -5).replace("+00:00", "Z");
+    const solarTime = calculateSolarTime({
+      utcIso,
+      longitude: 125,
+      standardMeridianLongitude: 120,
+      birthplaceOffsetMinutes: 480,
+    });
+    const result = calculatePillars({
+      utcIso,
+      trueSolarIso: solarTime.trueSolarIso,
+      localYear: 2024,
+      boundaryContext: { jieUtcIso: { lichun } },
+    });
+
+    expect(offsetIsoToJulianDay(solarTime.trueSolarIso)).toBeGreaterThan(
+      utcIsoToJulianDay(lichun),
+    );
+    expect(result.year.index).toBe(39);
+    expect(result.monthBoundary.term).toBe("xiaohan");
+  });
+
   it("changes the year pillar exactly at the calculated lichun instant", () => {
     const lichun = findSolarTerm(2024, "lichun").utcIso;
+    const beforeUtcIso = offsetFromUtc(lichun, -1).replace("+00:00", "Z");
+    const afterUtcIso = offsetFromUtc(lichun, 1).replace("+00:00", "Z");
     const before = calculatePillars({
-      trueSolarIso: offsetFromUtc(lichun, -1),
+      utcIso: beforeUtcIso,
+      trueSolarIso: beforeUtcIso,
       localYear: 2024,
       boundaryContext: { jieUtcIso: { lichun } },
     });
     const after = calculatePillars({
-      trueSolarIso: offsetFromUtc(lichun, 1),
+      utcIso: afterUtcIso,
+      trueSolarIso: afterUtcIso,
       localYear: 2024,
       boundaryContext: { jieUtcIso: { lichun } },
     });
@@ -33,10 +74,12 @@ describe("calculatePillars", () => {
 
   it("changes the day pillar at true-solar midnight", () => {
     const before = calculatePillars({
+      utcIso: "2024-06-15T15:59:59Z",
       trueSolarIso: "2024-06-15T23:59:59+08:00",
       localYear: 2024,
     });
     const after = calculatePillars({
+      utcIso: "2024-06-15T16:00:00Z",
       trueSolarIso: "2024-06-16T00:00:00+08:00",
       localYear: 2024,
     });
@@ -46,10 +89,12 @@ describe("calculatePillars", () => {
 
   it("changes the hour pillar across a two-hour branch boundary", () => {
     const first = calculatePillars({
+      utcIso: "2024-06-14T16:30:00Z",
       trueSolarIso: "2024-06-15T00:30:00+08:00",
       localYear: 2024,
     });
     const second = calculatePillars({
+      utcIso: "2024-06-14T18:30:00Z",
       trueSolarIso: "2024-06-15T02:30:00+08:00",
       localYear: 2024,
     });
@@ -72,19 +117,29 @@ describe("calculatePillars", () => {
     ] as const;
 
     for (const [trueSolarIso, localYear, index] of goldenDates) {
-      expect(calculatePillars({ trueSolarIso, localYear }).day.index).toBe(index);
+      expect(
+        calculatePillars({
+          utcIso: trueSolarIso.replace("+00:00", "Z"),
+          trueSolarIso,
+          localYear,
+        }).day.index,
+      ).toBe(index);
     }
   });
 
   it("changes the month pillar at jie instead of the lunar month", () => {
     const jingzhe = findSolarTerm(2024, "jingzhe").utcIso;
+    const beforeUtcIso = offsetFromUtc(jingzhe, -1).replace("+00:00", "Z");
+    const afterUtcIso = offsetFromUtc(jingzhe, 1).replace("+00:00", "Z");
     const before = calculatePillars({
-      trueSolarIso: offsetFromUtc(jingzhe, -1),
+      utcIso: beforeUtcIso,
+      trueSolarIso: beforeUtcIso,
       localYear: 2024,
       boundaryContext: { jieUtcIso: { jingzhe } },
     });
     const after = calculatePillars({
-      trueSolarIso: offsetFromUtc(jingzhe, 1),
+      utcIso: afterUtcIso,
+      trueSolarIso: afterUtcIso,
       localYear: 2024,
       boundaryContext: { jieUtcIso: { jingzhe } },
     });

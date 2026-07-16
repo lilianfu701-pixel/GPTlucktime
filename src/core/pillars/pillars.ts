@@ -17,6 +17,8 @@ export interface PillarBoundaryContext {
 }
 
 export interface CalculatePillarsInput {
+  /** Actual birth instant in UTC, used for exact solar-term boundaries. */
+  utcIso: string;
   /** True-solar wall time with an explicit numeric UTC offset. */
   trueSolarIso: string;
   /** Gregorian year shown by the true-solar wall time. */
@@ -41,7 +43,6 @@ export interface PillarCalculation {
 
 interface ParsedTrueSolarTime {
   readonly localJulianDay: number;
-  readonly instantJulianDay: number;
   readonly hour: number;
 }
 
@@ -82,7 +83,6 @@ function parseTrueSolarTime(value: string): ParsedTrueSolarTime {
 
   return Object.freeze({
     localJulianDay,
-    instantJulianDay: gregorianToJulianDay(parts) - offsetMinutes / 1440,
     hour: parts.hour,
   });
 }
@@ -146,13 +146,14 @@ function monthBoundaries(
   );
 }
 
-/** Derives four pillars using exact jie boundaries and true-solar midnight. */
+/** Derives solar-term pillars from the birth instant and day/hour pillars from true solar time. */
 export function calculatePillars(input: CalculatePillarsInput): PillarCalculation {
   if (!Number.isInteger(input.localYear) || input.localYear < 1 || input.localYear > 9999) {
     throw new RangeError("Local year must be a four-digit Gregorian year.");
   }
 
   const trueSolar = parseTrueSolarTime(input.trueSolarIso);
+  const birthInstantJulianDay = utcIsoToJulianDay(input.utcIso);
   const currentLichun = termBoundary(
     input.localYear,
     "lichun",
@@ -161,7 +162,7 @@ export function calculatePillars(input: CalculatePillarsInput): PillarCalculatio
   );
   const currentLichunJdn = utcIsoToJulianDay(currentLichun.utcIso);
   const cycleYear =
-    trueSolar.instantJulianDay < currentLichunJdn
+    birthInstantJulianDay < currentLichunJdn
       ? input.localYear - 1
       : input.localYear;
   const year = yearPillar(cycleYear);
@@ -184,7 +185,7 @@ export function calculatePillars(input: CalculatePillarsInput): PillarCalculatio
       .reverse()
       .find(
         (boundary) =>
-          utcIsoToJulianDay(boundary.utcIso) <= trueSolar.instantJulianDay,
+          utcIsoToJulianDay(boundary.utcIso) <= birthInstantJulianDay,
       ) ?? boundaries[0];
   const monthOrdinal = boundaries.findIndex(
     (boundary) => boundary === monthBoundary,
