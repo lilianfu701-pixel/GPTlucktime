@@ -1,6 +1,6 @@
 import { EARTHLY_BRANCHES, type EarthlyBranch, type HeavenlyStem, type Pillar } from "../pillars/tables";
 
-export const TWELVE_LIFE_STAGES = [
+export const TWELVE_LIFE_STAGES = Object.freeze([
   "长生",
   "沐浴",
   "冠带",
@@ -13,7 +13,7 @@ export const TWELVE_LIFE_STAGES = [
   "绝",
   "胎",
   "养",
-] as const;
+] as const);
 export type TwelveLifeStage = (typeof TWELVE_LIFE_STAGES)[number];
 
 const NAYIN_BY_DECADE = [

@@ -1,7 +1,7 @@
 import { HIDDEN_STEMS_BY_BRANCH, type HeavenlyStem } from "../pillars/tables";
 import type { FourPillars } from "./relations";
 
-export const ELEMENTS = ["wood", "fire", "earth", "metal", "water"] as const;
+export const ELEMENTS = Object.freeze(["wood", "fire", "earth", "metal", "water"] as const);
 export type Element = (typeof ELEMENTS)[number];
 
 export const STEM_ELEMENTS: Readonly<Record<HeavenlyStem, Element>> = Object.freeze({

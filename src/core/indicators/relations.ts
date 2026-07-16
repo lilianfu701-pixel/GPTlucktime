@@ -4,7 +4,7 @@ import {
   type Pillar,
 } from "../pillars/tables";
 
-export const PILLAR_POSITIONS = ["year", "month", "day", "hour"] as const;
+export const PILLAR_POSITIONS = Object.freeze(["year", "month", "day", "hour"] as const);
 export type PillarPosition = (typeof PILLAR_POSITIONS)[number];
 export type FourPillars = Readonly<Record<PillarPosition, Pillar>>;
 
@@ -118,30 +118,51 @@ function frozenRecord(
   });
 }
 
+function appendUnique(
+  records: RelationRecord[],
+  keys: Set<string>,
+  record: RelationRecord,
+): void {
+  const key = `${record.ruleId}:${record.pillarPositions.join(",")}`;
+  if (!keys.has(key)) {
+    keys.add(key);
+    records.push(record);
+  }
+}
+
 function addPairRelations<T extends HeavenlyStem | EarthlyBranch>(
   records: RelationRecord[],
+  keys: Set<string>,
   values: readonly (readonly [PillarPosition, T])[],
   rules: readonly PairRule<T>[],
 ): void {
   for (let left = 0; left < values.length; left += 1) {
     for (let right = left + 1; right < values.length; right += 1) {
-      const pair = [values[left][1], values[right][1]];
+      const [leftPosition, leftValue] = values[left];
+      const [rightPosition, rightValue] = values[right];
+      if (leftValue === rightValue) continue;
       const rule = rules.find(
         (candidate) =>
-          candidate.participants.includes(pair[0]) && candidate.participants.includes(pair[1]),
+          (candidate.participants[0] === leftValue && candidate.participants[1] === rightValue) ||
+          (candidate.participants[0] === rightValue && candidate.participants[1] === leftValue),
       );
       if (!rule) continue;
 
       const positions = rule.participants.map((participant) =>
-        pair[0] === participant ? values[left][0] : values[right][0],
+        leftValue === participant ? leftPosition : rightPosition,
       );
-      records.push(frozenRecord(rule.ruleId, rule.type, rule.participants, positions));
+      appendUnique(
+        records,
+        keys,
+        frozenRecord(rule.ruleId, rule.type, rule.participants, positions),
+      );
     }
   }
 }
 
 function addTripleRelations(
   records: RelationRecord[],
+  keys: Set<string>,
   values: readonly (readonly [PillarPosition, EarthlyBranch])[],
   rules: readonly TripleRule[],
 ): void {
@@ -150,7 +171,11 @@ function addTripleRelations(
       values.find(([, branch]) => branch === participant)?.[0],
     );
     if (positions.every((position): position is PillarPosition => position !== undefined)) {
-      records.push(frozenRecord(rule.ruleId, rule.type, rule.participants, positions));
+      appendUnique(
+        records,
+        keys,
+        frozenRecord(rule.ruleId, rule.type, rule.participants, positions),
+      );
     }
   }
 }
@@ -160,22 +185,25 @@ export function deriveRelations(pillars: FourPillars): readonly RelationRecord[]
   const stems = PILLAR_POSITIONS.map((position) => [position, pillars[position].stem] as const);
   const branches = PILLAR_POSITIONS.map((position) => [position, pillars[position].branch] as const);
   const records: RelationRecord[] = [];
+  const recordKeys = new Set<string>();
 
-  addPairRelations(records, stems, STEM_COMBINES);
-  addPairRelations(records, stems, STEM_CLASHES);
-  addPairRelations(records, branches, BRANCH_COMBINES);
-  addPairRelations(records, branches, BRANCH_CLASHES);
-  addPairRelations(records, branches, BRANCH_HARMS);
-  addPairRelations(records, branches, BRANCH_BREAKS);
-  addPairRelations(records, branches, BRANCH_PAIR_PUNISHMENTS);
-  addTripleRelations(records, branches, BRANCH_TRIADS);
-  addTripleRelations(records, branches, BRANCH_MEETINGS);
-  addTripleRelations(records, branches, BRANCH_PUNISHMENTS);
+  addPairRelations(records, recordKeys, stems, STEM_COMBINES);
+  addPairRelations(records, recordKeys, stems, STEM_CLASHES);
+  addPairRelations(records, recordKeys, branches, BRANCH_COMBINES);
+  addPairRelations(records, recordKeys, branches, BRANCH_CLASHES);
+  addPairRelations(records, recordKeys, branches, BRANCH_HARMS);
+  addPairRelations(records, recordKeys, branches, BRANCH_BREAKS);
+  addPairRelations(records, recordKeys, branches, BRANCH_PAIR_PUNISHMENTS);
+  addTripleRelations(records, recordKeys, branches, BRANCH_TRIADS);
+  addTripleRelations(records, recordKeys, branches, BRANCH_MEETINGS);
+  addTripleRelations(records, recordKeys, branches, BRANCH_PUNISHMENTS);
 
   for (const branch of SELF_PUNISHING_BRANCHES) {
     const positions = branches.filter(([, value]) => value === branch).map(([position]) => position);
     if (positions.length > 1) {
-      records.push(
+      appendUnique(
+        records,
+        recordKeys,
         frozenRecord(
           `branch.punishment.self-${branch}.v1`,
           "branch-punishment",

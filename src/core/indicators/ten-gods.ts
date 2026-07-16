@@ -2,7 +2,7 @@ import { HIDDEN_STEMS_BY_BRANCH, type HeavenlyStem } from "../pillars/tables";
 import { elementForStem, type Element } from "./elements";
 import type { FourPillars, PillarPosition } from "./relations";
 
-export const TEN_GODS = [
+export const TEN_GODS = Object.freeze([
   "比肩",
   "劫财",
   "食神",
@@ -13,7 +13,7 @@ export const TEN_GODS = [
   "正官",
   "偏印",
   "正印",
-] as const;
+] as const);
 export type TenGod = (typeof TEN_GODS)[number];
 
 export interface TenGodRecord {
