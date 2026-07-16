@@ -100,8 +100,17 @@ export function julianDayToOffsetIso(
   julianDay: number,
   offsetMinutes: number,
 ): string {
-  if (!Number.isFinite(julianDay) || !Number.isFinite(offsetMinutes)) {
-    throw new RangeError("Julian day and UTC offset must be finite numbers.");
+  if (!Number.isFinite(julianDay)) {
+    throw new RangeError("Julian day must be a finite number.");
+  }
+  if (
+    !Number.isInteger(offsetMinutes) ||
+    offsetMinutes < -1439 ||
+    offsetMinutes > 1439
+  ) {
+    throw new RangeError(
+      "UTC offset must be a whole number of minutes between -1439 and 1439.",
+    );
   }
 
   const localJulianDay = julianDay + offsetMinutes / 1440;
@@ -115,6 +124,11 @@ export function julianDayToOffsetIso(
   }
 
   const date = calendarDateFromJdn(jdnAtNoon);
+  if (date.year < 1 || date.year > 9999) {
+    throw new RangeError(
+      "Julian day cannot be formatted as a four-digit Gregorian year.",
+    );
+  }
   const hour = Math.floor(milliseconds / 3_600_000);
   milliseconds %= 3_600_000;
   const minute = Math.floor(milliseconds / 60_000);

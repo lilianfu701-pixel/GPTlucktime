@@ -46,11 +46,19 @@ function equationOfTimeSeconds(utcIso: string, julianDay: number): number {
 export function calculateSolarTime(input: SolarTimeInput): SolarTimeResult {
   if (
     !Number.isFinite(input.longitude) ||
-    !Number.isFinite(input.standardMeridianLongitude) ||
-    (input.birthplaceOffsetMinutes !== undefined &&
-      !Number.isFinite(input.birthplaceOffsetMinutes))
+    !Number.isFinite(input.standardMeridianLongitude)
   ) {
-    throw new RangeError("Solar-time coordinates and offset must be finite numbers.");
+    throw new RangeError("Solar-time coordinates must be finite numbers.");
+  }
+  if (
+    input.birthplaceOffsetMinutes !== undefined &&
+    (!Number.isInteger(input.birthplaceOffsetMinutes) ||
+      input.birthplaceOffsetMinutes < -1439 ||
+      input.birthplaceOffsetMinutes > 1439)
+  ) {
+    throw new RangeError(
+      "Birthplace UTC offset must be a whole number of minutes between -1439 and 1439.",
+    );
   }
 
   const jdn = utcIsoToJulianDay(input.utcIso);
