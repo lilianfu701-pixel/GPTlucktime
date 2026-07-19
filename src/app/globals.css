@@ -1,7 +1,7 @@
 :root {
   color: #1d2c24;
   background: #f7f3e9;
-  font-family: "Noto Serif SC", "Songti SC", serif;
+  font-family: "Songti SC", STSong, "Noto Serif CJK SC", serif;
 }
 
 * {
@@ -10,10 +10,17 @@
 
 body {
   margin: 0;
+  min-width: 0;
+  background: #f3eddd;
 }
 
-main {
-  width: min(100% - 2rem, 70rem);
-  margin: 0 auto;
-  padding: 4rem 0;
+button,
+input,
+select {
+  font: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid #a43a2e;
+  outline-offset: 3px;
 }
