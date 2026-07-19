@@ -1,0 +1,374 @@
+.page {
+  --paper: #f4eedf;
+  --paper-deep: #e8ddc7;
+  --ink: #17271f;
+  --ink-soft: #56635b;
+  --cinnabar: #a4362b;
+  --cinnabar-dark: #75241d;
+  --jade: #537c69;
+  --jade-pale: #dbe4d7;
+  --rule: rgba(23, 39, 31, 0.2);
+  position: relative;
+  width: min(calc(100% - 2rem), 74rem);
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: clamp(2rem, 5vw, 5rem) 0;
+  color: var(--ink);
+  font-family: "Songti SC", STSong, "Noto Serif CJK SC", "Source Han Serif SC", serif;
+}
+
+.page::before {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  content: "";
+  background:
+    linear-gradient(90deg, transparent 49.9%, rgba(164, 54, 43, 0.045) 50%, transparent 50.1%),
+    repeating-linear-gradient(0deg, rgba(23, 39, 31, 0.022) 0 1px, transparent 1px 7px),
+    radial-gradient(circle at 15% 8%, rgba(83, 124, 105, 0.13), transparent 28rem),
+    var(--paper);
+}
+
+.masthead {
+  position: relative;
+  padding: 0 0 clamp(2rem, 4vw, 3.5rem);
+  border-bottom: 1px solid var(--ink);
+}
+
+.kicker {
+  margin-bottom: 1.1rem;
+  color: var(--cinnabar);
+  font-family: FangSong, STFangsong, serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.28em;
+}
+
+.titleRow {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.titleRow h1 {
+  margin: 0;
+  font-size: clamp(3.2rem, 9vw, 7.6rem);
+  font-weight: 500;
+  letter-spacing: -0.08em;
+  line-height: 0.86;
+}
+
+.subtitle {
+  margin: 1.25rem 0 0 0.15em;
+  color: var(--jade);
+  font-size: clamp(1rem, 2.4vw, 1.35rem);
+  letter-spacing: 0.38em;
+}
+
+.seal {
+  display: grid;
+  width: 4.4rem;
+  height: 4.4rem;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 2px solid var(--cinnabar);
+  color: var(--cinnabar);
+  font-family: FangSong, STFangsong, serif;
+  font-size: 1.25rem;
+  letter-spacing: 0.08em;
+  writing-mode: vertical-rl;
+}
+
+.lede {
+  max-width: 47rem;
+  margin: 2rem 0 0;
+  color: var(--ink-soft);
+  font-size: 1rem;
+  line-height: 1.9;
+}
+
+.form {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(18rem, 0.75fr);
+  border-bottom: 1px solid var(--ink);
+}
+
+.primaryColumn,
+.secondaryColumn {
+  padding: clamp(2rem, 4vw, 3.5rem) clamp(1rem, 3vw, 2.75rem);
+}
+
+.primaryColumn {
+  padding-left: 0;
+  border-right: 1px solid var(--ink);
+}
+
+.secondaryColumn {
+  padding-right: 0;
+}
+
+.sectionHeading {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.9rem;
+  margin: 0 0 1.5rem;
+}
+
+.sectionHeading > span {
+  display: grid;
+  width: 1.8rem;
+  height: 1.8rem;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 1px solid var(--cinnabar);
+  color: var(--cinnabar);
+  font-size: 0.78rem;
+}
+
+.sectionHeading h2 {
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+}
+
+.sectionHeading p {
+  margin: 0.35rem 0 0;
+  color: var(--ink-soft);
+  font-family: FangSong, STFangsong, serif;
+  font-size: 0.88rem;
+  line-height: 1.55;
+}
+
+.field {
+  min-width: 0;
+  margin-bottom: 1.3rem;
+}
+
+.field label,
+.advanced label {
+  display: block;
+  margin-bottom: 0.45rem;
+  color: var(--ink-soft);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+}
+
+.field input,
+.advanced select {
+  width: 100%;
+  min-height: 2.85rem;
+  border: 0;
+  border-bottom: 1px solid var(--rule);
+  border-radius: 0;
+  outline: none;
+  background: rgba(255, 252, 244, 0.55);
+  color: var(--ink);
+  font: inherit;
+  padding: 0.62rem 0.7rem;
+}
+
+.field input:focus,
+.advanced select:focus {
+  border-bottom-color: var(--jade);
+  box-shadow: inset 0 -2px 0 var(--jade);
+}
+
+.field input[aria-invalid="true"] {
+  border-bottom-color: var(--cinnabar);
+  box-shadow: inset 0 -2px 0 var(--cinnabar);
+}
+
+.field input::placeholder {
+  color: rgba(86, 99, 91, 0.58);
+}
+
+.twoFields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.error {
+  margin: 0.4rem 0 0;
+  color: var(--cinnabar-dark);
+  font-family: FangSong, STFangsong, serif;
+  font-size: 0.78rem;
+}
+
+.precision {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin: 0 0 2.8rem;
+  padding: 0;
+  border: 0;
+}
+
+.precision legend {
+  width: 100%;
+  margin-bottom: 0.4rem;
+  color: var(--ink-soft);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+}
+
+.precision label {
+  position: relative;
+  cursor: pointer;
+}
+
+.precision input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.precision span {
+  display: block;
+  min-width: 4.7rem;
+  padding: 0.55rem 0.9rem;
+  border: 1px solid var(--rule);
+  color: var(--ink-soft);
+  text-align: center;
+}
+
+.precision input:checked + span {
+  border-color: var(--jade);
+  background: var(--jade-pale);
+  color: var(--ink);
+}
+
+.precision input:focus-visible + span {
+  outline: 2px solid var(--cinnabar);
+  outline-offset: 2px;
+}
+
+.privacy,
+.residence {
+  margin-bottom: 2.6rem;
+  padding-bottom: 2.2rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.privacy > p {
+  margin: 0.6rem 0;
+  color: var(--ink-soft);
+  font-family: FangSong, STFangsong, serif;
+  font-size: 0.9rem;
+  line-height: 1.65;
+}
+
+.advanced {
+  padding: 0.9rem 0;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+
+.advanced summary {
+  cursor: pointer;
+  color: var(--jade);
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
+}
+
+.advanced[open] summary {
+  margin-bottom: 1rem;
+}
+
+.submitRow {
+  display: flex;
+  grid-column: 1 / -1;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 2rem 0;
+  border-top: 1px solid var(--ink);
+}
+
+.submitRow div {
+  display: grid;
+  gap: 0.3rem;
+}
+
+.submitRow strong {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.submitRow span {
+  color: var(--ink-soft);
+  font-family: FangSong, STFangsong, serif;
+  font-size: 0.82rem;
+}
+
+.submitRow button {
+  min-width: min(100%, 18rem);
+  min-height: 3.2rem;
+  border: 1px solid var(--cinnabar-dark);
+  border-radius: 0;
+  background: var(--cinnabar);
+  color: #fff9ed;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.95rem;
+  letter-spacing: 0.13em;
+  padding: 0.8rem 1.4rem;
+}
+
+.submitRow button:focus-visible {
+  outline: 2px solid var(--jade);
+  outline-offset: 3px;
+}
+
+.submitRow button:disabled {
+  border-color: var(--rule);
+  background: var(--paper-deep);
+  color: rgba(86, 99, 91, 0.7);
+  cursor: not-allowed;
+}
+
+@media (max-width: 760px) {
+  .page {
+    width: min(calc(100% - 1.25rem), 40rem);
+    padding-top: 2.3rem;
+  }
+
+  .titleRow h1 {
+    font-size: clamp(3.4rem, 18vw, 5.3rem);
+  }
+
+  .seal {
+    width: 3.4rem;
+    height: 3.4rem;
+    font-size: 1rem;
+  }
+
+  .form {
+    display: block;
+  }
+
+  .primaryColumn,
+  .secondaryColumn {
+    padding: 2.3rem 0;
+  }
+
+  .primaryColumn {
+    border-right: 0;
+    border-bottom: 1px solid var(--ink);
+  }
+
+  .twoFields {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .submitRow {
+    display: grid;
+    padding: 1.5rem 0 2rem;
+  }
+
+  .submitRow button {
+    width: 100%;
+  }
+}
