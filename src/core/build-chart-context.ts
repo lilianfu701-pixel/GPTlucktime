@@ -54,6 +54,10 @@ export interface ChartWarning {
 
 export type ResolvedCivilTime = Extract<CivilTimeResult, { ok: true }>["value"];
 
+export type ChartCivilTime = Readonly<
+  ResolvedCivilTime & { readonly standardOffsetMinutes: number }
+>;
+
 export interface SolarTermBoundary extends SolarTermResult {
   readonly calendarYear: number;
 }
@@ -87,7 +91,7 @@ export interface StaticIndicators {
 
 export interface ChartContext {
   readonly input: NormalizedBirthInput;
-  readonly civilTime: ResolvedCivilTime;
+  readonly civilTime: ChartCivilTime;
   readonly solarTime: SolarTimeResult;
   readonly solarTerms: LocatedSolarTerms;
   readonly pillars: PillarCalculation;
@@ -372,13 +376,26 @@ export function buildChartContext(input: unknown): ChartContextResult {
       return failure("civil-time", civil.code, civil.message);
     }
 
+    const standardOffsetMinutes =
+      civil.value.offsetMinutes - civil.value.dstOffsetMinutes;
+    const chartCivilTime: ChartCivilTime = {
+      ...civil.value,
+      standardOffsetMinutes,
+    };
     const solarTime = calculateSolarTime({
       utcIso: civil.value.utcIso,
       longitude: normalized.value.birthplace.longitude,
       standardMeridianLongitude: civil.value.standardMeridianLongitude,
-      birthplaceOffsetMinutes: civil.value.offsetMinutes,
+      birthplaceOffsetMinutes: standardOffsetMinutes,
     });
     const localYear = localYearFromTrueSolarIso(solarTime.trueSolarIso);
+    if (localYear < 2 || localYear > 9998) {
+      return failure(
+        "calculation",
+        "UNSUPPORTED_DATE_RANGE",
+        "Static charts support true-solar years from 0002 through 9998.",
+      );
+    }
     const termContext = locateSolarTerms(civil.value.utcIso, localYear);
     const pillars = calculatePillars({
       utcIso: civil.value.utcIso,
@@ -418,7 +435,7 @@ export function buildChartContext(input: unknown): ChartContextResult {
           timeZone: normalized.value.timeZone,
           resolution: normalized.value.civilTimeResolution ?? null,
         },
-        civil.value,
+        chartCivilTime,
         "timezoneData",
       ),
       traceItem(
@@ -428,6 +445,7 @@ export function buildChartContext(input: unknown): ChartContextResult {
           utcIso: civil.value.utcIso,
           longitude: normalized.value.birthplace.longitude,
           standardMeridianLongitude: civil.value.standardMeridianLongitude,
+          birthplaceOffsetMinutes: standardOffsetMinutes,
         },
         solarTime,
         "astronomyAlgorithm",
@@ -500,7 +518,7 @@ export function buildChartContext(input: unknown): ChartContextResult {
       ok: true as const,
       value: {
         input: normalized.value,
-        civilTime: civil.value,
+        civilTime: chartCivilTime,
         solarTime,
         solarTerms: termContext.located,
         pillars,
