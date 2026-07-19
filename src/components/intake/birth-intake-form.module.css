@@ -179,6 +179,11 @@
   box-shadow: inset 0 -2px 0 var(--cinnabar);
 }
 
+.advanced select[aria-invalid="true"] {
+  border-bottom-color: var(--cinnabar);
+  box-shadow: inset 0 -2px 0 var(--cinnabar);
+}
+
 .field input::placeholder {
   color: rgba(86, 99, 91, 0.58);
 }

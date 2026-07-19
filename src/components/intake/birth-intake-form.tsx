@@ -4,12 +4,14 @@ import { useRouter } from "next/navigation";
 import { useState, type FormEvent } from "react";
 
 import { normalizeBirthInput } from "../../core/input";
+import { resolveCivilTime } from "../../core/time/civil-time";
 import type {
   BirthInput,
   CivilTimeResolution,
+  NormalizedBirthInput,
   TimePrecision,
 } from "../../core/types";
-import { encodeChartPayload } from "../../lib/chart-payload";
+import { useChartSession } from "../chart-session-provider";
 import styles from "./birth-intake-form.module.css";
 
 interface FormState {
@@ -62,7 +64,9 @@ function coordinateError(
 
 function validateForm(state: FormState): Readonly<{
   errors: FieldErrors;
-  input?: BirthInput;
+  input?: NormalizedBirthInput;
+  resolutionError?: string;
+  showCivilTimeError?: boolean;
 }> {
   const errors: FieldErrors = {};
   if (!/^\d{4}-\d{2}-\d{2}$/u.test(state.birthDate)) {
@@ -147,7 +151,35 @@ function validateForm(state: FormState): Readonly<{
       : {}),
   };
   const normalized = normalizeBirthInput(input);
-  if (normalized.ok) return { errors, input: normalized.value };
+  if (normalized.ok) {
+    const civilTime = resolveCivilTime(
+      normalized.value.localDateTime,
+      normalized.value.timeZone,
+      normalized.value.civilTimeResolution,
+    );
+    if (civilTime.ok) return { errors, input: normalized.value };
+
+    if (civilTime.code === "DST_GAP") {
+      const message = "该当地时间因夏令时切换而不存在，请调整出生时间";
+      errors.birthDate = message;
+      errors.birthTime = message;
+      return { errors, showCivilTimeError: true };
+    }
+    if (civilTime.code === "DST_AMBIGUOUS") {
+      return {
+        errors,
+        resolutionError: "该当地时间出现两次，必须选择较早或较晚一次",
+      };
+    }
+    if (civilTime.code === "INVALID_TIME_ZONE") {
+      errors.timeZone = "请输入有效的 IANA 地区时区，如 Asia/Shanghai";
+      return { errors };
+    }
+
+    errors.birthDate = "请输入有效的出生日期";
+    errors.birthTime = "请输入有效的出生时间";
+    return { errors };
+  }
 
   if (normalized.code === "INVALID_TIME_ZONE") {
     const birthOnly = normalizeBirthInput({ ...input, residenceContext: undefined });
@@ -219,6 +251,7 @@ function InputField({
 
 export function BirthIntakeForm() {
   const router = useRouter();
+  const { setBirthInput } = useChartSession();
   const [state, setState] = useState<FormState>(initialState);
   const [touched, setTouched] = useState<Partial<Record<FieldKey, boolean>>>({});
   const validation = validateForm(state);
@@ -232,7 +265,11 @@ export function BirthIntakeForm() {
   }
 
   function visibleError(key: FieldKey): string | undefined {
-    return touched[key] ? validation.errors[key] : undefined;
+    return touched[key] ||
+      (validation.showCivilTimeError &&
+        (key === "birthDate" || key === "birthTime"))
+      ? validation.errors[key]
+      : undefined;
   }
 
   function handleSubmit(event: FormEvent<HTMLFormElement>): void {
@@ -250,7 +287,8 @@ export function BirthIntakeForm() {
       );
       return;
     }
-    router.push(`/chart?data=${encodeChartPayload(validation.input)}`);
+    setBirthInput(validation.input);
+    router.push("/chart");
   }
 
   return (
@@ -403,11 +441,12 @@ export function BirthIntakeForm() {
               <span>隐</span>
               <div>
                 <h2>本次计算专用</h2>
-                <p>资料不会在浏览器或服务端留存。</p>
+                <p>资料仅保存在当前 React 页面会话内存中。</p>
               </div>
             </div>
-            <p>精确出生资料只用于本次计算；离开页面后，本页不保留资料。</p>
+            <p>资料仅保存在本次页面会话内存中，用于本次计算。</p>
             <p>不会写入 localStorage、sessionStorage、Cookie 或数据库。</p>
+            <p>刷新或关闭页面即清除。</p>
           </section>
 
           <section className={styles.residence} aria-labelledby="residence-heading">
@@ -464,13 +503,17 @@ export function BirthIntakeForm() {
             />
           </section>
 
-          <details className={styles.advanced}>
+          <details className={styles.advanced} open={Boolean(validation.resolutionError)}>
             <summary>高级校时选项</summary>
             <label htmlFor="civilTimeResolution">重复民用时间选择（可选）</label>
             <select
               id="civilTimeResolution"
               name="civilTimeResolution"
               value={state.civilTimeResolution}
+              aria-invalid={validation.resolutionError ? true : undefined}
+              aria-describedby={
+                validation.resolutionError ? "civilTimeResolution-error" : undefined
+              }
               onChange={(event) =>
                 update(
                   "civilTimeResolution",
@@ -482,6 +525,15 @@ export function BirthIntakeForm() {
               <option value="earlier">较早一次 earlier</option>
               <option value="later">较晚一次 later</option>
             </select>
+            {validation.resolutionError ? (
+              <p
+                id="civilTimeResolution-error"
+                className={styles.error}
+                role="alert"
+              >
+                {validation.resolutionError}
+              </p>
+            ) : null}
           </details>
         </aside>
 
