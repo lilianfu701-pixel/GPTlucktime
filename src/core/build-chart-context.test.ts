@@ -212,6 +212,32 @@ describe("buildChartContext", () => {
     },
   );
 
+  it.each([
+    {
+      localDateTime: "0001-01-01T00:00:00",
+      longitude: -180,
+    },
+    {
+      localDateTime: "9999-12-31T23:59:59",
+      longitude: 180,
+    },
+  ])(
+    "rejects extreme civil date $localDateTime before solar-time formatting",
+    ({ localDateTime, longitude }) => {
+      expect(
+        buildChartContext({
+          ...utcInput(localDateTime),
+          birthplace: { name: "Extreme meridian", latitude: 0, longitude },
+        }),
+      ).toEqual({
+        ok: false,
+        stage: "calculation",
+        code: "UNSUPPORTED_DATE_RANGE",
+        message: "Static charts support true-solar years from 0002 through 9998.",
+      });
+    },
+  );
+
   it.each(["0002-06-15T12:00:00", "9998-06-15T12:00:00"])(
     "supports the declared chart-context boundary year for %s",
     (localDateTime) => {
@@ -264,6 +290,40 @@ describe("buildChartContext", () => {
     });
   });
 
+  it("builds a Shanghai LMT chart with a second-level historical offset", () => {
+    const chart = success(
+      buildChartContext({
+        localDateTime: "1900-06-15T12:00:00",
+        timeZone: "Asia/Shanghai",
+        birthplace: {
+          name: "Shanghai",
+          latitude: 31.2304,
+          longitude: 121.4737,
+        },
+        timePrecision: "exact",
+      }),
+    );
+
+    // timezonecomplete/tzdata gives Shanghai LMT as +08:05:43 in 1900.
+    expect(chart.civilTime.utcIso).toBe("1900-06-15T03:54:17.000Z");
+    expect(chart.civilTime.offsetMinutes).toBeCloseTo(485.71666666666664, 10);
+    expect(chart.civilTime.dstOffsetMinutes).toBeCloseTo(0, 10);
+    expect(chart.civilTime.standardOffsetMinutes).toBeCloseTo(
+      485.7166666666667,
+      10,
+    );
+    expect(chart.solarTime).toMatchObject({
+      longitudeCorrectionSeconds: 10.687999999996691,
+      trueSolarIso: "1900-06-15T12:00:06.581+08:05:43",
+    });
+    expect(chart.pillars).toMatchObject({
+      year: { stem: "庚", branch: "子", index: 36 },
+      month: { stem: "壬", branch: "午", index: 18 },
+      day: { stem: "己", branch: "未", index: 55 },
+      hour: { stem: "庚", branch: "午", index: 6 },
+    });
+  });
+
   it.each(["approximate", "unknown"] as const)(
     "warns for %s birth-time precision",
     (timePrecision) => {
@@ -309,6 +369,32 @@ describe("buildChartContext", () => {
     expect(exact.solarTerms.next).toMatchObject({ term: "jingzhe", calendarYear: 2024 });
     expect(after.solarTerms.current).toMatchObject({ term: "lichun", calendarYear: 2024 });
     expect(after.solarTerms.next).toMatchObject({ term: "jingzhe", calendarYear: 2024 });
+    expect(before.pillars.year).toEqual({ stem: "癸", branch: "卯", index: 39 });
+    expect(before.pillars.month).toEqual({ stem: "乙", branch: "丑", index: 1 });
+    expect(before.indicators.kyusei).toEqual({
+      natal: {
+        ruleId: "kyusei.natal.v1",
+        star: { number: 4, name: "四绿木星", element: "wood" },
+      },
+      month: {
+        ruleId: "kyusei.month.v1",
+        star: { number: 6, name: "六白金星", element: "metal" },
+      },
+    });
+    for (const chart of [exact, after]) {
+      expect(chart.pillars.year).toEqual({ stem: "甲", branch: "辰", index: 40 });
+      expect(chart.pillars.month).toEqual({ stem: "丙", branch: "寅", index: 2 });
+      expect(chart.indicators.kyusei).toEqual({
+        natal: {
+          ruleId: "kyusei.natal.v1",
+          star: { number: 3, name: "三碧木星", element: "wood" },
+        },
+        month: {
+          ruleId: "kyusei.month.v1",
+          star: { number: 5, name: "五黄土星", element: "earth" },
+        },
+      });
+    }
   });
 
   it("keeps daxue, xiaohan, and lichun adjacent across the calendar year", () => {

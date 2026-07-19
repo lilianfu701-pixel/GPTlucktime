@@ -52,12 +52,12 @@ export function calculateSolarTime(input: SolarTimeInput): SolarTimeResult {
   }
   if (
     input.birthplaceOffsetMinutes !== undefined &&
-    (!Number.isInteger(input.birthplaceOffsetMinutes) ||
+    (!Number.isFinite(input.birthplaceOffsetMinutes) ||
       input.birthplaceOffsetMinutes < -1439 ||
       input.birthplaceOffsetMinutes > 1439)
   ) {
     throw new RangeError(
-      "Birthplace UTC offset must be a whole number of minutes between -1439 and 1439.",
+      "Birthplace UTC offset must be a finite number of minutes between -1439 and 1439.",
     );
   }
 

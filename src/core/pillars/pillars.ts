@@ -48,7 +48,7 @@ interface ParsedTrueSolarTime {
 }
 
 const trueSolarIsoPattern =
-  /^(\d{4}-\d{2}-\d{2}T\d{2}:\d{2}(?::\d{2}(?:\.\d{1,9})?)?)(Z|[+-]\d{2}:\d{2})$/;
+  /^(\d{4}-\d{2}-\d{2}T\d{2}:\d{2}(?::\d{2}(?:\.\d{1,9})?)?)(Z|[+-](\d{2}):(\d{2})(?::(\d{2}))?)$/;
 const jiaZiDayAnchorJdnAtNoon = 2_451_551; // 2000-01-07, independently checked as 甲子日.
 
 function mod(value: number, divisor: number): number {
@@ -63,7 +63,7 @@ function parseTrueSolarTime(value: string): ParsedTrueSolarTime {
     );
   }
 
-  const [, localDateTime, offsetText] = match;
+  const [, localDateTime, offsetText, offsetHourText, offsetMinuteText, offsetSecondText] = match;
   const parts = parseUtcIso(`${localDateTime}Z`);
   const localJulianDay = gregorianToJulianDay({
     ...parts,
@@ -72,10 +72,11 @@ function parseTrueSolarTime(value: string): ParsedTrueSolarTime {
     second: 0,
     millisecond: 0,
   });
-  const offsetHours = offsetText === "Z" ? 0 : Number(offsetText.slice(1, 3));
-  const offsetMinutes = offsetText === "Z" ? 0 : Number(offsetText.slice(4, 6));
+  const offsetHours = offsetText === "Z" ? 0 : Number(offsetHourText);
+  const offsetMinutes = offsetText === "Z" ? 0 : Number(offsetMinuteText);
+  const offsetSeconds = offsetText === "Z" ? 0 : Number(offsetSecondText ?? "0");
 
-  if (offsetHours > 23 || offsetMinutes > 59) {
+  if (offsetHours > 23 || offsetMinutes > 59 || offsetSeconds > 59) {
     throw new RangeError("True solar time has an invalid UTC offset.");
   }
 

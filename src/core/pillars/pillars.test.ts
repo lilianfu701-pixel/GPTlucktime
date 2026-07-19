@@ -42,6 +42,27 @@ describe("calculatePillars", () => {
     },
   );
 
+  it("accepts a true-solar offset with historical seconds", () => {
+    const result = calculatePillars({
+      utcIso: "1900-06-15T03:54:17.000Z",
+      trueSolarIso: "1900-06-15T12:00:06.581+08:05:43",
+      localYear: 1900,
+    });
+
+    expect(result.day).toEqual({ stem: "己", branch: "未", index: 55 });
+    expect(result.hour).toEqual({ stem: "庚", branch: "午", index: 6 });
+  });
+
+  it("rejects an out-of-range seconds field in a true-solar offset", () => {
+    expect(() =>
+      calculatePillars({
+        utcIso: "1900-06-15T03:54:17.000Z",
+        trueSolarIso: "1900-06-15T12:00:06.581+08:05:60",
+        localYear: 1900,
+      }),
+    ).toThrow(/invalid UTC offset/);
+  });
+
   it("rejects a local year that does not match the true-solar wall year", () => {
     expect(() =>
       calculatePillars({

@@ -115,6 +115,14 @@ interface TermEntry extends SolarTermBoundary {
 }
 
 const secondsPerDay = 86_400;
+const minimumSupportedYear = 2;
+const maximumSupportedYear = 9998;
+const unsupportedDateRangeMessage =
+  "Static charts support true-solar years from 0002 through 9998.";
+
+function isSupportedYear(year: number): boolean {
+  return year >= minimumSupportedYear && year <= maximumSupportedYear;
+}
 
 function deepFreeze<T>(value: T, seen = new WeakSet<object>()): T {
   if (value === null || typeof value !== "object" || seen.has(value)) {
@@ -376,6 +384,14 @@ export function buildChartContext(input: unknown): ChartContextResult {
       return failure("civil-time", civil.code, civil.message);
     }
 
+    const civilYear = Number(normalized.value.localDateTime.slice(0, 4));
+    if (!isSupportedYear(civilYear)) {
+      return failure(
+        "calculation",
+        "UNSUPPORTED_DATE_RANGE",
+        unsupportedDateRangeMessage,
+      );
+    }
     const standardOffsetMinutes =
       civil.value.offsetMinutes - civil.value.dstOffsetMinutes;
     const chartCivilTime: ChartCivilTime = {
@@ -389,11 +405,11 @@ export function buildChartContext(input: unknown): ChartContextResult {
       birthplaceOffsetMinutes: standardOffsetMinutes,
     });
     const localYear = localYearFromTrueSolarIso(solarTime.trueSolarIso);
-    if (localYear < 2 || localYear > 9998) {
+    if (!isSupportedYear(localYear)) {
       return failure(
         "calculation",
         "UNSUPPORTED_DATE_RANGE",
-        "Static charts support true-solar years from 0002 through 9998.",
+        unsupportedDateRangeMessage,
       );
     }
     const termContext = locateSolarTerms(civil.value.utcIso, localYear);

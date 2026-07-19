@@ -104,16 +104,17 @@ export function julianDayToOffsetIso(
     throw new RangeError("Julian day must be a finite number.");
   }
   if (
-    !Number.isInteger(offsetMinutes) ||
+    !Number.isFinite(offsetMinutes) ||
     offsetMinutes < -1439 ||
     offsetMinutes > 1439
   ) {
     throw new RangeError(
-      "UTC offset must be a whole number of minutes between -1439 and 1439.",
+      "UTC offset must be a finite number of minutes between -1439 and 1439.",
     );
   }
 
-  const localJulianDay = julianDay + offsetMinutes / 1440;
+  const offsetSeconds = Math.round(offsetMinutes * 60);
+  const localJulianDay = julianDay + offsetSeconds / 86_400;
   let jdnAtNoon = Math.floor(localJulianDay + 0.5);
   let milliseconds = Math.round(
     (localJulianDay + 0.5 - jdnAtNoon) * millisecondsPerDay,
@@ -135,10 +136,16 @@ export function julianDayToOffsetIso(
   milliseconds %= 60_000;
   const second = Math.floor(milliseconds / 1000);
   const millisecond = milliseconds % 1000;
-  const sign = offsetMinutes >= 0 ? "+" : "-";
-  const absoluteOffset = Math.abs(offsetMinutes);
-  const offsetHour = Math.floor(absoluteOffset / 60);
-  const offsetMinute = absoluteOffset % 60;
+  const sign = offsetSeconds >= 0 ? "+" : "-";
+  const absoluteOffset = Math.abs(offsetSeconds);
+  const offsetHour = Math.floor(absoluteOffset / 3600);
+  const offsetMinute = Math.floor((absoluteOffset % 3600) / 60);
+  const offsetSecond = absoluteOffset % 60;
+  const offsetSuffix = `${sign}${offsetHour
+    .toString()
+    .padStart(2, "0")}:${offsetMinute.toString().padStart(2, "0")}${
+    offsetSecond === 0 ? "" : `:${offsetSecond.toString().padStart(2, "0")}`
+  }`;
 
   return `${date.year.toString().padStart(4, "0")}-${date.month
     .toString()
@@ -150,7 +157,5 @@ export function julianDayToOffsetIso(
     .toString()
     .padStart(2, "0")}.${millisecond
     .toString()
-    .padStart(3, "0")}${sign}${offsetHour
-    .toString()
-    .padStart(2, "0")}:${offsetMinute.toString().padStart(2, "0")}`;
+    .padStart(3, "0")}${offsetSuffix}`;
 }

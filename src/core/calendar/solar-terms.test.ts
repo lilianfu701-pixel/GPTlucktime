@@ -18,8 +18,11 @@ describe("Julian day and solar terms", () => {
     expect(julianDayToOffsetIso(utcJulianDay, 120)).toBe(
       "2000-01-02T01:30:00.000+02:00",
     );
-    expect(() => julianDayToOffsetIso(utcJulianDay, 90.5)).toThrow(
-      /whole number of minutes between -1439 and 1439/,
+    expect(julianDayToOffsetIso(utcJulianDay, 90.5)).toBe(
+      "2000-01-02T01:00:30.000+01:30:30",
+    );
+    expect(julianDayToOffsetIso(utcJulianDay, 90.51)).toBe(
+      "2000-01-02T01:00:31.000+01:30:31",
     );
     expect(() => julianDayToOffsetIso(10_000_000, 0)).toThrow(
       /four-digit Gregorian year/,

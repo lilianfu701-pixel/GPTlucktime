@@ -29,7 +29,18 @@ describe("calculateSolarTime", () => {
     expect(result.trueSolarIso).toBe("2024-06-01T12:08:07.383+08:00");
   });
 
-  it.each([90.5, 1440])(
+  it("preserves a historical offset to the nearest second", () => {
+    const result = calculateSolarTime({
+      utcIso: "2024-06-01T04:00:00.000Z",
+      longitude: 121.625,
+      standardMeridianLongitude: 120.125,
+      birthplaceOffsetMinutes: 480.5,
+    });
+
+    expect(result.trueSolarIso).toBe("2024-06-01T12:08:37.383+08:00:30");
+  });
+
+  it.each([Number.NaN, 1440])(
     "rejects an unformattable birthplace offset (%s)",
     (birthplaceOffsetMinutes) => {
       expect(() =>
@@ -39,7 +50,7 @@ describe("calculateSolarTime", () => {
           standardMeridianLongitude: 120,
           birthplaceOffsetMinutes,
         }),
-      ).toThrow(/whole number of minutes between -1439 and 1439/);
+      ).toThrow(/finite number of minutes between -1439 and 1439/);
     },
   );
 });
