@@ -35,6 +35,16 @@ function expectDeepFrozen(value: unknown, seen = new WeakSet<object>()): void {
   for (const nested of Object.values(value)) expectDeepFrozen(nested, seen);
 }
 
+function expectNoNegativeZero(value: unknown, seen = new WeakSet<object>()): void {
+  if (typeof value === "number") {
+    expect(Object.is(value, -0)).toBe(false);
+    return;
+  }
+  if (value === null || typeof value !== "object" || seen.has(value)) return;
+  seen.add(value);
+  for (const nested of Object.values(value)) expectNoNegativeZero(nested, seen);
+}
+
 describe("toChartViewModel", () => {
   it("maps fixed summary, pillars, and ordered display groups", () => {
     const viewModel = toChartViewModel(chartFor());
@@ -217,7 +227,7 @@ describe("toChartViewModel", () => {
         displayValue: "Etc/UTC",
       },
       "total-offset": { label: "总 UTC 偏移", value: 0, displayValue: "0 分钟" },
-      "dst-offset": { label: "DST 偏移", value: 0, displayValue: "0 分钟" },
+      "dst-offset": { label: "DST 偏移", value: 0, displayValue: "0 秒" },
       "dst-status": { label: "夏令时状态", value: "inactive", displayValue: "未采用夏令时" },
       "standard-offset": { label: "标准 UTC 偏移", value: 0, displayValue: "0 分钟" },
       "standard-meridian": { label: "标准子午线", value: 0, displayValue: "0°" },
@@ -245,6 +255,94 @@ describe("toChartViewModel", () => {
       "timezoneData",
       "solarTermAlgorithm",
     ]);
+    expect(viewModel.timeAudit.pillarBoundaries).toEqual({
+      year: {
+        label: "年柱节气边界",
+        term: "lichun",
+        termLabel: "立春",
+        utcIso: "2024-02-04T08:26:49.630Z",
+        displayValue: "立春 2024-02-04T08:26:49.630Z",
+      },
+      month: {
+        label: "月柱节气边界",
+        term: "lichun",
+        termLabel: "立春",
+        utcIso: "2024-02-04T08:26:49.630Z",
+        displayValue: "立春 2024-02-04T08:26:49.630Z",
+      },
+    });
+  });
+
+  it("maps a redacted ten-step provenance chain with resolved versions", () => {
+    const viewModel = toChartViewModel(chartFor());
+
+    expect(viewModel.timeAudit.provenance).toEqual([
+      {
+        id: "input.normalize",
+        ruleId: "input.birth.v1",
+        versionKey: "application",
+        versionValue: "gptlucktime@0.1.0/chart-context-v1",
+      },
+      {
+        id: "time.civil.resolve",
+        ruleId: "time.civil.iana.v1",
+        versionKey: "timezoneData",
+        versionValue: "timezonecomplete@5.15.1/tzdata@1.0.49",
+      },
+      {
+        id: "time.solar.calculate",
+        ruleId: "time.true-solar.v1",
+        versionKey: "astronomyAlgorithm",
+        versionValue: "astronomy-engine@2.1.19/true-solar-time-v1",
+      },
+      {
+        id: "calendar.solar-terms.locate",
+        ruleId: "calendar.jie-boundaries.v1",
+        versionKey: "solarTermAlgorithm",
+        versionValue: "astronomy-engine@2.1.19/search-sun-longitude-v1",
+      },
+      {
+        id: "pillars.calculate",
+        ruleId: "pillars.solar-boundaries.v1",
+        versionKey: "ruleTables",
+        versionValue: "bazi-static-rules@1.0.0",
+      },
+      {
+        id: "indicators.ten-gods",
+        ruleId: "indicators.ten-gods.v1",
+        versionKey: "ruleTables",
+        versionValue: "bazi-static-rules@1.0.0",
+      },
+      {
+        id: "indicators.elements",
+        ruleId: "indicators.elements.v1",
+        versionKey: "ruleTables",
+        versionValue: "bazi-static-rules@1.0.0",
+      },
+      {
+        id: "indicators.relations",
+        ruleId: "indicators.relations.v1",
+        versionKey: "ruleTables",
+        versionValue: "bazi-static-rules@1.0.0",
+      },
+      {
+        id: "indicators.auxiliary",
+        ruleId: "indicators.auxiliary.v1",
+        versionKey: "ruleTables",
+        versionValue: "bazi-static-rules@1.0.0",
+      },
+      {
+        id: "indicators.kyusei",
+        ruleId: "kyusei.natal.v1",
+        versionKey: "ruleTables",
+        versionValue: "bazi-static-rules@1.0.0",
+      },
+    ]);
+
+    const json = JSON.stringify(viewModel.timeAudit.provenance);
+    expect(json).not.toContain("inputs");
+    expect(json).not.toContain("output");
+    expect(json).not.toContain(residenceMarker);
   });
 
   it("maps DST status and warnings without dropping machine values", () => {
@@ -272,6 +370,54 @@ describe("toChartViewModel", () => {
         }),
       ]),
     );
+  });
+
+  it("treats sub-second Shanghai LMT residue as inactive DST", () => {
+    const chart = chartFor({
+      localDateTime: "1900-06-15T12:00:00",
+      timeZone: "Asia/Shanghai",
+      birthplace: { name: "Shanghai", latitude: 31.2304, longitude: 121.4737 },
+      timePrecision: "exact",
+    });
+    const viewModel = toChartViewModel(chart);
+    const byId = Object.fromEntries(
+      viewModel.timeAudit.items.map((item) => [item.id, item]),
+    );
+
+    expect(chart.civilTime.dstOffsetMinutes).not.toBe(0);
+    expect(byId["dst-offset"]).toEqual({
+      id: "dst-offset",
+      label: "DST 偏移",
+      value: 0,
+      displayValue: "0 秒",
+    });
+    expect(byId["dst-status"]).toEqual({
+      id: "dst-status",
+      label: "夏令时状态",
+      value: "inactive",
+      displayValue: "未采用夏令时",
+    });
+  });
+
+  it("normalizes negative zero recursively before freezing", () => {
+    const chart = chartFor({
+      ...input,
+      birthplace: {
+        name: "Zero Meridian",
+        latitude: -0,
+        longitude: -0,
+      },
+    });
+    const viewModel = toChartViewModel(chart);
+
+    expect(viewModel.summary.birthplace).toEqual({
+      name: "Zero Meridian",
+      latitude: 0,
+      longitude: 0,
+    });
+    expectNoNegativeZero(viewModel);
+    expect(JSON.parse(JSON.stringify(viewModel))).toEqual(viewModel);
+    expectDeepFrozen(viewModel);
   });
 
   it("is deterministic, JSON serializable, deeply frozen, and excludes residence context", () => {

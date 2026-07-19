@@ -74,6 +74,16 @@ export interface ChartViewModel {
       displayValue: string;
     }>[];
     warnings: readonly JsonObject[];
+    provenance: readonly Readonly<{
+      id: string;
+      ruleId: string;
+      versionKey: ChartVersionKey;
+      versionValue: string;
+    }>[];
+    pillarBoundaries: Readonly<{
+      year: JsonObject;
+      month: JsonObject;
+    }>;
   }>;
 }
 
@@ -150,6 +160,21 @@ function deepFreeze<T>(value: T, seen = new WeakSet<object>()): T {
   return Object.freeze(value);
 }
 
+function normalizeNumbers<T>(value: T): T {
+  if (typeof value === "number") {
+    return (Object.is(value, -0) ? 0 : value) as T;
+  }
+  if (Array.isArray(value)) {
+    return value.map((item) => normalizeNumbers(item)) as T;
+  }
+  if (value !== null && typeof value === "object") {
+    return Object.fromEntries(
+      Object.entries(value).map(([key, nested]) => [key, normalizeNumbers(nested)]),
+    ) as T;
+  }
+  return value;
+}
+
 function displayNumber(value: number, unit: string): string {
   const rounded = Math.round(value * 1_000_000) / 1_000_000;
   return `${Object.is(rounded, -0) ? 0 : rounded}${unit}`;
@@ -176,6 +201,20 @@ function mapTerm(label: string, term: SolarTermBoundary): JsonObject {
     utcIso: term.utcIso,
     algorithmVersion: term.algorithmVersion,
     displayValue: `${term.calendarYear}年${termLabels[term.term]} ${term.utcIso}`,
+  };
+}
+
+function mapPillarBoundary(
+  label: string,
+  boundary: ChartContext["pillars"]["yearBoundary"],
+): JsonObject {
+  const termLabel = termLabels[boundary.term];
+  return {
+    label,
+    term: boundary.term,
+    termLabel,
+    utcIso: boundary.utcIso,
+    displayValue: `${termLabel} ${boundary.utcIso}`,
   };
 }
 
@@ -306,7 +345,9 @@ function mapKyusei(chart: ChartContext): ChartViewGroup {
 }
 
 function mapTimeAudit(chart: ChartContext): ChartViewModel["timeAudit"] {
-  const dstActive = chart.civilTime.dstOffsetMinutes !== 0;
+  const dstOffsetSeconds = Math.round(chart.civilTime.dstOffsetMinutes * 60);
+  const normalizedDstOffsetMinutes = dstOffsetSeconds / 60;
+  const dstActive = dstOffsetSeconds !== 0;
   const resolutionDisplay =
     chart.civilTime.resolution === "earlier"
       ? "采用较早一次"
@@ -331,8 +372,8 @@ function mapTimeAudit(chart: ChartContext): ChartViewModel["timeAudit"] {
     auditItem(
       "dst-offset",
       "DST 偏移",
-      chart.civilTime.dstOffsetMinutes,
-      displayNumber(chart.civilTime.dstOffsetMinutes, " 分钟"),
+      normalizedDstOffsetMinutes,
+      `${dstOffsetSeconds} 秒`,
     ),
     auditItem(
       "dst-status",
@@ -413,6 +454,16 @@ function mapTimeAudit(chart: ChartContext): ChartViewModel["timeAudit"] {
       displayValue: chart.versions[key],
     })),
     warnings: mapWarnings(chart.warnings),
+    provenance: chart.trace.map(({ id, ruleId, versionKey }) => ({
+      id,
+      ruleId,
+      versionKey,
+      versionValue: chart.versions[versionKey],
+    })),
+    pillarBoundaries: {
+      year: mapPillarBoundary("年柱节气边界", chart.pillars.yearBoundary),
+      month: mapPillarBoundary("月柱节气边界", chart.pillars.monthBoundary),
+    },
   };
 }
 
@@ -430,7 +481,7 @@ export function toChartViewModel(chart: ChartContext): ChartViewModel {
     };
   });
 
-  return deepFreeze({
+  const viewModel: ChartViewModel = {
     summary: {
       title: "出生固定盘" as const,
       birthplace: {
@@ -458,5 +509,7 @@ export function toChartViewModel(chart: ChartContext): ChartViewModel {
       mapKyusei(chart),
     ],
     timeAudit: mapTimeAudit(chart),
-  });
+  };
+
+  return deepFreeze(normalizeNumbers(viewModel));
 }
