@@ -109,4 +109,31 @@ describe("normalizeBirthInput", () => {
 
     expect(result).toMatchObject({ ok: false, code: "INVALID_INPUT" });
   });
+
+  it("rejects a birthplace name longer than 100 trimmed characters", () => {
+    const result = normalizeBirthInput({
+      ...valid,
+      birthplace: { ...valid.birthplace, name: `  ${"x".repeat(101)}  ` },
+    });
+
+    expect(result).toMatchObject({ ok: false, code: "INVALID_INPUT" });
+  });
+
+  it("rejects a time-zone string longer than 100 characters", () => {
+    const result = normalizeBirthInput({
+      ...valid,
+      timeZone: `Area/${"x".repeat(96)}`,
+    });
+
+    expect(result).toMatchObject({ ok: false, code: "INVALID_INPUT" });
+  });
+
+  it("rejects a local date-time string longer than 40 characters", () => {
+    const result = normalizeBirthInput({
+      ...valid,
+      localDateTime: `1990-06-15T14:30:00${"0".repeat(21)}`,
+    });
+
+    expect(result).toMatchObject({ ok: false, code: "INVALID_INPUT" });
+  });
 });

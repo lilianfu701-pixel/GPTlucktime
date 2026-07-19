@@ -1,6 +1,12 @@
-import { describe, expect, it, vi } from "vitest";
+import { beforeEach, describe, expect, it, vi } from "vitest";
 
 import { validateBirthInputAction } from "./validate-birth-input";
+
+const checkBirthValidationRateLimit = vi.hoisted(() => vi.fn());
+
+vi.mock("../../server/birth-validation-rate-limit", () => ({
+  checkBirthValidationRateLimit,
+}));
 
 const shanghai = {
   localDateTime: "1990-06-15T14:30:00",
@@ -14,6 +20,11 @@ const newYork = {
   birthplace: { name: "纽约", latitude: 40.7128, longitude: -74.006 },
   timePrecision: "exact" as const,
 };
+
+beforeEach(() => {
+  checkBirthValidationRateLimit.mockReset();
+  checkBirthValidationRateLimit.mockResolvedValue({ allowed: true, remaining: 29 });
+});
 
 describe("validateBirthInputAction", () => {
   it("returns a normalized Shanghai input after authoritative civil-time validation", async () => {
@@ -77,5 +88,19 @@ describe("validateBirthInputAction", () => {
     });
     expect(logSpy).not.toHaveBeenCalled();
     expect(errorSpy).not.toHaveBeenCalled();
+  });
+
+  it("returns a safe retryable result when the request is rate limited", async () => {
+    checkBirthValidationRateLimit.mockResolvedValueOnce({
+      allowed: false,
+      retryAfterMs: 30_000,
+    });
+
+    await expect(validateBirthInputAction(shanghai)).resolves.toMatchObject({
+      valid: false,
+      code: "RATE_LIMITED",
+      retryable: true,
+      fieldErrors: { form: expect.stringMatching(/频繁/) },
+    });
   });
 });

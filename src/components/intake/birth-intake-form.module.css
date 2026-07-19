@@ -340,6 +340,21 @@
   cursor: not-allowed;
 }
 
+.submitRow .retryButton {
+  width: fit-content;
+  min-width: 0;
+  min-height: 0;
+  margin-top: 0.35rem;
+  border: 0;
+  border-bottom: 1px solid currentColor;
+  background: transparent;
+  color: var(--cinnabar-dark);
+  font-family: FangSong, STFangsong, serif;
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  padding: 0.15rem 0;
+}
+
 @media (max-width: 760px) {
   .page {
     width: min(calc(100% - 1.25rem), 40rem);

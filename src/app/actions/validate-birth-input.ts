@@ -3,6 +3,7 @@
 import { normalizeBirthInput } from "../../core/input";
 import { resolveCivilTime } from "../../core/time/civil-time";
 import type { NormalizedBirthInput } from "../../core/types";
+import { checkBirthValidationRateLimit } from "../../server/birth-validation-rate-limit";
 
 export type BirthValidationField =
   | "birthDate"
@@ -26,6 +27,7 @@ export type BirthValidationCode =
   | "INVALID_LOCAL_DATE_TIME"
   | "DST_GAP"
   | "DST_AMBIGUOUS"
+  | "RATE_LIMITED"
   | "VALIDATION_UNAVAILABLE";
 
 export type BirthValidationResult =
@@ -37,6 +39,7 @@ export type BirthValidationResult =
       valid: false;
       code: BirthValidationCode;
       message: string;
+      retryable: boolean;
       fieldErrors: Readonly<Partial<Record<BirthValidationField, string>>>;
     }>;
 
@@ -44,8 +47,9 @@ function failure(
   code: BirthValidationCode,
   message: string,
   fieldErrors: Partial<Record<BirthValidationField, string>>,
+  retryable = false,
 ): BirthValidationResult {
-  return { valid: false, code, message, fieldErrors };
+  return { valid: false, code, message, retryable, fieldErrors };
 }
 
 function withoutResidence(input: unknown): unknown {
@@ -59,6 +63,12 @@ export async function validateBirthInputAction(
   input: unknown,
 ): Promise<BirthValidationResult> {
   try {
+    const rateLimit = await checkBirthValidationRateLimit();
+    if (!rateLimit.allowed) {
+      const message = "校验请求过于频繁，请稍后重试";
+      return failure("RATE_LIMITED", message, { form: message }, true);
+    }
+
     const normalized = normalizeBirthInput(input);
     if (!normalized.ok) {
       if (normalized.code === "INVALID_TIME_ZONE") {
@@ -139,6 +149,7 @@ export async function validateBirthInputAction(
       "VALIDATION_UNAVAILABLE",
       "时间校验暂时不可用，请稍后重试",
       { form: "时间校验暂时不可用，请稍后重试" },
+      true,
     );
   }
 }

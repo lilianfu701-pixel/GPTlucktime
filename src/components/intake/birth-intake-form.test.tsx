@@ -79,6 +79,7 @@ function actionResult(input: BirthInput): BirthValidationResult {
       valid: false as const,
       code: "INVALID_TIME_ZONE" as const,
       message: "请检查时区后重试",
+      retryable: false,
       fieldErrors: { timeZone: "请输入有效的 IANA 地区时区，如 Asia/Shanghai" },
     };
   }
@@ -88,6 +89,7 @@ function actionResult(input: BirthInput): BirthValidationResult {
       valid: false as const,
       code: "DST_GAP" as const,
       message,
+      retryable: false,
       fieldErrors: { birthDate: message, birthTime: message },
     };
   }
@@ -99,6 +101,7 @@ function actionResult(input: BirthInput): BirthValidationResult {
       valid: false as const,
       code: "DST_AMBIGUOUS" as const,
       message: "该当地时间出现两次",
+      retryable: false,
       fieldErrors: {
         civilTimeResolution: "该当地时间出现两次，必须选择较早或较晚一次",
       },
@@ -354,6 +357,7 @@ describe("BirthIntakeForm", () => {
         valid: false,
         code: "DST_GAP",
         message: "旧响应",
+        retryable: false,
         fieldErrors: { birthTime: "旧响应不应显示" },
       });
     });
@@ -364,17 +368,109 @@ describe("BirthIntakeForm", () => {
   });
 
   it("shows a retryable generic error when the server action rejects", async () => {
+    const user = userEvent.setup();
     validateBirthInputAction.mockRejectedValueOnce(new Error("sensitive detail"));
     renderIntake();
     fillRequiredFields();
 
-    expect(await screen.findByRole("alert")).toHaveTextContent(
+    const alert = await screen.findByRole("alert");
+    expect(alert).toHaveTextContent(
       "时间校验暂时不可用，请稍后重试",
     );
     expect(screen.queryByText(/sensitive detail/)).not.toBeInTheDocument();
-    expect(
-      screen.getByRole("button", { name: "校验时间并生成命盘" }),
-    ).toBeDisabled();
+    const submit = screen.getByRole("button", { name: "校验时间并生成命盘" });
+    expect(submit).toBeDisabled();
+
+    await user.click(screen.getByRole("button", { name: "重新校验" }));
+    await waitFor(() => expect(validateBirthInputAction).toHaveBeenCalledTimes(2));
+    await waitFor(() => expect(submit).toBeEnabled());
+  });
+
+  it.each([
+    ["VALIDATION_UNAVAILABLE", "时间校验暂时不可用，请稍后重试"],
+    ["RATE_LIMITED", "校验请求过于频繁，请稍后重试"],
+  ] as const)(
+    "retries a server %s result only after the user asks",
+    async (code, message) => {
+      const user = userEvent.setup();
+      validateBirthInputAction.mockResolvedValueOnce({
+        valid: false,
+        code,
+        message,
+        retryable: true,
+        fieldErrors: { form: message },
+      });
+      renderIntake();
+      fillRequiredFields();
+
+      expect(await screen.findByRole("alert")).toHaveTextContent(message);
+      expect(validateBirthInputAction).toHaveBeenCalledTimes(1);
+      await new Promise((resolve) => setTimeout(resolve, 400));
+      expect(validateBirthInputAction).toHaveBeenCalledTimes(1);
+
+      await user.click(screen.getByRole("button", { name: "重新校验" }));
+      await waitFor(() => expect(validateBirthInputAction).toHaveBeenCalledTimes(2));
+      await waitFor(() =>
+        expect(
+          screen.getByRole("button", { name: "校验时间并生成命盘" }),
+        ).toBeEnabled(),
+      );
+    },
+  );
+
+  it.each([
+    ["出生地名称", "x".repeat(101), /名称不能超过 100 个字符/],
+    ["出生地 IANA 时区", `Area/${"x".repeat(96)}`, /时区不能超过 100 个字符/],
+  ] as const)(
+    "rejects an overlong %s locally without calling the server action",
+    async (label, value, expectedError) => {
+      renderIntake();
+      fillRequiredFields();
+      change(label, value);
+      fireEvent.blur(screen.getByLabelText(label));
+
+      expect(screen.getByLabelText(label)).toHaveAccessibleDescription(expectedError);
+      await new Promise((resolve) => setTimeout(resolve, 400));
+      expect(validateBirthInputAction).not.toHaveBeenCalled();
+      expect(
+        screen.getByRole("button", { name: "校验时间并生成命盘" }),
+      ).toBeDisabled();
+    },
+  );
+
+  it("does not let a pre-retry response overwrite a newer field validation", async () => {
+    type Resolve = (value: BirthValidationResult) => void;
+    const resolutions: Resolve[] = [];
+    validateBirthInputAction.mockImplementation(
+      () =>
+        new Promise((resolve) => {
+          resolutions.push(resolve as Resolve);
+        }),
+    );
+    renderIntake();
+    fillRequiredFields();
+    await waitFor(() => expect(validateBirthInputAction).toHaveBeenCalledTimes(1));
+
+    change("出生时间（可含秒）", "14:32:00");
+    await waitFor(() => expect(validateBirthInputAction).toHaveBeenCalledTimes(2));
+    const currentInput = validateBirthInputAction.mock.calls[1][0] as BirthInput;
+    await act(async () => {
+      resolutions[1](actionResult(currentInput));
+      resolutions[0]({
+        valid: false,
+        code: "VALIDATION_UNAVAILABLE",
+        message: "旧响应",
+        retryable: true,
+        fieldErrors: { form: "旧响应不应显示" },
+      });
+    });
+
+    await waitFor(() =>
+      expect(
+        screen.getByRole("button", { name: "校验时间并生成命盘" }),
+      ).toBeEnabled(),
+    );
+    expect(screen.queryByText("旧响应不应显示")).not.toBeInTheDocument();
   });
 
   it("states server processing and memory-only privacy without fortune language", () => {

@@ -2,6 +2,7 @@ import { LocalDateTime, ZoneId } from "@js-joda/core";
 import "@js-joda/timezone";
 import { z } from "zod";
 
+import { BIRTH_INPUT_LIMITS } from "../lib/birth-input-limits";
 import type {
   BirthInput,
   InputErrorCode,
@@ -22,20 +23,23 @@ const localDateTimePattern =
 const availableTimeZoneIds = new Set(ZoneId.getAvailableZoneIds());
 
 const coordinateSchema = z.object({
-  name: z.string().trim().min(1),
+  name: z.string().trim().min(1).max(BIRTH_INPUT_LIMITS.placeName),
   latitude: z.number().finite().min(-90).max(90),
   longitude: z.number().finite().min(-180).max(180),
 });
 
 const residenceContextSchema = coordinateSchema.extend({
-  timeZone: z.string().trim().min(1),
+  timeZone: z.string().trim().min(1).max(BIRTH_INPUT_LIMITS.timeZone),
 });
 
 const birthInputSchema = z.object({
-  localDateTime: z.string().refine(isLocalDateTime, {
-    message: "Enter an ISO local date-time without a UTC offset.",
-  }),
-  timeZone: z.string().trim().min(1),
+  localDateTime: z
+    .string()
+    .max(BIRTH_INPUT_LIMITS.localDateTime)
+    .refine(isLocalDateTime, {
+      message: "Enter an ISO local date-time without a UTC offset.",
+    }),
+  timeZone: z.string().trim().min(1).max(BIRTH_INPUT_LIMITS.timeZone),
   birthplace: coordinateSchema,
   timePrecision: z.enum(["exact", "approximate", "unknown"]).optional(),
   civilTimeResolution: z.enum(["earlier", "later"]).optional(),

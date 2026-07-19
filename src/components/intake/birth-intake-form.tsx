@@ -12,6 +12,7 @@ import type {
   CivilTimeResolution,
   TimePrecision,
 } from "../../core/types";
+import { BIRTH_INPUT_LIMITS } from "../../lib/birth-input-limits";
 import { useChartSession } from "../chart-session-provider";
 import styles from "./birth-intake-form.module.css";
 
@@ -84,7 +85,15 @@ function validateForm(state: FormState): Readonly<{
       ? "请输入有效的出生时间"
       : "请输入出生时间";
   }
-  if (!state.birthplaceName.trim()) errors.birthplaceName = "请输入出生地名称";
+  if (`${state.birthDate}T${state.birthTime}`.length > BIRTH_INPUT_LIMITS.localDateTime) {
+    errors.birthDate = "出生日期和时间内容过长";
+    errors.birthTime = "出生日期和时间内容过长";
+  }
+  if (!state.birthplaceName.trim()) {
+    errors.birthplaceName = "请输入出生地名称";
+  } else if (state.birthplaceName.trim().length > BIRTH_INPUT_LIMITS.placeName) {
+    errors.birthplaceName = "出生地名称不能超过 100 个字符";
+  }
   errors.latitude = coordinateError(
     state.latitude,
     -90,
@@ -99,7 +108,11 @@ function validateForm(state: FormState): Readonly<{
     "请输入出生地经度",
     "经度必须在 -180 到 180 之间",
   );
-  if (!state.timeZone.trim()) errors.timeZone = "请输入出生地 IANA 时区";
+  if (!state.timeZone.trim()) {
+    errors.timeZone = "请输入出生地 IANA 时区";
+  } else if (state.timeZone.trim().length > BIRTH_INPUT_LIMITS.timeZone) {
+    errors.timeZone = "出生地时区不能超过 100 个字符";
+  }
 
   const residenceValues = [
     state.residenceName,
@@ -109,7 +122,11 @@ function validateForm(state: FormState): Readonly<{
   ];
   const hasResidence = residenceValues.some((value) => value.trim() !== "");
   if (hasResidence) {
-    if (!state.residenceName.trim()) errors.residenceName = "请补全生活地名称";
+    if (!state.residenceName.trim()) {
+      errors.residenceName = "请补全生活地名称";
+    } else if (state.residenceName.trim().length > BIRTH_INPUT_LIMITS.placeName) {
+      errors.residenceName = "生活地名称不能超过 100 个字符";
+    }
     errors.residenceLatitude = coordinateError(
       state.residenceLatitude,
       -90,
@@ -126,6 +143,10 @@ function validateForm(state: FormState): Readonly<{
     );
     if (!state.residenceTimeZone.trim()) {
       errors.residenceTimeZone = "请补全生活地 IANA 时区";
+    } else if (
+      state.residenceTimeZone.trim().length > BIRTH_INPUT_LIMITS.timeZone
+    ) {
+      errors.residenceTimeZone = "生活地时区不能超过 100 个字符";
     }
   }
 
@@ -169,6 +190,7 @@ interface InputFieldProps {
   placeholder?: string;
   step?: string | number;
   inputMode?: "decimal" | "text";
+  maxLength?: number;
   required?: boolean;
   onChange: (value: string) => void;
   onBlur: () => void;
@@ -183,6 +205,7 @@ function InputField({
   placeholder,
   step,
   inputMode,
+  maxLength,
   required = false,
   onChange,
   onBlur,
@@ -199,6 +222,7 @@ function InputField({
         placeholder={placeholder}
         step={step}
         inputMode={inputMode}
+        maxLength={maxLength}
         required={required}
         autoComplete="off"
         aria-invalid={error ? true : undefined}
@@ -221,6 +245,7 @@ export function BirthIntakeForm() {
   const [state, setState] = useState<FormState>(initialState);
   const [touched, setTouched] = useState<Partial<Record<FieldKey, boolean>>>({});
   const [authority, setAuthority] = useState<AuthorityState>({ status: "idle" });
+  const [retryGeneration, setRetryGeneration] = useState(0);
   const requestVersion = useRef(0);
   const validation = validateForm(state);
   const authorityResult = authority.status === "resolved" ? authority.result : null;
@@ -256,6 +281,7 @@ export function BirthIntakeForm() {
                 valid: false,
                 code: "VALIDATION_UNAVAILABLE",
                 message: "时间校验暂时不可用，请稍后重试",
+                retryable: true,
                 fieldErrors: {
                   form: "时间校验暂时不可用，请稍后重试",
                 },
@@ -269,7 +295,7 @@ export function BirthIntakeForm() {
       active = false;
       window.clearTimeout(timeout);
     };
-  }, [state]);
+  }, [state, retryGeneration]);
 
   function update<K extends keyof FormState>(key: K, value: FormState[K]): void {
     ++requestVersion.current;
@@ -279,6 +305,12 @@ export function BirthIntakeForm() {
 
   function markTouched(key: FieldKey): void {
     setTouched((current) => ({ ...current, [key]: true }));
+  }
+
+  function retryValidation(): void {
+    ++requestVersion.current;
+    setAuthority({ status: "idle" });
+    setRetryGeneration((generation) => generation + 1);
   }
 
   function visibleError(key: FieldKey): string | undefined {
@@ -409,6 +441,7 @@ export function BirthIntakeForm() {
           <InputField
             id="birthplaceName"
             label="出生地名称"
+            maxLength={BIRTH_INPUT_LIMITS.placeName}
             required
             value={state.birthplaceName}
             error={visibleError("birthplaceName")}
@@ -447,6 +480,7 @@ export function BirthIntakeForm() {
           <InputField
             id="timeZone"
             label="出生地 IANA 时区"
+            maxLength={BIRTH_INPUT_LIMITS.timeZone}
             required
             value={state.timeZone}
             error={visibleError("timeZone")}
@@ -481,6 +515,7 @@ export function BirthIntakeForm() {
             <InputField
               id="residenceName"
               label="生活地名称（可选）"
+              maxLength={BIRTH_INPUT_LIMITS.placeName}
               required={validation.hasResidence}
               value={state.residenceName}
               error={visibleError("residenceName")}
@@ -519,6 +554,7 @@ export function BirthIntakeForm() {
             <InputField
               id="residenceTimeZone"
               label="生活地 IANA 时区（可选）"
+              maxLength={BIRTH_INPUT_LIMITS.timeZone}
               required={validation.hasResidence}
               value={state.residenceTimeZone}
               error={visibleError("residenceTimeZone")}
@@ -582,6 +618,15 @@ export function BirthIntakeForm() {
               <p className={styles.error} role="alert">
                 {authorityErrors.form}
               </p>
+            ) : null}
+            {authorityResult?.valid === false && authorityResult.retryable ? (
+              <button
+                type="button"
+                className={styles.retryButton}
+                onClick={retryValidation}
+              >
+                重新校验
+              </button>
             ) : null}
           </div>
           <button type="submit" disabled={!authoritativeInput}>
