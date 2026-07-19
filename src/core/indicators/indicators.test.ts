@@ -233,6 +233,38 @@ describe("static Bazi indicators", () => {
     });
   });
 
+  it.each([
+    {
+      solarYear: 1999,
+      natalGroup: "一・四・七",
+      natalNumber: 1,
+      monthStar: { number: 8, name: "八白土星", element: "earth" },
+    },
+    {
+      solarYear: 2001,
+      natalGroup: "二・五・八",
+      natalNumber: 8,
+      monthStar: { number: 2, name: "二黑土星", element: "earth" },
+    },
+    {
+      solarYear: 2000,
+      natalGroup: "三・六・九",
+      natalNumber: 9,
+      monthStar: { number: 5, name: "五黄土星", element: "earth" },
+    },
+  ] as const)(
+    "maps solar year $solarYear in natal group $natalGroup to the golden 寅-month star",
+    ({ solarYear, natalNumber, monthStar }) => {
+      // Rule-table basis: the 本命星 rows and the 月命星 2/4-3/5 (寅月)
+      // columns are published together at:
+      // https://fem-haregocoro.ssl-lolipop.jp/pdf/star_list.pdf
+      const result = deriveKyusei({ solarYear, solarMonthBranch: "寅" });
+
+      expect(result.natal.star.number).toBe(natalNumber);
+      expect(result.month.star).toEqual(monthStar);
+    },
+  );
+
   it("freezes every exported static indicator table", () => {
     expect(Object.isFrozen(ELEMENTS)).toBe(true);
     expect(Object.isFrozen(STEM_ELEMENTS)).toBe(true);
