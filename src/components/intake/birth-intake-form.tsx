@@ -1,14 +1,15 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { useState, type FormEvent } from "react";
+import { useEffect, useRef, useState, type FormEvent } from "react";
 
-import { normalizeBirthInput } from "../../core/input";
-import { resolveCivilTime } from "../../core/time/civil-time";
+import {
+  validateBirthInputAction,
+  type BirthValidationResult,
+} from "../../app/actions/validate-birth-input";
 import type {
   BirthInput,
   CivilTimeResolution,
-  NormalizedBirthInput,
   TimePrecision,
 } from "../../core/types";
 import { useChartSession } from "../chart-session-provider";
@@ -31,6 +32,13 @@ interface FormState {
 
 type FieldKey = Exclude<keyof FormState, "timePrecision" | "civilTimeResolution">;
 type FieldErrors = Partial<Record<FieldKey, string>>;
+
+type AuthorityState =
+  | Readonly<{ status: "idle" }>
+  | Readonly<{ status: "checking" }>
+  | Readonly<{ status: "resolved"; result: BirthValidationResult }>;
+
+const validationDebounceMilliseconds = 300;
 
 const initialState: FormState = {
   birthDate: "",
@@ -64,9 +72,8 @@ function coordinateError(
 
 function validateForm(state: FormState): Readonly<{
   errors: FieldErrors;
-  input?: NormalizedBirthInput;
-  resolutionError?: string;
-  showCivilTimeError?: boolean;
+  input?: BirthInput;
+  hasResidence: boolean;
 }> {
   const errors: FieldErrors = {};
   if (!/^\d{4}-\d{2}-\d{2}$/u.test(state.birthDate)) {
@@ -125,7 +132,7 @@ function validateForm(state: FormState): Readonly<{
   for (const key of Object.keys(errors) as FieldKey[]) {
     if (errors[key] === undefined) delete errors[key];
   }
-  if (Object.keys(errors).length > 0) return { errors };
+  if (Object.keys(errors).length > 0) return { errors, hasResidence };
 
   const input: BirthInput = {
     localDateTime: `${state.birthDate}T${state.birthTime}`,
@@ -150,51 +157,7 @@ function validateForm(state: FormState): Readonly<{
         }
       : {}),
   };
-  const normalized = normalizeBirthInput(input);
-  if (normalized.ok) {
-    const civilTime = resolveCivilTime(
-      normalized.value.localDateTime,
-      normalized.value.timeZone,
-      normalized.value.civilTimeResolution,
-    );
-    if (civilTime.ok) return { errors, input: normalized.value };
-
-    if (civilTime.code === "DST_GAP") {
-      const message = "该当地时间因夏令时切换而不存在，请调整出生时间";
-      errors.birthDate = message;
-      errors.birthTime = message;
-      return { errors, showCivilTimeError: true };
-    }
-    if (civilTime.code === "DST_AMBIGUOUS") {
-      return {
-        errors,
-        resolutionError: "该当地时间出现两次，必须选择较早或较晚一次",
-      };
-    }
-    if (civilTime.code === "INVALID_TIME_ZONE") {
-      errors.timeZone = "请输入有效的 IANA 地区时区，如 Asia/Shanghai";
-      return { errors };
-    }
-
-    errors.birthDate = "请输入有效的出生日期";
-    errors.birthTime = "请输入有效的出生时间";
-    return { errors };
-  }
-
-  if (normalized.code === "INVALID_TIME_ZONE") {
-    const birthOnly = normalizeBirthInput({ ...input, residenceContext: undefined });
-    if (!birthOnly.ok && birthOnly.code === "INVALID_TIME_ZONE") {
-      errors.timeZone = "请输入有效的 IANA 地区时区，如 Asia/Shanghai";
-    } else {
-      errors.residenceTimeZone = "请输入有效的生活地 IANA 地区时区";
-    }
-  } else if (normalized.code === "INVALID_COORDINATES") {
-    errors.latitude = "请检查出生地或生活地坐标";
-  } else {
-    errors.birthDate = "请输入有效的出生日期";
-    errors.birthTime = "请输入有效的出生时间";
-  }
-  return { errors };
+  return { errors, input, hasResidence };
 }
 
 interface InputFieldProps {
@@ -206,6 +169,7 @@ interface InputFieldProps {
   placeholder?: string;
   step?: string | number;
   inputMode?: "decimal" | "text";
+  required?: boolean;
   onChange: (value: string) => void;
   onBlur: () => void;
 }
@@ -219,6 +183,7 @@ function InputField({
   placeholder,
   step,
   inputMode,
+  required = false,
   onChange,
   onBlur,
 }: InputFieldProps) {
@@ -234,6 +199,7 @@ function InputField({
         placeholder={placeholder}
         step={step}
         inputMode={inputMode}
+        required={required}
         autoComplete="off"
         aria-invalid={error ? true : undefined}
         aria-describedby={error ? errorId : undefined}
@@ -254,9 +220,60 @@ export function BirthIntakeForm() {
   const { setBirthInput } = useChartSession();
   const [state, setState] = useState<FormState>(initialState);
   const [touched, setTouched] = useState<Partial<Record<FieldKey, boolean>>>({});
+  const [authority, setAuthority] = useState<AuthorityState>({ status: "idle" });
+  const requestVersion = useRef(0);
   const validation = validateForm(state);
+  const authorityResult = authority.status === "resolved" ? authority.result : null;
+  const authoritativeInput =
+    authorityResult?.valid === true ? authorityResult.normalized : undefined;
+  const authorityErrors =
+    authorityResult?.valid === false ? authorityResult.fieldErrors : {};
+  const resolutionError = authorityErrors.civilTimeResolution;
+
+  useEffect(() => {
+    const version = ++requestVersion.current;
+    let active = true;
+    if (!validation.input) {
+      setAuthority({ status: "idle" });
+      return () => {
+        active = false;
+      };
+    }
+
+    setAuthority({ status: "checking" });
+    const timeout = window.setTimeout(() => {
+      void validateBirthInputAction(validation.input)
+        .then((result) => {
+          if (active && version === requestVersion.current) {
+            setAuthority({ status: "resolved", result });
+          }
+        })
+        .catch(() => {
+          if (active && version === requestVersion.current) {
+            setAuthority({
+              status: "resolved",
+              result: {
+                valid: false,
+                code: "VALIDATION_UNAVAILABLE",
+                message: "时间校验暂时不可用，请稍后重试",
+                fieldErrors: {
+                  form: "时间校验暂时不可用，请稍后重试",
+                },
+              },
+            });
+          }
+        });
+    }, validationDebounceMilliseconds);
+
+    return () => {
+      active = false;
+      window.clearTimeout(timeout);
+    };
+  }, [state]);
 
   function update<K extends keyof FormState>(key: K, value: FormState[K]): void {
+    ++requestVersion.current;
+    setAuthority({ status: "idle" });
     setState((current) => ({ ...current, [key]: value }));
   }
 
@@ -265,16 +282,14 @@ export function BirthIntakeForm() {
   }
 
   function visibleError(key: FieldKey): string | undefined {
-    return touched[key] ||
-      (validation.showCivilTimeError &&
-        (key === "birthDate" || key === "birthTime"))
-      ? validation.errors[key]
-      : undefined;
+    const authorityError = authorityErrors[key];
+    if (authorityError) return authorityError;
+    return touched[key] ? validation.errors[key] : undefined;
   }
 
   function handleSubmit(event: FormEvent<HTMLFormElement>): void {
     event.preventDefault();
-    if (!validation.input) {
+    if (!authoritativeInput) {
       setTouched(
         Object.fromEntries(
           (Object.keys(initialState) as (keyof FormState)[])
@@ -287,7 +302,7 @@ export function BirthIntakeForm() {
       );
       return;
     }
-    setBirthInput(validation.input);
+    setBirthInput(authoritativeInput);
     router.push("/chart");
   }
 
@@ -330,6 +345,7 @@ export function BirthIntakeForm() {
               id="birthDate"
               label="出生日期"
               type="date"
+              required
               value={state.birthDate}
               error={visibleError("birthDate")}
               onChange={(value) => update("birthDate", value)}
@@ -340,6 +356,7 @@ export function BirthIntakeForm() {
               label="出生时间（可含秒）"
               type="time"
               step="1"
+              required
               value={state.birthTime}
               error={visibleError("birthTime")}
               onChange={(value) => update("birthTime", value)}
@@ -392,6 +409,7 @@ export function BirthIntakeForm() {
           <InputField
             id="birthplaceName"
             label="出生地名称"
+            required
             value={state.birthplaceName}
             error={visibleError("birthplaceName")}
             placeholder="例如：上海市"
@@ -405,6 +423,7 @@ export function BirthIntakeForm() {
               type="number"
               step="any"
               inputMode="decimal"
+              required
               value={state.latitude}
               error={visibleError("latitude")}
               placeholder="31.2304"
@@ -417,6 +436,7 @@ export function BirthIntakeForm() {
               type="number"
               step="any"
               inputMode="decimal"
+              required
               value={state.longitude}
               error={visibleError("longitude")}
               placeholder="121.4737"
@@ -427,6 +447,7 @@ export function BirthIntakeForm() {
           <InputField
             id="timeZone"
             label="出生地 IANA 时区"
+            required
             value={state.timeZone}
             error={visibleError("timeZone")}
             placeholder="例如：Asia/Shanghai"
@@ -441,12 +462,12 @@ export function BirthIntakeForm() {
               <span>隐</span>
               <div>
                 <h2>本次计算专用</h2>
-                <p>资料仅保存在当前 React 页面会话内存中。</p>
+                <p>客户端仅在当前 React 页面会话内存中保留资料。</p>
               </div>
             </div>
-            <p>资料仅保存在本次页面会话内存中，用于本次计算。</p>
+            <p>出生资料会发送到服务器内存执行校验和计算。</p>
             <p>不会写入 localStorage、sessionStorage、Cookie 或数据库。</p>
-            <p>刷新或关闭页面即清除。</p>
+            <p>刷新或关闭页面会清除客户端状态。</p>
           </section>
 
           <section className={styles.residence} aria-labelledby="residence-heading">
@@ -460,6 +481,7 @@ export function BirthIntakeForm() {
             <InputField
               id="residenceName"
               label="生活地名称（可选）"
+              required={validation.hasResidence}
               value={state.residenceName}
               error={visibleError("residenceName")}
               placeholder="例如：洛杉矶"
@@ -473,6 +495,7 @@ export function BirthIntakeForm() {
                 type="number"
                 step="any"
                 inputMode="decimal"
+                required={validation.hasResidence}
                 value={state.residenceLatitude}
                 error={visibleError("residenceLatitude")}
                 placeholder="34.0522"
@@ -485,6 +508,7 @@ export function BirthIntakeForm() {
                 type="number"
                 step="any"
                 inputMode="decimal"
+                required={validation.hasResidence}
                 value={state.residenceLongitude}
                 error={visibleError("residenceLongitude")}
                 placeholder="-118.2437"
@@ -495,6 +519,7 @@ export function BirthIntakeForm() {
             <InputField
               id="residenceTimeZone"
               label="生活地 IANA 时区（可选）"
+              required={validation.hasResidence}
               value={state.residenceTimeZone}
               error={visibleError("residenceTimeZone")}
               placeholder="例如：America/Los_Angeles"
@@ -503,16 +528,17 @@ export function BirthIntakeForm() {
             />
           </section>
 
-          <details className={styles.advanced} open={Boolean(validation.resolutionError)}>
+          <details className={styles.advanced} open={Boolean(resolutionError)}>
             <summary>高级校时选项</summary>
             <label htmlFor="civilTimeResolution">重复民用时间选择（可选）</label>
             <select
               id="civilTimeResolution"
               name="civilTimeResolution"
               value={state.civilTimeResolution}
-              aria-invalid={validation.resolutionError ? true : undefined}
+              required={Boolean(resolutionError)}
+              aria-invalid={resolutionError ? true : undefined}
               aria-describedby={
-                validation.resolutionError ? "civilTimeResolution-error" : undefined
+                resolutionError ? "civilTimeResolution-error" : undefined
               }
               onChange={(event) =>
                 update(
@@ -525,13 +551,13 @@ export function BirthIntakeForm() {
               <option value="earlier">较早一次 earlier</option>
               <option value="later">较晚一次 later</option>
             </select>
-            {validation.resolutionError ? (
+            {resolutionError ? (
               <p
                 id="civilTimeResolution-error"
                 className={styles.error}
                 role="alert"
               >
-                {validation.resolutionError}
+                {resolutionError}
               </p>
             ) : null}
           </details>
@@ -541,8 +567,24 @@ export function BirthIntakeForm() {
           <div>
             <strong>提交前会先验证民用时间与时区。</strong>
             <span>本页不会展示命盘结果。</span>
+            <p className={styles.validationStatus} role="status" aria-live="polite">
+              {authority.status === "checking"
+                ? "正在校验时区与民用时间…"
+                : authorityResult?.valid === true
+                  ? "时间与时区校验通过"
+                  : authorityResult?.valid === false
+                    ? authorityResult.message
+                    : validation.input
+                      ? "等待校验"
+                      : "请完整填写必填资料"}
+            </p>
+            {authorityErrors.form ? (
+              <p className={styles.error} role="alert">
+                {authorityErrors.form}
+              </p>
+            ) : null}
           </div>
-          <button type="submit" disabled={!validation.input}>
+          <button type="submit" disabled={!authoritativeInput}>
             校验时间并生成命盘
           </button>
         </footer>

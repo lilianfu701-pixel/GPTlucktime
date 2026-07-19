@@ -307,6 +307,13 @@
   font-size: 0.82rem;
 }
 
+.validationStatus {
+  margin: 0.35rem 0 0;
+  color: var(--jade);
+  font-family: FangSong, STFangsong, serif;
+  font-size: 0.82rem;
+}
+
 .submitRow button {
   min-width: min(100%, 18rem);
   min-height: 3.2rem;
