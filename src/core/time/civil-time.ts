@@ -2,10 +2,11 @@ import {
   DateTime,
   TimeStruct,
   TimeZone,
-  TzDatabase,
 } from "timezonecomplete";
+import type { TzDatabase } from "timezonecomplete";
 
 import type { CivilTimeResolution } from "../types";
+import { getTzDatabase } from "./tz-database";
 
 type CivilTimeErrorCode =
   | "DST_GAP"
@@ -105,7 +106,7 @@ export function resolveCivilTime(
       );
     }
 
-    const database = TzDatabase.instance();
+    const database = getTzDatabase();
     if (!database.exists(timeZone)) {
       return failure("INVALID_TIME_ZONE", "Time zone must be a valid IANA ID.");
     }

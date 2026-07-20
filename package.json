@@ -24,6 +24,7 @@
     "react": "latest",
     "react-dom": "latest",
     "timezonecomplete": "^5.15.1",
+    "tzdata": "1.0.49",
     "zod": "latest"
   },
   "devDependencies": {

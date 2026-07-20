@@ -1,8 +1,8 @@
 import { LocalDateTime } from "@js-joda/core";
-import { TzDatabase } from "timezonecomplete";
 import { z } from "zod";
 
 import { BIRTH_INPUT_LIMITS } from "../lib/birth-input-limits";
+import { getTzDatabase } from "./time/tz-database";
 import type {
   BirthInput,
   InputErrorCode,
@@ -93,7 +93,7 @@ function freezeNormalizedInput(
 
 function hasValidTimeZone(timeZone: string): boolean {
   try {
-    return TzDatabase.instance().exists(timeZone);
+    return getTzDatabase().exists(timeZone);
   } catch {
     return false;
   }
