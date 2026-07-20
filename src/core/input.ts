@@ -1,5 +1,5 @@
-import { LocalDateTime, ZoneId } from "@js-joda/core";
-import "@js-joda/timezone";
+import { LocalDateTime } from "@js-joda/core";
+import { TzDatabase } from "timezonecomplete";
 import { z } from "zod";
 
 import { BIRTH_INPUT_LIMITS } from "../lib/birth-input-limits";
@@ -20,7 +20,6 @@ export type {
 
 const localDateTimePattern =
   /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}(?::\d{2}(?:\.\d{1,9})?)?$/;
-const availableTimeZoneIds = new Set(ZoneId.getAvailableZoneIds());
 
 const coordinateSchema = z.object({
   name: z.string().trim().min(1).max(BIRTH_INPUT_LIMITS.placeName),
@@ -93,13 +92,8 @@ function freezeNormalizedInput(
 }
 
 function hasValidTimeZone(timeZone: string): boolean {
-  if (!availableTimeZoneIds.has(timeZone)) {
-    return false;
-  }
-
   try {
-    ZoneId.of(timeZone);
-    return true;
+    return TzDatabase.instance().exists(timeZone);
   } catch {
     return false;
   }
