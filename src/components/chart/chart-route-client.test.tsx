@@ -112,11 +112,33 @@ describe("ChartRouteClient", () => {
     expect(await screen.findByRole("alert")).toHaveTextContent("命盘暂时无法生成，请稍后重试。");
     expect(screen.getByTestId("session-status")).toHaveTextContent("pending");
     expect(actionMock).toHaveBeenCalledTimes(1);
+    expect(screen.getByRole("button", { name: "重新生成" })).toBeVisible();
+    expect(screen.getByRole("link", { name: "返回修改出生资料" })).toHaveAttribute("href", "/");
 
     await user.click(screen.getByRole("button", { name: "重新生成" }));
     expect(await screen.findByRole("heading", { name: "四柱命盘" })).toBeVisible();
     await waitFor(() => expect(actionMock).toHaveBeenCalledTimes(2));
     expect(screen.getByTestId("session-status")).toHaveTextContent("cleared");
+  });
+
+  it("does not offer retry for a non-retryable chart error", async () => {
+    actionMock.mockResolvedValueOnce({
+      ok: false,
+      error: {
+        stage: "input",
+        code: "INVALID_INPUT",
+        message: "请返回修改出生资料。",
+        retryable: false,
+      },
+    });
+    renderRoute();
+
+    expect(await screen.findByRole("alert")).toHaveTextContent("请返回修改出生资料。");
+    expect(screen.queryByRole("button", { name: "重新生成" })).not.toBeInTheDocument();
+    expect(screen.getAllByRole("link")).toHaveLength(1);
+    expect(screen.getByRole("link", { name: "返回修改出生资料" })).toHaveAttribute("href", "/");
+    expect(screen.getByTestId("session-status")).toHaveTextContent("pending");
+    expect(actionMock).toHaveBeenCalledTimes(1);
   });
 
   it("turns a rejected action request into a retryable safe error", async () => {

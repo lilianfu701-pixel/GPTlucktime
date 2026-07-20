@@ -12,6 +12,11 @@ import styles from "./chart-workbench.module.css";
 
 type RouteState = "idle" | "loading" | "error";
 
+interface RouteError {
+  readonly message: string;
+  readonly retryable: boolean;
+}
+
 interface RequestRecord {
   readonly input: NormalizedBirthInput;
   readonly generation: number;
@@ -22,7 +27,7 @@ export function ChartRouteClient() {
   const { pendingBirthInput, clearBirthInput } = useChartSession();
   const [viewModel, setViewModel] = useState<ChartViewModel | null>(null);
   const [routeState, setRouteState] = useState<RouteState>("idle");
-  const [errorMessage, setErrorMessage] = useState("");
+  const [routeError, setRouteError] = useState<RouteError | null>(null);
   const [retryGeneration, setRetryGeneration] = useState(0);
   const requestRef = useRef<RequestRecord | null>(null);
 
@@ -30,7 +35,7 @@ export function ChartRouteClient() {
     if (viewModel || !pendingBirthInput) return;
 
     setRouteState("loading");
-    setErrorMessage("");
+    setRouteError(null);
     const current = requestRef.current;
     if (
       !current ||
@@ -61,13 +66,19 @@ export function ChartRouteClient() {
           clearBirthInput();
           return;
         }
-        setErrorMessage(result.error.message);
+        setRouteError({
+          message: result.error.message,
+          retryable: result.error.retryable,
+        });
         setRouteState("error");
       },
       () => {
         if (!active) return;
         releaseRequest();
-        setErrorMessage("命盘生成请求失败，请重试。");
+        setRouteError({
+          message: "命盘生成请求失败，请重试。",
+          retryable: true,
+        });
         setRouteState("error");
       },
     );
@@ -81,7 +92,7 @@ export function ChartRouteClient() {
     requestRef.current = null;
     setViewModel(null);
     setRouteState("idle");
-    setErrorMessage("");
+    setRouteError(null);
     setRetryGeneration(0);
     clearBirthInput();
   };
@@ -113,10 +124,16 @@ export function ChartRouteClient() {
         <section className={styles.errorState} aria-labelledby="generation-error-heading">
           <p className={styles.eyebrow}>生成未完成</p>
           <h1 id="generation-error-heading">命盘生成暂时中断</h1>
-          <p role="alert">{errorMessage}</p>
-          <button type="button" onClick={() => setRetryGeneration((value) => value + 1)} autoFocus>
-            重新生成
-          </button>
+          <p role="alert">{routeError?.message}</p>
+          {routeError?.retryable ? (
+            <button
+              type="button"
+              onClick={() => setRetryGeneration((value) => value + 1)}
+              autoFocus
+            >
+              重新生成
+            </button>
+          ) : null}
           <Link href="/">返回修改出生资料</Link>
         </section>
       </main>
