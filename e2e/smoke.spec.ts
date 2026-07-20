@@ -135,7 +135,7 @@ test("shows a non-retryable chart error outside the supported year range", async
   await expect(page).toHaveURL(/\/chart$/);
   await expect(page.getByRole("heading", { name: "命盘生成暂时中断" })).toBeVisible();
   await expect(
-    page.getByRole("alert").filter({ hasText: "0002 through 9998" }),
+    page.getByRole("alert").filter({ hasText: "0002 至 9998" }),
   ).toBeVisible();
   await expect(page.getByRole("button", { name: "重新生成" })).toHaveCount(0);
   await expect(page.getByRole("link", { name: "返回修改出生资料" })).toHaveAttribute("href", "/");

@@ -69,13 +69,14 @@ describe("generateChart", () => {
       input: { ...validInput, localDateTime: "0001-01-01T00:00:00" },
       stage: "calculation",
       code: "UNSUPPORTED_DATE_RANGE",
+      message: "支持的真太阳年份范围为 0002 至 9998，请返回修改出生日期。",
     },
-  ])("returns a safe $code result", async ({ input, stage, code }) => {
+  ])("returns a safe $code result", async ({ input, stage, code, message }) => {
     const result = await generateChart(input);
 
     expect(result).toMatchObject({
       ok: false,
-      error: { stage, code, message: expect.any(String) },
+      error: { stage, code, message: message ?? expect.any(String) },
     });
     expect(JSON.stringify(result)).not.toMatch(/stack|RangeError|Error:/);
   });

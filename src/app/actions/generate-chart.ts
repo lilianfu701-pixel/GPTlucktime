@@ -17,6 +17,13 @@ export type GenerateChartResult =
       }>;
     }>;
 
+function safeChartErrorMessage(code: string, fallback: string): string {
+  if (code === "UNSUPPORTED_DATE_RANGE") {
+    return "支持的真太阳年份范围为 0002 至 9998，请返回修改出生日期。";
+  }
+  return fallback;
+}
+
 /** Server action boundary: calculate once, then expose only the display contract. */
 export async function generateChart(input: unknown): Promise<GenerateChartResult> {
   try {
@@ -39,6 +46,7 @@ export async function generateChart(input: unknown): Promise<GenerateChartResult
         ok: false,
         error: {
           ...result.error,
+          message: safeChartErrorMessage(result.error.code, result.error.message),
           retryable: result.error.code === "CHART_SERVICE_ERROR",
         },
       };
