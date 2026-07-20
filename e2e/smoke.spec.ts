@@ -45,7 +45,11 @@ test("validates Shanghai details and navigates without putting them in the URL",
   await expect(page.getByRole("heading", { name: "四柱命盘" })).toBeVisible();
   await expect(page.getByRole("region", { name: "四柱", exact: true })).toContainText("年柱");
   await expect(page.getByRole("region", { name: "四柱", exact: true })).toContainText("日主");
+  await expect(page.getByRole("region", { name: "静态指标", exact: true })).toContainText("十神");
+  await expect(page.getByRole("region", { name: "静态指标", exact: true })).toContainText("九星气学");
   await expect(page.getByRole("region", { name: "时间核验" })).toContainText("真太阳时");
+  await expect(page.getByRole("region", { name: "时间核验" })).toContainText("节气定位");
+  await expect(page.getByRole("link", { name: "重新录入出生资料" })).toHaveAttribute("href", "/");
 
   await page.reload();
   await expect(page.getByRole("heading", { name: "本次会话没有出生资料" })).toBeVisible();
@@ -104,4 +108,35 @@ test("shows an accessible error for a New York DST gap", async ({ page }) => {
     page.getByRole("button", { name: "校验时间并生成命盘" }),
   ).toBeDisabled();
   await expect(page).toHaveURL(/\/$/);
+});
+
+test("shows the empty-session state when chart is opened directly", async ({ page }) => {
+  await page.goto("/chart");
+
+  await expect(page.getByRole("heading", { name: "本次会话没有出生资料" })).toBeVisible();
+  await expect(page.getByRole("link", { name: "返回出生资料录入" })).toHaveAttribute("href", "/");
+  await expect(page.getByRole("button", { name: "重新生成" })).toHaveCount(0);
+});
+
+test("shows a non-retryable chart error outside the supported year range", async ({ page }) => {
+  await page.goto("/");
+  await fillBirthDetails(page, {
+    date: "0001-01-01",
+    time: "12:00:00",
+    name: "Greenwich",
+    latitude: "0",
+    longitude: "0",
+    timeZone: "Etc/UTC",
+  });
+
+  const submit = page.getByRole("button", { name: "校验时间并生成命盘" });
+  await expect(submit).toBeEnabled();
+  await submit.click();
+  await expect(page).toHaveURL(/\/chart$/);
+  await expect(page.getByRole("heading", { name: "命盘生成暂时中断" })).toBeVisible();
+  await expect(
+    page.getByRole("alert").filter({ hasText: "0002 through 9998" }),
+  ).toBeVisible();
+  await expect(page.getByRole("button", { name: "重新生成" })).toHaveCount(0);
+  await expect(page.getByRole("link", { name: "返回修改出生资料" })).toHaveAttribute("href", "/");
 });
