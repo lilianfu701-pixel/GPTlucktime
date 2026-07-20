@@ -12,7 +12,6 @@
   width: 100%;
   min-height: 100vh;
   padding: clamp(1rem, 3vw, 2.5rem);
-  overflow: hidden;
   color: var(--ink);
   background:
     linear-gradient(90deg, transparent 49.9%, rgba(164, 58, 46, 0.045) 50%, transparent 50.1%),
@@ -64,6 +63,16 @@
   line-height: 1.8;
 }
 
+.restartLink {
+  display: inline-block;
+  margin-top: 1rem;
+  padding-bottom: 0.2rem;
+  border-bottom: 1px solid var(--cinnabar);
+  color: var(--cinnabar-dark);
+  font-size: 0.86rem;
+  text-decoration: none;
+}
+
 .seal {
   display: grid;
   flex: 0 0 auto;
@@ -96,7 +105,7 @@
 
 .birthSummary dl {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: 1rem;
   margin: 0;
 }

@@ -46,13 +46,18 @@ export function ChartRouteClient() {
 
     const request = requestRef.current;
     if (!request) return;
+    const releaseRequest = () => {
+      if (requestRef.current === request) requestRef.current = null;
+    };
     let active = true;
     request.promise.then(
       (result) => {
         if (!active) return;
+        releaseRequest();
         if (result.ok) {
           setViewModel(result.viewModel);
           setRouteState("idle");
+          // Release the complete request record before clearing its source context.
           clearBirthInput();
           return;
         }
@@ -61,6 +66,7 @@ export function ChartRouteClient() {
       },
       () => {
         if (!active) return;
+        releaseRequest();
         setErrorMessage("命盘生成请求失败，请重试。");
         setRouteState("error");
       },
@@ -71,8 +77,21 @@ export function ChartRouteClient() {
     };
   }, [clearBirthInput, pendingBirthInput, retryGeneration, viewModel]);
 
+  const restartEntry = () => {
+    requestRef.current = null;
+    setViewModel(null);
+    setRouteState("idle");
+    setErrorMessage("");
+    setRetryGeneration(0);
+    clearBirthInput();
+  };
+
   if (viewModel) {
-    return <main className={styles.page}><ChartWorkbench viewModel={viewModel} /></main>;
+    return (
+      <main className={styles.page}>
+        <ChartWorkbench viewModel={viewModel} onRestart={restartEntry} />
+      </main>
+    );
   }
 
   if (!pendingBirthInput) {

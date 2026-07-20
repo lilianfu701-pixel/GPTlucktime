@@ -7,7 +7,7 @@ import { ChartWorkbench } from "./chart-workbench";
 
 afterEach(cleanup);
 
-function chartView(timePrecision: "exact" | "approximate" = "exact") {
+function chartView(timePrecision: "exact" | "approximate" | "unknown" = "exact") {
   const result = buildChartContext({
     localDateTime: "2024-02-10T12:00:00",
     timeZone: "Etc/UTC",
@@ -35,6 +35,18 @@ describe("ChartWorkbench", () => {
     expect(grid.querySelector("[data-pillar='day']")).toHaveTextContent("甲辰");
     expect(within(grid).getByText("日主")).toBeVisible();
     expect(within(grid).getAllByText(/序号/)).toHaveLength(4);
+  });
+
+  it.each([
+    ["exact", "精确"],
+    ["approximate", "约略"],
+    ["unknown", "未知"],
+  ] as const)("displays %s birth-time precision as %s", (precision, label) => {
+    render(<ChartWorkbench viewModel={chartView(precision)} onRestart={() => undefined} />);
+
+    const summary = screen.getByRole("region", { name: "出生资料摘要" });
+    expect(within(summary).getByText("时间精度")).toBeVisible();
+    expect(within(summary).getByText(label)).toBeVisible();
   });
 
   it("renders six ordered fact groups with honest unavailable and future states", () => {

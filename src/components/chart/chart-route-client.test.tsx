@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { StrictMode, useEffect } from "react";
 import { cleanup, render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
@@ -20,9 +20,19 @@ const input: NormalizedBirthInput = Object.freeze({
   timePrecision: "exact",
 });
 
-const built = buildChartContext(input);
-if (!built.ok) throw new Error(built.message);
-const viewModel = toChartViewModel(built.value);
+const secondInput: NormalizedBirthInput = Object.freeze({
+  ...input,
+  birthplace: Object.freeze({ name: "Second Birthplace", latitude: 0, longitude: 0 }),
+});
+
+function viewFor(value: NormalizedBirthInput) {
+  const built = buildChartContext(value);
+  if (!built.ok) throw new Error(built.message);
+  return toChartViewModel(built.value);
+}
+
+const viewModel = viewFor(input);
+const secondViewModel = viewFor(secondInput);
 
 function SeedInput() {
   const { setBirthInput } = useChartSession();
@@ -35,14 +45,21 @@ function SessionStatus() {
   return <output data-testid="session-status">{pendingBirthInput ? "pending" : "cleared"}</output>;
 }
 
-function renderRoute(withInput = true) {
-  return render(
+function ReplaceInput() {
+  const { setBirthInput } = useChartSession();
+  return <button type="button" onClick={() => setBirthInput(secondInput)}>use second input</button>;
+}
+
+function renderRoute(withInput = true, strict = false, withReplace = false) {
+  const route = (
     <ChartSessionProvider>
       {withInput ? <SeedInput /> : null}
+      {withReplace ? <ReplaceInput /> : null}
       <ChartRouteClient />
       <SessionStatus />
-    </ChartSessionProvider>,
+    </ChartSessionProvider>
   );
+  return render(strict ? <StrictMode>{route}</StrictMode> : route);
 }
 
 afterEach(cleanup);
@@ -86,6 +103,7 @@ describe("ChartRouteClient", () => {
           stage: "calculation",
           code: "GENERATION_UNAVAILABLE",
           message: "命盘暂时无法生成，请稍后重试。",
+          retryable: true,
         },
       })
       .mockResolvedValueOnce({ ok: true, viewModel });
@@ -117,5 +135,48 @@ describe("ChartRouteClient", () => {
     await user.click(screen.getByRole("button", { name: "重新生成" }));
     expect(await screen.findByRole("heading", { name: "四柱命盘" })).toBeVisible();
     expect(actionMock).toHaveBeenCalledTimes(2);
+  });
+
+  it("calls the generation action only once for one input under StrictMode", async () => {
+    actionMock.mockResolvedValue({ ok: true, viewModel });
+
+    renderRoute(true, true);
+
+    await waitFor(() => expect(actionMock).toHaveBeenCalledTimes(1));
+    expect(await screen.findByRole("heading", { name: "四柱命盘" })).toBeVisible();
+  });
+
+  it("ignores an older response after the pending input changes", async () => {
+    const user = userEvent.setup();
+    let resolveFirst!: (value: Awaited<ReturnType<typeof generateChart>>) => void;
+    let resolveSecond!: (value: Awaited<ReturnType<typeof generateChart>>) => void;
+    actionMock
+      .mockReturnValueOnce(new Promise((resolve) => { resolveFirst = resolve; }))
+      .mockReturnValueOnce(new Promise((resolve) => { resolveSecond = resolve; }));
+    renderRoute(true, false, true);
+    await waitFor(() => expect(actionMock).toHaveBeenCalledTimes(1));
+
+    await user.click(screen.getByRole("button", { name: "use second input" }));
+    await waitFor(() => expect(actionMock).toHaveBeenCalledTimes(2));
+    resolveSecond({ ok: true, viewModel: secondViewModel });
+    expect(await screen.findByText("Second Birthplace")).toBeVisible();
+
+    resolveFirst({ ok: true, viewModel });
+    await waitFor(() => expect(screen.getByText("Second Birthplace")).toBeVisible());
+    expect(screen.queryByText("Greenwich")).not.toBeInTheDocument();
+  });
+
+  it("clears the retained result when restarting birth-data entry", async () => {
+    const user = userEvent.setup();
+    actionMock.mockResolvedValueOnce({ ok: true, viewModel });
+    renderRoute();
+    expect(await screen.findByRole("heading", { name: "四柱命盘" })).toBeVisible();
+
+    const restart = screen.getByRole("link", { name: "重新录入出生资料" });
+    expect(restart).toHaveAttribute("href", "/");
+    await user.click(restart);
+
+    expect(screen.getByRole("heading", { name: "本次会话没有出生资料" })).toBeVisible();
+    expect(screen.getByTestId("session-status")).toHaveTextContent("cleared");
   });
 });

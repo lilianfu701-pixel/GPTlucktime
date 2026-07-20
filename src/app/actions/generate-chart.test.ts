@@ -1,7 +1,13 @@
-import { describe, expect, it, vi } from "vitest";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
 import * as chartService from "../../server/chart-service";
 import { generateChart } from "./generate-chart";
+
+const checkChartGenerationRateLimit = vi.hoisted(() => vi.fn());
+
+vi.mock("../../server/chart-generation-rate-limit", () => ({
+  checkChartGenerationRateLimit,
+}));
 
 const validInput = {
   localDateTime: "2024-02-10T12:00:00",
@@ -9,6 +15,13 @@ const validInput = {
   birthplace: { name: "Greenwich", latitude: 0, longitude: 0 },
   timePrecision: "exact" as const,
 };
+
+beforeEach(() => {
+  checkChartGenerationRateLimit.mockReset();
+  checkChartGenerationRateLimit.mockResolvedValue({ allowed: true, remaining: 9 });
+});
+
+afterEach(() => vi.restoreAllMocks());
 
 describe("generateChart", () => {
   it("maps the server chart service result to a display-only view model", async () => {
@@ -80,8 +93,30 @@ describe("generateChart", () => {
         stage: "calculation",
         code: "GENERATION_UNAVAILABLE",
         message: "命盘暂时无法生成，请稍后重试。",
+        retryable: true,
       },
     });
     expect(JSON.stringify(result)).not.toContain("secret-stack-marker");
+  });
+
+  it("returns a safe retryable result before calculation when rate limited", async () => {
+    const serviceSpy = vi.spyOn(chartService, "buildStaticChart");
+    checkChartGenerationRateLimit.mockResolvedValueOnce({
+      allowed: false,
+      remaining: 0,
+      resetAtMs: 60_000,
+      retryAfterMs: 30_000,
+    });
+
+    await expect(generateChart(validInput)).resolves.toEqual({
+      ok: false,
+      error: {
+        stage: "calculation",
+        code: "RATE_LIMITED",
+        message: "命盘生成请求过于频繁，请稍后重试。",
+        retryable: true,
+      },
+    });
+    expect(serviceSpy).not.toHaveBeenCalled();
   });
 });

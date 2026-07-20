@@ -72,6 +72,16 @@ test("renders the generated workbench without horizontal overflow at 375px", asy
     content: document.documentElement.scrollWidth,
   }));
   expect(dimensions.content).toBeLessThanOrEqual(dimensions.viewport);
+  for (const name of ["四柱", "静态指标", "时间核验"]) {
+    const bounds = await page
+      .getByRole("region", { name, exact: true })
+      .evaluate((element) => {
+        const rect = element.getBoundingClientRect();
+        return { left: rect.left, right: rect.right, viewport: window.innerWidth };
+      });
+    expect(bounds.left).toBeGreaterThanOrEqual(0);
+    expect(bounds.right).toBeLessThanOrEqual(bounds.viewport);
+  }
   await testInfo.attach("chart-workbench-375px", {
     body: await page.screenshot({ fullPage: true }),
     contentType: "image/png",
