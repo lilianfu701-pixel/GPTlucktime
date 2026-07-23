@@ -28,3 +28,17 @@ test("worker redirects unknown paths back to the Fantasy 5 page", async () => {
   assert.equal(response.status, 302);
   assert.equal(response.headers.get("location"), "http://localhost/5");
 });
+
+test("rendered page exposes a no-lookahead backtest with a 10-draw default", async () => {
+  const response = await render();
+  const html = await response.text();
+
+  assert.match(html, /滚动回测/);
+  assert.match(html, /window\.F5_BACKTEST/);
+  assert.match(html, /data-backtest-count="10"/);
+  assert.match(html, /id="backtest-body"/);
+  assert.match(html, /<a class="tab" href="#backtest-panel">回测<\/a>/);
+  assert.match(html, /严禁未来数据参与/);
+  assert.match(html, /Brier Score/);
+  assert.match(html, /Log Loss/);
+});

@@ -1,6 +1,12 @@
 import { mkdirSync, readFileSync, writeFileSync, existsSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import { HISTORY_CSV_PATH, parseHistoryCsv } from "../lib/history-data.mjs";
+import {
+  MODEL_VERSION,
+  buildRecommendations,
+  buildWalkForwardBacktest,
+  summarizeBacktest,
+} from "../lib/fantasy5-model.mjs";
 
 const projectRoot = resolve(import.meta.dirname, "..");
 const csvPath = HISTORY_CSV_PATH;
@@ -170,24 +176,6 @@ function buildDataStatus(validRows, visibleHistory) {
   };
 }
 
-function buildRecommendations(history) {
-  const baseline = 5 / 39;
-  const prior = 90;
-  const sampleSize = Math.max(history.length, 1);
-  const counts = new Map(Array.from({ length: 39 }, (_, index) => [index + 1, 0]));
-
-  history.forEach((row) => {
-    row.numbers.forEach((number) => counts.set(number, (counts.get(number) ?? 0) + 1));
-  });
-
-  return Array.from({ length: 39 }, (_, index) => {
-    const number = index + 1;
-    const count = counts.get(number) ?? 0;
-    const probability = ((count + baseline * prior) / (sampleSize + prior)) * 100;
-    return { number, probability: Number(probability.toFixed(1)), count };
-  }).sort((left, right) => right.probability - left.probability || left.number - right.number);
-}
-
 const validRows = readValidHistoryRows();
 const history = validRows.slice(-300).reverse().map(toHistoryDisplayRow);
 const latestRow = validRows.at(-1);
@@ -199,7 +187,33 @@ const current = {
   jackpot: latestRow?.jackpot_text || "待同步",
   ...enrichDate(nextDrawDate),
 };
-const recommendations = buildRecommendations(history);
+const recommendations = buildRecommendations(validRows);
+const backtestResults = buildWalkForwardBacktest(validRows, {
+  drawCount: 50,
+  minTrainingDraws: 365,
+});
+const requestedBacktestDrawCounts = [10, 20, 30, 50];
+const availableBacktestDrawCounts = requestedBacktestDrawCounts.filter(
+  (count) => count <= backtestResults.length,
+);
+const defaultBacktestDrawCount = availableBacktestDrawCounts.includes(10)
+  ? 10
+  : availableBacktestDrawCounts.at(0) ?? backtestResults.length;
+const backtest = {
+  modelVersion: MODEL_VERSION,
+  defaultDrawCount: defaultBacktestDrawCount,
+  availableDrawCounts: availableBacktestDrawCounts,
+  results: backtestResults,
+  summaries: Object.fromEntries(
+    availableBacktestDrawCounts.map((count) => [
+      count,
+      summarizeBacktest(backtestResults.slice(0, count)),
+    ]),
+  ),
+};
+const defaultBacktestSummary =
+  backtest.summaries[backtest.defaultDrawCount] ??
+  summarizeBacktest(backtest.results);
 
 const html = String.raw`<!doctype html>
 <html lang="zh-CN">
@@ -393,6 +407,7 @@ const html = String.raw`<!doctype html>
       padding: 7px 10px;
       color: #374151;
       font-size: 13px;
+      text-decoration: none;
     }
     .tab.active { border-color: #17202a; background: #17202a; color: white; }
     .legend { color: var(--muted); font-size: 12px; }
@@ -528,10 +543,101 @@ const html = String.raw`<!doctype html>
       margin-top: 10px;
     }
     .note { color: var(--muted); font-size: 12px; margin: 9px 0 0; }
+    .backtest { margin-top: 12px; }
+    .backtest-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 10px;
+    }
+    .backtest-head h2 { margin-bottom: 5px; }
+    .backtest-head .subtitle { margin-bottom: 0; }
+    .backtest-controls {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+    .backtest-range {
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: white;
+      color: #475467;
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: 800;
+      padding: 7px 10px;
+    }
+    .backtest-range.active {
+      border-color: var(--blue);
+      background: var(--blue);
+      color: white;
+    }
+    .backtest-metrics {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .backtest-metric {
+      border: 1px solid #e5e7eb;
+      border-radius: 6px;
+      background: var(--soft);
+      padding: 9px;
+      min-width: 0;
+    }
+    .backtest-metric span {
+      display: block;
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 700;
+      margin-bottom: 3px;
+    }
+    .backtest-metric strong {
+      display: block;
+      color: #1f2937;
+      font-size: 18px;
+      font-variant-numeric: tabular-nums;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .backtest-table-wrap {
+      overflow: auto;
+      border: 1px solid #ece7dd;
+      border-radius: 8px;
+      max-height: 520px;
+    }
+    .backtest-table { min-width: 1120px; }
+    .tiny-ball.backtest-hit {
+      border-color: #16a34a;
+      background: #dcfce7;
+      color: #166534;
+      box-shadow: inset 0 0 0 1px rgba(22, 163, 74, .12);
+    }
+    .tiny-ball.backtest-hit.number-selected {
+      border-color: var(--selected);
+      background: var(--selected);
+      color: white;
+    }
+    .hit-count {
+      display: inline-flex;
+      min-width: 28px;
+      height: 28px;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      background: #eef2ff;
+      color: #3730a3;
+      font-weight: 900;
+    }
+    .hit-count.has-hit { background: #dcfce7; color: #166534; }
     @media (max-width: 1180px) {
       .next-draw { grid-template-columns: 1fr; }
       .filter-grid { grid-template-columns: repeat(4, 1fr); }
       .balls { grid-template-columns: repeat(10, minmax(42px, 1fr)); }
+      .backtest-metrics { grid-template-columns: repeat(3, 1fr); }
     }
     @media (max-width: 720px) {
       main { padding: 12px; }
@@ -542,6 +648,9 @@ const html = String.raw`<!doctype html>
       .filter-grid { grid-template-columns: repeat(2, 1fr); }
       .balls { grid-template-columns: repeat(5, minmax(42px, 1fr)); }
       .history-head { grid-template-columns: 1fr; }
+      .backtest-head { display: grid; }
+      .backtest-controls { justify-content: flex-start; }
+      .backtest-metrics { grid-template-columns: repeat(2, 1fr); }
     }
   </style>
 </head>
@@ -611,7 +720,7 @@ const html = String.raw`<!doctype html>
       <div class="toolbar">
         <div class="tabs">
           <span class="tab active">概率排序</span>
-          <span class="tab">回测</span>
+          <a class="tab" href="#backtest-panel">回测</a>
           <span class="tab">冷热</span>
           <span class="tab">指标库</span>
         </div>
@@ -619,6 +728,52 @@ const html = String.raw`<!doctype html>
       </div>
       <div class="balls" id="recommendations"></div>
       <p class="note">概率是最近历史样本收缩到单号基准后的估计出现率，只作研究观察，不是中奖保证。</p>
+    </section>
+
+    <section class="card backtest" id="backtest-panel">
+      <div class="backtest-head">
+        <div>
+          <h2 id="backtest-title">滚动回测（最近 ${backtest.defaultDrawCount} 期）</h2>
+          <p class="subtitle">每一期的模型 Top 5 都只使用该期开奖日前的历史数据计算，可逐期核对预测、实际号码和命中结果。</p>
+        </div>
+        <div class="backtest-controls" aria-label="回测期数">
+          ${backtest.availableDrawCounts
+            .map(
+              (count) =>
+                `<button class="backtest-range${count === backtest.defaultDrawCount ? " active" : ""}" type="button" data-backtest-count="${count}">最近 ${count} 期</button>`,
+            )
+            .join("")}
+        </div>
+      </div>
+
+      <div class="backtest-metrics">
+        <div class="backtest-metric"><span>Top 5 平均命中</span><strong id="backtest-average-hits">${defaultBacktestSummary.averageHits.toFixed(2)}</strong></div>
+        <div class="backtest-metric"><span>至少命中 1 个</span><strong id="backtest-one-rate">${defaultBacktestSummary.atLeastOneRate.toFixed(1)}%</strong></div>
+        <div class="backtest-metric"><span>至少命中 2 个</span><strong id="backtest-two-rate">${defaultBacktestSummary.atLeastTwoRate.toFixed(1)}%</strong></div>
+        <div class="backtest-metric"><span>较随机基准增量</span><strong id="backtest-lift">${defaultBacktestSummary.averageHitLift >= 0 ? "+" : ""}${defaultBacktestSummary.averageHitLift.toFixed(3)}</strong></div>
+        <div class="backtest-metric"><span>Brier Score（越低越好）</span><strong id="backtest-brier">${defaultBacktestSummary.brierScore.toFixed(4)}</strong></div>
+        <div class="backtest-metric"><span>Log Loss（越低越好）</span><strong id="backtest-logloss">${defaultBacktestSummary.logLoss.toFixed(4)}</strong></div>
+      </div>
+
+      <div class="backtest-table-wrap">
+        <table class="backtest-table">
+          <thead>
+            <tr>
+              <th>开奖日期</th>
+              <th>训练截止</th>
+              <th>训练期数</th>
+              <th>模型 Top 5</th>
+              <th>实际开奖号</th>
+              <th>命中号码</th>
+              <th>命中数</th>
+              <th>Brier</th>
+              <th>Log Loss</th>
+            </tr>
+          </thead>
+          <tbody id="backtest-body"></tbody>
+        </table>
+      </div>
+      <p class="note"><strong>防穿越规则：</strong>严禁未来数据参与；预测某期时只读取严格早于该期开奖日的记录。当前模型版本 ${backtest.modelVersion}。10期属于小样本，结果会明显波动，仅用于审计历史表现，不代表未来中奖保证。</p>
     </section>
 
     <section class="card history">
@@ -676,11 +831,13 @@ const html = String.raw`<!doctype html>
     window.F5_CURRENT = ${JSON.stringify(current)};
     window.F5_RECOMMENDATIONS = ${JSON.stringify(recommendations)};
     window.F5_DATA_STATUS = ${JSON.stringify(dataStatus)};
+    window.F5_BACKTEST = ${JSON.stringify(backtest)};
   </script>
   <script>
     const historyRows = window.F5_HISTORY;
     const currentDraw = window.F5_CURRENT;
     const recommendations = window.F5_RECOMMENDATIONS;
+    const backtestData = window.F5_BACKTEST;
     const filters = {
       tail: document.getElementById("tail-filter"),
       weekday: document.getElementById("weekday-filter"),
@@ -695,6 +852,16 @@ const html = String.raw`<!doctype html>
     const historyBody = document.getElementById("history-body");
     const visibleCount = document.getElementById("visible-count");
     const recommendationsEl = document.getElementById("recommendations");
+    const backtestBody = document.getElementById("backtest-body");
+    const backtestTitle = document.getElementById("backtest-title");
+    const backtestMetricEls = {
+      averageHits: document.getElementById("backtest-average-hits"),
+      oneRate: document.getElementById("backtest-one-rate"),
+      twoRate: document.getElementById("backtest-two-rate"),
+      lift: document.getElementById("backtest-lift"),
+      brier: document.getElementById("backtest-brier"),
+      logLoss: document.getElementById("backtest-logloss"),
+    };
     let selectedNumber = null;
 
     function fillSelect(select, values, allLabel = "全部") {
@@ -720,11 +887,15 @@ const html = String.raw`<!doctype html>
       return span;
     }
 
-    function setSelectedNumber(number) {
-      selectedNumber = selectedNumber === number ? null : number;
+    function syncSelectedNumberStyles() {
       document.querySelectorAll("[data-number]").forEach((node) => {
         node.classList.toggle("number-selected", selectedNumber !== null && node.dataset.number === selectedNumber);
       });
+    }
+
+    function setSelectedNumber(number) {
+      selectedNumber = selectedNumber === number ? null : number;
+      syncSelectedNumberStyles();
     }
 
     function renderRecommendations() {
@@ -751,10 +922,15 @@ const html = String.raw`<!doctype html>
       return wrap;
     }
 
-    function numberSet(numbers) {
+    function numberSet(numbers, hitNumbers = []) {
       const wrap = document.createElement("span");
       wrap.className = "numset";
-      numbers.forEach((number) => wrap.appendChild(numberButton(number)));
+      const hitSet = new Set(hitNumbers);
+      numbers.forEach((number) => {
+        const button = numberButton(number);
+        if (hitSet.has(number)) button.classList.add("backtest-hit");
+        wrap.appendChild(button);
+      });
       return wrap;
     }
 
@@ -782,6 +958,62 @@ const html = String.raw`<!doctype html>
       return row;
     }
 
+    function appendNumberCell(row, numbers, hitNumbers = []) {
+      const cell = document.createElement("td");
+      if (numbers.length === 0) {
+        cell.textContent = "—";
+      } else {
+        cell.appendChild(numberSet(numbers, hitNumbers));
+      }
+      row.appendChild(cell);
+      return cell;
+    }
+
+    function renderBacktest(drawCount) {
+      const count = Number(drawCount);
+      const summary = backtestData.summaries[String(count)];
+      if (!summary) return;
+
+      backtestTitle.textContent = "滚动回测（最近 " + count + " 期）";
+      backtestMetricEls.averageHits.textContent = summary.averageHits.toFixed(2);
+      backtestMetricEls.oneRate.textContent = summary.atLeastOneRate.toFixed(1) + "%";
+      backtestMetricEls.twoRate.textContent = summary.atLeastTwoRate.toFixed(1) + "%";
+      backtestMetricEls.lift.textContent =
+        (summary.averageHitLift >= 0 ? "+" : "") + summary.averageHitLift.toFixed(3);
+      backtestMetricEls.brier.textContent = summary.brierScore.toFixed(4);
+      backtestMetricEls.logLoss.textContent = summary.logLoss.toFixed(4);
+
+      document.querySelectorAll("[data-backtest-count]").forEach((button) => {
+        button.classList.toggle(
+          "active",
+          Number(button.dataset.backtestCount) === count,
+        );
+      });
+
+      backtestBody.innerHTML = "";
+      backtestData.results.slice(0, count).forEach((result) => {
+        const row = document.createElement("tr");
+        row.dataset.backtestRow = "true";
+        appendCell(row, result.drawDate);
+        appendCell(row, result.trainingCutoffDate);
+        appendCell(row, result.trainingDrawCount);
+        appendNumberCell(row, result.predictedNumbers, result.hitNumbers);
+        appendNumberCell(row, result.actualNumbers, result.hitNumbers);
+        appendNumberCell(row, result.hitNumbers, result.hitNumbers);
+        const hitCell = document.createElement("td");
+        const hitCount = document.createElement("strong");
+        hitCount.className = "hit-count" + (result.hitCount > 0 ? " has-hit" : "");
+        hitCount.textContent = String(result.hitCount);
+        hitCell.appendChild(hitCount);
+        row.appendChild(hitCell);
+        appendCell(row, result.brierScore.toFixed(4));
+        appendCell(row, result.logLoss.toFixed(4));
+        backtestBody.appendChild(row);
+      });
+
+      syncSelectedNumberStyles();
+    }
+
     function rowMatches(row) {
       const numberValue = filters.number.value.trim();
       if (filters.tail.value && String(row.tail) !== filters.tail.value) return false;
@@ -802,11 +1034,7 @@ const html = String.raw`<!doctype html>
       historyBody.appendChild(renderRow(currentDraw, true));
       rows.forEach((row) => historyBody.appendChild(renderRow(row)));
       visibleCount.textContent = String(rows.length);
-      if (selectedNumber !== null) {
-        const keep = selectedNumber;
-        selectedNumber = null;
-        setSelectedNumber(keep);
-      }
+      syncSelectedNumberStyles();
     }
 
     fillSelect(filters.tail, Array.from({ length: 10 }, (_, index) => index));
@@ -817,7 +1045,11 @@ const html = String.raw`<!doctype html>
     fillSelect(filters.hourElement, ["木", "火", "土", "金", "水"]);
     Object.values(filters).forEach((control) => control.addEventListener("input", renderHistory));
     Object.values(filters).forEach((control) => control.addEventListener("change", renderHistory));
+    document.querySelectorAll("[data-backtest-count]").forEach((button) => {
+      button.addEventListener("click", () => renderBacktest(button.dataset.backtestCount));
+    });
     renderRecommendations();
+    renderBacktest(backtestData.defaultDrawCount);
     renderHistory();
   </script>
 </body>
