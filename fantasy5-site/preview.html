@@ -1,0 +1,589 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fantasy 5 深度推演研究台</title>
+  <style>
+    :root {
+      --bg: #f5f1e8;
+      --surface: #fffdf8;
+      --ink: #17202a;
+      --muted: #667085;
+      --line: #ddd6c8;
+      --soft: #f7f8fa;
+      --blue: #2563eb;
+      --blue-soft: #dbeafe;
+      --green: #17734d;
+      --selected: #e11d48;
+      --shadow: 0 10px 26px rgba(23, 32, 42, 0.07);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "Microsoft YaHei", "PingFang SC", Arial, sans-serif;
+    }
+    main {
+      width: min(1440px, 100%);
+      margin: 0 auto;
+      padding: 18px;
+    }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 { margin-bottom: 4px; font-size: 28px; letter-spacing: 0; }
+    h2 { margin-bottom: 10px; font-size: 18px; }
+    h3 { margin-bottom: 8px; font-size: 14px; }
+    p { color: var(--muted); line-height: 1.55; }
+    button, input, select { font: inherit; }
+    .top {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 16px;
+      align-items: start;
+      margin-bottom: 12px;
+    }
+    .subtitle { margin-bottom: 8px; color: var(--muted); }
+    .pills { display: flex; gap: 8px; flex-wrap: wrap; }
+    .pill {
+      border: 1px solid var(--line);
+      background: var(--surface);
+      border-radius: 999px;
+      padding: 5px 9px;
+      color: #344054;
+      font-size: 12px;
+      white-space: nowrap;
+    }
+    .pill.blue { background: var(--blue-soft); border-color: #bfdbfe; color: #1d4ed8; }
+    .pill.green { background: #dcf6e9; border-color: #a5dfc1; color: #145f3f; }
+    .pill.warn { background: #fff1d6; border-color: #f6c56d; color: #8a4b0f; }
+    .rollback {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+    .btn {
+      height: 34px;
+      border: 1px solid var(--line);
+      background: white;
+      border-radius: 6px;
+      padding: 0 10px;
+      color: #344054;
+      font-size: 13px;
+      cursor: pointer;
+    }
+    .btn.active { border-color: var(--blue); background: var(--blue); color: white; }
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--surface);
+      box-shadow: var(--shadow);
+      padding: 14px;
+    }
+    .next-draw {
+      display: grid;
+      grid-template-columns: minmax(280px, 0.7fr) minmax(0, 1fr) 220px;
+      gap: 12px;
+      align-items: stretch;
+      margin-bottom: 12px;
+    }
+    .next-title { display: grid; gap: 7px; }
+    .big-time { color: var(--blue); font-size: 26px; font-weight: 900; }
+    .small { color: var(--muted); font-size: 12px; }
+    .indicator-strip {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 7px;
+    }
+    .indicator {
+      border: 1px solid #e5e7eb;
+      background: var(--soft);
+      border-radius: 6px;
+      padding: 8px;
+      min-width: 0;
+    }
+    .indicator span {
+      display: block;
+      color: var(--muted);
+      font-size: 11px;
+      margin-bottom: 3px;
+      white-space: nowrap;
+    }
+    .indicator strong {
+      display: block;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      font-size: 14px;
+    }
+    .pick-box {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 6px;
+      align-content: center;
+    }
+    .pick-slot {
+      aspect-ratio: 1 / 1;
+      border: 2px dashed #c9c2b3;
+      border-radius: 50%;
+      background: #fffaf0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #9a8c76;
+      font-weight: 800;
+    }
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .metric {
+      border: 1px solid #e5e7eb;
+      background: var(--soft);
+      border-radius: 6px;
+      padding: 9px;
+    }
+    .metric span { color: var(--muted); font-size: 11px; }
+    .metric strong { display: block; margin-top: 2px; font-size: 18px; }
+    .toolbar {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    .tabs { display: flex; gap: 6px; flex-wrap: wrap; }
+    .tab {
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: white;
+      padding: 7px 10px;
+      color: #374151;
+      font-size: 13px;
+    }
+    .tab.active { border-color: #17202a; background: #17202a; color: white; }
+    .legend { color: var(--muted); font-size: 12px; }
+    .balls {
+      display: grid;
+      grid-template-columns: repeat(13, minmax(42px, 1fr));
+      gap: 8px;
+    }
+    .ball {
+      aspect-ratio: 1 / 1;
+      border: 1px solid #bfdbfe;
+      border-radius: 50%;
+      background: #e8eefc;
+      color: #1e3a8a;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      cursor: pointer;
+      transition: transform .12s ease, background .12s ease, color .12s ease, border-color .12s ease;
+      user-select: none;
+    }
+    .ball:hover { transform: translateY(-1px); }
+    .ball.hot { border-color: var(--blue); background: var(--blue); color: white; }
+    .ball.good { background: #dcf6e9; border-color: #a5dfc1; color: #145f3f; }
+    .ball small { margin-top: 1px; color: currentColor; opacity: .82; font-size: 10px; font-weight: 800; }
+    .ball.number-selected,
+    .tiny-ball.number-selected {
+      border-color: var(--selected);
+      background: var(--selected);
+      color: white;
+      box-shadow: 0 0 0 3px rgba(225, 29, 72, .18);
+    }
+    .history { margin-top: 12px; }
+    .history-head {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 10px;
+      align-items: start;
+      margin-bottom: 10px;
+    }
+    .filter-grid {
+      display: grid;
+      grid-template-columns: 120px 120px 120px 130px 120px 130px 130px 130px minmax(160px, 1fr);
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .filter {
+      min-height: 38px;
+      border: 1px solid #d1d5db;
+      border-radius: 6px;
+      background: white;
+      padding: 5px 7px;
+      color: #344054;
+      font-size: 12px;
+    }
+    .filter label {
+      display: block;
+      color: var(--muted);
+      font-size: 10px;
+      margin-bottom: 2px;
+      font-weight: 700;
+    }
+    .filter select,
+    .filter input {
+      width: 100%;
+      border: 0;
+      outline: 0;
+      background: transparent;
+      color: #344054;
+      font-size: 12px;
+    }
+    .table-wrap {
+      overflow: auto;
+      border: 1px solid #ece7dd;
+      border-radius: 8px;
+      max-height: 640px;
+    }
+    table {
+      width: 100%;
+      min-width: 980px;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    th, td {
+      border-bottom: 1px solid #ece7dd;
+      padding: 9px 8px;
+      text-align: left;
+      white-space: nowrap;
+    }
+    th {
+      position: sticky;
+      top: 0;
+      background: #fbfaf6;
+      z-index: 1;
+      color: #475467;
+      font-size: 12px;
+    }
+    tbody tr:hover { background: #fff9ed; }
+    tbody tr.upcoming { background: #eef6ff; }
+    .numset { display: flex; gap: 5px; align-items: center; }
+    .tiny-ball {
+      width: 25px;
+      height: 25px;
+      border: 1px solid #bfdbfe;
+      border-radius: 50%;
+      background: #e8eefc;
+      color: #1d4ed8;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 900;
+      cursor: pointer;
+      user-select: none;
+    }
+    .blank-ball {
+      width: 25px;
+      height: 25px;
+      border: 2px dashed #aac5e8;
+      border-radius: 50%;
+      background: white;
+      display: inline-flex;
+    }
+    .pager {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      color: var(--muted);
+      font-size: 12px;
+      margin-top: 10px;
+    }
+    .note { color: var(--muted); font-size: 12px; margin: 9px 0 0; }
+    @media (max-width: 1180px) {
+      .next-draw { grid-template-columns: 1fr; }
+      .filter-grid { grid-template-columns: repeat(4, 1fr); }
+      .balls { grid-template-columns: repeat(10, minmax(42px, 1fr)); }
+    }
+    @media (max-width: 720px) {
+      main { padding: 12px; }
+      .top { grid-template-columns: 1fr; }
+      .rollback { justify-content: flex-start; }
+      .indicator-strip,
+      .metrics,
+      .filter-grid { grid-template-columns: repeat(2, 1fr); }
+      .balls { grid-template-columns: repeat(5, minmax(42px, 1fr)); }
+      .history-head { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="top">
+      <div>
+        <h1>Fantasy 5 深度推演研究台</h1>
+        <p class="subtitle">每日开奖 · 1-39 号码 · 18:25 洛杉矶时间锚点 · 118 个时空指标 · 历史相似样本概率排序</p>
+        <div class="pills">
+          <span class="pill blue">gpt.lucktime.net/5 专项页</span>
+          <span class="pill green">点击号码联动高亮，再点取消</span>
+          <span class="pill green">历史数据已更新</span>
+          <span class="pill">数据截止日期 2026-07-22</span>
+          <span class="pill">时支固定酉，五行固定金</span>
+          <span class="pill">筛选使用时干五行</span>
+        </div>
+      </div>
+      <div class="rollback" aria-label="开奖回滚">
+        <button class="btn active">最新</button>
+        <button class="btn">上1期</button>
+        <button class="btn">上2期</button>
+        <button class="btn">上3期</button>
+        <button class="btn">上5期</button>
+        <button class="btn">上10期</button>
+      </div>
+    </section>
+
+    <section class="card next-draw">
+      <div class="next-title">
+        <h2>即将开奖</h2>
+        <div class="big-time">2026-07-23 18:25</div>
+        <div class="small">期号 9699 · 当前奖池 $301,000 · 洛杉矶今天 2026-07-23 · 数据滞后 1 天</div>
+      </div>
+      <div class="indicator-strip">
+        <div class="indicator"><span>周几</span><strong>周四</strong></div>
+        <div class="indicator"><span>日干</span><strong>戊</strong></div>
+        <div class="indicator"><span>日支</span><strong>戌</strong></div>
+        <div class="indicator"><span>日五行</span><strong>土</strong></div>
+        <div class="indicator"><span>时干五行</span><strong>金</strong></div>
+        <div class="indicator"><span>时支五行</span><strong>金</strong></div>
+      </div>
+      <div>
+        <h3>选号空位</h3>
+        <div class="pick-box">
+          <span class="pick-slot">?</span>
+          <span class="pick-slot">?</span>
+          <span class="pick-slot">?</span>
+          <span class="pick-slot">?</span>
+          <span class="pick-slot">?</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="metrics">
+        <div class="metric"><span>模型输入</span><strong>82</strong></div>
+        <div class="metric"><span>原始时空指标</span><strong>118</strong></div>
+        <div class="metric"><span>历史样本</span><strong>11866</strong></div>
+        <div class="metric"><span>单号基准</span><strong>12.82%</strong></div>
+      </div>
+      <div class="toolbar">
+        <div class="tabs">
+          <span class="tab active">概率排序</span>
+          <span class="tab">回测</span>
+          <span class="tab">冷热</span>
+          <span class="tab">指标库</span>
+        </div>
+        <div class="legend">点击一个号码，历史开奖和概率区同号一起变色</div>
+      </div>
+      <div class="balls" id="recommendations"></div>
+      <p class="note">概率是最近历史样本收缩到单号基准后的估计出现率，只作研究观察，不是中奖保证。</p>
+    </section>
+
+    <section class="card history">
+      <div class="history-head">
+        <div>
+          <h2>历史开奖</h2>
+          <p class="subtitle">筛选框在历史区顶端。构建时读取并校验完整 CSV 11866 期，当前页面显示最近 300 期真实日期和号码。</p>
+        </div>
+        <div class="pills">
+          <span class="pill blue">当前显示 <span id="visible-count">0</span> 期</span>
+          <span class="pill green">历史数据已更新</span>
+          <span class="pill">数据截止日期 2026-07-22</span>
+        </div>
+      </div>
+
+      <div class="filter-grid">
+        <div class="filter"><label for="tail-filter">开奖日尾数</label><select id="tail-filter"></select></div>
+        <div class="filter"><label for="weekday-filter">周几</label><select id="weekday-filter"></select></div>
+        <div class="filter"><label for="stem-filter">日干</label><select id="stem-filter"></select></div>
+        <div class="filter"><label for="branch-filter">日支</label><select id="branch-filter"></select></div>
+        <div class="filter"><label for="element-filter">日五行</label><select id="element-filter"></select></div>
+        <div class="filter"><label for="hour-element-filter">时干五行</label><select id="hour-element-filter"></select></div>
+        <div class="filter"><label for="from-filter">开始日期</label><input id="from-filter" type="date"></div>
+        <div class="filter"><label for="to-filter">结束日期</label><input id="to-filter" type="date"></div>
+        <div class="filter"><label for="number-filter">号码搜索</label><input id="number-filter" inputmode="numeric" placeholder="输入 1-39"></div>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>开奖日期/时间</th>
+              <th>期号</th>
+              <th>周几</th>
+              <th>日干</th>
+              <th>日支</th>
+              <th>日五行</th>
+              <th>时干五行</th>
+              <th>时支五行</th>
+              <th>开奖号码</th>
+            </tr>
+          </thead>
+          <tbody id="history-body"></tbody>
+        </table>
+      </div>
+      <div class="pager">
+        <span>默认加载最近 300 期；完整 CSV 当前校验 11866 期，截止 2026-07-22。</span>
+        <span>上1期 / 上2期回滚按钮会在动态数据版联动。</span>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    window.F5_HISTORY = [{"date":"2026-07-22","issue":9698,"weekday":"周三","tail":2,"dayStem":"丁","dayBranch":"酉","dayElement":"火","hourStem":"己","hourStemElement":"土","hourBranch":"酉","hourBranchElement":"金","numbers":[1,14,16,22,23]},{"date":"2026-07-21","issue":9697,"weekday":"周二","tail":1,"dayStem":"丙","dayBranch":"申","dayElement":"火","hourStem":"丁","hourStemElement":"火","hourBranch":"酉","hourBranchElement":"金","numbers":[16,25,27,28,39]},{"date":"2026-07-20","issue":9696,"weekday":"周一","tail":0,"dayStem":"乙","dayBranch":"未","dayElement":"木","hourStem":"乙","hourStemElement":"木","hourBranch":"酉","hourBranchElement":"金","numbers":[14,27,29,31,33]},{"date":"2026-07-19","issue":9695,"weekday":"周日","tail":9,"dayStem":"甲","dayBranch":"午","dayElement":"木","hourStem":"癸","hourStemElement":"水","hourBranch":"酉","hourBranchElement":"金","numbers":[12,13,21,27,28]},{"date":"2026-07-18","issue":9694,"weekday":"周六","tail":8,"dayStem":"癸","dayBranch":"巳","dayElement":"水","hourStem":"辛","hourStemElement":"金","hourBranch":"酉","hourBranchElement":"金","numbers":[4,12,19,27,33]},{"date":"2026-07-17","issue":9693,"weekday":"周五","tail":7,"dayStem":"壬","dayBranch":"辰","dayElement":"水","hourStem":"己","hourStemElement":"土","hourBranch":"酉","hourBranchElement":"金","numbers":[3,27,31,32,36]},{"date":"2026-07-16","issue":9692,"weekday":"周四","tail":6,"dayStem":"辛","dayBranch":"卯","dayElement":"金","hourStem":"丁","hourStemElement":"火","hourBranch":"酉","hourBranchElement":"金","numbers":[7,8,11,17,39]},{"date":"2026-07-15","issue":9691,"weekday":"周三","tail":5,"dayStem":"庚","dayBranch":"寅","dayElement":"金","hourStem":"乙","hourStemElement":"木","hourBranch":"酉","hourBranchElement":"金","numbers":[2,5,10,26,34]},{"date":"2026-07-14","issue":9690,"weekday":"周二","tail":4,"dayStem":"己","dayBranch":"丑","dayElement":"土","hourStem":"癸","hourStemElement":"水","hourBranch":"酉","hourBranchElement":"金","numbers":[12,23,26,29,38]},{"date":"2026-07-13","issue":9689,"weekday":"周一","tail":3,"dayStem":"戊","dayBranch":"子","dayElement":"土","hourStem":"辛","hourStemElement":"金","hourBranch":"酉","hourBranchElement":"金","numbers":[6,9,31,33,37]},{"date":"2026-07-12","issue":9688,"weekday":"周日","tail":2,"dayStem":"丁","dayBranch":"亥","dayElement":"火","hourStem":"己","hourStemElement":"土","hourBranch":"酉","hourBranchElement":"金","numbers":[2,5,19,27,34]},{"date":"2026-07-11","issue":9687,"weekday":"周六","tail":1,"dayStem":"丙","dayBranch":"戌","dayElement":"火","hourStem":"丁","hourStemElement":"火","hourBranch":"酉","hourBranchElement":"金","numbers":[1,7,12,15,33]},{"date":"2026-07-10","issue":9686,"weekday":"周五","tail":0,"dayStem":"乙","dayBranch":"酉","dayElement":"木","hourStem":"乙","hourStemElement":"木","hourBranch":"酉","hourBranchElement":"金","numbers":[10,12,25,28,34]},{"date":"2026-07-09","issue":9685,"weekday":"周四","tail":9,"dayStem":"甲","dayBranch":"申","dayElement":"木","hourStem":"癸","hourStemElement":"水","hourBranch":"酉","hourBranchElement":"金","numbers":[2,6,11,21,27]},{"date":"2026-07-08","issue":9684,"weekday":"周三","tail":8,"dayStem":"癸","dayBranch":"未","dayElement":"水","hourStem":"辛","hourStemElement":"金","hourBranch":"酉","hourBranchElement":"金","numbers":[11,23,25,28,36]},{"date":"2026-07-07","issue":9683,"weekday":"周二","tail":7,"dayStem":"壬","dayBranch":"午","dayElement":"水","hourStem":"己","hourStemElement":"土","hourBranch":"酉","hourBranchElement":"金","numbers":[6,13,26,27,36]},{"date":"2026-07-06","issue":9682,"weekday":"周一","tail":6,"dayStem":"辛","dayBranch":"巳","dayElement":"金","hourStem":"丁","hourStemElement":"火","hourBranch":"酉","hourBranchElement":"金","numbers":[13,18,21,23,30]},{"date":"2026-07-05","issue":9681,"weekday":"周日","tail":5,"dayStem":"庚","dayBranch":"辰","dayElement":"金","hourStem":"乙","hourStemElement":"木","hourBranch":"酉","hourBranchElement":"金","numbers":[11,16,17,19,36]},{"date":"2026-07-04","issue":9680,"weekday":"周六","tail":4,"dayStem":"己","dayBranch":"卯","dayElement":"土","hourStem":"癸","hourStemElement":"水","hourBranch":"酉","hourBranchElement":"金","numbers":[6,11,29,34,38]},{"date":"2026-07-03","issue":9679,"weekday":"周五","tail":3,"dayStem":"戊","dayBranch":"寅","dayElement":"土","hourStem":"辛","hourStemElement":"金","hourBranch":"酉","hourBranchElement":"金","numbers":[4,6,15,26,29]},{"date":"2026-07-02","issue":9678,"weekday":"周四","tail":2,"dayStem":"丁","dayBranch":"丑","dayElement":"火","hourStem":"己","hourStemElement":"土","hourBranch":"酉","hourBranchElement":"金","numbers":[4,9,28,35,36]},{"date":"2026-07-01","issue":9677,"weekday":"周三","tail":1,"dayStem":"丙","dayBranch":"子","dayElement":"火","hourStem":"丁","hourStemElement":"火","hourBranch":"酉","hourBranchElement":"金","numbers":[4,22,27,34,39]},{"date":"2026-06-30","issue":9676,"weekday":"周二","tail":0,"dayStem":"乙","dayBranch":"亥","dayElement":"木","hourStem":"乙","hourStemElement":"木","hourBranch":"酉","hourBranchElement":"金","numbers":[11,17,28,35,36]},{"date":"2026-06-29","issue":9675,"weekday":"周一","tail":9,"dayStem":"甲","dayBranch":"戌","dayElement":"木","hourStem":"癸","hourStemElement":"水","hourBranch":"酉","hourBranchElement":"金","numbers":[9,12,22,37,38]},{"date":"2026-06-28","issue":9674,"weekday":"周日","tail":8,"dayStem":"癸","dayBranch":"酉","dayElement":"水","hourStem":"辛","hourStemElement":"金","hourBranch":"酉","hourBranchElement":"金","numbers":[3,15,25,27,34]},{"date":"2026-06-27","issue":9673,"weekday":"周六","tail":7,"dayStem":"壬","dayBranch":"申","dayElement":"水","hourStem":"己","hourStemElement":"土","hourBranch":"酉","hourBranchElement":"金","numbers":[22,29,34,36,37]},{"date":"2026-06-26","issue":9672,"weekday":"周五","tail":6,"dayStem":"辛","dayBranch":"未","dayElement":"金","hourStem":"丁","hourStemElement":"火","hourBranch":"酉","hourBranchElement":"金","numbers":[12,22,29,33,36]},{"date":"2026-06-25","issue":9671,"weekday":"周四","tail":5,"dayStem":"庚","dayBranch":"午","dayElement":"金","hourStem":"乙","hourStemElement":"木","hourBranch":"酉","hourBranchElement":"金","numbers":[3,6,18,27,35]},{"date":"2026-06-24","issue":9670,"weekday":"周三","tail":4,"dayStem":"己","dayBranch":"巳","dayElement":"土","hourStem":"癸","hourStemElement":"水","hourBranch":"酉","hourBranchElement":"金","numbers":[2,3,12,19,36]},{"date":"2026-06-23","issue":9669,"weekday":"周二","tail":3,"dayStem":"戊","dayBranch":"辰","dayElement":"土","hourStem":"辛","hourStemElement":"金","hourBranch":"酉","hourBranchElement":"金","numbers":[3,5,23,32,38]},{"date":"2026-06-22","issue":9668,"weekday":"周一","tail":2,"dayStem":"丁","dayBranch":"卯","dayElement":"火","hourStem":"己","hourStemElement":"土","hourBranch":"酉","hourBranchElement":"金","numbers":[1,5,11,16,24]},{"date":"2026-06-21","issue":9667,"weekday":"周日","tail":1,"dayStem":"丙","dayBranch":"寅","dayElement":"火","hourStem":"丁","hourStemElement":"火","hourBranch":"酉","hourBranchElement":"金","numbers":[5,11,20,32,36]},{"date":"2026-06-20","issue":9666,"weekday":"周六","tail":0,"dayStem":"乙","dayBranch":"丑","dayElement":"木","hourStem":"乙","hourStemElement":"木","hourBranch":"酉","hourBranchElement":"金","numbers":[1,2,13,19,35]},{"date":"2026-06-19","issue":9665,"weekday":"周五","tail":9,"dayStem":"甲","dayBranch":"子","dayElement":"木","hourStem":"癸","hourStemElement":"水","hourBranch":"酉","hourBranchElement":"金","numbers":[17,23,33,35,39]},{"date":"2026-06-18","issue":9664,"weekday":"周四","tail":8,"dayStem":"癸","dayBranch":"亥","dayElement":"水","hourStem":"辛","hourStemElement":"金","hourBranch":"酉","hourBranchElement":"金","numbers":[5,8,20,32,38]},{"date":"2026-06-17","issue":9663,"weekday":"周三","tail":7,"dayStem":"壬","dayBranch":"戌","dayElement":"水","hourStem":"己","hourStemElement":"土","hourBranch":"酉","hourBranchElement":"金","numbers":[13,21,22,25,30]},{"date":"2026-06-16","issue":9662,"weekday":"周二","tail":6,"dayStem":"辛","dayBranch":"酉","dayElement":"金","hourStem":"丁","hourStemElement":"火","hourBranch":"酉","hourBranchElement":"金","numbers":[1,6,27,30,37]},{"date":"2026-06-15","issue":9661,"weekday":"周一","tail":5,"dayStem":"庚","dayBranch":"申","dayElement":"金","hourStem":"乙","hourStemElement":"木","hourBranch":"酉","hourBranchElement":"金","numbers":[5,9,19,33,37]},{"date":"2026-06-14","issue":9660,"weekday":"周日","tail":4,"dayStem":"己","dayBranch":"未","dayElement":"土","hourStem":"癸","hourStemElement":"水","hourBranch":"酉","hourBranchElement":"金","numbers":[1,14,24,32,35]},{"date":"2026-06-13","issue":9659,"weekday":"周六","tail":3,"dayStem":"戊","dayBranch":"午","dayElement":"土","hourStem":"辛","hourStemElement":"金","hourBranch":"酉","hourBranchElement":"金","numbers":[2,6,26,32,37]},{"date":"2026-06-12","issue":9658,"weekday":"周五","tail":2,"dayStem":"丁","dayBranch":"巳","dayElement":"火","hourStem":"己","hourStemElement":"土","hourBranch":"酉","hourBranchElement":"金","numbers":[13,14,16,17,33]},{"date":"2026-06-11","issue":9657,"weekday":"周四","tail":1,"dayStem":"丙","dayBranch":"辰","dayElement":"火","hourStem":"丁","hourStemElement":"火","hourBranch":"酉","hourBranchElement":"金","numbers":[2,6,31,33,37]},{"date":"2026-06-10","issue":9656,"weekday":"周三","tail":0,"dayStem":"乙","dayBranch":"卯","dayElement":"木","hourStem":"乙","hourStemElement":"木","hourBranch":"酉","hourBranchElement":"金","numbers":[6,28,35,36,37]},{"date":"2026-06-09","issue":9655,"weekday":"周二","tail":9,"dayStem":"甲","dayBranch":"寅","dayElement":"木","hourStem":"癸","hourStemElement":"水","hourBranch":"酉","hourBranchElement":"金","numbers":[5,6,21,23,31]},{"date":"2026-06-08","issue":9654,"weekday":"周一","tail":8,"dayStem":"癸","dayBranch":"丑","dayElement":"水","hourStem":"辛","hourStemElement":"金","hourBranch":"酉","hourBranchElement":"金","numbers":[4,11,24,26,39]},{"date":"2026-06-07","issue":9653,"weekday":"周日","tail":7,"dayStem":"壬","dayBranch":"子","dayElement":"水","hourStem":"己","hourStemElement":"土","hourBranch":"酉","hourBranchElement":"金","numbers":[11,22,23,26,28]},{"date":"2026-06-06","issue":9652,"weekday":"周六","tail":6,"dayStem":"辛","dayBranch":"亥","dayElement":"金","hourStem":"丁","hourStemElement":"火","hourBranch":"酉","hourBranchElement":"金","numbers":[14,23,32,36,37]},{"date":"2026-06-05","issue":9651,"weekday":"周五","tail":5,"dayStem":"庚","dayBranch":"戌","dayElement":"金","hourStem":"乙","hourStemElement":"木","hourBranch":"酉","hourBranchElement":"金","numbers":[2,5,6,24,28]},{"date":"2026-06-04","issue":9650,"weekday":"周四","tail":4,"dayStem":"己","dayBranch":"酉","dayElement":"土","hourStem":"癸","hourStemElement":"水","hourBranch":"酉","hourBranchElement":"金","numbers":[6,23,25,27,38]},{"date":"2026-06-03","issue":9649,"weekday":"周三","tail":3,"dayStem":"戊","dayBranch":"申","dayElement":"土","hourStem":"辛","hourStemElement":"金","hourBranch":"酉","hourBranchElement":"金","numbers":[9,17,28,29,33]},{"date":"2026-06-02","issue":9648,"weekday":"周二","tail":2,"dayStem":"丁","dayBranch":"未","dayElement":"火","hourStem":"己","hourStemElement":"土","hourBranch":"酉","hourBranchElement":"金","numbers":[5,11,19,25,31]},{"date":"2026-06-01","issue":9647,"weekday":"周一","tail":1,"dayStem":"丙","dayBranch":"午","dayElement":"火","hourStem":"丁","hourStemElement":"火","hourBranch":"酉","hourBranchElement":"金","numbers":[6,14,23,28,37]},{"date":"2026-05-31","issue":9646,"weekday":"周日","tail":1,"dayStem":"乙","dayBranch":"巳","dayElement":"木","hourStem":"乙","hourStemElement":"木","hourBranch":"酉","hourBranchElement":"金","numbers":[4,9,15,20,30]},{"date":"2026-05-30","issue":9645,"weekday":"周六","tail":0,"dayStem":"甲","dayBranch":"辰","dayElement":"木","hourStem":"癸","hourStemElement":"水","hourBranch":"酉","hourBranchElement":"金","numbers":[1,15,21,23,24]},{"date":"2026-05-29","issue":9644,"weekday":"周五","tail":9,"dayStem":"癸","dayBranch":"卯","dayElement":"水","hourStem":"辛","hourStemElement":"金","hourBranch":"酉","hourBranchElement":"金","numbers":[2,5,27,35,36]},{"date":"2026-05-28","issue":9643,"weekday":"周四","tail":8,"dayStem":"壬","dayBranch":"寅","dayElement":"水","hourStem":"己","hourStemElement":"土","hourBranch":"酉","hourBranchElement":"金","numbers":[2,12,20,30,34]},{"date":"2026-05-27","issue":9642,"weekday":"周三","tail":7,"dayStem":"辛","dayBranch":"丑","dayElement":"金","hourStem":"丁","hourStemElement":"火","hourBranch":"酉","hourBranchElement":"金","numbers":[7,15,16,22,30]},{"date":"2026-05-26","issue":9641,"weekday":"周二","tail":6,"dayStem":"庚","dayBranch":"子","dayElement":"金","hourStem":"乙","hourStemElement":"木","hourBranch":"酉","hourBranchElement":"金","numbers":[2,6,19,22,27]},{"date":"2026-05-25","issue":9640,"weekday":"周一","tail":5,"dayStem":"己","dayBranch":"亥","dayElement":"土","hourStem":"癸","hourStemElement":"水","hourBranch":"酉","hourBranchElement":"金","numbers":[2,14,34,35,39]},{"date":"2026-05-24","issue":9639,"weekday":"周日","tail":4,"dayStem":"戊","dayBranch":"戌","dayElement":"土","hourStem":"辛","hourStemElement":"金","hourBranch":"酉","hourBranchElement":"金","numbers":[2,4,11,12,24]},{"date":"2026-05-23","issue":9638,"weekday":"周六","tail":3,"dayStem":"丁","dayBranch":"酉","dayElement":"火","hourStem":"己","hourStemElement":"土","hourBranch":"酉","hourBranchElement":"金","numbers":[7,26,33,35,37]},{"date":"2026-05-22","issue":9637,"weekday":"周五","tail":2,"dayStem":"丙","dayBranch":"申","dayElement":"火","hourStem":"丁","hourStemElement":"火","hourBranch":"酉","hourBranchElement":"金","numbers":[6,14,16,28,36]},{"date":"2026-05-21","issue":9636,"weekday":"周四","tail":1,"dayStem":"乙","dayBranch":"未","dayElement":"木","hourStem":"乙","hourStemElement":"木","hourBranch":"酉","hourBranchElement":"金","numbers":[1,6,11,34,39]},{"date":"2026-05-20","issue":9635,"weekday":"周三","tail":0,"dayStem":"甲","dayBranch":"午","dayElement":"木","hourStem":"癸","hourStemElement":"水","hourBranch":"酉","hourBranchElement":"金","numbers":[2,10,16,20,39]},{"date":"2026-05-19","issue":9634,"weekday":"周二","tail":9,"dayStem":"癸","dayBranch":"巳","dayElement":"水","hourStem":"辛","hourStemElement":"金","hourBranch":"酉","hourBranchElement":"金","numbers":[9,13,15,18,19]},{"date":"2026-05-18","issue":9633,"weekday":"周一","tail":8,"dayStem":"壬","dayBranch":"辰","dayElement":"水","hourStem":"己","hourStemElement":"土","hourBranch":"酉","hourBranchElement":"金","numbers":[11,16,30,31,33]},{"date":"2026-05-17","issue":9632,"weekday":"周日","tail":7,"dayStem":"辛","dayBranch":"卯","dayElement":"金","hourStem":"丁","hourStemElement":"火","hourBranch":"酉","hourBranchElement":"金","numbers":[3,12,15,29,33]},{"date":"2026-05-16","issue":9631,"weekday":"周六","tail":6,"dayStem":"庚","dayBranch":"寅","dayElement":"金","hourStem":"乙","hourStemElement":"木","hourBranch":"酉","hourBranchElement":"金","numbers":[10,12,21,22,30]},{"date":"2026-05-15","issue":9630,"weekday":"周五","tail":5,"dayStem":"己","dayBranch":"丑","dayElement":"土","hourStem":"癸","hourStemElement":"水","hourBranch":"酉","hourBranchElement":"金","numbers":[6,10,26,29,33]},{"date":"2026-05-14","issue":9629,"weekday":"周四","tail":4,"dayStem":"戊","dayBranch":"子","dayElement":"土","hourStem":"辛","hourStemElement":"金","hourBranch":"酉","hourBranchElement":"金","numbers":[1,8,31,32,38]},{"date":"2026-05-13","issue":9628,"weekday":"周三","tail":3,"dayStem":"丁","dayBranch":"亥","dayElement":"火","hourStem":"己","hourStemElement":"土","hourBranch":"酉","hourBranchElement":"金","numbers":[4,19,23,24,32]},{"date":"2026-05-12","issue":9627,"weekday":"周二","tail":2,"dayStem":"丙","dayBranch":"戌","dayElement":"火","hourStem":"丁","hourStemElement":"火","hourBranch":"酉","hourBranchElement":"金","numbers":[8,17,25,31,33]},{"date":"2026-05-11","issue":9626,"weekday":"周一","tail":1,"dayStem":"乙","dayBranch":"酉","dayElement":"木","hourStem":"乙","hourStemElement":"木","hourBranch":"酉","hourBranchElement":"金","numbers":[14,17,19,29,38]},{"date":"2026-05-10","issue":9625,"weekday":"周日","tail":0,"dayStem":"甲","dayBranch":"申","dayElement":"木","hourStem":"癸","hourStemElement":"水","hourBranch":"酉","hourBranchElement":"金","numbers":[9,11,17,25,29]},{"date":"2026-05-09","issue":9624,"weekday":"周六","tail":9,"dayStem":"癸","dayBranch":"未","dayElement":"水","hourStem":"辛","hourStemElement":"金","hourBranch":"酉","hourBranchElement":"金","numbers":[4,11,12,28,35]},{"date":"2026-05-08","issue":9623,"weekday":"周五","tail":8,"dayStem":"壬","dayBranch":"午","dayElement":"水","hourStem":"己","hourStemElement":"土","hourBranch":"酉","hourBranchElement":"金","numbers":[5,9,12,14,15]},{"date":"2026-05-07","issue":9622,"weekday":"周四","tail":7,"dayStem":"辛","dayBranch":"巳","dayElement":"金","hourStem":"丁","hourStemElement":"火","hourBranch":"酉","hourBranchElement":"金","numbers":[3,8,12,26,29]},{"date":"2026-05-06","issue":9621,"weekday":"周三","tail":6,"dayStem":"庚","dayBranch":"辰","dayElement":"金","hourStem":"乙","hourStemElement":"木","hourBranch":"酉","hourBranchElement":"金","numbers":[2,5,13,16,36]},{"date":"2026-05-05","issue":9620,"weekday":"周二","tail":5,"dayStem":"己","dayBranch":"卯","dayElement":"土","hourStem":"癸","hourStemElement":"水","hourBranch":"酉","hourBranchElement":"金","numbers":[8,13,18,32,36]},{"date":"2026-05-04","issue":9619,"weekday":"周一","tail":4,"dayStem":"戊","dayBranch":"寅","dayElement":"土","hourStem":"辛","hourStemElement":"金","hourBranch":"酉","hourBranchElement":"金","numbers":[9,13,17,19,31]},{"date":"2026-05-03","issue":9618,"weekday":"周日","tail":3,"dayStem":"丁","dayBranch":"丑","dayElement":"火","hourStem":"己","hourStemElement":"土","hourBranch":"酉","hourBranchElement":"金","numbers":[5,10,14,16,22]},{"date":"2026-05-02","issue":9617,"weekday":"周六","tail":2,"dayStem":"丙","dayBranch":"子","dayElement":"火","hourStem":"丁","hourStemElement":"火","hourBranch":"酉","hourBranchElement":"金","numbers":[11,16,18,20,23]},{"date":"2026-05-01","issue":9616,"weekday":"周五","tail":1,"dayStem":"乙","dayBranch":"亥","dayElement":"木","hourStem":"乙","hourStemElement":"木","hourBranch":"酉","hourBranchElement":"金","numbers":[8,19,28,35,36]},{"date":"2026-04-30","issue":9615,"weekday":"周四","tail":0,"dayStem":"甲","dayBranch":"戌","dayElement":"木","hourStem":"癸","hourStemElement":"水","hourBranch":"酉","hourBranchElement":"金","numbers":[10,14,21,33,39]},{"date":"2026-04-29","issue":9614,"weekday":"周三","tail":9,"dayStem":"癸","dayBranch":"酉","dayElement":"水","hourStem":"辛","hourStemElement":"金","hourBranch":"酉","hourBranchElement":"金","numbers":[1,5,20,21,39]},{"date":"2026-04-28","issue":9613,"weekday":"周二","tail":8,"dayStem":"壬","dayBranch":"申","dayElement":"水","hourStem":"己","hourStemElement":"土","hourBranch":"酉","hourBranchElement":"金","numbers":[14,19,33,37,38]},{"date":"2026-04-27","issue":9612,"weekday":"周一","tail":7,"dayStem":"辛","dayBranch":"未","dayElement":"金","hourStem":"丁","hourStemElement":"火","hourBranch":"酉","hourBranchElement":"金","numbers":[2,4,5,10,31]},{"date":"2026-04-26","issue":9611,"weekday":"周日","tail":6,"dayStem":"庚","dayBranch":"午","dayElement":"金","hourStem":"乙","hourStemElement":"木","hourBranch":"酉","hourBranchElement":"金","numbers":[9,11,18,33,37]},{"date":"2026-04-25","issue":9610,"weekday":"周六","tail":5,"dayStem":"己","dayBranch":"巳","dayElement":"土","hourStem":"癸","hourStemElement":"水","hourBranch":"酉","hourBranchElement":"金","numbers":[1,5,6,20,34]},{"date":"2026-04-24","issue":9609,"weekday":"周五","tail":4,"dayStem":"戊","dayBranch":"辰","dayElement":"土","hourStem":"辛","hourStemElement":"金","hourBranch":"酉","hourBranchElement":"金","numbers":[3,6,18,29,34]},{"date":"2026-04-23","issue":9608,"weekday":"周四","tail":3,"dayStem":"丁","dayBranch":"卯","dayElement":"火","hourStem":"己","hourStemElement":"土","hourBranch":"酉","hourBranchElement":"金","numbers":[15,17,30,34,35]},{"date":"2026-04-22","issue":9607,"weekday":"周三","tail":2,"dayStem":"丙","dayBranch":"寅","dayElement":"火","hourStem":"丁","hourStemElement":"火","hourBranch":"酉","hourBranchElement":"金","numbers":[9,14,19,30,33]},{"date":"2026-04-21","issue":9606,"weekday":"周二","tail":1,"dayStem":"乙","dayBranch":"丑","dayElement":"木","hourStem":"乙","hourStemElement":"木","hourBranch":"酉","hourBranchElement":"金","numbers":[2,11,12,35,39]},{"date":"2026-04-20","issue":9605,"weekday":"周一","tail":0,"dayStem":"甲","dayBranch":"子","dayElement":"木","hourStem":"癸","hourStemElement":"水","hourBranch":"酉","hourBranchElement":"金","numbers":[7,17,36,38,39]},{"date":"2026-04-19","issue":9604,"weekday":"周日","tail":9,"dayStem":"癸","dayBranch":"亥","dayElement":"水","hourStem":"辛","hourStemElement":"金","hourBranch":"酉","hourBranchElement":"金","numbers":[13,16,23,33,36]},{"date":"2026-04-18","issue":9603,"weekday":"周六","tail":8,"dayStem":"壬","dayBranch":"戌","dayElement":"水","hourStem":"己","hourStemElement":"土","hourBranch":"酉","hourBranchElement":"金","numbers":[1,10,13,14,31]},{"date":"2026-04-17","issue":9602,"weekday":"周五","tail":7,"dayStem":"辛","dayBranch":"酉","dayElement":"金","hourStem":"丁","hourStemElement":"火","hourBranch":"酉","hourBranchElement":"金","numbers":[9,10,23,24,25]},{"date":"2026-04-16","issue":9601,"weekday":"周四","tail":6,"dayStem":"庚","dayBranch":"申","dayElement":"金","hourStem":"乙","hourStemElement":"木","hourBranch":"酉","hourBranchElement":"金","numbers":[8,10,21,22,38]},{"date":"2026-04-15","issue":9600,"weekday":"周三","tail":5,"dayStem":"己","dayBranch":"未","dayElement":"土","hourStem":"癸","hourStemElement":"水","hourBranch":"酉","hourBranchElement":"金","numbers":[21,28,30,32,39]},{"date":"2026-04-14","issue":9599,"weekday":"周二","tail":4,"dayStem":"戊","dayBranch":"午","dayElement":"土","hourStem":"辛","hourStemElement":"金","hourBranch":"酉","hourBranchElement":"金","numbers":[2,8,23,33,34]},{"date":"2026-04-13","issue":9598,"weekday":"周一","tail":3,"dayStem":"丁","dayBranch":"巳","dayElement":"火","hourStem":"己","hourStemElement":"土","hourBranch":"酉","hourBranchElement":"金","numbers":[3,13,20,29,37]},{"date":"2026-04-12","issue":9597,"weekday":"周日","tail":2,"dayStem":"丙","dayBranch":"辰","dayElement":"火","hourStem":"丁","hourStemElement":"火","hourBranch":"酉","hourBranchElement":"金","numbers":[14,16,20,22,38]},{"date":"2026-04-11","issue":9596,"weekday":"周六","tail":1,"dayStem":"乙","dayBranch":"卯","dayElement":"木","hourStem":"乙","hourStemElement":"木","hourBranch":"酉","hourBranchElement":"金","numbers":[10,16,18,27,28]},{"date":"2026-04-10","issue":9595,"weekday":"周五","tail":0,"dayStem":"甲","dayBranch":"寅","dayElement":"木","hourStem":"癸","hourStemElement":"水","hourBranch":"酉","hourBranchElement":"金","numbers":[11,12,28,29,31]},{"date":"2026-04-09","issue":9594,"weekday":"周四","tail":9,"dayStem":"癸","dayBranch":"丑","dayElement":"水","hourStem":"辛","hourStemElement":"金","hourBranch":"酉","hourBranchElement":"金","numbers":[1,5,17,23,32]},{"date":"2026-04-08","issue":9593,"weekday":"周三","tail":8,"dayStem":"壬","dayBranch":"子","dayElement":"水","hourStem":"己","hourStemElement":"土","hourBranch":"酉","hourBranchElement":"金","numbers":[6,7,8,27,32]},{"date":"2026-04-07","issue":9592,"weekday":"周二","tail":7,"dayStem":"辛","dayBranch":"亥","dayElement":"金","hourStem":"丁","hourStemElement":"火","hourBranch":"酉","hourBranchElement":"金","numbers":[4,8,23,28,29]},{"date":"2026-04-06","issue":9591,"weekday":"周一","tail":6,"dayStem":"庚","dayBranch":"戌","dayElement":"金","hourStem":"乙","hourStemElement":"木","hourBranch":"酉","hourBranchElement":"金","numbers":[4,5,20,21,39]},{"date":"2026-04-05","issue":9590,"weekday":"周日","tail":5,"dayStem":"己","dayBranch":"酉","dayElement":"土","hourStem":"癸","hourStemElement":"水","hourBranch":"酉","hourBranchElement":"金","numbers":[4,13,16,19,37]},{"date":"2026-04-04","issue":9589,"weekday":"周六","tail":4,"dayStem":"戊","dayBranch":"申","dayElement":"土","hourStem":"辛","hourStemElement":"金","hourBranch":"酉","hourBranchElement":"金","numbers":[1,4,9,18,32]},{"date":"2026-04-03","issue":9588,"weekday":"周五","tail":3,"dayStem":"丁","dayBranch":"未","dayElement":"火","hourStem":"己","hourStemElement":"土","hourBranch":"酉","hourBranchElement":"金","numbers":[14,15,23,30,37]},{"date":"2026-04-02","issue":9587,"weekday":"周四","tail":2,"dayStem":"丙","dayBranch":"午","dayElement":"火","hourStem":"丁","hourStemElement":"火","hourBranch":"酉","hourBranchElement":"金","numbers":[7,21,25,31,37]},{"date":"2026-04-01","issue":9586,"weekday":"周三","tail":1,"dayStem":"乙","dayBranch":"巳","dayElement":"木","hourStem":"乙","hourStemElement":"木","hourBranch":"酉","hourBranchElement":"金","numbers":[7,12,16,20,32]},{"date":"2026-03-31","issue":9585,"weekday":"周二","tail":1,"dayStem":"甲","dayBranch":"辰","dayElement":"木","hourStem":"癸","hourStemElement":"水","hourBranch":"酉","hourBranchElement":"金","numbers":[4,5,10,13,32]},{"date":"2026-03-30","issue":9584,"weekday":"周一","tail":0,"dayStem":"癸","dayBranch":"卯","dayElement":"水","hourStem":"辛","hourStemElement":"金","hourBranch":"酉","hourBranchElement":"金","numbers":[1,9,18,31,36]},{"date":"2026-03-29","issue":9583,"weekday":"周日","tail":9,"dayStem":"壬","dayBranch":"寅","dayElement":"水","hourStem":"己","hourStemElement":"土","hourBranch":"酉","hourBranchElement":"金","numbers":[1,3,14,20,29]},{"date":"2026-03-28","issue":9582,"weekday":"周六","tail":8,"dayStem":"辛","dayBranch":"丑","dayElement":"金","hourStem":"丁","hourStemElement":"火","hourBranch":"酉","hourBranchElement":"金","numbers":[2,10,16,27,39]},{"date":"2026-03-27","issue":9581,"weekday":"周五","tail":7,"dayStem":"庚","dayBranch":"子","dayElement":"金","hourStem":"乙","hourStemElement":"木","hourBranch":"酉","hourBranchElement":"金","numbers":[4,6,25,26,33]},{"date":"2026-03-26","issue":9580,"weekday":"周四","tail":6,"dayStem":"己","dayBranch":"亥","dayElement":"土","hourStem":"癸","hourStemElement":"水","hourBranch":"酉","hourBranchElement":"金","numbers":[2,17,18,26,35]},{"date":"2026-03-25","issue":9579,"weekday":"周三","tail":5,"dayStem":"戊","dayBranch":"戌","dayElement":"土","hourStem":"辛","hourStemElement":"金","hourBranch":"酉","hourBranchElement":"金","numbers":[4,5,17,24,38]},{"date":"2026-03-24","issue":9578,"weekday":"周二","tail":4,"dayStem":"丁","dayBranch":"酉","dayElement":"火","hourStem":"己","hourStemElement":"土","hourBranch":"酉","hourBranchElement":"金","numbers":[9,12,20,23,26]},{"date":"2026-03-23","issue":9577,"weekday":"周一","tail":3,"dayStem":"丙","dayBranch":"申","dayElement":"火","hourStem":"丁","hourStemElement":"火","hourBranch":"酉","hourBranchElement":"金","numbers":[4,9,17,26,35]},{"date":"2026-03-22","issue":9576,"weekday":"周日","tail":2,"dayStem":"乙","dayBranch":"未","dayElement":"木","hourStem":"乙","hourStemElement":"木","hourBranch":"酉","hourBranchElement":"金","numbers":[4,7,10,28,37]},{"date":"2026-03-21","issue":9575,"weekday":"周六","tail":1,"dayStem":"甲","dayBranch":"午","dayElement":"木","hourStem":"癸","hourStemElement":"水","hourBranch":"酉","hourBranchElement":"金","numbers":[4,30,33,37,39]},{"date":"2026-03-20","issue":9574,"weekday":"周五","tail":0,"dayStem":"癸","dayBranch":"巳","dayElement":"水","hourStem":"辛","hourStemElement":"金","hourBranch":"酉","hourBranchElement":"金","numbers":[13,18,27,31,32]},{"date":"2026-03-19","issue":9573,"weekday":"周四","tail":9,"dayStem":"壬","dayBranch":"辰","dayElement":"水","hourStem":"己","hourStemElement":"土","hourBranch":"酉","hourBranchElement":"金","numbers":[3,14,20,27,37]},{"date":"2026-03-18","issue":9572,"weekday":"周三","tail":8,"dayStem":"辛","dayBranch":"卯","dayElement":"金","hourStem":"丁","hourStemElement":"火","hourBranch":"酉","hourBranchElement":"金","numbers":[8,13,21,27,31]},{"date":"2026-03-17","issue":9571,"weekday":"周二","tail":7,"dayStem":"庚","dayBranch":"寅","dayElement":"金","hourStem":"乙","hourStemElement":"木","hourBranch":"酉","hourBranchElement":"金","numbers":[12,19,20,30,36]},{"date":"2026-03-16","issue":9570,"weekday":"周一","tail":6,"dayStem":"己","dayBranch":"丑","dayElement":"土","hourStem":"癸","hourStemElement":"水","hourBranch":"酉","hourBranchElement":"金","numbers":[10,12,13,19,26]},{"date":"2026-03-15","issue":9569,"weekday":"周日","tail":5,"dayStem":"戊","dayBranch":"子","dayElement":"土","hourStem":"辛","hourStemElement":"金","hourBranch":"酉","hourBranchElement":"金","numbers":[13,23,25,34,36]},{"date":"2026-03-14","issue":9568,"weekday":"周六","tail":4,"dayStem":"丁","dayBranch":"亥","dayElement":"火","hourStem":"己","hourStemElement":"土","hourBranch":"酉","hourBranchElement":"金","numbers":[14,17,24,34,35]},{"date":"2026-03-13","issue":9567,"weekday":"周五","tail":3,"dayStem":"丙","dayBranch":"戌","dayElement":"火","hourStem":"丁","hourStemElement":"火","hourBranch":"酉","hourBranchElement":"金","numbers":[9,21,23,27,33]},{"date":"2026-03-12","issue":9566,"weekday":"周四","tail":2,"dayStem":"乙","dayBranch":"酉","dayElement":"木","hourStem":"乙","hourStemElement":"木","hourBranch":"酉","hourBranchElement":"金","numbers":[9,15,18,26,35]},{"date":"2026-03-11","issue":9565,"weekday":"周三","tail":1,"dayStem":"甲","dayBranch":"申","dayElement":"木","hourStem":"癸","hourStemElement":"水","hourBranch":"酉","hourBranchElement":"金","numbers":[16,19,21,29,38]},{"date":"2026-03-10","issue":9564,"weekday":"周二","tail":0,"dayStem":"癸","dayBranch":"未","dayElement":"水","hourStem":"辛","hourStemElement":"金","hourBranch":"酉","hourBranchElement":"金","numbers":[18,24,28,34,39]},{"date":"2026-03-09","issue":9563,"weekday":"周一","tail":9,"dayStem":"壬","dayBranch":"午","dayElement":"水","hourStem":"己","hourStemElement":"土","hourBranch":"酉","hourBranchElement":"金","numbers":[21,22,32,35,38]},{"date":"2026-03-08","issue":9562,"weekday":"周日","tail":8,"dayStem":"辛","dayBranch":"巳","dayElement":"金","hourStem":"丁","hourStemElement":"火","hourBranch":"酉","hourBranchElement":"金","numbers":[4,14,15,23,29]},{"date":"2026-03-07","issue":9561,"weekday":"周六","tail":7,"dayStem":"庚","dayBranch":"辰","dayElement":"金","hourStem":"乙","hourStemElement":"木","hourBranch":"酉","hourBranchElement":"金","numbers":[10,19,29,33,36]},{"date":"2026-03-06","issue":9560,"weekday":"周五","tail":6,"dayStem":"己","dayBranch":"卯","dayElement":"土","hourStem":"癸","hourStemElement":"水","hourBranch":"酉","hourBranchElement":"金","numbers":[10,15,31,35,38]},{"date":"2026-03-05","issue":9559,"weekday":"周四","tail":5,"dayStem":"戊","dayBranch":"寅","dayElement":"土","hourStem":"辛","hourStemElement":"金","hourBranch":"酉","hourBranchElement":"金","numbers":[3,17,18,27,35]},{"date":"2026-03-04","issue":9558,"weekday":"周三","tail":4,"dayStem":"丁","dayBranch":"丑","dayElement":"火","hourStem":"己","hourStemElement":"土","hourBranch":"酉","hourBranchElement":"金","numbers":[1,3,4,13,17]},{"date":"2026-03-03","issue":9557,"weekday":"周二","tail":3,"dayStem":"丙","dayBranch":"子","dayElement":"火","hourStem":"丁","hourStemElement":"火","hourBranch":"酉","hourBranchElement":"金","numbers":[12,13,16,25,38]},{"date":"2026-03-02","issue":9556,"weekday":"周一","tail":2,"dayStem":"乙","dayBranch":"亥","dayElement":"木","hourStem":"乙","hourStemElement":"木","hourBranch":"酉","hourBranchElement":"金","numbers":[6,7,30,32,33]},{"date":"2026-03-01","issue":9555,"weekday":"周日","tail":1,"dayStem":"甲","dayBranch":"戌","dayElement":"木","hourStem":"癸","hourStemElement":"水","hourBranch":"酉","hourBranchElement":"金","numbers":[8,10,11,21,29]},{"date":"2026-02-28","issue":9554,"weekday":"周六","tail":8,"dayStem":"癸","dayBranch":"酉","dayElement":"水","hourStem":"辛","hourStemElement":"金","hourBranch":"酉","hourBranchElement":"金","numbers":[10,13,24,32,38]},{"date":"2026-02-27","issue":9553,"weekday":"周五","tail":7,"dayStem":"壬","dayBranch":"申","dayElement":"水","hourStem":"己","hourStemElement":"土","hourBranch":"酉","hourBranchElement":"金","numbers":[26,29,30,31,32]},{"date":"2026-02-26","issue":9552,"weekday":"周四","tail":6,"dayStem":"辛","dayBranch":"未","dayElement":"金","hourStem":"丁","hourStemElement":"火","hourBranch":"酉","hourBranchElement":"金","numbers":[3,9,10,20,27]},{"date":"2026-02-25","issue":9551,"weekday":"周三","tail":5,"dayStem":"庚","dayBranch":"午","dayElement":"金","hourStem":"乙","hourStemElement":"木","hourBranch":"酉","hourBranchElement":"金","numbers":[5,7,10,33,34]},{"date":"2026-02-24","issue":9550,"weekday":"周二","tail":4,"dayStem":"己","dayBranch":"巳","dayElement":"土","hourStem":"癸","hourStemElement":"水","hourBranch":"酉","hourBranchElement":"金","numbers":[3,4,14,31,33]},{"date":"2026-02-23","issue":9549,"weekday":"周一","tail":3,"dayStem":"戊","dayBranch":"辰","dayElement":"土","hourStem":"辛","hourStemElement":"金","hourBranch":"酉","hourBranchElement":"金","numbers":[3,10,20,26,30]},{"date":"2026-02-22","issue":9548,"weekday":"周日","tail":2,"dayStem":"丁","dayBranch":"卯","dayElement":"火","hourStem":"己","hourStemElement":"土","hourBranch":"酉","hourBranchElement":"金","numbers":[3,24,25,34,37]},{"date":"2026-02-21","issue":9547,"weekday":"周六","tail":1,"dayStem":"丙","dayBranch":"寅","dayElement":"火","hourStem":"丁","hourStemElement":"火","hourBranch":"酉","hourBranchElement":"金","numbers":[19,23,29,30,36]},{"date":"2026-02-20","issue":9546,"weekday":"周五","tail":0,"dayStem":"乙","dayBranch":"丑","dayElement":"木","hourStem":"乙","hourStemElement":"木","hourBranch":"酉","hourBranchElement":"金","numbers":[10,19,22,31,36]},{"date":"2026-02-19","issue":9545,"weekday":"周四","tail":9,"dayStem":"甲","dayBranch":"子","dayElement":"木","hourStem":"癸","hourStemElement":"水","hourBranch":"酉","hourBranchElement":"金","numbers":[3,22,27,31,37]},{"date":"2026-02-18","issue":9544,"weekday":"周三","tail":8,"dayStem":"癸","dayBranch":"亥","dayElement":"水","hourStem":"辛","hourStemElement":"金","hourBranch":"酉","hourBranchElement":"金","numbers":[6,8,14,22,28]},{"date":"2026-02-17","issue":9543,"weekday":"周二","tail":7,"dayStem":"壬","dayBranch":"戌","dayElement":"水","hourStem":"己","hourStemElement":"土","hourBranch":"酉","hourBranchElement":"金","numbers":[8,11,26,28,35]},{"date":"2026-02-16","issue":9542,"weekday":"周一","tail":6,"dayStem":"辛","dayBranch":"酉","dayElement":"金","hourStem":"丁","hourStemElement":"火","hourBranch":"酉","hourBranchElement":"金","numbers":[1,3,15,17,21]},{"date":"2026-02-15","issue":9541,"weekday":"周日","tail":5,"dayStem":"庚","dayBranch":"申","dayElement":"金","hourStem":"乙","hourStemElement":"木","hourBranch":"酉","hourBranchElement":"金","numbers":[4,9,14,26,34]},{"date":"2026-02-14","issue":9540,"weekday":"周六","tail":4,"dayStem":"己","dayBranch":"未","dayElement":"土","hourStem":"癸","hourStemElement":"水","hourBranch":"酉","hourBranchElement":"金","numbers":[2,13,20,28,30]},{"date":"2026-02-13","issue":9539,"weekday":"周五","tail":3,"dayStem":"戊","dayBranch":"午","dayElement":"土","hourStem":"辛","hourStemElement":"金","hourBranch":"酉","hourBranchElement":"金","numbers":[11,15,18,25,27]},{"date":"2026-02-12","issue":9538,"weekday":"周四","tail":2,"dayStem":"丁","dayBranch":"巳","dayElement":"火","hourStem":"己","hourStemElement":"土","hourBranch":"酉","hourBranchElement":"金","numbers":[14,18,23,27,29]},{"date":"2026-02-11","issue":9537,"weekday":"周三","tail":1,"dayStem":"丙","dayBranch":"辰","dayElement":"火","hourStem":"丁","hourStemElement":"火","hourBranch":"酉","hourBranchElement":"金","numbers":[4,10,19,23,26]},{"date":"2026-02-10","issue":9536,"weekday":"周二","tail":0,"dayStem":"乙","dayBranch":"卯","dayElement":"木","hourStem":"乙","hourStemElement":"木","hourBranch":"酉","hourBranchElement":"金","numbers":[4,5,12,26,32]},{"date":"2026-02-09","issue":9535,"weekday":"周一","tail":9,"dayStem":"甲","dayBranch":"寅","dayElement":"木","hourStem":"癸","hourStemElement":"水","hourBranch":"酉","hourBranchElement":"金","numbers":[2,8,11,36,37]},{"date":"2026-02-08","issue":9534,"weekday":"周日","tail":8,"dayStem":"癸","dayBranch":"丑","dayElement":"水","hourStem":"辛","hourStemElement":"金","hourBranch":"酉","hourBranchElement":"金","numbers":[18,20,24,29,33]},{"date":"2026-02-07","issue":9533,"weekday":"周六","tail":7,"dayStem":"壬","dayBranch":"子","dayElement":"水","hourStem":"己","hourStemElement":"土","hourBranch":"酉","hourBranchElement":"金","numbers":[8,12,15,24,34]},{"date":"2026-02-06","issue":9532,"weekday":"周五","tail":6,"dayStem":"辛","dayBranch":"亥","dayElement":"金","hourStem":"丁","hourStemElement":"火","hourBranch":"酉","hourBranchElement":"金","numbers":[5,11,26,28,39]},{"date":"2026-02-05","issue":9531,"weekday":"周四","tail":5,"dayStem":"庚","dayBranch":"戌","dayElement":"金","hourStem":"乙","hourStemElement":"木","hourBranch":"酉","hourBranchElement":"金","numbers":[8,26,28,32,38]},{"date":"2026-02-04","issue":9530,"weekday":"周三","tail":4,"dayStem":"己","dayBranch":"酉","dayElement":"土","hourStem":"癸","hourStemElement":"水","hourBranch":"酉","hourBranchElement":"金","numbers":[9,11,25,26,29]},{"date":"2026-02-03","issue":9529,"weekday":"周二","tail":3,"dayStem":"戊","dayBranch":"申","dayElement":"土","hourStem":"辛","hourStemElement":"金","hourBranch":"酉","hourBranchElement":"金","numbers":[5,6,13,15,23]},{"date":"2026-02-02","issue":9528,"weekday":"周一","tail":2,"dayStem":"丁","dayBranch":"未","dayElement":"火","hourStem":"己","hourStemElement":"土","hourBranch":"酉","hourBranchElement":"金","numbers":[1,8,23,24,36]},{"date":"2026-02-01","issue":9527,"weekday":"周日","tail":1,"dayStem":"丙","dayBranch":"午","dayElement":"火","hourStem":"丁","hourStemElement":"火","hourBranch":"酉","hourBranchElement":"金","numbers":[6,12,19,22,25]},{"date":"2026-01-31","issue":9526,"weekday":"周六","tail":1,"dayStem":"乙","dayBranch":"巳","dayElement":"木","hourStem":"乙","hourStemElement":"木","hourBranch":"酉","hourBranchElement":"金","numbers":[2,14,18,20,35]},{"date":"2026-01-30","issue":9525,"weekday":"周五","tail":0,"dayStem":"甲","dayBranch":"辰","dayElement":"木","hourStem":"癸","hourStemElement":"水","hourBranch":"酉","hourBranchElement":"金","numbers":[9,13,18,24,28]},{"date":"2026-01-29","issue":9524,"weekday":"周四","tail":9,"dayStem":"癸","dayBranch":"卯","dayElement":"水","hourStem":"辛","hourStemElement":"金","hourBranch":"酉","hourBranchElement":"金","numbers":[2,4,8,17,21]},{"date":"2026-01-28","issue":9523,"weekday":"周三","tail":8,"dayStem":"壬","dayBranch":"寅","dayElement":"水","hourStem":"己","hourStemElement":"土","hourBranch":"酉","hourBranchElement":"金","numbers":[5,6,13,27,32]},{"date":"2026-01-27","issue":9522,"weekday":"周二","tail":7,"dayStem":"辛","dayBranch":"丑","dayElement":"金","hourStem":"丁","hourStemElement":"火","hourBranch":"酉","hourBranchElement":"金","numbers":[1,4,22,33,39]},{"date":"2026-01-26","issue":9521,"weekday":"周一","tail":6,"dayStem":"庚","dayBranch":"子","dayElement":"金","hourStem":"乙","hourStemElement":"木","hourBranch":"酉","hourBranchElement":"金","numbers":[1,2,5,7,20]},{"date":"2026-01-25","issue":9520,"weekday":"周日","tail":5,"dayStem":"己","dayBranch":"亥","dayElement":"土","hourStem":"癸","hourStemElement":"水","hourBranch":"酉","hourBranchElement":"金","numbers":[1,14,19,27,37]},{"date":"2026-01-24","issue":9519,"weekday":"周六","tail":4,"dayStem":"戊","dayBranch":"戌","dayElement":"土","hourStem":"辛","hourStemElement":"金","hourBranch":"酉","hourBranchElement":"金","numbers":[15,18,25,33,35]},{"date":"2026-01-23","issue":9518,"weekday":"周五","tail":3,"dayStem":"丁","dayBranch":"酉","dayElement":"火","hourStem":"己","hourStemElement":"土","hourBranch":"酉","hourBranchElement":"金","numbers":[11,14,15,20,36]},{"date":"2026-01-22","issue":9517,"weekday":"周四","tail":2,"dayStem":"丙","dayBranch":"申","dayElement":"火","hourStem":"丁","hourStemElement":"火","hourBranch":"酉","hourBranchElement":"金","numbers":[6,8,11,27,28]},{"date":"2026-01-21","issue":9516,"weekday":"周三","tail":1,"dayStem":"乙","dayBranch":"未","dayElement":"木","hourStem":"乙","hourStemElement":"木","hourBranch":"酉","hourBranchElement":"金","numbers":[13,14,18,26,32]},{"date":"2026-01-20","issue":9515,"weekday":"周二","tail":0,"dayStem":"甲","dayBranch":"午","dayElement":"木","hourStem":"癸","hourStemElement":"水","hourBranch":"酉","hourBranchElement":"金","numbers":[7,8,13,22,28]},{"date":"2026-01-19","issue":9514,"weekday":"周一","tail":9,"dayStem":"癸","dayBranch":"巳","dayElement":"水","hourStem":"辛","hourStemElement":"金","hourBranch":"酉","hourBranchElement":"金","numbers":[11,19,22,27,30]},{"date":"2026-01-18","issue":9513,"weekday":"周日","tail":8,"dayStem":"壬","dayBranch":"辰","dayElement":"水","hourStem":"己","hourStemElement":"土","hourBranch":"酉","hourBranchElement":"金","numbers":[16,18,19,31,37]},{"date":"2026-01-17","issue":9512,"weekday":"周六","tail":7,"dayStem":"辛","dayBranch":"卯","dayElement":"金","hourStem":"丁","hourStemElement":"火","hourBranch":"酉","hourBranchElement":"金","numbers":[8,18,28,33,39]},{"date":"2026-01-16","issue":9511,"weekday":"周五","tail":6,"dayStem":"庚","dayBranch":"寅","dayElement":"金","hourStem":"乙","hourStemElement":"木","hourBranch":"酉","hourBranchElement":"金","numbers":[3,8,16,31,33]},{"date":"2026-01-15","issue":9510,"weekday":"周四","tail":5,"dayStem":"己","dayBranch":"丑","dayElement":"土","hourStem":"癸","hourStemElement":"水","hourBranch":"酉","hourBranchElement":"金","numbers":[6,18,28,32,36]},{"date":"2026-01-14","issue":9509,"weekday":"周三","tail":4,"dayStem":"戊","dayBranch":"子","dayElement":"土","hourStem":"辛","hourStemElement":"金","hourBranch":"酉","hourBranchElement":"金","numbers":[2,9,12,25,39]},{"date":"2026-01-13","issue":9508,"weekday":"周二","tail":3,"dayStem":"丁","dayBranch":"亥","dayElement":"火","hourStem":"己","hourStemElement":"土","hourBranch":"酉","hourBranchElement":"金","numbers":[4,9,25,27,35]},{"date":"2026-01-12","issue":9507,"weekday":"周一","tail":2,"dayStem":"丙","dayBranch":"戌","dayElement":"火","hourStem":"丁","hourStemElement":"火","hourBranch":"酉","hourBranchElement":"金","numbers":[13,18,27,28,35]},{"date":"2026-01-11","issue":9506,"weekday":"周日","tail":1,"dayStem":"乙","dayBranch":"酉","dayElement":"木","hourStem":"乙","hourStemElement":"木","hourBranch":"酉","hourBranchElement":"金","numbers":[7,16,17,19,35]},{"date":"2026-01-10","issue":9505,"weekday":"周六","tail":0,"dayStem":"甲","dayBranch":"申","dayElement":"木","hourStem":"癸","hourStemElement":"水","hourBranch":"酉","hourBranchElement":"金","numbers":[12,13,15,24,34]},{"date":"2026-01-09","issue":9504,"weekday":"周五","tail":9,"dayStem":"癸","dayBranch":"未","dayElement":"水","hourStem":"辛","hourStemElement":"金","hourBranch":"酉","hourBranchElement":"金","numbers":[23,25,28,29,35]},{"date":"2026-01-08","issue":9503,"weekday":"周四","tail":8,"dayStem":"壬","dayBranch":"午","dayElement":"水","hourStem":"己","hourStemElement":"土","hourBranch":"酉","hourBranchElement":"金","numbers":[2,15,19,24,36]},{"date":"2026-01-07","issue":9502,"weekday":"周三","tail":7,"dayStem":"辛","dayBranch":"巳","dayElement":"金","hourStem":"丁","hourStemElement":"火","hourBranch":"酉","hourBranchElement":"金","numbers":[2,3,9,11,31]},{"date":"2026-01-06","issue":9501,"weekday":"周二","tail":6,"dayStem":"庚","dayBranch":"辰","dayElement":"金","hourStem":"乙","hourStemElement":"木","hourBranch":"酉","hourBranchElement":"金","numbers":[1,10,28,31,39]},{"date":"2026-01-05","issue":9500,"weekday":"周一","tail":5,"dayStem":"己","dayBranch":"卯","dayElement":"土","hourStem":"癸","hourStemElement":"水","hourBranch":"酉","hourBranchElement":"金","numbers":[5,9,15,21,24]},{"date":"2026-01-04","issue":9499,"weekday":"周日","tail":4,"dayStem":"戊","dayBranch":"寅","dayElement":"土","hourStem":"辛","hourStemElement":"金","hourBranch":"酉","hourBranchElement":"金","numbers":[9,19,20,26,32]},{"date":"2026-01-03","issue":9498,"weekday":"周六","tail":3,"dayStem":"丁","dayBranch":"丑","dayElement":"火","hourStem":"己","hourStemElement":"土","hourBranch":"酉","hourBranchElement":"金","numbers":[1,4,34,37,39]},{"date":"2026-01-02","issue":9497,"weekday":"周五","tail":2,"dayStem":"丙","dayBranch":"子","dayElement":"火","hourStem":"丁","hourStemElement":"火","hourBranch":"酉","hourBranchElement":"金","numbers":[9,14,19,20,24]},{"date":"2026-01-01","issue":9496,"weekday":"周四","tail":1,"dayStem":"乙","dayBranch":"亥","dayElement":"木","hourStem":"乙","hourStemElement":"木","hourBranch":"酉","hourBranchElement":"金","numbers":[13,14,24,25,35]},{"date":"2025-12-31","issue":9495,"weekday":"周三","tail":1,"dayStem":"甲","dayBranch":"戌","dayElement":"木","hourStem":"癸","hourStemElement":"水","hourBranch":"酉","hourBranchElement":"金","numbers":[1,3,9,11,21]},{"date":"2025-12-30","issue":9494,"weekday":"周二","tail":0,"dayStem":"癸","dayBranch":"酉","dayElement":"水","hourStem":"辛","hourStemElement":"金","hourBranch":"酉","hourBranchElement":"金","numbers":[10,12,22,28,37]},{"date":"2025-12-29","issue":9493,"weekday":"周一","tail":9,"dayStem":"壬","dayBranch":"申","dayElement":"水","hourStem":"己","hourStemElement":"土","hourBranch":"酉","hourBranchElement":"金","numbers":[1,8,13,17,20]},{"date":"2025-12-28","issue":9492,"weekday":"周日","tail":8,"dayStem":"辛","dayBranch":"未","dayElement":"金","hourStem":"丁","hourStemElement":"火","hourBranch":"酉","hourBranchElement":"金","numbers":[1,21,22,33,35]},{"date":"2025-12-27","issue":9491,"weekday":"周六","tail":7,"dayStem":"庚","dayBranch":"午","dayElement":"金","hourStem":"乙","hourStemElement":"木","hourBranch":"酉","hourBranchElement":"金","numbers":[8,9,20,26,36]},{"date":"2025-12-26","issue":9490,"weekday":"周五","tail":6,"dayStem":"己","dayBranch":"巳","dayElement":"土","hourStem":"癸","hourStemElement":"水","hourBranch":"酉","hourBranchElement":"金","numbers":[2,6,7,8,35]},{"date":"2025-12-25","issue":9489,"weekday":"周四","tail":5,"dayStem":"戊","dayBranch":"辰","dayElement":"土","hourStem":"辛","hourStemElement":"金","hourBranch":"酉","hourBranchElement":"金","numbers":[5,17,20,29,38]},{"date":"2025-12-24","issue":9488,"weekday":"周三","tail":4,"dayStem":"丁","dayBranch":"卯","dayElement":"火","hourStem":"己","hourStemElement":"土","hourBranch":"酉","hourBranchElement":"金","numbers":[7,11,18,28,30]},{"date":"2025-12-23","issue":9487,"weekday":"周二","tail":3,"dayStem":"丙","dayBranch":"寅","dayElement":"火","hourStem":"丁","hourStemElement":"火","hourBranch":"酉","hourBranchElement":"金","numbers":[5,14,15,19,26]},{"date":"2025-12-22","issue":9486,"weekday":"周一","tail":2,"dayStem":"乙","dayBranch":"丑","dayElement":"木","hourStem":"乙","hourStemElement":"木","hourBranch":"酉","hourBranchElement":"金","numbers":[1,14,16,18,19]},{"date":"2025-12-21","issue":9485,"weekday":"周日","tail":1,"dayStem":"甲","dayBranch":"子","dayElement":"木","hourStem":"癸","hourStemElement":"水","hourBranch":"酉","hourBranchElement":"金","numbers":[15,23,26,28,37]},{"date":"2025-12-20","issue":9484,"weekday":"周六","tail":0,"dayStem":"癸","dayBranch":"亥","dayElement":"水","hourStem":"辛","hourStemElement":"金","hourBranch":"酉","hourBranchElement":"金","numbers":[11,28,29,32,37]},{"date":"2025-12-19","issue":9483,"weekday":"周五","tail":9,"dayStem":"壬","dayBranch":"戌","dayElement":"水","hourStem":"己","hourStemElement":"土","hourBranch":"酉","hourBranchElement":"金","numbers":[14,16,22,35,36]},{"date":"2025-12-18","issue":9482,"weekday":"周四","tail":8,"dayStem":"辛","dayBranch":"酉","dayElement":"金","hourStem":"丁","hourStemElement":"火","hourBranch":"酉","hourBranchElement":"金","numbers":[2,6,11,18,31]},{"date":"2025-12-17","issue":9481,"weekday":"周三","tail":7,"dayStem":"庚","dayBranch":"申","dayElement":"金","hourStem":"乙","hourStemElement":"木","hourBranch":"酉","hourBranchElement":"金","numbers":[13,25,28,31,33]},{"date":"2025-12-16","issue":9480,"weekday":"周二","tail":6,"dayStem":"己","dayBranch":"未","dayElement":"土","hourStem":"癸","hourStemElement":"水","hourBranch":"酉","hourBranchElement":"金","numbers":[14,15,24,32,34]},{"date":"2025-12-15","issue":9479,"weekday":"周一","tail":5,"dayStem":"戊","dayBranch":"午","dayElement":"土","hourStem":"辛","hourStemElement":"金","hourBranch":"酉","hourBranchElement":"金","numbers":[10,16,17,22,35]},{"date":"2025-12-14","issue":9478,"weekday":"周日","tail":4,"dayStem":"丁","dayBranch":"巳","dayElement":"火","hourStem":"己","hourStemElement":"土","hourBranch":"酉","hourBranchElement":"金","numbers":[10,14,18,31,32]},{"date":"2025-12-13","issue":9477,"weekday":"周六","tail":3,"dayStem":"丙","dayBranch":"辰","dayElement":"火","hourStem":"丁","hourStemElement":"火","hourBranch":"酉","hourBranchElement":"金","numbers":[2,3,22,24,32]},{"date":"2025-12-12","issue":9476,"weekday":"周五","tail":2,"dayStem":"乙","dayBranch":"卯","dayElement":"木","hourStem":"乙","hourStemElement":"木","hourBranch":"酉","hourBranchElement":"金","numbers":[16,18,27,32,38]},{"date":"2025-12-11","issue":9475,"weekday":"周四","tail":1,"dayStem":"甲","dayBranch":"寅","dayElement":"木","hourStem":"癸","hourStemElement":"水","hourBranch":"酉","hourBranchElement":"金","numbers":[7,13,23,26,30]},{"date":"2025-12-10","issue":9474,"weekday":"周三","tail":0,"dayStem":"癸","dayBranch":"丑","dayElement":"水","hourStem":"辛","hourStemElement":"金","hourBranch":"酉","hourBranchElement":"金","numbers":[1,2,5,10,17]},{"date":"2025-12-09","issue":9473,"weekday":"周二","tail":9,"dayStem":"壬","dayBranch":"子","dayElement":"水","hourStem":"己","hourStemElement":"土","hourBranch":"酉","hourBranchElement":"金","numbers":[10,15,16,20,33]},{"date":"2025-12-08","issue":9472,"weekday":"周一","tail":8,"dayStem":"辛","dayBranch":"亥","dayElement":"金","hourStem":"丁","hourStemElement":"火","hourBranch":"酉","hourBranchElement":"金","numbers":[7,31,33,35,38]},{"date":"2025-12-07","issue":9471,"weekday":"周日","tail":7,"dayStem":"庚","dayBranch":"戌","dayElement":"金","hourStem":"乙","hourStemElement":"木","hourBranch":"酉","hourBranchElement":"金","numbers":[11,13,14,19,39]},{"date":"2025-12-06","issue":9470,"weekday":"周六","tail":6,"dayStem":"己","dayBranch":"酉","dayElement":"土","hourStem":"癸","hourStemElement":"水","hourBranch":"酉","hourBranchElement":"金","numbers":[9,11,12,13,34]},{"date":"2025-12-05","issue":9469,"weekday":"周五","tail":5,"dayStem":"戊","dayBranch":"申","dayElement":"土","hourStem":"辛","hourStemElement":"金","hourBranch":"酉","hourBranchElement":"金","numbers":[9,10,16,27,36]},{"date":"2025-12-04","issue":9468,"weekday":"周四","tail":4,"dayStem":"丁","dayBranch":"未","dayElement":"火","hourStem":"己","hourStemElement":"土","hourBranch":"酉","hourBranchElement":"金","numbers":[16,21,30,33,34]},{"date":"2025-12-03","issue":9467,"weekday":"周三","tail":3,"dayStem":"丙","dayBranch":"午","dayElement":"火","hourStem":"丁","hourStemElement":"火","hourBranch":"酉","hourBranchElement":"金","numbers":[6,7,28,29,32]},{"date":"2025-12-02","issue":9466,"weekday":"周二","tail":2,"dayStem":"乙","dayBranch":"巳","dayElement":"木","hourStem":"乙","hourStemElement":"木","hourBranch":"酉","hourBranchElement":"金","numbers":[6,16,18,20,33]},{"date":"2025-12-01","issue":9465,"weekday":"周一","tail":1,"dayStem":"甲","dayBranch":"辰","dayElement":"木","hourStem":"癸","hourStemElement":"水","hourBranch":"酉","hourBranchElement":"金","numbers":[1,2,20,30,38]},{"date":"2025-11-30","issue":9464,"weekday":"周日","tail":0,"dayStem":"癸","dayBranch":"卯","dayElement":"水","hourStem":"辛","hourStemElement":"金","hourBranch":"酉","hourBranchElement":"金","numbers":[2,5,8,24,33]},{"date":"2025-11-29","issue":9463,"weekday":"周六","tail":9,"dayStem":"壬","dayBranch":"寅","dayElement":"水","hourStem":"己","hourStemElement":"土","hourBranch":"酉","hourBranchElement":"金","numbers":[2,10,27,28,34]},{"date":"2025-11-28","issue":9462,"weekday":"周五","tail":8,"dayStem":"辛","dayBranch":"丑","dayElement":"金","hourStem":"丁","hourStemElement":"火","hourBranch":"酉","hourBranchElement":"金","numbers":[13,14,21,23,32]},{"date":"2025-11-27","issue":9461,"weekday":"周四","tail":7,"dayStem":"庚","dayBranch":"子","dayElement":"金","hourStem":"乙","hourStemElement":"木","hourBranch":"酉","hourBranchElement":"金","numbers":[10,24,28,31,37]},{"date":"2025-11-26","issue":9460,"weekday":"周三","tail":6,"dayStem":"己","dayBranch":"亥","dayElement":"土","hourStem":"癸","hourStemElement":"水","hourBranch":"酉","hourBranchElement":"金","numbers":[2,3,21,25,27]},{"date":"2025-11-25","issue":9459,"weekday":"周二","tail":5,"dayStem":"戊","dayBranch":"戌","dayElement":"土","hourStem":"辛","hourStemElement":"金","hourBranch":"酉","hourBranchElement":"金","numbers":[3,5,7,18,24]},{"date":"2025-11-24","issue":9458,"weekday":"周一","tail":4,"dayStem":"丁","dayBranch":"酉","dayElement":"火","hourStem":"己","hourStemElement":"土","hourBranch":"酉","hourBranchElement":"金","numbers":[5,17,20,36,39]},{"date":"2025-11-23","issue":9457,"weekday":"周日","tail":3,"dayStem":"丙","dayBranch":"申","dayElement":"火","hourStem":"丁","hourStemElement":"火","hourBranch":"酉","hourBranchElement":"金","numbers":[3,16,21,35,38]},{"date":"2025-11-22","issue":9456,"weekday":"周六","tail":2,"dayStem":"乙","dayBranch":"未","dayElement":"木","hourStem":"乙","hourStemElement":"木","hourBranch":"酉","hourBranchElement":"金","numbers":[9,11,21,31,35]},{"date":"2025-11-21","issue":9455,"weekday":"周五","tail":1,"dayStem":"甲","dayBranch":"午","dayElement":"木","hourStem":"癸","hourStemElement":"水","hourBranch":"酉","hourBranchElement":"金","numbers":[10,11,17,28,33]},{"date":"2025-11-20","issue":9454,"weekday":"周四","tail":0,"dayStem":"癸","dayBranch":"巳","dayElement":"水","hourStem":"辛","hourStemElement":"金","hourBranch":"酉","hourBranchElement":"金","numbers":[4,7,17,28,33]},{"date":"2025-11-19","issue":9453,"weekday":"周三","tail":9,"dayStem":"壬","dayBranch":"辰","dayElement":"水","hourStem":"己","hourStemElement":"土","hourBranch":"酉","hourBranchElement":"金","numbers":[3,6,7,13,37]},{"date":"2025-11-18","issue":9452,"weekday":"周二","tail":8,"dayStem":"辛","dayBranch":"卯","dayElement":"金","hourStem":"丁","hourStemElement":"火","hourBranch":"酉","hourBranchElement":"金","numbers":[9,13,14,19,33]},{"date":"2025-11-17","issue":9451,"weekday":"周一","tail":7,"dayStem":"庚","dayBranch":"寅","dayElement":"金","hourStem":"乙","hourStemElement":"木","hourBranch":"酉","hourBranchElement":"金","numbers":[4,7,18,29,38]},{"date":"2025-11-16","issue":9450,"weekday":"周日","tail":6,"dayStem":"己","dayBranch":"丑","dayElement":"土","hourStem":"癸","hourStemElement":"水","hourBranch":"酉","hourBranchElement":"金","numbers":[10,20,33,35,38]},{"date":"2025-11-15","issue":9449,"weekday":"周六","tail":5,"dayStem":"戊","dayBranch":"子","dayElement":"土","hourStem":"辛","hourStemElement":"金","hourBranch":"酉","hourBranchElement":"金","numbers":[6,12,18,25,36]},{"date":"2025-11-14","issue":9448,"weekday":"周五","tail":4,"dayStem":"丁","dayBranch":"亥","dayElement":"火","hourStem":"己","hourStemElement":"土","hourBranch":"酉","hourBranchElement":"金","numbers":[7,11,13,32,39]},{"date":"2025-11-13","issue":9447,"weekday":"周四","tail":3,"dayStem":"丙","dayBranch":"戌","dayElement":"火","hourStem":"丁","hourStemElement":"火","hourBranch":"酉","hourBranchElement":"金","numbers":[6,10,17,23,35]},{"date":"2025-11-12","issue":9446,"weekday":"周三","tail":2,"dayStem":"乙","dayBranch":"酉","dayElement":"木","hourStem":"乙","hourStemElement":"木","hourBranch":"酉","hourBranchElement":"金","numbers":[2,11,24,25,39]},{"date":"2025-11-11","issue":9445,"weekday":"周二","tail":1,"dayStem":"甲","dayBranch":"申","dayElement":"木","hourStem":"癸","hourStemElement":"水","hourBranch":"酉","hourBranchElement":"金","numbers":[4,5,20,34,35]},{"date":"2025-11-10","issue":9444,"weekday":"周一","tail":0,"dayStem":"癸","dayBranch":"未","dayElement":"水","hourStem":"辛","hourStemElement":"金","hourBranch":"酉","hourBranchElement":"金","numbers":[5,14,17,21,30]},{"date":"2025-11-09","issue":9443,"weekday":"周日","tail":9,"dayStem":"壬","dayBranch":"午","dayElement":"水","hourStem":"己","hourStemElement":"土","hourBranch":"酉","hourBranchElement":"金","numbers":[14,16,23,27,33]},{"date":"2025-11-08","issue":9442,"weekday":"周六","tail":8,"dayStem":"辛","dayBranch":"巳","dayElement":"金","hourStem":"丁","hourStemElement":"火","hourBranch":"酉","hourBranchElement":"金","numbers":[1,19,20,22,29]},{"date":"2025-11-07","issue":9441,"weekday":"周五","tail":7,"dayStem":"庚","dayBranch":"辰","dayElement":"金","hourStem":"乙","hourStemElement":"木","hourBranch":"酉","hourBranchElement":"金","numbers":[5,12,14,32,38]},{"date":"2025-11-06","issue":9440,"weekday":"周四","tail":6,"dayStem":"己","dayBranch":"卯","dayElement":"土","hourStem":"癸","hourStemElement":"水","hourBranch":"酉","hourBranchElement":"金","numbers":[2,6,16,20,38]},{"date":"2025-11-05","issue":9439,"weekday":"周三","tail":5,"dayStem":"戊","dayBranch":"寅","dayElement":"土","hourStem":"辛","hourStemElement":"金","hourBranch":"酉","hourBranchElement":"金","numbers":[16,17,23,30,33]},{"date":"2025-11-04","issue":9438,"weekday":"周二","tail":4,"dayStem":"丁","dayBranch":"丑","dayElement":"火","hourStem":"己","hourStemElement":"土","hourBranch":"酉","hourBranchElement":"金","numbers":[18,24,25,28,34]},{"date":"2025-11-03","issue":9437,"weekday":"周一","tail":3,"dayStem":"丙","dayBranch":"子","dayElement":"火","hourStem":"丁","hourStemElement":"火","hourBranch":"酉","hourBranchElement":"金","numbers":[7,8,21,24,31]},{"date":"2025-11-02","issue":9436,"weekday":"周日","tail":2,"dayStem":"乙","dayBranch":"亥","dayElement":"木","hourStem":"乙","hourStemElement":"木","hourBranch":"酉","hourBranchElement":"金","numbers":[1,10,11,14,30]},{"date":"2025-11-01","issue":9435,"weekday":"周六","tail":1,"dayStem":"甲","dayBranch":"戌","dayElement":"木","hourStem":"癸","hourStemElement":"水","hourBranch":"酉","hourBranchElement":"金","numbers":[1,2,21,30,35]},{"date":"2025-10-31","issue":9434,"weekday":"周五","tail":1,"dayStem":"癸","dayBranch":"酉","dayElement":"水","hourStem":"辛","hourStemElement":"金","hourBranch":"酉","hourBranchElement":"金","numbers":[7,8,26,27,35]},{"date":"2025-10-30","issue":9433,"weekday":"周四","tail":0,"dayStem":"壬","dayBranch":"申","dayElement":"水","hourStem":"己","hourStemElement":"土","hourBranch":"酉","hourBranchElement":"金","numbers":[1,13,19,23,28]},{"date":"2025-10-29","issue":9432,"weekday":"周三","tail":9,"dayStem":"辛","dayBranch":"未","dayElement":"金","hourStem":"丁","hourStemElement":"火","hourBranch":"酉","hourBranchElement":"金","numbers":[3,6,11,13,29]},{"date":"2025-10-28","issue":9431,"weekday":"周二","tail":8,"dayStem":"庚","dayBranch":"午","dayElement":"金","hourStem":"乙","hourStemElement":"木","hourBranch":"酉","hourBranchElement":"金","numbers":[10,13,33,38,39]},{"date":"2025-10-27","issue":9430,"weekday":"周一","tail":7,"dayStem":"己","dayBranch":"巳","dayElement":"土","hourStem":"癸","hourStemElement":"水","hourBranch":"酉","hourBranchElement":"金","numbers":[1,7,17,26,29]},{"date":"2025-10-26","issue":9429,"weekday":"周日","tail":6,"dayStem":"戊","dayBranch":"辰","dayElement":"土","hourStem":"辛","hourStemElement":"金","hourBranch":"酉","hourBranchElement":"金","numbers":[10,14,18,22,29]},{"date":"2025-10-25","issue":9428,"weekday":"周六","tail":5,"dayStem":"丁","dayBranch":"卯","dayElement":"火","hourStem":"己","hourStemElement":"土","hourBranch":"酉","hourBranchElement":"金","numbers":[2,15,20,33,35]},{"date":"2025-10-24","issue":9427,"weekday":"周五","tail":4,"dayStem":"丙","dayBranch":"寅","dayElement":"火","hourStem":"丁","hourStemElement":"火","hourBranch":"酉","hourBranchElement":"金","numbers":[18,21,25,30,39]},{"date":"2025-10-23","issue":9426,"weekday":"周四","tail":3,"dayStem":"乙","dayBranch":"丑","dayElement":"木","hourStem":"乙","hourStemElement":"木","hourBranch":"酉","hourBranchElement":"金","numbers":[4,14,30,33,38]},{"date":"2025-10-22","issue":9425,"weekday":"周三","tail":2,"dayStem":"甲","dayBranch":"子","dayElement":"木","hourStem":"癸","hourStemElement":"水","hourBranch":"酉","hourBranchElement":"金","numbers":[7,19,21,23,37]},{"date":"2025-10-21","issue":9424,"weekday":"周二","tail":1,"dayStem":"癸","dayBranch":"亥","dayElement":"水","hourStem":"辛","hourStemElement":"金","hourBranch":"酉","hourBranchElement":"金","numbers":[8,14,24,26,32]},{"date":"2025-10-20","issue":9423,"weekday":"周一","tail":0,"dayStem":"壬","dayBranch":"戌","dayElement":"水","hourStem":"己","hourStemElement":"土","hourBranch":"酉","hourBranchElement":"金","numbers":[2,5,11,36,37]},{"date":"2025-10-19","issue":9422,"weekday":"周日","tail":9,"dayStem":"辛","dayBranch":"酉","dayElement":"金","hourStem":"丁","hourStemElement":"火","hourBranch":"酉","hourBranchElement":"金","numbers":[11,14,15,16,17]},{"date":"2025-10-18","issue":9421,"weekday":"周六","tail":8,"dayStem":"庚","dayBranch":"申","dayElement":"金","hourStem":"乙","hourStemElement":"木","hourBranch":"酉","hourBranchElement":"金","numbers":[1,8,10,17,23]},{"date":"2025-10-17","issue":9420,"weekday":"周五","tail":7,"dayStem":"己","dayBranch":"未","dayElement":"土","hourStem":"癸","hourStemElement":"水","hourBranch":"酉","hourBranchElement":"金","numbers":[19,21,33,35,37]},{"date":"2025-10-16","issue":9419,"weekday":"周四","tail":6,"dayStem":"戊","dayBranch":"午","dayElement":"土","hourStem":"辛","hourStemElement":"金","hourBranch":"酉","hourBranchElement":"金","numbers":[2,13,16,17,23]},{"date":"2025-10-15","issue":9418,"weekday":"周三","tail":5,"dayStem":"丁","dayBranch":"巳","dayElement":"火","hourStem":"己","hourStemElement":"土","hourBranch":"酉","hourBranchElement":"金","numbers":[4,19,30,31,39]},{"date":"2025-10-14","issue":9417,"weekday":"周二","tail":4,"dayStem":"丙","dayBranch":"辰","dayElement":"火","hourStem":"丁","hourStemElement":"火","hourBranch":"酉","hourBranchElement":"金","numbers":[6,17,20,21,23]},{"date":"2025-10-13","issue":9416,"weekday":"周一","tail":3,"dayStem":"乙","dayBranch":"卯","dayElement":"木","hourStem":"乙","hourStemElement":"木","hourBranch":"酉","hourBranchElement":"金","numbers":[2,6,18,31,39]},{"date":"2025-10-12","issue":9415,"weekday":"周日","tail":2,"dayStem":"甲","dayBranch":"寅","dayElement":"木","hourStem":"癸","hourStemElement":"水","hourBranch":"酉","hourBranchElement":"金","numbers":[1,7,9,32,36]},{"date":"2025-10-11","issue":9414,"weekday":"周六","tail":1,"dayStem":"癸","dayBranch":"丑","dayElement":"水","hourStem":"辛","hourStemElement":"金","hourBranch":"酉","hourBranchElement":"金","numbers":[8,9,24,31,38]},{"date":"2025-10-10","issue":9413,"weekday":"周五","tail":0,"dayStem":"壬","dayBranch":"子","dayElement":"水","hourStem":"己","hourStemElement":"土","hourBranch":"酉","hourBranchElement":"金","numbers":[26,30,37,38,39]},{"date":"2025-10-09","issue":9412,"weekday":"周四","tail":9,"dayStem":"辛","dayBranch":"亥","dayElement":"金","hourStem":"丁","hourStemElement":"火","hourBranch":"酉","hourBranchElement":"金","numbers":[14,25,26,31,34]},{"date":"2025-10-08","issue":9411,"weekday":"周三","tail":8,"dayStem":"庚","dayBranch":"戌","dayElement":"金","hourStem":"乙","hourStemElement":"木","hourBranch":"酉","hourBranchElement":"金","numbers":[3,27,28,32,39]},{"date":"2025-10-07","issue":9410,"weekday":"周二","tail":7,"dayStem":"己","dayBranch":"酉","dayElement":"土","hourStem":"癸","hourStemElement":"水","hourBranch":"酉","hourBranchElement":"金","numbers":[10,16,25,32,39]},{"date":"2025-10-06","issue":9409,"weekday":"周一","tail":6,"dayStem":"戊","dayBranch":"申","dayElement":"土","hourStem":"辛","hourStemElement":"金","hourBranch":"酉","hourBranchElement":"金","numbers":[5,7,10,16,28]},{"date":"2025-10-05","issue":9408,"weekday":"周日","tail":5,"dayStem":"丁","dayBranch":"未","dayElement":"火","hourStem":"己","hourStemElement":"土","hourBranch":"酉","hourBranchElement":"金","numbers":[12,20,25,28,33]},{"date":"2025-10-04","issue":9407,"weekday":"周六","tail":4,"dayStem":"丙","dayBranch":"午","dayElement":"火","hourStem":"丁","hourStemElement":"火","hourBranch":"酉","hourBranchElement":"金","numbers":[14,15,16,29,39]},{"date":"2025-10-03","issue":9406,"weekday":"周五","tail":3,"dayStem":"乙","dayBranch":"巳","dayElement":"木","hourStem":"乙","hourStemElement":"木","hourBranch":"酉","hourBranchElement":"金","numbers":[4,9,10,14,15]},{"date":"2025-10-02","issue":9405,"weekday":"周四","tail":2,"dayStem":"甲","dayBranch":"辰","dayElement":"木","hourStem":"癸","hourStemElement":"水","hourBranch":"酉","hourBranchElement":"金","numbers":[7,11,14,34,37]},{"date":"2025-10-01","issue":9404,"weekday":"周三","tail":1,"dayStem":"癸","dayBranch":"卯","dayElement":"水","hourStem":"辛","hourStemElement":"金","hourBranch":"酉","hourBranchElement":"金","numbers":[3,6,7,37,38]},{"date":"2025-09-30","issue":9403,"weekday":"周二","tail":0,"dayStem":"壬","dayBranch":"寅","dayElement":"水","hourStem":"己","hourStemElement":"土","hourBranch":"酉","hourBranchElement":"金","numbers":[6,20,29,31,39]},{"date":"2025-09-29","issue":9402,"weekday":"周一","tail":9,"dayStem":"辛","dayBranch":"丑","dayElement":"金","hourStem":"丁","hourStemElement":"火","hourBranch":"酉","hourBranchElement":"金","numbers":[3,13,23,25,30]},{"date":"2025-09-28","issue":9401,"weekday":"周日","tail":8,"dayStem":"庚","dayBranch":"子","dayElement":"金","hourStem":"乙","hourStemElement":"木","hourBranch":"酉","hourBranchElement":"金","numbers":[6,9,16,17,25]},{"date":"2025-09-27","issue":9400,"weekday":"周六","tail":7,"dayStem":"己","dayBranch":"亥","dayElement":"土","hourStem":"癸","hourStemElement":"水","hourBranch":"酉","hourBranchElement":"金","numbers":[15,17,24,25,33]},{"date":"2025-09-26","issue":9399,"weekday":"周五","tail":6,"dayStem":"戊","dayBranch":"戌","dayElement":"土","hourStem":"辛","hourStemElement":"金","hourBranch":"酉","hourBranchElement":"金","numbers":[16,17,24,26,33]}];
+    window.F5_CURRENT = {"date":"2026-07-23","time":"18:25","jackpot":"$301,000","weekday":"周四","tail":3,"dayStem":"戊","dayBranch":"戌","dayElement":"土","hourStem":"辛","hourStemElement":"金","hourBranch":"酉","hourBranchElement":"金","issue":9699};
+    window.F5_RECOMMENDATIONS = [{"number":33,"probability":16.5,"count":53},{"number":14,"probability":16,"count":51},{"number":28,"probability":15.3,"count":48},{"number":11,"probability":14.5,"count":45},{"number":13,"probability":14.5,"count":45},{"number":10,"probability":14.2,"count":44},{"number":2,"probability":14,"count":43},{"number":6,"probability":14,"count":43},{"number":35,"probability":14,"count":43},{"number":16,"probability":13.7,"count":42},{"number":23,"probability":13.7,"count":42},{"number":17,"probability":13.2,"count":40},{"number":19,"probability":13.2,"count":40},{"number":20,"probability":13.2,"count":40},{"number":27,"probability":13.2,"count":40},{"number":32,"probability":13.2,"count":40},{"number":5,"probability":13,"count":39},{"number":9,"probability":13,"count":39},{"number":18,"probability":13,"count":39},{"number":31,"probability":12.7,"count":38},{"number":1,"probability":12.4,"count":37},{"number":26,"probability":12.4,"count":37},{"number":29,"probability":12.4,"count":37},{"number":36,"probability":12.4,"count":37},{"number":37,"probability":12.4,"count":37},{"number":4,"probability":12.2,"count":36},{"number":39,"probability":12.2,"count":36},{"number":21,"probability":11.9,"count":35},{"number":25,"probability":11.9,"count":35},{"number":24,"probability":11.7,"count":34},{"number":8,"probability":11.4,"count":33},{"number":30,"probability":11.4,"count":33},{"number":38,"probability":11.4,"count":33},{"number":7,"probability":11.2,"count":32},{"number":12,"probability":11.2,"count":32},{"number":15,"probability":11.2,"count":32},{"number":3,"probability":10.9,"count":31},{"number":34,"probability":10.9,"count":31},{"number":22,"probability":10.1,"count":28}];
+    window.F5_DATA_STATUS = {"latestDate":"2026-07-22","todayLa":"2026-07-23","daysBehind":1,"isStale":false,"statusText":"历史数据已更新","totalRows":11866,"visibleRows":300,"csvPath":"C:/Users/zexim/Downloads/california_fantasy_5_complete_history.csv","builtAt":"2026-07-23T17:44:39.924Z"};
+  </script>
+  <script>
+    const historyRows = window.F5_HISTORY;
+    const currentDraw = window.F5_CURRENT;
+    const recommendations = window.F5_RECOMMENDATIONS;
+    const filters = {
+      tail: document.getElementById("tail-filter"),
+      weekday: document.getElementById("weekday-filter"),
+      stem: document.getElementById("stem-filter"),
+      branch: document.getElementById("branch-filter"),
+      element: document.getElementById("element-filter"),
+      hourElement: document.getElementById("hour-element-filter"),
+      from: document.getElementById("from-filter"),
+      to: document.getElementById("to-filter"),
+      number: document.getElementById("number-filter"),
+    };
+    const historyBody = document.getElementById("history-body");
+    const visibleCount = document.getElementById("visible-count");
+    const recommendationsEl = document.getElementById("recommendations");
+    let selectedNumber = null;
+
+    function fillSelect(select, values, allLabel = "全部") {
+      select.innerHTML = "";
+      const all = document.createElement("option");
+      all.value = "";
+      all.textContent = allLabel;
+      select.appendChild(all);
+      values.forEach((value) => {
+        const option = document.createElement("option");
+        option.value = String(value);
+        option.textContent = String(value);
+        select.appendChild(option);
+      });
+    }
+
+    function numberButton(number, className = "tiny-ball") {
+      const span = document.createElement("span");
+      span.className = className;
+      span.dataset.number = String(number);
+      span.textContent = number;
+      span.addEventListener("click", () => setSelectedNumber(String(number)));
+      return span;
+    }
+
+    function setSelectedNumber(number) {
+      selectedNumber = selectedNumber === number ? null : number;
+      document.querySelectorAll("[data-number]").forEach((node) => {
+        node.classList.toggle("number-selected", selectedNumber !== null && node.dataset.number === selectedNumber);
+      });
+    }
+
+    function renderRecommendations() {
+      recommendationsEl.innerHTML = "";
+      recommendations.forEach((item, index) => {
+        const cell = numberButton(item.number, "ball");
+        if (index < 5) cell.classList.add("hot");
+        else if (index < 8) cell.classList.add("good");
+        const pct = document.createElement("small");
+        pct.textContent = item.probability.toFixed(1) + "%";
+        cell.appendChild(pct);
+        recommendationsEl.appendChild(cell);
+      });
+    }
+
+    function blankNumbers() {
+      const wrap = document.createElement("span");
+      wrap.className = "numset";
+      for (let index = 0; index < 5; index += 1) {
+        const blank = document.createElement("span");
+        blank.className = "blank-ball";
+        wrap.appendChild(blank);
+      }
+      return wrap;
+    }
+
+    function numberSet(numbers) {
+      const wrap = document.createElement("span");
+      wrap.className = "numset";
+      numbers.forEach((number) => wrap.appendChild(numberButton(number)));
+      return wrap;
+    }
+
+    function appendCell(row, text) {
+      const cell = document.createElement("td");
+      cell.textContent = text;
+      row.appendChild(cell);
+      return cell;
+    }
+
+    function renderRow(rowData, upcoming = false) {
+      const row = document.createElement("tr");
+      if (upcoming) row.className = "upcoming";
+      appendCell(row, upcoming ? currentDraw.date + " " + currentDraw.time : rowData.date);
+      appendCell(row, rowData.issue);
+      appendCell(row, rowData.weekday);
+      appendCell(row, rowData.dayStem);
+      appendCell(row, rowData.dayBranch);
+      appendCell(row, rowData.dayElement);
+      appendCell(row, rowData.hourStemElement);
+      appendCell(row, rowData.hourBranchElement);
+      const numbers = document.createElement("td");
+      numbers.appendChild(upcoming ? blankNumbers() : numberSet(rowData.numbers));
+      row.appendChild(numbers);
+      return row;
+    }
+
+    function rowMatches(row) {
+      const numberValue = filters.number.value.trim();
+      if (filters.tail.value && String(row.tail) !== filters.tail.value) return false;
+      if (filters.weekday.value && row.weekday !== filters.weekday.value) return false;
+      if (filters.stem.value && row.dayStem !== filters.stem.value) return false;
+      if (filters.branch.value && row.dayBranch !== filters.branch.value) return false;
+      if (filters.element.value && row.dayElement !== filters.element.value) return false;
+      if (filters.hourElement.value && row.hourStemElement !== filters.hourElement.value) return false;
+      if (filters.from.value && row.date < filters.from.value) return false;
+      if (filters.to.value && row.date > filters.to.value) return false;
+      if (numberValue && !row.numbers.includes(Number(numberValue))) return false;
+      return true;
+    }
+
+    function renderHistory() {
+      const rows = historyRows.filter(rowMatches);
+      historyBody.innerHTML = "";
+      historyBody.appendChild(renderRow(currentDraw, true));
+      rows.forEach((row) => historyBody.appendChild(renderRow(row)));
+      visibleCount.textContent = String(rows.length);
+      if (selectedNumber !== null) {
+        const keep = selectedNumber;
+        selectedNumber = null;
+        setSelectedNumber(keep);
+      }
+    }
+
+    fillSelect(filters.tail, Array.from({ length: 10 }, (_, index) => index));
+    fillSelect(filters.weekday, ["周一", "周二", "周三", "周四", "周五", "周六", "周日"]);
+    fillSelect(filters.stem, ["甲", "乙", "丙", "丁", "戊", "己", "庚", "辛", "壬", "癸"]);
+    fillSelect(filters.branch, ["子", "丑", "寅", "卯", "辰", "巳", "午", "未", "申", "酉", "戌", "亥"]);
+    fillSelect(filters.element, ["木", "火", "土", "金", "水"]);
+    fillSelect(filters.hourElement, ["木", "火", "土", "金", "水"]);
+    Object.values(filters).forEach((control) => control.addEventListener("input", renderHistory));
+    Object.values(filters).forEach((control) => control.addEventListener("change", renderHistory));
+    renderRecommendations();
+    renderHistory();
+  </script>
+</body>
+</html>
