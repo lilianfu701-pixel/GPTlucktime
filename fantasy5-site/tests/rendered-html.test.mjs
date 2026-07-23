@@ -19,6 +19,7 @@ test("rendered page shows data cutoff, freshness status, and jackpot placement",
   assert.match(html, /历史数据(已更新|未更新)/);
   assert.match(html, /window\.F5_DATA_STATUS/);
   assert.match(html, /当前奖池/);
+  assert.match(html, /<span class="jackpot-highlight">\$[\d,]+<\/span>/);
   assert.doesNotMatch(html, /奖池<\/th>/);
 });
 

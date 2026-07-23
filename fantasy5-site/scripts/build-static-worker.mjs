@@ -293,7 +293,34 @@ const html = String.raw`<!doctype html>
     }
     .next-title { display: grid; gap: 7px; }
     .big-time { color: var(--blue); font-size: 26px; font-weight: 900; }
-    .small { color: var(--muted); font-size: 12px; }
+    .draw-summary {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 6px 10px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+    .summary-item { white-space: nowrap; }
+    .jackpot-callout {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      border: 1px solid #f6c56d;
+      border-radius: 6px;
+      background: #fff4dd;
+      padding: 4px 8px;
+      white-space: nowrap;
+    }
+    .jackpot-label { color: #8a4b0f; font-size: 11px; font-weight: 800; }
+    .jackpot-highlight {
+      color: #9a3412;
+      font-size: 24px;
+      font-weight: 900;
+      font-variant-numeric: tabular-nums;
+      letter-spacing: .01em;
+      line-height: 1;
+    }
     .indicator-strip {
       display: grid;
       grid-template-columns: repeat(6, minmax(0, 1fr));
@@ -547,7 +574,12 @@ const html = String.raw`<!doctype html>
       <div class="next-title">
         <h2>即将开奖</h2>
         <div class="big-time">${current.date} ${current.time}</div>
-        <div class="small">期号 ${current.issue} · 当前奖池 ${current.jackpot} · 洛杉矶今天 ${dataStatus.todayLa} · 数据滞后 ${dataStatus.daysBehind ?? "未知"} 天</div>
+        <div class="draw-summary">
+          <span class="summary-item">期号 ${current.issue}</span>
+          <span class="jackpot-callout"><span class="jackpot-label">当前奖池</span><span class="jackpot-highlight">${current.jackpot}</span></span>
+          <span class="summary-item">洛杉矶今天 ${dataStatus.todayLa}</span>
+          <span class="summary-item">数据滞后 ${dataStatus.daysBehind ?? "未知"} 天</span>
+        </div>
       </div>
       <div class="indicator-strip">
         <div class="indicator"><span>周几</span><strong>${current.weekday}</strong></div>
