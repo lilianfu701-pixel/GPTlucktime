@@ -1,7 +1,11 @@
 import { readFile } from "node:fs/promises";
+import { resolve } from "node:path";
+import { fileURLToPath } from "node:url";
 
-export const HISTORY_CSV_PATH =
-  "C:/Users/zexim/Downloads/california_fantasy_5_complete_history.csv";
+export const HISTORY_CSV_PATH = resolve(
+  fileURLToPath(new URL("..", import.meta.url)),
+  "data/california_fantasy_5_complete_history.csv",
+);
 
 export const HISTORY_HEADERS = [
   "draw_date",

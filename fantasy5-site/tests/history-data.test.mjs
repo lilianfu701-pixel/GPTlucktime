@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import {
+  HISTORY_CSV_PATH,
   mergeHistoryRows,
   parseHistoryCsv,
   serializeHistoryCsv,
@@ -9,6 +10,13 @@ import {
 
 const header =
   "draw_date,weekday,number_1,number_2,number_3,number_4,number_5,jackpot_text,jackpot_amount,rule_version,source_url";
+
+test("uses the version-controlled project CSV as the default history source", () => {
+  assert.match(
+    HISTORY_CSV_PATH.replace(/\\/g, "/"),
+    /fantasy5-site\/data\/california_fantasy_5_complete_history\.csv$/,
+  );
+});
 
 test("validateHistoryRow accepts five distinct Fantasy 5 numbers from 1 to 39", () => {
   const row = validateHistoryRow({
