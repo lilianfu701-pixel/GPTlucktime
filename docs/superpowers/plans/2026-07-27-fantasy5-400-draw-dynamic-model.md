@@ -189,12 +189,12 @@ export const MODEL_VERSION = "F5-EB-TIME400-TOP15-v2";
 
 const PRIOR_DRAWS = 90;
 const CONDITIONAL_PRIOR_DRAWS = 30;
-const RECENCY_HALF_LIFE = 120;
+const RECENCY_HALF_LIFE = 240;
 const SCORE_EPSILON = 1e-9;
 const FEATURE_GROUPS = [
-  { weight: 0.15, fields: ["weekday", "tail"] },
-  { weight: 0.2, fields: ["dayStem", "dayBranch", "dayElement"] },
-  { weight: 0.1, fields: ["hourStem", "hourStemElement"] },
+  { weight: 1 / 30, fields: ["weekday", "tail"] },
+  { weight: 2 / 45, fields: ["dayStem", "dayBranch", "dayElement"] },
+  { weight: 1 / 45, fields: ["hourStem", "hourStemElement"] },
 ];
 const REQUIRED_INDICATORS = FEATURE_GROUPS.flatMap((group) => group.fields);
 ```
@@ -288,7 +288,7 @@ function combinedWeight(window, number, target) {
   const baseProbability =
     (baseCounts.weightedHits + PRIOR_DRAWS * BASELINE_PROBABILITY) /
     (baseCounts.weightedDraws + PRIOR_DRAWS);
-  let baseWeight = 0.55;
+  let baseWeight = 0.9;
   let combinedLogit = 0;
 
   for (const group of FEATURE_GROUPS) {
@@ -440,10 +440,10 @@ test("walk-forward uses exactly the prior 400 draws and never future results", (
 ```js
 test("summarizeBacktest reports Top 15 hit rates and distribution", () => {
   const results = [
-    { hitCount: 0, legacyHitCount: 0, brierScore: 0.12, logLoss: 0.39 },
-    { hitCount: 1, legacyHitCount: 1, brierScore: 0.11, logLoss: 0.37 },
-    { hitCount: 2, legacyHitCount: 1, brierScore: 0.1, logLoss: 0.35 },
-    { hitCount: 3, legacyHitCount: 2, brierScore: 0.09, logLoss: 0.33 },
+    { hitCount: 0, legacyHitCount: 0 },
+    { hitCount: 1, legacyHitCount: 1 },
+    { hitCount: 2, legacyHitCount: 1 },
+    { hitCount: 3, legacyHitCount: 2 },
   ];
   const summary = summarizeBacktest(results);
 
@@ -649,6 +649,8 @@ test("rendered page exposes the Top 15 fixed 400-draw backtest", async () => {
   assert.match(html, /训练期数 400/);
   assert.doesNotMatch(html, /data-backtest-count=/);
   assert.doesNotMatch(html, /模型 Top 5/);
+  assert.doesNotMatch(html, /Brier/i);
+  assert.doesNotMatch(html, /Log Loss/i);
 });
 ```
 
@@ -812,6 +814,7 @@ function appendElementCell(row, element) {
 - 页面展示随机平均命中基线 `75 / 39`；
 - 页面展示同一批 400 个目标期、同为 Top 15 的 `summary.legacyAverageHits`；
 - 页面以“命中分布 0:x / 1:x / 2:x / 3:x / 4:x / 5:x”展示 `summary.hitDistribution`；
+- 删除回测结果、汇总卡片和逐期表格中的 Brier Score 与 Log Loss；
 - 表格增加训练起始日期列并继续展示训练截止日期；
 - 防穿越说明改为“每一期仅使用此前最近 400 期”；
 - 删除“时支固定酉，五行固定金”提示；
@@ -850,8 +853,6 @@ function renderBacktest() {
     hitCount.textContent = String(result.hitCount);
     hitCell.appendChild(hitCount);
     row.appendChild(hitCell);
-    appendCell(row, result.brierScore.toFixed(4));
-    appendCell(row, result.logLoss.toFixed(4));
     backtestBody.appendChild(row);
   });
 }
@@ -995,6 +996,7 @@ Expected: 发布状态为成功，线上地址仍为既有 Sites 地址；若 `g
 - “滚动回测（最近 400 期）”
 - 五种五行颜色类
 - 不包含“时支五行”
+- 不包含 Brier Score 或 Log Loss
 
 最终报告：
 

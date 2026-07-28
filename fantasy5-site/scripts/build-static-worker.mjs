@@ -124,8 +124,6 @@ function enrichDate(dateText) {
     dayElement: elementByStem[stem],
     hourStem,
     hourStemElement: elementByStem[hourStem],
-    hourBranch: "酉",
-    hourBranchElement: "金",
     issue: anchor.issue + diff,
   };
 }
@@ -139,21 +137,19 @@ function readValidHistoryRows() {
 }
 
 function toHistoryDisplayRow(row) {
-      const enriched = enrichDate(row.draw_date);
-      return {
-        date: row.draw_date,
-        issue: enriched.issue,
-        weekday: enriched.weekday,
-        tail: enriched.tail,
-        dayStem: enriched.dayStem,
-        dayBranch: enriched.dayBranch,
-        dayElement: enriched.dayElement,
-        hourStem: enriched.hourStem,
-        hourStemElement: enriched.hourStemElement,
-        hourBranch: enriched.hourBranch,
-        hourBranchElement: enriched.hourBranchElement,
+  const enriched = enrichDate(row.draw_date);
+  return {
+    date: row.draw_date,
+    issue: enriched.issue,
+    weekday: enriched.weekday,
+    tail: enriched.tail,
+    dayStem: enriched.dayStem,
+    dayBranch: enriched.dayBranch,
+    dayElement: enriched.dayElement,
+    hourStem: enriched.hourStem,
+    hourStemElement: enriched.hourStemElement,
     numbers: row.numbers,
-      };
+  };
 }
 
 function buildDataStatus(validRows, visibleHistory) {
@@ -187,33 +183,35 @@ const current = {
   jackpot: latestRow?.jackpot_text || "待同步",
   ...enrichDate(nextDrawDate),
 };
-const recommendations = buildRecommendations(validRows);
-const backtestResults = buildWalkForwardBacktest(validRows, {
-  drawCount: 50,
-  minTrainingDraws: 365,
+const modelHistory = validRows.map((row) => ({
+  ...row,
+  ...enrichDate(row.draw_date),
+}));
+const recommendations = buildRecommendations(modelHistory, current);
+const backtestResults = buildWalkForwardBacktest(modelHistory, {
+  drawCount: 400,
 });
-const requestedBacktestDrawCounts = [10, 20, 30, 50];
-const availableBacktestDrawCounts = requestedBacktestDrawCounts.filter(
-  (count) => count <= backtestResults.length,
-);
-const defaultBacktestDrawCount = availableBacktestDrawCounts.includes(10)
-  ? 10
-  : availableBacktestDrawCounts.at(0) ?? backtestResults.length;
 const backtest = {
   modelVersion: MODEL_VERSION,
-  defaultDrawCount: defaultBacktestDrawCount,
-  availableDrawCounts: availableBacktestDrawCounts,
+  drawCount: backtestResults.length,
   results: backtestResults,
-  summaries: Object.fromEntries(
-    availableBacktestDrawCounts.map((count) => [
-      count,
-      summarizeBacktest(backtestResults.slice(0, count)),
-    ]),
-  ),
+  summary: summarizeBacktest(backtestResults),
 };
-const defaultBacktestSummary =
-  backtest.summaries[backtest.defaultDrawCount] ??
-  summarizeBacktest(backtest.results);
+const defaultBacktestSummary = backtest.summary;
+
+const elementClassNames = {
+  木: "wood",
+  火: "fire",
+  土: "earth",
+  金: "metal",
+  水: "water",
+};
+
+function elementTag(element) {
+  const className = elementClassNames[element];
+  if (!className) throw new Error(`Unknown element: ${element}`);
+  return `<strong class="element-tag element-${className}">${element}</strong>`;
+}
 
 const html = String.raw`<!doctype html>
 <html lang="zh-CN">
@@ -337,7 +335,7 @@ const html = String.raw`<!doctype html>
     }
     .indicator-strip {
       display: grid;
-      grid-template-columns: repeat(6, minmax(0, 1fr));
+      grid-template-columns: repeat(5, minmax(0, 1fr));
       gap: 7px;
     }
     .indicator {
@@ -361,6 +359,20 @@ const html = String.raw`<!doctype html>
       white-space: nowrap;
       font-size: 14px;
     }
+    .element-tag {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 2em;
+      border-radius: 999px;
+      padding: 2px 8px;
+      font-weight: 800;
+    }
+    .element-wood { background: #DCFCE7; color: #166534; }
+    .element-fire { background: #FEE2E2; color: #991B1B; }
+    .element-earth { background: #FEF3C7; color: #92400E; }
+    .element-metal { background: #FEF9C3; color: #854D0E; }
+    .element-water { background: #DBEAFE; color: #1E40AF; }
     .pick-box {
       display: grid;
       grid-template-columns: repeat(5, 1fr);
@@ -553,30 +565,9 @@ const html = String.raw`<!doctype html>
     }
     .backtest-head h2 { margin-bottom: 5px; }
     .backtest-head .subtitle { margin-bottom: 0; }
-    .backtest-controls {
-      display: flex;
-      gap: 6px;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-    }
-    .backtest-range {
-      border: 1px solid var(--line);
-      border-radius: 6px;
-      background: white;
-      color: #475467;
-      cursor: pointer;
-      font-size: 12px;
-      font-weight: 800;
-      padding: 7px 10px;
-    }
-    .backtest-range.active {
-      border-color: var(--blue);
-      background: var(--blue);
-      color: white;
-    }
     .backtest-metrics {
       display: grid;
-      grid-template-columns: repeat(6, minmax(0, 1fr));
+      grid-template-columns: repeat(8, minmax(0, 1fr));
       gap: 8px;
       margin-bottom: 10px;
     }
@@ -649,7 +640,6 @@ const html = String.raw`<!doctype html>
       .balls { grid-template-columns: repeat(5, minmax(42px, 1fr)); }
       .history-head { grid-template-columns: 1fr; }
       .backtest-head { display: grid; }
-      .backtest-controls { justify-content: flex-start; }
       .backtest-metrics { grid-template-columns: repeat(2, 1fr); }
     }
   </style>
@@ -665,7 +655,6 @@ const html = String.raw`<!doctype html>
           <span class="pill green">点击号码联动高亮，再点取消</span>
           <span class="pill ${dataStatus.isStale ? "warn" : "green"}">${dataStatus.statusText}</span>
           <span class="pill">数据截止日期 ${dataStatus.latestDate ?? "无"}</span>
-          <span class="pill">时支固定酉，五行固定金</span>
           <span class="pill">筛选使用时干五行</span>
         </div>
       </div>
@@ -694,9 +683,8 @@ const html = String.raw`<!doctype html>
         <div class="indicator"><span>周几</span><strong>${current.weekday}</strong></div>
         <div class="indicator"><span>日干</span><strong>${current.dayStem}</strong></div>
         <div class="indicator"><span>日支</span><strong>${current.dayBranch}</strong></div>
-        <div class="indicator"><span>日五行</span><strong>${current.dayElement}</strong></div>
-        <div class="indicator"><span>时干五行</span><strong>${current.hourStemElement}</strong></div>
-        <div class="indicator"><span>时支五行</span><strong>${current.hourBranchElement}</strong></div>
+        <div class="indicator"><span>日五行</span>${elementTag(current.dayElement)}</div>
+        <div class="indicator"><span>时干五行</span>${elementTag(current.hourStemElement)}</div>
       </div>
       <div>
         <h3>选号空位</h3>
@@ -727,32 +715,26 @@ const html = String.raw`<!doctype html>
         <div class="legend">点击一个号码，历史开奖和概率区同号一起变色</div>
       </div>
       <div class="balls" id="recommendations"></div>
-      <p class="note">概率是最近历史样本收缩到单号基准后的估计出现率，只作研究观察，不是中奖保证。</p>
+      <p class="note">概率只使用最近 400 期，并结合目标期开奖日期指标动态计算；前 15 个号码为本期研究推荐，不是中奖保证。</p>
     </section>
 
     <section class="card backtest" id="backtest-panel">
       <div class="backtest-head">
         <div>
-          <h2 id="backtest-title">滚动回测（最近 ${backtest.defaultDrawCount} 期）</h2>
-          <p class="subtitle">每一期的模型 Top 5 都只使用该期开奖日前的历史数据计算，可逐期核对预测、实际号码和命中结果。</p>
-        </div>
-        <div class="backtest-controls" aria-label="回测期数">
-          ${backtest.availableDrawCounts
-            .map(
-              (count) =>
-                `<button class="backtest-range${count === backtest.defaultDrawCount ? " active" : ""}" type="button" data-backtest-count="${count}">最近 ${count} 期</button>`,
-            )
-            .join("")}
+          <h2 id="backtest-title">滚动回测（最近 400 期）</h2>
+          <p class="subtitle">每一期的模型 Top 15 都只使用此前最近 400 期计算，可逐期核对推荐、实际号码和命中数量。</p>
         </div>
       </div>
 
       <div class="backtest-metrics">
-        <div class="backtest-metric"><span>Top 5 平均命中</span><strong id="backtest-average-hits">${defaultBacktestSummary.averageHits.toFixed(2)}</strong></div>
+        <div class="backtest-metric"><span>Top 15 平均命中</span><strong id="backtest-average-hits">${defaultBacktestSummary.averageHits.toFixed(2)}</strong></div>
         <div class="backtest-metric"><span>至少命中 1 个</span><strong id="backtest-one-rate">${defaultBacktestSummary.atLeastOneRate.toFixed(1)}%</strong></div>
         <div class="backtest-metric"><span>至少命中 2 个</span><strong id="backtest-two-rate">${defaultBacktestSummary.atLeastTwoRate.toFixed(1)}%</strong></div>
+        <div class="backtest-metric"><span>至少命中 3 个</span><strong id="backtest-three-rate">${defaultBacktestSummary.atLeastThreeRate.toFixed(1)}%</strong></div>
+        <div class="backtest-metric"><span>旧模型平均命中</span><strong id="backtest-legacy-average">${defaultBacktestSummary.legacyAverageHits.toFixed(2)}</strong></div>
+        <div class="backtest-metric"><span>随机平均基线</span><strong>${defaultBacktestSummary.randomBaselineAverageHits.toFixed(3)}</strong></div>
         <div class="backtest-metric"><span>较随机基准增量</span><strong id="backtest-lift">${defaultBacktestSummary.averageHitLift >= 0 ? "+" : ""}${defaultBacktestSummary.averageHitLift.toFixed(3)}</strong></div>
-        <div class="backtest-metric"><span>Brier Score（越低越好）</span><strong id="backtest-brier">${defaultBacktestSummary.brierScore.toFixed(4)}</strong></div>
-        <div class="backtest-metric"><span>Log Loss（越低越好）</span><strong id="backtest-logloss">${defaultBacktestSummary.logLoss.toFixed(4)}</strong></div>
+        <div class="backtest-metric"><span>命中分布</span><strong id="backtest-hit-distribution"></strong></div>
       </div>
 
       <div class="backtest-table-wrap">
@@ -760,20 +742,19 @@ const html = String.raw`<!doctype html>
           <thead>
             <tr>
               <th>开奖日期</th>
+              <th>训练起始</th>
               <th>训练截止</th>
               <th>训练期数</th>
-              <th>模型 Top 5</th>
+              <th>模型 Top 15</th>
               <th>实际开奖号</th>
               <th>命中号码</th>
               <th>命中数</th>
-              <th>Brier</th>
-              <th>Log Loss</th>
             </tr>
           </thead>
           <tbody id="backtest-body"></tbody>
         </table>
       </div>
-      <p class="note"><strong>防穿越规则：</strong>严禁未来数据参与；预测某期时只读取严格早于该期开奖日的记录。当前模型版本 ${backtest.modelVersion}。10期属于小样本，结果会明显波动，仅用于审计历史表现，不代表未来中奖保证。</p>
+      <p class="note"><strong>防穿越规则：</strong>严禁未来数据参与；预测每一期时只读取此前最近 400 期。当前模型版本 ${backtest.modelVersion}。回测只用于审计历史命中数量，不代表未来中奖保证。</p>
     </section>
 
     <section class="card history">
@@ -812,7 +793,6 @@ const html = String.raw`<!doctype html>
               <th>日支</th>
               <th>日五行</th>
               <th>时干五行</th>
-              <th>时支五行</th>
               <th>开奖号码</th>
             </tr>
           </thead>
@@ -838,6 +818,13 @@ const html = String.raw`<!doctype html>
     const currentDraw = window.F5_CURRENT;
     const recommendations = window.F5_RECOMMENDATIONS;
     const backtestData = window.F5_BACKTEST;
+    const elementClassNames = {
+      木: "wood",
+      火: "fire",
+      土: "earth",
+      金: "metal",
+      水: "water",
+    };
     const filters = {
       tail: document.getElementById("tail-filter"),
       weekday: document.getElementById("weekday-filter"),
@@ -853,14 +840,14 @@ const html = String.raw`<!doctype html>
     const visibleCount = document.getElementById("visible-count");
     const recommendationsEl = document.getElementById("recommendations");
     const backtestBody = document.getElementById("backtest-body");
-    const backtestTitle = document.getElementById("backtest-title");
     const backtestMetricEls = {
       averageHits: document.getElementById("backtest-average-hits"),
       oneRate: document.getElementById("backtest-one-rate"),
       twoRate: document.getElementById("backtest-two-rate"),
+      threeRate: document.getElementById("backtest-three-rate"),
+      legacyAverageHits: document.getElementById("backtest-legacy-average"),
       lift: document.getElementById("backtest-lift"),
-      brier: document.getElementById("backtest-brier"),
-      logLoss: document.getElementById("backtest-logloss"),
+      hitDistribution: document.getElementById("backtest-hit-distribution"),
     };
     let selectedNumber = null;
 
@@ -902,8 +889,7 @@ const html = String.raw`<!doctype html>
       recommendationsEl.innerHTML = "";
       recommendations.forEach((item, index) => {
         const cell = numberButton(item.number, "ball");
-        if (index < 5) cell.classList.add("hot");
-        else if (index < 8) cell.classList.add("good");
+        if (index < 15) cell.classList.add("hot");
         const pct = document.createElement("small");
         pct.textContent = item.probability.toFixed(1) + "%";
         cell.appendChild(pct);
@@ -941,6 +927,16 @@ const html = String.raw`<!doctype html>
       return cell;
     }
 
+    function appendElementCell(row, element) {
+      const cell = document.createElement("td");
+      const tag = document.createElement("span");
+      tag.className = "element-tag element-" + elementClassNames[element];
+      tag.textContent = element;
+      cell.appendChild(tag);
+      row.appendChild(cell);
+      return cell;
+    }
+
     function renderRow(rowData, upcoming = false) {
       const row = document.createElement("tr");
       if (upcoming) row.className = "upcoming";
@@ -949,9 +945,8 @@ const html = String.raw`<!doctype html>
       appendCell(row, rowData.weekday);
       appendCell(row, rowData.dayStem);
       appendCell(row, rowData.dayBranch);
-      appendCell(row, rowData.dayElement);
-      appendCell(row, rowData.hourStemElement);
-      appendCell(row, rowData.hourBranchElement);
+      appendElementCell(row, rowData.dayElement);
+      appendElementCell(row, rowData.hourStemElement);
       const numbers = document.createElement("td");
       numbers.appendChild(upcoming ? blankNumbers() : numberSet(rowData.numbers));
       row.appendChild(numbers);
@@ -969,32 +964,27 @@ const html = String.raw`<!doctype html>
       return cell;
     }
 
-    function renderBacktest(drawCount) {
-      const count = Number(drawCount);
-      const summary = backtestData.summaries[String(count)];
-      if (!summary) return;
-
-      backtestTitle.textContent = "滚动回测（最近 " + count + " 期）";
+    function renderBacktest() {
+      const summary = backtestData.summary;
       backtestMetricEls.averageHits.textContent = summary.averageHits.toFixed(2);
       backtestMetricEls.oneRate.textContent = summary.atLeastOneRate.toFixed(1) + "%";
       backtestMetricEls.twoRate.textContent = summary.atLeastTwoRate.toFixed(1) + "%";
+      backtestMetricEls.threeRate.textContent =
+        summary.atLeastThreeRate.toFixed(1) + "%";
+      backtestMetricEls.legacyAverageHits.textContent =
+        summary.legacyAverageHits.toFixed(2);
       backtestMetricEls.lift.textContent =
         (summary.averageHitLift >= 0 ? "+" : "") + summary.averageHitLift.toFixed(3);
-      backtestMetricEls.brier.textContent = summary.brierScore.toFixed(4);
-      backtestMetricEls.logLoss.textContent = summary.logLoss.toFixed(4);
-
-      document.querySelectorAll("[data-backtest-count]").forEach((button) => {
-        button.classList.toggle(
-          "active",
-          Number(button.dataset.backtestCount) === count,
-        );
-      });
+      backtestMetricEls.hitDistribution.textContent = [0, 1, 2, 3, 4, 5]
+        .map((count) => count + ":" + summary.hitDistribution[String(count)])
+        .join(" / ");
 
       backtestBody.innerHTML = "";
-      backtestData.results.slice(0, count).forEach((result) => {
+      backtestData.results.forEach((result) => {
         const row = document.createElement("tr");
         row.dataset.backtestRow = "true";
         appendCell(row, result.drawDate);
+        appendCell(row, result.trainingStartDate);
         appendCell(row, result.trainingCutoffDate);
         appendCell(row, result.trainingDrawCount);
         appendNumberCell(row, result.predictedNumbers, result.hitNumbers);
@@ -1006,8 +996,6 @@ const html = String.raw`<!doctype html>
         hitCount.textContent = String(result.hitCount);
         hitCell.appendChild(hitCount);
         row.appendChild(hitCell);
-        appendCell(row, result.brierScore.toFixed(4));
-        appendCell(row, result.logLoss.toFixed(4));
         backtestBody.appendChild(row);
       });
 
@@ -1045,11 +1033,8 @@ const html = String.raw`<!doctype html>
     fillSelect(filters.hourElement, ["木", "火", "土", "金", "水"]);
     Object.values(filters).forEach((control) => control.addEventListener("input", renderHistory));
     Object.values(filters).forEach((control) => control.addEventListener("change", renderHistory));
-    document.querySelectorAll("[data-backtest-count]").forEach((button) => {
-      button.addEventListener("click", () => renderBacktest(button.dataset.backtestCount));
-    });
     renderRecommendations();
-    renderBacktest(backtestData.defaultDrawCount);
+    renderBacktest();
     renderHistory();
   </script>
 </body>

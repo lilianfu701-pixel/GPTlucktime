@@ -1,121 +1,205 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import {
+import * as model from "../lib/fantasy5-model.mjs";
+
+const {
   BASELINE_AVERAGE_HITS,
   MODEL_VERSION,
+  RECOMMENDATION_COUNT,
+  TRAINING_DRAW_COUNT,
   buildRecommendations,
   buildWalkForwardBacktest,
   summarizeBacktest,
-} from "../lib/fantasy5-model.mjs";
+} = model;
+
+const DAY_MS = 24 * 60 * 60 * 1000;
+const weekdays = ["周日", "周一", "周二", "周三", "周四", "周五", "周六"];
+const stems = ["甲", "乙", "丙", "丁", "戊", "己", "庚", "辛", "壬", "癸"];
+const branches = ["子", "丑", "寅", "卯", "辰", "巳", "午", "未", "申", "酉", "戌", "亥"];
+const elementByStem = {
+  甲: "木",
+  乙: "木",
+  丙: "火",
+  丁: "火",
+  戊: "土",
+  己: "土",
+  庚: "金",
+  辛: "金",
+  壬: "水",
+  癸: "水",
+};
 
 function dateAt(index) {
-  const date = new Date(Date.UTC(2026, 0, index + 1));
-  return date.toISOString().slice(0, 10);
+  return new Date(Date.UTC(2024, 0, 1) + index * DAY_MS)
+    .toISOString()
+    .slice(0, 10);
 }
 
-function historyRow(index) {
+function indicatorsAt(index) {
+  const dayStem = stems[index % stems.length];
+  const hourStem = stems[(index * 3 + 1) % stems.length];
   return {
-    draw_date: dateAt(index),
-    numbers: Array.from({ length: 5 }, (_, offset) => ((index * 3 + offset * 7) % 39) + 1),
+    weekday: weekdays[index % weekdays.length],
+    tail: index % 10,
+    dayStem,
+    dayBranch: branches[index % branches.length],
+    dayElement: elementByStem[dayStem],
+    hourStem,
+    hourStemElement: elementByStem[hourStem],
   };
 }
 
-test("buildRecommendations returns 39 ranked marginal probabilities that sum to five", () => {
-  const recommendations = buildRecommendations(Array.from({ length: 12 }, (_, index) => historyRow(index)));
+function historyRow(index, overrides = {}) {
+  return {
+    draw_date: dateAt(index),
+    numbers: Array.from(
+      { length: 5 },
+      (_, offset) => ((index * 3 + offset * 7) % 39) + 1,
+    ),
+    ...indicatorsAt(index),
+    ...overrides,
+  };
+}
 
-  assert.equal(recommendations.length, 39);
-  assert.deepEqual(
-    new Set(recommendations.map((item) => item.number)).size,
-    39,
+test("buildRecommendations requires 400 draws and returns a deterministic Top 15 ranking", () => {
+  const history = Array.from({ length: 400 }, (_, index) => historyRow(index));
+  const target = indicatorsAt(401);
+
+  assert.throws(
+    () => buildRecommendations(history.slice(1), target),
+    /400 training draws/,
   );
+
+  const first = buildRecommendations(history, target);
+  const second = buildRecommendations(history, target);
+
+  assert.deepEqual(second, first);
+  assert.equal(TRAINING_DRAW_COUNT, 400);
+  assert.equal(RECOMMENDATION_COUNT, 15);
+  assert.equal(first.length, 39);
+  assert.equal(new Set(first.map((item) => item.number)).size, 39);
+  assert.equal(new Set(first.slice(0, 15).map((item) => item.number)).size, 15);
+  assert.ok(first.every((item) => item.number >= 1 && item.number <= 39));
+  assert.ok(first.every((item) => item.probability > 0 && item.probability < 100));
   assert.ok(
-    recommendations.every(
+    first.every(
       (item, index) =>
-        item.probability > 0 &&
-        item.probability < 100 &&
-        (index === 0 || recommendations[index - 1].probability >= item.probability),
+        index === 0 || first[index - 1].probability >= item.probability,
     ),
   );
-
-  const probabilityMass = recommendations.reduce((total, item) => total + item.probability, 0);
+  const probabilityMass = first.reduce(
+    (total, item) => total + item.probability,
+    0,
+  );
   assert.ok(Math.abs(probabilityMass - 500) < 0.05);
 });
 
-test("walk-forward backtest evaluates at least 10 draws without using target or future results", () => {
-  const history = Array.from({ length: 16 }, (_, index) => historyRow(index));
-  const firstRun = buildWalkForwardBacktest(history, {
-    drawCount: 10,
-    minTrainingDraws: 3,
-  });
+test("recommendations ignore history older than 400 draws", () => {
+  const recent = Array.from({ length: 400 }, (_, index) => historyRow(index + 10));
+  const olderA = Array.from({ length: 10 }, (_, index) =>
+    historyRow(index, { numbers: [1, 2, 3, 4, 5] }),
+  );
+  const olderB = Array.from({ length: 10 }, (_, index) =>
+    historyRow(index, { numbers: [35, 36, 37, 38, 39] }),
+  );
+  const target = indicatorsAt(411);
 
-  assert.equal(firstRun.length, 10);
-  assert.ok(firstRun.every((row) => row.trainingCutoffDate < row.drawDate));
-  assert.ok(firstRun.every((row) => row.predictedNumbers.length === 5));
-  assert.ok(firstRun.every((row) => row.probabilities.length === 39));
-  assert.ok(firstRun.every((row) => Number.isFinite(row.brierScore)));
-  assert.ok(firstRun.every((row) => Number.isFinite(row.logLoss)));
+  assert.deepEqual(
+    buildRecommendations([...olderA, ...recent], target),
+    buildRecommendations([...olderB, ...recent], target),
+  );
+});
 
-  const changedFuture = history.map((row) => ({ ...row, numbers: [...row.numbers] }));
+test("target date indicators change the ranked recommendations", () => {
+  const history = Array.from({ length: 400 }, (_, index) =>
+    historyRow(index, {
+      numbers: index % 2 === 0 ? [1, 2, 3, 4, 5] : [35, 36, 37, 38, 39],
+      weekday: index % 2 === 0 ? "周一" : "周二",
+      dayStem: index % 2 === 0 ? "甲" : "庚",
+      dayElement: index % 2 === 0 ? "木" : "金",
+    }),
+  );
+  const mondayWood = {
+    ...indicatorsAt(401),
+    weekday: "周一",
+    dayStem: "甲",
+    dayElement: "木",
+  };
+  const tuesdayMetal = {
+    ...indicatorsAt(402),
+    weekday: "周二",
+    dayStem: "庚",
+    dayElement: "金",
+  };
+
+  assert.notDeepEqual(
+    buildRecommendations(history, mondayWood).slice(0, 15),
+    buildRecommendations(history, tuesdayMetal).slice(0, 15),
+  );
+});
+
+test("walk-forward uses exactly the prior 400 draws and never future results", () => {
+  const history = Array.from({ length: 805 }, (_, index) => historyRow(index));
+  const first = buildWalkForwardBacktest(history, { drawCount: 400 });
+
+  assert.equal(first.length, 400);
+  assert.ok(first.every((row) => row.trainingDrawCount === 400));
+  assert.ok(first.every((row) => row.trainingStartDate < row.trainingCutoffDate));
+  assert.ok(first.every((row) => row.trainingCutoffDate < row.drawDate));
+  assert.ok(first.every((row) => row.predictedNumbers.length === 15));
+  assert.ok(first.every((row) => new Set(row.predictedNumbers).size === 15));
+  assert.ok(first.every((row) => row.legacyPredictedNumbers.length === 15));
+  assert.ok(first.every((row) => row.probabilities.length === 39));
+  assert.ok(
+    first.every(
+      (row) =>
+        !Object.hasOwn(row, "brierScore") && !Object.hasOwn(row, "logLoss"),
+    ),
+  );
+
+  const changedFuture = history.map((row) => ({
+    ...row,
+    numbers: [...row.numbers],
+  }));
   changedFuture.at(-1).numbers = [35, 36, 37, 38, 39];
-  const secondRun = buildWalkForwardBacktest(changedFuture, {
-    drawCount: 10,
-    minTrainingDraws: 3,
-  });
+  const second = buildWalkForwardBacktest(changedFuture, { drawCount: 400 });
 
   assert.deepEqual(
-    secondRun.map((row) => row.predictedNumbers),
-    firstRun.map((row) => row.predictedNumbers),
+    second.map((row) => row.predictedNumbers),
+    first.map((row) => row.predictedNumbers),
   );
 });
 
-test("walk-forward backtest normalizes input into chronological draw order", () => {
-  const chronological = Array.from({ length: 8 }, (_, index) => historyRow(index));
-  const shuffled = [
-    chronological[4],
-    chronological[0],
-    chronological[7],
-    chronological[2],
-    chronological[6],
-    chronological[1],
-    chronological[5],
-    chronological[3],
-  ];
-
-  const results = buildWalkForwardBacktest(shuffled, {
-    drawCount: 3,
-    minTrainingDraws: 3,
-  });
-
-  assert.deepEqual(
-    results.map((row) => row.drawDate),
-    [dateAt(7), dateAt(6), dateAt(5)],
-  );
-  assert.deepEqual(
-    results.map((row) => row.trainingCutoffDate),
-    [dateAt(6), dateAt(5), dateAt(4)],
-  );
-});
-
-test("summarizeBacktest reports hit rates, proper scores, and random-baseline lift", () => {
+test("summarizeBacktest reports Top 15 hit rates, distribution, and legacy comparison", () => {
   const results = [
-    { hitCount: 0, brierScore: 0.12, logLoss: 0.39 },
-    { hitCount: 1, brierScore: 0.11, logLoss: 0.37 },
-    { hitCount: 2, brierScore: 0.1, logLoss: 0.35 },
-    { hitCount: 1, brierScore: 0.09, logLoss: 0.33 },
+    { hitCount: 0, legacyHitCount: 0 },
+    { hitCount: 1, legacyHitCount: 1 },
+    { hitCount: 2, legacyHitCount: 1 },
+    { hitCount: 3, legacyHitCount: 2 },
   ];
-
   const summary = summarizeBacktest(results);
 
-  assert.equal(MODEL_VERSION, "F5-EB-FREQ-v1");
+  assert.equal(MODEL_VERSION, "F5-EB-TIME400-TOP15-v2");
   assert.equal(summary.drawCount, 4);
-  assert.equal(summary.averageHits, 1);
+  assert.equal(summary.averageHits, 1.5);
   assert.equal(summary.atLeastOneRate, 75);
-  assert.equal(summary.atLeastTwoRate, 25);
-  assert.equal(summary.brierScore, 0.105);
-  assert.equal(summary.logLoss, 0.36);
+  assert.equal(summary.atLeastTwoRate, 50);
+  assert.equal(summary.atLeastThreeRate, 25);
+  assert.deepEqual(summary.hitDistribution, {
+    0: 1,
+    1: 1,
+    2: 1,
+    3: 1,
+    4: 0,
+    5: 0,
+  });
+  assert.equal(summary.legacyAverageHits, 1);
+  assert.equal(BASELINE_AVERAGE_HITS, 75 / 39);
   assert.equal(summary.randomBaselineAverageHits, BASELINE_AVERAGE_HITS);
   assert.equal(
     summary.averageHitLift,
-    Number((1 - BASELINE_AVERAGE_HITS).toFixed(3)),
+    Number((1.5 - BASELINE_AVERAGE_HITS).toFixed(3)),
   );
+  assert.ok(!Object.hasOwn(summary, "brierScore"));
+  assert.ok(!Object.hasOwn(summary, "logLoss"));
 });
