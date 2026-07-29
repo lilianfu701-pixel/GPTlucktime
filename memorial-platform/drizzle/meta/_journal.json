@@ -8,6 +8,13 @@
       "when": 1785353974975,
       "tag": "0000_naive_firedrake",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1785355855466,
+      "tag": "0001_elite_zeigeist",
+      "breakpoints": true
     }
   ]
 }

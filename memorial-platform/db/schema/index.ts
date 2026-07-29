@@ -5,3 +5,4 @@
  * media, religion, commemoration, governance and commerce.
  */
 export * from "./system";
+export * from "./identity";
