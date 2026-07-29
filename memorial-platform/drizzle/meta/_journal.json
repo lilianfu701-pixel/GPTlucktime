@@ -29,6 +29,13 @@
       "when": 1785361143923,
       "tag": "0003_purple_iceman",
       "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1785361752522,
+      "tag": "0004_icy_living_mummy",
+      "breakpoints": true
     }
   ]
 }
