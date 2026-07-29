@@ -8,3 +8,4 @@ export * from "./system";
 export * from "./identity";
 export * from "./memorial";
 export * from "./content";
+export * from "./media";

@@ -36,6 +36,13 @@
       "when": 1785361752522,
       "tag": "0004_icy_living_mummy",
       "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "7",
+      "when": 1785362597079,
+      "tag": "0005_slimy_krista_starr",
+      "breakpoints": true
     }
   ]
 }
