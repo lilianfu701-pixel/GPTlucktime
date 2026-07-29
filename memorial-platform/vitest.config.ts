@@ -1,7 +1,15 @@
 import { fileURLToPath } from "node:url";
+import { loadEnv } from "vite";
 import { defineConfig } from "vitest/config";
 
 const rootDir = fileURLToPath(new URL(".", import.meta.url));
+
+/**
+ * Integration tests need real connection strings. They come from `.env.test`,
+ * which is git-ignored, so nobody's local credentials reach the repository and
+ * a test run can never inherit development or production configuration.
+ */
+const testEnv = loadEnv("test", rootDir, "");
 
 export default defineConfig({
   resolve: {
@@ -10,6 +18,7 @@ export default defineConfig({
   test: {
     environment: "node",
     setupFiles: ["./tests/setup.ts"],
+    env: testEnv,
     // Each project declares its own `include`. A root-level `include` would be
     // merged into every project rather than overridden, so the integration
     // project would collect the unit files too.
