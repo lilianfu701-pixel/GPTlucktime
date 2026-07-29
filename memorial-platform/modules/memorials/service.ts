@@ -303,28 +303,4 @@ function datesAreOrdered(
   return new Date(birth.value).getTime() <= new Date(death.value).getTime();
 }
 
-/** The caller's role on a memorial, or null when they have none. */
-export async function memorialRoleFor(
-  memorialId: string,
-  userId: string | null,
-): Promise<MemorialRole | null> {
-  if (!userId) {
-    return null;
-  }
-
-  const [row] = await db()
-    .select({ role: memorialMembers.role, revokedAt: memorialMembers.revokedAt })
-    .from(memorialMembers)
-    .where(
-      and(
-        eq(memorialMembers.memorialId, memorialId),
-        eq(memorialMembers.userId, userId),
-      ),
-    );
-
-  if (!row || row.revokedAt) {
-    return null;
-  }
-
-  return row.role;
-}
+export { memorialRoleFor } from "./membership";

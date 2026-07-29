@@ -250,7 +250,49 @@ export const relationshipClaims = pgTable(
   ],
 );
 
+/**
+ * An outstanding invitation to help manage a memorial.
+ *
+ * Only the hash of the token is stored, as with session tokens: a copy of this
+ * table must not be usable to walk into a family's private memorial.
+ *
+ * `owner` is absent from the invitable roles on purpose. Ownership moves
+ * through an explicit transfer that the current owner performs, not by handing
+ * out a link.
+ */
+export const memorialInvitations = pgTable(
+  "memorial_invitations",
+  {
+    id: uuid("id").defaultRandom().primaryKey(),
+    memorialId: uuid("memorial_id")
+      .notNull()
+      .references(() => memorials.id, { onDelete: "cascade" }),
+    /** Normalized address the invitation was sent to. */
+    email: text("email").notNull(),
+    role: memorialMemberRole("role").notNull(),
+    tokenHash: text("token_hash").notNull(),
+    invitedByUserId: uuid("invited_by_user_id")
+      .notNull()
+      .references(() => users.id, { onDelete: "cascade" }),
+    expiresAt: timestamp("expires_at", { withTimezone: true }).notNull(),
+    acceptedAt: timestamp("accepted_at", { withTimezone: true }),
+    acceptedByUserId: uuid("accepted_by_user_id").references(() => users.id, {
+      onDelete: "set null",
+    }),
+    revokedAt: timestamp("revoked_at", { withTimezone: true }),
+    createdAt: timestamp("created_at", { withTimezone: true })
+      .defaultNow()
+      .notNull(),
+  },
+  (table) => [
+    uniqueIndex("memorial_invitations_token_key").on(table.tokenHash),
+    index("memorial_invitations_memorial_idx").on(table.memorialId),
+    index("memorial_invitations_email_idx").on(table.email),
+  ],
+);
+
 export type Memorial = typeof memorials.$inferSelect;
+export type MemorialInvitation = typeof memorialInvitations.$inferSelect;
 export type NewMemorial = typeof memorials.$inferInsert;
 export type MemorialMember = typeof memorialMembers.$inferSelect;
 export type RelationshipClaim = typeof relationshipClaims.$inferSelect;
