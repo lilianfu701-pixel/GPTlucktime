@@ -66,6 +66,22 @@ export const outboxEvents = pgTable(
       .defaultNow()
       .notNull(),
     processedAt: timestamp("processed_at", { withTimezone: true }),
+    /**
+     * Set when an event has stopped being retried.
+     *
+     * A dead letter is kept, never deleted. An event that could not be
+     * delivered is the record of a side effect that did not happen — a family
+     * who was not notified, a photograph that was not scanned — and the row is
+     * the only place that is visible.
+     */
+    deadLetteredAt: timestamp("dead_lettered_at", { withTimezone: true }),
+    /**
+     * Why the last attempt failed, as a short reason code or truncated message.
+     *
+     * Bounded on write. An unbounded error string is how a connection string or
+     * a token ends up in a table that operators read casually.
+     */
+    lastError: text("last_error"),
     createdAt: timestamp("created_at", { withTimezone: true })
       .defaultNow()
       .notNull(),
@@ -73,6 +89,8 @@ export const outboxEvents = pgTable(
   (table) => [
     // The worker's claim query: unprocessed events that are due, oldest first.
     index("outbox_events_due_idx").on(table.processedAt, table.availableAt),
+    // Operators ask "what is stuck?" far more often than anything else.
+    index("outbox_events_dead_letter_idx").on(table.deadLetteredAt),
     index("outbox_events_topic_idx").on(table.topic),
     index("outbox_events_aggregate_idx").on(table.aggregateId),
   ],

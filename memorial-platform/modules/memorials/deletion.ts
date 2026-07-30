@@ -121,11 +121,11 @@ export async function requestDeletion(
       payload: { memorialId, correlationId },
     });
 
-    await tx.insert(outboxEvents).values({
-      topic: "memorial.purge",
-      aggregateId: memorialId,
-      payload: { memorialId, purgeAfter: purgeAfter.toISOString(), correlationId },
-    });
+    // No purge event is queued. The purge happens thirty days from now, and a
+    // queue whose retries are measured in minutes is the wrong way to express
+    // that; the worker sweeps `memorialsDueForPurge` on a schedule instead.
+    // An event sitting undeliverable for a month would also look exactly like
+    // a broken queue to whoever is on call.
   });
 
   return ok({ purgeAfter });
