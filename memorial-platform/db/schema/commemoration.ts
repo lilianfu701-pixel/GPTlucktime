@@ -81,4 +81,103 @@ export const memorialRitualSettings = pgTable(
   ],
 );
 
+export const commemorationStatus = pgEnum("commemoration_status", [
+  "visible",
+  "pending_review",
+  "rejected",
+  "hidden",
+]);
+
+/**
+ * One act of remembrance by a visitor.
+ *
+ * `ritualVersionId` records which revision was offered at the time, so a
+ * commemoration remains interpretable after the catalogue moves on.
+ *
+ * These rows are counted for display but never ranked. Doc 01 section 4.3
+ * forbids leaderboards: a family should not be able to tell that another
+ * memorial received more flowers than theirs.
+ */
+export const commemorations = pgTable(
+  "commemorations",
+  {
+    id: uuid("id").defaultRandom().primaryKey(),
+    memorialId: uuid("memorial_id")
+      .notNull()
+      .references(() => memorials.id, { onDelete: "cascade" }),
+    ritualVersionId: uuid("ritual_version_id")
+      .notNull()
+      .references(() => ritualVersions.id, { onDelete: "restrict" }),
+    /** Null for a visitor the family allowed to act without signing in. */
+    actorUserId: uuid("actor_user_id").references(() => users.id, {
+      onDelete: "set null",
+    }),
+    /** True where a signed-in visitor asked not to be named. */
+    anonymous: boolean("anonymous").default(false).notNull(),
+    locale: text("locale").notNull(),
+    status: commemorationStatus("status").default("visible").notNull(),
+
+    idempotencyKey: text("idempotency_key").notNull(),
+    /**
+     * Hash of the meaningful request fields. Lets a retry be told apart from a
+     * different request that happens to reuse a key, which doc 04 section 10
+     * requires answering with a conflict rather than a silent replay.
+     */
+    requestHash: text("request_hash").notNull(),
+    /** Hashed, so a record of who visited is not a list of addresses. */
+    requestIpHash: text("request_ip_hash"),
+
+    createdAt: timestamp("created_at", { withTimezone: true })
+      .defaultNow()
+      .notNull(),
+    deletedAt: timestamp("deleted_at", { withTimezone: true }),
+  },
+  (table) => [
+    uniqueIndex("commemorations_memorial_idempotency_key").on(
+      table.memorialId,
+      table.idempotencyKey,
+    ),
+    index("commemorations_memorial_idx").on(table.memorialId, table.status),
+    index("commemorations_actor_idx").on(table.actorUserId, table.createdAt),
+    index("commemorations_ip_idx").on(table.requestIpHash, table.createdAt),
+  ],
+);
+
+/**
+ * The words a visitor left, held separately from the act.
+ *
+ * Separate because the two are moderated differently: a family may want the
+ * flowers to appear immediately while reading the message first. Removing an
+ * unkind message does not have to erase the fact that someone came.
+ */
+export const commemorationMessages = pgTable(
+  "commemoration_messages",
+  {
+    id: uuid("id").defaultRandom().primaryKey(),
+    commemorationId: uuid("commemoration_id")
+      .notNull()
+      .references(() => commemorations.id, { onDelete: "cascade" }),
+    body: text("body").notNull(),
+    sourceLocale: text("source_locale").notNull(),
+    moderationStatus: commemorationStatus("moderation_status")
+      .default("pending_review")
+      .notNull(),
+    moderatedByUserId: uuid("moderated_by_user_id").references(() => users.id, {
+      onDelete: "set null",
+    }),
+    moderatedAt: timestamp("moderated_at", { withTimezone: true }),
+    createdAt: timestamp("created_at", { withTimezone: true })
+      .defaultNow()
+      .notNull(),
+  },
+  (table) => [
+    uniqueIndex("commemoration_messages_commemoration_key").on(
+      table.commemorationId,
+    ),
+    index("commemoration_messages_status_idx").on(table.moderationStatus),
+  ],
+);
+
 export type MemorialRitualSetting = typeof memorialRitualSettings.$inferSelect;
+export type Commemoration = typeof commemorations.$inferSelect;
+export type CommemorationMessage = typeof commemorationMessages.$inferSelect;
