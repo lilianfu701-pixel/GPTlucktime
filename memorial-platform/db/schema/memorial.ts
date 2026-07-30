@@ -124,6 +124,8 @@ export const memorials = pgTable(
      * is still in flight cannot produce a second memorial for one death.
      */
     creationIdempotencyKey: text("creation_idempotency_key"),
+    /** Set when this memorial was merged away, so its history stays traceable. */
+    mergedIntoMemorialId: uuid("merged_into_memorial_id"),
     /**
      * Governance holds, set by a reviewer and cleared by one.
      *
@@ -132,8 +134,6 @@ export const memorials = pgTable(
      * on editing it, and a page can have interactions closed without its
      * biography being locked.
      */
-    /** Set when this memorial was merged away, so its history stays traceable. */
-    mergedIntoMemorialId: uuid("merged_into_memorial_id"),
     ownershipFrozenAt: timestamp("ownership_frozen_at", { withTimezone: true }),
     editingRestrictedAt: timestamp("editing_restricted_at", {
       withTimezone: true,
@@ -315,3 +315,53 @@ export type MemorialInvitation = typeof memorialInvitations.$inferSelect;
 export type NewMemorial = typeof memorials.$inferInsert;
 export type MemorialMember = typeof memorialMembers.$inferSelect;
 export type RelationshipClaim = typeof relationshipClaims.$inferSelect;
+
+export const exportJobStatus = pgEnum("export_job_status", [
+  "requested",
+  "building",
+  "ready",
+  "failed",
+  "expired",
+]);
+
+/**
+ * A family's request for a copy of their own memorial.
+ *
+ * The archive is built by a worker and reached through a short-lived signed
+ * URL. It is never a permanent address: an export contains everything a family
+ * wrote in one file, which is precisely the thing that should not sit behind a
+ * link that keeps working after it has been forwarded.
+ */
+export const exportJobs = pgTable(
+  "export_jobs",
+  {
+    id: uuid("id").defaultRandom().primaryKey(),
+    memorialId: uuid("memorial_id")
+      .notNull()
+      .references(() => memorials.id, { onDelete: "cascade" }),
+    requestedByUserId: uuid("requested_by_user_id").references(() => users.id, {
+      onDelete: "set null",
+    }),
+    status: exportJobStatus("status").default("requested").notNull(),
+    /** A retry with the same key returns the job already running. */
+    idempotencyKey: text("idempotency_key").notNull(),
+    objectKey: text("object_key"),
+    /** Version of the manifest format, so an old archive stays readable. */
+    manifestVersion: text("manifest_version"),
+    failureReason: text("failure_reason"),
+    expiresAt: timestamp("expires_at", { withTimezone: true }),
+    createdAt: timestamp("created_at", { withTimezone: true })
+      .defaultNow()
+      .notNull(),
+    completedAt: timestamp("completed_at", { withTimezone: true }),
+  },
+  (table) => [
+    uniqueIndex("export_jobs_memorial_idempotency_key").on(
+      table.memorialId,
+      table.idempotencyKey,
+    ),
+    index("export_jobs_status_idx").on(table.status),
+  ],
+);
+
+export type ExportJob = typeof exportJobs.$inferSelect;
