@@ -13,3 +13,4 @@ export * from "./religion";
 export * from "./commemoration";
 export * from "./governance";
 export * from "./search";
+export * from "./commerce";

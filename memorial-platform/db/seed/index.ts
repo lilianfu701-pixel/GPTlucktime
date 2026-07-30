@@ -1,5 +1,6 @@
 import { closeDb } from "@/db/client";
 import { loadEnvFileIfPresent } from "@/lib/load-env-file";
+import { seedPlans } from "./plans";
 import { seedReligions } from "./religions";
 
 // Next.js loads .env.local for the application; a tsx script must do it itself.
@@ -15,6 +16,7 @@ loadEnvFileIfPresent();
  */
 async function main(): Promise<void> {
   const counts = await seedReligions();
+  const planCounts = await seedPlans();
 
   process.stdout.write(
     [
@@ -23,6 +25,11 @@ async function main(): Promise<void> {
       `  cultural traditions: ${counts.culturalTraditions}`,
       `  ritual definitions:  ${counts.ritualDefinitions}`,
       `  ritual versions:     ${counts.ritualVersions}`,
+      `  features:            ${planCounts.features}`,
+      `  plans:               ${planCounts.plans}`,
+      `  paid plans:          ${planCounts.paidPlans}`,
+      "",
+      "No paid plan exists, and nothing in this application creates an order.",
       "",
       "No ritual version exists, so no ritual can be offered on any memorial.",
       "Publishing one requires a source, a scope, a named reviewer and a",
