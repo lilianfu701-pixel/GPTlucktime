@@ -1,6 +1,7 @@
 import {
   boolean,
   index,
+  integer,
   pgEnum,
   pgTable,
   text,
@@ -178,6 +179,56 @@ export const commemorationMessages = pgTable(
   ],
 );
 
+/**
+ * A date a family asked to be reminded of.
+ *
+ * The calendar, the adapter version and the time zone are all stored, not just
+ * the computed instant. A date told to a family has to be explainable, and if a
+ * corrected adapter later moves it, the reason has to be recoverable rather than
+ * inferred from a changed timestamp.
+ *
+ * Nothing sends while `anniversary_notifications_enabled` is off, which is the
+ * phase-one state per doc 09 section 9.
+ */
+export const anniversaryReminders = pgTable(
+  "anniversary_reminders",
+  {
+    id: uuid("id").defaultRandom().primaryKey(),
+    memorialId: uuid("memorial_id")
+      .notNull()
+      .references(() => memorials.id, { onDelete: "cascade" }),
+    /** Which occasion: a death anniversary, a birthday, a family observance. */
+    kind: text("kind").notNull(),
+
+    calendarId: text("calendar_id").notNull(),
+    /** The adapter version that produced `nextOccurrenceAt`. */
+    adapterVersion: text("adapter_version").notNull(),
+    sourceYear: integer("source_year").notNull(),
+    sourceMonth: integer("source_month").notNull(),
+    sourceDay: integer("source_day").notNull(),
+    /** IANA identifier. An anniversary is the same date where the memorial is. */
+    timeZone: text("time_zone").notNull(),
+
+    nextOccurrenceAt: timestamp("next_occurrence_at", { withTimezone: true }),
+    lastEnqueuedAt: timestamp("last_enqueued_at", { withTimezone: true }),
+    /** Set when the calendar cannot compute a date, so the failure is visible. */
+    lastError: text("last_error"),
+
+    enabled: boolean("enabled").default(false).notNull(),
+    createdAt: timestamp("created_at", { withTimezone: true })
+      .defaultNow()
+      .notNull(),
+  },
+  (table) => [
+    index("anniversary_reminders_due_idx").on(
+      table.enabled,
+      table.nextOccurrenceAt,
+    ),
+    index("anniversary_reminders_memorial_idx").on(table.memorialId),
+  ],
+);
+
 export type MemorialRitualSetting = typeof memorialRitualSettings.$inferSelect;
 export type Commemoration = typeof commemorations.$inferSelect;
 export type CommemorationMessage = typeof commemorationMessages.$inferSelect;
+export type AnniversaryReminder = typeof anniversaryReminders.$inferSelect;

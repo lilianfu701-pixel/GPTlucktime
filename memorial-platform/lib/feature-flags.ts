@@ -42,7 +42,9 @@ export function featureFlagsFrom(config: Env): FeatureFlags {
     // A public memorial is searchable by default.
     publicSearchEnabled: true,
 
-    anniversaryNotificationsEnabled: false,
+    // Off unless deliberately configured. Reaching into someone's inbox on the
+    // anniversary of a death is not a default.
+    anniversaryNotificationsEnabled: config.ANNIVERSARY_NOTIFICATIONS_ENABLED,
 
     // No purchase path exists in phase one.
     premiumUiEnabled: false,

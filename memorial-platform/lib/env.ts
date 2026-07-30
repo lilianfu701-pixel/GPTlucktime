@@ -105,6 +105,13 @@ const envSchema = z.object({
 
   PHONE_AUTH_ENABLED: booleanFlag,
   PHONE_AUTH_REGIONS: regionList,
+
+  /**
+   * Anniversary reminders. Off for phase one per doc 09 section 9: reaching into
+   * someone's inbox on the anniversary of a death is not a feature to switch on
+   * before the copy and the opt-out have been reviewed.
+   */
+  ANNIVERSARY_NOTIFICATIONS_ENABLED: booleanFlag,
 });
 
 export type Env = z.infer<typeof envSchema>;
