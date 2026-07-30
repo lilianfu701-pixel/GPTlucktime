@@ -56,6 +56,14 @@ export async function PATCH(
         return jsonError("MEMORIAL_NOT_FOUND", correlationId);
       case "MEMORIAL_FORBIDDEN":
         return jsonError("MEMORIAL_FORBIDDEN", correlationId);
+      case "OWNERSHIP_FROZEN":
+        // An ownership claim is open. Doc 06 section 7 freezes privacy so the
+        // page cannot be put beyond reach of the person contesting it.
+        return jsonUnprocessable(correlationId, {
+          visibility: [
+            "This memorial cannot change while a question about who manages it is being looked at.",
+          ],
+        });
       case "PUBLIC_EXPOSURE_CONFIRMATION_REQUIRED":
         return jsonUnprocessable(correlationId, {
           confirmPublicExposure: [

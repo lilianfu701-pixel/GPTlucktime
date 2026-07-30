@@ -13,6 +13,7 @@ export type ChangePrivacyError =
   | "AUTH_REQUIRED"
   | "MEMORIAL_NOT_FOUND"
   | "MEMORIAL_FORBIDDEN"
+  | "OWNERSHIP_FROZEN"
   | "PUBLIC_EXPOSURE_CONFIRMATION_REQUIRED";
 
 export type ChangePrivacyResult = {
@@ -50,12 +51,20 @@ export async function changePrivacy(
       visibility: memorials.visibility,
       searchEngineIndexable: memorials.searchEngineIndexable,
       status: memorials.status,
+      ownershipFrozenAt: memorials.ownershipFrozenAt,
     })
     .from(memorials)
     .where(eq(memorials.id, memorialId));
 
   if (!memorial) {
     return err("MEMORIAL_NOT_FOUND");
+  }
+
+  // Doc 06 section 7: while an ownership claim is open, the page cannot be made
+  // private. Otherwise the owner under dispute could put it beyond reach of the
+  // person contesting it, and of the reviewer looking into it.
+  if (memorial.ownershipFrozenAt) {
+    return err("OWNERSHIP_FROZEN");
   }
 
   const role = await memorialRoleFor(memorialId, actor.userId);

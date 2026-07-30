@@ -26,6 +26,8 @@ export const memorialStatus = pgEnum("memorial_status", [
   "restricted",
   "hidden",
   "pending_deletion",
+  /** Joined into another memorial. The row stays so its history survives. */
+  "merged",
 ]);
 
 export const memorialVisibility = pgEnum("memorial_visibility", [
@@ -122,6 +124,23 @@ export const memorials = pgTable(
      * is still in flight cannot produce a second memorial for one death.
      */
     creationIdempotencyKey: text("creation_idempotency_key"),
+    /**
+     * Governance holds, set by a reviewer and cleared by one.
+     *
+     * Separate columns rather than one status, because they are independent: a
+     * memorial can be frozen for an ownership dispute while the family carries
+     * on editing it, and a page can have interactions closed without its
+     * biography being locked.
+     */
+    /** Set when this memorial was merged away, so its history stays traceable. */
+    mergedIntoMemorialId: uuid("merged_into_memorial_id"),
+    ownershipFrozenAt: timestamp("ownership_frozen_at", { withTimezone: true }),
+    editingRestrictedAt: timestamp("editing_restricted_at", {
+      withTimezone: true,
+    }),
+    interactionsRestrictedAt: timestamp("interactions_restricted_at", {
+      withTimezone: true,
+    }),
     publishedAt: timestamp("published_at", { withTimezone: true }),
     deletionRequestedAt: timestamp("deletion_requested_at", {
       withTimezone: true,

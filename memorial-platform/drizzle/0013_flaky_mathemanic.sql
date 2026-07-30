@@ -1,0 +1,1 @@
+ALTER TYPE "public"."moderation_action_kind" ADD VALUE 'attach_dispute_evidence' BEFORE 'access_dispute_evidence';

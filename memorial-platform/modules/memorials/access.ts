@@ -13,7 +13,12 @@ export type AccessDenial =
   | "INVITATION_REQUIRED"
   | "FORBIDDEN"
   /** Deleted and inside the recovery window. Only ever used where it existed publicly. */
-  | "GONE";
+  | "GONE"
+  /**
+   * Joined into another memorial. The caller looks up the redirect and sends the
+   * visitor there: a link a family shared years ago must keep working.
+   */
+  | "MERGED";
 
 export type AccessDecision =
   | { allowed: true; role: ViewerRole }
@@ -21,7 +26,13 @@ export type AccessDecision =
 
 export type MemorialAccessFacts = {
   visibility: "public" | "unlisted" | "invite_only";
-  status: "draft" | "published" | "restricted" | "hidden" | "pending_deletion";
+  status:
+    | "draft"
+    | "published"
+    | "restricted"
+    | "hidden"
+    | "pending_deletion"
+    | "merged";
 };
 
 /**
@@ -47,6 +58,13 @@ export function decideAccess(input: {
   }
 
   const isMember = role !== null && input.actor.userId !== null;
+
+  // A merged memorial is not gone and not private: it is somewhere else. The
+  // caller resolves the redirect, so an old link keeps working for everyone,
+  // family and visitor alike.
+  if (memorial.status === "merged") {
+    return { allowed: false, reason: "MERGED" };
+  }
 
   if (memorial.status === "pending_deletion") {
     // The family may still see it during the recovery window.
