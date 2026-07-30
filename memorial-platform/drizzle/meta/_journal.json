@@ -50,6 +50,13 @@
       "when": 1785369599499,
       "tag": "0006_needy_meteorite",
       "breakpoints": true
+    },
+    {
+      "idx": 7,
+      "version": "7",
+      "when": 1785370767301,
+      "tag": "0007_eager_caretaker",
+      "breakpoints": true
     }
   ]
 }

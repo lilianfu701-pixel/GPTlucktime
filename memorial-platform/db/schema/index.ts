@@ -10,3 +10,4 @@ export * from "./memorial";
 export * from "./content";
 export * from "./media";
 export * from "./religion";
+export * from "./commemoration";
