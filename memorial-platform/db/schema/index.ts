@@ -12,3 +12,4 @@ export * from "./media";
 export * from "./religion";
 export * from "./commemoration";
 export * from "./governance";
+export * from "./search";

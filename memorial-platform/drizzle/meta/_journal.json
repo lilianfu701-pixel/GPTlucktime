@@ -71,6 +71,20 @@
       "when": 1785390858729,
       "tag": "0009_parched_captain_america",
       "breakpoints": true
+    },
+    {
+      "idx": 10,
+      "version": "7",
+      "when": 1785397046603,
+      "tag": "0010_careless_zarda",
+      "breakpoints": true
+    },
+    {
+      "idx": 11,
+      "version": "7",
+      "when": 1785397062002,
+      "tag": "0011_search_trigram_indexes",
+      "breakpoints": true
     }
   ]
 }
