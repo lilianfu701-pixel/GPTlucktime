@@ -1,8 +1,7 @@
 import { cookies } from "next/headers";
 import type { Actor } from "@/modules/permissions/types";
 import { ANONYMOUS_ACTOR } from "@/modules/permissions/types";
-import { SESSION_COOKIE_NAME } from "./sessions";
-import { resolveSession } from "./sessions";
+import { SESSION_COOKIE_NAME, resolveSession } from "./sessions";
 
 /**
  * Resolves the caller from the session cookie.
@@ -11,9 +10,9 @@ import { resolveSession } from "./sessions";
  * session: whether that is acceptable is the permission layer's decision, not
  * this function's.
  *
- * `platformRole` is not yet stored, so everyone is an ordinary user. Staff roles
- * arrive with the administration work in a later task; until then no request can
- * obtain governance powers, which is the safe direction to be wrong in.
+ * `platformRole` comes from the account row. No route grants it — raising
+ * someone to reviewer or super admin is a deliberate database action — so there
+ * is no request that can talk its way into staff powers.
  */
 export async function currentActor(): Promise<Actor> {
   const store = await cookies();
@@ -28,5 +27,8 @@ export async function currentActor(): Promise<Actor> {
     return ANONYMOUS_ACTOR;
   }
 
-  return { userId: session.value.userId, platformRole: "user" };
+  return {
+    userId: session.value.userId,
+    platformRole: session.value.platformRole,
+  };
 }

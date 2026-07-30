@@ -123,7 +123,14 @@ describe("resolveSession", () => {
 
     expect(await resolveSession({ token })).toEqual({
       ok: true,
-      value: { userId, sessionId, preferredLocale: "en" },
+      value: {
+        userId,
+        sessionId,
+        preferredLocale: "en",
+        // An account gains nothing by existing. Staff capability is a
+        // deliberate database action, so a new account resolves to "user".
+        platformRole: "user",
+      },
     });
   });
 

@@ -25,11 +25,26 @@ export const identityProvider = pgEnum("identity_provider", [
 
 export const loginChannel = pgEnum("login_channel", ["email", "phone"]);
 
+/**
+ * Staff capability, separate from any family role.
+ *
+ * Defaults to `user`, so an account gains nothing by existing. Raising someone
+ * to `reviewer` or `super_admin` is a deliberate database action for now:
+ * there is no route that promotes an account, which means no route can be
+ * tricked into promoting one.
+ */
+export const platformRole = pgEnum("platform_role", [
+  "user",
+  "reviewer",
+  "super_admin",
+]);
+
 export const users = pgTable("users", {
   id: uuid("id").defaultRandom().primaryKey(),
   displayName: text("display_name"),
   preferredLocale: text("preferred_locale").default("en").notNull(),
   status: userStatus("status").default("active").notNull(),
+  platformRole: platformRole("platform_role").default("user").notNull(),
   createdAt: timestamp("created_at", { withTimezone: true })
     .defaultNow()
     .notNull(),

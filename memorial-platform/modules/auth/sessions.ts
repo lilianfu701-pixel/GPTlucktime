@@ -63,7 +63,15 @@ export async function resolveSession(input: {
   token: string;
   now?: Date;
 }): Promise<
-  Result<{ userId: string; sessionId: string; preferredLocale: string }, SessionError>
+  Result<
+    {
+      userId: string;
+      sessionId: string;
+      preferredLocale: string;
+      platformRole: "user" | "reviewer" | "super_admin";
+    },
+    SessionError
+  >
 > {
   const now = input.now ?? new Date();
   const tokenHash = hashSessionToken(input.token, env().SESSION_SECRET);
@@ -77,6 +85,7 @@ export async function resolveSession(input: {
       status: users.status,
       deletedAt: users.deletedAt,
       preferredLocale: users.preferredLocale,
+      platformRole: users.platformRole,
     })
     .from(sessions)
     .innerJoin(users, eq(users.id, sessions.userId))
@@ -102,6 +111,7 @@ export async function resolveSession(input: {
     userId: row.userId,
     sessionId: row.sessionId,
     preferredLocale: row.preferredLocale,
+    platformRole: row.platformRole,
   });
 }
 
