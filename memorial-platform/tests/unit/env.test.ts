@@ -46,12 +46,12 @@ describe("parseEnv", () => {
   it("names every invalid field so operators can fix configuration", () => {
     expect.assertions(3);
     try {
-      parseEnv({ ...valid, SESSION_SECRET: "short", S3_BUCKET: "" });
+      parseEnv({ ...valid, SESSION_SECRET: "short", APP_URL: "ftp://bad" });
     } catch (error) {
       expect(error).toBeInstanceOf(EnvValidationError);
       const fields = (error as EnvValidationError).fields;
       expect(fields).toContain("SESSION_SECRET");
-      expect(fields).toContain("S3_BUCKET");
+      expect(fields).toContain("APP_URL");
     }
   });
 
@@ -80,11 +80,11 @@ describe("parseEnv", () => {
     const appleKey = "-----BEGIN PRIVATE KEY-----leaked-apple-key";
     expect.assertions(2);
     try {
-      parseEnv({ ...valid, APPLE_PRIVATE_KEY: appleKey, S3_REGION: "" });
+      parseEnv({ ...valid, APPLE_PRIVATE_KEY: appleKey, SESSION_SECRET: "short" });
     } catch (error) {
       const serialized = `${(error as Error).message}${(error as Error).stack ?? ""}`;
       expect(serialized).not.toContain(appleKey);
-      expect(serialized).toContain("S3_REGION");
+      expect(serialized).toContain("SESSION_SECRET");
     }
   });
 });

@@ -47,12 +47,16 @@ const postgresUrl = z
     { error: "must be a postgres:// or postgresql:// connection string" },
   );
 
-const redisUrl = z
-  .string({ error: "is required" })
-  .refine(
-    (value) => value.startsWith("redis://") || value.startsWith("rediss://"),
-    { error: "must be a redis:// or rediss:// connection string" },
-  );
+const redisUrl = z.preprocess(
+  blankToUndefined,
+  z
+    .string()
+    .refine(
+      (value) => value.startsWith("redis://") || value.startsWith("rediss://"),
+      { error: "must be a redis:// or rediss:// connection string" },
+    )
+    .optional(),
+);
 
 /**
  * Only unambiguous values flip a feature flag. A typo such as `yes` fails
@@ -91,8 +95,8 @@ const envSchema = z.object({
   DATABASE_URL: postgresUrl,
   REDIS_URL: redisUrl,
 
-  S3_BUCKET: z.string({ error: "is required" }).min(1, { error: "is required" }),
-  S3_REGION: z.string({ error: "is required" }).min(1, { error: "is required" }),
+  S3_BUCKET: z.preprocess(blankToUndefined, z.string().min(1).optional()),
+  S3_REGION: z.preprocess(blankToUndefined, z.string().min(1).optional()),
   S3_ENDPOINT: optionalUrl,
 
   EMAIL_PROVIDER: z.string().default("console"),
