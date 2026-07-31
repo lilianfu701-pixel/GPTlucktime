@@ -17,6 +17,7 @@ import { memorialUrl } from "@/modules/memorials/seo";
  * `searchEngineIndexable` is part of the filter as well as visibility. A family
  * can be happy for a page to be public and still not want it indexed.
  */
+export const dynamic = "force-dynamic";
 export const revalidate = 3600;
 
 const MAX_ENTRIES = 5000;
