@@ -47,9 +47,10 @@ export async function checkReadiness(): Promise<Readiness> {
   } catch (error) {
     const safeMessage =
       error instanceof Error
-        ? error.message.replace(/\/\/[^@]+@/, "//***@")
+        ? error.message.replace(/\/\/[^@]+@/, "//***@").replace(/password=[^\s&]+/g, "password=***")
         : "unknown";
-    console.error("[health/ready] DB connection failed:", safeMessage);
+    const pgCode = error && typeof error === "object" && "code" in error ? (error as { code: string }).code : "n/a";
+    console.error("[health/ready] DB connection failed:", safeMessage, "pgCode:", pgCode);
     return { status: "database_unavailable", migrations: null };
   }
 
