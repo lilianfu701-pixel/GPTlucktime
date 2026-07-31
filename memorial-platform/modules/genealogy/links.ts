@@ -63,7 +63,12 @@ function canonicalPartnerPair(a: string, b: string): [string, string] {
 }
 
 export type ProposeLinkInput =
-  | { kind: "parent"; parentId: string; childId: string; nature?: ParentNature }
+  | {
+      kind: "parent";
+      parentId: string;
+      childId: string;
+      nature?: ParentNature | undefined;
+    }
   | { kind: "partner"; personId: string; partnerId: string };
 
 /**
