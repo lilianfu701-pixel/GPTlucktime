@@ -107,6 +107,8 @@ export const familyPeople = pgTable(
     createdByUserId: uuid("created_by_user_id")
       .notNull()
       .references(() => users.id, { onDelete: "restrict" }),
+    /** Set when this node was absorbed by another after a confirmed match. */
+    mergedIntoPersonId: uuid("merged_into_person_id"),
     createdAt: timestamp("created_at", { withTimezone: true })
       .defaultNow()
       .notNull(),
@@ -201,3 +203,78 @@ export type FamilyPerson = typeof familyPeople.$inferSelect;
 export type NewFamilyPerson = typeof familyPeople.$inferInsert;
 export type FamilyLink = typeof familyLinks.$inferSelect;
 export type NewFamilyLink = typeof familyLinks.$inferInsert;
+
+export const matchDecision = pgEnum("family_match_decision", [
+  "pending",
+  "accepted",
+  "declined",
+]);
+
+export const matchStatus = pgEnum("family_match_status", [
+  "open",
+  "matched",
+  "dismissed",
+]);
+
+/**
+ * A suggestion that two nodes are the same person.
+ *
+ * This is how two family trees find each other: not by guessing at
+ * relationships, but by noticing that a grandmother in one tree and a mother in
+ * another look like the same woman. Confirming it joins the trees at that
+ * point, which is a fact both families already knew and neither could see.
+ *
+ * Double blind. Each side decides on its own, seeing only its own record, and
+ * the two are introduced only after both have said yes. Neither can browse the
+ * other first.
+ *
+ * The older node is asked first, and that ordering is load-bearing. Somebody
+ * could otherwise probe for private records by creating nodes for guessed names
+ * and watching which of them produce a suggestion — an enumeration oracle over
+ * exactly the memorials the platform refuses to confirm the existence of. A
+ * freshly created node is always the newer side, and the newer side is told
+ * nothing until the older side has accepted, so probing returns silence.
+ */
+export const familyMatchSuggestions = pgTable(
+  "family_match_suggestions",
+  {
+    id: uuid("id").defaultRandom().primaryKey(),
+    /** The node that existed first. Its steward is asked first. */
+    olderPersonId: uuid("older_person_id")
+      .notNull()
+      .references(() => familyPeople.id, { onDelete: "cascade" }),
+    newerPersonId: uuid("newer_person_id")
+      .notNull()
+      .references(() => familyPeople.id, { onDelete: "cascade" }),
+    /**
+     * A working note, never a fact about anyone.
+     *
+     * Kept with its components so a person can see that two records agree on a
+     * common name and nothing else. It is never shown as a probability that
+     * two people are related.
+     */
+    score: integer("score").notNull(),
+    signals: text("signals").notNull(),
+    olderDecision: matchDecision("older_decision").default("pending").notNull(),
+    newerDecision: matchDecision("newer_decision").default("pending").notNull(),
+    status: matchStatus("status").default("open").notNull(),
+    createdAt: timestamp("created_at", { withTimezone: true })
+      .defaultNow()
+      .notNull(),
+    resolvedAt: timestamp("resolved_at", { withTimezone: true }),
+  },
+  (table) => [
+    uniqueIndex("family_match_pair_key").on(
+      table.olderPersonId,
+      table.newerPersonId,
+    ),
+    index("family_match_older_idx").on(table.olderPersonId, table.status),
+    index("family_match_newer_idx").on(table.newerPersonId, table.status),
+    check(
+      "family_match_distinct_ck",
+      sql`${table.olderPersonId} <> ${table.newerPersonId}`,
+    ),
+  ],
+);
+
+export type FamilyMatchSuggestion = typeof familyMatchSuggestions.$inferSelect;

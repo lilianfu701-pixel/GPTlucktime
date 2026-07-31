@@ -134,6 +134,13 @@
       "when": 1785453924675,
       "tag": "0018_wooden_nemesis",
       "breakpoints": true
+    },
+    {
+      "idx": 19,
+      "version": "7",
+      "when": 1785457507657,
+      "tag": "0019_omniscient_edwin_jarvis",
+      "breakpoints": true
     }
   ]
 }
