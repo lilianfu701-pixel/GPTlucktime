@@ -44,10 +44,12 @@ export async function checkReadiness(): Promise<Readiness> {
       sql`select count(*)::text as count from drizzle.__drizzle_migrations`,
     );
     applied = Number(result.rows[0]?.count ?? 0);
-  } catch {
-    // Deliberately no detail. The reason a connection failed routinely
-    // contains the host, the user and sometimes the password, and this
-    // endpoint is reachable without signing in.
+  } catch (error) {
+    const safeMessage =
+      error instanceof Error
+        ? error.message.replace(/\/\/[^@]+@/, "//***@")
+        : "unknown";
+    console.error("[health/ready] DB connection failed:", safeMessage);
     return { status: "database_unavailable", migrations: null };
   }
 
