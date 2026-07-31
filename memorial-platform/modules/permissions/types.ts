@@ -31,7 +31,9 @@ export type MemorialAction =
   | "moderate_submission"
   | "configure_rituals"
   | "request_export"
-  | "request_deletion";
+  | "request_deletion"
+  /** Attach this memorial's subject to a family tree, or confirm such a link. */
+  | "manage_family_links";
 
 /** Actions platform staff perform through the governance process. */
 export type GovernanceAction =

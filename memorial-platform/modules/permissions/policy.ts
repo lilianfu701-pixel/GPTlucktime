@@ -34,6 +34,7 @@ const MEMORIAL_PERMISSIONS: Record<MemorialRole, readonly MemorialAction[]> = {
     "configure_rituals",
     "request_export",
     "request_deletion",
+    "manage_family_links",
   ],
   // An administrator helps run the memorial but cannot decide who may see it,
   // hand it to someone else, or delete it.
@@ -43,6 +44,11 @@ const MEMORIAL_PERMISSIONS: Record<MemorialRole, readonly MemorialAction[]> = {
     "publish_content",
     "moderate_submission",
     "request_export",
+    // A confirmed family link does not change who may see this memorial —
+    // traversal still asks the privacy rules for every node. It is a statement
+    // about who the person was, which is the kind of thing an administrator
+    // helping run the memorial is already trusted with.
+    "manage_family_links",
   ],
   editor: ["edit_profile", "publish_content"],
   // A reviewer only screens what visitors submit.
