@@ -16,13 +16,18 @@ let database: Database | null = null;
  * database does not open a socket during test collection or a build.
  */
 export function getPool(): Pool {
+  const connectionString = env().DATABASE_URL;
+  const usesSsl =
+    connectionString.includes("supabase.com") ||
+    connectionString.includes("supabase.co") ||
+    connectionString.includes("sslmode=require");
+
   pool ??= new Pool({
-    connectionString: env().DATABASE_URL,
-    // A request that cannot get a connection should fail fast and surface as
-    // DEPENDENCY_UNAVAILABLE rather than hanging until the client times out.
+    connectionString,
     connectionTimeoutMillis: 5_000,
     idleTimeoutMillis: 30_000,
     max: 10,
+    ...(usesSsl ? { ssl: { rejectUnauthorized: false } } : {}),
   });
   return pool;
 }
