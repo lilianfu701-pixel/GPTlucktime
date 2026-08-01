@@ -102,6 +102,16 @@ const envSchema = z.object({
   EMAIL_PROVIDER: z.string().default("console"),
   SMS_PROVIDER: z.string().default("console"),
 
+  /**
+   * Shared secret for the scheduled endpoints.
+   *
+   * Optional here so a developer running the app locally is not forced to
+   * invent one, and because a missing value is not a configuration error — it
+   * is a closed door. The routes themselves refuse to run without it rather
+   * than treating absence as permission.
+   */
+  CRON_SECRET: optionalSecret,
+
   GOOGLE_CLIENT_ID: optionalSecret,
   GOOGLE_CLIENT_SECRET: optionalSecret,
   APPLE_CLIENT_ID: optionalSecret,

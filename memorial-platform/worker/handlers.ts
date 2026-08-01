@@ -21,6 +21,12 @@ export function buildRegistry(): HandlerRegistry {
       toResult(await handleSearchIndex(payload)),
     "memorial.privacy_changed": async (payload) =>
       toResult(await handleSearchIndex(payload)),
+    // First publication is the moment a memorial becomes findable, so it needs
+    // the same reconciliation. Registered rather than left queued because the
+    // work behind it genuinely can be done — the rule above is about topics
+    // waiting on a provider, not about topics nobody got round to.
+    "memorial.published": async (payload) =>
+      toResult(await handleSearchIndex(payload)),
     "search.remove": async (payload) => {
       const memorialId = readMemorialId(payload);
       if (!memorialId) {

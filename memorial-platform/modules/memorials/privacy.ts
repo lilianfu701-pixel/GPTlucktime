@@ -22,6 +22,118 @@ export type ChangePrivacyResult = {
   changed: boolean;
 };
 
+export type PublishError =
+  | "AUTH_REQUIRED"
+  | "MEMORIAL_NOT_FOUND"
+  | "MEMORIAL_FORBIDDEN"
+  | "OWNERSHIP_FROZEN"
+  | "PUBLIC_EXPOSURE_CONFIRMATION_REQUIRED"
+  /** Already published, or hidden, merged or awaiting deletion. */
+  | "NOT_PUBLISHABLE";
+
+/**
+ * Publishes a memorial for the first time.
+ *
+ * A memorial is created as a draft so a family can write the life story, choose
+ * the photographs and decide what visitors may offer before anyone else can
+ * read any of it. This is the step where they say it is ready.
+ *
+ * Owner only, gated on `change_privacy` rather than `publish_content`. Those
+ * are different decisions: an administrator may publish a biography onto a page
+ * the family already opened, but deciding that the page itself becomes readable
+ * is the same kind of choice as making it public, and the policy already keeps
+ * that with the owner.
+ */
+export async function publishMemorial(
+  actor: Actor,
+  memorialId: string,
+  input: { confirmPublicExposure?: boolean | undefined },
+  correlationId: string,
+): Promise<Result<{ slug: string; publishedAt: Date }, PublishError>> {
+  if (!actor.userId) {
+    return err("AUTH_REQUIRED");
+  }
+
+  const [memorial] = await db()
+    .select({
+      slug: memorials.slug,
+      status: memorials.status,
+      visibility: memorials.visibility,
+      searchEngineIndexable: memorials.searchEngineIndexable,
+      ownershipFrozenAt: memorials.ownershipFrozenAt,
+    })
+    .from(memorials)
+    .where(eq(memorials.id, memorialId));
+
+  if (!memorial) {
+    return err("MEMORIAL_NOT_FOUND");
+  }
+
+  if (memorial.ownershipFrozenAt) {
+    return err("OWNERSHIP_FROZEN");
+  }
+
+  const role = await memorialRoleFor(memorialId, actor.userId);
+  if (!role) {
+    return err("MEMORIAL_NOT_FOUND");
+  }
+
+  if (!canOnMemorial({ actor, role, action: "change_privacy" })) {
+    return err("MEMORIAL_FORBIDDEN");
+  }
+
+  // Only a draft becomes published here. Restoring something hidden by a
+  // reviewer, or undoing a deletion, are governance paths with their own
+  // records; letting an owner reach those through this endpoint would route
+  // around them.
+  if (memorial.status !== "draft") {
+    return err("NOT_PUBLISHABLE");
+  }
+
+  // Same rule as `changePrivacy`: a page becoming readable by the world is not
+  // reversible in practice, because a search engine may keep a copy. The owner
+  // says so rather than the request implying it.
+  if (
+    memorial.visibility === "public" &&
+    memorial.searchEngineIndexable &&
+    input.confirmPublicExposure !== true
+  ) {
+    return err("PUBLIC_EXPOSURE_CONFIRMATION_REQUIRED");
+  }
+
+  const publishedAt = new Date();
+
+  await db().transaction(async (tx) => {
+    await tx
+      .update(memorials)
+      .set({ status: "published", publishedAt })
+      .where(eq(memorials.id, memorialId));
+
+    await tx.insert(auditLogs).values({
+      actorUserId: actor.userId,
+      action: "memorial.published",
+      resourceType: "memorial",
+      resourceId: memorialId,
+      oldValue: { status: memorial.status },
+      newValue: { status: "published" },
+      correlationId,
+    });
+
+    // One event, not two. `memorial.published` is registered to the search
+    // handler, so emitting a `search.index` beside it would only index the
+    // same memorial twice. Whether it belongs in results is not decided here
+    // in any case: the search query filters on the live memorial row, so a
+    // page the family kept private stays out however the index is built.
+    await tx.insert(outboxEvents).values({
+      topic: "memorial.published",
+      aggregateId: memorialId,
+      payload: { memorialId, correlationId },
+    });
+  });
+
+  return ok({ slug: memorial.slug, publishedAt });
+}
+
 /**
  * Changes who can see a memorial.
  *
