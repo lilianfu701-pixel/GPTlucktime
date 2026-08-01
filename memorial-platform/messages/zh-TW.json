@@ -69,7 +69,25 @@
     "datePrecisionUnknown": "不清楚",
     "placeLabel": "地點",
     "publish": "發布追思頁",
-    "duplicateWarning": "已有相似的追思頁，建議先查看後再決定是否新建。"
+    "duplicateWarning": "已有相似的追思頁，建議先查看後再決定是否新建。",
+    "bornLabel": "生於",
+    "diedLabel": "卒於",
+    "alsoKnownAs": "其他稱呼",
+    "lifeStory": "生平",
+    "noLifeStoryYet": "家屬尚未撰寫生平。",
+    "storiesFromVisitors": "親友的追憶",
+    "waysToRemember": "可以留下的心意",
+    "noRitualsOffered": "家屬尚未開放留下心意的方式。",
+    "privateNotice": "本頁不會出現在搜尋結果中。您是透過家屬分享的連結來到這裡的。",
+    "invitationRequiredTitle": "本頁僅向受邀者開放",
+    "invitationRequiredBody": "若家屬已邀請您，請使用收到邀請的信箱登入。",
+    "unavailableTitle": "本頁已不再開放",
+    "unavailableBody": "家屬已要求移除。",
+    "datePrecisionLabel": "這個日期有多確切？",
+    "cityLabel": "城市",
+    "signInToCreate": "請先登入再建立追思主頁。",
+    "draftNoticeTitle": "目前只有您能看到這個頁面",
+    "draftNoticeBody": "可以先補上生平，並選擇親友可以留下哪些心意。準備好了再發布。"
   },
   "privacy": {
     "title": "誰可以看到這個追思頁",
@@ -102,7 +120,10 @@
     "moderationPre": "留言先經家屬審核再顯示",
     "moderationPost": "留言直接顯示",
     "needsConfirmation": "這一項在不同地區與宗派中做法不同，請確認是否合乎府上的習慣。",
-    "notRecommended": "這個傳統中通常不採用這種方式。"
+    "notRecommended": "這個傳統中通常不採用這種方式。",
+    "thanks": "謝謝您。已經留在這裡了。",
+    "messageLabel": "若願意，可以留幾句話",
+    "offerFallback": "留下心意"
   },
   "moderation": {
     "pendingTitle": "等待家屬查看",
@@ -142,5 +163,18 @@
     "loading": "正在載入，請稍候",
     "externalLink": "在新視窗開啟",
     "requiredField": "必填欄位"
+  },
+  "search": {
+    "title": "尋找在此被追憶的人",
+    "queryLabel": "姓名",
+    "queryPlaceholder": "您要尋找的人的姓名",
+    "submit": "搜尋",
+    "birthYearLabel": "出生年份",
+    "deathYearLabel": "離世年份",
+    "countryLabel": "國家或地區",
+    "resultsHeading": "搜尋結果",
+    "noResults": "沒有找到符合的追思主頁。",
+    "startPrompt": "請輸入姓名開始尋找。",
+    "more": "顯示更多"
   }
 }

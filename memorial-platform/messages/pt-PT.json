@@ -69,7 +69,25 @@
     "datePrecisionUnknown": "Desconhecida",
     "placeLabel": "Local",
     "publish": "Publicar o memorial",
-    "duplicateWarning": "Já existe um memorial semelhante. Convém vê-lo antes de criar outro."
+    "duplicateWarning": "Já existe um memorial semelhante. Convém vê-lo antes de criar outro.",
+    "bornLabel": "Nasceu",
+    "diedLabel": "Faleceu",
+    "alsoKnownAs": "Também conhecido como",
+    "lifeStory": "A vida",
+    "noLifeStoryYet": "A família ainda não escreveu uma história de vida.",
+    "storiesFromVisitors": "Recordações de outras pessoas",
+    "waysToRemember": "Formas de recordar",
+    "noRitualsOffered": "A família ainda não abriu nenhuma forma de deixar uma recordação.",
+    "privateNotice": "Não aparece nas pesquisas. Chegou aqui através de uma ligação partilhada pela família.",
+    "invitationRequiredTitle": "Este memorial é partilhado por convite",
+    "invitationRequiredBody": "Se a família o convidou, inicie sessão com o endereço para o qual o convite foi enviado.",
+    "unavailableTitle": "Este memorial já não está disponível",
+    "unavailableBody": "A família pediu que fosse removido.",
+    "datePrecisionLabel": "Qual a exatidão desta data?",
+    "cityLabel": "Cidade",
+    "signInToCreate": "Inicie sessão para criar um memorial.",
+    "draftNoticeTitle": "Por agora só o utilizador vê este memorial",
+    "draftNoticeBody": "Escreva uma história de vida e escolha como as pessoas poderão recordar. Publique quando estiver pronto."
   },
   "privacy": {
     "title": "Quem pode ver este memorial",
@@ -102,7 +120,10 @@
     "moderationPre": "Rever as mensagens antes de aparecerem",
     "moderationPost": "Mostrar as mensagens de imediato",
     "needsConfirmation": "Isto varia entre comunidades. Confirme se é adequado à sua família.",
-    "notRecommended": "Nesta tradição não é habitual disponibilizar esta opção."
+    "notRecommended": "Nesta tradição não é habitual disponibilizar esta opção.",
+    "thanks": "Obrigado. A sua recordação foi registada.",
+    "messageLabel": "Algumas palavras, se quiser",
+    "offerFallback": "Deixar uma recordação"
   },
   "moderation": {
     "pendingTitle": "A aguardar a família",
@@ -142,5 +163,18 @@
     "loading": "A carregar, aguarde",
     "externalLink": "Abre numa nova janela",
     "requiredField": "Campo obrigatório"
+  },
+  "search": {
+    "title": "Encontre alguém recordado aqui",
+    "queryLabel": "Nome",
+    "queryPlaceholder": "O nome da pessoa que procura",
+    "submit": "Pesquisar",
+    "birthYearLabel": "Ano de nascimento",
+    "deathYearLabel": "Ano de falecimento",
+    "countryLabel": "País",
+    "resultsHeading": "Resultados",
+    "noResults": "Nenhum memorial corresponde ao que introduziu.",
+    "startPrompt": "Introduza um nome para começar.",
+    "more": "Ver mais"
   }
 }

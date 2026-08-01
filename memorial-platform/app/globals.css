@@ -1,0 +1,498 @@
+/*
+ * Lumina design system.
+ *
+ * Ported from the v5 homepage concept. The direction is warm paper and open
+ * light rather than the dark, heavy register memorial products usually reach
+ * for: doc 07 asks for a place that makes room for grief without staging it.
+ *
+ * Committed to a single light theme on purpose. The paper ground is part of
+ * what the product is, and a family who set their phone to dark mode did not
+ * ask for a different feeling about their loss.
+ *
+ * Every inline offset is a logical property. Arabic is a supported locale and
+ * the layout must mirror without a second stylesheet.
+ */
+
+:root {
+  /* Surface and ink */
+  --paper: #fbf6eb;
+  --paper-soft: rgba(255, 252, 244, 0.82);
+  --paper-raised: #fffdf8;
+  --ink: #253027;
+  --muted: #657062;
+  --line: rgba(37, 48, 39, 0.13);
+  --line-strong: rgba(37, 48, 39, 0.24);
+
+  /* Accents. Used semantically, not decoratively:
+     olive carries action, gold marks remembrance, rose marks a pending or
+     tender state, sky is reserved for quiet informational surfaces. */
+  --olive: #557464;
+  --olive-dark: #2f4b3e;
+  --sky: #8dbdd1;
+  --gold: #c5a35f;
+  --rose: #b78982;
+
+  /* Type. Lora for display; the fallback chain carries the scripts Lora does
+     not, so a Japanese or Arabic heading is set in a real serif rather than
+     whatever the browser reaches for last. */
+  --font-display: var(--font-serif), Georgia, "Songti SC", "Noto Serif CJK SC",
+    "Hiragino Mincho ProN", "Yu Mincho", "Nanum Myeongjo", "Noto Naskh Arabic",
+    serif;
+  --font-body: var(--font-sans), -apple-system, BlinkMacSystemFont, "Segoe UI",
+    "PingFang SC", "Hiragino Sans", "Malgun Gothic", "Noto Sans Arabic",
+    sans-serif;
+
+  --text-xs: 0.75rem;
+  --text-sm: 0.8125rem;
+  --text-base: clamp(0.95rem, 0.9rem + 0.2vw, 1.0625rem);
+  --text-lg: clamp(1.05rem, 0.98rem + 0.35vw, 1.25rem);
+  --text-xl: clamp(1.3rem, 1.1rem + 0.9vw, 1.75rem);
+  --text-2xl: clamp(1.7rem, 1.3rem + 1.9vw, 2.75rem);
+  --text-3xl: clamp(2.2rem, 1.4rem + 3.6vw, 4rem);
+  --text-hero: clamp(2.6rem, 1.2rem + 6vw, 6.5rem);
+
+  /* Rhythm. Deliberately uneven — a section does not breathe like a field. */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-12: 3rem;
+  --space-section: clamp(3.5rem, 2.5rem + 5vw, 8rem);
+  --gutter: clamp(1.25rem, 0.5rem + 4vw, 5rem);
+
+  --radius-sm: 3px;
+  --radius-md: 6px;
+  --radius-pill: 999px;
+
+  --duration-fast: 140ms;
+  --duration-normal: 280ms;
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+
+  --measure: 68ch;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+  text-wrap: balance;
+}
+
+h1 {
+  font-size: var(--text-3xl);
+}
+h2 {
+  font-size: var(--text-2xl);
+}
+h3 {
+  font-size: var(--text-xl);
+}
+
+p {
+  margin: 0;
+  text-wrap: pretty;
+}
+
+a {
+  color: inherit;
+  text-decoration-color: var(--line-strong);
+  text-underline-offset: 0.22em;
+  transition: text-decoration-color var(--duration-fast) ease;
+}
+
+a:hover {
+  text-decoration-color: currentColor;
+}
+
+/*
+ * One visible focus treatment for everything. A memorial is navigated by
+ * people who are older, tired, or crying, and a focus ring that only shows on
+ * some controls is the same as not having one.
+ */
+:where(a, button, input, textarea, select, [tabindex]):focus-visible {
+  outline: 2px solid var(--olive-dark);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ---------- Layout primitives ---------- */
+
+.shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  width: 100%;
+  max-width: 78rem;
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.measure {
+  max-width: var(--measure);
+}
+
+.stack > * + * {
+  margin-block-start: var(--space-4);
+}
+
+.stack-lg > * + * {
+  margin-block-start: var(--space-8);
+}
+
+.section {
+  padding-block: var(--space-section);
+}
+
+/* Skip link: present for keyboard users, out of the way otherwise. */
+.skipLink {
+  position: absolute;
+  inset-inline-start: -9999px;
+  top: var(--space-2);
+  z-index: 100;
+  padding: var(--space-2) var(--space-4);
+  background: var(--olive-dark);
+  color: var(--paper-raised);
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+}
+
+.skipLink:focus {
+  inset-inline-start: var(--space-2);
+}
+
+/* ---------- Site chrome ---------- */
+
+.siteHeader {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+  min-height: 72px;
+  padding-inline: var(--gutter);
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 252, 244, 0.94),
+    rgba(255, 252, 244, 0.72)
+  );
+  backdrop-filter: blur(8px);
+  border-block-end: 1px solid var(--line);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 650;
+  text-decoration: none;
+}
+
+/*
+ * The mark is a leaf, drawn in CSS rather than shipped as an asset so it
+ * cannot fail to load on the one page a family shares.
+ */
+.brandMark {
+  width: 20px;
+  height: 27px;
+  flex: none;
+  border-radius: 54% 46% 51% 49% / 69% 70% 30% 31%;
+  transform: rotate(34deg);
+  background: linear-gradient(145deg, #e7d5a2, #6f977b);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.36);
+}
+
+.siteNav {
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+  margin-inline-start: auto;
+  font-size: var(--text-sm);
+  color: var(--muted);
+}
+
+.siteFooter {
+  margin-block-start: auto;
+  padding-block: var(--space-8);
+  padding-inline: var(--gutter);
+  border-block-start: 1px solid var(--line);
+  color: var(--muted);
+  font-size: var(--text-sm);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-6);
+}
+
+/* ---------- Controls ---------- */
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  min-height: 44px;
+  padding-inline: var(--space-6);
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  font: inherit;
+  font-weight: 650;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background-color var(--duration-fast) ease,
+    border-color var(--duration-fast) ease,
+    transform var(--duration-fast) var(--ease-out-expo);
+}
+
+.button:active {
+  transform: translateY(1px);
+}
+
+.buttonPrimary {
+  background: var(--olive-dark);
+  color: #fffaf0;
+}
+
+.buttonPrimary:hover {
+  background: #26402f;
+}
+
+.buttonQuiet {
+  background: transparent;
+  border-color: var(--line-strong);
+  color: var(--ink);
+}
+
+.buttonQuiet:hover {
+  background: rgba(85, 116, 100, 0.08);
+  border-color: var(--olive);
+}
+
+.field {
+  display: block;
+}
+
+.fieldLabel {
+  display: block;
+  margin-block-end: var(--space-2);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.input {
+  width: 100%;
+  min-height: 44px;
+  padding: var(--space-2) var(--space-4);
+  background: var(--paper-raised);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-sm);
+  font: inherit;
+  color: inherit;
+}
+
+.input::placeholder {
+  color: rgba(101, 112, 98, 0.7);
+}
+
+.fieldError {
+  margin-block-start: var(--space-2);
+  font-size: var(--text-sm);
+  color: #8c3b32;
+}
+
+/* ---------- Surfaces ---------- */
+
+.card {
+  padding: var(--space-6);
+  background: var(--paper-raised);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+}
+
+/*
+ * A notice, not an alert. Copy on this platform delivers bad news often
+ * enough that a red banner would be shouting most of the time.
+ */
+.notice {
+  padding: var(--space-4) var(--space-6);
+  border-inline-start: 3px solid var(--sky);
+  background: rgba(141, 189, 209, 0.1);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+
+.noticePending {
+  border-inline-start-color: var(--rose);
+  background: rgba(183, 137, 130, 0.1);
+}
+
+/* Wraps rather than scrolls: a family may offer six observances, and none of
+   them should end up off the edge on a phone. */
+.ritualChoices {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+/* Grouped so a screen reader announces which question a control belongs to,
+   and so the form reads as a few decisions rather than a wall of inputs. */
+.fieldset {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  border-block-start: 1px solid var(--line);
+  padding-block-start: var(--space-6);
+}
+
+.fieldset > legend {
+  padding: 0;
+  margin-block-end: var(--space-4);
+}
+
+/* The whole row is the label, so the hit target is the sentence and not just
+   the 13px box beside it. */
+.choiceRow {
+  display: flex;
+  align-items: start;
+  gap: var(--space-3);
+  padding-block: var(--space-2);
+  cursor: pointer;
+}
+
+.choiceRow input {
+  margin-block-start: 0.4em;
+  flex: none;
+  width: 1.1rem;
+  height: 1.1rem;
+  accent-color: var(--olive-dark);
+}
+
+.resultList {
+  display: grid;
+  gap: var(--space-4);
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.resultItem {
+  padding: var(--space-4) var(--space-6);
+  background: var(--paper-raised);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  transition: border-color var(--duration-fast) ease;
+}
+
+.resultItem:hover {
+  border-color: var(--olive);
+}
+
+.resultName {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.searchForm {
+  display: grid;
+  gap: var(--space-4);
+  grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+  align-items: end;
+}
+
+.searchForm .fieldWide {
+  grid-column: 1 / -1;
+}
+
+.eyebrow {
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.lede {
+  font-size: var(--text-lg);
+  color: var(--muted);
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.visuallyHidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+/*
+ * Motion is decoration here, never information. Removing it must not remove
+ * meaning, so everything above degrades to an instant state change.
+ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@media (prefers-contrast: more) {
+  :root {
+    --muted: #4a5449;
+    --line: rgba(37, 48, 39, 0.3);
+    --line-strong: rgba(37, 48, 39, 0.5);
+  }
+}

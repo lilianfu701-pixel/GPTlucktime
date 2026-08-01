@@ -69,7 +69,25 @@
     "datePrecisionUnknown": "Tidak diketahui",
     "placeLabel": "Tempat",
     "publish": "Terbitkan halaman kenangan",
-    "duplicateWarning": "Sudah ada halaman kenangan yang serupa. Sebaiknya lihat dahulu sebelum membuat yang baru."
+    "duplicateWarning": "Sudah ada halaman kenangan yang serupa. Sebaiknya lihat dahulu sebelum membuat yang baru.",
+    "bornLabel": "Lahir",
+    "diedLabel": "Wafat",
+    "alsoKnownAs": "Dikenal juga sebagai",
+    "lifeStory": "Kisah hidup",
+    "noLifeStoryYet": "Keluarga belum menuliskan kisah hidup.",
+    "storiesFromVisitors": "Kenangan dari orang lain",
+    "waysToRemember": "Cara mengenang",
+    "noRitualsOffered": "Keluarga belum membuka cara untuk meninggalkan sesuatu di sini.",
+    "privateNotice": "Tidak tercantum dalam pencarian. Anda tiba di sini melalui tautan yang dibagikan keluarga.",
+    "invitationRequiredTitle": "Halaman ini dibagikan melalui undangan",
+    "invitationRequiredBody": "Jika keluarga mengundang Anda, masuklah dengan alamat tujuan undangan tersebut.",
+    "unavailableTitle": "Halaman ini tidak lagi tersedia",
+    "unavailableBody": "Keluarga telah meminta agar halaman ini dihapus.",
+    "datePrecisionLabel": "Seberapa tepat tanggal ini?",
+    "cityLabel": "Kota",
+    "signInToCreate": "Masuk untuk membuat halaman peringatan.",
+    "draftNoticeTitle": "Baru Anda yang dapat melihat halaman ini",
+    "draftNoticeBody": "Tambahkan kisah hidup dan pilih cara pengunjung dapat mengenang. Terbitkan bila Anda sudah siap."
   },
   "privacy": {
     "title": "Siapa yang dapat melihat halaman ini",
@@ -102,7 +120,10 @@
     "moderationPre": "Periksa pesan sebelum ditampilkan",
     "moderationPost": "Tampilkan pesan langsung",
     "needsConfirmation": "Kebiasaan ini berbeda antar komunitas. Mohon pastikan sesuai dengan keluarga Anda.",
-    "notRecommended": "Dalam tradisi ini hal tersebut biasanya tidak dilakukan."
+    "notRecommended": "Dalam tradisi ini hal tersebut biasanya tidak dilakukan.",
+    "thanks": "Terima kasih. Kenangan Anda telah tercatat.",
+    "messageLabel": "Beberapa patah kata, jika Anda mau",
+    "offerFallback": "Tinggalkan kenangan"
   },
   "moderation": {
     "pendingTitle": "Menunggu keluarga",
@@ -142,5 +163,18 @@
     "loading": "Sedang memuat, mohon tunggu",
     "externalLink": "Terbuka di jendela baru",
     "requiredField": "Kolom wajib diisi"
+  },
+  "search": {
+    "title": "Temukan seseorang yang dikenang di sini",
+    "queryLabel": "Nama",
+    "queryPlaceholder": "Nama orang yang Anda cari",
+    "submit": "Cari",
+    "birthYearLabel": "Tahun lahir",
+    "deathYearLabel": "Tahun wafat",
+    "countryLabel": "Negara",
+    "resultsHeading": "Hasil",
+    "noResults": "Tidak ada halaman peringatan yang cocok.",
+    "startPrompt": "Masukkan nama untuk memulai.",
+    "more": "Tampilkan lebih banyak"
   }
 }

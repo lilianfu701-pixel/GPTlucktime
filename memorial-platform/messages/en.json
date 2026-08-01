@@ -69,7 +69,25 @@
     "datePrecisionUnknown": "Not known",
     "placeLabel": "Place",
     "publish": "Publish memorial",
-    "duplicateWarning": "A similar memorial already exists. Please look at it before creating a new one."
+    "duplicateWarning": "A similar memorial already exists. Please look at it before creating a new one.",
+    "bornLabel": "Born",
+    "diedLabel": "Died",
+    "alsoKnownAs": "Also known as",
+    "lifeStory": "Life story",
+    "noLifeStoryYet": "The family has not written a life story yet.",
+    "storiesFromVisitors": "Shared by others",
+    "waysToRemember": "Ways to remember them",
+    "noRitualsOffered": "The family has not opened a way to leave something here yet.",
+    "privateNotice": "Not listed in search. You are here from a link the family shared.",
+    "invitationRequiredTitle": "This memorial is shared by invitation",
+    "invitationRequiredBody": "If the family invited you, please sign in with the address the invitation was sent to.",
+    "unavailableTitle": "This memorial is no longer available",
+    "unavailableBody": "The family has asked for it to be removed.",
+    "datePrecisionLabel": "How exact is this date?",
+    "cityLabel": "City",
+    "signInToCreate": "Please sign in to create a memorial.",
+    "draftNoticeTitle": "Only you can see this memorial",
+    "draftNoticeBody": "Add a life story and choose how visitors may remember them. Publish it when you are ready for others to visit."
   },
   "privacy": {
     "title": "Who can see this memorial",
@@ -102,7 +120,10 @@
     "moderationPre": "Review messages before they appear",
     "moderationPost": "Show messages straight away",
     "needsConfirmation": "This varies between communities. Please confirm it suits your family.",
-    "notRecommended": "This is not usually offered in this tradition."
+    "notRecommended": "This is not usually offered in this tradition.",
+    "thanks": "Thank you. It has been added to their page.",
+    "messageLabel": "A few words, if you would like",
+    "offerFallback": "Leave something"
   },
   "moderation": {
     "pendingTitle": "Waiting for the family",
@@ -142,5 +163,18 @@
     "loading": "Loading, please wait",
     "externalLink": "Opens in a new window",
     "requiredField": "Required field"
+  },
+  "search": {
+    "title": "Find someone remembered here",
+    "queryLabel": "Name",
+    "queryPlaceholder": "The name of the person you are looking for",
+    "submit": "Search",
+    "birthYearLabel": "Year of birth",
+    "deathYearLabel": "Year of death",
+    "countryLabel": "Country",
+    "resultsHeading": "Results",
+    "noResults": "No memorials matched what you entered.",
+    "startPrompt": "Enter a name to begin.",
+    "more": "Show more"
   }
 }

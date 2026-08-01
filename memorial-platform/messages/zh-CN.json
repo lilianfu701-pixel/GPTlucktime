@@ -69,7 +69,25 @@
     "datePrecisionUnknown": "不清楚",
     "placeLabel": "地点",
     "publish": "发布追思主页",
-    "duplicateWarning": "已有相似的追思主页，建议先查看后再决定是否新建。"
+    "duplicateWarning": "已有相似的追思主页，建议先查看后再决定是否新建。",
+    "bornLabel": "生于",
+    "diedLabel": "卒于",
+    "alsoKnownAs": "其他称呼",
+    "lifeStory": "生平",
+    "noLifeStoryYet": "家属尚未撰写生平。",
+    "storiesFromVisitors": "亲友的追忆",
+    "waysToRemember": "可以留下的心意",
+    "noRitualsOffered": "家属尚未开放留下心意的方式。",
+    "privateNotice": "本页不会出现在搜索结果中。您是通过家属分享的链接来到这里的。",
+    "invitationRequiredTitle": "本页仅向受邀者开放",
+    "invitationRequiredBody": "如果家属已邀请您，请使用收到邀请的邮箱登录。",
+    "unavailableTitle": "本页已不再开放",
+    "unavailableBody": "家属已请求移除。",
+    "datePrecisionLabel": "这个日期有多确切？",
+    "cityLabel": "城市",
+    "signInToCreate": "请先登录再创建追思主页。",
+    "draftNoticeTitle": "目前只有您能看到这个页面",
+    "draftNoticeBody": "可以先补上生平，并选择亲友可以留下哪些心意。准备好了再发布。"
   },
   "privacy": {
     "title": "谁可以看到这个主页",
@@ -102,7 +120,10 @@
     "moderationPre": "留言先由家属审核再显示",
     "moderationPost": "留言直接显示",
     "needsConfirmation": "这一项在不同地区和宗派中做法不同，请确认是否符合您家的习惯。",
-    "notRecommended": "这一传统中通常不采用这种方式。"
+    "notRecommended": "这一传统中通常不采用这种方式。",
+    "thanks": "谢谢您。已经留在这里了。",
+    "messageLabel": "如果愿意，可以留几句话",
+    "offerFallback": "留下心意"
   },
   "moderation": {
     "pendingTitle": "等待家属查看",
@@ -142,5 +163,18 @@
     "loading": "正在加载，请稍候",
     "externalLink": "在新窗口中打开",
     "requiredField": "必填项"
+  },
+  "search": {
+    "title": "查找在此被追忆的人",
+    "queryLabel": "姓名",
+    "queryPlaceholder": "您要找的人的姓名",
+    "submit": "搜索",
+    "birthYearLabel": "出生年份",
+    "deathYearLabel": "离世年份",
+    "countryLabel": "国家或地区",
+    "resultsHeading": "搜索结果",
+    "noResults": "没有找到符合的追思主页。",
+    "startPrompt": "请输入姓名开始查找。",
+    "more": "显示更多"
   }
 }

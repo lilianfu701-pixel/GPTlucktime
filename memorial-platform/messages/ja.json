@@ -69,7 +69,25 @@
     "datePrecisionUnknown": "不明",
     "placeLabel": "場所",
     "publish": "追悼ページを公開する",
-    "duplicateWarning": "よく似た追悼ページがあります。新しく作成する前にご確認ください。"
+    "duplicateWarning": "よく似た追悼ページがあります。新しく作成する前にご確認ください。",
+    "bornLabel": "生年",
+    "diedLabel": "没年",
+    "alsoKnownAs": "別のお名前",
+    "lifeStory": "歩み",
+    "noLifeStoryYet": "ご家族による歩みの記述はまだありません。",
+    "storiesFromVisitors": "皆さまからの思い出",
+    "waysToRemember": "偲ぶ方法",
+    "noRitualsOffered": "ご家族はまだ、何かを残す方法を公開されていません。",
+    "privateNotice": "検索結果には表示されません。ご家族が共有されたリンクからお越しです。",
+    "invitationRequiredTitle": "このページはご招待された方にのみ公開されています",
+    "invitationRequiredBody": "ご家族から招待を受けている場合は、招待が届いたアドレスでサインインしてください。",
+    "unavailableTitle": "このページは公開されていません",
+    "unavailableBody": "ご家族より削除のご依頼がありました。",
+    "datePrecisionLabel": "この日付はどの程度正確ですか",
+    "cityLabel": "市区町村",
+    "signInToCreate": "追悼ページを作成するにはサインインしてください。",
+    "draftNoticeTitle": "このページは今はご本人だけがご覧になれます",
+    "draftNoticeBody": "歩みを書き加え、訪れる方が何を残せるかをお選びください。ご準備ができましたら公開してください。"
   },
   "privacy": {
     "title": "このページを見られる範囲",
@@ -102,7 +120,10 @@
     "moderationPre": "確認してから表示する",
     "moderationPost": "すぐに表示する",
     "needsConfirmation": "地域や宗派によって作法が異なります。ご家族の慣習に合うかご確認ください。",
-    "notRecommended": "この慣習では通常行われません。"
+    "notRecommended": "この慣習では通常行われません。",
+    "thanks": "ありがとうございます。お気持ちをお預かりしました。",
+    "messageLabel": "よろしければ、ひとことお書きください",
+    "offerFallback": "お気持ちを残す"
   },
   "moderation": {
     "pendingTitle": "ご家族の確認待ち",
@@ -142,5 +163,18 @@
     "loading": "読み込み中です。お待ちください",
     "externalLink": "新しいウィンドウで開きます",
     "requiredField": "必須項目"
+  },
+  "search": {
+    "title": "この場所で偲ばれている方をさがす",
+    "queryLabel": "お名前",
+    "queryPlaceholder": "おさがしの方のお名前",
+    "submit": "さがす",
+    "birthYearLabel": "生年",
+    "deathYearLabel": "没年",
+    "countryLabel": "国・地域",
+    "resultsHeading": "検索結果",
+    "noResults": "ご入力に一致する追悼ページは見つかりませんでした。",
+    "startPrompt": "お名前を入力してください。",
+    "more": "さらに表示"
   }
 }

@@ -69,7 +69,25 @@
     "datePrecisionUnknown": "모름",
     "placeLabel": "장소",
     "publish": "추모 페이지 공개",
-    "duplicateWarning": "비슷한 추모 페이지가 이미 있습니다. 새로 만들기 전에 확인해 보시기 바랍니다."
+    "duplicateWarning": "비슷한 추모 페이지가 이미 있습니다. 새로 만들기 전에 확인해 보시기 바랍니다.",
+    "bornLabel": "출생",
+    "diedLabel": "별세",
+    "alsoKnownAs": "다른 이름",
+    "lifeStory": "생애",
+    "noLifeStoryYet": "유가족이 아직 생애를 남기지 않았습니다.",
+    "storiesFromVisitors": "다른 분들이 남긴 추억",
+    "waysToRemember": "추모하는 방법",
+    "noRitualsOffered": "유가족이 아직 무언가를 남길 수 있는 방법을 열지 않았습니다.",
+    "privateNotice": "검색 결과에는 나타나지 않습니다. 유가족이 공유한 링크를 통해 오셨습니다.",
+    "invitationRequiredTitle": "이 추모 공간은 초대받은 분에게만 공개됩니다",
+    "invitationRequiredBody": "유가족의 초대를 받으셨다면 초대장을 받은 주소로 로그인해 주세요.",
+    "unavailableTitle": "이 추모 공간은 더 이상 공개되지 않습니다",
+    "unavailableBody": "유가족이 삭제를 요청하셨습니다.",
+    "datePrecisionLabel": "이 날짜는 얼마나 정확한가요?",
+    "cityLabel": "도시",
+    "signInToCreate": "추모 공간을 만들려면 로그인해 주세요.",
+    "draftNoticeTitle": "아직은 회원님만 볼 수 있습니다",
+    "draftNoticeBody": "생애를 남기고, 찾아오는 분들이 어떻게 추모할 수 있을지 정해 주세요. 준비되시면 공개해 주세요."
   },
   "privacy": {
     "title": "이 페이지를 볼 수 있는 범위",
@@ -102,7 +120,10 @@
     "moderationPre": "확인한 뒤 표시",
     "moderationPost": "바로 표시",
     "needsConfirmation": "지역과 종파에 따라 방식이 다릅니다. 댁의 관례에 맞는지 확인해 주십시오.",
-    "notRecommended": "이 전통에서는 보통 하지 않는 방식입니다."
+    "notRecommended": "이 전통에서는 보통 하지 않는 방식입니다.",
+    "thanks": "감사합니다. 마음이 전해졌습니다.",
+    "messageLabel": "원하시면 몇 마디 남겨 주세요",
+    "offerFallback": "마음 남기기"
   },
   "moderation": {
     "pendingTitle": "유가족 확인 대기 중",
@@ -142,5 +163,18 @@
     "loading": "불러오는 중입니다. 잠시 기다려 주십시오",
     "externalLink": "새 창에서 열림",
     "requiredField": "필수 입력란"
+  },
+  "search": {
+    "title": "이곳에서 기억되는 분을 찾기",
+    "queryLabel": "성함",
+    "queryPlaceholder": "찾으시는 분의 성함",
+    "submit": "찾기",
+    "birthYearLabel": "출생 연도",
+    "deathYearLabel": "별세 연도",
+    "countryLabel": "국가",
+    "resultsHeading": "검색 결과",
+    "noResults": "입력하신 내용과 일치하는 추모 공간이 없습니다.",
+    "startPrompt": "성함을 입력해 주세요.",
+    "more": "더 보기"
   }
 }

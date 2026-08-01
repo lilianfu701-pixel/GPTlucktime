@@ -69,7 +69,25 @@
     "datePrecisionUnknown": "Inconnue",
     "placeLabel": "Lieu",
     "publish": "Publier le mémorial",
-    "duplicateWarning": "Un mémorial semblable existe déjà. Consultez-le avant d'en créer un autre."
+    "duplicateWarning": "Un mémorial semblable existe déjà. Consultez-le avant d'en créer un autre.",
+    "bornLabel": "Naissance",
+    "diedLabel": "Décès",
+    "alsoKnownAs": "Également connu sous",
+    "lifeStory": "Sa vie",
+    "noLifeStoryYet": "La famille n'a pas encore écrit de récit de vie.",
+    "storiesFromVisitors": "Souvenirs partagés",
+    "waysToRemember": "Façons de lui rendre hommage",
+    "noRitualsOffered": "La famille n'a pas encore ouvert de façon de laisser un hommage.",
+    "privateNotice": "Ne figure pas dans les recherches. Vous êtes arrivé ici par un lien partagé par la famille.",
+    "invitationRequiredTitle": "Ce mémorial est partagé sur invitation",
+    "invitationRequiredBody": "Si la famille vous a invité, connectez-vous avec l'adresse à laquelle l'invitation a été envoyée.",
+    "unavailableTitle": "Ce mémorial n'est plus disponible",
+    "unavailableBody": "La famille a demandé son retrait.",
+    "datePrecisionLabel": "Quelle est la précision de cette date ?",
+    "cityLabel": "Ville",
+    "signInToCreate": "Connectez-vous pour créer un mémorial.",
+    "draftNoticeTitle": "Vous seul voyez ce mémorial pour l'instant",
+    "draftNoticeBody": "Ajoutez un récit de vie et choisissez comment les visiteurs pourront lui rendre hommage. Publiez quand vous serez prêt."
   },
   "privacy": {
     "title": "Qui peut voir ce mémorial",
@@ -102,7 +120,10 @@
     "moderationPre": "Relire les messages avant leur publication",
     "moderationPost": "Afficher les messages immédiatement",
     "needsConfirmation": "Cela varie selon les communautés. Confirmez que cela convient à votre famille.",
-    "notRecommended": "Cette possibilité n'est habituellement pas proposée dans cette tradition."
+    "notRecommended": "Cette possibilité n'est habituellement pas proposée dans cette tradition.",
+    "thanks": "Merci. Votre hommage a été déposé.",
+    "messageLabel": "Quelques mots, si vous le souhaitez",
+    "offerFallback": "Laisser un hommage"
   },
   "moderation": {
     "pendingTitle": "En attente de la famille",
@@ -142,5 +163,18 @@
     "loading": "Chargement en cours, veuillez patienter",
     "externalLink": "S'ouvre dans une nouvelle fenêtre",
     "requiredField": "Champ obligatoire"
+  },
+  "search": {
+    "title": "Trouver une personne dont on se souvient ici",
+    "queryLabel": "Nom",
+    "queryPlaceholder": "Le nom de la personne que vous cherchez",
+    "submit": "Rechercher",
+    "birthYearLabel": "Année de naissance",
+    "deathYearLabel": "Année du décès",
+    "countryLabel": "Pays",
+    "resultsHeading": "Résultats",
+    "noResults": "Aucun mémorial ne correspond à votre recherche.",
+    "startPrompt": "Saisissez un nom pour commencer.",
+    "more": "Afficher plus"
   }
 }

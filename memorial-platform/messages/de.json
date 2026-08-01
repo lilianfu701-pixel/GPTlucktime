@@ -69,7 +69,25 @@
     "datePrecisionUnknown": "Nicht bekannt",
     "placeLabel": "Ort",
     "publish": "Gedenkseite veröffentlichen",
-    "duplicateWarning": "Es gibt bereits eine ähnliche Gedenkseite. Sehen Sie sie sich an, bevor Sie eine neue erstellen."
+    "duplicateWarning": "Es gibt bereits eine ähnliche Gedenkseite. Sehen Sie sie sich an, bevor Sie eine neue erstellen.",
+    "bornLabel": "Geboren",
+    "diedLabel": "Gestorben",
+    "alsoKnownAs": "Auch bekannt als",
+    "lifeStory": "Lebensgeschichte",
+    "noLifeStoryYet": "Die Familie hat noch keine Lebensgeschichte verfasst.",
+    "storiesFromVisitors": "Erinnerungen anderer",
+    "waysToRemember": "Wege des Gedenkens",
+    "noRitualsOffered": "Die Familie hat noch keine Möglichkeit geöffnet, etwas zu hinterlassen.",
+    "privateNotice": "Nicht in der Suche gelistet. Sie sind über einen Link hier, den die Familie geteilt hat.",
+    "invitationRequiredTitle": "Diese Gedenkseite wird auf Einladung geteilt",
+    "invitationRequiredBody": "Wenn die Familie Sie eingeladen hat, melden Sie sich mit der Adresse an, an die die Einladung gesendet wurde.",
+    "unavailableTitle": "Diese Gedenkseite ist nicht mehr verfügbar",
+    "unavailableBody": "Die Familie hat um ihre Entfernung gebeten.",
+    "datePrecisionLabel": "Wie genau ist dieses Datum?",
+    "cityLabel": "Stadt",
+    "signInToCreate": "Bitte melden Sie sich an, um eine Gedenkseite zu erstellen.",
+    "draftNoticeTitle": "Diese Gedenkseite sehen bisher nur Sie",
+    "draftNoticeBody": "Fügen Sie eine Lebensgeschichte hinzu und wählen Sie, wie Besucher gedenken können. Veröffentlichen Sie sie, wenn Sie bereit sind."
   },
   "privacy": {
     "title": "Wer diese Gedenkseite sehen kann",
@@ -102,7 +120,10 @@
     "moderationPre": "Nachrichten vor der Anzeige prüfen",
     "moderationPost": "Nachrichten sofort anzeigen",
     "needsConfirmation": "Dies wird in verschiedenen Gemeinschaften unterschiedlich gehandhabt. Bitte bestätigen Sie, dass es zu Ihrer Familie passt.",
-    "notRecommended": "In dieser Tradition wird das üblicherweise nicht angeboten."
+    "notRecommended": "In dieser Tradition wird das üblicherweise nicht angeboten.",
+    "thanks": "Danke. Ihr Gedenken wurde hinterlegt.",
+    "messageLabel": "Ein paar Worte, wenn Sie möchten",
+    "offerFallback": "Etwas hinterlassen"
   },
   "moderation": {
     "pendingTitle": "Wartet auf die Familie",
@@ -142,5 +163,18 @@
     "loading": "Wird geladen, bitte warten",
     "externalLink": "Wird in einem neuen Fenster geöffnet",
     "requiredField": "Pflichtfeld"
+  },
+  "search": {
+    "title": "Jemanden finden, an den hier erinnert wird",
+    "queryLabel": "Name",
+    "queryPlaceholder": "Der Name der gesuchten Person",
+    "submit": "Suchen",
+    "birthYearLabel": "Geburtsjahr",
+    "deathYearLabel": "Sterbejahr",
+    "countryLabel": "Land",
+    "resultsHeading": "Ergebnisse",
+    "noResults": "Keine Gedenkseite stimmt mit Ihrer Eingabe überein.",
+    "startPrompt": "Geben Sie einen Namen ein, um zu beginnen.",
+    "more": "Mehr anzeigen"
   }
 }

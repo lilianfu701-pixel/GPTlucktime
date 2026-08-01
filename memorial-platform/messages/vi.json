@@ -69,7 +69,25 @@
     "datePrecisionUnknown": "Không rõ",
     "placeLabel": "Nơi chốn",
     "publish": "Đăng trang tưởng niệm",
-    "duplicateWarning": "Đã có một trang tưởng niệm tương tự. Bạn nên xem qua trước khi tạo trang mới."
+    "duplicateWarning": "Đã có một trang tưởng niệm tương tự. Bạn nên xem qua trước khi tạo trang mới.",
+    "bornLabel": "Sinh",
+    "diedLabel": "Mất",
+    "alsoKnownAs": "Còn được gọi là",
+    "lifeStory": "Cuộc đời",
+    "noLifeStoryYet": "Gia đình chưa viết lại cuộc đời của người đã khuất.",
+    "storiesFromVisitors": "Kỷ niệm từ những người khác",
+    "waysToRemember": "Cách tưởng nhớ",
+    "noRitualsOffered": "Gia đình chưa mở cách nào để để lại điều gì tại đây.",
+    "privateNotice": "Không hiển thị trong kết quả tìm kiếm. Bạn đến đây từ liên kết gia đình đã chia sẻ.",
+    "invitationRequiredTitle": "Trang này chỉ chia sẻ với người được mời",
+    "invitationRequiredBody": "Nếu gia đình đã mời bạn, hãy đăng nhập bằng địa chỉ đã nhận lời mời.",
+    "unavailableTitle": "Trang này không còn khả dụng",
+    "unavailableBody": "Gia đình đã yêu cầu gỡ bỏ.",
+    "datePrecisionLabel": "Ngày này chính xác đến mức nào?",
+    "cityLabel": "Thành phố",
+    "signInToCreate": "Vui lòng đăng nhập để tạo trang tưởng niệm.",
+    "draftNoticeTitle": "Hiện chỉ bạn nhìn thấy trang này",
+    "draftNoticeBody": "Hãy viết lại cuộc đời và chọn cách người đến thăm có thể tưởng nhớ. Đăng khi bạn đã sẵn sàng."
   },
   "privacy": {
     "title": "Ai có thể xem trang này",
@@ -102,7 +120,10 @@
     "moderationPre": "Xem lời nhắn trước khi hiển thị",
     "moderationPost": "Hiển thị lời nhắn ngay",
     "needsConfirmation": "Điều này khác nhau giữa các cộng đồng. Xin xác nhận có hợp với gia đình bạn không.",
-    "notRecommended": "Trong truyền thống này thường không làm như vậy."
+    "notRecommended": "Trong truyền thống này thường không làm như vậy.",
+    "thanks": "Cảm ơn bạn. Tấm lòng của bạn đã được ghi lại.",
+    "messageLabel": "Vài lời, nếu bạn muốn",
+    "offerFallback": "Để lại tấm lòng"
   },
   "moderation": {
     "pendingTitle": "Đang chờ gia đình xem",
@@ -142,5 +163,18 @@
     "loading": "Đang tải, vui lòng đợi",
     "externalLink": "Mở trong cửa sổ mới",
     "requiredField": "Trường bắt buộc"
+  },
+  "search": {
+    "title": "Tìm người được tưởng nhớ tại đây",
+    "queryLabel": "Tên",
+    "queryPlaceholder": "Tên của người bạn đang tìm",
+    "submit": "Tìm",
+    "birthYearLabel": "Năm sinh",
+    "deathYearLabel": "Năm mất",
+    "countryLabel": "Quốc gia",
+    "resultsHeading": "Kết quả",
+    "noResults": "Không tìm thấy trang tưởng niệm nào phù hợp.",
+    "startPrompt": "Nhập tên để bắt đầu.",
+    "more": "Xem thêm"
   }
 }

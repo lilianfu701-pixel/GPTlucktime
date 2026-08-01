@@ -10,6 +10,7 @@ import type { Result } from "@/lib/result";
 import { memorialRoleFor } from "@/modules/memorials/membership";
 import { canOnMemorial } from "@/modules/permissions/policy";
 import type { Actor } from "@/modules/permissions/types";
+import { publishedTranslation } from "./catalog";
 
 export type RitualSettingError =
   | "AUTH_REQUIRED"
@@ -194,6 +195,51 @@ export async function enabledRituals(
         eq(memorialRitualSettings.enabled, true),
       ),
     );
+}
+
+export type OfferableRitual = EnabledRitual & {
+  /** The family's wording, else the reviewed catalog name, else null. */
+  name: string | null;
+  description: string | null;
+  method: string | null;
+  /** False when this language has no reviewed rendering for the ritual. */
+  translated: boolean;
+};
+
+/**
+ * Enabled rituals with the words a visitor should actually see.
+ *
+ * Shared by the page and the API on purpose. They drifted apart once already:
+ * the API resolved the catalog translation and the page did not, so every
+ * observance rendered as the generic fallback label unless the family had
+ * typed their own name for it.
+ *
+ * A null `name` is left null rather than filled from English. A Japanese page
+ * that silently prints an English ritual name has misrepresented what the
+ * family offered; the caller can hide the control instead.
+ */
+export async function offerableRituals(
+  memorialId: string,
+  locale: string,
+): Promise<OfferableRitual[]> {
+  const enabled = await enabledRituals(memorialId);
+
+  return Promise.all(
+    enabled.map(async (ritual) => {
+      const translation = await publishedTranslation(
+        ritual.ritualVersionId,
+        locale,
+      );
+
+      return {
+        ...ritual,
+        name: ritual.displayNameOverride ?? translation?.name ?? null,
+        description: translation?.description ?? null,
+        method: translation?.method ?? null,
+        translated: translation !== null,
+      };
+    }),
+  );
 }
 
 /** The setting for one ritual version, whether enabled or not. */

@@ -69,7 +69,25 @@
     "datePrecisionUnknown": "Não se sabe",
     "placeLabel": "Local",
     "publish": "Publicar o memorial",
-    "duplicateWarning": "Já existe um memorial parecido. Vale a pena vê-lo antes de criar outro."
+    "duplicateWarning": "Já existe um memorial parecido. Vale a pena vê-lo antes de criar outro.",
+    "bornLabel": "Nasceu",
+    "diedLabel": "Faleceu",
+    "alsoKnownAs": "Também conhecido como",
+    "lifeStory": "A vida",
+    "noLifeStoryYet": "A família ainda não escreveu uma história de vida.",
+    "storiesFromVisitors": "Lembranças de outras pessoas",
+    "waysToRemember": "Formas de lembrar",
+    "noRitualsOffered": "A família ainda não abriu nenhuma forma de deixar uma lembrança.",
+    "privateNotice": "Não aparece nas buscas. Você chegou aqui por um link que a família compartilhou.",
+    "invitationRequiredTitle": "Este memorial é compartilhado por convite",
+    "invitationRequiredBody": "Se a família convidou você, entre com o endereço para o qual o convite foi enviado.",
+    "unavailableTitle": "Este memorial não está mais disponível",
+    "unavailableBody": "A família pediu que fosse removido.",
+    "datePrecisionLabel": "Qual a exatidão desta data?",
+    "cityLabel": "Cidade",
+    "signInToCreate": "Entre para criar um memorial.",
+    "draftNoticeTitle": "Por enquanto só você vê este memorial",
+    "draftNoticeBody": "Escreva uma história de vida e escolha como as pessoas poderão lembrar. Publique quando estiver pronto."
   },
   "privacy": {
     "title": "Quem pode ver este memorial",
@@ -102,7 +120,10 @@
     "moderationPre": "Revisar as mensagens antes de aparecerem",
     "moderationPost": "Mostrar as mensagens na hora",
     "needsConfirmation": "Isso varia entre comunidades. Confirme se combina com a sua família.",
-    "notRecommended": "Nesta tradição isso normalmente não é oferecido."
+    "notRecommended": "Nesta tradição isso normalmente não é oferecido.",
+    "thanks": "Obrigado. Sua lembrança foi registrada.",
+    "messageLabel": "Algumas palavras, se quiser",
+    "offerFallback": "Deixar uma lembrança"
   },
   "moderation": {
     "pendingTitle": "Aguardando a família",
@@ -142,5 +163,18 @@
     "loading": "Carregando, aguarde",
     "externalLink": "Abre em uma nova janela",
     "requiredField": "Campo obrigatório"
+  },
+  "search": {
+    "title": "Encontre alguém lembrado aqui",
+    "queryLabel": "Nome",
+    "queryPlaceholder": "O nome da pessoa que você procura",
+    "submit": "Buscar",
+    "birthYearLabel": "Ano de nascimento",
+    "deathYearLabel": "Ano de falecimento",
+    "countryLabel": "País",
+    "resultsHeading": "Resultados",
+    "noResults": "Nenhum memorial corresponde ao que você digitou.",
+    "startPrompt": "Digite um nome para começar.",
+    "more": "Ver mais"
   }
 }
