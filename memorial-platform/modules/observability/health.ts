@@ -44,13 +44,7 @@ export async function checkReadiness(): Promise<Readiness> {
       sql`select count(*)::text as count from drizzle.__drizzle_migrations`,
     );
     applied = Number(result.rows[0]?.count ?? 0);
-  } catch (error) {
-    const safeMessage =
-      error instanceof Error
-        ? error.message.replace(/\/\/[^@]+@/, "//***@").replace(/password=[^\s&]+/g, "password=***")
-        : "unknown";
-    const pgCode = error && typeof error === "object" && "code" in error ? (error as { code: string }).code : "n/a";
-    console.error("[health/ready] DB connection failed:", safeMessage, "pgCode:", pgCode);
+  } catch {
     return { status: "database_unavailable", migrations: null };
   }
 
