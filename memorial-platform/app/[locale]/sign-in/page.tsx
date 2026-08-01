@@ -1,10 +1,16 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
+import { redirect } from "next/navigation";
+import { Suspense } from "react";
 import { flags } from "@/lib/feature-flags";
+import { currentActor } from "@/modules/auth/current-user";
+import { SignInForm } from "./sign-in-form";
+
+export const dynamic = "force-dynamic";
 
 /**
  * Sign-in.
  *
- * The phone fields are decided on the server. Phase one keeps that path built
+ * The channels are decided on the server. Phase one keeps phone sign-in built
  * and tested but hidden, and hiding it with CSS or a client-side check would
  * leave the markup in the page for anyone who opened the source.
  */
@@ -14,62 +20,51 @@ export default async function SignInPage(props: {
   const { locale } = await props.params;
   setRequestLocale(locale);
 
+  // Someone already signed in has nothing to do here, and showing them a form
+  // that would replace their session is a way to lose one by accident.
+  const actor = await currentActor();
+  if (actor.userId) {
+    redirect(`/${locale}`);
+  }
+
   const t = await getTranslations("auth");
-  const a11y = await getTranslations("a11y");
   const { phoneAuthEnabled, oauthGoogleEnabled, oauthAppleEnabled } = flags();
 
   return (
-    <>
-      <a href="#main">{a11y("skipToContent")}</a>
-      <main id="main">
+    <main id="main" className="container section stack-lg">
+      <header className="stack measure">
         <h1>{t("signInTitle")}</h1>
-        <p>{t("signInSubtitle")}</p>
+        <p className="lede">{t("signInSubtitle")}</p>
+      </header>
 
-        <form method="post" action="/api/auth/email/request">
-          <label htmlFor="email">{t("emailLabel")}</label>
-          <input
-            id="email"
-            name="email"
-            type="email"
-            autoComplete="email"
-            required
-            placeholder={t("emailPlaceholder")}
-          />
-          <button type="submit">{t("sendCode")}</button>
-        </form>
+      {/* `useSearchParams` needs a boundary it can suspend at. */}
+      <Suspense>
+        <SignInForm locale={locale} phoneAuthEnabled={phoneAuthEnabled} />
+      </Suspense>
 
-        {phoneAuthEnabled ? (
-          <form method="post" action="/api/auth/phone/request">
-            <label htmlFor="region">{t("phoneRegionLabel")}</label>
-            <input id="region" name="region" type="text" required maxLength={2} />
-            <label htmlFor="phone">{t("phoneLabel")}</label>
-            <input
-              id="phone"
-              name="phone"
-              type="tel"
-              autoComplete="tel"
-              required
-            />
-            <button type="submit">{t("sendCode")}</button>
-          </form>
-        ) : null}
-
-        {oauthGoogleEnabled || oauthAppleEnabled ? (
-          <>
-            <p>{t("alternativeDivider")}</p>
+      {oauthGoogleEnabled || oauthAppleEnabled ? (
+        <div className="stack measure">
+          <p className="muted">{t("alternativeDivider")}</p>
+          <div className="ritualChoices">
             {oauthGoogleEnabled ? (
-              <a href={`/api/auth/oauth/google?locale=${locale}`}>
+              <a
+                className="button buttonQuiet"
+                href={`/api/auth/oauth/google?locale=${locale}`}
+              >
                 {t("continueWithGoogle")}
               </a>
             ) : null}
             {oauthAppleEnabled ? (
-              <a href={`/api/auth/oauth/apple?locale=${locale}`}>
+              <a
+                className="button buttonQuiet"
+                href={`/api/auth/oauth/apple?locale=${locale}`}
+              >
                 {t("continueWithApple")}
               </a>
             ) : null}
-          </>
-        ) : null}
-      </main>
-    </>
+          </div>
+        </div>
+      ) : null}
+    </main>
   );
 }

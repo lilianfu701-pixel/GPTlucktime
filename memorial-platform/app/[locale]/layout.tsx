@@ -8,6 +8,8 @@ import type { ReactNode } from "react";
 import { routing } from "@/i18n/routing";
 import { textDirection } from "@/lib/locale";
 import type { Locale } from "@/lib/locale";
+import { currentActor } from "@/modules/auth/current-user";
+import { SignOutButton } from "../sign-out-button";
 import "../globals.css";
 
 /*
@@ -59,6 +61,7 @@ export default async function LocaleLayout(props: {
   const common = await getTranslations("common");
   const nav = await getTranslations("nav");
   const a11y = await getTranslations("a11y");
+  const actor = await currentActor();
 
   return (
     <html
@@ -81,7 +84,11 @@ export default async function LocaleLayout(props: {
 
               <nav className="siteNav" aria-label={a11y("mainNavigation")}>
                 <Link href={`/${locale}/search`}>{nav("search")}</Link>
-                <Link href={`/${locale}/sign-in`}>{nav("signIn")}</Link>
+                {actor.userId ? (
+                  <SignOutButton locale={locale} />
+                ) : (
+                  <Link href={`/${locale}/sign-in`}>{nav("signIn")}</Link>
+                )}
               </nav>
             </header>
 

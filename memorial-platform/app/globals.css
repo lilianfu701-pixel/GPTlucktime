@@ -308,6 +308,23 @@ img {
   border-color: var(--olive);
 }
 
+/* Reads as the links beside it, but is a button because it acts on the server. */
+.linkButton {
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  text-decoration: underline;
+  text-decoration-color: var(--line-strong);
+  text-underline-offset: 0.22em;
+}
+
+.linkButton:hover {
+  text-decoration-color: currentColor;
+}
+
 .field {
   display: block;
 }

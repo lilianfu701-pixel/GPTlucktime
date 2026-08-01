@@ -28,7 +28,14 @@ export default async function NewMemorialPage(props: {
         <h1>{t("createTitle")}</h1>
         <p className="lede">{t("signInToCreate")}</p>
         <div>
-          <Link className="button buttonPrimary" href={`/${locale}/sign-in`}>
+          {/*
+           * Carries them back here afterwards. Someone who came to record a
+           * death should not have to find their way a second time.
+           */}
+          <Link
+            className="button buttonPrimary"
+            href={`/${locale}/sign-in?next=${encodeURIComponent(`/${locale}/memorials/new`)}`}
+          >
             {nav("signIn")}
           </Link>
         </div>
