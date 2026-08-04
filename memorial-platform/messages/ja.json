@@ -92,7 +92,17 @@
     "placeKindBirth": "出生地",
     "placeKindDeath": "逝去された場所",
     "placeKindLived": "お住まいだった場所",
-    "placeKindResting": "ご安置の地"
+    "placeKindResting": "ご安置の地",
+    "manageTitle": "このページを管理する",
+    "manageLink": "管理",
+    "lifeStoryTitleLabel": "見出し（任意）",
+    "lifeStoryBodyLabel": "故人の歩み",
+    "lifeStorySaved": "下書きを保存しました。まだどなたにも表示されません。",
+    "lifeStoryPublished": "歩みをページに掲載しました。",
+    "saveDraft": "下書きを保存",
+    "publishStory": "歩みを公開する",
+    "ritualsHeading": "訪れる方が残せるもの",
+    "ritualsNone": "この言語でご用意できているものはまだありません。"
   },
   "privacy": {
     "title": "このページを見られる範囲",

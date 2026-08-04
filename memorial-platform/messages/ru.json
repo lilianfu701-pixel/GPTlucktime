@@ -92,7 +92,17 @@
     "placeKindBirth": "Место рождения",
     "placeKindDeath": "Место ухода",
     "placeKindLived": "Где жил или жила",
-    "placeKindResting": "Место упокоения"
+    "placeKindResting": "Место упокоения",
+    "manageTitle": "Управление страницей",
+    "manageLink": "Управление",
+    "lifeStoryTitleLabel": "Заголовок, если хотите",
+    "lifeStoryBodyLabel": "Его или её жизнь",
+    "lifeStorySaved": "Черновик сохранён. Его пока никто не видит.",
+    "lifeStoryPublished": "История жизни теперь на странице.",
+    "saveDraft": "Сохранить черновик",
+    "publishStory": "Опубликовать историю жизни",
+    "ritualsHeading": "Что могут оставить посетители",
+    "ritualsNone": "На этом языке пока ничего не доступно."
   },
   "privacy": {
     "title": "Кто может видеть эту страницу",

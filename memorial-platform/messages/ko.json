@@ -92,7 +92,17 @@
     "placeKindBirth": "출생지",
     "placeKindDeath": "별세하신 곳",
     "placeKindLived": "사시던 곳",
-    "placeKindResting": "안식처"
+    "placeKindResting": "안식처",
+    "manageTitle": "이 추모 공간 관리",
+    "manageLink": "관리",
+    "lifeStoryTitleLabel": "제목 (선택)",
+    "lifeStoryBodyLabel": "고인의 생애",
+    "lifeStorySaved": "임시 저장했습니다. 아직 아무에게도 보이지 않습니다.",
+    "lifeStoryPublished": "생애가 페이지에 올라갔습니다.",
+    "saveDraft": "임시 저장",
+    "publishStory": "생애 공개하기",
+    "ritualsHeading": "찾아오는 분들이 남길 수 있는 것",
+    "ritualsNone": "아직 이 언어로 준비된 것이 없습니다."
   },
   "privacy": {
     "title": "이 페이지를 볼 수 있는 범위",

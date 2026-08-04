@@ -92,7 +92,17 @@
     "placeKindBirth": "Lieu de naissance",
     "placeKindDeath": "Lieu du décès",
     "placeKindLived": "Où il ou elle a vécu",
-    "placeKindResting": "Lieu de repos"
+    "placeKindResting": "Lieu de repos",
+    "manageTitle": "Gérer ce mémorial",
+    "manageLink": "Gérer",
+    "lifeStoryTitleLabel": "Un titre, si vous le souhaitez",
+    "lifeStoryBodyLabel": "Sa vie",
+    "lifeStorySaved": "Brouillon enregistré. Personne ne le voit encore.",
+    "lifeStoryPublished": "Le récit de vie est maintenant sur la page.",
+    "saveDraft": "Enregistrer le brouillon",
+    "publishStory": "Publier le récit de vie",
+    "ritualsHeading": "Ce que les visiteurs peuvent déposer",
+    "ritualsNone": "Aucune pratique n'est encore disponible dans cette langue."
   },
   "privacy": {
     "title": "Qui peut voir ce mémorial",

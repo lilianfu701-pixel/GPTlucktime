@@ -92,7 +92,17 @@
     "placeKindBirth": "出生地",
     "placeKindDeath": "離世地",
     "placeKindLived": "生活過的地方",
-    "placeKindResting": "安息之地"
+    "placeKindResting": "安息之地",
+    "manageTitle": "管理這個追思主頁",
+    "manageLink": "管理",
+    "lifeStoryTitleLabel": "標題（可不填）",
+    "lifeStoryBodyLabel": "他/她的一生",
+    "lifeStorySaved": "草稿已儲存，暫時還沒有人看得到。",
+    "lifeStoryPublished": "生平已顯示在頁面上。",
+    "saveDraft": "儲存草稿",
+    "publishStory": "發布生平",
+    "ritualsHeading": "親友可以留下什麼",
+    "ritualsNone": "目前還沒有這種語言的儀式說明。"
   },
   "privacy": {
     "title": "誰可以看到這個追思頁",

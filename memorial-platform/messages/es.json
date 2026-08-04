@@ -92,7 +92,17 @@
     "placeKindBirth": "Lugar de nacimiento",
     "placeKindDeath": "Lugar de fallecimiento",
     "placeKindLived": "Donde vivió",
-    "placeKindResting": "Lugar de descanso"
+    "placeKindResting": "Lugar de descanso",
+    "manageTitle": "Gestionar este memorial",
+    "manageLink": "Gestionar",
+    "lifeStoryTitleLabel": "Un título, si lo desea",
+    "lifeStoryBodyLabel": "Su vida",
+    "lifeStorySaved": "Borrador guardado. Todavía no lo ve nadie.",
+    "lifeStoryPublished": "La historia de vida ya está en la página.",
+    "saveDraft": "Guardar borrador",
+    "publishStory": "Publicar la historia de vida",
+    "ritualsHeading": "Lo que pueden dejar quienes visiten",
+    "ritualsNone": "Aún no hay observancias disponibles en este idioma."
   },
   "privacy": {
     "title": "Quién puede ver este memorial",

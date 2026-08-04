@@ -363,6 +363,43 @@ export async function pendingVisitorStories(
 }
 
 /** Counts the versions an item has, for tests and for the family's history view. */
+/**
+ * The most recent version written, published or not.
+ *
+ * What an editor should be shown when they come back: their own unfinished
+ * sentence, not the older paragraph visitors are currently reading. Returns
+ * null when nothing has been written at all.
+ */
+export async function latestBiographyDraft(memorialId: string): Promise<{
+  version: number;
+  title: string | null;
+  body: string;
+  sourceLocale: string;
+} | null> {
+  const [row] = await db()
+    .select({
+      version: contentVersions.version,
+      title: contentVersions.title,
+      body: contentVersions.body,
+      sourceLocale: contentVersions.sourceLocale,
+    })
+    .from(biographies)
+    .innerJoin(
+      contentVersions,
+      and(
+        eq(contentVersions.contentType, "biography"),
+        eq(contentVersions.contentId, biographies.id),
+      ),
+    )
+    .where(
+      and(eq(biographies.memorialId, memorialId), isNull(biographies.deletedAt)),
+    )
+    .orderBy(sql`${contentVersions.version} desc`)
+    .limit(1);
+
+  return row ?? null;
+}
+
 export async function versionHistory(
   contentTypeValue: "biography" | "timeline_event" | "tribute",
   contentId: string,

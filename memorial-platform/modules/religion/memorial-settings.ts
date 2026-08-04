@@ -3,6 +3,7 @@ import { db } from "@/db/client";
 import {
   auditLogs,
   memorialRitualSettings,
+  ritualDefinitions,
   ritualVersions,
 } from "@/db/schema";
 import { err, ok } from "@/lib/result";
@@ -195,6 +196,99 @@ export async function enabledRituals(
         eq(memorialRitualSettings.enabled, true),
       ),
     );
+}
+
+export type RitualChoice = {
+  ritualVersionId: string;
+  ritualDefinitionId: string;
+  actionType: string;
+  /** The reviewed name in the family's language, or null if none exists yet. */
+  name: string | null;
+  description: string | null;
+  method: string | null;
+  /** Their own wording, when they have set one. */
+  displayNameOverride: string | null;
+  enabled: boolean;
+  allowAnonymous: boolean;
+  allowMessage: boolean;
+  moderationMode: "pre_review" | "post_review";
+};
+
+/**
+ * What a family may choose to offer, and what they have already chosen.
+ *
+ * Lists every published revision rather than the ones a reviewed rule
+ * recommends for their tradition. The recommendation engine needs a family to
+ * have declared a religion first, and a household that has not — or that keeps
+ * a practice their tradition would not suggest — still has the right to decide.
+ * `setRitualSetting` holds the rules that actually matter: only a published
+ * revision, and never switched on without an explicit confirmation.
+ *
+ * A revision with no reviewed wording in this language is returned with a null
+ * name so the caller can leave it out rather than offering a family a choice
+ * described in a language they are not reading.
+ */
+export async function ritualChoices(
+  memorialId: string,
+  locale: string,
+): Promise<RitualChoice[]> {
+  const versions = await db()
+    .select({
+      ritualVersionId: ritualVersions.id,
+      ritualDefinitionId: ritualVersions.definitionId,
+      actionType: ritualDefinitions.actionType,
+      allowAnonymous: ritualVersions.allowAnonymous,
+      allowMessage: ritualVersions.allowMessage,
+      suggestPreReview: ritualVersions.suggestPreReview,
+    })
+    .from(ritualVersions)
+    .innerJoin(
+      ritualDefinitions,
+      eq(ritualDefinitions.id, ritualVersions.definitionId),
+    )
+    .where(eq(ritualVersions.status, "published"));
+
+  const settings = await db()
+    .select({
+      ritualVersionId: memorialRitualSettings.ritualVersionId,
+      enabled: memorialRitualSettings.enabled,
+      displayNameOverride: memorialRitualSettings.displayNameOverride,
+      allowAnonymous: memorialRitualSettings.allowAnonymous,
+      allowMessage: memorialRitualSettings.allowMessage,
+      moderationMode: memorialRitualSettings.moderationMode,
+    })
+    .from(memorialRitualSettings)
+    .where(eq(memorialRitualSettings.memorialId, memorialId));
+
+  const chosen = new Map(settings.map((row) => [row.ritualVersionId, row]));
+
+  return Promise.all(
+    versions.map(async (version) => {
+      const translation = await publishedTranslation(
+        version.ritualVersionId,
+        locale,
+      );
+      const setting = chosen.get(version.ritualVersionId);
+
+      return {
+        ritualVersionId: version.ritualVersionId,
+        ritualDefinitionId: version.ritualDefinitionId,
+        actionType: version.actionType,
+        name: translation?.name ?? null,
+        description: translation?.description ?? null,
+        method: translation?.method ?? null,
+        displayNameOverride: setting?.displayNameOverride ?? null,
+        enabled: setting?.enabled ?? false,
+        // An untouched ritual shows the revision's own defaults, so the family
+        // sees what they would be agreeing to before they agree to it.
+        allowAnonymous: setting?.allowAnonymous ?? version.allowAnonymous,
+        allowMessage: setting?.allowMessage ?? version.allowMessage,
+        moderationMode:
+          setting?.moderationMode ??
+          (version.suggestPreReview ? "pre_review" : "post_review"),
+      };
+    }),
+  );
 }
 
 export type OfferableRitual = EnabledRitual & {

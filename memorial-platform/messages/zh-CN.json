@@ -92,7 +92,17 @@
     "placeKindBirth": "出生地",
     "placeKindDeath": "离世地",
     "placeKindLived": "生活过的地方",
-    "placeKindResting": "安息之地"
+    "placeKindResting": "安息之地",
+    "manageTitle": "管理这个追思主页",
+    "manageLink": "管理",
+    "lifeStoryTitleLabel": "标题（可不填）",
+    "lifeStoryBodyLabel": "他/她的一生",
+    "lifeStorySaved": "草稿已保存，暂时还没有人看得到。",
+    "lifeStoryPublished": "生平已显示在页面上。",
+    "saveDraft": "保存草稿",
+    "publishStory": "发布生平",
+    "ritualsHeading": "亲友可以留下什么",
+    "ritualsNone": "目前还没有这种语言的仪式说明。"
   },
   "privacy": {
     "title": "谁可以看到这个主页",

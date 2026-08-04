@@ -92,7 +92,17 @@
     "placeKindBirth": "Place of birth",
     "placeKindDeath": "Place of death",
     "placeKindLived": "Where they lived",
-    "placeKindResting": "Resting place"
+    "placeKindResting": "Resting place",
+    "manageTitle": "Manage this memorial",
+    "manageLink": "Manage",
+    "lifeStoryTitleLabel": "A title, if you would like one",
+    "lifeStoryBodyLabel": "Their life",
+    "lifeStorySaved": "Draft saved. It is not visible to anyone yet.",
+    "lifeStoryPublished": "The life story is now on the page.",
+    "saveDraft": "Save draft",
+    "publishStory": "Publish the life story",
+    "ritualsHeading": "What visitors may offer",
+    "ritualsNone": "No observances are available in this language yet."
   },
   "privacy": {
     "title": "Who can see this memorial",

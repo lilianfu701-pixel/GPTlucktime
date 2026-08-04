@@ -92,7 +92,17 @@
     "placeKindBirth": "مكان الميلاد",
     "placeKindDeath": "مكان الوفاة",
     "placeKindLived": "مكان الإقامة",
-    "placeKindResting": "مثوى الراحة"
+    "placeKindResting": "مثوى الراحة",
+    "manageTitle": "إدارة هذه الصفحة",
+    "manageLink": "إدارة",
+    "lifeStoryTitleLabel": "عنوان، إن أردت",
+    "lifeStoryBodyLabel": "حياته أو حياتها",
+    "lifeStorySaved": "حُفظت المسودة. لا يراها أحد بعد.",
+    "lifeStoryPublished": "أصبحت سيرة الحياة على الصفحة الآن.",
+    "saveDraft": "حفظ المسودة",
+    "publishStory": "نشر سيرة الحياة",
+    "ritualsHeading": "ما يمكن للزائرين تركه",
+    "ritualsNone": "لا تتوفر ممارسات بهذه اللغة بعد."
   },
   "privacy": {
     "title": "من يمكنه رؤية هذه الصفحة",

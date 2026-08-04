@@ -92,7 +92,17 @@
     "placeKindBirth": "Geburtsort",
     "placeKindDeath": "Sterbeort",
     "placeKindLived": "Wohnort",
-    "placeKindResting": "Ruhestätte"
+    "placeKindResting": "Ruhestätte",
+    "manageTitle": "Diese Gedenkseite verwalten",
+    "manageLink": "Verwalten",
+    "lifeStoryTitleLabel": "Ein Titel, wenn Sie möchten",
+    "lifeStoryBodyLabel": "Ihr Leben",
+    "lifeStorySaved": "Entwurf gespeichert. Noch sieht ihn niemand.",
+    "lifeStoryPublished": "Die Lebensgeschichte steht jetzt auf der Seite.",
+    "saveDraft": "Entwurf speichern",
+    "publishStory": "Lebensgeschichte veröffentlichen",
+    "ritualsHeading": "Was Besucher hinterlassen dürfen",
+    "ritualsNone": "In dieser Sprache ist noch nichts verfügbar."
   },
   "privacy": {
     "title": "Wer diese Gedenkseite sehen kann",

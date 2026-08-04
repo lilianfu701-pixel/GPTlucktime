@@ -1,4 +1,5 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
+import Link from "next/link";
 import { notFound, redirect } from "next/navigation";
 import { cache } from "react";
 import type { Metadata } from "next";
@@ -131,6 +132,23 @@ export default async function MemorialPage(props: {
     <main id="main">
       <article className="container section stack-lg">
         <header className="stack">
+          {/*
+           * Offered only to someone who can act on it. A visitor seeing a
+           * "manage" link they cannot use would be told the family's roles
+           * exist, and would waste a click finding out they are not one.
+           */}
+          {detail.viewerRole !== "public_visitor" &&
+          detail.viewerRole !== "invited_visitor" ? (
+            <p>
+              <Link
+                className="button buttonQuiet"
+                href={`/${locale}/memorials/${detail.slug}/manage`}
+              >
+                {t("manageLink")}
+              </Link>
+            </p>
+          ) : null}
+
           {/*
            * A draft is only ever reachable by the family, so this panel does
            * not need its own permission check — but publishing does, and the

@@ -92,7 +92,17 @@
     "placeKindBirth": "Nơi sinh",
     "placeKindDeath": "Nơi mất",
     "placeKindLived": "Nơi từng sống",
-    "placeKindResting": "Nơi an nghỉ"
+    "placeKindResting": "Nơi an nghỉ",
+    "manageTitle": "Quản lý trang này",
+    "manageLink": "Quản lý",
+    "lifeStoryTitleLabel": "Tiêu đề, nếu bạn muốn",
+    "lifeStoryBodyLabel": "Cuộc đời của người ấy",
+    "lifeStorySaved": "Đã lưu bản nháp. Chưa ai nhìn thấy.",
+    "lifeStoryPublished": "Cuộc đời đã hiển thị trên trang.",
+    "saveDraft": "Lưu bản nháp",
+    "publishStory": "Đăng cuộc đời",
+    "ritualsHeading": "Điều người đến thăm có thể để lại",
+    "ritualsNone": "Chưa có nội dung nào bằng ngôn ngữ này."
   },
   "privacy": {
     "title": "Ai có thể xem trang này",

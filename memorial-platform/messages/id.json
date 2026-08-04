@@ -92,7 +92,17 @@
     "placeKindBirth": "Tempat lahir",
     "placeKindDeath": "Tempat wafat",
     "placeKindLived": "Tempat tinggal",
-    "placeKindResting": "Tempat peristirahatan"
+    "placeKindResting": "Tempat peristirahatan",
+    "manageTitle": "Kelola halaman ini",
+    "manageLink": "Kelola",
+    "lifeStoryTitleLabel": "Judul, bila Anda mau",
+    "lifeStoryBodyLabel": "Kehidupannya",
+    "lifeStorySaved": "Draf tersimpan. Belum ada yang melihatnya.",
+    "lifeStoryPublished": "Kisah hidup kini tampil di halaman.",
+    "saveDraft": "Simpan draf",
+    "publishStory": "Terbitkan kisah hidup",
+    "ritualsHeading": "Yang boleh ditinggalkan pengunjung",
+    "ritualsNone": "Belum ada yang tersedia dalam bahasa ini."
   },
   "privacy": {
     "title": "Siapa yang dapat melihat halaman ini",
