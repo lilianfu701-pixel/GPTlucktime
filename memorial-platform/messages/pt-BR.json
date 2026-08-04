@@ -87,7 +87,12 @@
     "cityLabel": "Cidade",
     "signInToCreate": "Entre para criar um memorial.",
     "draftNoticeTitle": "Por enquanto só você vê este memorial",
-    "draftNoticeBody": "Escreva uma história de vida e escolha como as pessoas poderão lembrar. Publique quando estiver pronto."
+    "draftNoticeBody": "Escreva uma história de vida e escolha como as pessoas poderão lembrar. Publique quando estiver pronto.",
+    "approximateYear": "c. {year}",
+    "placeKindBirth": "Local de nascimento",
+    "placeKindDeath": "Local do falecimento",
+    "placeKindLived": "Onde viveu",
+    "placeKindResting": "Local de descanso"
   },
   "privacy": {
     "title": "Quem pode ver este memorial",
@@ -175,6 +180,8 @@
     "resultsHeading": "Resultados",
     "noResults": "Nenhum memorial corresponde ao que você digitou.",
     "startPrompt": "Digite um nome para começar.",
-    "more": "Ver mais"
+    "more": "Ver mais",
+    "queryTooShort": "Digite ao menos duas letras de um nome.",
+    "showMore": "Ver mais resultados"
   }
 }

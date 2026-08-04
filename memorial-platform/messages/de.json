@@ -87,7 +87,12 @@
     "cityLabel": "Stadt",
     "signInToCreate": "Bitte melden Sie sich an, um eine Gedenkseite zu erstellen.",
     "draftNoticeTitle": "Diese Gedenkseite sehen bisher nur Sie",
-    "draftNoticeBody": "Fügen Sie eine Lebensgeschichte hinzu und wählen Sie, wie Besucher gedenken können. Veröffentlichen Sie sie, wenn Sie bereit sind."
+    "draftNoticeBody": "Fügen Sie eine Lebensgeschichte hinzu und wählen Sie, wie Besucher gedenken können. Veröffentlichen Sie sie, wenn Sie bereit sind.",
+    "approximateYear": "um {year}",
+    "placeKindBirth": "Geburtsort",
+    "placeKindDeath": "Sterbeort",
+    "placeKindLived": "Wohnort",
+    "placeKindResting": "Ruhestätte"
   },
   "privacy": {
     "title": "Wer diese Gedenkseite sehen kann",
@@ -175,6 +180,8 @@
     "resultsHeading": "Ergebnisse",
     "noResults": "Keine Gedenkseite stimmt mit Ihrer Eingabe überein.",
     "startPrompt": "Geben Sie einen Namen ein, um zu beginnen.",
-    "more": "Mehr anzeigen"
+    "more": "Mehr anzeigen",
+    "queryTooShort": "Geben Sie mindestens zwei Buchstaben eines Namens ein.",
+    "showMore": "Weitere Ergebnisse anzeigen"
   }
 }

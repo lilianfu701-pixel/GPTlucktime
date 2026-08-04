@@ -87,7 +87,12 @@
     "cityLabel": "Thành phố",
     "signInToCreate": "Vui lòng đăng nhập để tạo trang tưởng niệm.",
     "draftNoticeTitle": "Hiện chỉ bạn nhìn thấy trang này",
-    "draftNoticeBody": "Hãy viết lại cuộc đời và chọn cách người đến thăm có thể tưởng nhớ. Đăng khi bạn đã sẵn sàng."
+    "draftNoticeBody": "Hãy viết lại cuộc đời và chọn cách người đến thăm có thể tưởng nhớ. Đăng khi bạn đã sẵn sàng.",
+    "approximateYear": "khoảng {year}",
+    "placeKindBirth": "Nơi sinh",
+    "placeKindDeath": "Nơi mất",
+    "placeKindLived": "Nơi từng sống",
+    "placeKindResting": "Nơi an nghỉ"
   },
   "privacy": {
     "title": "Ai có thể xem trang này",
@@ -175,6 +180,8 @@
     "resultsHeading": "Kết quả",
     "noResults": "Không tìm thấy trang tưởng niệm nào phù hợp.",
     "startPrompt": "Nhập tên để bắt đầu.",
-    "more": "Xem thêm"
+    "more": "Xem thêm",
+    "queryTooShort": "Vui lòng nhập ít nhất hai ký tự của tên.",
+    "showMore": "Xem thêm kết quả"
   }
 }

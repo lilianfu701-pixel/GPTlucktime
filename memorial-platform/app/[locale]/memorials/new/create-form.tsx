@@ -5,6 +5,14 @@ import { useRouter } from "next/navigation";
 import { useRef, useState } from "react";
 
 type Relationship = "spouse" | "parent" | "child" | "sibling";
+type PlaceKind = "birth" | "death" | "lived" | "resting_place";
+
+const PLACE_KINDS: { value: PlaceKind; key: string }[] = [
+  { value: "birth", key: "placeKindBirth" },
+  { value: "death", key: "placeKindDeath" },
+  { value: "lived", key: "placeKindLived" },
+  { value: "resting_place", key: "placeKindResting" },
+];
 type Precision = "unknown" | "year" | "approximate" | "month" | "day";
 type Visibility = "public" | "unlisted" | "invite_only";
 
@@ -61,6 +69,13 @@ export function CreateMemorialForm(props: { locale: string }) {
   const [death, setDeath] = useState<PartialDateInput>(EMPTY_DATE);
   const [country, setCountry] = useState("");
   const [city, setCity] = useState("");
+  /*
+   * Asked, not assumed. This defaulted to "death" while the field was labelled
+   * only "Place", so a family entering where someone was born had it recorded
+   * as where they died — wrong in the record, and wrong in a way nothing on
+   * the page would ever have shown them.
+   */
+  const [placeKind, setPlaceKind] = useState<PlaceKind>("birth");
   const [visibility, setVisibility] = useState<Visibility>("public");
   const [indexable, setIndexable] = useState(true);
   const [publicAcknowledged, setPublicAcknowledged] = useState(false);
@@ -105,7 +120,7 @@ export function CreateMemorialForm(props: { locale: string }) {
       country.trim() || city.trim()
         ? [
             {
-              kind: "death" as const,
+              kind: placeKind,
               ...(country.trim()
                 ? { country: country.trim().toUpperCase().slice(0, 2) }
                 : {}),
@@ -242,6 +257,22 @@ export function CreateMemorialForm(props: { locale: string }) {
       <fieldset className="fieldset stack">
         <legend className="eyebrow">{t("placeLabel")}</legend>
         <div className="searchForm">
+          <label className="field">
+            <span className="fieldLabel">{t("placeLabel")}</span>
+            <select
+              className="input"
+              value={placeKind}
+              onChange={(event) =>
+                setPlaceKind(event.target.value as PlaceKind)
+              }
+            >
+              {PLACE_KINDS.map((kind) => (
+                <option value={kind.value} key={kind.value}>
+                  {t(kind.key)}
+                </option>
+              ))}
+            </select>
+          </label>
           <label className="field">
             <span className="fieldLabel">{search("countryLabel")}</span>
             <input

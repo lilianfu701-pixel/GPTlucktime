@@ -87,7 +87,12 @@
     "cityLabel": "市区町村",
     "signInToCreate": "追悼ページを作成するにはサインインしてください。",
     "draftNoticeTitle": "このページは今はご本人だけがご覧になれます",
-    "draftNoticeBody": "歩みを書き加え、訪れる方が何を残せるかをお選びください。ご準備ができましたら公開してください。"
+    "draftNoticeBody": "歩みを書き加え、訪れる方が何を残せるかをお選びください。ご準備ができましたら公開してください。",
+    "approximateYear": "{year}年頃",
+    "placeKindBirth": "出生地",
+    "placeKindDeath": "逝去された場所",
+    "placeKindLived": "お住まいだった場所",
+    "placeKindResting": "ご安置の地"
   },
   "privacy": {
     "title": "このページを見られる範囲",
@@ -175,6 +180,8 @@
     "resultsHeading": "検索結果",
     "noResults": "ご入力に一致する追悼ページは見つかりませんでした。",
     "startPrompt": "お名前を入力してください。",
-    "more": "さらに表示"
+    "more": "さらに表示",
+    "queryTooShort": "お名前を 2 文字以上ご入力ください。",
+    "showMore": "さらに結果を表示"
   }
 }

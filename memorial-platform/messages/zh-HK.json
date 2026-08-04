@@ -87,7 +87,12 @@
     "cityLabel": "城市",
     "signInToCreate": "請先登入再建立追思主頁。",
     "draftNoticeTitle": "目前只有您能看到這個頁面",
-    "draftNoticeBody": "可以先補上生平，並選擇親友可以留下哪些心意。準備好了再發布。"
+    "draftNoticeBody": "可以先補上生平，並選擇親友可以留下哪些心意。準備好了再發布。",
+    "approximateYear": "約{year}",
+    "placeKindBirth": "出生地",
+    "placeKindDeath": "離世地",
+    "placeKindLived": "生活過的地方",
+    "placeKindResting": "安息之地"
   },
   "privacy": {
     "title": "誰可以看到這個思念頁",
@@ -175,6 +180,8 @@
     "resultsHeading": "搜尋結果",
     "noResults": "找不到符合的追思主頁。",
     "startPrompt": "請輸入姓名開始尋找。",
-    "more": "顯示更多"
+    "more": "顯示更多",
+    "queryTooShort": "請至少輸入姓名中的兩個字。",
+    "showMore": "顯示更多結果"
   }
 }

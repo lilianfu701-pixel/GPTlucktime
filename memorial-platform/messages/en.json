@@ -87,7 +87,12 @@
     "cityLabel": "City",
     "signInToCreate": "Please sign in to create a memorial.",
     "draftNoticeTitle": "Only you can see this memorial",
-    "draftNoticeBody": "Add a life story and choose how visitors may remember them. Publish it when you are ready for others to visit."
+    "draftNoticeBody": "Add a life story and choose how visitors may remember them. Publish it when you are ready for others to visit.",
+    "approximateYear": "c. {year}",
+    "placeKindBirth": "Place of birth",
+    "placeKindDeath": "Place of death",
+    "placeKindLived": "Where they lived",
+    "placeKindResting": "Resting place"
   },
   "privacy": {
     "title": "Who can see this memorial",
@@ -175,6 +180,8 @@
     "resultsHeading": "Results",
     "noResults": "No memorials matched what you entered.",
     "startPrompt": "Enter a name to begin.",
-    "more": "Show more"
+    "more": "Show more",
+    "queryTooShort": "Enter at least two characters of a name.",
+    "showMore": "Show more results"
   }
 }

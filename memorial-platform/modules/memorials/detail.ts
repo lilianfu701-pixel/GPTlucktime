@@ -111,16 +111,25 @@ export async function loadMemorialDetail(
     .where(eq(memorialNames.memorialId, memorialId))
     .orderBy(asc(memorialNames.createdAt));
 
-  const primary = names.find((name) => name.type === "primary");
+  /*
+   * The row used as the heading, by index rather than by value.
+   *
+   * Falling back to the first row matters: a memorial with no row typed
+   * `primary` — a merge, or an import — would otherwise show its first name as
+   * the heading *and* again under "also known as", because a value comparison
+   * cannot exclude a row it never identified.
+   */
+  const primaryIndex = names.findIndex((name) => name.type === "primary");
+  const headingIndex = primaryIndex === -1 ? 0 : primaryIndex;
 
   /*
-   * A former name is the case this guards. Someone who transitioned, or left a
-   * marriage, may have a previous name recorded for the family's own records
-   * with `searchable` false. Printing it on a public page would publish
+   * A former name is the case `searchable` guards. Someone who transitioned, or
+   * left a marriage, may have a previous name recorded for the family's own
+   * records with the flag off. Printing it on a public page would publish
    * precisely what that flag was set to withhold.
    */
   const alternateNames = names
-    .filter((name) => name !== primary && name.searchable)
+    .filter((name, index) => index !== headingIndex && name.searchable)
     .map(({ searchable: _searchable, ...name }) => name);
 
   return {
@@ -133,7 +142,7 @@ export async function loadMemorialDetail(
       // so the ones that reach here are the ones worth naming.
       status: row.status as "draft" | "published" | "restricted",
       searchEngineIndexable: row.searchEngineIndexable,
-      primaryName: primary?.value ?? names[0]?.value ?? "",
+      primaryName: names[headingIndex]?.value ?? "",
       alternateNames,
       birthDate: row.birthDate,
       birthDatePrecision: row.birthDatePrecision,
@@ -175,35 +184,42 @@ async function mergeTargetSlug(memorialId: string): Promise<string | null> {
   return target?.slug ?? null;
 }
 
+/** A year, and whether the family could only estimate it. */
+export type LifeYear = { year: string; approximate: boolean };
+
 /**
  * The years shown under a name.
  *
- * Formatted here rather than through `Intl`. Two reasons: a partial date has
- * no representation in `Intl.DateTimeFormat` at all, and this runs on a
- * serverless runtime whose ICU data has been small enough before to quietly
- * return English for every locale. A life span is the one string on the page
- * that must not silently come out wrong.
+ * Derived here rather than through `Intl.DateTimeFormat`, which has no
+ * representation for a partial date at all — a birth known only to the year
+ * cannot be expressed as a date, and rendering it as one would invent a day
+ * the family never gave us.
+ *
+ * The `approximate` flag is returned rather than rendered. How an estimate is
+ * marked belongs to each language: "c." is Latin, and a Japanese or Arabic
+ * page printing it would be showing shorthand nobody reading it uses.
  */
 export function lifeSpan(detail: {
   birthDate: string | null;
   birthDatePrecision: DatePrecision;
   deathDate: string | null;
   deathDatePrecision: DatePrecision;
-}): { birth: string | null; death: string | null } {
+}): { birth: LifeYear | null; death: LifeYear | null } {
   return {
     birth: yearOf(detail.birthDate, detail.birthDatePrecision),
     death: yearOf(detail.deathDate, detail.deathDatePrecision),
   };
 }
 
-function yearOf(value: string | null, precision: DatePrecision): string | null {
+function yearOf(
+  value: string | null,
+  precision: DatePrecision,
+): LifeYear | null {
   if (!value || precision === "unknown") {
     return null;
   }
 
-  const year = value.slice(0, 4);
-  // An approximate date is marked as one. Presenting a family's best guess as
-  // a fact is a small dishonesty that ends up carved into how they are
-  // remembered.
-  return precision === "approximate" ? `c. ${year}` : year;
+  // Presenting a family's best guess as a fact is a small dishonesty that ends
+  // up carved into how someone is remembered.
+  return { year: value.slice(0, 4), approximate: precision === "approximate" };
 }

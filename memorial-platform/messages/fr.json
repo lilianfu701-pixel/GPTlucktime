@@ -87,7 +87,12 @@
     "cityLabel": "Ville",
     "signInToCreate": "Connectez-vous pour créer un mémorial.",
     "draftNoticeTitle": "Vous seul voyez ce mémorial pour l'instant",
-    "draftNoticeBody": "Ajoutez un récit de vie et choisissez comment les visiteurs pourront lui rendre hommage. Publiez quand vous serez prêt."
+    "draftNoticeBody": "Ajoutez un récit de vie et choisissez comment les visiteurs pourront lui rendre hommage. Publiez quand vous serez prêt.",
+    "approximateYear": "v. {year}",
+    "placeKindBirth": "Lieu de naissance",
+    "placeKindDeath": "Lieu du décès",
+    "placeKindLived": "Où il ou elle a vécu",
+    "placeKindResting": "Lieu de repos"
   },
   "privacy": {
     "title": "Qui peut voir ce mémorial",
@@ -175,6 +180,8 @@
     "resultsHeading": "Résultats",
     "noResults": "Aucun mémorial ne correspond à votre recherche.",
     "startPrompt": "Saisissez un nom pour commencer.",
-    "more": "Afficher plus"
+    "more": "Afficher plus",
+    "queryTooShort": "Saisissez au moins deux lettres d'un nom.",
+    "showMore": "Voir plus de résultats"
   }
 }

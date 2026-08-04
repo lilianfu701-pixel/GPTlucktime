@@ -87,7 +87,12 @@
     "cityLabel": "도시",
     "signInToCreate": "추모 공간을 만들려면 로그인해 주세요.",
     "draftNoticeTitle": "아직은 회원님만 볼 수 있습니다",
-    "draftNoticeBody": "생애를 남기고, 찾아오는 분들이 어떻게 추모할 수 있을지 정해 주세요. 준비되시면 공개해 주세요."
+    "draftNoticeBody": "생애를 남기고, 찾아오는 분들이 어떻게 추모할 수 있을지 정해 주세요. 준비되시면 공개해 주세요.",
+    "approximateYear": "{year}년경",
+    "placeKindBirth": "출생지",
+    "placeKindDeath": "별세하신 곳",
+    "placeKindLived": "사시던 곳",
+    "placeKindResting": "안식처"
   },
   "privacy": {
     "title": "이 페이지를 볼 수 있는 범위",
@@ -175,6 +180,8 @@
     "resultsHeading": "검색 결과",
     "noResults": "입력하신 내용과 일치하는 추모 공간이 없습니다.",
     "startPrompt": "성함을 입력해 주세요.",
-    "more": "더 보기"
+    "more": "더 보기",
+    "queryTooShort": "성함을 두 글자 이상 입력해 주세요.",
+    "showMore": "결과 더 보기"
   }
 }

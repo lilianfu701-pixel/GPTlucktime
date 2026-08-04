@@ -52,7 +52,9 @@ export async function generateMetadata(props: {
   });
 
   const span = lifeSpan(detail);
-  const years = [span.birth, span.death].filter(Boolean).join(" – ");
+  // Bare years in the title. The approximation marker belongs to page copy,
+  // and a browser tab is not the place to explain it.
+  const years = [span.birth?.year, span.death?.year].filter(Boolean).join(" – ");
 
   return {
     title: years ? `${detail.primaryName} (${years})` : detail.primaryName,
@@ -154,14 +156,18 @@ export default async function MemorialPage(props: {
               {span.birth ? (
                 <span>
                   <span className="visuallyHidden">{t("bornLabel")} </span>
-                  {span.birth}
+                  {span.birth.approximate
+                    ? t("approximateYear", { year: span.birth.year })
+                    : span.birth.year}
                 </span>
               ) : null}
               {span.birth && span.death ? " – " : null}
               {span.death ? (
                 <span>
                   <span className="visuallyHidden">{t("diedLabel")} </span>
-                  {span.death}
+                  {span.death.approximate
+                    ? t("approximateYear", { year: span.death.year })
+                    : span.death.year}
                 </span>
               ) : null}
             </p>

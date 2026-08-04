@@ -87,7 +87,12 @@
     "cityLabel": "城市",
     "signInToCreate": "请先登录再创建追思主页。",
     "draftNoticeTitle": "目前只有您能看到这个页面",
-    "draftNoticeBody": "可以先补上生平，并选择亲友可以留下哪些心意。准备好了再发布。"
+    "draftNoticeBody": "可以先补上生平，并选择亲友可以留下哪些心意。准备好了再发布。",
+    "approximateYear": "约{year}",
+    "placeKindBirth": "出生地",
+    "placeKindDeath": "离世地",
+    "placeKindLived": "生活过的地方",
+    "placeKindResting": "安息之地"
   },
   "privacy": {
     "title": "谁可以看到这个主页",
@@ -175,6 +180,8 @@
     "resultsHeading": "搜索结果",
     "noResults": "没有找到符合的追思主页。",
     "startPrompt": "请输入姓名开始查找。",
-    "more": "显示更多"
+    "more": "显示更多",
+    "queryTooShort": "请至少输入姓名中的两个字。",
+    "showMore": "显示更多结果"
   }
 }

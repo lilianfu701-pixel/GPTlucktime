@@ -87,7 +87,12 @@
     "cityLabel": "Kota",
     "signInToCreate": "Masuk untuk membuat halaman peringatan.",
     "draftNoticeTitle": "Baru Anda yang dapat melihat halaman ini",
-    "draftNoticeBody": "Tambahkan kisah hidup dan pilih cara pengunjung dapat mengenang. Terbitkan bila Anda sudah siap."
+    "draftNoticeBody": "Tambahkan kisah hidup dan pilih cara pengunjung dapat mengenang. Terbitkan bila Anda sudah siap.",
+    "approximateYear": "sekitar {year}",
+    "placeKindBirth": "Tempat lahir",
+    "placeKindDeath": "Tempat wafat",
+    "placeKindLived": "Tempat tinggal",
+    "placeKindResting": "Tempat peristirahatan"
   },
   "privacy": {
     "title": "Siapa yang dapat melihat halaman ini",
@@ -175,6 +180,8 @@
     "resultsHeading": "Hasil",
     "noResults": "Tidak ada halaman peringatan yang cocok.",
     "startPrompt": "Masukkan nama untuk memulai.",
-    "more": "Tampilkan lebih banyak"
+    "more": "Tampilkan lebih banyak",
+    "queryTooShort": "Masukkan setidaknya dua huruf dari sebuah nama.",
+    "showMore": "Tampilkan lebih banyak hasil"
   }
 }

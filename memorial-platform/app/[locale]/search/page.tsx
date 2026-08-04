@@ -11,7 +11,34 @@ type SearchParams = {
   birthYear?: string;
   deathYear?: string;
   country?: string;
+  cursor?: string;
 };
+
+/**
+ * The same search, one page further on.
+ *
+ * Built from the criteria rather than by appending to the current URL, so a
+ * stale `cursor` already in the address cannot be carried into the next link
+ * and pin the reader to one page.
+ */
+function pageUrl(
+  locale: string,
+  criteria: {
+    q: string | undefined;
+    birthYear: number | undefined;
+    deathYear: number | undefined;
+    country: string | undefined;
+  },
+  cursor: string,
+): string {
+  const params = new URLSearchParams();
+  if (criteria.q) params.set("q", criteria.q);
+  if (criteria.birthYear) params.set("birthYear", String(criteria.birthYear));
+  if (criteria.deathYear) params.set("deathYear", String(criteria.deathYear));
+  if (criteria.country) params.set("country", criteria.country);
+  params.set("cursor", cursor);
+  return `/${locale}/search?${params.toString()}`;
+}
 
 /** Keeps a stray or malformed year out of the query without failing the page. */
 function yearFrom(value: string | undefined): number | undefined {
@@ -50,7 +77,13 @@ export default async function SearchPage(props: {
   );
 
   const result = hasCriteria
-    ? await searchMemorials({ ...criteria, limit: DEFAULT_LIMIT })
+    ? await searchMemorials({
+        ...criteria,
+        // Taken straight from the URL; the query bounds how far it may reach,
+        // so a hand-edited cursor cannot page past the scraping limit.
+        ...(query.cursor ? { cursor: query.cursor } : {}),
+        limit: DEFAULT_LIMIT,
+      })
     : null;
 
   return (
@@ -126,7 +159,17 @@ export default async function SearchPage(props: {
         {!hasCriteria ? (
           <p className="muted">{t("startPrompt")}</p>
         ) : result && !result.ok ? (
-          <p className="muted">{t("noResults")}</p>
+          /*
+           * A refused search and an empty one are different facts, and saying
+           * "no memorials matched" for a one-letter query tells someone
+           * looking for a relative that they are not here — when the search
+           * never ran at all.
+           */
+          <p className="muted">
+            {result.error === "QUERY_TOO_SHORT"
+              ? t("queryTooShort")
+              : t("startPrompt")}
+          </p>
         ) : result?.ok && result.value.hits.length === 0 ? (
           <p className="muted">{t("noResults")}</p>
         ) : result?.ok ? (
@@ -151,6 +194,17 @@ export default async function SearchPage(props: {
                 );
               })}
             </ul>
+
+            {result.value.nextCursor ? (
+              <div>
+                <Link
+                  className="button buttonQuiet"
+                  href={pageUrl(locale, criteria, result.value.nextCursor)}
+                >
+                  {t("showMore")}
+                </Link>
+              </div>
+            ) : null}
           </>
         ) : null}
       </section>
