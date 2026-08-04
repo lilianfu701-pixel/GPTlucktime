@@ -8,6 +8,7 @@ import {
 } from "@/lib/api";
 import { currentActor } from "@/modules/auth/current-user";
 import { changePrivacy } from "@/modules/memorials/privacy";
+import { drainOutboxAfterResponse } from "@/modules/outbox/drain-after";
 
 const schema = z.object({
   visibility: z.enum(["public", "unlisted", "invite_only"], {
@@ -71,6 +72,16 @@ export async function PATCH(
           ],
         });
     }
+  }
+
+  /*
+   * The urgent direction is removal. A family switching a memorial to private
+   * has the row protecting them already, but the search document is a copy,
+   * and leaving it until a scheduler runs means their decision is visible in
+   * results after they made it.
+   */
+  if (result.value.changed) {
+    drainOutboxAfterResponse(correlationId);
   }
 
   return jsonSuccess(

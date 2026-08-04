@@ -9,6 +9,7 @@ import {
 import { currentActor } from "@/modules/auth/current-user";
 import { createMemorial } from "@/modules/memorials/service";
 import type { CreateMemorialError } from "@/modules/memorials/service";
+import { drainOutboxAfterResponse } from "@/modules/outbox/drain-after";
 
 const partialDate = z.object({
   value: z.string().regex(/^\d{4}-\d{2}-\d{2}$/, {
@@ -119,6 +120,12 @@ export async function POST(request: Request): Promise<Response> {
     return jsonUnprocessable(correlationId, {
       [FIELD_FOR_ERROR[result.error]]: [MESSAGE_FOR_ERROR[result.error]],
     });
+  }
+
+  // Only on a first creation. A replay changed nothing, and its events were
+  // already drained by the request that did.
+  if (result.value.created) {
+    drainOutboxAfterResponse(correlationId);
   }
 
   return jsonSuccess(

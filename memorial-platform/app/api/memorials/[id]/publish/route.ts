@@ -8,6 +8,7 @@ import {
 } from "@/lib/api";
 import { currentActor } from "@/modules/auth/current-user";
 import { publishMemorial } from "@/modules/memorials/privacy";
+import { drainOutboxAfterResponse } from "@/modules/outbox/drain-after";
 
 const schema = z.object({
   confirmPublicExposure: z.boolean().optional(),
@@ -72,6 +73,10 @@ export async function POST(
         });
     }
   }
+
+  // Indexed before the family has finished telling anyone, rather than
+  // whenever a scheduler next runs.
+  drainOutboxAfterResponse(correlationId);
 
   return jsonSuccess(
     {
