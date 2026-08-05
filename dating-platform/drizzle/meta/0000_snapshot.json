@@ -1,5 +1,5 @@
 {
-  "id": "45570383-c8d5-46f7-aed7-a567fa42f58d",
+  "id": "b1c1304f-d8ee-4839-a31e-570c366ca012",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
@@ -515,7 +515,12 @@
         }
       },
       "policies": {},
-      "checkConstraints": {},
+      "checkConstraints": {
+        "privacy_settings_location_precision_check": {
+          "name": "privacy_settings_location_precision_check",
+          "value": "\"privacy_settings\".\"location_precision\" IN ('hidden', 'country', 'city', 'approximate')"
+        }
+      },
       "isRLSEnabled": false
     },
     "public.profile_interests": {
@@ -689,8 +694,8 @@
           "method": "btree",
           "with": {}
         },
-        "profile_photos_profile_position_idx": {
-          "name": "profile_photos_profile_position_idx",
+        "profile_photos_profile_position_unique_idx": {
+          "name": "profile_photos_profile_position_unique_idx",
           "columns": [
             {
               "expression": "profile_id",
@@ -705,7 +710,7 @@
               "nulls": "last"
             }
           ],
-          "isUnique": false,
+          "isUnique": true,
           "concurrently": false,
           "method": "btree",
           "with": {}
@@ -725,15 +730,17 @@
           "onDelete": "cascade",
           "onUpdate": "no action"
         },
-        "profile_photos_profile_id_profiles_id_fk": {
-          "name": "profile_photos_profile_id_profiles_id_fk",
+        "profile_photos_profile_owner_fk": {
+          "name": "profile_photos_profile_owner_fk",
           "tableFrom": "profile_photos",
           "tableTo": "profiles",
           "columnsFrom": [
-            "profile_id"
+            "profile_id",
+            "user_id"
           ],
           "columnsTo": [
-            "id"
+            "id",
+            "user_id"
           ],
           "onDelete": "cascade",
           "onUpdate": "no action"
@@ -754,6 +761,10 @@
         "profile_photos_position_check": {
           "name": "profile_photos_position_check",
           "value": "\"profile_photos\".\"position\" >= 0"
+        },
+        "profile_photos_moderation_status_check": {
+          "name": "profile_photos_moderation_status_check",
+          "value": "\"profile_photos\".\"moderation_status\" IN ('pending', 'approved', 'rejected')"
         }
       },
       "isRLSEnabled": false
@@ -796,12 +807,12 @@
           "notNull": true,
           "default": 100
         },
-        "country_codes": {
-          "name": "country_codes",
-          "type": "text[]",
+        "preferred_country_codes": {
+          "name": "preferred_country_codes",
+          "type": "varchar(2)[]",
           "primaryKey": false,
           "notNull": true,
-          "default": "'{}'::text[]"
+          "default": "'{}'::varchar(2)[]"
         },
         "language_codes": {
           "name": "language_codes",
@@ -863,6 +874,10 @@
         "profile_preferences_age_range_check": {
           "name": "profile_preferences_age_range_check",
           "value": "\"profile_preferences\".\"minimum_age\" >= 18 AND \"profile_preferences\".\"maximum_age\" <= 120 AND \"profile_preferences\".\"minimum_age\" <= \"profile_preferences\".\"maximum_age\""
+        },
+        "profile_preferences_country_codes_format_check": {
+          "name": "profile_preferences_country_codes_format_check",
+          "value": "array_position(\"profile_preferences\".\"preferred_country_codes\", NULL) IS NULL\n        AND (\n          cardinality(\"profile_preferences\".\"preferred_country_codes\") = 0\n          OR array_to_string(\"profile_preferences\".\"preferred_country_codes\", ',')\n            ~ '^([A-Z]{2})(,[A-Z]{2})*$'\n        )"
         }
       },
       "isRLSEnabled": false
@@ -1022,13 +1037,25 @@
           "columns": [
             "user_id"
           ]
+        },
+        "profiles_id_user_id_unique": {
+          "name": "profiles_id_user_id_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "id",
+            "user_id"
+          ]
         }
       },
       "policies": {},
       "checkConstraints": {
-        "profiles_country_code_length_check": {
-          "name": "profiles_country_code_length_check",
-          "value": "char_length(\"profiles\".\"country_code\") = 2"
+        "profiles_country_code_format_check": {
+          "name": "profiles_country_code_format_check",
+          "value": "\"profiles\".\"country_code\" ~ '^[A-Z]{2}$'"
+        },
+        "profiles_status_check": {
+          "name": "profiles_status_check",
+          "value": "\"profiles\".\"status\" IN ('draft', 'active', 'restricted', 'suspended', 'banned')"
         }
       },
       "isRLSEnabled": false
@@ -1140,7 +1167,12 @@
       "compositePrimaryKeys": {},
       "uniqueConstraints": {},
       "policies": {},
-      "checkConstraints": {},
+      "checkConstraints": {
+        "verification_attempts_status_check": {
+          "name": "verification_attempts_status_check",
+          "value": "\"verification_attempts\".\"status\" IN ('pending', 'approved', 'rejected', 'expired')"
+        }
+      },
       "isRLSEnabled": false
     }
   },

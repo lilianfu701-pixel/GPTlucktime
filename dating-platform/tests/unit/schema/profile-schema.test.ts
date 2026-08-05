@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { getTableColumns } from "drizzle-orm";
-import { getTableConfig, type PgTable } from "drizzle-orm/pg-core";
+import { getTableConfig, PgDialect, type PgTable } from "drizzle-orm/pg-core";
 import {
   accounts,
   interests,
@@ -37,15 +37,24 @@ const uniqueColumnSets = (table: PgTable) =>
 const indexNames = (table: PgTable) =>
   configFor(table).indexes.map((index) => index.config.name);
 
-const foreignKeyColumnSets = (table: PgTable) =>
+const foreignKeysFor = (table: PgTable) =>
   configFor(table).foreignKeys.map((foreignKey) => {
     const reference = foreignKey.reference();
     return {
       columns: reference.columns.map((column) => column.name),
+      foreignTable: configFor(reference.foreignTable).name,
       foreignColumns: reference.foreignColumns.map((column) => column.name),
       onDelete: foreignKey.onDelete,
     };
   });
+
+const dialect = new PgDialect();
+const checksFor = (table: PgTable) => new Map(
+  configFor(table).checks.map((constraint) => [
+    constraint.name,
+    dialect.sqlToQuery(constraint.value).sql,
+  ]),
+);
 
 describe("profiles schema", () => {
   it("stores inclusive identity and discovery state", () => {
@@ -94,6 +103,7 @@ describe("profiles schema", () => {
 
     const preferenceColumns = getTableColumns(profilePreferences);
     expect(preferenceColumns.genderCodes.getSQLType()).toBe("text[]");
+    expect(preferenceColumns.preferredCountryCodes.getSQLType()).toBe("varchar(2)[]");
   });
 
   it("enforces unique auth and one-to-one profile identifiers", () => {
@@ -101,9 +111,11 @@ describe("profiles schema", () => {
     expect(uniqueColumnSets(sessions)).toContainEqual(["token"]);
     expect(uniqueColumnSets(accounts)).toContainEqual(["provider_id", "account_id"]);
     expect(uniqueColumnSets(profiles)).toContainEqual(["user_id"]);
+    expect(uniqueColumnSets(profiles)).toContainEqual(["id", "user_id"]);
     expect(uniqueColumnSets(profilePreferences)).toContainEqual(["user_id"]);
     expect(uniqueColumnSets(privacySettings)).toContainEqual(["user_id"]);
     expect(uniqueColumnSets(profilePhotos)).toContainEqual(["object_key"]);
+    expect(uniqueColumnSets(profilePhotos)).toContainEqual(["profile_id", "position"]);
     expect(uniqueColumnSets(interests)).toContainEqual(["code"]);
     expect(uniqueColumnSets(profileInterests)).toContainEqual(["profile_id", "interest_id"]);
   });
@@ -115,7 +127,7 @@ describe("profiles schema", () => {
     ]));
     expect(indexNames(profilePhotos)).toEqual(expect.arrayContaining([
       "profile_photos_moderation_status_idx",
-      "profile_photos_profile_position_idx",
+      "profile_photos_profile_position_unique_idx",
     ]));
     expect(indexNames(verifications)).toContain("verifications_identifier_idx");
     expect(indexNames(verificationAttempts)).toEqual(expect.arrayContaining([
@@ -125,28 +137,69 @@ describe("profiles schema", () => {
   });
 
   it("uses deliberate cascade and audit-preserving foreign keys", () => {
-    expect(foreignKeyColumnSets(profiles)).toContainEqual({
+    expect(foreignKeysFor(profiles)).toContainEqual({
       columns: ["user_id"],
+      foreignTable: "users",
       foreignColumns: ["id"],
       onDelete: "cascade",
     });
-    expect(foreignKeyColumnSets(profilePhotos)).toEqual(expect.arrayContaining([
+    expect(foreignKeysFor(profilePhotos)).toEqual(expect.arrayContaining([
       {
         columns: ["user_id"],
+        foreignTable: "users",
         foreignColumns: ["id"],
         onDelete: "cascade",
       },
       {
-        columns: ["profile_id"],
-        foreignColumns: ["id"],
+        columns: ["profile_id", "user_id"],
+        foreignTable: "profiles",
+        foreignColumns: ["id", "user_id"],
         onDelete: "cascade",
       },
     ]));
-    expect(foreignKeyColumnSets(verificationAttempts)).toContainEqual({
+    expect(foreignKeysFor(verificationAttempts)).toContainEqual({
       columns: ["user_id"],
+      foreignTable: "users",
       foreignColumns: ["id"],
       onDelete: "set null",
     });
+  });
+
+  it("validates uppercase country codes, including every preference array element", () => {
+    const profileChecks = checksFor(profiles);
+    expect(profileChecks.get("profiles_country_code_format_check")).toContain("^[A-Z]{2}$");
+
+    const preferenceCheck = checksFor(profilePreferences).get(
+      "profile_preferences_country_codes_format_check",
+    );
+    expect(preferenceCheck).not.toMatch(/SELECT|unnest/i);
+    expect(preferenceCheck).toContain("array_position");
+    expect(preferenceCheck).toContain("cardinality");
+    expect(preferenceCheck).toContain("array_to_string");
+    expect(preferenceCheck).toContain("[A-Z]{2}");
+  });
+
+  it("constrains finite statuses while keeping identity and verification kinds extensible", () => {
+    expect(checksFor(profiles).get("profiles_status_check")).toMatch(
+      /draft.*active.*restricted.*suspended.*banned/,
+    );
+    expect(checksFor(profilePhotos).get("profile_photos_moderation_status_check")).toMatch(
+      /pending.*approved.*rejected/,
+    );
+    expect(checksFor(verificationAttempts).get("verification_attempts_status_check")).toMatch(
+      /pending.*approved.*rejected.*expired/,
+    );
+    expect(checksFor(privacySettings).get("privacy_settings_location_precision_check")).toMatch(
+      /hidden.*country.*city.*approximate/,
+    );
+
+    expect(getTableColumns(profiles).genderCode.enumValues).toBeUndefined();
+    expect(getTableColumns(verificationAttempts).kind.enumValues).toBeUndefined();
+  });
+
+  it("prevents negative or duplicate photo positions within one profile", () => {
+    expect(checksFor(profilePhotos).has("profile_photos_position_check")).toBe(true);
+    expect(uniqueColumnSets(profilePhotos)).toContainEqual(["profile_id", "position"]);
   });
 
   it("uses timestamptz, required defaults, and appropriate nullability", () => {
