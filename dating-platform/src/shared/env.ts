@@ -1,5 +1,7 @@
 import { z } from "zod";
 
+import { parseEncryptionKeyRing } from "@/modules/auth/auth-crypto";
+
 const urlWithProtocols = (protocols: readonly string[], message: string) =>
   z
     .string()
@@ -15,13 +17,16 @@ const urlWithProtocols = (protocols: readonly string[], message: string) =>
 const optionalValue = <T extends z.ZodType>(valueSchema: T) =>
   z.preprocess((value) => value === "" ? undefined : value, valueSchema.optional());
 
-const encryptionKey = z.string().refine((value) => {
+const encryptionKeyRing = z.string().superRefine((value, context) => {
   try {
-    return /^[A-Za-z0-9+/]+={0,2}$/.test(value) && Buffer.from(value, "base64").length === 32;
-  } catch {
-    return false;
+    parseEncryptionKeyRing(value);
+  } catch (error) {
+    context.addIssue({
+      code: "custom",
+      message: error instanceof Error ? error.message : "AUTH_ENCRYPTION_KEYS is invalid",
+    });
   }
-}, "must be a base64-encoded 32-byte key");
+});
 
 const commaSeparatedCallingCodes = z.string().regex(/^\d{1,4}(,\d{1,4})*$/);
 const commaSeparatedHttpsOrigins = z.string().refine((value) => value.split(",").every((entry) => {
@@ -44,12 +49,11 @@ const schema = z
     BETTER_AUTH_SECRET: z.string().trim().min(32),
     BETTER_AUTH_URL: urlWithProtocols(["http:", "https:"], "BETTER_AUTH_URL must use http:// or https://"),
     APP_URL: urlWithProtocols(["http:", "https:"], "APP_URL must use http:// or https://"),
+    AUTH_TRUSTED_PROXY_TOKEN: optionalValue(z.string().min(32)),
     EMAIL_WEBHOOK_URL: optionalValue(urlWithProtocols(["https:"], "EMAIL_WEBHOOK_URL must use https://")),
     EMAIL_WEBHOOK_TOKEN: optionalValue(z.string().min(1)),
-    EMAIL_PAYLOAD_ENCRYPTION_KEY: optionalValue(encryptionKey),
     SMS_WEBHOOK_URL: optionalValue(urlWithProtocols(["https:"], "SMS_WEBHOOK_URL must use https://")),
     SMS_WEBHOOK_TOKEN: optionalValue(z.string().min(1)),
-    SMS_PAYLOAD_ENCRYPTION_KEY: optionalValue(encryptionKey),
     SMS_ABUSE_HMAC_KEY: optionalValue(z.string().min(32)),
     SMS_ALLOWED_CALLING_CODES: optionalValue(commaSeparatedCallingCodes),
     SMS_HIGH_RISK_CALLING_CODES: optionalValue(commaSeparatedCallingCodes),
@@ -62,15 +66,19 @@ const schema = z
     IDENTITY_VERIFICATION_API_KEY: optionalValue(z.string().min(1)),
     IDENTITY_VERIFICATION_WEBHOOK_SECRET: optionalValue(z.string().min(32)),
     IDENTITY_REDIRECT_ORIGINS: optionalValue(commaSeparatedHttpsOrigins),
-    IDENTITY_PAYLOAD_ENCRYPTION_KEY: optionalValue(encryptionKey),
+    AUTH_ENCRYPTION_KEYS: optionalValue(encryptionKeyRing),
+    AUTH_DELIVERY_HMAC_KEY: optionalValue(z.string().min(32)),
+    IDENTITY_IDEMPOTENCY_HMAC_KEY: optionalValue(z.string().min(32)),
   })
   .superRefine((env, context) => {
     const requireCompleteGroup = (
       name: string,
       fields: Array<keyof typeof env>,
+      activationFields: Array<keyof typeof env> = fields,
     ) => {
+      const active = activationFields.some((field) => env[field] !== undefined);
       const configured = fields.filter((field) => env[field] !== undefined);
-      if (configured.length > 0 && configured.length !== fields.length) {
+      if (active && configured.length !== fields.length) {
         context.addIssue({
           code: "custom",
           message: `${name} configuration must be complete`,
@@ -81,23 +89,40 @@ const schema = z
     requireCompleteGroup("EMAIL", [
       "EMAIL_WEBHOOK_URL",
       "EMAIL_WEBHOOK_TOKEN",
-      "EMAIL_PAYLOAD_ENCRYPTION_KEY",
-    ]);
+      "AUTH_ENCRYPTION_KEYS",
+      "AUTH_DELIVERY_HMAC_KEY",
+    ], ["EMAIL_WEBHOOK_URL", "EMAIL_WEBHOOK_TOKEN"]);
     requireCompleteGroup("SMS", [
       "SMS_WEBHOOK_URL",
       "SMS_WEBHOOK_TOKEN",
-      "SMS_PAYLOAD_ENCRYPTION_KEY",
       "SMS_ABUSE_HMAC_KEY",
       "SMS_ALLOWED_CALLING_CODES",
-    ]);
+      "AUTH_ENCRYPTION_KEYS",
+      "AUTH_DELIVERY_HMAC_KEY",
+    ], ["SMS_WEBHOOK_URL", "SMS_WEBHOOK_TOKEN", "SMS_ABUSE_HMAC_KEY", "SMS_ALLOWED_CALLING_CODES"]);
     requireCompleteGroup("IDENTITY", [
       "IDENTITY_VERIFICATION_PROVIDER",
       "IDENTITY_VERIFICATION_URL",
       "IDENTITY_VERIFICATION_API_KEY",
       "IDENTITY_VERIFICATION_WEBHOOK_SECRET",
       "IDENTITY_REDIRECT_ORIGINS",
-      "IDENTITY_PAYLOAD_ENCRYPTION_KEY",
+      "AUTH_ENCRYPTION_KEYS",
+      "IDENTITY_IDEMPOTENCY_HMAC_KEY",
+    ], [
+      "IDENTITY_VERIFICATION_PROVIDER",
+      "IDENTITY_VERIFICATION_URL",
+      "IDENTITY_VERIFICATION_API_KEY",
+      "IDENTITY_VERIFICATION_WEBHOOK_SECRET",
+      "IDENTITY_REDIRECT_ORIGINS",
+      "IDENTITY_IDEMPOTENCY_HMAC_KEY",
     ]);
+    if (env.SMS_HIGH_RISK_CALLING_CODES) {
+      context.addIssue({
+        code: "custom",
+        message: "SMS high-risk destinations require challenge verification",
+        path: ["SMS_HIGH_RISK_CALLING_CODES"],
+      });
+    }
     if (env.NODE_ENV !== "production") {
       return;
     }

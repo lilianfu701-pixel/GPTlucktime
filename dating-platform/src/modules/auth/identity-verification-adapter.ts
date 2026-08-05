@@ -18,6 +18,7 @@ export type IdentityVerificationStatus = "pending" | "approved" | "rejected" | "
 
 export type CreateIdentityVerificationInput = {
   userId: string;
+  idempotencyKey: string;
 };
 
 export type IdentityVerificationSession = {
@@ -79,7 +80,11 @@ export class HttpsIdentityVerificationAdapter implements IdentityVerificationAda
   }
 
   async createSession(input: CreateIdentityVerificationInput): Promise<IdentityVerificationSession> {
-    const value = await this.request("/sessions", { method: "POST", body: JSON.stringify(input) });
+    const value = await this.request(
+      "/sessions",
+      { method: "POST", body: JSON.stringify(input) },
+      { "idempotency-key": input.idempotencyKey },
+    );
     if (!this.config || !isTrustedHostedSession(value, this.config.redirectOrigins)) {
       throw new Error(IDENTITY_PROVIDER_FAILED);
     }
@@ -104,7 +109,11 @@ export class HttpsIdentityVerificationAdapter implements IdentityVerificationAda
     await this.request(`/sessions/${encodeURIComponent(providerReference)}`, { method: "DELETE" });
   }
 
-  private async request(path: string, init: RequestInit): Promise<Record<string, unknown>> {
+  private async request(
+    path: string,
+    init: RequestInit,
+    extraHeaders: Record<string, string> = {},
+  ): Promise<Record<string, unknown>> {
     if (!this.config) throw new Error(IDENTITY_PROVIDER_UNAVAILABLE);
     try {
       const response = await this.fetch(`${this.config.endpoint.replace(/\/$/, "")}${path}`, {
@@ -112,6 +121,7 @@ export class HttpsIdentityVerificationAdapter implements IdentityVerificationAda
         headers: {
           authorization: `Bearer ${this.config.apiKey}`,
           "content-type": "application/json",
+          ...extraHeaders,
         },
         signal: AbortSignal.timeout(15_000),
       });
@@ -125,16 +135,20 @@ export class HttpsIdentityVerificationAdapter implements IdentityVerificationAda
 
 export class InMemoryIdentityVerificationAdapter implements IdentityVerificationAdapter {
   private readonly results = new Map<string, IdentityVerificationResult>();
+  private readonly sessions = new Map<string, IdentityVerificationSession>();
 
   async createSession(input: CreateIdentityVerificationInput): Promise<IdentityVerificationSession> {
-    void input;
+    const existing = this.sessions.get(input.idempotencyKey);
+    if (existing) return existing;
     const providerReference = `test_${crypto.randomUUID()}`;
     this.results.set(providerReference, { status: "pending" });
-    return {
+    const session = {
       providerReference,
       redirectUrl: `https://identity.test/session/${providerReference}`,
       expiresAt: new Date(Date.now() + 15 * 60_000),
     };
+    this.sessions.set(input.idempotencyKey, session);
+    return session;
   }
 
   async getResult(providerReference: string): Promise<IdentityVerificationResult> {
@@ -229,7 +243,15 @@ export function createIdentityVerificationHandler(input: {
   getSession(headers: Headers): Promise<IdentityHandlerSession | null>;
   getContext(userId: string): Promise<VerificationRequestContext>;
   adapter: IdentityVerificationAdapter;
-  attemptStore: Pick<DrizzleIdentityAttemptStore, "findReusable" | "availability" | "create">;
+  attemptStore: Pick<
+    DrizzleIdentityAttemptStore,
+    | "findReusable"
+    | "availability"
+    | "beginIntent"
+    | "bindIntent"
+    | "markCompensated"
+    | "recordRetry"
+  >;
   provider: string;
   providerConfigured?: boolean;
 }) {
@@ -286,24 +308,56 @@ export function createIdentityVerificationHandler(input: {
       return handlerError("INTERNAL_ERROR", 500);
     }
 
+    let intent: Awaited<ReturnType<DrizzleIdentityAttemptStore["beginIntent"]>>;
+    try {
+      intent = await input.attemptStore.beginIntent({
+        userId: session.user.id,
+        provider: input.provider,
+        idempotencyKey,
+      });
+      if (intent.status === "compensation_pending" || intent.status === "compensated") {
+        return handlerError("IDENTITY_RECOVERY_PENDING", 503);
+      }
+      if (intent.status === "bound") {
+        const reusable = await input.attemptStore.findReusable(session.user.id, idempotencyKey);
+        return reusable
+          ? Response.json({ redirectUrl: reusable.redirectUrl, expiresAt: reusable.expiresAt.toISOString() })
+          : handlerError("IDENTITY_RECOVERY_PENDING", 503);
+      }
+    } catch {
+      return handlerError("INTERNAL_ERROR", 500);
+    }
+
     let hosted: IdentityVerificationSession;
     try {
-      hosted = await input.adapter.createSession({ userId: session.user.id });
+      hosted = await input.adapter.createSession({
+        userId: session.user.id,
+        idempotencyKey: intent.providerIdempotencyKey,
+      });
     } catch {
+      await input.attemptStore.recordRetry(
+        intent.id,
+        "initiating",
+        intent.attempts + 1,
+        "IDENTITY_PROVIDER_FAILED",
+      ).catch(() => undefined);
       return handlerError(IDENTITY_PROVIDER_UNAVAILABLE, 503);
     }
     try {
-      await input.attemptStore.create({
-        userId: session.user.id,
-        provider: input.provider,
-        providerReference: hosted.providerReference,
-        idempotencyKey,
-        redirectUrl: hosted.redirectUrl,
-        expiresAt: hosted.expiresAt,
-      });
+      await input.attemptStore.bindIntent(intent.id, hosted);
     } catch (error) {
-      await input.adapter.cancelSession(hosted.providerReference).catch(() => undefined);
       if (error instanceof IdentityAttemptConflictError) {
+        try {
+          await input.adapter.cancelSession(hosted.providerReference);
+          await input.attemptStore.markCompensated(intent.id);
+        } catch {
+          await input.attemptStore.recordRetry(
+            intent.id,
+            "compensation_pending",
+            intent.attempts + 1,
+            "IDENTITY_COMPENSATION_FAILED",
+          ).catch(() => undefined);
+        }
         const reusable = await input.attemptStore.findReusable(session.user.id, idempotencyKey)
           .catch(() => null);
         if (reusable) {

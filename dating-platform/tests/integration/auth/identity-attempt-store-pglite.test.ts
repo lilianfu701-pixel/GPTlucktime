@@ -6,12 +6,14 @@ import { migrate } from "drizzle-orm/pglite/migrator";
 import { afterEach, beforeEach, describe, expect, it } from "vitest";
 
 import * as schema from "@/db/schema";
+import { EncryptionKeyRing, StableHmac } from "@/modules/auth/auth-crypto";
 import {
   DrizzleIdentityAttemptStore,
   IdentityAttemptConflictError,
 } from "@/modules/auth/identity-attempt-store";
 
-const KEY = Buffer.alloc(32, 9).toString("base64");
+const key = (id: string, byte: number) => ({ id, key: Buffer.alloc(32, byte).toString("base64") });
+const hmac = new StableHmac("stable-identity-hmac-key-at-least-32-characters");
 
 describe("identity attempt store", () => {
   let client: PGlite;
@@ -41,21 +43,31 @@ describe("identity attempt store", () => {
   });
 
   it("returns the same encrypted redirect for a repeated idempotency key", async () => {
-    const store = new DrizzleIdentityAttemptStore(database, KEY);
+    const oldStore = new DrizzleIdentityAttemptStore(
+      database,
+      new EncryptionKeyRing([key("old", 9)]),
+      hmac,
+    );
     const input = attempt("repeat-key-123", "one");
-    await store.create(input);
-    await expect(store.findReusable(userId, input.idempotencyKey)).resolves.toEqual({
+    await oldStore.create(input);
+    const rotated = new DrizzleIdentityAttemptStore(
+      database,
+      new EncryptionKeyRing([key("current", 10), key("old", 9)]),
+      hmac,
+    );
+    await expect(rotated.findReusable(userId, input.idempotencyKey)).resolves.toEqual({
       redirectUrl: input.redirectUrl,
       expiresAt: input.expiresAt,
     });
     const [row] = await database.select().from(schema.verificationAttempts);
     expect(JSON.stringify(row)).not.toContain(input.idempotencyKey);
     expect(JSON.stringify(row)).not.toContain("secret=hidden");
+    expect(row.redirectEncryptionKeyId).toBe("old");
   });
 
   it("allows at most one concurrent pending identity attempt per user", async () => {
-    const first = new DrizzleIdentityAttemptStore(database, KEY);
-    const second = new DrizzleIdentityAttemptStore(database, KEY);
+    const first = new DrizzleIdentityAttemptStore(database, new EncryptionKeyRing([key("current", 9)]), hmac);
+    const second = new DrizzleIdentityAttemptStore(database, new EncryptionKeyRing([key("current", 9)]), hmac);
     const results = await Promise.allSettled([
       first.create(attempt("concurrent-key-a", "a")),
       second.create(attempt("concurrent-key-b", "b")),
@@ -65,5 +77,12 @@ describe("identity attempt store", () => {
     expect(rejection && rejection.status === "rejected" ? rejection.reason : null)
       .toBeInstanceOf(IdentityAttemptConflictError);
     expect(await database.select().from(schema.verificationAttempts)).toHaveLength(1);
+  });
+
+  it("does not apply the identity-only pending constraint to other verification kinds", async () => {
+    await expect(database.insert(schema.verificationAttempts).values([
+      { userId, kind: "liveness", status: "pending", expiresAt: new Date(Date.now() + 60_000) },
+      { userId, kind: "liveness", status: "pending", expiresAt: new Date(Date.now() + 60_000) },
+    ])).resolves.toBeDefined();
   });
 });

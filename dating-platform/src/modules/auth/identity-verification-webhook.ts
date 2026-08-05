@@ -109,6 +109,8 @@ export async function processIdentityVerificationWebhook(
     async updateAttemptStatus(attemptId, status) {
       await transaction.update(verificationAttempts).set({
         status,
+        redirectUrlEncrypted: null,
+        redirectEncryptionKeyId: null,
         updatedAt: new Date(),
       }).where(and(
         eq(verificationAttempts.id, attemptId),

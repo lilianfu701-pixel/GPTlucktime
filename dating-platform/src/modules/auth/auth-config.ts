@@ -4,10 +4,15 @@ import { phoneNumber, twoFactor } from "better-auth/plugins";
 
 import {
   NOTIFICATION_PROVIDER_UNAVAILABLE,
+  NOTIFICATION_OUTBOX_UNAVAILABLE,
   type MessageDispatcher,
   type MessageSender,
 } from "./message-sender";
+import { AUTH_CREDENTIAL_TTL_SECONDS, credentialValidUntil } from "./auth-credentials";
 import { SmsAbuseError, type SmsAbuseGuard, validateSmsTarget } from "./sms-abuse-guard";
+import { resolveTrustedClientBucket } from "./trusted-ingress";
+
+export const PHONE_LOGIN_NOT_ENABLED = "PHONE_LOGIN_NOT_ENABLED";
 
 type AuthConfigurationInput = {
   database: BetterAuthOptions["database"];
@@ -18,6 +23,7 @@ type AuthConfigurationInput = {
   secureCookies: boolean;
   smsAbuseGuard?: SmsAbuseGuard;
   verifySmsChallenge?: (request: Request) => Promise<boolean>;
+  trustedProxyToken?: string;
 };
 
 export function createAuthConfiguration(input: AuthConfigurationInput): BetterAuthOptions {
@@ -29,25 +35,42 @@ export function createAuthConfiguration(input: AuthConfigurationInput): BetterAu
     emailAndPassword: {
       enabled: true,
       requireEmailVerification: true,
+      resetPasswordTokenExpiresIn: AUTH_CREDENTIAL_TTL_SECONDS.passwordReset,
       async sendResetPassword({ user, url }) {
         input.sender.assertAvailable("email");
-        await input.dispatcher.enqueuePasswordReset({ to: user.email, resetUrl: url });
+        await input.dispatcher.enqueuePasswordReset({
+          to: user.email,
+          resetUrl: url,
+          validUntil: credentialValidUntil("passwordReset"),
+        });
       },
     },
     emailVerification: {
       sendOnSignUp: true,
       sendOnSignIn: true,
       autoSignInAfterVerification: false,
+      expiresIn: AUTH_CREDENTIAL_TTL_SECONDS.emailVerification,
       async sendVerificationEmail({ user, url }) {
         input.sender.assertAvailable("email");
         await input.dispatcher.enqueueEmailVerification({
           to: user.email,
           verificationUrl: url,
+          validUntil: credentialValidUntil("emailVerification"),
         });
       },
     },
     hooks: {
       before: createAuthMiddleware(async (context) => {
+        if (
+          context.path === "/sign-in/phone-number" ||
+          context.path === "/phone-number/request-password-reset" ||
+          context.path === "/phone-number/reset-password"
+        ) {
+          throw new APIError("FORBIDDEN", {
+            code: PHONE_LOGIN_NOT_ENABLED,
+            message: PHONE_LOGIN_NOT_ENABLED,
+          });
+        }
         if (
           context.path === "/sign-up/email" ||
           context.path === "/send-verification-email" ||
@@ -61,6 +84,14 @@ export function createAuthConfiguration(input: AuthConfigurationInput): BetterAu
               message: NOTIFICATION_PROVIDER_UNAVAILABLE,
             });
           }
+          try {
+            await input.dispatcher.assertHealthy();
+          } catch {
+            throw new APIError("SERVICE_UNAVAILABLE", {
+              code: NOTIFICATION_OUTBOX_UNAVAILABLE,
+              message: NOTIFICATION_OUTBOX_UNAVAILABLE,
+            });
+          }
           return;
         }
         if (context.path === "/phone-number/send-otp") {
@@ -72,16 +103,25 @@ export function createAuthConfiguration(input: AuthConfigurationInput): BetterAu
               message: NOTIFICATION_PROVIDER_UNAVAILABLE,
             });
           }
+          try {
+            await input.dispatcher.assertHealthy();
+          } catch {
+            throw new APIError("SERVICE_UNAVAILABLE", {
+              code: NOTIFICATION_OUTBOX_UNAVAILABLE,
+              message: NOTIFICATION_OUTBOX_UNAVAILABLE,
+            });
+          }
           const body = context.body as Record<string, unknown> | undefined;
           const target = typeof body?.phoneNumber === "string" ? body.phoneNumber : "";
           const request = context.request;
-          const forwarded = request?.headers.get("x-forwarded-for")?.split(",")[0]?.trim();
           const actorId = (context.context as unknown as { session?: { user?: { id?: string } } })
             .session?.user?.id;
           try {
             if (!input.smsAbuseGuard) throw new SmsAbuseError("SMS_ABUSE_GUARD_UNAVAILABLE", 503);
             await input.smsAbuseGuard.check({
-              ip: forwarded || request?.headers.get("x-real-ip") || "unknown",
+              ip: request
+                ? resolveTrustedClientBucket(request, input.trustedProxyToken)
+                : "untrusted-network",
               actorId,
               target,
               challengeVerified: request && input.verifySmsChallenge
@@ -118,6 +158,7 @@ export function createAuthConfiguration(input: AuthConfigurationInput): BetterAu
       twoFactor({ issuer: "Global Dating Platform" }),
       phoneNumber({
         requireVerification: true,
+        expiresIn: AUTH_CREDENTIAL_TTL_SECONDS.phoneOtp,
         phoneNumberValidator: (value) => {
           if (!input.smsAbuseGuard) return false;
           try {
@@ -129,7 +170,11 @@ export function createAuthConfiguration(input: AuthConfigurationInput): BetterAu
         },
         async sendOTP({ phoneNumber: to, code }) {
           input.sender.assertAvailable("sms");
-          await input.dispatcher.enqueueSmsOtp({ to, code });
+          await input.dispatcher.enqueueSmsOtp({
+            to,
+            code,
+            validUntil: credentialValidUntil("phoneOtp"),
+          });
         },
       }),
     ],

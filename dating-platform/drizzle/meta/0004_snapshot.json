@@ -1469,7 +1469,7 @@
             }
           ],
           "isUnique": true,
-          "where": "\"verification_attempts\".\"status\" = 'pending'",
+          "where": "\"verification_attempts\".\"kind\" = 'identity' AND \"verification_attempts\".\"status\" = 'pending'",
           "concurrently": false,
           "method": "btree",
           "with": {}

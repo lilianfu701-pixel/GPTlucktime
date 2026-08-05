@@ -1,6 +1,6 @@
 {
-  "id": "680baba4-2465-4bd9-b8fe-44def9392c3f",
-  "prevId": "c05bfb43-db34-4a97-a2d5-cf899bb61855",
+  "id": "eb01094b-cf9c-4f03-9ec2-20bd1c773335",
+  "prevId": "e44850b4-0095-4426-a047-e856fd266310",
   "version": "7",
   "dialect": "postgresql",
   "tables": {
@@ -172,6 +172,12 @@
           "primaryKey": false,
           "notNull": false
         },
+        "encryption_key_id": {
+          "name": "encryption_key_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
         "status": {
           "name": "status",
           "type": "text",
@@ -202,6 +208,18 @@
         "last_error": {
           "name": "last_error",
           "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "lease_id": {
+          "name": "lease_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "lease_expires_at": {
+          "name": "lease_expires_at",
+          "type": "timestamp with time zone",
           "primaryKey": false,
           "notNull": false
         },
@@ -257,11 +275,59 @@
           "method": "btree",
           "with": {}
         },
+        "auth_notification_due_lease_idx": {
+          "name": "auth_notification_due_lease_idx",
+          "columns": [
+            {
+              "expression": "status",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "available_at",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "lease_expires_at",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
         "auth_notification_expiry_idx": {
           "name": "auth_notification_expiry_idx",
           "columns": [
             {
               "expression": "expires_at",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "auth_notification_retention_idx": {
+          "name": "auth_notification_retention_idx",
+          "columns": [
+            {
+              "expression": "status",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "updated_at",
               "isExpression": false,
               "asc": true,
               "nulls": "last"
@@ -280,7 +346,7 @@
       "checkConstraints": {
         "auth_notification_kind_check": {
           "name": "auth_notification_kind_check",
-          "value": "\"auth_notification_deliveries\".\"kind\" in ('email_verification', 'sms_otp')"
+          "value": "\"auth_notification_deliveries\".\"kind\" in ('email_verification', 'password_reset', 'sms_otp')"
         },
         "auth_notification_status_check": {
           "name": "auth_notification_status_check",
@@ -658,6 +724,193 @@
       "uniqueConstraints": {},
       "policies": {},
       "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.identity_session_intents": {
+      "name": "identity_session_intents",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "user_id": {
+          "name": "user_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "kind": {
+          "name": "kind",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "'identity'"
+        },
+        "provider": {
+          "name": "provider",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "idempotency_hash": {
+          "name": "idempotency_hash",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "provider_idempotency_key": {
+          "name": "provider_idempotency_key",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "status": {
+          "name": "status",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "'initiating'"
+        },
+        "provider_reference": {
+          "name": "provider_reference",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "attempt_id": {
+          "name": "attempt_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "attempts": {
+          "name": "attempts",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "default": 0
+        },
+        "available_at": {
+          "name": "available_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "last_error": {
+          "name": "last_error",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {
+        "identity_session_intents_recovery_idx": {
+          "name": "identity_session_intents_recovery_idx",
+          "columns": [
+            {
+              "expression": "status",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "available_at",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "identity_session_intents_attempt_idx": {
+          "name": "identity_session_intents_attempt_idx",
+          "columns": [
+            {
+              "expression": "attempt_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        }
+      },
+      "foreignKeys": {
+        "identity_session_intents_user_id_users_id_fk": {
+          "name": "identity_session_intents_user_id_users_id_fk",
+          "tableFrom": "identity_session_intents",
+          "tableTo": "users",
+          "columnsFrom": [
+            "user_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        },
+        "identity_session_intents_attempt_id_verification_attempts_id_fk": {
+          "name": "identity_session_intents_attempt_id_verification_attempts_id_fk",
+          "tableFrom": "identity_session_intents",
+          "tableTo": "verification_attempts",
+          "columnsFrom": [
+            "attempt_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "set null",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "identity_session_intents_idempotency_unique": {
+          "name": "identity_session_intents_idempotency_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "user_id",
+            "kind",
+            "idempotency_hash"
+          ]
+        }
+      },
+      "policies": {},
+      "checkConstraints": {
+        "identity_session_intents_kind_check": {
+          "name": "identity_session_intents_kind_check",
+          "value": "\"identity_session_intents\".\"kind\" = 'identity'"
+        },
+        "identity_session_intents_status_check": {
+          "name": "identity_session_intents_status_check",
+          "value": "\"identity_session_intents\".\"status\" IN ('initiating', 'bound', 'compensation_pending', 'compensated', 'failed')"
+        }
+      },
       "isRLSEnabled": false
     },
     "public.interests": {
@@ -1389,6 +1642,12 @@
         },
         "redirect_url_encrypted": {
           "name": "redirect_url_encrypted",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "redirect_encryption_key_id": {
+          "name": "redirect_encryption_key_id",
           "type": "text",
           "primaryKey": false,
           "notNull": false

@@ -186,6 +186,7 @@ export const verificationAttempts = pgTable(
     providerReference: text("provider_reference"),
     idempotencyKeyHash: text("idempotency_key_hash"),
     redirectUrlEncrypted: text("redirect_url_encrypted"),
+    redirectEncryptionKeyId: text("redirect_encryption_key_id"),
     status: text("status").default("pending").notNull(),
     expiresAt: timestamptz("expires_at").notNull(),
     createdAt: createdAt(),
@@ -200,13 +201,47 @@ export const verificationAttempts = pgTable(
     ),
     uniqueIndex("verification_attempts_pending_user_kind_unique")
       .on(table.userId, table.kind)
-      .where(sql`${table.status} = 'pending'`),
+      .where(sql`${table.kind} = 'identity' AND ${table.status} = 'pending'`),
     uniqueIndex("verification_attempts_idempotency_unique")
       .on(table.userId, table.kind, table.idempotencyKeyHash)
       .where(sql`${table.idempotencyKeyHash} is not null`),
     check(
       "verification_attempts_status_check",
       sql`${table.status} IN ('pending', 'approved', 'rejected', 'expired')`,
+    ),
+  ],
+);
+
+export const identitySessionIntents = pgTable(
+  "identity_session_intents",
+  {
+    id: uuid("id").defaultRandom().primaryKey(),
+    userId: uuid("user_id").notNull().references(() => users.id, { onDelete: "cascade" }),
+    kind: text("kind").default("identity").notNull(),
+    provider: text("provider").notNull(),
+    idempotencyHash: text("idempotency_hash").notNull(),
+    providerIdempotencyKey: text("provider_idempotency_key").notNull(),
+    status: text("status").default("initiating").notNull(),
+    providerReference: text("provider_reference"),
+    attemptId: uuid("attempt_id").references(() => verificationAttempts.id, { onDelete: "set null" }),
+    attempts: integer("attempts").default(0).notNull(),
+    availableAt: timestamptz("available_at").defaultNow().notNull(),
+    lastError: text("last_error"),
+    createdAt: createdAt(),
+    updatedAt: updatedAt(),
+  },
+  (table) => [
+    unique("identity_session_intents_idempotency_unique").on(
+      table.userId,
+      table.kind,
+      table.idempotencyHash,
+    ),
+    index("identity_session_intents_recovery_idx").on(table.status, table.availableAt),
+    index("identity_session_intents_attempt_idx").on(table.attemptId),
+    check("identity_session_intents_kind_check", sql`${table.kind} = 'identity'`),
+    check(
+      "identity_session_intents_status_check",
+      sql`${table.status} IN ('initiating', 'bound', 'compensation_pending', 'compensated', 'failed')`,
     ),
   ],
 );

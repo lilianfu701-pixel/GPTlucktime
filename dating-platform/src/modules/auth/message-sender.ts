@@ -1,5 +1,6 @@
 export const NOTIFICATION_PROVIDER_UNAVAILABLE = "NOTIFICATION_PROVIDER_UNAVAILABLE";
 export const NOTIFICATION_DELIVERY_FAILED = "NOTIFICATION_DELIVERY_FAILED";
+export const NOTIFICATION_OUTBOX_UNAVAILABLE = "NOTIFICATION_OUTBOX_UNAVAILABLE";
 
 export class NotificationNotConfiguredError extends Error {
   readonly code = NOTIFICATION_PROVIDER_UNAVAILABLE;
@@ -22,12 +23,16 @@ export class NotificationDeliveryError extends Error {
 export type EmailVerificationMessage = { to: string; verificationUrl: string };
 export type PasswordResetMessage = { to: string; resetUrl: string };
 export type SmsOtpMessage = { to: string; code: string };
+export type DeliveryContext = { deliveryKey: string };
+export type EnqueueEmailVerificationMessage = EmailVerificationMessage & { validUntil: Date };
+export type EnqueuePasswordResetMessage = PasswordResetMessage & { validUntil: Date };
+export type EnqueueSmsOtpMessage = SmsOtpMessage & { validUntil: Date };
 
 export interface MessageSender {
   assertAvailable(channel: "email" | "sms"): void;
-  sendEmailVerification(message: EmailVerificationMessage): Promise<void>;
-  sendPasswordReset(message: PasswordResetMessage): Promise<void>;
-  sendSmsOtp(message: SmsOtpMessage): Promise<void>;
+  sendEmailVerification(message: EmailVerificationMessage, context: DeliveryContext): Promise<void>;
+  sendPasswordReset(message: PasswordResetMessage, context: DeliveryContext): Promise<void>;
+  sendSmsOtp(message: SmsOtpMessage, context: DeliveryContext): Promise<void>;
 }
 
 type WebhookProvider = { endpoint: string; token: string };
@@ -52,22 +57,23 @@ export class HttpMessageSender implements MessageSender {
     this.fetch = options.fetch ?? globalThis.fetch;
   }
 
-  sendEmailVerification(message: EmailVerificationMessage): Promise<void> {
-    return this.send("email", this.options.email, message);
+  sendEmailVerification(message: EmailVerificationMessage, context: DeliveryContext): Promise<void> {
+    return this.send("email", this.options.email, message, context);
   }
 
   assertAvailable(channel: "email" | "sms"): void {
     if (!this.options[channel]) throw new NotificationNotConfiguredError(channel);
   }
 
-  sendSmsOtp(message: SmsOtpMessage): Promise<void> {
-    return this.send("sms", this.options.sms, message);
+  sendSmsOtp(message: SmsOtpMessage, context: DeliveryContext): Promise<void> {
+    return this.send("sms", this.options.sms, message, context);
   }
 
   private async send(
     channel: "email" | "sms",
     provider: WebhookProvider | undefined,
     payload: EmailVerificationMessage | PasswordResetMessage | SmsOtpMessage,
+    context: DeliveryContext,
   ): Promise<void> {
     if (!provider) throw new NotificationNotConfiguredError(channel);
 
@@ -77,6 +83,7 @@ export class HttpMessageSender implements MessageSender {
         headers: {
           authorization: `Bearer ${provider.token}`,
           "content-type": "application/json",
+          "idempotency-key": context.deliveryKey,
         },
         body: JSON.stringify({ channel, ...payload }),
         signal: AbortSignal.timeout(10_000),
@@ -88,8 +95,8 @@ export class HttpMessageSender implements MessageSender {
     }
   }
 
-  sendPasswordReset(message: PasswordResetMessage): Promise<void> {
-    return this.send("email", this.options.email, message);
+  sendPasswordReset(message: PasswordResetMessage, context: DeliveryContext): Promise<void> {
+    return this.send("email", this.options.email, message, context);
   }
 }
 
@@ -100,21 +107,25 @@ export class InMemoryMessageSender implements MessageSender {
 
   assertAvailable(): void {}
 
-  async sendEmailVerification(message: EmailVerificationMessage): Promise<void> {
+  async sendEmailVerification(message: EmailVerificationMessage, context: DeliveryContext): Promise<void> {
+    void context;
     this.emails.push(message);
   }
 
-  async sendPasswordReset(message: PasswordResetMessage): Promise<void> {
+  async sendPasswordReset(message: PasswordResetMessage, context: DeliveryContext): Promise<void> {
+    void context;
     this.passwordResets.push(message);
   }
 
-  async sendSmsOtp(message: SmsOtpMessage): Promise<void> {
+  async sendSmsOtp(message: SmsOtpMessage, context: DeliveryContext): Promise<void> {
+    void context;
     this.sms.push(message);
   }
 }
 
 export interface MessageDispatcher {
-  enqueueEmailVerification(message: EmailVerificationMessage): Promise<void>;
-  enqueuePasswordReset(message: PasswordResetMessage): Promise<void>;
-  enqueueSmsOtp(message: SmsOtpMessage): Promise<void>;
+  assertHealthy(): Promise<void>;
+  enqueueEmailVerification(message: EnqueueEmailVerificationMessage): Promise<void>;
+  enqueuePasswordReset(message: EnqueuePasswordResetMessage): Promise<void>;
+  enqueueSmsOtp(message: EnqueueSmsOtpMessage): Promise<void>;
 }

@@ -1,19 +1,27 @@
 // @vitest-environment node
 
 import { PGlite } from "@electric-sql/pglite";
+import { eq } from "drizzle-orm";
 import { drizzle } from "drizzle-orm/pglite";
 import { migrate } from "drizzle-orm/pglite/migrator";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
 import * as schema from "@/db/schema";
+import { EncryptionKeyRing, StableHmac } from "@/modules/auth/auth-crypto";
 import {
   DurableNotificationDispatcher,
+  cleanupNotificationOutbox,
   drainNotificationOutbox,
 } from "@/modules/auth/notification-outbox";
-import { InMemoryMessageSender, NotificationDeliveryError } from "@/modules/auth/message-sender";
+import {
+  InMemoryMessageSender,
+  NotificationDeliveryError,
+  type DeliveryContext,
+  type SmsOtpMessage,
+} from "@/modules/auth/message-sender";
 
-const EMAIL_KEY = Buffer.alloc(32, 7).toString("base64");
-const SMS_KEY = Buffer.alloc(32, 8).toString("base64");
+const key = (id: string, byte: number) => ({ id, key: Buffer.alloc(32, byte).toString("base64") });
+const deliveryHmac = new StableHmac("stable-delivery-hmac-key-at-least-32-characters");
 
 describe("durable auth notification outbox", () => {
   let client: PGlite;
@@ -27,66 +35,140 @@ describe("durable auth notification outbox", () => {
 
   afterEach(async () => client.close());
 
-  it("persists encrypted, idempotent work and drains it after a dispatcher restart", async () => {
-    const first = new DurableNotificationDispatcher(database, {
-      emailEncryptionKey: EMAIL_KEY,
-      smsEncryptionKey: SMS_KEY,
-    });
+  const outbox = (keys = [key("current", 7)]) => new DurableNotificationDispatcher(
+    database,
+    new EncryptionKeyRing(keys),
+    deliveryHmac,
+  );
+
+  it("reads old-key work after rotation and writes new work with the active key", async () => {
+    const validUntil = new Date(Date.now() + 60_000);
+    const old = outbox([key("old", 6)]);
     const message = {
       to: "private@example.test",
       verificationUrl: "https://app.example.test/verify?token=top-secret",
+      validUntil,
     };
-    await first.enqueueEmailVerification(message);
-    await first.enqueueEmailVerification(message);
+    await old.enqueueEmailVerification(message);
+    await old.enqueueEmailVerification(message);
 
     const [stored] = await database.select().from(schema.authNotificationDeliveries);
     expect(await database.select().from(schema.authNotificationDeliveries)).toHaveLength(1);
+    expect(stored.encryptionKeyId).toBe("old");
     expect(JSON.stringify(stored)).not.toContain(message.to);
     expect(JSON.stringify(stored)).not.toContain("top-secret");
-    await database.update(schema.authNotificationDeliveries).set({
-      status: "processing",
-      updatedAt: new Date(0),
-    });
 
-    const restarted = new DurableNotificationDispatcher(database, {
-      emailEncryptionKey: EMAIL_KEY,
-      smsEncryptionKey: SMS_KEY,
-    });
+    const rotated = outbox([key("current", 7), key("old", 6)]);
     const sender = new InMemoryMessageSender();
-    await drainNotificationOutbox({ outbox: restarted, sender, processingLeaseMs: 1 });
+    await drainNotificationOutbox({ outbox: rotated, sender });
+    expect(sender.emails).toEqual([{ to: message.to, verificationUrl: message.verificationUrl }]);
 
-    expect(sender.emails).toEqual([message]);
-    const [sent] = await database.select().from(schema.authNotificationDeliveries);
-    expect(sent.status).toBe("sent");
-    expect(sent.recipientEncrypted).toBeNull();
-    expect(sent.payloadEncrypted).toBeNull();
+    await rotated.enqueuePasswordReset({
+      to: "second@example.test",
+      resetUrl: "https://app.example.test/reset?token=second",
+      validUntil,
+    });
+    const rows = await database.select().from(schema.authNotificationDeliveries);
+    expect(rows.find(({ kind }) => kind === "password_reset")?.encryptionKeyId).toBe("current");
   });
 
-  it("retries transient failures and clears secrets on final failure", async () => {
-    const outbox = new DurableNotificationDispatcher(database, {
-      emailEncryptionKey: EMAIL_KEY,
-      smsEncryptionKey: SMS_KEY,
-    });
-    await outbox.enqueueSmsOtp({ to: "+14155550123", code: "123456" });
+  it("does not send a credential at or after its exact validity boundary", async () => {
+    const now = new Date(Date.now() + 1_000);
+    const dispatcher = outbox();
+    await dispatcher.enqueueSmsOtp({ to: "+14155550123", code: "123456", validUntil: now });
     const sender = new InMemoryMessageSender();
-    vi.spyOn(sender, "sendSmsOtp").mockRejectedValue(new NotificationDeliveryError());
+    await drainNotificationOutbox({ outbox: dispatcher, sender, clock: () => now });
+    expect(sender.sms).toHaveLength(0);
+    const [row] = await database.select().from(schema.authNotificationDeliveries);
+    expect(row).toMatchObject({ status: "expired", recipientEncrypted: null, payloadEncrypted: null });
+  });
 
-    const firstAttemptAt = new Date(Date.now() + 1_000);
-    await drainNotificationOutbox({ outbox, sender, maxAttempts: 2, now: firstAttemptAt });
-    let [row] = await database.select().from(schema.authNotificationDeliveries);
-    expect(row).toMatchObject({ status: "pending", attempts: 1, lastError: "NOTIFICATION_DELIVERY_FAILED" });
-    expect(row.recipientEncrypted).not.toBeNull();
-
-    await drainNotificationOutbox({
-      outbox,
-      sender,
-      maxAttempts: 2,
-      now: new Date(firstAttemptAt.getTime() + 3_000),
+  it("uses lease CAS so an expired old worker cannot overwrite a newer worker", async () => {
+    const start = new Date(Date.now() + 1_000);
+    const dispatcher = outbox();
+    await dispatcher.enqueueSmsOtp({
+      to: "+14155550123",
+      code: "123456",
+      validUntil: new Date(start.getTime() + 60_000),
     });
-    [row] = await database.select().from(schema.authNotificationDeliveries);
-    expect(row).toMatchObject({ status: "failed", attempts: 2, lastError: "NOTIFICATION_DELIVERY_FAILED" });
-    expect(row.recipientEncrypted).toBeNull();
-    expect(row.payloadEncrypted).toBeNull();
-    expect(JSON.stringify(row)).not.toContain("123456");
+    let releaseFirst!: () => void;
+    const firstBlocked = new Promise<void>((resolve) => { releaseFirst = resolve; });
+    const deliveryKeys: string[] = [];
+    const firstSender = new InMemoryMessageSender();
+    vi.spyOn(firstSender, "sendSmsOtp").mockImplementation(async (_message, context) => {
+      deliveryKeys.push(context.deliveryKey);
+      await firstBlocked;
+      throw new NotificationDeliveryError();
+    });
+    const firstDrain = drainNotificationOutbox({
+      outbox: dispatcher,
+      sender: firstSender,
+      leaseMs: 1_000,
+      clock: () => start,
+    });
+    await vi.waitFor(async () => {
+      const [row] = await database.select().from(schema.authNotificationDeliveries);
+      expect(row.status).toBe("processing");
+    });
+
+    const secondSender = new InMemoryMessageSender();
+    vi.spyOn(secondSender, "sendSmsOtp").mockImplementation(async (message, context) => {
+      deliveryKeys.push(context.deliveryKey);
+      secondSender.sms.push(message);
+    });
+    await drainNotificationOutbox({
+      outbox: dispatcher,
+      sender: secondSender,
+      leaseMs: 1_000,
+      clock: () => new Date(start.getTime() + 1_001),
+    });
+    releaseFirst();
+    await firstDrain;
+
+    const [row] = await database.select().from(schema.authNotificationDeliveries);
+    expect(row).toMatchObject({ status: "sent", attempts: 1, leaseId: null, leaseExpiresAt: null });
+    expect(deliveryKeys).toHaveLength(2);
+    expect(new Set(deliveryKeys).size).toBe(1);
+  });
+
+  it("retries an ambiguous provider failure with the same delivery idempotency key", async () => {
+    const dispatcher = outbox();
+    await dispatcher.enqueueSmsOtp({
+      to: "+14155550124",
+      code: "654321",
+      validUntil: new Date(Date.now() + 60_000),
+    });
+    const keys: string[] = [];
+    const sender = new InMemoryMessageSender();
+    vi.spyOn(sender, "sendSmsOtp")
+      .mockImplementationOnce(async (_message: SmsOtpMessage, context: DeliveryContext) => {
+        keys.push(context.deliveryKey);
+        throw new NotificationDeliveryError();
+      })
+      .mockImplementationOnce(async (message: SmsOtpMessage, context: DeliveryContext) => {
+        keys.push(context.deliveryKey);
+        sender.sms.push(message);
+      });
+
+    const firstAt = new Date(Date.now() + 1_000);
+    await drainNotificationOutbox({ outbox: dispatcher, sender, clock: () => firstAt });
+    await drainNotificationOutbox({
+      outbox: dispatcher,
+      sender,
+      clock: () => new Date(firstAt.getTime() + 3_000),
+    });
+    expect(keys).toHaveLength(2);
+    expect(keys[0]).toBe(keys[1]);
+  });
+
+  it("cleans terminal delivery metadata after the retention window", async () => {
+    const dispatcher = outbox();
+    const now = new Date(Date.now() + 1_000);
+    await dispatcher.enqueueSmsOtp({ to: "+14155550125", code: "111111", validUntil: now });
+    await drainNotificationOutbox({ outbox: dispatcher, sender: new InMemoryMessageSender(), clock: () => now });
+    await database.update(schema.authNotificationDeliveries).set({ updatedAt: new Date(0) });
+    await expect(cleanupNotificationOutbox(database, now, 1_000)).resolves.toBe(1);
+    expect(await database.select().from(schema.authNotificationDeliveries)
+      .where(eq(schema.authNotificationDeliveries.status, "expired"))).toHaveLength(0);
   });
 });

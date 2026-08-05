@@ -1,6 +1,6 @@
 {
-  "id": "680baba4-2465-4bd9-b8fe-44def9392c3f",
-  "prevId": "c05bfb43-db34-4a97-a2d5-cf899bb61855",
+  "id": "e44850b4-0095-4426-a047-e856fd266310",
+  "prevId": "84565b71-d435-4a97-b83d-c66f5ee25705",
   "version": "7",
   "dialect": "postgresql",
   "tables": {
@@ -172,6 +172,12 @@
           "primaryKey": false,
           "notNull": false
         },
+        "encryption_key_id": {
+          "name": "encryption_key_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
         "status": {
           "name": "status",
           "type": "text",
@@ -202,6 +208,18 @@
         "last_error": {
           "name": "last_error",
           "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "lease_id": {
+          "name": "lease_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "lease_expires_at": {
+          "name": "lease_expires_at",
+          "type": "timestamp with time zone",
           "primaryKey": false,
           "notNull": false
         },
@@ -257,11 +275,59 @@
           "method": "btree",
           "with": {}
         },
+        "auth_notification_due_lease_idx": {
+          "name": "auth_notification_due_lease_idx",
+          "columns": [
+            {
+              "expression": "status",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "available_at",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "lease_expires_at",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
         "auth_notification_expiry_idx": {
           "name": "auth_notification_expiry_idx",
           "columns": [
             {
               "expression": "expires_at",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "auth_notification_retention_idx": {
+          "name": "auth_notification_retention_idx",
+          "columns": [
+            {
+              "expression": "status",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "updated_at",
               "isExpression": false,
               "asc": true,
               "nulls": "last"
@@ -280,7 +346,7 @@
       "checkConstraints": {
         "auth_notification_kind_check": {
           "name": "auth_notification_kind_check",
-          "value": "\"auth_notification_deliveries\".\"kind\" in ('email_verification', 'sms_otp')"
+          "value": "\"auth_notification_deliveries\".\"kind\" in ('email_verification', 'password_reset', 'sms_otp')"
         },
         "auth_notification_status_check": {
           "name": "auth_notification_status_check",

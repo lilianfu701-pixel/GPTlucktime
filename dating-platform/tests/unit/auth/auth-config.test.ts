@@ -3,6 +3,7 @@ import { describe, expect, it, vi } from "vitest";
 vi.mock("server-only", () => ({}));
 
 import { createAuthConfiguration } from "@/modules/auth/auth-config";
+import { AUTH_CREDENTIAL_TTL_SECONDS } from "@/modules/auth/auth-credentials";
 import { InMemoryMessageSender } from "@/modules/auth/message-sender";
 
 describe("Better Auth configuration", () => {
@@ -10,7 +11,7 @@ describe("Better Auth configuration", () => {
     const configuration = createAuthConfiguration({
       database: (() => ({ id: "test" })) as never,
       sender: new InMemoryMessageSender(),
-      dispatcher: { enqueueEmailVerification: vi.fn(), enqueuePasswordReset: vi.fn(), enqueueSmsOtp: vi.fn() },
+      dispatcher: { assertHealthy: vi.fn(), enqueueEmailVerification: vi.fn(), enqueuePasswordReset: vi.fn(), enqueueSmsOtp: vi.fn() },
       secret: "a-secure-test-secret-with-32-characters",
       baseURL: "https://dating.example.test",
       secureCookies: true,
@@ -21,10 +22,12 @@ describe("Better Auth configuration", () => {
     expect(configuration.emailAndPassword).toMatchObject({
       enabled: true,
       requireEmailVerification: true,
+      resetPasswordTokenExpiresIn: AUTH_CREDENTIAL_TTL_SECONDS.passwordReset,
     });
     expect(configuration.emailVerification).toMatchObject({
       sendOnSignUp: true,
       sendOnSignIn: true,
+      expiresIn: AUTH_CREDENTIAL_TTL_SECONDS.emailVerification,
     });
     expect(configuration.session).toMatchObject({ expiresIn: 604_800, updateAge: 86_400 });
     expect(configuration.plugins?.map((plugin) => plugin.id)).toEqual([
@@ -33,6 +36,7 @@ describe("Better Auth configuration", () => {
     ]);
     const twoFactorPlugin = configuration.plugins?.find(({ id }) => id === "two-factor");
     const phonePlugin = configuration.plugins?.find(({ id }) => id === "phone-number");
+    expect(phonePlugin?.options).toMatchObject({ expiresIn: AUTH_CREDENTIAL_TTL_SECONDS.phoneOtp });
     expect(Object.keys(twoFactorPlugin?.endpoints ?? {})).toEqual(expect.arrayContaining([
       "enableTwoFactor",
       "verifyTOTP",
@@ -51,7 +55,7 @@ describe("Better Auth configuration", () => {
     const configuration = createAuthConfiguration({
       database: (() => ({ id: "test" })) as never,
       sender,
-      dispatcher: { enqueueEmailVerification, enqueuePasswordReset: vi.fn(), enqueueSmsOtp: vi.fn() },
+      dispatcher: { assertHealthy: vi.fn(), enqueueEmailVerification, enqueuePasswordReset: vi.fn(), enqueueSmsOtp: vi.fn() },
       secret: "a-secure-test-secret-with-32-characters",
       baseURL: "https://dating.example.test",
       secureCookies: true,
@@ -66,7 +70,13 @@ describe("Better Auth configuration", () => {
     expect(enqueueEmailVerification).toHaveBeenCalledWith({
       to: "user@example.test",
       verificationUrl: "https://dating.example.test/verify",
+      validUntil: expect.any(Date),
     });
+    const queued = enqueueEmailVerification.mock.calls[0]?.[0];
+    expect(queued.validUntil.getTime() - Date.now())
+      .toBeGreaterThanOrEqual(AUTH_CREDENTIAL_TTL_SECONDS.emailVerification * 1_000 - 100);
+    expect(queued.validUntil.getTime() - Date.now())
+      .toBeLessThanOrEqual(AUTH_CREDENTIAL_TTL_SECONDS.emailVerification * 1_000);
     expect(sender.emails).toHaveLength(0);
   });
 });

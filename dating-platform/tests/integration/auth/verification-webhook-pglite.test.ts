@@ -66,6 +66,8 @@ describe("identity verification webhook PostgreSQL integration", () => {
       kind: "identity",
       provider,
       providerReference: "duplicate-reference",
+      redirectUrlEncrypted: "encrypted-redirect",
+      redirectEncryptionKeyId: "old-key",
       status: "pending",
       expiresAt: new Date(Date.now() + 60_000),
     });
@@ -81,6 +83,8 @@ describe("identity verification webhook PostgreSQL integration", () => {
     expect(await database.select().from(schema.verificationWebhookEvents)).toHaveLength(1);
     const [attempt] = await database.select().from(schema.verificationAttempts);
     expect(attempt.status).toBe("approved");
+    expect(attempt.redirectUrlEncrypted).toBeNull();
+    expect(attempt.redirectEncryptionKeyId).toBeNull();
   });
 
   it("rolls back an event that arrives before its attempt and applies the retry", async () => {

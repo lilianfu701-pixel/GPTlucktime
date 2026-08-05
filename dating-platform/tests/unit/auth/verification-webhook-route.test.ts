@@ -18,7 +18,8 @@ describe("verification webhook route", () => {
     vi.stubEnv("IDENTITY_VERIFICATION_API_KEY", "identity-api-key-at-least-32-characters");
     vi.stubEnv("IDENTITY_VERIFICATION_WEBHOOK_SECRET", "webhook-test-secret-at-least-32-chars");
     vi.stubEnv("IDENTITY_REDIRECT_ORIGINS", "https://identity.example.test");
-    vi.stubEnv("IDENTITY_PAYLOAD_ENCRYPTION_KEY", Buffer.alloc(32, 6).toString("base64"));
+    vi.stubEnv("AUTH_ENCRYPTION_KEYS", `current:${Buffer.alloc(32, 6).toString("base64")}`);
+    vi.stubEnv("IDENTITY_IDEMPOTENCY_HMAC_KEY", "identity-idempotency-hmac-at-least-32-chars");
     const { POST } = await import(
       "@/app/api/v1/webhooks/verification/[provider]/route"
     );

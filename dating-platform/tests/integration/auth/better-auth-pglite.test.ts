@@ -8,7 +8,7 @@ import { drizzleAdapter } from "better-auth/adapters/drizzle";
 import { betterAuth } from "better-auth/minimal";
 
 import * as schema from "@/db/schema";
-import { createAuthConfiguration } from "@/modules/auth/auth-config";
+import { createAuthConfiguration, PHONE_LOGIN_NOT_ENABLED } from "@/modules/auth/auth-config";
 import {
   HttpMessageSender,
   InMemoryMessageSender,
@@ -43,7 +43,7 @@ describe("Better Auth PostgreSQL integration", () => {
   it("fails signup before writing auth rows when email delivery is unavailable", async () => {
     const { auth, client, database } = await createTestAuth(
       new HttpMessageSender({}),
-      { enqueueEmailVerification: async () => undefined, enqueuePasswordReset: async () => undefined, enqueueSmsOtp: async () => undefined },
+      { assertHealthy: async () => undefined, enqueueEmailVerification: async () => undefined, enqueuePasswordReset: async () => undefined, enqueueSmsOtp: async () => undefined },
     );
 
     try {
@@ -71,10 +71,38 @@ describe("Better Auth PostgreSQL integration", () => {
     }
   });
 
+  it("does not commit signup when durable outbox enqueue fails", async () => {
+    const { auth, client, database } = await createTestAuth(
+      new InMemoryMessageSender(),
+      {
+        assertHealthy: async () => { throw new Error("OUTBOX_UNAVAILABLE"); },
+        enqueueEmailVerification: async () => { throw new Error("OUTBOX_UNAVAILABLE"); },
+        enqueuePasswordReset: async () => { throw new Error("OUTBOX_UNAVAILABLE"); },
+        enqueueSmsOtp: async () => { throw new Error("OUTBOX_UNAVAILABLE"); },
+      },
+    );
+    try {
+      const response = await auth.handler(new Request("http://localhost:3000/api/auth/sign-up/email", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({
+          email: "outbox-failure@example.test",
+          password: "strong-test-password",
+          name: "Outbox Failure",
+        }),
+      }));
+      expect(response.status).toBe(503);
+      expect(await database.select().from(schema.users)).toHaveLength(0);
+      expect(await database.select().from(schema.accounts)).toHaveLength(0);
+    } finally {
+      await client.close();
+    }
+  });
+
   it("returns the same provider-unavailable response for every verification email", async () => {
     const { auth, client, database } = await createTestAuth(
       new HttpMessageSender({}),
-      { enqueueEmailVerification: async () => undefined, enqueuePasswordReset: async () => undefined, enqueueSmsOtp: async () => undefined },
+      { assertHealthy: async () => undefined, enqueueEmailVerification: async () => undefined, enqueuePasswordReset: async () => undefined, enqueueSmsOtp: async () => undefined },
     );
     await database.insert(schema.users).values([
       { email: "unverified-existing@example.test", name: "Unverified" },
@@ -108,7 +136,7 @@ describe("Better Auth PostgreSQL integration", () => {
   it("returns the same provider-unavailable response for every password reset email", async () => {
     const { auth, client, database } = await createTestAuth(
       new HttpMessageSender({}),
-      { enqueueEmailVerification: async () => undefined, enqueuePasswordReset: async () => undefined, enqueueSmsOtp: async () => undefined },
+      { assertHealthy: async () => undefined, enqueueEmailVerification: async () => undefined, enqueuePasswordReset: async () => undefined, enqueueSmsOtp: async () => undefined },
     );
     await database.insert(schema.users).values({
       email: "reset-existing@example.test",
@@ -138,18 +166,56 @@ describe("Better Auth PostgreSQL integration", () => {
     }
   });
 
+  it.each([
+    ["/sign-in/phone-number", (phoneNumber: string) => ({ phoneNumber, password: "arbitrary-password" })],
+    ["/phone-number/request-password-reset", (phoneNumber: string) => ({ phoneNumber })],
+  ])("rejects disabled phone credential path %s before account lookup or SMS", async (path, body) => {
+    const sender = new InMemoryMessageSender();
+    const { auth, client, database } = await createTestAuth(sender, {
+      assertHealthy: async () => undefined,
+      enqueueEmailVerification: async () => undefined,
+      enqueuePasswordReset: async () => undefined,
+      enqueueSmsOtp: async (message) => sender.sendSmsOtp(message, { deliveryKey: "test-phone-disabled" }),
+    });
+    await database.insert(schema.users).values([
+      { email: "phone-verified@example.test", name: "Verified", phoneNumber: "+14155550101", phoneNumberVerified: true },
+      { email: "phone-unverified@example.test", name: "Unverified", phoneNumber: "+14155550102", phoneNumberVerified: false },
+    ]);
+    try {
+      const responses = await Promise.all([
+        "+14155550101",
+        "+14155550102",
+        "+14155550103",
+      ].map((phoneNumber) => auth.handler(new Request(`http://localhost:3000/api/auth${path}`, {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify(body(phoneNumber)),
+      }))));
+      expect(responses.map(({ status }) => status)).toEqual([403, 403, 403]);
+      const bodies = await Promise.all(responses.map((response) => response.json()));
+      expect(bodies).toEqual(Array(3).fill({
+        code: PHONE_LOGIN_NOT_ENABLED,
+        message: PHONE_LOGIN_NOT_ENABLED,
+      }));
+      expect(sender.sms).toHaveLength(0);
+    } finally {
+      await client.close();
+    }
+  });
+
   it("registers a credential account and session in plural tables with UUID ids", async () => {
     const sender = new InMemoryMessageSender();
     const jobs: Array<() => Promise<void>> = [];
     const { auth, client, database } = await createTestAuth(sender, {
+      assertHealthy: async () => undefined,
       enqueueEmailVerification: async (message) => {
-        jobs.push(() => sender.sendEmailVerification(message));
+        jobs.push(() => sender.sendEmailVerification(message, { deliveryKey: "test-email" }));
       },
       enqueuePasswordReset: async (message) => {
-        jobs.push(() => sender.sendPasswordReset(message));
+        jobs.push(() => sender.sendPasswordReset(message, { deliveryKey: "test-reset" }));
       },
       enqueueSmsOtp: async (message) => {
-        jobs.push(() => sender.sendSmsOtp(message));
+        jobs.push(() => sender.sendSmsOtp(message, { deliveryKey: "test-sms" }));
       },
     });
     const email = "pglite-user@example.test";

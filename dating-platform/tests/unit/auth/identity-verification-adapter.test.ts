@@ -1,6 +1,6 @@
 import { createHmac } from "node:crypto";
 
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 
 import {
   InMemoryIdentityVerificationAdapter,
@@ -42,7 +42,7 @@ describe("identity verification", () => {
 
   it("creates and resolves hosted sessions in memory", async () => {
     const adapter = new InMemoryIdentityVerificationAdapter();
-    const session = await adapter.createSession({ userId: crypto.randomUUID() });
+    const session = await adapter.createSession({ userId: crypto.randomUUID(), idempotencyKey: "memory-key-123" });
 
     expect(session.providerReference).toMatch(/^test_/);
     await expect(adapter.getResult(session.providerReference)).resolves.toEqual({ status: "pending" });
@@ -55,7 +55,7 @@ describe("identity verification", () => {
     "https://user@identity.example.test/session",
     "https://identity.example.test:444/session",
   ])("rejects an untrusted hosted redirect %s", async (redirectUrl) => {
-    await expect(hostedAdapter({ redirectUrl }).createSession({ userId: crypto.randomUUID() }))
+    await expect(hostedAdapter({ redirectUrl }).createSession({ userId: crypto.randomUUID(), idempotencyKey: "redirect-key-123" }))
       .rejects.toThrow("IDENTITY_PROVIDER_FAILED");
   });
 
@@ -64,14 +64,32 @@ describe("identity verification", () => {
     new Date(Date.now() - 1_000).toISOString(),
     new Date(Date.now() + 31 * 60_000).toISOString(),
   ])("rejects invalid hosted expiry %s", async (expiresAt) => {
-    await expect(hostedAdapter({ expiresAt }).createSession({ userId: crypto.randomUUID() }))
+    await expect(hostedAdapter({ expiresAt }).createSession({ userId: crypto.randomUUID(), idempotencyKey: "expiry-key-123" }))
       .rejects.toThrow("IDENTITY_PROVIDER_FAILED");
   });
 
   it("rejects an oversized provider reference", async () => {
     await expect(hostedAdapter({ providerReference: "r".repeat(501) })
-      .createSession({ userId: crypto.randomUUID() }))
+      .createSession({ userId: crypto.randomUUID(), idempotencyKey: "reference-key-123" }))
       .rejects.toThrow("IDENTITY_PROVIDER_FAILED");
+  });
+
+  it("sends the stable provider idempotency key in both header and body", async () => {
+    const fetch = vi.fn<typeof globalThis.fetch>().mockResolvedValue(vendorResponse());
+    const adapter = new HttpsIdentityVerificationAdapter({
+      endpoint: "https://identity.example.test",
+      apiKey: "vendor-key",
+      redirectOrigins: ["https://identity.example.test"],
+    }, fetch);
+    const userId = crypto.randomUUID();
+    await adapter.createSession({ userId, idempotencyKey: "provider-stable-key" });
+    expect(fetch).toHaveBeenCalledWith(
+      "https://identity.example.test/sessions",
+      expect.objectContaining({
+        headers: expect.objectContaining({ "idempotency-key": "provider-stable-key" }),
+        body: JSON.stringify({ userId, idempotencyKey: "provider-stable-key" }),
+      }),
+    );
   });
 
   it("handles duplicate events once and prevents an expired attempt overwriting state", async () => {
@@ -112,7 +130,10 @@ describe("identity verification", () => {
       attemptStore: {
         findReusable: async () => { throw new Error("not called"); },
         availability: async () => { throw new Error("not called"); },
-        create: async () => { throw new Error("not called"); },
+        beginIntent: async () => { throw new Error("not called"); },
+        bindIntent: async () => { throw new Error("not called"); },
+        markCompensated: async () => { throw new Error("not called"); },
+        recordRetry: async () => { throw new Error("not called"); },
       },
       provider: "test",
     });
@@ -134,7 +155,10 @@ describe("identity verification", () => {
       attemptStore: {
         findReusable: async () => null,
         availability: async () => null,
-        create: async () => undefined,
+        beginIntent: async () => { throw new Error("not called"); },
+        bindIntent: async () => { throw new Error("not called"); },
+        markCompensated: async () => { throw new Error("not called"); },
+        recordRetry: async () => { throw new Error("not called"); },
       },
       provider: "test",
     });
@@ -154,7 +178,10 @@ describe("identity verification", () => {
       attemptStore: {
         findReusable: async () => null,
         availability: async () => null,
-        create: async () => undefined,
+        beginIntent: async () => { throw new Error("not called"); },
+        bindIntent: async () => { throw new Error("not called"); },
+        markCompensated: async () => { throw new Error("not called"); },
+        recordRetry: async () => { throw new Error("not called"); },
       },
       provider: "test",
     });

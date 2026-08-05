@@ -11,7 +11,7 @@ describe("message sender", () => {
     const sender = new HttpMessageSender({});
 
     await expect(
-      sender.sendSmsOtp({ to: "+12065550100", code: "123456" }),
+      sender.sendSmsOtp({ to: "+12065550100", code: "123456" }, { deliveryKey: "delivery-1" }),
     ).rejects.toEqual(new NotificationNotConfiguredError("sms"));
   });
 
@@ -19,7 +19,7 @@ describe("message sender", () => {
     const consoleSpy = vi.spyOn(console, "log").mockImplementation(() => undefined);
     const sender = new InMemoryMessageSender();
 
-    await sender.sendSmsOtp({ to: "+12065550100", code: "739104" });
+    await sender.sendSmsOtp({ to: "+12065550100", code: "739104" }, { deliveryKey: "delivery-2" });
 
     expect(sender.sms).toEqual([{ to: "+12065550100", code: "739104" }]);
     expect(consoleSpy).not.toHaveBeenCalled();
@@ -33,13 +33,16 @@ describe("message sender", () => {
       fetch,
     });
 
-    await sender.sendSmsOtp({ to: "+12065550100", code: "123456" });
+    await sender.sendSmsOtp({ to: "+12065550100", code: "123456" }, { deliveryKey: "stable-delivery-key" });
 
     expect(fetch).toHaveBeenCalledWith(
       "https://notify.example.test/sms",
       expect.objectContaining({
         method: "POST",
-        headers: expect.objectContaining({ authorization: "Bearer provider-token" }),
+        headers: expect.objectContaining({
+          authorization: "Bearer provider-token",
+          "idempotency-key": "stable-delivery-key",
+        }),
       }),
     );
   });

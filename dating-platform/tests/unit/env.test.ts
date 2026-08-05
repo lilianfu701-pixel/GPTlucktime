@@ -18,24 +18,45 @@ describe("readEnv", () => {
     expect(readEnv(validEnv)).toEqual(validEnv);
   });
 
+  it("accepts a server-only trusted ingress token", () => {
+    expect(readEnv({
+      ...validEnv,
+      AUTH_TRUSTED_PROXY_TOKEN: "trusted-ingress-token-at-least-32-characters",
+    }).AUTH_TRUSTED_PROXY_TOKEN).toBe("trusted-ingress-token-at-least-32-characters");
+  });
+
   it("accepts optional HTTPS notification and identity providers", () => {
     expect(readEnv({
       ...validEnv,
       EMAIL_WEBHOOK_URL: "https://notify.example.test/email",
       EMAIL_WEBHOOK_TOKEN: "email-token",
-      EMAIL_PAYLOAD_ENCRYPTION_KEY: encryptionKey,
       SMS_WEBHOOK_URL: "https://notify.example.test/sms",
       SMS_WEBHOOK_TOKEN: "sms-token",
-      SMS_PAYLOAD_ENCRYPTION_KEY: encryptionKey,
       SMS_ABUSE_HMAC_KEY: "sms-abuse-hmac-key-at-least-32-characters",
       SMS_ALLOWED_CALLING_CODES: "1,44",
+      AUTH_ENCRYPTION_KEYS: `current:${encryptionKey}`,
+      AUTH_DELIVERY_HMAC_KEY: "delivery-hmac-key-at-least-32-characters",
       IDENTITY_VERIFICATION_PROVIDER: "vendor",
       IDENTITY_VERIFICATION_URL: "https://identity.example.test",
       IDENTITY_VERIFICATION_API_KEY: "identity-key",
       IDENTITY_VERIFICATION_WEBHOOK_SECRET: "identity-webhook-secret-value-32",
       IDENTITY_REDIRECT_ORIGINS: "https://identity.example.test,https://identity.example.test:8443",
-      IDENTITY_PAYLOAD_ENCRYPTION_KEY: encryptionKey,
+      IDENTITY_IDEMPOTENCY_HMAC_KEY: "identity-idempotency-hmac-at-least-32-chars",
     })).toMatchObject({ IDENTITY_VERIFICATION_PROVIDER: "vendor" });
+  });
+
+  it("rejects duplicate encryption key ids", () => {
+    expect(() => readEnv({
+      ...validEnv,
+      AUTH_ENCRYPTION_KEYS: `duplicate:${encryptionKey},duplicate:${Buffer.alloc(32, 8).toString("base64")}`,
+    })).toThrow("AUTH_ENCRYPTION_KEY_ID_DUPLICATE");
+  });
+
+  it("rejects high-risk SMS configuration until a challenge verifier is wired", () => {
+    expect(() => readEnv({
+      ...validEnv,
+      SMS_HIGH_RISK_CALLING_CODES: "44",
+    })).toThrow("SMS high-risk destinations require challenge verification");
   });
 
   it.each(["EMAIL_WEBHOOK_URL", "SMS_WEBHOOK_URL", "IDENTITY_VERIFICATION_URL"] as const)(
