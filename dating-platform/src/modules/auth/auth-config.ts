@@ -1,7 +1,12 @@
 import type { BetterAuthOptions } from "better-auth";
+import { APIError, createAuthMiddleware } from "better-auth/api";
 import { phoneNumber, twoFactor } from "better-auth/plugins";
 
-import type { MessageDispatcher, MessageSender } from "./message-sender";
+import {
+  NOTIFICATION_PROVIDER_UNAVAILABLE,
+  type MessageDispatcher,
+  type MessageSender,
+} from "./message-sender";
 
 type AuthConfigurationInput = {
   database: BetterAuthOptions["database"];
@@ -27,12 +32,25 @@ export function createAuthConfiguration(input: AuthConfigurationInput): BetterAu
       sendOnSignIn: true,
       autoSignInAfterVerification: false,
       async sendVerificationEmail({ user, url }) {
-        input.sender.assertAvailable?.("email");
+        input.sender.assertAvailable("email");
         input.dispatcher.dispatch(() => input.sender.sendEmailVerification({
           to: user.email,
           verificationUrl: url,
         }));
       },
+    },
+    hooks: {
+      before: createAuthMiddleware(async (context) => {
+        if (context.path !== "/sign-up/email") return;
+        try {
+          input.sender.assertAvailable("email");
+        } catch {
+          throw new APIError("SERVICE_UNAVAILABLE", {
+            code: NOTIFICATION_PROVIDER_UNAVAILABLE,
+            message: NOTIFICATION_PROVIDER_UNAVAILABLE,
+          });
+        }
+      }),
     },
     session: {
       expiresIn: 7 * 24 * 60 * 60,
@@ -49,7 +67,7 @@ export function createAuthConfiguration(input: AuthConfigurationInput): BetterAu
       phoneNumber({
         requireVerification: true,
         sendOTP({ phoneNumber: to, code }) {
-          input.sender.assertAvailable?.("sms");
+          input.sender.assertAvailable("sms");
           input.dispatcher.dispatch(() => input.sender.sendSmsOtp({ to, code }));
         },
       }),

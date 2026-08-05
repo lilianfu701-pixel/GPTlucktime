@@ -23,7 +23,7 @@ export type EmailVerificationMessage = { to: string; verificationUrl: string };
 export type SmsOtpMessage = { to: string; code: string };
 
 export interface MessageSender {
-  assertAvailable?(channel: "email" | "sms"): void;
+  assertAvailable(channel: "email" | "sms"): void;
   sendEmailVerification(message: EmailVerificationMessage): Promise<void>;
   sendSmsOtp(message: SmsOtpMessage): Promise<void>;
 }
@@ -90,6 +90,8 @@ export class HttpMessageSender implements MessageSender {
 export class InMemoryMessageSender implements MessageSender {
   readonly emails: EmailVerificationMessage[] = [];
   readonly sms: SmsOtpMessage[] = [];
+
+  assertAvailable(): void {}
 
   async sendEmailVerification(message: EmailVerificationMessage): Promise<void> {
     this.emails.push(message);
