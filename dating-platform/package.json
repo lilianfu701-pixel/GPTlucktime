@@ -27,12 +27,14 @@
     "react": "19.2.8",
     "react-dom": "19.2.8",
     "redis": "^6.2.0",
+    "server-only": "^0.0.1",
     "socket.io": "^4.8.3",
     "socket.io-client": "^4.8.3",
     "stripe": "^22.4.0",
     "zod": "^4.4.3"
   },
   "devDependencies": {
+    "@electric-sql/pglite": "^0.5.4",
     "@playwright/test": "^1.62.1",
     "@tailwindcss/postcss": "^4",
     "@testing-library/jest-dom": "^7.0.0",

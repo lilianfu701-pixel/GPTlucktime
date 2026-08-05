@@ -1,6 +1,7 @@
 import {
   boolean,
   index,
+  integer,
   pgTable,
   text,
   timestamp,
@@ -18,6 +19,9 @@ export const users = pgTable("users", {
   name: text("name").notNull(),
   email: text("email").notNull().unique(),
   emailVerified: boolean("email_verified").default(false).notNull(),
+  phoneNumber: text("phone_number").unique(),
+  phoneNumberVerified: boolean("phone_number_verified").default(false).notNull(),
+  twoFactorEnabled: boolean("two_factor_enabled").default(false).notNull(),
   image: text("image"),
   createdAt: createdAt(),
   updatedAt: updatedAt(),
@@ -76,4 +80,23 @@ export const verifications = pgTable(
     updatedAt: updatedAt(),
   },
   (table) => [index("verifications_identifier_idx").on(table.identifier)],
+);
+
+export const twoFactors = pgTable(
+  "two_factors",
+  {
+    id: uuid("id").defaultRandom().primaryKey(),
+    secret: text("secret").notNull(),
+    backupCodes: text("backup_codes").notNull(),
+    userId: uuid("user_id")
+      .notNull()
+      .references(() => users.id, { onDelete: "cascade" }),
+    verified: boolean("verified").default(true).notNull(),
+    failedVerificationCount: integer("failed_verification_count").default(0).notNull(),
+    lockedUntil: timestamptz("locked_until"),
+  },
+  (table) => [
+    index("two_factors_secret_idx").on(table.secret),
+    index("two_factors_user_idx").on(table.userId),
+  ],
 );

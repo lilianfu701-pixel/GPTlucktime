@@ -16,6 +16,25 @@ describe("readEnv", () => {
     expect(readEnv(validEnv)).toEqual(validEnv);
   });
 
+  it("accepts optional HTTPS notification and identity providers", () => {
+    expect(readEnv({
+      ...validEnv,
+      EMAIL_WEBHOOK_URL: "https://notify.example.test/email",
+      EMAIL_WEBHOOK_TOKEN: "email-token",
+      SMS_WEBHOOK_URL: "https://notify.example.test/sms",
+      SMS_WEBHOOK_TOKEN: "sms-token",
+      IDENTITY_VERIFICATION_PROVIDER: "vendor",
+      IDENTITY_VERIFICATION_URL: "https://identity.example.test",
+      IDENTITY_VERIFICATION_API_KEY: "identity-key",
+      IDENTITY_VERIFICATION_WEBHOOK_SECRET: "identity-webhook-secret-value-32",
+    })).toMatchObject({ IDENTITY_VERIFICATION_PROVIDER: "vendor" });
+  });
+
+  it.each(["EMAIL_WEBHOOK_URL", "SMS_WEBHOOK_URL", "IDENTITY_VERIFICATION_URL"] as const)(
+    "requires HTTPS for optional provider endpoint %s",
+    (field) => expect(() => readEnv({ ...validEnv, [field]: "http://provider.test" })).toThrow(field),
+  );
+
   it("defaults NODE_ENV to development", () => {
     const withoutNodeEnv = Object.fromEntries(
       Object.entries(validEnv).filter(([field]) => field !== "NODE_ENV"),

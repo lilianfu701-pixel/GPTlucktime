@@ -12,6 +12,9 @@ const urlWithProtocols = (protocols: readonly string[], message: string) =>
       }
     }, message);
 
+const optionalValue = <T extends z.ZodType>(valueSchema: T) =>
+  z.preprocess((value) => value === "" ? undefined : value, valueSchema.optional());
+
 const schema = z
   .object({
     NODE_ENV: z.enum(["development", "test", "production"]).default("development"),
@@ -23,6 +26,17 @@ const schema = z
     BETTER_AUTH_SECRET: z.string().trim().min(32),
     BETTER_AUTH_URL: urlWithProtocols(["http:", "https:"], "BETTER_AUTH_URL must use http:// or https://"),
     APP_URL: urlWithProtocols(["http:", "https:"], "APP_URL must use http:// or https://"),
+    EMAIL_WEBHOOK_URL: optionalValue(urlWithProtocols(["https:"], "EMAIL_WEBHOOK_URL must use https://")),
+    EMAIL_WEBHOOK_TOKEN: optionalValue(z.string().min(1)),
+    SMS_WEBHOOK_URL: optionalValue(urlWithProtocols(["https:"], "SMS_WEBHOOK_URL must use https://")),
+    SMS_WEBHOOK_TOKEN: optionalValue(z.string().min(1)),
+    IDENTITY_VERIFICATION_PROVIDER: optionalValue(z.string().regex(/^[a-z0-9_-]{1,40}$/)),
+    IDENTITY_VERIFICATION_URL: optionalValue(urlWithProtocols(
+      ["https:"],
+      "IDENTITY_VERIFICATION_URL must use https://",
+    )),
+    IDENTITY_VERIFICATION_API_KEY: optionalValue(z.string().min(1)),
+    IDENTITY_VERIFICATION_WEBHOOK_SECRET: optionalValue(z.string().min(32)),
   })
   .superRefine((env, context) => {
     if (env.NODE_ENV !== "production") {

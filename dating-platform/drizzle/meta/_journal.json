@@ -8,6 +8,13 @@
       "when": 1785962737045,
       "tag": "0000_init_identity_profiles",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1785964199823,
+      "tag": "0001_auth_verification",
+      "breakpoints": true
     }
   ]
 }

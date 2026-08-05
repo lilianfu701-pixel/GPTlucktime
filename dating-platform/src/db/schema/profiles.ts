@@ -182,6 +182,7 @@ export const verificationAttempts = pgTable(
     id: uuid("id").defaultRandom().primaryKey(),
     userId: uuid("user_id").references(() => users.id, { onDelete: "set null" }),
     kind: text("kind").notNull(),
+    provider: text("provider"),
     providerReference: text("provider_reference"),
     status: text("status").default("pending").notNull(),
     expiresAt: timestamptz("expires_at").notNull(),
@@ -191,9 +192,37 @@ export const verificationAttempts = pgTable(
   (table) => [
     index("verification_attempts_user_idx").on(table.userId),
     index("verification_attempts_status_idx").on(table.status),
+    unique("verification_attempts_provider_reference_unique").on(
+      table.provider,
+      table.providerReference,
+    ),
     check(
       "verification_attempts_status_check",
       sql`${table.status} IN ('pending', 'approved', 'rejected', 'expired')`,
+    ),
+  ],
+);
+
+export const verificationWebhookEvents = pgTable(
+  "verification_webhook_events",
+  {
+    id: uuid("id").defaultRandom().primaryKey(),
+    provider: text("provider").notNull(),
+    eventId: text("event_id").notNull(),
+    attemptId: uuid("attempt_id").references(() => verificationAttempts.id, {
+      onDelete: "set null",
+    }),
+    providerReference: text("provider_reference").notNull(),
+    receivedAt: timestamptz("received_at").defaultNow().notNull(),
+  },
+  (table) => [
+    unique("verification_webhook_events_provider_event_unique").on(
+      table.provider,
+      table.eventId,
+    ),
+    index("verification_webhook_events_reference_idx").on(
+      table.provider,
+      table.providerReference,
     ),
   ],
 );
