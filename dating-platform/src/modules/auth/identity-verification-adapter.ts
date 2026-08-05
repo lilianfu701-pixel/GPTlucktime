@@ -6,6 +6,10 @@ import {
   type VerificationPolicyInput,
   type VerificationRequestContext,
 } from "./verification-policy";
+import {
+  IdentityAttemptConflictError,
+  type DrizzleIdentityAttemptStore,
+} from "./identity-attempt-store";
 
 export const IDENTITY_PROVIDER_UNAVAILABLE = "IDENTITY_PROVIDER_UNAVAILABLE";
 export const IDENTITY_PROVIDER_FAILED = "IDENTITY_PROVIDER_FAILED";
@@ -30,7 +34,36 @@ export interface IdentityVerificationAdapter {
   cancelSession(providerReference: string): Promise<void>;
 }
 
-type VendorConfig = { endpoint: string; apiKey: string };
+type VendorConfig = { endpoint: string; apiKey: string; redirectOrigins: string[] };
+const MAX_HOSTED_SESSION_MS = 30 * 60_000;
+
+function isTrustedHostedSession(
+  value: Record<string, unknown>,
+  redirectOrigins: string[],
+): value is { providerReference: string; redirectUrl: string; expiresAt: string } {
+  if (
+    typeof value.providerReference !== "string" ||
+    value.providerReference.length < 1 ||
+    value.providerReference.length > 500 ||
+    typeof value.redirectUrl !== "string" ||
+    value.redirectUrl.length > 2_048 ||
+    typeof value.expiresAt !== "string"
+  ) return false;
+  try {
+    const redirect = new URL(value.redirectUrl);
+    const expiresAt = new Date(value.expiresAt).getTime();
+    const now = Date.now();
+    return redirect.protocol === "https:" &&
+      !redirect.username &&
+      !redirect.password &&
+      redirectOrigins.includes(redirect.origin) &&
+      Number.isFinite(expiresAt) &&
+      expiresAt > now &&
+      expiresAt <= now + MAX_HOSTED_SESSION_MS;
+  } catch {
+    return false;
+  }
+}
 
 export class HttpsIdentityVerificationAdapter implements IdentityVerificationAdapter {
   private readonly fetch: typeof globalThis.fetch;
@@ -47,12 +80,7 @@ export class HttpsIdentityVerificationAdapter implements IdentityVerificationAda
 
   async createSession(input: CreateIdentityVerificationInput): Promise<IdentityVerificationSession> {
     const value = await this.request("/sessions", { method: "POST", body: JSON.stringify(input) });
-    if (
-      typeof value.providerReference !== "string" ||
-      typeof value.redirectUrl !== "string" ||
-      typeof value.expiresAt !== "string" ||
-      new URL(value.redirectUrl).protocol !== "https:"
-    ) {
+    if (!this.config || !isTrustedHostedSession(value, this.config.redirectOrigins)) {
       throw new Error(IDENTITY_PROVIDER_FAILED);
     }
     return {
@@ -122,7 +150,7 @@ export class InMemoryIdentityVerificationAdapter implements IdentityVerification
 }
 
 export function verifyIdentityWebhookSignature(
-  rawBody: string,
+  rawBody: string | Uint8Array,
   signature: string,
   secret: string,
 ): boolean {
@@ -152,7 +180,15 @@ export interface IdentityVerificationEventStore {
   reserveEvent(provider: string, event: IdentityVerificationWebhookEvent): Promise<boolean>;
   findAttempt(provider: string, providerReference: string): Promise<IdentityVerificationAttempt | null>;
   findLatestAttempt(userId: string): Promise<IdentityVerificationAttempt | null>;
+  linkEvent(provider: string, eventId: string, attemptId: string): Promise<void>;
   updateAttemptStatus(attemptId: string, status: IdentityVerificationStatus): Promise<void>;
+}
+
+export class IdentityVerificationAttemptNotFoundError extends Error {
+  constructor() {
+    super("IDENTITY_VERIFICATION_ATTEMPT_NOT_FOUND");
+    this.name = "IdentityVerificationAttemptNotFoundError";
+  }
 }
 
 export async function applyIdentityVerificationEvent(
@@ -164,7 +200,9 @@ export async function applyIdentityVerificationEvent(
   if (!await store.reserveEvent(provider, event)) return "duplicate";
 
   const attempt = await store.findAttempt(provider, event.providerReference);
-  if (!attempt || attempt.status !== "pending" || attempt.expiresAt <= now) return "ignored";
+  if (!attempt) throw new IdentityVerificationAttemptNotFoundError();
+  await store.linkEvent(provider, event.eventId, attempt.id);
+  if (attempt.status !== "pending" || attempt.expiresAt <= now) return "ignored";
   const latest = await store.findLatestAttempt(attempt.userId);
   if (!latest || latest.id !== attempt.id) return "ignored";
 
@@ -173,13 +211,6 @@ export async function applyIdentityVerificationEvent(
 }
 
 type IdentityHandlerSession = { user: { id: string } };
-
-export type CreateVerificationAttempt = (input: {
-  userId: string;
-  provider: string;
-  providerReference: string;
-  expiresAt: Date;
-}) => Promise<void>;
 
 function handlerError(code: string, status: number): Response {
   return Response.json({ error: { code } }, { status });
@@ -198,11 +229,17 @@ export function createIdentityVerificationHandler(input: {
   getSession(headers: Headers): Promise<IdentityHandlerSession | null>;
   getContext(userId: string): Promise<VerificationRequestContext>;
   adapter: IdentityVerificationAdapter;
-  createAttempt: CreateVerificationAttempt;
+  attemptStore: Pick<DrizzleIdentityAttemptStore, "findReusable" | "availability" | "create">;
   provider: string;
+  providerConfigured?: boolean;
 }) {
   return async function POST(request: Request): Promise<Response> {
-    const session = await input.getSession(request.headers);
+    let session: IdentityHandlerSession | null;
+    try {
+      session = await input.getSession(request.headers);
+    } catch {
+      return handlerError("INTERNAL_ERROR", 500);
+    }
     if (!session) return handlerError("UNAUTHORIZED", 401);
 
     let body: unknown;
@@ -213,13 +250,17 @@ export function createIdentityVerificationHandler(input: {
     }
     const action = identityAction(body);
     if (!action) return handlerError("INVALID_REQUEST", 400);
+    const idempotencyKey = request.headers.get("idempotency-key") ?? "";
+    if (!/^[\x21-\x7e]{8,200}$/.test(idempotencyKey)) {
+      return handlerError("IDEMPOTENCY_KEY_REQUIRED", 400);
+    }
 
     let context: VerificationRequestContext;
     let required: VerificationDecision;
     try {
       context = await input.getContext(session.user.id);
       required = await launchVerificationPolicy.decide({
-        countryCode: context.countryCode,
+        selfDeclaredCountryCode: context.selfDeclaredCountryCode,
         risk: context.risk,
         action,
       });
@@ -228,6 +269,22 @@ export function createIdentityVerificationHandler(input: {
     }
     if (!required.identity) return handlerError("IDENTITY_NOT_REQUIRED", 400);
     if (context.satisfied.identity) return handlerError("IDENTITY_ALREADY_VERIFIED", 409);
+    if (input.providerConfigured === false) return handlerError(IDENTITY_PROVIDER_UNAVAILABLE, 503);
+
+    try {
+      const reusable = await input.attemptStore.findReusable(session.user.id, idempotencyKey);
+      if (reusable) {
+        return Response.json({
+          redirectUrl: reusable.redirectUrl,
+          expiresAt: reusable.expiresAt.toISOString(),
+        });
+      }
+      const availability = await input.attemptStore.availability(session.user.id);
+      if (availability === "pending") return handlerError("IDENTITY_ATTEMPT_PENDING", 409);
+      if (availability === "cooldown") return handlerError("IDENTITY_ATTEMPT_COOLDOWN", 429);
+    } catch {
+      return handlerError("INTERNAL_ERROR", 500);
+    }
 
     let hosted: IdentityVerificationSession;
     try {
@@ -236,14 +293,27 @@ export function createIdentityVerificationHandler(input: {
       return handlerError(IDENTITY_PROVIDER_UNAVAILABLE, 503);
     }
     try {
-      await input.createAttempt({
+      await input.attemptStore.create({
         userId: session.user.id,
         provider: input.provider,
         providerReference: hosted.providerReference,
+        idempotencyKey,
+        redirectUrl: hosted.redirectUrl,
         expiresAt: hosted.expiresAt,
       });
-    } catch {
+    } catch (error) {
       await input.adapter.cancelSession(hosted.providerReference).catch(() => undefined);
+      if (error instanceof IdentityAttemptConflictError) {
+        const reusable = await input.attemptStore.findReusable(session.user.id, idempotencyKey)
+          .catch(() => null);
+        if (reusable) {
+          return Response.json({
+            redirectUrl: reusable.redirectUrl,
+            expiresAt: reusable.expiresAt.toISOString(),
+          });
+        }
+        return handlerError("IDENTITY_ATTEMPT_PENDING", 409);
+      }
       return handlerError("INTERNAL_ERROR", 500);
     }
 

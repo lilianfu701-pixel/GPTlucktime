@@ -6,7 +6,7 @@ export type VerificationDecision = {
 };
 
 export type VerificationPolicyInput = {
-  countryCode: string;
+  selfDeclaredCountryCode: string;
   risk: "low" | "medium" | "high";
   action: "browse" | "message" | "pay";
 };
@@ -31,7 +31,7 @@ export const launchVerificationPolicy = createVerificationPolicy({
 
 export type VerificationState = VerificationDecision;
 export type VerificationRequestContext = {
-  countryCode: string;
+  selfDeclaredCountryCode: string;
   risk: VerificationPolicyInput["risk"];
   satisfied: VerificationState;
 };
@@ -61,7 +61,12 @@ export function createVerificationPolicyHandler(input: {
   policy?: ReturnType<typeof createVerificationPolicy>;
 }) {
   return async function POST(request: Request): Promise<Response> {
-    const session = await input.getSession(request.headers);
+    let session: Session | null;
+    try {
+      session = await input.getSession(request.headers);
+    } catch {
+      return jsonError("INTERNAL_ERROR", 500);
+    }
     if (!session) return jsonError("UNAUTHORIZED", 401);
 
     let body: unknown;
@@ -76,7 +81,7 @@ export function createVerificationPolicyHandler(input: {
     try {
       const context = await input.contextRepository.get(session.user.id);
       const required = await (input.policy ?? launchVerificationPolicy).decide({
-        countryCode: context.countryCode,
+        selfDeclaredCountryCode: context.selfDeclaredCountryCode,
         risk: context.risk,
         action,
       });

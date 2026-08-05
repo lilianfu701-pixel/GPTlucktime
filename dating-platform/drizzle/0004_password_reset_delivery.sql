@@ -1,0 +1,2 @@
+ALTER TABLE "auth_notification_deliveries" DROP CONSTRAINT "auth_notification_kind_check";--> statement-breakpoint
+ALTER TABLE "auth_notification_deliveries" ADD CONSTRAINT "auth_notification_kind_check" CHECK ("auth_notification_deliveries"."kind" in ('email_verification', 'password_reset', 'sms_otp'));

@@ -4,6 +4,7 @@ import { describe, expect, it } from "vitest";
 
 import {
   InMemoryIdentityVerificationAdapter,
+  HttpsIdentityVerificationAdapter,
   applyIdentityVerificationEvent,
   createIdentityVerificationHandler,
   verifyIdentityWebhookSignature,
@@ -15,6 +16,20 @@ const sign = (body: string, secret: string) =>
   `sha256=${createHmac("sha256", secret).update(body).digest("hex")}`;
 
 describe("identity verification", () => {
+  const vendorResponse = (overrides: Record<string, unknown> = {}) => new Response(JSON.stringify({
+    providerReference: "vendor-reference",
+    redirectUrl: "https://identity.example.test/session/hosted",
+    expiresAt: new Date(Date.now() + 10 * 60_000).toISOString(),
+    ...overrides,
+  }), { status: 200, headers: { "content-type": "application/json" } });
+
+  const hostedAdapter = (overrides: Record<string, unknown> = {}) =>
+    new HttpsIdentityVerificationAdapter({
+      endpoint: "https://identity.example.test",
+      apiKey: "vendor-key",
+      redirectOrigins: ["https://identity.example.test"],
+    }, async () => vendorResponse(overrides));
+
   it("rejects an invalid webhook signature", () => {
     expect(verifyIdentityWebhookSignature("{}", "sha256=00", "webhook-secret")).toBe(false);
   });
@@ -35,6 +50,30 @@ describe("identity verification", () => {
     await expect(adapter.getResult(session.providerReference)).resolves.toEqual({ status: "expired" });
   });
 
+  it.each([
+    "https://identity.example.test.evil/session",
+    "https://user@identity.example.test/session",
+    "https://identity.example.test:444/session",
+  ])("rejects an untrusted hosted redirect %s", async (redirectUrl) => {
+    await expect(hostedAdapter({ redirectUrl }).createSession({ userId: crypto.randomUUID() }))
+      .rejects.toThrow("IDENTITY_PROVIDER_FAILED");
+  });
+
+  it.each([
+    "not-a-date",
+    new Date(Date.now() - 1_000).toISOString(),
+    new Date(Date.now() + 31 * 60_000).toISOString(),
+  ])("rejects invalid hosted expiry %s", async (expiresAt) => {
+    await expect(hostedAdapter({ expiresAt }).createSession({ userId: crypto.randomUUID() }))
+      .rejects.toThrow("IDENTITY_PROVIDER_FAILED");
+  });
+
+  it("rejects an oversized provider reference", async () => {
+    await expect(hostedAdapter({ providerReference: "r".repeat(501) })
+      .createSession({ userId: crypto.randomUUID() }))
+      .rejects.toThrow("IDENTITY_PROVIDER_FAILED");
+  });
+
   it("handles duplicate events once and prevents an expired attempt overwriting state", async () => {
     const attempt: IdentityVerificationAttempt = {
       id: crypto.randomUUID(),
@@ -53,6 +92,7 @@ describe("identity verification", () => {
       },
       async findAttempt() { return attempt; },
       async findLatestAttempt() { return attempt; },
+      async linkEvent() {},
       async updateAttemptStatus(_attemptId, status) { attempt.status = status; },
     };
 
@@ -69,16 +109,41 @@ describe("identity verification", () => {
       getSession: async () => null,
       getContext: async () => { throw new Error("not called"); },
       adapter: new InMemoryIdentityVerificationAdapter(),
-      createAttempt: async () => { throw new Error("not called"); },
+      attemptStore: {
+        findReusable: async () => { throw new Error("not called"); },
+        availability: async () => { throw new Error("not called"); },
+        create: async () => { throw new Error("not called"); },
+      },
       provider: "test",
     });
 
     const response = await handler(new Request("https://app.test/api/v1/auth/identity-verification", {
       method: "POST",
+      headers: { "idempotency-key": "trusted-context-test" },
       body: JSON.stringify({ action: "pay" }),
     }));
     expect(response.status).toBe(401);
     await expect(response.json()).resolves.toEqual({ error: { code: "UNAUTHORIZED" } });
+  });
+
+  it("returns a stable error when identity session lookup fails", async () => {
+    const handler = createIdentityVerificationHandler({
+      getSession: async () => { throw new Error("session backend details"); },
+      getContext: async () => { throw new Error("not called"); },
+      adapter: new InMemoryIdentityVerificationAdapter(),
+      attemptStore: {
+        findReusable: async () => null,
+        availability: async () => null,
+        create: async () => undefined,
+      },
+      provider: "test",
+    });
+    const response = await handler(new Request("https://app.test/api/v1/auth/identity-verification", {
+      method: "POST",
+      body: JSON.stringify({ action: "pay" }),
+    }));
+    expect(response.status).toBe(500);
+    await expect(response.json()).resolves.toEqual({ error: { code: "INTERNAL_ERROR" } });
   });
 
   it("does not expose trusted-context failures", async () => {
@@ -86,11 +151,16 @@ describe("identity verification", () => {
       getSession: async () => ({ user: { id: "user-id" } }),
       getContext: async () => { throw new Error("database details"); },
       adapter: new InMemoryIdentityVerificationAdapter(),
-      createAttempt: async () => undefined,
+      attemptStore: {
+        findReusable: async () => null,
+        availability: async () => null,
+        create: async () => undefined,
+      },
       provider: "test",
     });
     const response = await handler(new Request("https://app.test/api/v1/auth/identity-verification", {
       method: "POST",
+      headers: { "idempotency-key": "trusted-context-test" },
       body: JSON.stringify({ action: "pay" }),
     }));
 

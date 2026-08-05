@@ -2,14 +2,16 @@ import "server-only";
 
 import { drizzleAdapter } from "better-auth/adapters/drizzle";
 import { betterAuth } from "better-auth/minimal";
-import { after } from "next/server";
+import { createClient } from "redis";
 
 import * as schema from "@/db/schema";
 import { db } from "@/infrastructure/db/client";
 import { readEnv } from "@/shared/env";
 
 import { createAuthConfiguration } from "./auth-config";
-import { BackgroundMessageDispatcher, HttpMessageSender } from "./message-sender";
+import { HttpMessageSender } from "./message-sender";
+import { DurableNotificationDispatcher, drainNotificationOutbox } from "./notification-outbox";
+import { RedisSmsAbuseStore, SmsAbuseGuard } from "./sms-abuse-guard";
 
 const env = readEnv(process.env);
 const sender = new HttpMessageSender({
@@ -20,7 +22,21 @@ const sender = new HttpMessageSender({
     ? { endpoint: env.SMS_WEBHOOK_URL, token: env.SMS_WEBHOOK_TOKEN }
     : undefined,
 });
-const dispatcher = new BackgroundMessageDispatcher((operation) => after(operation));
+const dispatcher = new DurableNotificationDispatcher(db, {
+  emailEncryptionKey: env.EMAIL_PAYLOAD_ENCRYPTION_KEY,
+  smsEncryptionKey: env.SMS_PAYLOAD_ENCRYPTION_KEY,
+});
+const smsAbuseGuard = env.SMS_ABUSE_HMAC_KEY && env.SMS_ALLOWED_CALLING_CODES
+  ? new SmsAbuseGuard(
+      new RedisSmsAbuseStore(createClient({ url: env.REDIS_URL })),
+      {
+        hmacKey: env.SMS_ABUSE_HMAC_KEY,
+        allowedCallingCodes: env.SMS_ALLOWED_CALLING_CODES.split(","),
+        highRiskCallingCodes: env.SMS_HIGH_RISK_CALLING_CODES?.split(","),
+        deniedPrefixes: env.SMS_DENIED_PREFIXES?.split(","),
+      },
+    )
+  : undefined;
 
 export const auth = betterAuth(createAuthConfiguration({
   database: drizzleAdapter(db, {
@@ -34,4 +50,8 @@ export const auth = betterAuth(createAuthConfiguration({
   secret: env.BETTER_AUTH_SECRET,
   baseURL: env.APP_URL,
   secureCookies: env.NODE_ENV === "production",
+  smsAbuseGuard,
 }));
+
+export const runAuthNotificationDeliveryWorker = () =>
+  drainNotificationOutbox({ outbox: dispatcher, sender });

@@ -11,6 +11,7 @@ import { afterEach, beforeEach, describe, expect, it } from "vitest";
 import * as schema from "@/db/schema";
 import {
   createIdentityVerificationWebhookHandler,
+  cleanupIdentityVerificationWebhookEvents,
   processIdentityVerificationWebhook,
   type VerificationDatabase,
 } from "@/modules/auth/identity-verification-webhook";
@@ -82,6 +83,32 @@ describe("identity verification webhook PostgreSQL integration", () => {
     expect(attempt.status).toBe("approved");
   });
 
+  it("rolls back an event that arrives before its attempt and applies the retry", async () => {
+    const event = {
+      eventId: "early-event",
+      providerReference: "early-reference",
+      status: "approved" as const,
+    };
+    expect((await send(event)).status).toBe(503);
+    expect(await database.select().from(schema.verificationWebhookEvents)).toHaveLength(0);
+
+    const userId = await insertUser("early-webhook@example.test");
+    const [attempt] = await database.insert(schema.verificationAttempts).values({
+      userId,
+      kind: "identity",
+      provider,
+      providerReference: event.providerReference,
+      status: "pending",
+      expiresAt: new Date(Date.now() + 60_000),
+    }).returning();
+
+    expect((await send(event)).status).toBe(202);
+    const [applied] = await database.select().from(schema.verificationAttempts);
+    const [storedEvent] = await database.select().from(schema.verificationWebhookEvents);
+    expect(applied.status).toBe("approved");
+    expect(storedEvent.attemptId).toBe(attempt.id);
+  });
+
   it("records but ignores an event for an expired attempt", async () => {
     const userId = await insertUser("expired-webhook@example.test");
     await database.insert(schema.verificationAttempts).values({
@@ -112,7 +139,7 @@ describe("identity verification webhook PostgreSQL integration", () => {
         kind: "identity",
         provider,
         providerReference: "older-reference",
-        status: "pending",
+        status: "rejected",
         expiresAt: new Date(Date.now() + 60_000),
         createdAt: new Date("2026-01-01T00:00:00Z"),
       },
@@ -135,8 +162,21 @@ describe("identity verification webhook PostgreSQL integration", () => {
 
     const attempts = await database.select().from(schema.verificationAttempts)
       .orderBy(asc(schema.verificationAttempts.createdAt));
-    expect(attempts.map(({ status }) => status)).toEqual(["pending", "pending"]);
+    expect(attempts.map(({ status }) => status)).toEqual(["rejected", "pending"]);
     expect(await database.select().from(schema.verificationWebhookEvents)
       .where(eq(schema.verificationWebhookEvents.eventId, "superseded-event"))).toHaveLength(1);
+  });
+
+  it("removes webhook reservations after the retention window", async () => {
+    await database.insert(schema.verificationWebhookEvents).values([
+      { provider, eventId: "old-event", providerReference: "old-ref", receivedAt: new Date("2026-01-01") },
+      { provider, eventId: "new-event", providerReference: "new-ref", receivedAt: new Date("2026-02-01") },
+    ]);
+    await expect(cleanupIdentityVerificationWebhookEvents(
+      database as unknown as VerificationDatabase,
+      new Date("2026-02-15"),
+    )).resolves.toBe(1);
+    const events = await database.select().from(schema.verificationWebhookEvents);
+    expect(events.map(({ eventId }) => eventId)).toEqual(["new-event"]);
   });
 });

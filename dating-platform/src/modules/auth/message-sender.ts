@@ -20,11 +20,13 @@ export class NotificationDeliveryError extends Error {
 }
 
 export type EmailVerificationMessage = { to: string; verificationUrl: string };
+export type PasswordResetMessage = { to: string; resetUrl: string };
 export type SmsOtpMessage = { to: string; code: string };
 
 export interface MessageSender {
   assertAvailable(channel: "email" | "sms"): void;
   sendEmailVerification(message: EmailVerificationMessage): Promise<void>;
+  sendPasswordReset(message: PasswordResetMessage): Promise<void>;
   sendSmsOtp(message: SmsOtpMessage): Promise<void>;
 }
 
@@ -65,7 +67,7 @@ export class HttpMessageSender implements MessageSender {
   private async send(
     channel: "email" | "sms",
     provider: WebhookProvider | undefined,
-    payload: EmailVerificationMessage | SmsOtpMessage,
+    payload: EmailVerificationMessage | PasswordResetMessage | SmsOtpMessage,
   ): Promise<void> {
     if (!provider) throw new NotificationNotConfiguredError(channel);
 
@@ -85,10 +87,15 @@ export class HttpMessageSender implements MessageSender {
       throw new NotificationDeliveryError();
     }
   }
+
+  sendPasswordReset(message: PasswordResetMessage): Promise<void> {
+    return this.send("email", this.options.email, message);
+  }
 }
 
 export class InMemoryMessageSender implements MessageSender {
   readonly emails: EmailVerificationMessage[] = [];
+  readonly passwordResets: PasswordResetMessage[] = [];
   readonly sms: SmsOtpMessage[] = [];
 
   assertAvailable(): void {}
@@ -97,28 +104,17 @@ export class InMemoryMessageSender implements MessageSender {
     this.emails.push(message);
   }
 
+  async sendPasswordReset(message: PasswordResetMessage): Promise<void> {
+    this.passwordResets.push(message);
+  }
+
   async sendSmsOtp(message: SmsOtpMessage): Promise<void> {
     this.sms.push(message);
   }
 }
 
 export interface MessageDispatcher {
-  dispatch(operation: () => Promise<void>): void;
-}
-
-export class BackgroundMessageDispatcher implements MessageDispatcher {
-  constructor(
-    private readonly schedule: (operation: () => Promise<void>) => void,
-    private readonly onError: (error: unknown) => void = () => undefined,
-  ) {}
-
-  dispatch(operation: () => Promise<void>): void {
-    this.schedule(async () => {
-      try {
-        await operation();
-      } catch (error) {
-        this.onError(error);
-      }
-    });
-  }
+  enqueueEmailVerification(message: EmailVerificationMessage): Promise<void>;
+  enqueuePasswordReset(message: PasswordResetMessage): Promise<void>;
+  enqueueSmsOtp(message: SmsOtpMessage): Promise<void>;
 }

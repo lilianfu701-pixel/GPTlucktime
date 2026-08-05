@@ -1,10 +1,11 @@
-import { and, desc, eq } from "drizzle-orm";
+import { and, desc, eq, lte } from "drizzle-orm";
 
 import { verificationAttempts, verificationWebhookEvents } from "@/db/schema";
 import type { db as productionDatabase } from "@/infrastructure/db/client";
 
 import {
   applyIdentityVerificationEvent,
+  IdentityVerificationAttemptNotFoundError,
   verifyIdentityWebhookSignature,
   type IdentityVerificationAttempt,
   type IdentityVerificationStatus,
@@ -12,6 +13,19 @@ import {
 } from "./identity-verification-adapter";
 
 export type VerificationDatabase = typeof productionDatabase;
+export const VERIFICATION_WEBHOOK_RETENTION_MS = 30 * 24 * 60 * 60_000;
+
+export async function cleanupIdentityVerificationWebhookEvents(
+  database: VerificationDatabase,
+  now = new Date(),
+  retentionMs = VERIFICATION_WEBHOOK_RETENTION_MS,
+): Promise<number> {
+  const removed = await database.delete(verificationWebhookEvents).where(lte(
+    verificationWebhookEvents.receivedAt,
+    new Date(now.getTime() - retentionMs),
+  )).returning({ id: verificationWebhookEvents.id });
+  return removed.length;
+}
 
 const invalidSignature = () =>
   Response.json({ error: { code: "INVALID_SIGNATURE" } }, { status: 401 });
@@ -86,6 +100,12 @@ export async function processIdentityVerificationWebhook(
       )).orderBy(desc(verificationAttempts.createdAt)).limit(1);
       return toAttempt(row);
     },
+    async linkEvent(eventProvider, eventId, attemptId) {
+      await transaction.update(verificationWebhookEvents).set({ attemptId }).where(and(
+        eq(verificationWebhookEvents.provider, eventProvider),
+        eq(verificationWebhookEvents.eventId, eventId),
+      ));
+    },
     async updateAttemptStatus(attemptId, status) {
       await transaction.update(verificationAttempts).set({
         status,
@@ -107,7 +127,10 @@ export function createIdentityVerificationWebhookHandler(input: {
   ): Promise<unknown>;
 }) {
   return async function handle(request: Request, provider: string): Promise<Response> {
-    const rawBody = await request.text();
+    const contentLength = Number(request.headers.get("content-length") ?? "0");
+    if (Number.isFinite(contentLength) && contentLength > 65_536) return invalidRequest();
+    const rawBody = new Uint8Array(await request.arrayBuffer());
+    if (rawBody.byteLength > 65_536) return invalidRequest();
     const signature = request.headers.get("x-verification-signature") ?? "";
     if (
       !input.provider ||
@@ -116,12 +139,24 @@ export function createIdentityVerificationWebhookHandler(input: {
       !verifyIdentityWebhookSignature(rawBody, signature, input.secret)
     ) return invalidSignature();
 
-    const event = parseEvent(rawBody);
+    let decoded: string;
+    try {
+      decoded = new TextDecoder("utf-8", { fatal: true }).decode(rawBody);
+    } catch {
+      return invalidRequest();
+    }
+    const event = parseEvent(decoded);
     if (!event) return invalidRequest();
 
     try {
       await input.processEvent(provider, event);
-    } catch {
+    } catch (error) {
+      if (error instanceof IdentityVerificationAttemptNotFoundError) {
+        return Response.json(
+          { error: { code: "IDENTITY_VERIFICATION_ATTEMPT_NOT_READY" } },
+          { status: 503, headers: { "retry-after": "1" } },
+        );
+      }
       return Response.json({ error: { code: "INTERNAL_ERROR" } }, { status: 500 });
     }
     return Response.json({ received: true }, { status: 202 });

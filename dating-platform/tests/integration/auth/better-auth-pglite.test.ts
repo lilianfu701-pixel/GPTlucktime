@@ -43,7 +43,7 @@ describe("Better Auth PostgreSQL integration", () => {
   it("fails signup before writing auth rows when email delivery is unavailable", async () => {
     const { auth, client, database } = await createTestAuth(
       new HttpMessageSender({}),
-      { dispatch: () => undefined },
+      { enqueueEmailVerification: async () => undefined, enqueuePasswordReset: async () => undefined, enqueueSmsOtp: async () => undefined },
     );
 
     try {
@@ -71,11 +71,86 @@ describe("Better Auth PostgreSQL integration", () => {
     }
   });
 
+  it("returns the same provider-unavailable response for every verification email", async () => {
+    const { auth, client, database } = await createTestAuth(
+      new HttpMessageSender({}),
+      { enqueueEmailVerification: async () => undefined, enqueuePasswordReset: async () => undefined, enqueueSmsOtp: async () => undefined },
+    );
+    await database.insert(schema.users).values([
+      { email: "unverified-existing@example.test", name: "Unverified" },
+      { email: "verified-existing@example.test", name: "Verified", emailVerified: true },
+    ]);
+
+    try {
+      const responses = await Promise.all([
+        "unknown@example.test",
+        "unverified-existing@example.test",
+        "verified-existing@example.test",
+      ].map((email) => auth.handler(new Request(
+        "http://localhost:3000/api/auth/send-verification-email",
+        {
+          method: "POST",
+          headers: { "content-type": "application/json" },
+          body: JSON.stringify({ email }),
+        },
+      ))));
+      expect(responses.map(({ status }) => status)).toEqual([503, 503, 503]);
+      const bodies = await Promise.all(responses.map((response) => response.json()));
+      expect(bodies).toEqual(Array(3).fill({
+        code: NOTIFICATION_PROVIDER_UNAVAILABLE,
+        message: NOTIFICATION_PROVIDER_UNAVAILABLE,
+      }));
+    } finally {
+      await client.close();
+    }
+  });
+
+  it("returns the same provider-unavailable response for every password reset email", async () => {
+    const { auth, client, database } = await createTestAuth(
+      new HttpMessageSender({}),
+      { enqueueEmailVerification: async () => undefined, enqueuePasswordReset: async () => undefined, enqueueSmsOtp: async () => undefined },
+    );
+    await database.insert(schema.users).values({
+      email: "reset-existing@example.test",
+      name: "Reset Existing",
+      emailVerified: true,
+    });
+    try {
+      const responses = await Promise.all([
+        "reset-unknown@example.test",
+        "reset-existing@example.test",
+      ].map((email) => auth.handler(new Request(
+        "http://localhost:3000/api/auth/request-password-reset",
+        {
+          method: "POST",
+          headers: { "content-type": "application/json" },
+          body: JSON.stringify({ email, redirectTo: "http://localhost:3000/reset" }),
+        },
+      ))));
+      expect(responses.map(({ status }) => status)).toEqual([503, 503]);
+      const bodies = await Promise.all(responses.map((response) => response.json()));
+      expect(bodies).toEqual(Array(2).fill({
+        code: NOTIFICATION_PROVIDER_UNAVAILABLE,
+        message: NOTIFICATION_PROVIDER_UNAVAILABLE,
+      }));
+    } finally {
+      await client.close();
+    }
+  });
+
   it("registers a credential account and session in plural tables with UUID ids", async () => {
     const sender = new InMemoryMessageSender();
     const jobs: Array<() => Promise<void>> = [];
     const { auth, client, database } = await createTestAuth(sender, {
-      dispatch: (job) => jobs.push(job),
+      enqueueEmailVerification: async (message) => {
+        jobs.push(() => sender.sendEmailVerification(message));
+      },
+      enqueuePasswordReset: async (message) => {
+        jobs.push(() => sender.sendPasswordReset(message));
+      },
+      enqueueSmsOtp: async (message) => {
+        jobs.push(() => sender.sendSmsOtp(message));
+      },
     });
     const email = "pglite-user@example.test";
     const password = "strong-test-password";

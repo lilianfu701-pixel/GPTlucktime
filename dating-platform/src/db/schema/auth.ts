@@ -1,13 +1,16 @@
 import {
   boolean,
+  check,
   index,
   integer,
   pgTable,
   text,
   timestamp,
   unique,
+  uniqueIndex,
   uuid,
 } from "drizzle-orm/pg-core";
+import { sql } from "drizzle-orm";
 
 const timestamptz = (name: string) => timestamp(name, { withTimezone: true });
 const createdAt = () => timestamptz("created_at").defaultNow().notNull();
@@ -98,5 +101,31 @@ export const twoFactors = pgTable(
   (table) => [
     index("two_factors_secret_idx").on(table.secret),
     index("two_factors_user_idx").on(table.userId),
+  ],
+);
+
+export const authNotificationDeliveries = pgTable(
+  "auth_notification_deliveries",
+  {
+    id: uuid("id").defaultRandom().primaryKey(),
+    kind: text("kind").notNull(),
+    deliveryKey: text("delivery_key").notNull(),
+    recipientEncrypted: text("recipient_encrypted"),
+    payloadEncrypted: text("payload_encrypted"),
+    status: text("status").default("pending").notNull(),
+    attempts: integer("attempts").default(0).notNull(),
+    availableAt: timestamptz("available_at").defaultNow().notNull(),
+    expiresAt: timestamptz("expires_at").notNull(),
+    lastError: text("last_error"),
+    createdAt: createdAt(),
+    updatedAt: updatedAt(),
+  },
+  (table) => [
+    uniqueIndex("auth_notification_delivery_key_unique").on(table.deliveryKey),
+    index("auth_notification_due_idx").on(table.status, table.availableAt),
+    index("auth_notification_expiry_idx").on(table.expiresAt),
+    check("auth_notification_kind_check", sql`${table.kind} in ('email_verification', 'password_reset', 'sms_otp')`),
+    check("auth_notification_status_check", sql`${table.status} in ('pending', 'processing', 'sent', 'failed', 'expired')`),
+    check("auth_notification_attempts_check", sql`${table.attempts} >= 0`),
   ],
 );

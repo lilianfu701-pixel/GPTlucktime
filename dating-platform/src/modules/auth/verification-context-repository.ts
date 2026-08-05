@@ -16,7 +16,7 @@ export class DrizzleVerificationContextRepository implements VerificationContext
       .select({
         emailVerified: users.emailVerified,
         phoneVerified: users.phoneNumberVerified,
-        countryCode: profiles.countryCode,
+        selfDeclaredCountryCode: profiles.countryCode,
         profileStatus: profiles.status,
       })
       .from(users)
@@ -36,7 +36,7 @@ export class DrizzleVerificationContextRepository implements VerificationContext
     const highRiskStatuses = new Set(["restricted", "suspended", "banned"]);
 
     return {
-      countryCode: account.countryCode ?? "ZZ",
+      selfDeclaredCountryCode: account.selfDeclaredCountryCode ?? "ZZ",
       risk: account.profileStatus && highRiskStatuses.has(account.profileStatus) ? "high" : "medium",
       satisfied: {
         email: account.emailVerified,

@@ -14,7 +14,11 @@ describe("verification webhook route", () => {
     vi.stubEnv("BETTER_AUTH_URL", "http://localhost:3000/api/auth");
     vi.stubEnv("APP_URL", "http://localhost:3000");
     vi.stubEnv("IDENTITY_VERIFICATION_PROVIDER", "vendor");
+    vi.stubEnv("IDENTITY_VERIFICATION_URL", "https://identity.example.test");
+    vi.stubEnv("IDENTITY_VERIFICATION_API_KEY", "identity-api-key-at-least-32-characters");
     vi.stubEnv("IDENTITY_VERIFICATION_WEBHOOK_SECRET", "webhook-test-secret-at-least-32-chars");
+    vi.stubEnv("IDENTITY_REDIRECT_ORIGINS", "https://identity.example.test");
+    vi.stubEnv("IDENTITY_PAYLOAD_ENCRYPTION_KEY", Buffer.alloc(32, 6).toString("base64"));
     const { POST } = await import(
       "@/app/api/v1/webhooks/verification/[provider]/route"
     );

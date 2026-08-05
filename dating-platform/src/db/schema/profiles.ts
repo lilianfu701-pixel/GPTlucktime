@@ -184,6 +184,8 @@ export const verificationAttempts = pgTable(
     kind: text("kind").notNull(),
     provider: text("provider"),
     providerReference: text("provider_reference"),
+    idempotencyKeyHash: text("idempotency_key_hash"),
+    redirectUrlEncrypted: text("redirect_url_encrypted"),
     status: text("status").default("pending").notNull(),
     expiresAt: timestamptz("expires_at").notNull(),
     createdAt: createdAt(),
@@ -196,6 +198,12 @@ export const verificationAttempts = pgTable(
       table.provider,
       table.providerReference,
     ),
+    uniqueIndex("verification_attempts_pending_user_kind_unique")
+      .on(table.userId, table.kind)
+      .where(sql`${table.status} = 'pending'`),
+    uniqueIndex("verification_attempts_idempotency_unique")
+      .on(table.userId, table.kind, table.idempotencyKeyHash)
+      .where(sql`${table.idempotencyKeyHash} is not null`),
     check(
       "verification_attempts_status_check",
       sql`${table.status} IN ('pending', 'approved', 'rejected', 'expired')`,
@@ -224,5 +232,7 @@ export const verificationWebhookEvents = pgTable(
       table.provider,
       table.providerReference,
     ),
+    index("verification_webhook_events_received_at_idx").on(table.receivedAt),
+    index("verification_webhook_events_attempt_idx").on(table.attemptId),
   ],
 );

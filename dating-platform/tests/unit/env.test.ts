@@ -11,6 +11,8 @@ const validEnv = {
   APP_URL: "http://localhost:3000",
 } satisfies NodeJS.ProcessEnv;
 
+const encryptionKey = Buffer.alloc(32, 7).toString("base64");
+
 describe("readEnv", () => {
   it("accepts a valid server environment", () => {
     expect(readEnv(validEnv)).toEqual(validEnv);
@@ -21,12 +23,18 @@ describe("readEnv", () => {
       ...validEnv,
       EMAIL_WEBHOOK_URL: "https://notify.example.test/email",
       EMAIL_WEBHOOK_TOKEN: "email-token",
+      EMAIL_PAYLOAD_ENCRYPTION_KEY: encryptionKey,
       SMS_WEBHOOK_URL: "https://notify.example.test/sms",
       SMS_WEBHOOK_TOKEN: "sms-token",
+      SMS_PAYLOAD_ENCRYPTION_KEY: encryptionKey,
+      SMS_ABUSE_HMAC_KEY: "sms-abuse-hmac-key-at-least-32-characters",
+      SMS_ALLOWED_CALLING_CODES: "1,44",
       IDENTITY_VERIFICATION_PROVIDER: "vendor",
       IDENTITY_VERIFICATION_URL: "https://identity.example.test",
       IDENTITY_VERIFICATION_API_KEY: "identity-key",
       IDENTITY_VERIFICATION_WEBHOOK_SECRET: "identity-webhook-secret-value-32",
+      IDENTITY_REDIRECT_ORIGINS: "https://identity.example.test,https://identity.example.test:8443",
+      IDENTITY_PAYLOAD_ENCRYPTION_KEY: encryptionKey,
     })).toMatchObject({ IDENTITY_VERIFICATION_PROVIDER: "vendor" });
   });
 
@@ -34,6 +42,14 @@ describe("readEnv", () => {
     "requires HTTPS for optional provider endpoint %s",
     (field) => expect(() => readEnv({ ...validEnv, [field]: "http://provider.test" })).toThrow(field),
   );
+
+  it.each([
+    ["email", { EMAIL_WEBHOOK_URL: "https://notify.example.test/email" }],
+    ["sms", { SMS_WEBHOOK_URL: "https://notify.example.test/sms" }],
+    ["identity", { IDENTITY_VERIFICATION_PROVIDER: "vendor" }],
+  ])("rejects a partial %s provider group", (_group, partial) => {
+    expect(() => readEnv({ ...validEnv, ...partial })).toThrow("configuration must be complete");
+  });
 
   it("defaults NODE_ENV to development", () => {
     const withoutNodeEnv = Object.fromEntries(

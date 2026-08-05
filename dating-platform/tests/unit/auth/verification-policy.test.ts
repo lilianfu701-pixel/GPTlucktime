@@ -10,7 +10,7 @@ import {
 describe("decideVerification", () => {
   it("requires phone and identity for high-risk messaging", () => {
     expect(
-      decideVerification({ countryCode: "US", risk: "high", action: "message" }),
+      decideVerification({ selfDeclaredCountryCode: "US", risk: "high", action: "message" }),
     ).toEqual({ email: true, phone: true, liveness: true, identity: true });
   });
 
@@ -25,7 +25,7 @@ describe("decideVerification", () => {
     ["medium", "pay", { email: true, phone: false, liveness: false, identity: true }],
     ["high", "pay", { email: true, phone: true, liveness: true, identity: true }],
   ] as const)("applies the %s/%s policy", (risk, action, expected) => {
-    expect(decideVerification({ countryCode: "US", risk, action })).toEqual(expected);
+    expect(decideVerification({ selfDeclaredCountryCode: "US", risk, action })).toEqual(expected);
   });
 
   it("allows a later policy provider to replace the launch defaults", async () => {
@@ -38,9 +38,9 @@ describe("decideVerification", () => {
     });
 
     await expect(
-      policy.decide({ countryCode: "CA", risk: "medium", action: "browse" }),
+      policy.decide({ selfDeclaredCountryCode: "CA", risk: "medium", action: "browse" }),
     ).resolves.toEqual({ email: true, phone: true, liveness: false, identity: false });
-    expect(inputs).toEqual([{ countryCode: "CA", risk: "medium", action: "browse" }]);
+    expect(inputs).toEqual([{ selfDeclaredCountryCode: "CA", risk: "medium", action: "browse" }]);
   });
 
   it("rejects unauthenticated policy requests without account details", async () => {
@@ -55,6 +55,19 @@ describe("decideVerification", () => {
 
     expect(response.status).toBe(401);
     await expect(response.json()).resolves.toEqual({ error: { code: "UNAUTHORIZED" } });
+  });
+
+  it("returns a stable error when session lookup fails", async () => {
+    const handler = createVerificationPolicyHandler({
+      getSession: async () => { throw new Error("session backend details"); },
+      contextRepository: { get: async () => { throw new Error("not called"); } },
+    });
+    const response = await handler(new Request("https://app.test/api/v1/auth/policy", {
+      method: "POST",
+      body: JSON.stringify({ action: "browse" }),
+    }));
+    expect(response.status).toBe(500);
+    await expect(response.json()).resolves.toEqual({ error: { code: "INTERNAL_ERROR" } });
   });
 
   it("does not accept client-supplied risk", async () => {
@@ -76,7 +89,7 @@ describe("decideVerification", () => {
       getSession: async () => ({ user: { id: "user-id" } }),
       contextRepository: {
         get: async () => ({
-          countryCode: "US",
+          selfDeclaredCountryCode: "US",
           risk: "high",
           satisfied: { email: true, phone: false, liveness: false, identity: false },
         }),
