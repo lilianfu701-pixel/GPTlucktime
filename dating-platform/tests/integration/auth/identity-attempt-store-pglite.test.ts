@@ -65,6 +65,39 @@ describe("identity attempt store", () => {
     expect(row.redirectEncryptionKeyId).toBe("old");
   });
 
+  it("reuses null-key-id legacy redirects only with the explicit legacy read key", async () => {
+    const idempotencyKey = "legacy-attempt-key";
+    const legacy = key("legacy-writer", 12);
+    const legacyWriter = new EncryptionKeyRing([legacy]);
+    const redirectUrl = "https://identity.example.test/session/legacy?secret=hidden";
+    await database.insert(schema.verificationAttempts).values({
+      userId,
+      kind: "identity",
+      provider: "vendor",
+      providerReference: "legacy-reference",
+      idempotencyKeyHash: hmac.digest("request", userId, idempotencyKey),
+      redirectUrlEncrypted: legacyWriter.encrypt(redirectUrl).ciphertext,
+      redirectEncryptionKeyId: null,
+      status: "pending",
+      expiresAt: new Date(Date.now() + 60_000),
+    });
+
+    const compatible = new DrizzleIdentityAttemptStore(
+      database,
+      new EncryptionKeyRing([key("current", 13)], { legacyKey: legacy.key }),
+      hmac,
+    );
+    await expect(compatible.findReusable(userId, idempotencyKey)).resolves.toMatchObject({ redirectUrl });
+
+    const missing = new DrizzleIdentityAttemptStore(
+      database,
+      new EncryptionKeyRing([key("current", 13)]),
+      hmac,
+    );
+    await expect(missing.findReusable(userId, idempotencyKey))
+      .rejects.toThrow("AUTH_LEGACY_ENCRYPTION_KEY_UNAVAILABLE");
+  });
+
   it("allows at most one concurrent pending identity attempt per user", async () => {
     const first = new DrizzleIdentityAttemptStore(database, new EncryptionKeyRing([key("current", 9)]), hmac);
     const second = new DrizzleIdentityAttemptStore(database, new EncryptionKeyRing([key("current", 9)]), hmac);

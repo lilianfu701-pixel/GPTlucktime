@@ -227,6 +227,8 @@ export const identitySessionIntents = pgTable(
     attempts: integer("attempts").default(0).notNull(),
     availableAt: timestamptz("available_at").defaultNow().notNull(),
     lastError: text("last_error"),
+    leaseId: uuid("lease_id"),
+    leaseExpiresAt: timestamptz("lease_expires_at"),
     createdAt: createdAt(),
     updatedAt: updatedAt(),
   },
@@ -237,7 +239,15 @@ export const identitySessionIntents = pgTable(
       table.idempotencyHash,
     ),
     index("identity_session_intents_recovery_idx").on(table.status, table.availableAt),
+    index("identity_session_intents_claim_idx").on(
+      table.status,
+      table.availableAt,
+      table.leaseExpiresAt,
+    ),
     index("identity_session_intents_attempt_idx").on(table.attemptId),
+    uniqueIndex("identity_session_intents_initiating_user_kind_unique")
+      .on(table.userId, table.kind)
+      .where(sql`${table.status} = 'initiating'`),
     check("identity_session_intents_kind_check", sql`${table.kind} = 'identity'`),
     check(
       "identity_session_intents_status_check",

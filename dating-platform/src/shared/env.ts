@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-import { parseEncryptionKeyRing } from "@/modules/auth/auth-crypto";
+import { parseEncryptionKeyRing, parseLegacyEncryptionKeys } from "@/modules/auth/auth-crypto";
 
 const urlWithProtocols = (protocols: readonly string[], message: string) =>
   z
@@ -24,6 +24,16 @@ const encryptionKeyRing = z.string().superRefine((value, context) => {
     context.addIssue({
       code: "custom",
       message: error instanceof Error ? error.message : "AUTH_ENCRYPTION_KEYS is invalid",
+    });
+  }
+});
+const legacyEncryptionKey = z.string().superRefine((value, context) => {
+  try {
+    parseLegacyEncryptionKeys(value);
+  } catch (error) {
+    context.addIssue({
+      code: "custom",
+      message: error instanceof Error ? error.message : "AUTH_LEGACY_ENCRYPTION_KEY is invalid",
     });
   }
 });
@@ -67,6 +77,7 @@ const schema = z
     IDENTITY_VERIFICATION_WEBHOOK_SECRET: optionalValue(z.string().min(32)),
     IDENTITY_REDIRECT_ORIGINS: optionalValue(commaSeparatedHttpsOrigins),
     AUTH_ENCRYPTION_KEYS: optionalValue(encryptionKeyRing),
+    AUTH_LEGACY_ENCRYPTION_KEY: optionalValue(legacyEncryptionKey),
     AUTH_DELIVERY_HMAC_KEY: optionalValue(z.string().min(32)),
     IDENTITY_IDEMPOTENCY_HMAC_KEY: optionalValue(z.string().min(32)),
   })
@@ -99,6 +110,7 @@ const schema = z
       "SMS_ALLOWED_CALLING_CODES",
       "AUTH_ENCRYPTION_KEYS",
       "AUTH_DELIVERY_HMAC_KEY",
+      "AUTH_TRUSTED_PROXY_TOKEN",
     ], ["SMS_WEBHOOK_URL", "SMS_WEBHOOK_TOKEN", "SMS_ABUSE_HMAC_KEY", "SMS_ALLOWED_CALLING_CODES"]);
     requireCompleteGroup("IDENTITY", [
       "IDENTITY_VERIFICATION_PROVIDER",

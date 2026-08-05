@@ -9,7 +9,12 @@ import { db } from "@/infrastructure/db/client";
 import { readEnv } from "@/shared/env";
 
 import { createAuthConfiguration } from "./auth-config";
-import { EncryptionKeyRing, StableHmac, parseEncryptionKeyRing } from "./auth-crypto";
+import {
+  EncryptionKeyRing,
+  StableHmac,
+  parseEncryptionKeyRing,
+  parseLegacyEncryptionKeys,
+} from "./auth-crypto";
 import {
   HttpMessageSender,
   NOTIFICATION_OUTBOX_UNAVAILABLE,
@@ -30,7 +35,11 @@ const sender = new HttpMessageSender({
 const dispatcher: MessageDispatcher = env.AUTH_ENCRYPTION_KEYS && env.AUTH_DELIVERY_HMAC_KEY
   ? new DurableNotificationDispatcher(
       db,
-      new EncryptionKeyRing(parseEncryptionKeyRing(env.AUTH_ENCRYPTION_KEYS)),
+      new EncryptionKeyRing(parseEncryptionKeyRing(env.AUTH_ENCRYPTION_KEYS), {
+        legacyKeys: env.AUTH_LEGACY_ENCRYPTION_KEY
+          ? parseLegacyEncryptionKeys(env.AUTH_LEGACY_ENCRYPTION_KEY)
+          : undefined,
+      }),
       new StableHmac(env.AUTH_DELIVERY_HMAC_KEY),
     )
   : {

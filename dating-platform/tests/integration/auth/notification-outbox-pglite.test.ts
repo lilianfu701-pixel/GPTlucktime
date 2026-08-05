@@ -72,6 +72,49 @@ describe("durable auth notification outbox", () => {
     expect(rows.find(({ kind }) => kind === "password_reset")?.encryptionKeyId).toBe("current");
   });
 
+  it("reads null-key-id legacy work only when the legacy key is explicitly configured", async () => {
+    const legacy = key("legacy-writer", 12);
+    const legacyWriter = new EncryptionKeyRing([legacy]);
+    const recipient = legacyWriter.encrypt("legacy@example.test");
+    const payload = legacyWriter.encrypt("https://app.example.test/verify?token=legacy");
+    await database.insert(schema.authNotificationDeliveries).values({
+      kind: "email_verification",
+      deliveryKey: "legacy-delivery-key",
+      recipientEncrypted: recipient.ciphertext,
+      payloadEncrypted: payload.ciphertext,
+      encryptionKeyId: null,
+      expiresAt: new Date(Date.now() + 60_000),
+    });
+
+    const compatible = new DurableNotificationDispatcher(
+      database,
+      new EncryptionKeyRing([key("current", 13)], { legacyKey: legacy.key }),
+      deliveryHmac,
+    );
+    const sender = new InMemoryMessageSender();
+    await drainNotificationOutbox({ outbox: compatible, sender });
+    expect(sender.emails).toEqual([{
+      to: "legacy@example.test",
+      verificationUrl: "https://app.example.test/verify?token=legacy",
+    }]);
+
+    await database.insert(schema.authNotificationDeliveries).values({
+      kind: "email_verification",
+      deliveryKey: "legacy-delivery-key-missing-reader",
+      recipientEncrypted: recipient.ciphertext,
+      payloadEncrypted: payload.ciphertext,
+      encryptionKeyId: null,
+      expiresAt: new Date(Date.now() + 60_000),
+    });
+    await drainNotificationOutbox({ outbox: outbox([key("current", 13)]), sender, maxAttempts: 1 });
+    const [failed] = await database.select().from(schema.authNotificationDeliveries)
+      .where(eq(schema.authNotificationDeliveries.deliveryKey, "legacy-delivery-key-missing-reader"));
+    expect(failed).toMatchObject({
+      status: "failed",
+      lastError: "AUTH_LEGACY_ENCRYPTION_KEY_UNAVAILABLE",
+    });
+  });
+
   it("does not send a credential at or after its exact validity boundary", async () => {
     const now = new Date(Date.now() + 1_000);
     const dispatcher = outbox();

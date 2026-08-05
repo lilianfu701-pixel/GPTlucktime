@@ -1,7 +1,13 @@
 import { createCipheriv, createDecipheriv, createHmac, randomBytes } from "node:crypto";
 
 export type EncryptionKeyConfig = { id: string; key: string };
-export type EncryptedValue = { keyId: string; ciphertext: string };
+export type LegacyEncryptionPurpose = "email" | "sms" | "identity";
+export type LegacyEncryptionKeys = Partial<Record<LegacyEncryptionPurpose, string>>;
+export type EncryptedValue = {
+  keyId: string | null;
+  ciphertext: string;
+  legacyPurpose?: LegacyEncryptionPurpose;
+};
 
 function decodeKey(value: string): Buffer {
   const decoded = Buffer.from(value, "base64");
@@ -27,15 +33,44 @@ export function parseEncryptionKeyRing(value: string): EncryptionKeyConfig[] {
   });
 }
 
+export function parseLegacyEncryptionKeys(value: string): LegacyEncryptionKeys {
+  if (!value.includes(":")) {
+    decodeKey(value);
+    return { email: value, sms: value, identity: value };
+  }
+  const keys: LegacyEncryptionKeys = {};
+  for (const entry of value.split(",")) {
+    const separator = entry.indexOf(":");
+    const purpose = entry.slice(0, separator) as LegacyEncryptionPurpose;
+    const key = entry.slice(separator + 1);
+    if (!["email", "sms", "identity"].includes(purpose) || keys[purpose]) {
+      throw new Error("AUTH_LEGACY_ENCRYPTION_KEY_MAPPING_INVALID");
+    }
+    decodeKey(key);
+    keys[purpose] = key;
+  }
+  if (Object.keys(keys).length === 0) throw new Error("AUTH_LEGACY_ENCRYPTION_KEY_MAPPING_INVALID");
+  return keys;
+}
+
 export class EncryptionKeyRing {
   private readonly active: { id: string; key: Buffer };
   private readonly keys: Map<string, Buffer>;
+  private readonly legacyKey?: Buffer;
+  private readonly legacyKeys: Partial<Record<LegacyEncryptionPurpose, Buffer>>;
 
-  constructor(config: EncryptionKeyConfig[]) {
+  constructor(config: EncryptionKeyConfig[], options: {
+    legacyKey?: string;
+    legacyKeys?: LegacyEncryptionKeys;
+  } = {}) {
     if (config.length === 0) throw new Error("AUTH_ENCRYPTION_KEY_RING_EMPTY");
     this.keys = new Map(config.map(({ id, key }) => [id, decodeKey(key)]));
     if (this.keys.size !== config.length) throw new Error("AUTH_ENCRYPTION_KEY_ID_DUPLICATE");
     this.active = { id: config[0].id, key: decodeKey(config[0].key) };
+    this.legacyKey = options.legacyKey ? decodeKey(options.legacyKey) : undefined;
+    this.legacyKeys = Object.fromEntries(
+      Object.entries(options.legacyKeys ?? {}).map(([purpose, key]) => [purpose, decodeKey(key)]),
+    );
   }
 
   encrypt(value: string): EncryptedValue {
@@ -54,8 +89,16 @@ export class EncryptionKeyRing {
   }
 
   decrypt(value: EncryptedValue): string {
-    const key = this.keys.get(value.keyId);
-    if (!key) throw new Error("AUTH_ENCRYPTION_KEY_UNAVAILABLE");
+    const key = value.keyId === null
+      ? (value.legacyPurpose
+          ? (this.legacyKeys[value.legacyPurpose] ?? this.legacyKey)
+          : this.legacyKey)
+      : this.keys.get(value.keyId);
+    if (!key) {
+      throw new Error(value.keyId === null
+        ? "AUTH_LEGACY_ENCRYPTION_KEY_UNAVAILABLE"
+        : "AUTH_ENCRYPTION_KEY_UNAVAILABLE");
+    }
     const [version, nonce, tag, ciphertext] = value.ciphertext.split(".");
     if (version !== "v1" || !nonce || !tag || !ciphertext) {
       throw new Error("AUTH_ENCRYPTED_PAYLOAD_INVALID");

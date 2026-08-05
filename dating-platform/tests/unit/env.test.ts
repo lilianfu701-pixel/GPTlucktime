@@ -25,6 +25,21 @@ describe("readEnv", () => {
     }).AUTH_TRUSTED_PROXY_TOKEN).toBe("trusted-ingress-token-at-least-32-characters");
   });
 
+  it("accepts an explicit legacy ciphertext read key", () => {
+    expect(readEnv({
+      ...validEnv,
+      AUTH_LEGACY_ENCRYPTION_KEY: encryptionKey,
+    }).AUTH_LEGACY_ENCRYPTION_KEY).toBe(encryptionKey);
+  });
+
+  it("accepts a purpose-mapped legacy ciphertext read key", () => {
+    const mapping = `email:${encryptionKey},sms:${Buffer.alloc(32, 8).toString("base64")},identity:${Buffer.alloc(32, 9).toString("base64")}`;
+    expect(readEnv({
+      ...validEnv,
+      AUTH_LEGACY_ENCRYPTION_KEY: mapping,
+    }).AUTH_LEGACY_ENCRYPTION_KEY).toBe(mapping);
+  });
+
   it("accepts optional HTTPS notification and identity providers", () => {
     expect(readEnv({
       ...validEnv,
@@ -34,6 +49,7 @@ describe("readEnv", () => {
       SMS_WEBHOOK_TOKEN: "sms-token",
       SMS_ABUSE_HMAC_KEY: "sms-abuse-hmac-key-at-least-32-characters",
       SMS_ALLOWED_CALLING_CODES: "1,44",
+      AUTH_TRUSTED_PROXY_TOKEN: "trusted-ingress-token-at-least-32-characters",
       AUTH_ENCRYPTION_KEYS: `current:${encryptionKey}`,
       AUTH_DELIVERY_HMAC_KEY: "delivery-hmac-key-at-least-32-characters",
       IDENTITY_VERIFICATION_PROVIDER: "vendor",
@@ -57,6 +73,18 @@ describe("readEnv", () => {
       ...validEnv,
       SMS_HIGH_RISK_CALLING_CODES: "44",
     })).toThrow("SMS high-risk destinations require challenge verification");
+  });
+
+  it("rejects a complete SMS provider without trusted ingress", () => {
+    expect(() => readEnv({
+      ...validEnv,
+      SMS_WEBHOOK_URL: "https://notify.example.test/sms",
+      SMS_WEBHOOK_TOKEN: "sms-token",
+      SMS_ABUSE_HMAC_KEY: "sms-abuse-hmac-key-at-least-32-characters",
+      SMS_ALLOWED_CALLING_CODES: "1,44",
+      AUTH_ENCRYPTION_KEYS: `current:${encryptionKey}`,
+      AUTH_DELIVERY_HMAC_KEY: "delivery-hmac-key-at-least-32-characters",
+    })).toThrow("SMS configuration must be complete");
   });
 
   it.each(["EMAIL_WEBHOOK_URL", "SMS_WEBHOOK_URL", "IDENTITY_VERIFICATION_URL"] as const)(

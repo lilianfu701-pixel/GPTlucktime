@@ -50,6 +50,13 @@
       "when": 1785970838125,
       "tag": "0006_identity_session_intents",
       "breakpoints": true
+    },
+    {
+      "idx": 7,
+      "version": "7",
+      "when": 1785972508969,
+      "tag": "0007_identity_intent_gate_leases",
+      "breakpoints": true
     }
   ]
 }

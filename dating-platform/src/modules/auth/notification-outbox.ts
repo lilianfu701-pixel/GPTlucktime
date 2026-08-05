@@ -64,16 +64,18 @@ export class DurableNotificationDispatcher implements MessageDispatcher {
   }
 
   decrypt(delivery: Delivery): EmailVerificationMessage | PasswordResetMessage | SmsOtpMessage {
-    if (!delivery.encryptionKeyId || !delivery.recipientEncrypted || !delivery.payloadEncrypted) {
+    if (!delivery.recipientEncrypted || !delivery.payloadEncrypted) {
       throw new Error("AUTH_ENCRYPTED_PAYLOAD_INVALID");
     }
     const to = this.encryption.decrypt({
       keyId: delivery.encryptionKeyId,
       ciphertext: delivery.recipientEncrypted,
+      legacyPurpose: delivery.kind === "sms_otp" ? "sms" : "email",
     });
     const payload = this.encryption.decrypt({
       keyId: delivery.encryptionKeyId,
       ciphertext: delivery.payloadEncrypted,
+      legacyPurpose: delivery.kind === "sms_otp" ? "sms" : "email",
     });
     if (delivery.kind === "email_verification") return { to, verificationUrl: payload };
     if (delivery.kind === "password_reset") return { to, resetUrl: payload };
@@ -123,6 +125,7 @@ export class DurableNotificationDispatcher implements MessageDispatcher {
 function redactedDeliveryError(error: unknown): string {
   if (error instanceof Error && [
     "AUTH_ENCRYPTION_KEY_UNAVAILABLE",
+    "AUTH_LEGACY_ENCRYPTION_KEY_UNAVAILABLE",
     "AUTH_ENCRYPTED_PAYLOAD_INVALID",
   ].includes(error.message)) return error.message;
   return NOTIFICATION_DELIVERY_FAILED;

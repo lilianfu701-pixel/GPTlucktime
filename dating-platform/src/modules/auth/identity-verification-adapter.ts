@@ -248,6 +248,7 @@ export function createIdentityVerificationHandler(input: {
     | "findReusable"
     | "availability"
     | "beginIntent"
+    | "rejectIntent"
     | "bindIntent"
     | "markCompensated"
     | "recordRetry"
@@ -293,6 +294,7 @@ export function createIdentityVerificationHandler(input: {
     if (context.satisfied.identity) return handlerError("IDENTITY_ALREADY_VERIFIED", 409);
     if (input.providerConfigured === false) return handlerError(IDENTITY_PROVIDER_UNAVAILABLE, 503);
 
+    let intent: Awaited<ReturnType<DrizzleIdentityAttemptStore["beginIntent"]>>;
     try {
       const reusable = await input.attemptStore.findReusable(session.user.id, idempotencyKey);
       if (reusable) {
@@ -301,15 +303,6 @@ export function createIdentityVerificationHandler(input: {
           expiresAt: reusable.expiresAt.toISOString(),
         });
       }
-      const availability = await input.attemptStore.availability(session.user.id);
-      if (availability === "pending") return handlerError("IDENTITY_ATTEMPT_PENDING", 409);
-      if (availability === "cooldown") return handlerError("IDENTITY_ATTEMPT_COOLDOWN", 429);
-    } catch {
-      return handlerError("INTERNAL_ERROR", 500);
-    }
-
-    let intent: Awaited<ReturnType<DrizzleIdentityAttemptStore["beginIntent"]>>;
-    try {
       intent = await input.attemptStore.beginIntent({
         userId: session.user.id,
         provider: input.provider,
@@ -324,9 +317,27 @@ export function createIdentityVerificationHandler(input: {
           ? Response.json({ redirectUrl: reusable.redirectUrl, expiresAt: reusable.expiresAt.toISOString() })
           : handlerError("IDENTITY_RECOVERY_PENDING", 503);
       }
-    } catch {
+      if (!intent.acquired || !intent.leaseId) {
+        return handlerError("IDENTITY_RECOVERY_PENDING", 503);
+      }
+      const availability = await input.attemptStore.availability(session.user.id);
+      if (availability === "pending" || availability === "cooldown") {
+        const code = availability === "pending"
+          ? "IDENTITY_ATTEMPT_PENDING"
+          : "IDENTITY_ATTEMPT_COOLDOWN";
+        const rejected = await input.attemptStore.rejectIntent(intent.id, intent.leaseId, code);
+        if (!rejected) return handlerError("INTERNAL_ERROR", 500);
+        return handlerError(code, availability === "pending" ? 409 : 429);
+      }
+    } catch (error) {
+      if (error instanceof IdentityAttemptConflictError) {
+        return handlerError("IDENTITY_ATTEMPT_PENDING", 409);
+      }
       return handlerError("INTERNAL_ERROR", 500);
     }
+
+    const leaseId = intent.leaseId;
+    if (!leaseId) return handlerError("INTERNAL_ERROR", 500);
 
     let hosted: IdentityVerificationSession;
     try {
@@ -340,22 +351,24 @@ export function createIdentityVerificationHandler(input: {
         "initiating",
         intent.attempts + 1,
         "IDENTITY_PROVIDER_FAILED",
+        leaseId,
       ).catch(() => undefined);
       return handlerError(IDENTITY_PROVIDER_UNAVAILABLE, 503);
     }
     try {
-      await input.attemptStore.bindIntent(intent.id, hosted);
+      await input.attemptStore.bindIntent(intent.id, hosted, leaseId);
     } catch (error) {
       if (error instanceof IdentityAttemptConflictError) {
         try {
           await input.adapter.cancelSession(hosted.providerReference);
-          await input.attemptStore.markCompensated(intent.id);
+          await input.attemptStore.markCompensated(intent.id, leaseId);
         } catch {
           await input.attemptStore.recordRetry(
             intent.id,
             "compensation_pending",
             intent.attempts + 1,
             "IDENTITY_COMPENSATION_FAILED",
+            leaseId,
           ).catch(() => undefined);
         }
         const reusable = await input.attemptStore.findReusable(session.user.id, idempotencyKey)

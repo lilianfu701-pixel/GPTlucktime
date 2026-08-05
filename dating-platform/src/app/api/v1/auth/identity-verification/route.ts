@@ -9,7 +9,12 @@ import {
   DrizzleIdentityAttemptStore,
   reconcileIdentitySessionIntents,
 } from "@/modules/auth/identity-attempt-store";
-import { EncryptionKeyRing, StableHmac, parseEncryptionKeyRing } from "@/modules/auth/auth-crypto";
+import {
+  EncryptionKeyRing,
+  StableHmac,
+  parseEncryptionKeyRing,
+  parseLegacyEncryptionKeys,
+} from "@/modules/auth/auth-crypto";
 import { readEnv } from "@/shared/env";
 
 const env = readEnv(process.env);
@@ -27,7 +32,11 @@ const adapter = new HttpsIdentityVerificationAdapter(
 const attemptStore = env.AUTH_ENCRYPTION_KEYS && env.IDENTITY_IDEMPOTENCY_HMAC_KEY
   ? new DrizzleIdentityAttemptStore(
       db,
-      new EncryptionKeyRing(parseEncryptionKeyRing(env.AUTH_ENCRYPTION_KEYS)),
+      new EncryptionKeyRing(parseEncryptionKeyRing(env.AUTH_ENCRYPTION_KEYS), {
+        legacyKeys: env.AUTH_LEGACY_ENCRYPTION_KEY
+          ? parseLegacyEncryptionKeys(env.AUTH_LEGACY_ENCRYPTION_KEY)
+          : undefined,
+      }),
       new StableHmac(env.IDENTITY_IDEMPOTENCY_HMAC_KEY),
     )
   : undefined;
@@ -42,6 +51,7 @@ export const POST = createIdentityVerificationHandler({
     async findReusable() { throw new Error("IDENTITY_PROVIDER_UNAVAILABLE"); },
     async availability() { throw new Error("IDENTITY_PROVIDER_UNAVAILABLE"); },
     async beginIntent() { throw new Error("IDENTITY_PROVIDER_UNAVAILABLE"); },
+    async rejectIntent() { throw new Error("IDENTITY_PROVIDER_UNAVAILABLE"); },
     async bindIntent() { throw new Error("IDENTITY_PROVIDER_UNAVAILABLE"); },
     async markCompensated() { throw new Error("IDENTITY_PROVIDER_UNAVAILABLE"); },
     async recordRetry() { throw new Error("IDENTITY_PROVIDER_UNAVAILABLE"); },
