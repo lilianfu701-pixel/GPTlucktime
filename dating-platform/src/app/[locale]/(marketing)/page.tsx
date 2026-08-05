@@ -1,4 +1,7 @@
 import Link from "next/link";
+import { notFound } from "next/navigation";
+
+import { isSupportedLocale } from "@/i18n/locales";
 
 const copy = {
   en: {
@@ -27,9 +30,13 @@ type MarketingPageProps = {
 
 export default async function MarketingPage({ params }: MarketingPageProps) {
   const { locale } = await params;
-  const currentLocale = locale === "zh" ? "zh" : "en";
-  const content = copy[currentLocale];
-  const alternateLocale = currentLocale === "zh" ? "en" : "zh";
+
+  if (!isSupportedLocale(locale)) {
+    notFound();
+  }
+
+  const content = copy[locale];
+  const alternateLocale = locale === "zh" ? "en" : "zh";
 
   return (
     <main className="min-h-screen bg-rose-50 text-stone-900">
@@ -61,6 +68,28 @@ export default async function MarketingPage({ params }: MarketingPageProps) {
             {content.secondary}
           </a>
         </div>
+      </section>
+
+      <section id="how-it-works" className="mx-auto max-w-6xl scroll-mt-8 px-6 py-16">
+        <h2 className="text-3xl font-semibold">
+          {locale === "zh" ? "先了解彼此，再决定下一步" : "Get to know each other, one step at a time"}
+        </h2>
+        <p className="mt-4 max-w-2xl text-lg leading-8 text-stone-600">
+          {locale === "zh"
+            ? "完善个人资料，发现共同兴趣，并从尊重彼此的交流开始。"
+            : "Build a thoughtful profile, discover shared interests, and begin with a respectful conversation."}
+        </p>
+      </section>
+
+      <section id="join" className="mx-auto max-w-6xl scroll-mt-8 px-6 py-16">
+        <h2 className="text-3xl font-semibold">
+          {locale === "zh" ? "准备好展示真实的自己了吗？" : "Ready to share the real you?"}
+        </h2>
+        <p className="mt-4 max-w-2xl text-lg leading-8 text-stone-600">
+          {locale === "zh"
+            ? "个人资料创建功能将在下一阶段开放。"
+            : "Profile creation will open in the next stage of the platform."}
+        </p>
       </section>
     </main>
   );

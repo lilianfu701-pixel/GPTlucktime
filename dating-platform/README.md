@@ -1,36 +1,44 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Heartline dating platform
 
-## Getting Started
+Heartline is a Next.js App Router application with localized English and Simplified Chinese marketing routes.
 
-First, run the development server:
+## Local setup
+
+Install dependencies and create local environment files:
+
+```bash
+npm install
+cp .env.example .env.local
+```
+
+The values in `.env.example` are development-only defaults. Generate new passwords and a random `BETTER_AUTH_SECRET` of at least 32 characters for every deployed environment. Production `APP_URL` and `BETTER_AUTH_URL` values must use HTTPS.
+
+Start PostgreSQL, password-protected Redis, and MinIO with Docker Compose:
+
+```bash
+docker compose --env-file .env.local up -d
+```
+
+All container ports bind to `127.0.0.1`, and persistent data is stored in named Docker volumes. The application uses these environment variables:
+
+- `DATABASE_URL`: `postgres://` or `postgresql://` URL.
+- `REDIS_URL`: `redis://` or `rediss://` URL, including the configured password.
+- `BETTER_AUTH_SECRET`: trimmed secret with at least 32 characters.
+- `BETTER_AUTH_URL`: Better Auth HTTP(S) endpoint; HTTPS is required in production.
+- `APP_URL`: application HTTP(S) origin; HTTPS is required in production.
+
+## Run the application
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000/en](http://localhost:3000/en) for English or [http://localhost:3000/zh](http://localhost:3000/zh) for Simplified Chinese. Unsupported locale paths return a 404 response.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Checks
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+npm run test
+npm run lint
+npm run build
+```

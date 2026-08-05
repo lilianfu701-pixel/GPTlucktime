@@ -1,4 +1,7 @@
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
+
+import { isSupportedLocale } from "@/i18n/locales";
 
 import "../globals.css";
 
@@ -14,6 +17,10 @@ type LocaleLayoutProps = {
 
 export default async function LocaleLayout({ children, params }: LocaleLayoutProps) {
   const { locale } = await params;
+
+  if (!isSupportedLocale(locale)) {
+    notFound();
+  }
 
   return (
     <html lang={locale === "zh" ? "zh-CN" : "en"}>
