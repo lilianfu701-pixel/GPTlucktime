@@ -102,7 +102,21 @@
     "saveDraft": "儲存草稿",
     "publishStory": "發布生平",
     "ritualsHeading": "親友可以留下什麼",
-    "ritualsNone": "目前還沒有這種語言的儀式說明。"
+    "ritualsNone": "目前還沒有這種語言的儀式說明。",
+    "photosHeading": "照片",
+    "photosHelp": "為紀念館新增照片。支援 JPEG、PNG 和 WebP，最大 15 MB。",
+    "photosNone": "尚未新增照片。",
+    "addPhoto": "新增照片",
+    "removePhoto": "刪除",
+    "photoProcessing": "處理中…",
+    "photoRejected": "該圖片無法使用。",
+    "photoAltFallback": "照片",
+    "photoAltOf": "{name}的照片",
+    "unsupportedImage": "不支援該檔案格式。請上傳 JPEG、PNG 或 WebP 格式的照片。",
+    "imageTooLarge": "該照片超過 15 MB。",
+    "imageEmpty": "該檔案似乎是空的。",
+    "uploadFailed": "照片上傳失敗，請重試。",
+    "imageRejected": "該照片無法處理。"
   },
   "privacy": {
     "title": "誰可以看到這個追思頁",

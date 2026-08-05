@@ -158,7 +158,7 @@ async function uploadTo(
     .where(eq(mediaAssets.id, signed.value.mediaAssetId));
 
   await storage.putObject(asset?.key ?? "", bytes, declaredType);
-  await markUploadComplete(signed.value.mediaAssetId, "req_complete");
+  await markUploadComplete(actor, signed.value.mediaAssetId, "req_complete");
 
   return signed.value.mediaAssetId;
 }
@@ -436,7 +436,7 @@ describe("the upload lifecycle", () => {
       "r1",
     );
     if (!signed.ok) throw new Error("sign failed");
-    await markUploadComplete(signed.value.mediaAssetId, "r2");
+    await markUploadComplete(owner, signed.value.mediaAssetId, "r2");
 
     expect(
       await processUploadedAsset(
@@ -463,7 +463,7 @@ describe("the upload lifecycle", () => {
     const memorialId = await makeMemorial(owner);
     const assetId = await uploadTo(memorialId, owner, JPEG_BYTES);
 
-    expect(await markUploadComplete(assetId, "r1")).toEqual({
+    expect(await markUploadComplete(owner, assetId, "r1")).toEqual({
       ok: false,
       error: "NOT_AWAITING_PROCESSING",
     });

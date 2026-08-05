@@ -102,7 +102,21 @@
     "saveDraft": "حفظ المسودة",
     "publishStory": "نشر سيرة الحياة",
     "ritualsHeading": "ما يمكن للزائرين تركه",
-    "ritualsNone": "لا تتوفر ممارسات بهذه اللغة بعد."
+    "ritualsNone": "لا تتوفر ممارسات بهذه اللغة بعد.",
+    "photosHeading": "صور",
+    "photosHelp": "أضف صورًا إلى هذا النصب التذكاري. JPEG وPNG وWebP حتى 15 ميغابايت.",
+    "photosNone": "لم تُضف أي صور بعد.",
+    "addPhoto": "إضافة صورة",
+    "removePhoto": "حذف",
+    "photoProcessing": "جارٍ المعالجة…",
+    "photoRejected": "لا يمكن استخدام هذه الصورة.",
+    "photoAltFallback": "صورة",
+    "photoAltOf": "صورة {name}",
+    "unsupportedImage": "لا يمكن إضافة هذا النوع من الملفات. يُقبل JPEG وPNG وWebP.",
+    "imageTooLarge": "تتجاوز هذه الصورة 15 ميغابايت.",
+    "imageEmpty": "يبدو أن الملف فارغ.",
+    "uploadFailed": "تعذّر رفع الصورة. يرجى المحاولة مرة أخرى.",
+    "imageRejected": "تعذّر معالجة هذه الصورة."
   },
   "privacy": {
     "title": "من يمكنه رؤية هذه الصفحة",

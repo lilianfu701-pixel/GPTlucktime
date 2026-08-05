@@ -102,7 +102,21 @@
     "saveDraft": "임시 저장",
     "publishStory": "생애 공개하기",
     "ritualsHeading": "찾아오는 분들이 남길 수 있는 것",
-    "ritualsNone": "아직 이 언어로 준비된 것이 없습니다."
+    "ritualsNone": "아직 이 언어로 준비된 것이 없습니다.",
+    "photosHeading": "사진",
+    "photosHelp": "추모 페이지에 사진을 추가하세요. JPEG, PNG, WebP(최대 15MB).",
+    "photosNone": "아직 사진이 추가되지 않았습니다.",
+    "addPhoto": "사진 추가",
+    "removePhoto": "삭제",
+    "photoProcessing": "처리 중…",
+    "photoRejected": "이 이미지를 사용할 수 없습니다.",
+    "photoAltFallback": "사진",
+    "photoAltOf": "{name}의 사진",
+    "unsupportedImage": "이 파일 형식은 추가할 수 없습니다. JPEG, PNG, WebP 사진만 지원됩니다.",
+    "imageTooLarge": "이 사진은 15MB를 초과합니다.",
+    "imageEmpty": "파일이 비어 있는 것 같습니다.",
+    "uploadFailed": "사진을 업로드할 수 없습니다. 다시 시도해 주세요.",
+    "imageRejected": "이 사진을 처리할 수 없습니다."
   },
   "privacy": {
     "title": "이 페이지를 볼 수 있는 범위",

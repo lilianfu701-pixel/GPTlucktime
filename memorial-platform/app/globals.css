@@ -513,3 +513,46 @@ img {
     --line-strong: rgba(37, 48, 39, 0.5);
   }
 }
+
+/* ---------- Photo gallery & manager ---------- */
+
+.photoGallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.photoGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(9rem, 1fr));
+  gap: var(--space-4);
+}
+
+.photoTile {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.photoThumb {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  background: var(--line);
+}
+
+.photoPlaceholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: var(--radius-md);
+  background: var(--paper-raised);
+  border: 1px dashed var(--line);
+  text-align: center;
+  padding: var(--space-2);
+  font-size: var(--text-sm);
+}

@@ -102,7 +102,21 @@
     "saveDraft": "Lưu bản nháp",
     "publishStory": "Đăng cuộc đời",
     "ritualsHeading": "Điều người đến thăm có thể để lại",
-    "ritualsNone": "Chưa có nội dung nào bằng ngôn ngữ này."
+    "ritualsNone": "Chưa có nội dung nào bằng ngôn ngữ này.",
+    "photosHeading": "Ảnh",
+    "photosHelp": "Thêm ảnh vào trang tưởng niệm này. JPEG, PNG và WebP tối đa 15 MB.",
+    "photosNone": "Chưa có ảnh nào được thêm.",
+    "addPhoto": "Thêm ảnh",
+    "removePhoto": "Xóa",
+    "photoProcessing": "Đang xử lý…",
+    "photoRejected": "Không thể sử dụng hình ảnh này.",
+    "photoAltFallback": "Ảnh",
+    "photoAltOf": "Ảnh của {name}",
+    "unsupportedImage": "Loại tệp này không thể thêm. Chỉ chấp nhận ảnh JPEG, PNG và WebP.",
+    "imageTooLarge": "Ảnh này vượt quá 15 MB.",
+    "imageEmpty": "Tệp này có vẻ như trống.",
+    "uploadFailed": "Không thể tải ảnh lên. Vui lòng thử lại.",
+    "imageRejected": "Không thể xử lý ảnh này."
   },
   "privacy": {
     "title": "Ai có thể xem trang này",

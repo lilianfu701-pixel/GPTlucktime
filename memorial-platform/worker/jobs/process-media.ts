@@ -43,6 +43,7 @@ export async function handleMediaProcess(
   switch (result.error) {
     case "MALWARE_DETECTED":
     case "CONTENT_MISMATCH":
+    case "PROCESSING_FAILED":
       // Decided. The asset is rejected and the bytes are gone.
       return { handled: true, status: "rejected" };
     case "NOT_AWAITING_PROCESSING":

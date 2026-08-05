@@ -102,7 +102,21 @@
     "saveDraft": "Enregistrer le brouillon",
     "publishStory": "Publier le récit de vie",
     "ritualsHeading": "Ce que les visiteurs peuvent déposer",
-    "ritualsNone": "Aucune pratique n'est encore disponible dans cette langue."
+    "ritualsNone": "Aucune pratique n'est encore disponible dans cette langue.",
+    "photosHeading": "Photographies",
+    "photosHelp": "Ajoutez des photographies à ce mémorial. JPEG, PNG et WebP jusqu’à 15 Mo.",
+    "photosNone": "Aucune photographie n’a encore été ajoutée.",
+    "addPhoto": "Ajouter une photographie",
+    "removePhoto": "Supprimer",
+    "photoProcessing": "Traitement en cours…",
+    "photoRejected": "Cette image n’a pas pu être utilisée.",
+    "photoAltFallback": "Photographie",
+    "photoAltOf": "Photographie de {name}",
+    "unsupportedImage": "Ce type de fichier ne peut pas être ajouté. Les photographies JPEG, PNG et WebP sont acceptées.",
+    "imageTooLarge": "Cette photographie dépasse 15 Mo.",
+    "imageEmpty": "Le fichier semble être vide.",
+    "uploadFailed": "La photographie n’a pas pu être envoyée. Veuillez réessayer.",
+    "imageRejected": "Cette photographie n’a pas pu être traitée."
   },
   "privacy": {
     "title": "Qui peut voir ce mémorial",

@@ -102,7 +102,21 @@
     "saveDraft": "下書きを保存",
     "publishStory": "歩みを公開する",
     "ritualsHeading": "訪れる方が残せるもの",
-    "ritualsNone": "この言語でご用意できているものはまだありません。"
+    "ritualsNone": "この言語でご用意できているものはまだありません。",
+    "photosHeading": "写真",
+    "photosHelp": "追悼ページに写真を追加してください。JPEG、PNG、WebP（15 MBまで）。",
+    "photosNone": "写真はまだ追加されていません。",
+    "addPhoto": "写真を追加",
+    "removePhoto": "削除",
+    "photoProcessing": "処理中…",
+    "photoRejected": "この画像は使用できませんでした。",
+    "photoAltFallback": "写真",
+    "photoAltOf": "{name}の写真",
+    "unsupportedImage": "このファイル形式は追加できません。JPEG、PNG、WebPの写真が利用可能です。",
+    "imageTooLarge": "この写真は 15 MB を超えています。",
+    "imageEmpty": "ファイルが空のようです。",
+    "uploadFailed": "写真をアップロードできませんでした。もう一度お試しください。",
+    "imageRejected": "この写真を処理できませんでした。"
   },
   "privacy": {
     "title": "このページを見られる範囲",

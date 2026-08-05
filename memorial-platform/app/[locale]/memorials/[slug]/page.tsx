@@ -11,6 +11,7 @@ import {
   publishedBiography,
 } from "@/modules/memorials/content-service";
 import { lifeSpan, loadMemorialDetail } from "@/modules/memorials/detail";
+import { memorialGallery } from "@/modules/media/service";
 import { memorialUrl, robotsFor } from "@/modules/memorials/seo";
 import { offerableRituals } from "@/modules/religion/memorial-settings";
 import { OfferRitual } from "./offer-ritual";
@@ -115,10 +116,11 @@ export default async function MemorialPage(props: {
   const { detail } = result;
   const span = lifeSpan(detail);
 
-  const [biography, stories, rituals] = await Promise.all([
+  const [biography, stories, rituals, gallery] = await Promise.all([
     publishedBiography(detail.memorialId),
     publicVisitorStories(detail.memorialId),
     offerableRituals(detail.memorialId, normalizeLocale(locale)),
+    memorialGallery(detail.memorialId),
   ]);
 
   /*
@@ -198,6 +200,26 @@ export default async function MemorialPage(props: {
             </p>
           ) : null}
         </header>
+
+        {gallery.length > 0 ? (
+          <section className="photoGallery">
+            {gallery.map((photo) => (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                key={photo.id}
+                className="photoThumb"
+                src={photo.url}
+                alt={
+                  photo.altText ??
+                  t("photoAltOf", { name: detail.primaryName })
+                }
+                loading="lazy"
+                width={320}
+                height={320}
+              />
+            ))}
+          </section>
+        ) : null}
 
         <section className="stack measure">
           <h2>{t("lifeStory")}</h2>

@@ -102,7 +102,21 @@
     "saveDraft": "Simpan draf",
     "publishStory": "Terbitkan kisah hidup",
     "ritualsHeading": "Yang boleh ditinggalkan pengunjung",
-    "ritualsNone": "Belum ada yang tersedia dalam bahasa ini."
+    "ritualsNone": "Belum ada yang tersedia dalam bahasa ini.",
+    "photosHeading": "Foto",
+    "photosHelp": "Tambahkan foto ke memorial ini. JPEG, PNG dan WebP hingga 15 MB.",
+    "photosNone": "Belum ada foto yang ditambahkan.",
+    "addPhoto": "Tambahkan foto",
+    "removePhoto": "Hapus",
+    "photoProcessing": "Memproses…",
+    "photoRejected": "Gambar ini tidak bisa digunakan.",
+    "photoAltFallback": "Foto",
+    "photoAltOf": "Foto {name}",
+    "unsupportedImage": "Jenis file ini tidak bisa ditambahkan. Yang diterima adalah foto JPEG, PNG dan WebP.",
+    "imageTooLarge": "Foto ini melebihi 15 MB.",
+    "imageEmpty": "File ini tampaknya kosong.",
+    "uploadFailed": "Foto tidak bisa diunggah. Silakan coba lagi.",
+    "imageRejected": "Foto ini tidak bisa diproses."
   },
   "privacy": {
     "title": "Siapa yang dapat melihat halaman ini",

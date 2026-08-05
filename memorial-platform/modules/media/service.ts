@@ -1,5 +1,5 @@
 import { randomUUID } from "node:crypto";
-import { and, eq } from "drizzle-orm";
+import { and, asc, desc, eq, isNull } from "drizzle-orm";
 import { db } from "@/db/client";
 import { auditLogs, mediaAssets, memorials, outboxEvents } from "@/db/schema";
 import { err, ok } from "@/lib/result";
@@ -14,8 +14,8 @@ import {
   signatureMatchesDeclared,
   validateDeclaredUpload,
 } from "./policy";
-import { mediaStorage } from "./storage";
-import type { MalwareScanner } from "./storage";
+import { mediaImageProcessor, mediaStorage } from "./storage";
+import type { ImageProcessor, MalwareScanner, MediaStorage } from "./storage";
 
 /** An upload URL is short-lived: long enough to send a file, not to be shared. */
 const UPLOAD_URL_TTL_SECONDS = 15 * 60;
@@ -36,7 +36,19 @@ export type ProcessError =
   | "NOT_AWAITING_PROCESSING"
   | "BYTES_MISSING"
   | "CONTENT_MISMATCH"
-  | "MALWARE_DETECTED";
+  | "MALWARE_DETECTED"
+  | "PROCESSING_FAILED";
+
+export type CompleteError =
+  | "ASSET_NOT_FOUND"
+  | "MEMORIAL_NOT_FOUND"
+  | "MEMORIAL_FORBIDDEN"
+  | "NOT_AWAITING_PROCESSING";
+
+export type DeleteMediaError =
+  | "ASSET_NOT_FOUND"
+  | "MEMORIAL_NOT_FOUND"
+  | "MEMORIAL_FORBIDDEN";
 
 /**
  * Authorizes an upload and issues a short-lived URL.
@@ -140,9 +152,14 @@ export async function signUpload(
  * worker takes it from there.
  */
 export async function markUploadComplete(
+  actor: Actor,
   assetId: string,
   correlationId: string,
-): Promise<Result<{ status: "scanning" }, ProcessError>> {
+): Promise<Result<{ mediaAssetId: string; status: "scanning" }, CompleteError>> {
+  if (!actor.userId) {
+    return err("MEMORIAL_FORBIDDEN");
+  }
+
   const [asset] = await db()
     .select()
     .from(mediaAssets)
@@ -150,6 +167,15 @@ export async function markUploadComplete(
 
   if (!asset) {
     return err("ASSET_NOT_FOUND");
+  }
+
+  const role = await memorialRoleFor(asset.memorialId, actor.userId);
+  if (!role) {
+    return err("MEMORIAL_NOT_FOUND");
+  }
+
+  if (!canOnMemorial({ actor, role, action: "publish_content" })) {
+    return err("MEMORIAL_FORBIDDEN");
   }
 
   if (asset.status !== "pending_upload") {
@@ -169,19 +195,29 @@ export async function markUploadComplete(
     });
   });
 
-  return ok({ status: "scanning" });
+  return ok({ mediaAssetId: assetId, status: "scanning" });
 }
 
 /**
- * Scans, verifies and publishes an asset. Run by the worker.
+ * Verifies, processes and publishes an asset. Run by the worker.
  *
- * The bytes are checked against the declared type here, not only at sign time:
- * a signed URL says what may be uploaded, it does not guarantee what was.
+ * Images take a different path from video/audio:
+ *
+ * - **Images** are decoded to pixels, metadata-stripped and re-encoded by sharp.
+ *   The decode→encode cycle genuinely neutralizes payloads embedded in IDAT
+ *   chunks, JPEG comments or EXIF thumbnails, so no external malware scanner is
+ *   needed on this path. GPS coordinates and device serials are dropped.
+ *
+ * - **Video/audio** cannot be safely re-encoded this way — a full transcode is
+ *   expensive and does not guarantee embedded-payload neutralization, so they
+ *   require a real malware scanner. Until one is wired, AlwaysCleanScanner
+ *   throws in production, which means video/audio uploads are disabled.
  */
 export async function processUploadedAsset(
   assetId: string,
   scanner: MalwareScanner,
   correlationId: string,
+  processor: ImageProcessor = mediaImageProcessor(),
 ): Promise<Result<{ status: "ready" }, ProcessError>> {
   const [asset] = await db()
     .select()
@@ -204,18 +240,41 @@ export async function processUploadedAsset(
     return err("BYTES_MISSING");
   }
 
-  const scan = await scanner.scan(bytes);
-  if (!scan.clean) {
-    await reject(assetId, "MALWARE_DETECTED", correlationId);
-    // The file stays out of the ready prefix and the quarantine copy goes.
-    await storage.deleteObject(asset.quarantineObjectKey);
-    return err("MALWARE_DETECTED");
-  }
-
   if (!signatureMatchesDeclared(asset.declaredContentType, bytes)) {
     await reject(assetId, "CONTENT_MISMATCH", correlationId);
     await storage.deleteObject(asset.quarantineObjectKey);
     return err("CONTENT_MISMATCH");
+  }
+
+  let readyBytes: Uint8Array;
+  let readyContentType: string;
+
+  if (asset.kind === "image") {
+    // Sharp re-encode replaces the scanner for images: decode to pixels then
+    // re-encode = new file, old payloads gone. Metadata (GPS, device serial)
+    // is stripped by .rotate() which bakes orientation and drops EXIF.
+    try {
+      const processed = await processor.stripMetadataAndResize({
+        bytes,
+        variant: "original",
+      });
+      readyBytes = processed.bytes;
+      readyContentType = processed.contentType;
+    } catch {
+      await reject(assetId, "PROCESSING_FAILED", correlationId);
+      await storage.deleteObject(asset.quarantineObjectKey);
+      return err("PROCESSING_FAILED");
+    }
+  } else {
+    // Video/audio still require a real scanner.
+    const scan = await scanner.scan(bytes);
+    if (!scan.clean) {
+      await reject(assetId, "MALWARE_DETECTED", correlationId);
+      await storage.deleteObject(asset.quarantineObjectKey);
+      return err("MALWARE_DETECTED");
+    }
+    readyBytes = bytes;
+    readyContentType = asset.declaredContentType;
   }
 
   const extension = asset.quarantineObjectKey.split(".").pop() ?? "bin";
@@ -227,7 +286,7 @@ export async function processUploadedAsset(
     extension,
   });
 
-  await storage.putObject(readyObjectKey, bytes, asset.declaredContentType);
+  await storage.putObject(readyObjectKey, readyBytes, readyContentType);
   await storage.deleteObject(asset.quarantineObjectKey);
 
   await db().transaction(async (tx) => {
@@ -236,8 +295,8 @@ export async function processUploadedAsset(
       .set({
         status: "ready",
         readyObjectKey,
-        detectedContentType: asset.declaredContentType,
-        actualBytes: bytes.length,
+        detectedContentType: readyContentType,
+        actualBytes: readyBytes.length,
         readyAt: new Date(),
       })
       .where(eq(mediaAssets.id, assetId));
@@ -246,7 +305,7 @@ export async function processUploadedAsset(
       action: "media.ready",
       resourceType: "media_asset",
       resourceId: assetId,
-      newValue: { actualBytes: bytes.length },
+      newValue: { actualBytes: readyBytes.length },
       correlationId,
     });
   });
@@ -325,4 +384,255 @@ export async function addressFor(assetId: string): Promise<MediaAddress> {
     ),
     expiresInSeconds: READ_URL_TTL_SECONDS,
   };
+}
+
+/** Shared address logic used by gallery and manage views. */
+async function addressForRow(
+  storage: MediaStorage,
+  row: {
+    status: string;
+    readyObjectKey: string | null;
+    visibility: "public" | "unlisted" | "invite_only";
+  },
+): Promise<MediaAddress> {
+  if (!row.readyObjectKey) {
+    return { kind: "unavailable" };
+  }
+
+  if (
+    mayHavePublicUrl({
+      status: row.status,
+      memorialVisibility: row.visibility,
+    })
+  ) {
+    const url = storage.publicUrl(row.readyObjectKey);
+    if (url) {
+      return { kind: "public", url };
+    }
+  }
+
+  if (row.status !== "ready") {
+    return { kind: "unavailable" };
+  }
+
+  return {
+    kind: "signed",
+    url: await storage.createReadUrl(row.readyObjectKey, READ_URL_TTL_SECONDS),
+    expiresInSeconds: READ_URL_TTL_SECONDS,
+  };
+}
+
+export type GalleryPhoto = {
+  id: string;
+  altText: string | null;
+  url: string;
+};
+
+/**
+ * Ready images for a memorial's public gallery.
+ *
+ * Only ready, non-deleted images are returned. The URL is either a permanent
+ * public address or a short-lived signed one, depending on the memorial's
+ * visibility and whether a public base is configured.
+ */
+export async function memorialGallery(
+  memorialId: string,
+): Promise<GalleryPhoto[]> {
+  const rows = await db()
+    .select({
+      id: mediaAssets.id,
+      altText: mediaAssets.altText,
+      status: mediaAssets.status,
+      readyObjectKey: mediaAssets.readyObjectKey,
+      visibility: memorials.visibility,
+    })
+    .from(mediaAssets)
+    .innerJoin(memorials, eq(memorials.id, mediaAssets.memorialId))
+    .where(
+      and(
+        eq(mediaAssets.memorialId, memorialId),
+        eq(mediaAssets.kind, "image"),
+        eq(mediaAssets.status, "ready"),
+        isNull(mediaAssets.deletedAt),
+      ),
+    )
+    .orderBy(asc(mediaAssets.createdAt));
+
+  const storage = mediaStorage();
+  const photos: GalleryPhoto[] = [];
+
+  for (const row of rows) {
+    const address = await addressForRow(storage, row);
+    if (address.kind !== "unavailable") {
+      photos.push({ id: row.id, altText: row.altText, url: address.url });
+    }
+  }
+
+  return photos;
+}
+
+export type ManageablePhoto = {
+  id: string;
+  altText: string | null;
+  status: string;
+  url: string | null;
+};
+
+/**
+ * All non-deleted images for the manage page.
+ *
+ * Includes pending and processing assets so the family sees what is in the
+ * pipeline, not just what is done.
+ */
+export async function manageableMedia(
+  memorialId: string,
+): Promise<ManageablePhoto[]> {
+  const rows = await db()
+    .select({
+      id: mediaAssets.id,
+      altText: mediaAssets.altText,
+      status: mediaAssets.status,
+      readyObjectKey: mediaAssets.readyObjectKey,
+      visibility: memorials.visibility,
+    })
+    .from(mediaAssets)
+    .innerJoin(memorials, eq(memorials.id, mediaAssets.memorialId))
+    .where(
+      and(
+        eq(mediaAssets.memorialId, memorialId),
+        eq(mediaAssets.kind, "image"),
+        isNull(mediaAssets.deletedAt),
+      ),
+    )
+    .orderBy(desc(mediaAssets.createdAt));
+
+  const storage = mediaStorage();
+  const photos: ManageablePhoto[] = [];
+
+  for (const row of rows) {
+    if (row.status === "ready" && row.readyObjectKey) {
+      const address = await addressForRow(storage, row);
+      photos.push({
+        id: row.id,
+        altText: row.altText,
+        status: row.status,
+        url: address.kind !== "unavailable" ? address.url : null,
+      });
+    } else {
+      photos.push({
+        id: row.id,
+        altText: row.altText,
+        status: row.status,
+        url: null,
+      });
+    }
+  }
+
+  return photos;
+}
+
+export type FamilyMediaView = {
+  status: string;
+  altText: string | null;
+  url: string | null;
+};
+
+/**
+ * Status and URL for a single asset, used by the client to poll processing.
+ */
+export async function familyMediaView(
+  actor: Actor,
+  assetId: string,
+): Promise<Result<FamilyMediaView, "ASSET_NOT_FOUND" | "MEMORIAL_FORBIDDEN">> {
+  const [row] = await db()
+    .select({
+      status: mediaAssets.status,
+      altText: mediaAssets.altText,
+      readyObjectKey: mediaAssets.readyObjectKey,
+      memorialId: mediaAssets.memorialId,
+      visibility: memorials.visibility,
+    })
+    .from(mediaAssets)
+    .innerJoin(memorials, eq(memorials.id, mediaAssets.memorialId))
+    .where(and(eq(mediaAssets.id, assetId), isNull(mediaAssets.deletedAt)));
+
+  if (!row) {
+    return err("ASSET_NOT_FOUND");
+  }
+
+  if (!actor.userId) {
+    return err("MEMORIAL_FORBIDDEN");
+  }
+
+  const role = await memorialRoleFor(row.memorialId, actor.userId);
+  if (!role || !canOnMemorial({ actor, role, action: "publish_content" })) {
+    return err("MEMORIAL_FORBIDDEN");
+  }
+
+  let url: string | null = null;
+  if (row.status === "ready" && row.readyObjectKey) {
+    const address = await addressForRow(mediaStorage(), row);
+    url = address.kind !== "unavailable" ? address.url : null;
+  }
+
+  return ok({ status: row.status, altText: row.altText, url });
+}
+
+/**
+ * Soft-deletes a media asset.
+ *
+ * The ready and quarantine objects are removed from storage, and the row is
+ * marked deleted. A hard delete would lose the audit trail, so the row stays.
+ */
+export async function softDeleteMedia(
+  actor: Actor,
+  assetId: string,
+  correlationId: string,
+): Promise<Result<{ deleted: true }, DeleteMediaError>> {
+  if (!actor.userId) {
+    return err("MEMORIAL_FORBIDDEN");
+  }
+
+  const [asset] = await db()
+    .select()
+    .from(mediaAssets)
+    .where(and(eq(mediaAssets.id, assetId), isNull(mediaAssets.deletedAt)));
+
+  if (!asset) {
+    return err("ASSET_NOT_FOUND");
+  }
+
+  const role = await memorialRoleFor(asset.memorialId, actor.userId);
+  if (!role) {
+    return err("MEMORIAL_NOT_FOUND");
+  }
+  if (!canOnMemorial({ actor, role, action: "publish_content" })) {
+    return err("MEMORIAL_FORBIDDEN");
+  }
+
+  const storage = mediaStorage();
+
+  // Remove objects from storage. Both operations are best-effort: if the
+  // object is already gone (double-delete, purge) that is fine.
+  if (asset.readyObjectKey) {
+    await storage.deleteObject(asset.readyObjectKey).catch(() => {});
+  }
+  await storage.deleteObject(asset.quarantineObjectKey).catch(() => {});
+
+  await db().transaction(async (tx) => {
+    await tx
+      .update(mediaAssets)
+      .set({ status: "deleted", deletedAt: new Date() })
+      .where(eq(mediaAssets.id, assetId));
+
+    await tx.insert(auditLogs).values({
+      actorUserId: actor.userId,
+      action: "media.deleted",
+      resourceType: "media_asset",
+      resourceId: assetId,
+      correlationId,
+    });
+  });
+
+  return ok({ deleted: true });
 }

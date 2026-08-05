@@ -102,7 +102,21 @@
     "saveDraft": "Entwurf speichern",
     "publishStory": "Lebensgeschichte veröffentlichen",
     "ritualsHeading": "Was Besucher hinterlassen dürfen",
-    "ritualsNone": "In dieser Sprache ist noch nichts verfügbar."
+    "ritualsNone": "In dieser Sprache ist noch nichts verfügbar.",
+    "photosHeading": "Fotografien",
+    "photosHelp": "Fügen Sie Fotografien zu diesem Gedenkort hinzu. JPEG, PNG und WebP bis 15 MB.",
+    "photosNone": "Noch keine Fotografien hinzugefügt.",
+    "addPhoto": "Fotografie hinzufügen",
+    "removePhoto": "Entfernen",
+    "photoProcessing": "Wird verarbeitet…",
+    "photoRejected": "Dieses Bild konnte nicht verwendet werden.",
+    "photoAltFallback": "Fotografie",
+    "photoAltOf": "Fotografie von {name}",
+    "unsupportedImage": "Dieser Dateityp wird nicht unterstützt. JPEG-, PNG- und WebP-Fotografien werden akzeptiert.",
+    "imageTooLarge": "Diese Fotografie ist größer als 15 MB.",
+    "imageEmpty": "Die Datei scheint leer zu sein.",
+    "uploadFailed": "Die Fotografie konnte nicht hochgeladen werden. Bitte versuchen Sie es erneut.",
+    "imageRejected": "Diese Fotografie konnte nicht verarbeitet werden."
   },
   "privacy": {
     "title": "Wer diese Gedenkseite sehen kann",

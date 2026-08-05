@@ -8,9 +8,11 @@ import {
   publishedBiography,
 } from "@/modules/memorials/content-service";
 import { loadMemorialDetail } from "@/modules/memorials/detail";
+import { manageableMedia } from "@/modules/media/service";
 import { canOnMemorial } from "@/modules/permissions/policy";
 import { ritualChoices } from "@/modules/religion/memorial-settings";
 import { ManageForms } from "./manage-forms";
+import { PhotoManager } from "./photo-manager";
 
 export const dynamic = "force-dynamic";
 
@@ -51,10 +53,11 @@ export default async function ManageMemorialPage(props: {
 
   const normalized = normalizeLocale(locale);
 
-  const [published, draft, rituals] = await Promise.all([
+  const [published, draft, rituals, photos] = await Promise.all([
     publishedBiography(detail.memorialId),
     latestBiographyDraft(detail.memorialId),
     mayConfigure ? ritualChoices(detail.memorialId, normalized) : [],
+    mayEditStory ? manageableMedia(detail.memorialId) : [],
   ]);
 
   // The draft is what they were last writing; the published version is what
@@ -67,6 +70,10 @@ export default async function ManageMemorialPage(props: {
         <p className="eyebrow">{detail.primaryName}</p>
         <h1>{t("manageTitle")}</h1>
       </header>
+
+      {mayEditStory ? (
+        <PhotoManager memorialId={detail.memorialId} initial={photos} />
+      ) : null}
 
       <ManageForms
         memorialId={detail.memorialId}

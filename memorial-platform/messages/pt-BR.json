@@ -102,7 +102,21 @@
     "saveDraft": "Salvar rascunho",
     "publishStory": "Publicar a história de vida",
     "ritualsHeading": "O que as pessoas podem deixar",
-    "ritualsNone": "Ainda não há práticas disponíveis neste idioma."
+    "ritualsNone": "Ainda não há práticas disponíveis neste idioma.",
+    "photosHeading": "Fotografias",
+    "photosHelp": "Adicione fotografias a este memorial. JPEG, PNG e WebP até 15 MB.",
+    "photosNone": "Nenhuma fotografia foi adicionada ainda.",
+    "addPhoto": "Adicionar fotografia",
+    "removePhoto": "Remover",
+    "photoProcessing": "Processando…",
+    "photoRejected": "Esta imagem não pôde ser utilizada.",
+    "photoAltFallback": "Fotografia",
+    "photoAltOf": "Fotografia de {name}",
+    "unsupportedImage": "Esse tipo de arquivo não pode ser adicionado. São aceitas fotografias JPEG, PNG e WebP.",
+    "imageTooLarge": "Essa fotografia excede 15 MB.",
+    "imageEmpty": "O arquivo parece estar vazio.",
+    "uploadFailed": "Não foi possível enviar a fotografia. Tente novamente.",
+    "imageRejected": "Essa fotografia não pôde ser processada."
   },
   "privacy": {
     "title": "Quem pode ver este memorial",

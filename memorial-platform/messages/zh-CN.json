@@ -102,7 +102,21 @@
     "saveDraft": "保存草稿",
     "publishStory": "发布生平",
     "ritualsHeading": "亲友可以留下什么",
-    "ritualsNone": "目前还没有这种语言的仪式说明。"
+    "ritualsNone": "目前还没有这种语言的仪式说明。",
+    "photosHeading": "照片",
+    "photosHelp": "为纪念馆添加照片。支持 JPEG、PNG 和 WebP，最大 15 MB。",
+    "photosNone": "还没有添加照片。",
+    "addPhoto": "添加照片",
+    "removePhoto": "删除",
+    "photoProcessing": "处理中…",
+    "photoRejected": "该图片无法使用。",
+    "photoAltFallback": "照片",
+    "photoAltOf": "{name}的照片",
+    "unsupportedImage": "不支持该文件格式。请上传 JPEG、PNG 或 WebP 格式的照片。",
+    "imageTooLarge": "该照片超过 15 MB。",
+    "imageEmpty": "该文件似乎是空的。",
+    "uploadFailed": "照片上传失败，请重试。",
+    "imageRejected": "该照片无法处理。"
   },
   "privacy": {
     "title": "谁可以看到这个主页",

@@ -98,6 +98,20 @@ const envSchema = z.object({
   S3_BUCKET: z.preprocess(blankToUndefined, z.string().min(1).optional()),
   S3_REGION: z.preprocess(blankToUndefined, z.string().min(1).optional()),
   S3_ENDPOINT: optionalUrl,
+  S3_ACCESS_KEY_ID: optionalSecret,
+  S3_SECRET_ACCESS_KEY: optionalSecret,
+  /**
+   * Path-style addressing. AWS S3 uses virtual-host style by default; R2,
+   * Supabase Storage and MinIO commonly need this on. It is off by default so a
+   * plain AWS bucket needs no extra configuration.
+   */
+  S3_FORCE_PATH_STYLE: booleanFlag,
+  /**
+   * Permanent public base for a public memorial's ready photographs. Absent
+   * means every read goes through a short-lived signed URL, even on a public
+   * memorial — correct but slower, and not cacheable by a CDN.
+   */
+  S3_PUBLIC_BASE_URL: optionalUrl,
 
   EMAIL_PROVIDER: z.string().default("console"),
   SMS_PROVIDER: z.string().default("console"),

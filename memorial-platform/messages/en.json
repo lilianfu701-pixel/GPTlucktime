@@ -102,7 +102,21 @@
     "saveDraft": "Save draft",
     "publishStory": "Publish the life story",
     "ritualsHeading": "What visitors may offer",
-    "ritualsNone": "No observances are available in this language yet."
+    "ritualsNone": "No observances are available in this language yet.",
+    "photosHeading": "Photographs",
+    "photosHelp": "Add photographs to this memorial. JPEG, PNG and WebP up to 15 MB.",
+    "photosNone": "No photographs have been added yet.",
+    "addPhoto": "Add a photograph",
+    "removePhoto": "Remove",
+    "photoProcessing": "Processing…",
+    "photoRejected": "This image could not be used.",
+    "photoAltFallback": "Photograph",
+    "photoAltOf": "Photograph of {name}",
+    "unsupportedImage": "That kind of file cannot be added. JPEG, PNG and WebP photographs are accepted.",
+    "imageTooLarge": "That photograph is larger than 15 MB.",
+    "imageEmpty": "That file appears to be empty.",
+    "uploadFailed": "The photograph could not be uploaded. Please try again.",
+    "imageRejected": "That photograph could not be processed."
   },
   "privacy": {
     "title": "Who can see this memorial",
