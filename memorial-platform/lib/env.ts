@@ -126,6 +126,12 @@ const envSchema = z.object({
    */
   CRON_SECRET: optionalSecret,
 
+  RESEND_API_KEY: optionalSecret,
+  RESEND_FROM_ADDRESS: z.preprocess(
+    blankToUndefined,
+    z.string().email().optional(),
+  ),
+
   GOOGLE_CLIENT_ID: optionalSecret,
   GOOGLE_CLIENT_SECRET: optionalSecret,
   APPLE_CLIENT_ID: optionalSecret,

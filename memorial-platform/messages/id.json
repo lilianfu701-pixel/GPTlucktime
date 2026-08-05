@@ -39,7 +39,8 @@
     "featureShareDesc": "Undang keluarga dan sahabat untuk berbagi kenangan, meninggalkan penghormatan, dan menjaga memori tetap hidup.",
     "ctaTitle": "Mulai saat Anda siap",
     "ctaDesc": "Tidak ada tenggat waktu, tidak ada biaya, dan tidak perlu akun untuk berkunjung. Membuat halaman kenangan hanya memakan waktu beberapa menit.",
-    "languagesTitle": "Dalam setiap bahasa"
+    "languagesTitle": "Dalam setiap bahasa",
+    "signUpPrompt": "Masuk atau buat akun"
   },
   "auth": {
     "signInTitle": "Masuk",

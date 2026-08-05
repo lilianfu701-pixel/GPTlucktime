@@ -39,7 +39,8 @@
     "featureShareDesc": "邀請親友一齊撰寫回憶、留低追思，令記憶永遠鮮活。",
     "ctaTitle": "準備好嗰陣再開始",
     "ctaDesc": "冇截止日期，唔使費用，探訪唔使註冊。建立思念頁只需幾分鐘。",
-    "languagesTitle": "用每種語言"
+    "languagesTitle": "用每種語言",
+    "signUpPrompt": "登入或建立帳號"
   },
   "auth": {
     "signInTitle": "登入",

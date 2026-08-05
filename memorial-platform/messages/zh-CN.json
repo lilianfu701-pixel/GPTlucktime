@@ -39,7 +39,8 @@
     "featureShareDesc": "邀请亲友一起撰写回忆、留下追思，让记忆永远鲜活。",
     "ctaTitle": "准备好时再开始",
     "ctaDesc": "没有截止日期，无需费用，探访也不需要注册。创建追思主页只需几分钟。",
-    "languagesTitle": "用每种语言"
+    "languagesTitle": "用每种语言",
+    "signUpPrompt": "登录或创建账号"
   },
   "auth": {
     "signInTitle": "登录",

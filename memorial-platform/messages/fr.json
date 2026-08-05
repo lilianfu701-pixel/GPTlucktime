@@ -39,7 +39,8 @@
     "featureShareDesc": "Invitez famille et amis à partager des souvenirs, laisser des hommages et garder leur mémoire vivante.",
     "ctaTitle": "Commencez quand vous êtes prêt",
     "ctaDesc": "Pas de date limite, pas de frais et pas de compte nécessaire pour visiter. Créer un mémorial prend quelques minutes.",
-    "languagesTitle": "Dans chaque langue"
+    "languagesTitle": "Dans chaque langue",
+    "signUpPrompt": "Connectez-vous ou créez un compte"
   },
   "auth": {
     "signInTitle": "Se connecter",

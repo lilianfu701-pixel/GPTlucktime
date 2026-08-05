@@ -39,7 +39,8 @@
     "featureShareDesc": "Mời gia đình và bạn bè cùng chia sẻ kỷ niệm, gửi lời tri ân và giữ cho ký ức sống mãi.",
     "ctaTitle": "Bắt đầu khi bạn sẵn sàng",
     "ctaDesc": "Không có thời hạn, không tốn phí và không cần tài khoản để ghé thăm. Tạo trang tưởng niệm chỉ mất vài phút.",
-    "languagesTitle": "Bằng mọi ngôn ngữ"
+    "languagesTitle": "Bằng mọi ngôn ngữ",
+    "signUpPrompt": "Đăng nhập hoặc tạo tài khoản"
   },
   "auth": {
     "signInTitle": "Đăng nhập",

@@ -39,7 +39,8 @@
     "featureShareDesc": "ご家族やご友人を招いて、思い出を寄せ、追悼の言葉を残し、記憶を生き続けさせましょう。",
     "ctaTitle": "ご準備ができたときに",
     "ctaDesc": "期限も費用もなく、ご訪問にアカウントも不要です。追悼ページの作成は数分で完了します。",
-    "languagesTitle": "すべての言語で"
+    "languagesTitle": "すべての言語で",
+    "signUpPrompt": "ログインまたはアカウント作成"
   },
   "auth": {
     "signInTitle": "ログイン",

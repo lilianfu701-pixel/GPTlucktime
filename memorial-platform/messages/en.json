@@ -39,7 +39,8 @@
     "featureShareDesc": "Invite family and friends to contribute stories, leave tributes, and keep their memory alive.",
     "ctaTitle": "Begin when you are ready",
     "ctaDesc": "There is no deadline, no cost, and no account needed to visit. Creating a memorial takes a few minutes.",
-    "languagesTitle": "In every language"
+    "languagesTitle": "In every language",
+    "signUpPrompt": "Sign in or create an account"
   },
   "auth": {
     "signInTitle": "Sign in",

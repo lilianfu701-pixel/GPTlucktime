@@ -1,5 +1,9 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import Link from "next/link";
+import { Suspense } from "react";
+import { flags } from "@/lib/feature-flags";
+import { currentActor } from "@/modules/auth/current-user";
+import { HomeSignIn } from "./home-sign-in";
 
 const languageGreetings = [
   { locale: "en", label: "English", text: "A place to remember" },
@@ -26,6 +30,8 @@ export default async function HomePage(props: {
   setRequestLocale(locale);
   const t = await getTranslations("home");
   const search = await getTranslations("search");
+  const actor = await currentActor();
+  const { oauthGoogleEnabled } = flags();
 
   return (
     <main id="main">
@@ -174,10 +180,7 @@ export default async function HomePage(props: {
       <section className="ctaSection section">
         <div className="container stack textCenter">
           <h2>{t("ctaTitle")}</h2>
-          <p
-            className="lede measure"
-            style={{ marginInline: "auto" }}
-          >
+          <p className="lede measure" style={{ marginInline: "auto" }}>
             {t("ctaDesc")}
           </p>
           <div>
@@ -188,6 +191,15 @@ export default async function HomePage(props: {
               {t("createMemorial")}
             </Link>
           </div>
+
+          {!actor.userId ? (
+            <Suspense>
+              <HomeSignIn
+                locale={locale}
+                googleEnabled={oauthGoogleEnabled}
+              />
+            </Suspense>
+          ) : null}
         </div>
       </section>
     </main>
