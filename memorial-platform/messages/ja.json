@@ -28,7 +28,18 @@
     "title": "偲ぶための場所",
     "subtitle": "故人の歩みを残し、ご家族やご友人が訪れられるようにします。",
     "createMemorial": "追悼ページを作成する",
-    "findMemorial": "追悼ページをさがす"
+    "findMemorial": "追悼ページをさがす",
+    "heroEyebrow": "すべてのご家族に、すべての言語で",
+    "featuresTitle": "大切な方のための永続的な場所",
+    "featureRememberTitle": "偲ぶ",
+    "featureRememberDesc": "故人の物語、写真、そして敬意を表す伝統を含む追悼ページを作成します。",
+    "featureFindTitle": "さがす",
+    "featureFindDesc": "お名前で検索して追悼されている方を見つけるか、リンクを共有して他の方が訪れられるようにします。",
+    "featureShareTitle": "わかちあう",
+    "featureShareDesc": "ご家族やご友人を招いて、思い出を寄せ、追悼の言葉を残し、記憶を生き続けさせましょう。",
+    "ctaTitle": "ご準備ができたときに",
+    "ctaDesc": "期限も費用もなく、ご訪問にアカウントも不要です。追悼ページの作成は数分で完了します。",
+    "languagesTitle": "すべての言語で"
   },
   "auth": {
     "signInTitle": "ログイン",

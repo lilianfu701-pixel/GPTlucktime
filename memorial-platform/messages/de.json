@@ -28,7 +28,18 @@
     "title": "Ein Ort für die Erinnerung",
     "subtitle": "Bewahren Sie ein Leben in Erinnerung und lassen Sie Familie und Freunde es finden.",
     "createMemorial": "Gedenkseite erstellen",
-    "findMemorial": "Gedenkseite suchen"
+    "findMemorial": "Gedenkseite suchen",
+    "heroEyebrow": "Für jede Familie, in jeder Sprache",
+    "featuresTitle": "Ein bleibender Ort für die Menschen, die Sie lieben",
+    "featureRememberTitle": "Erinnern",
+    "featureRememberDesc": "Erstellen Sie eine Gedenkseite mit ihrer Geschichte, Fotografien und den Traditionen, die sie ehren.",
+    "featureFindTitle": "Finden",
+    "featureFindDesc": "Suchen Sie nach jemandem, der hier erinnert wird, oder teilen Sie einen Link, damit andere besuchen können.",
+    "featureShareTitle": "Teilen",
+    "featureShareDesc": "Laden Sie Familie und Freunde ein, Erinnerungen beizutragen, Worte des Gedenkens zu hinterlassen und das Andenken lebendig zu halten.",
+    "ctaTitle": "Beginnen Sie, wenn Sie bereit sind",
+    "ctaDesc": "Keine Frist, keine Kosten und kein Konto nötig zum Besuchen. Eine Gedenkseite zu erstellen dauert wenige Minuten.",
+    "languagesTitle": "In jeder Sprache"
   },
   "auth": {
     "signInTitle": "Anmelden",

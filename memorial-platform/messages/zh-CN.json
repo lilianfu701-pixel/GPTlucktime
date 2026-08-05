@@ -28,7 +28,18 @@
     "title": "留一处思念的地方",
     "subtitle": "为逝者留下生平记录，让亲友能够找到这里。",
     "createMemorial": "创建追思主页",
-    "findMemorial": "查找追思主页"
+    "findMemorial": "查找追思主页",
+    "heroEyebrow": "为每个家庭，用每种语言",
+    "featuresTitle": "为你所爱的人留一处长久的地方",
+    "featureRememberTitle": "铭记",
+    "featureRememberDesc": "创建追思主页，记录他们的故事、照片，以及纪念他们的传统。",
+    "featureFindTitle": "寻找",
+    "featureFindDesc": "通过姓名搜索在这里被纪念的人，或分享链接让其他人也能探访。",
+    "featureShareTitle": "分享",
+    "featureShareDesc": "邀请亲友一起撰写回忆、留下追思，让记忆永远鲜活。",
+    "ctaTitle": "准备好时再开始",
+    "ctaDesc": "没有截止日期，无需费用，探访也不需要注册。创建追思主页只需几分钟。",
+    "languagesTitle": "用每种语言"
   },
   "auth": {
     "signInTitle": "登录",

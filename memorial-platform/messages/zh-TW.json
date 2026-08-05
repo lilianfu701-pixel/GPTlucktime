@@ -28,7 +28,18 @@
     "title": "留一處思念的地方",
     "subtitle": "為往生者留下生平紀錄，讓親友能夠找到這裡。",
     "createMemorial": "建立追思頁",
-    "findMemorial": "尋找追思頁"
+    "findMemorial": "尋找追思頁",
+    "heroEyebrow": "為每個家庭，用每種語言",
+    "featuresTitle": "為你所愛的人留一處長久的地方",
+    "featureRememberTitle": "銘記",
+    "featureRememberDesc": "建立追思頁，記錄他們的故事、照片，以及紀念他們的傳統。",
+    "featureFindTitle": "尋找",
+    "featureFindDesc": "透過姓名搜尋在這裡被紀念的人，或分享連結讓他人也能探訪。",
+    "featureShareTitle": "分享",
+    "featureShareDesc": "邀請親友一起撰寫回憶、留下追思，讓記憶永遠鮮活。",
+    "ctaTitle": "準備好時再開始",
+    "ctaDesc": "沒有截止日期，無需費用，探訪也不需要註冊。建立追思頁只需幾分鐘。",
+    "languagesTitle": "用每種語言"
   },
   "auth": {
     "signInTitle": "登入",

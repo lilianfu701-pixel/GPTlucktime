@@ -28,7 +28,18 @@
     "title": "기억할 수 있는 자리",
     "subtitle": "고인의 삶을 기록으로 남기고, 가족과 벗이 찾아올 수 있게 합니다.",
     "createMemorial": "추모 페이지 만들기",
-    "findMemorial": "추모 페이지 찾기"
+    "findMemorial": "추모 페이지 찾기",
+    "heroEyebrow": "모든 가족을 위해, 모든 언어로",
+    "featuresTitle": "사랑하는 분을 위한 영원한 공간",
+    "featureRememberTitle": "기억하기",
+    "featureRememberDesc": "이야기, 사진, 그리고 그분을 기리는 전통이 담긴 추모 페이지를 만드세요.",
+    "featureFindTitle": "찾기",
+    "featureFindDesc": "이름으로 검색하여 이곳에서 기억되는 분을 찾거나, 링크를 공유하여 다른 분들이 방문할 수 있게 하세요.",
+    "featureShareTitle": "나누기",
+    "featureShareDesc": "가족과 친구를 초대하여 추억을 나누고, 헌사를 남기고, 기억을 이어가세요.",
+    "ctaTitle": "준비되면 시작하세요",
+    "ctaDesc": "기한도 비용도 없으며, 방문에 계정이 필요하지 않습니다. 추모 페이지를 만드는 데 몇 분이면 됩니다.",
+    "languagesTitle": "모든 언어로"
   },
   "auth": {
     "signInTitle": "로그인",

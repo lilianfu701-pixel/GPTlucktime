@@ -28,7 +28,18 @@
     "title": "Un lieu pour se souvenir",
     "subtitle": "Conservez le récit d'une vie et permettez à ses proches de le retrouver.",
     "createMemorial": "Créer un mémorial",
-    "findMemorial": "Rechercher un mémorial"
+    "findMemorial": "Rechercher un mémorial",
+    "heroEyebrow": "Pour chaque famille, dans chaque langue",
+    "featuresTitle": "Un lieu durable pour les personnes que vous aimez",
+    "featureRememberTitle": "Se souvenir",
+    "featureRememberDesc": "Créez une page commémorative avec leur histoire, leurs photographies et les traditions qui les honorent.",
+    "featureFindTitle": "Trouver",
+    "featureFindDesc": "Recherchez par nom quelqu'un dont on se souvient ici, ou partagez un lien pour que d'autres puissent visiter.",
+    "featureShareTitle": "Partager",
+    "featureShareDesc": "Invitez famille et amis à partager des souvenirs, laisser des hommages et garder leur mémoire vivante.",
+    "ctaTitle": "Commencez quand vous êtes prêt",
+    "ctaDesc": "Pas de date limite, pas de frais et pas de compte nécessaire pour visiter. Créer un mémorial prend quelques minutes.",
+    "languagesTitle": "Dans chaque langue"
   },
   "auth": {
     "signInTitle": "Se connecter",

@@ -78,8 +78,13 @@ export default async function LocaleLayout(props: {
 
             <header className="siteHeader">
               <Link className="brand" href={`/${locale}`}>
-                <span className="brandMark" aria-hidden="true" />
-                <span>{common("appName")}</span>
+                <img
+                  className="brandLogo"
+                  src="/images/logo.png"
+                  alt="missingu.org"
+                  width={360}
+                  height={121}
+                />
               </Link>
 
               <nav className="siteNav" aria-label={a11y("mainNavigation")}>
@@ -96,8 +101,16 @@ export default async function LocaleLayout(props: {
 
             <footer className="siteFooter">
               <span className="brand" aria-hidden="true">
-                <span className="brandMark" />
-                <span>{common("appName")}</span>
+                <img
+                  className="brandMark"
+                  src="/icon.png"
+                  alt=""
+                  width={24}
+                  height={24}
+                />
+                <span className="brandName">
+                  missing<span className="brandAccent">u</span>
+                </span>
               </span>
               <span className="muted">{nav("help")}</span>
             </footer>

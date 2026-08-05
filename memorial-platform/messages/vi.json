@@ -28,7 +28,18 @@
     "title": "Một nơi để tưởng nhớ",
     "subtitle": "Lưu giữ cuộc đời của một người, để gia đình và bạn bè có thể tìm về.",
     "createMemorial": "Tạo trang tưởng niệm",
-    "findMemorial": "Tìm trang tưởng niệm"
+    "findMemorial": "Tìm trang tưởng niệm",
+    "heroEyebrow": "Cho mỗi gia đình, bằng mọi ngôn ngữ",
+    "featuresTitle": "Một nơi lâu dài cho những người bạn yêu thương",
+    "featureRememberTitle": "Tưởng nhớ",
+    "featureRememberDesc": "Tạo trang tưởng niệm với câu chuyện, hình ảnh và những truyền thống tôn vinh họ.",
+    "featureFindTitle": "Tìm kiếm",
+    "featureFindDesc": "Tìm theo tên ai đó được tưởng nhớ tại đây, hoặc chia sẻ liên kết để người khác có thể ghé thăm.",
+    "featureShareTitle": "Chia sẻ",
+    "featureShareDesc": "Mời gia đình và bạn bè cùng chia sẻ kỷ niệm, gửi lời tri ân và giữ cho ký ức sống mãi.",
+    "ctaTitle": "Bắt đầu khi bạn sẵn sàng",
+    "ctaDesc": "Không có thời hạn, không tốn phí và không cần tài khoản để ghé thăm. Tạo trang tưởng niệm chỉ mất vài phút.",
+    "languagesTitle": "Bằng mọi ngôn ngữ"
   },
   "auth": {
     "signInTitle": "Đăng nhập",

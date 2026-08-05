@@ -231,14 +231,21 @@ img {
  * The mark is a leaf, drawn in CSS rather than shipped as an asset so it
  * cannot fail to load on the one page a family shares.
  */
-.brandMark {
-  width: 20px;
-  height: 27px;
+.brandLogo {
+  height: 52px;
+  width: auto;
   flex: none;
-  border-radius: 54% 46% 51% 49% / 69% 70% 30% 31%;
-  transform: rotate(34deg);
-  background: linear-gradient(145deg, #e7d5a2, #6f977b);
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.36);
+}
+
+.brandMark {
+  width: 24px;
+  height: 24px;
+  flex: none;
+  border-radius: 4px;
+}
+
+.brandAccent {
+  color: var(--gold);
 }
 
 .siteNav {
@@ -555,4 +562,138 @@ img {
   text-align: center;
   padding: var(--space-2);
   font-size: var(--text-sm);
+}
+
+/* ---------- Homepage ---------- */
+
+.heroSection {
+  position: relative;
+  padding-block-start: var(--space-section);
+  padding-block-end: calc(var(--space-section) + 40px);
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(251, 246, 235, 0.2) 0%,
+      rgba(251, 246, 235, 0.55) 50%,
+      var(--paper) 100%
+    ),
+    url("/images/hero-bg.jpg") center / cover no-repeat;
+  overflow: hidden;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 1;
+}
+
+.heroActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.heroWave {
+  position: absolute;
+  bottom: -1px;
+  inset-inline: 0;
+  line-height: 0;
+  pointer-events: none;
+}
+
+.heroWave svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.featureGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: var(--space-6);
+}
+
+.featureCard {
+  padding: var(--space-8) var(--space-6);
+  background: var(--paper-raised);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  text-align: center;
+  transition: border-color var(--duration-fast) ease,
+    box-shadow var(--duration-normal) var(--ease-out-expo);
+}
+
+.featureCard:hover {
+  border-color: var(--olive);
+  box-shadow: 0 4px 24px rgba(47, 75, 62, 0.08);
+}
+
+.featureIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  margin-block-end: var(--space-4);
+  border-radius: 50%;
+  background: rgba(85, 116, 100, 0.09);
+  color: var(--olive-dark);
+}
+
+.featureIcon svg {
+  width: 26px;
+  height: 26px;
+}
+
+.featureCard h3 {
+  margin-block-end: var(--space-3);
+}
+
+.featureCard p {
+  color: var(--muted);
+  font-size: var(--text-sm);
+  line-height: 1.6;
+}
+
+.languageWall {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-3);
+}
+
+.languagePill {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-4);
+  background: var(--paper-raised);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-pill);
+  font-size: var(--text-sm);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: border-color var(--duration-fast) ease,
+    background-color var(--duration-fast) ease;
+}
+
+.languagePill:hover {
+  border-color: var(--olive);
+  background: rgba(85, 116, 100, 0.05);
+  text-decoration: none;
+}
+
+.languagePillName {
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.ctaSection {
+  background:
+    radial-gradient(ellipse 100% 70% at 50% 0%, rgba(85, 116, 100, 0.05), transparent),
+    var(--paper);
+  border-block-start: 1px solid var(--line);
+}
+
+.textCenter {
+  text-align: center;
 }

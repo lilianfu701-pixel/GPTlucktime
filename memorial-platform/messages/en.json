@@ -28,7 +28,18 @@
     "title": "A place to remember",
     "subtitle": "Keep a life recorded, and let family and friends find it.",
     "createMemorial": "Create a memorial",
-    "findMemorial": "Find a memorial"
+    "findMemorial": "Find a memorial",
+    "heroEyebrow": "For every family, in every language",
+    "featuresTitle": "A lasting place for the people you love",
+    "featureRememberTitle": "Remember",
+    "featureRememberDesc": "Create a memorial page with their story, photographs, and the traditions that honour them.",
+    "featureFindTitle": "Find",
+    "featureFindDesc": "Search by name to find someone remembered here, or share a link so others can visit.",
+    "featureShareTitle": "Share",
+    "featureShareDesc": "Invite family and friends to contribute stories, leave tributes, and keep their memory alive.",
+    "ctaTitle": "Begin when you are ready",
+    "ctaDesc": "There is no deadline, no cost, and no account needed to visit. Creating a memorial takes a few minutes.",
+    "languagesTitle": "In every language"
   },
   "auth": {
     "signInTitle": "Sign in",

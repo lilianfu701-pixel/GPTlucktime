@@ -28,7 +28,18 @@
     "title": "Tempat untuk mengenang",
     "subtitle": "Simpan catatan perjalanan hidup seseorang agar keluarga dan sahabat dapat menemukannya.",
     "createMemorial": "Buat halaman kenangan",
-    "findMemorial": "Cari halaman kenangan"
+    "findMemorial": "Cari halaman kenangan",
+    "heroEyebrow": "Untuk setiap keluarga, dalam setiap bahasa",
+    "featuresTitle": "Tempat abadi untuk orang yang Anda cintai",
+    "featureRememberTitle": "Mengenang",
+    "featureRememberDesc": "Buat halaman kenangan dengan kisah hidup, foto, dan tradisi yang menghormati mereka.",
+    "featureFindTitle": "Menemukan",
+    "featureFindDesc": "Cari berdasarkan nama untuk menemukan seseorang yang dikenang di sini, atau bagikan tautan agar orang lain dapat berkunjung.",
+    "featureShareTitle": "Berbagi",
+    "featureShareDesc": "Undang keluarga dan sahabat untuk berbagi kenangan, meninggalkan penghormatan, dan menjaga memori tetap hidup.",
+    "ctaTitle": "Mulai saat Anda siap",
+    "ctaDesc": "Tidak ada tenggat waktu, tidak ada biaya, dan tidak perlu akun untuk berkunjung. Membuat halaman kenangan hanya memakan waktu beberapa menit.",
+    "languagesTitle": "Dalam setiap bahasa"
   },
   "auth": {
     "signInTitle": "Masuk",
