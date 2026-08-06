@@ -64,6 +64,7 @@ worker/                 Background job processor
 | `religion/` | Religion/culture catalog, ritual definitions, calendar adapters, anniversary computation |
 | `commemorations/` | Visitor acts of remembrance, rate limiting |
 | `genealogy/` | Family tree: people, links, double-blind matching, tree traversal |
+| `memorials/recognition.ts` | Recognition claim lifecycle: create, decide (confirm/reject), withdraw, escalate, list pending |
 | `governance/` | Moderation cases, ownership disputes, memorial merging, reports |
 | `search/` | Text search, indexing, duplicate detection |
 | `entitlements/` | Plan-based + per-memorial feature resolution |
@@ -77,7 +78,7 @@ Tables organized in `db/schema/` by domain file:
 
 - **system.ts** — `auditLogs`, `outboxEvents`
 - **identity.ts** — `users`, `userIdentities`, `emailCredentials`, `phoneCredentials`, `loginChallenges`, `loginAttempts`, `sessions`
-- **memorial.ts** — `deceasedPeople`, `memorials`, `memorialNames`, `memorialLocations`, `memorialMembers`, `relationshipClaims`, `memorialInvitations`, `exportJobs`
+- **memorial.ts** — `deceasedPeople`, `memorials`, `memorialNames`, `memorialLocations`, `memorialMembers`, `relationshipClaims`, `recognitionClaims`, `memorialInvitations`, `exportJobs`, `relationshipTypes`
 - **content.ts** — `contentVersions`, `contentTranslations`, `biographies`, `timelineEvents`, `tributes`, `visitorSubmissions`
 - **media.ts** — `mediaAssets`, `mediaVariants`
 - **religion.ts** — `religions`, `denominations`, `culturalTraditions`, `ritualDefinitions`, `ritualVersions`, `ritualSources`, `ritualTranslations`, `ritualCompatibilityRules`
@@ -85,7 +86,7 @@ Tables organized in `db/schema/` by domain file:
 - **governance.ts** — `blockedUsers`, `reports`, `moderationCases`, `moderationActions`, `ownershipDisputes`, `disputeEvidence`, `memorialSlugRedirects`
 - **search.ts** — `searchDocuments`, `duplicateCandidates`
 - **commerce.ts** — `features`, `plans`, `planEntitlements`, `subscriptions`, `orders`, `memorialEntitlements`
-- **genealogy.ts** — `familyPeople`, `familyLinks`, `familyMatchSuggestions`
+- **genealogy.ts** — `familyPeople`, `familyLinks` (+ `dissolvedAt`/`dissolutionReason` for ex-partner edges), `familyMatchSuggestions`
 
 ## API Routes
 
@@ -108,6 +109,9 @@ Tables organized in `db/schema/` by domain file:
 - `POST /api/memorials/[id]/members/invitations` — send invitation
 - `POST|DELETE /api/memorials/[id]/export` — data export
 - `GET|POST /api/memorials/[id]/family` — family tree association
+- `GET|PUT /api/memorials/[id]/relatives` — display relatives list (cardinality-enforced: father/mother/husband/wife max 1 each; siblings/children unlimited; ex_husband/ex_wife unlimited)
+- `GET|POST /api/memorials/[id]/recognition-claims` — list pending claims / submit a recognition claim
+- `POST /api/memorials/[id]/recognition-claims/[claimId]` — decide a claim (confirmed/rejected/withdrawn)
 
 ### Media
 - `POST /api/media/sign` — presigned upload URL
@@ -191,6 +195,37 @@ Entry: `worker/index.ts` (`npm run worker`). Processes:
 Outbox handler topics: `search.index`, `search.remove`, `memorial.created`, `memorial.published`, `memorial.privacy_changed`, `media.process`.
 
 On Vercel: outbox drain and daily jobs run via cron (`vercel.json`), not the standalone worker.
+
+## Relatives System
+
+Display-layer relatives (`memorial_relatives`) are free-text rows shown on the memorial page. They are separate from the graph-based genealogy (`familyPeople`/`familyLinks`).
+
+### Cardinality rules (enforced in UI + server-side PUT)
+
+| Relationship | Max count | Note |
+|---|---|---|
+| `father`, `mother` | 1 each | Biological/primary parents |
+| `husband`, `wife` | 1 each | Current spouse |
+| `ex_husband`, `ex_wife` | unlimited | Multiple prior marriages allowed |
+| `son`, `daughter` | unlimited | |
+| `older_brother`, `younger_brother`, `older_sister`, `younger_sister` | unlimited | |
+
+The `MAX_ONE` set is defined as a `ReadonlySet<string>` constant in both `relatives-editor.tsx` and `create-form.tsx`. The same set is duplicated in the PUT route for server-side enforcement. Keep all three in sync when adding new unique-relationship types.
+
+### Recognition claim system (三层认亲机制)
+
+When a registered user finds they've been listed as a relative, they can submit a recognition claim:
+
+- **Tier 1 (day 0):** Claim recorded as `pending`; memorial owner notified.
+- **Tier 2 (day 7, 14):** Automatic reminder notifications (via outbox, not yet wired).
+- **Tier 3 (day 30+):** Claimant may request platform arbitration (`escalated` status).
+- Auto-approval **never** happens — a confirmed link grants family-graph traversal rights.
+
+Service: `modules/memorials/recognition.ts`. Status enum: `pending → escalated → confirmed | rejected | withdrawn`.
+
+### Ex-spouse in the family graph
+
+Ex-spouses are represented as `partner` edges in `familyLinks` with `dissolvedAt` + `dissolutionReason` set. A CHECK constraint (`family_links_dissolution_ck`) ensures these columns are null on non-partner edges. Children from previous marriages need no special type — existing `parent` edges represent biological parentage.
 
 ## Architectural Patterns
 

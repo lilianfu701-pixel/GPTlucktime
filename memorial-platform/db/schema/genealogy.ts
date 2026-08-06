@@ -36,6 +36,13 @@ export const parentNature = pgEnum("parent_nature", [
   "foster",
 ]);
 
+export const dissolutionReason = pgEnum("dissolution_reason", [
+  "divorce",
+  "widowed",
+  "separation",
+  "annulment",
+]);
+
 export const familyLinkKind = pgEnum("family_link_kind", [
   /** personA is a parent of personB. Direction matters. */
   "parent",
@@ -162,6 +169,9 @@ export const familyLinks = pgTable(
       .notNull()
       .references(() => familyPeople.id, { onDelete: "cascade" }),
     nature: parentNature("nature").default("unspecified").notNull(),
+    /** Set when a partnership has ended. Null means current or not applicable. */
+    dissolvedAt: timestamp("dissolved_at", { withTimezone: true }),
+    dissolutionReason: dissolutionReason("dissolution_reason"),
     status: familyLinkStatus("status").default("proposed").notNull(),
     source: familyLinkSource("source").default("declared").notNull(),
     proposedByUserId: uuid("proposed_by_user_id")
@@ -195,6 +205,10 @@ export const familyLinks = pgTable(
     check(
       "family_links_nature_ck",
       sql`${table.kind} = 'parent' or ${table.nature} = 'unspecified'`,
+    ),
+    check(
+      "family_links_dissolution_ck",
+      sql`${table.kind} = 'partner' or (${table.dissolvedAt} is null and ${table.dissolutionReason} is null)`,
     ),
   ],
 );
