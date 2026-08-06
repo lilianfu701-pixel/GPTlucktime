@@ -96,6 +96,10 @@ export async function PUT(
   const maxOne = new Set([
     "father",
     "mother",
+    "paternal_grandfather",
+    "paternal_grandmother",
+    "maternal_grandfather",
+    "maternal_grandmother",
     "husband",
     "wife",
   ]);

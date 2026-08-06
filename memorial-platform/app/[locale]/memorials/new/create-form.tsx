@@ -53,6 +53,10 @@ const NAME_TYPES: NameType[] = ["alias", "former", "native", "transliteration"];
 const RELATIVE_RELATIONSHIPS = [
   "father",
   "mother",
+  "paternal_grandfather",
+  "paternal_grandmother",
+  "maternal_grandfather",
+  "maternal_grandmother",
   "husband",
   "wife",
   "ex_husband",
@@ -68,6 +72,10 @@ const RELATIVE_RELATIONSHIPS = [
 const MAX_ONE: ReadonlySet<string> = new Set([
   "father",
   "mother",
+  "paternal_grandfather",
+  "paternal_grandmother",
+  "maternal_grandfather",
+  "maternal_grandmother",
   "husband",
   "wife",
 ]);

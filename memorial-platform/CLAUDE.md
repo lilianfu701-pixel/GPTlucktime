@@ -205,6 +205,8 @@ Display-layer relatives (`memorial_relatives`) are free-text rows shown on the m
 | Relationship | Max count | Note |
 |---|---|---|
 | `father`, `mother` | 1 each | Biological/primary parents |
+| `paternal_grandfather`, `paternal_grandmother` | 1 each | Father's parents |
+| `maternal_grandfather`, `maternal_grandmother` | 1 each | Mother's parents |
 | `husband`, `wife` | 1 each | Current spouse |
 | `ex_husband`, `ex_wife` | unlimited | Multiple prior marriages allowed |
 | `son`, `daughter` | unlimited | |
