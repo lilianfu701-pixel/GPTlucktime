@@ -93,6 +93,30 @@ export const profilePreferences = pgTable(
   ],
 );
 
+export const profilePhotoUploads = pgTable(
+  "profile_photo_uploads",
+  {
+    id: uuid("id").defaultRandom().primaryKey(),
+    userId: uuid("user_id").notNull().references(() => users.id, { onDelete: "cascade" }),
+    profileId: uuid("profile_id").notNull().references(() => profiles.id, { onDelete: "cascade" }),
+    objectKey: text("object_key").notNull().unique(),
+    mimeType: text("mime_type").notNull(),
+    declaredSizeBytes: integer("declared_size_bytes").notNull(),
+    tokenHash: text("token_hash").notNull(),
+    idempotencyHash: text("idempotency_hash").notNull(),
+    expiresAt: timestamptz("expires_at").notNull(),
+    completedPhotoId: uuid("completed_photo_id"),
+    createdAt: createdAt(),
+    updatedAt: updatedAt(),
+  },
+  (table) => [
+    unique("profile_photo_uploads_user_idempotency_unique").on(table.userId, table.idempotencyHash),
+    index("profile_photo_uploads_quota_idx").on(table.userId, table.expiresAt),
+    check("profile_photo_uploads_mime_check", sql`${table.mimeType} IN ('image/jpeg', 'image/png', 'image/webp')`),
+    check("profile_photo_uploads_size_check", sql`${table.declaredSizeBytes} > 0`),
+  ],
+);
+
 export const profilePhotos = pgTable(
   "profile_photos",
   {
@@ -101,10 +125,20 @@ export const profilePhotos = pgTable(
       .notNull()
       .references(() => users.id, { onDelete: "cascade" }),
     profileId: uuid("profile_id").notNull(),
+    uploadId: uuid("upload_id").unique().references(() => profilePhotoUploads.id, { onDelete: "set null" }),
     objectKey: text("object_key").notNull().unique(),
     position: integer("position").default(0).notNull(),
+    actualMimeType: text("actual_mime_type"),
+    actualSizeBytes: integer("actual_size_bytes"),
+    width: integer("width"),
+    height: integer("height"),
     moderationStatus: text("moderation_status").default("pending").notNull(),
     moderationReasonCode: text("moderation_reason_code"),
+    reviewProvider: text("review_provider"),
+    reviewVersion: text("review_version"),
+    reviewedAt: timestamptz("reviewed_at"),
+    cleanupDueAt: timestamptz("cleanup_due_at"),
+    objectDeletedAt: timestamptz("object_deleted_at"),
     createdAt: createdAt(),
     updatedAt: updatedAt(),
   },
@@ -124,6 +158,29 @@ export const profilePhotos = pgTable(
       "profile_photos_moderation_status_check",
       sql`${table.moderationStatus} IN ('pending', 'approved', 'rejected')`,
     ),
+  ],
+);
+
+export const mediaReviewJobs = pgTable(
+  "media_review_jobs",
+  {
+    id: uuid("id").defaultRandom().primaryKey(),
+    userId: uuid("user_id").notNull().references(() => users.id, { onDelete: "cascade" }),
+    photoId: uuid("photo_id").notNull().unique().references(() => profilePhotos.id, { onDelete: "cascade" }),
+    objectKey: text("object_key").notNull(),
+    status: text("status").default("pending").notNull(),
+    attempts: integer("attempts").default(0).notNull(),
+    availableAt: timestamptz("available_at").defaultNow().notNull(),
+    leaseId: uuid("lease_id"),
+    leaseExpiresAt: timestamptz("lease_expires_at"),
+    lastError: text("last_error"),
+    createdAt: createdAt(),
+    updatedAt: updatedAt(),
+  },
+  (table) => [
+    index("media_review_jobs_claim_idx").on(table.status, table.availableAt, table.leaseExpiresAt),
+    check("media_review_jobs_status_check", sql`${table.status} IN ('pending', 'processing', 'completed', 'failed')`),
+    check("media_review_jobs_attempts_check", sql`${table.attempts} >= 0`),
   ],
 );
 

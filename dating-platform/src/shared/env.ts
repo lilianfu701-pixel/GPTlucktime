@@ -80,6 +80,23 @@ const schema = z
     AUTH_LEGACY_ENCRYPTION_KEY: optionalValue(legacyEncryptionKey),
     AUTH_DELIVERY_HMAC_KEY: optionalValue(z.string().min(32)),
     IDENTITY_IDEMPOTENCY_HMAC_KEY: optionalValue(z.string().min(32)),
+    PROFILE_MEDIA_STORAGE_ENDPOINT: optionalValue(urlWithProtocols(
+      ["http:", "https:"],
+      "PROFILE_MEDIA_STORAGE_ENDPOINT must use http:// or https://",
+    )),
+    PROFILE_MEDIA_STORAGE_REGION: optionalValue(z.string().trim().min(1).max(100)),
+    PROFILE_MEDIA_STORAGE_BUCKET: optionalValue(z.string().trim().min(3).max(63)),
+    PROFILE_MEDIA_STORAGE_ACCESS_KEY: optionalValue(z.string().min(1)),
+    PROFILE_MEDIA_STORAGE_SECRET_KEY: optionalValue(z.string().min(1)),
+    PROFILE_MEDIA_TOKEN_SECRET: optionalValue(z.string().min(32)),
+    PROFILE_MEDIA_MAX_BYTES: optionalValue(z.coerce.number().int().positive().max(25 * 1024 * 1024)),
+    PROFILE_MEDIA_UPLOAD_EXPIRY_SECONDS: optionalValue(z.coerce.number().int().min(30).max(600)),
+    PROFILE_MEDIA_MAX_PHOTOS: optionalValue(z.coerce.number().int().min(1).max(12)),
+    MEDIA_REVIEW_PROVIDER: optionalValue(z.string().regex(/^[a-z0-9_-]{1,40}$/)),
+    MEDIA_REVIEW_URL: optionalValue(urlWithProtocols(["https:"], "MEDIA_REVIEW_URL must use https://")),
+    MEDIA_REVIEW_API_KEY: optionalValue(z.string().min(1)),
+    MEDIA_REVIEW_VERSION: optionalValue(z.string().trim().min(1).max(40)),
+    MEDIA_REVIEW_REJECTED_RETENTION_HOURS: optionalValue(z.coerce.number().int().min(1).max(24 * 365)),
   })
   .superRefine((env, context) => {
     const requireCompleteGroup = (
@@ -128,6 +145,27 @@ const schema = z
       "IDENTITY_REDIRECT_ORIGINS",
       "IDENTITY_IDEMPOTENCY_HMAC_KEY",
     ]);
+    requireCompleteGroup("PROFILE_MEDIA_STORAGE", [
+      "PROFILE_MEDIA_STORAGE_ENDPOINT",
+      "PROFILE_MEDIA_STORAGE_REGION",
+      "PROFILE_MEDIA_STORAGE_BUCKET",
+      "PROFILE_MEDIA_STORAGE_ACCESS_KEY",
+      "PROFILE_MEDIA_STORAGE_SECRET_KEY",
+      "PROFILE_MEDIA_TOKEN_SECRET",
+    ], [
+      "PROFILE_MEDIA_STORAGE_ENDPOINT",
+      "PROFILE_MEDIA_STORAGE_REGION",
+      "PROFILE_MEDIA_STORAGE_BUCKET",
+      "PROFILE_MEDIA_STORAGE_ACCESS_KEY",
+      "PROFILE_MEDIA_STORAGE_SECRET_KEY",
+      "PROFILE_MEDIA_TOKEN_SECRET",
+    ]);
+    requireCompleteGroup("MEDIA_REVIEW", [
+      "MEDIA_REVIEW_PROVIDER",
+      "MEDIA_REVIEW_URL",
+      "MEDIA_REVIEW_API_KEY",
+      "MEDIA_REVIEW_VERSION",
+    ]);
     if (env.SMS_HIGH_RISK_CALLING_CODES) {
       context.addIssue({
         code: "custom",
@@ -147,6 +185,14 @@ const schema = z
           path: [field],
         });
       }
+    }
+    if (env.PROFILE_MEDIA_STORAGE_ENDPOINT
+      && new URL(env.PROFILE_MEDIA_STORAGE_ENDPOINT).protocol !== "https:") {
+      context.addIssue({
+        code: "custom",
+        message: "PROFILE_MEDIA_STORAGE_ENDPOINT must use https:// in production",
+        path: ["PROFILE_MEDIA_STORAGE_ENDPOINT"],
+      });
     }
   });
 

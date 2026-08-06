@@ -61,6 +61,23 @@ describe("readEnv", () => {
     })).toMatchObject({ IDENTITY_VERIFICATION_PROVIDER: "vendor" });
   });
 
+  it("accepts only a complete server-side profile media storage group", () => {
+    const media = readEnv({
+      ...validEnv,
+      PROFILE_MEDIA_STORAGE_ENDPOINT: "https://storage.example.test",
+      PROFILE_MEDIA_STORAGE_REGION: "us-west-2",
+      PROFILE_MEDIA_STORAGE_BUCKET: "profile-media",
+      PROFILE_MEDIA_STORAGE_ACCESS_KEY: "storage-access",
+      PROFILE_MEDIA_STORAGE_SECRET_KEY: "storage-secret",
+      PROFILE_MEDIA_TOKEN_SECRET: "profile-media-token-secret-at-least-32-characters",
+    });
+    expect(media.PROFILE_MEDIA_STORAGE_BUCKET).toBe("profile-media");
+    expect(() => readEnv({
+      ...validEnv,
+      PROFILE_MEDIA_STORAGE_ENDPOINT: "https://storage.example.test",
+    })).toThrow("PROFILE_MEDIA_STORAGE configuration must be complete");
+  });
+
   it("rejects duplicate encryption key ids", () => {
     expect(() => readEnv({
       ...validEnv,
