@@ -36,12 +36,14 @@ import { ageOn } from "@/modules/discovery/candidate-policy";
 import { publicProfile } from "@/modules/profiles/profile-service";
 
 type SocialDatabase = typeof productionDatabase;
-type SocialTransaction = SocialDatabase;
+export type SocialTransaction = SocialDatabase;
 type SocialAction = "like" | "favorite" | "view" | "block";
 type PageInput = { pageSize: number; cursor?: string };
 type LikesPageInput = PageInput & { direction: "sent" | "received" };
 type Cursor = { timestamp: string; id: string };
 
+const MAX_LIST_ROWS_SCANNED = 200;
+const LIST_SCAN_BATCH = 50;
 const ageBand = (age: number) => `${Math.floor(age / 5) * 5}-${Math.floor(age / 5) * 5 + 4}`;
 const orderedPair = (left: string, right: string) => left < right
   ? { lowUserId: left, highUserId: right }
@@ -93,15 +95,16 @@ const blockedSql = (ownerUserId: string, otherUserColumn: SQLWrapper) => sql`NOT
       AND social_block.blocker_user_id = ${otherUserColumn})
 )`;
 
-export async function assertInteractionAllowed(
-  policy: Pick<SocialRepository, "assertInteractionAllowed">,
-  actorUserId: string,
-  targetUserId: string,
-) {
-  await policy.assertInteractionAllowed(actorUserId, targetUserId);
+export interface InteractionPolicy {
+  withAllowedInteraction<T>(
+    actorUserId: string,
+    targetUserId: string,
+    write: (transaction: SocialTransaction) => Promise<T>,
+  ): Promise<T>;
+  validateRealtimeTicket(actorUserId: string, targetUserId: string, issuedAt: Date): Promise<boolean>;
 }
 
-export class SocialRepository {
+export class SocialRepository implements InteractionPolicy {
   private readonly database: SocialDatabase;
   private readonly clock: () => Date;
   private readonly cursorSecret: string;
@@ -118,13 +121,36 @@ export class SocialRepository {
     this.idempotencySecret = options.idempotencySecret;
   }
 
-  async assertInteractionAllowed(actorUserId: string, targetUserId: string) {
+  async withAllowedInteraction<T>(
+    actorUserId: string,
+    targetUserId: string,
+    write: (transaction: SocialTransaction) => Promise<T>,
+  ) {
     if (actorUserId === targetUserId) throw new Error("INTERACTION_NOT_ALLOWED");
-    const [block] = await this.database.select({ id: userBlocks.id }).from(userBlocks).where(or(
-      and(eq(userBlocks.blockerUserId, actorUserId), eq(userBlocks.blockedUserId, targetUserId)),
-      and(eq(userBlocks.blockerUserId, targetUserId), eq(userBlocks.blockedUserId, actorUserId)),
-    )).limit(1);
-    if (block) throw new Error("INTERACTION_NOT_ALLOWED");
+    return this.database.transaction(async (transaction) => {
+      const tx = transaction as unknown as SocialTransaction;
+      await this.lockPairUsers(tx, actorUserId, targetUserId);
+      await this.assertAllowedInTransaction(tx, actorUserId, targetUserId);
+      return write(tx);
+    });
+  }
+
+  async validateRealtimeTicket(actorUserId: string, targetUserId: string, issuedAt: Date) {
+    if (Number.isNaN(issuedAt.getTime())) return false;
+    try {
+      return await this.withAllowedInteraction(actorUserId, targetUserId, async (tx) => {
+        const pair = orderedPair(actorUserId, targetUserId);
+        const [revocation] = await tx.select({ revokedBefore: realtimePairRevocations.revokedBefore })
+          .from(realtimePairRevocations).where(and(
+            eq(realtimePairRevocations.lowUserId, pair.lowUserId),
+            eq(realtimePairRevocations.highUserId, pair.highUserId),
+          )).limit(1);
+        return !revocation || issuedAt.getTime() > revocation.revokedBefore.getTime();
+      });
+    } catch (error) {
+      if (error instanceof Error && error.message === "INTERACTION_NOT_ALLOWED") return false;
+      throw error;
+    }
   }
 
   async like(actorUserId: string, targetProfileId: string, idempotencyKey: string) {
@@ -217,13 +243,26 @@ export class SocialRepository {
         blockedUserId: targetUserId,
         createdAt: now,
       }).onConflictDoNothing().returning({ id: userBlocks.id });
-      if (!inserted) return { blocked: true };
-
       const pair = orderedPair(actorUserId, targetUserId);
-      await tx.update(socialMatches).set({ status: "blocked", hiddenAt: now, updatedAt: now }).where(and(
+      const [blockedMatch] = await tx.update(socialMatches)
+        .set({ status: "blocked", hiddenAt: now, updatedAt: now }).where(and(
         eq(socialMatches.lowUserId, pair.lowUserId),
         eq(socialMatches.highUserId, pair.highUserId),
-      ));
+      )).returning({ id: socialMatches.id });
+      if (blockedMatch) {
+        await tx.update(socialOutboxEvents).set({
+          status: "suppressed",
+          suppressedAt: now,
+          suppressionReason: "pair_blocked",
+          leaseId: null,
+          leaseExpiresAt: null,
+          publishedAt: null,
+        }).where(and(
+          eq(socialOutboxEvents.eventType, "match.created"),
+          eq(socialOutboxEvents.aggregateId, blockedMatch.id),
+          inArray(socialOutboxEvents.status, ["pending", "failed", "processing"]),
+        ));
+      }
       await tx.update(socialLikes).set({ active: false, revokedAt: now, updatedAt: now }).where(or(
         and(eq(socialLikes.actorUserId, actorUserId), eq(socialLikes.targetUserId, targetUserId)),
         and(eq(socialLikes.actorUserId, targetUserId), eq(socialLikes.targetUserId, actorUserId)),
@@ -232,17 +271,19 @@ export class SocialRepository {
         and(eq(socialFavorites.ownerUserId, actorUserId), eq(socialFavorites.targetUserId, targetUserId)),
         and(eq(socialFavorites.ownerUserId, targetUserId), eq(socialFavorites.targetUserId, actorUserId)),
       ));
-      await tx.insert(realtimePairRevocations).values({ ...pair, revokedBefore: now, version: 1, updatedAt: now })
-        .onConflictDoUpdate({
-          target: [realtimePairRevocations.lowUserId, realtimePairRevocations.highUserId],
-          set: {
-            revokedBefore: now,
-            version: sql`${realtimePairRevocations.version} + 1`,
-            updatedAt: now,
-          },
-        });
+      if (inserted) {
+        await tx.insert(realtimePairRevocations).values({ ...pair, revokedBefore: now, version: 1, updatedAt: now })
+          .onConflictDoUpdate({
+            target: [realtimePairRevocations.lowUserId, realtimePairRevocations.highUserId],
+            set: {
+              revokedBefore: now,
+              version: sql`${realtimePairRevocations.version} + 1`,
+              updatedAt: now,
+            },
+          });
+      }
       return { blocked: true };
-    }, { allowBlockCreation: true });
+    }, { allowBlockCreation: true, requireVisibleTarget: false });
   }
 
   async unlike(actorUserId: string, targetProfileId: string) {
@@ -283,112 +324,123 @@ export class SocialRepository {
 
   async listMatches(userId: string, input: PageInput) {
     const cursor = decodeCursor(input.cursor, this.cursorSecret);
-    const otherUser = sql<string>`case when ${socialMatches.lowUserId} = ${userId}
-      then ${socialMatches.highUserId} else ${socialMatches.lowUserId} end`;
-    const rows = await this.database.select({
-      id: socialMatches.id,
-      otherUserId: otherUser,
-      createdAt: socialMatches.createdAt,
-    }).from(socialMatches).where(and(
-      eq(socialMatches.status, "active"),
-      or(eq(socialMatches.lowUserId, userId), eq(socialMatches.highUserId, userId)),
-      blockedSql(userId, otherUser),
-      cursor ? or(
-        lt(socialMatches.createdAt, new Date(cursor.timestamp)),
-        and(eq(socialMatches.createdAt, new Date(cursor.timestamp)), gt(socialMatches.id, cursor.id)),
-      ) : undefined,
-    )).orderBy(desc(socialMatches.createdAt), asc(socialMatches.id)).limit(input.pageSize + 1);
-    const page = rows.slice(0, input.pageSize);
-    const profilesByUser = await this.publicProfiles(page.map(({ otherUserId }) => otherUserId));
-    const items = page.flatMap((row) => {
-      const profile = profilesByUser.get(row.otherUserId);
-      return profile ? [{ id: row.id, matchedAt: row.createdAt.toISOString(), profile }] : [];
+    return this.withViewerListTransaction(userId, async (tx) => {
+      const otherUser = sql<string>`case when ${socialMatches.lowUserId} = ${userId}
+        then ${socialMatches.highUserId} else ${socialMatches.lowUserId} end`;
+      return this.scanSafeRows({
+        tx,
+        viewerUserId: userId,
+        pageSize: input.pageSize,
+        cursor,
+        read: (after, limit) => tx.select({
+          id: socialMatches.id,
+          otherUserId: otherUser,
+          createdAt: socialMatches.createdAt,
+        }).from(socialMatches).where(and(
+          eq(socialMatches.status, "active"),
+          or(eq(socialMatches.lowUserId, userId), eq(socialMatches.highUserId, userId)),
+          blockedSql(userId, otherUser),
+          after ? or(
+            lt(socialMatches.createdAt, new Date(after.timestamp)),
+            and(eq(socialMatches.createdAt, new Date(after.timestamp)), gt(socialMatches.id, after.id)),
+          ) : undefined,
+        )).orderBy(desc(socialMatches.createdAt), asc(socialMatches.id)).limit(limit),
+        cursorFor: (row) => ({ timestamp: row.createdAt.toISOString(), id: row.id }),
+        itemFor: (row, profile) => ({ id: row.id, matchedAt: row.createdAt.toISOString(), profile }),
+      });
     });
-    return this.pageResult(items, rows, input.pageSize, (row) => ({ timestamp: row.createdAt.toISOString(), id: row.id }));
   }
 
   async listLikes(userId: string, input: LikesPageInput) {
     const cursor = decodeCursor(input.cursor, this.cursorSecret);
-    const ownerColumn = input.direction === "sent" ? socialLikes.actorUserId : socialLikes.targetUserId;
-    const otherColumn = input.direction === "sent" ? socialLikes.targetUserId : socialLikes.actorUserId;
-    const rows = await this.database.select({
-      id: socialLikes.id,
-      otherUserId: otherColumn,
-      createdAt: socialLikes.createdAt,
-    }).from(socialLikes).where(and(
-      eq(ownerColumn, userId),
-      eq(socialLikes.active, true),
-      blockedSql(userId, otherColumn),
-      cursor ? or(
-        lt(socialLikes.createdAt, new Date(cursor.timestamp)),
-        and(eq(socialLikes.createdAt, new Date(cursor.timestamp)), gt(socialLikes.id, cursor.id)),
-      ) : undefined,
-    )).orderBy(desc(socialLikes.createdAt), asc(socialLikes.id)).limit(input.pageSize + 1);
-    const page = rows.slice(0, input.pageSize);
-    const profilesByUser = await this.publicProfiles(page.map(({ otherUserId }) => otherUserId));
-    const items = page.flatMap((row) => {
-      const profile = profilesByUser.get(row.otherUserId);
-      return profile ? [{ id: row.id, likedAt: row.createdAt.toISOString(), profile }] : [];
+    return this.withViewerListTransaction(userId, async (tx) => {
+      const ownerColumn = input.direction === "sent" ? socialLikes.actorUserId : socialLikes.targetUserId;
+      const otherColumn = input.direction === "sent" ? socialLikes.targetUserId : socialLikes.actorUserId;
+      return this.scanSafeRows({
+        tx,
+        viewerUserId: userId,
+        pageSize: input.pageSize,
+        cursor,
+        read: (after, limit) => tx.select({
+          id: socialLikes.id,
+          otherUserId: otherColumn,
+          createdAt: socialLikes.createdAt,
+        }).from(socialLikes).where(and(
+          eq(ownerColumn, userId),
+          eq(socialLikes.active, true),
+          blockedSql(userId, otherColumn),
+          after ? or(
+            lt(socialLikes.createdAt, new Date(after.timestamp)),
+            and(eq(socialLikes.createdAt, new Date(after.timestamp)), gt(socialLikes.id, after.id)),
+          ) : undefined,
+        )).orderBy(desc(socialLikes.createdAt), asc(socialLikes.id)).limit(limit),
+        cursorFor: (row) => ({ timestamp: row.createdAt.toISOString(), id: row.id }),
+        itemFor: (row, profile) => ({ id: row.id, likedAt: row.createdAt.toISOString(), profile }),
+      });
     });
-    return this.pageResult(items, rows, input.pageSize, (row) => ({ timestamp: row.createdAt.toISOString(), id: row.id }));
   }
 
   async listFavorites(userId: string, input: PageInput) {
     const cursor = decodeCursor(input.cursor, this.cursorSecret);
-    const rows = await this.database.select({
-      id: socialFavorites.id,
-      otherUserId: socialFavorites.targetUserId,
-      createdAt: socialFavorites.createdAt,
-    }).from(socialFavorites).where(and(
-      eq(socialFavorites.ownerUserId, userId),
-      blockedSql(userId, socialFavorites.targetUserId),
-      cursor ? or(
-        lt(socialFavorites.createdAt, new Date(cursor.timestamp)),
-        and(eq(socialFavorites.createdAt, new Date(cursor.timestamp)), gt(socialFavorites.id, cursor.id)),
-      ) : undefined,
-    )).orderBy(desc(socialFavorites.createdAt), asc(socialFavorites.id)).limit(input.pageSize + 1);
-    const page = rows.slice(0, input.pageSize);
-    const profilesByUser = await this.publicProfiles(page.map(({ otherUserId }) => otherUserId));
-    const items = page.flatMap((row) => {
-      const profile = profilesByUser.get(row.otherUserId);
-      return profile ? [{ id: row.id, favoritedAt: row.createdAt.toISOString(), profile }] : [];
-    });
-    return this.pageResult(items, rows, input.pageSize, (row) => ({ timestamp: row.createdAt.toISOString(), id: row.id }));
+    return this.withViewerListTransaction(userId, async (tx) => this.scanSafeRows({
+      tx,
+      viewerUserId: userId,
+      pageSize: input.pageSize,
+      cursor,
+      read: (after, limit) => tx.select({
+        id: socialFavorites.id,
+        otherUserId: socialFavorites.targetUserId,
+        createdAt: socialFavorites.createdAt,
+      }).from(socialFavorites).where(and(
+        eq(socialFavorites.ownerUserId, userId),
+        blockedSql(userId, socialFavorites.targetUserId),
+        after ? or(
+          lt(socialFavorites.createdAt, new Date(after.timestamp)),
+          and(eq(socialFavorites.createdAt, new Date(after.timestamp)), gt(socialFavorites.id, after.id)),
+        ) : undefined,
+      )).orderBy(desc(socialFavorites.createdAt), asc(socialFavorites.id)).limit(limit),
+      cursorFor: (row) => ({ timestamp: row.createdAt.toISOString(), id: row.id }),
+      itemFor: (row, profile) => ({ id: row.id, favoritedAt: row.createdAt.toISOString(), profile }),
+    }));
   }
 
   async listVisitors(userId: string, input: PageInput) {
-    const [ownerPrivacy] = await this.database.select({ enabled: privacySettings.showProfileVisitors })
-      .from(privacySettings).where(eq(privacySettings.userId, userId)).limit(1);
-    if (!ownerPrivacy?.enabled) return { items: [], nextCursor: null };
     const cursor = decodeCursor(input.cursor, this.cursorSecret);
-    const rows = await this.database.select({
-      id: profileViews.id,
-      otherUserId: profileViews.viewerUserId,
-      viewCount: profileViews.viewCount,
-      lastViewedAt: profileViews.lastViewedAt,
-    }).from(profileViews)
-      .innerJoin(privacySettings, eq(privacySettings.userId, profileViews.viewerUserId))
-      .where(and(
-        eq(profileViews.viewedUserId, userId),
-        eq(privacySettings.showProfileVisitors, true),
-        blockedSql(userId, profileViews.viewerUserId),
-        cursor ? or(
-          lt(profileViews.lastViewedAt, new Date(cursor.timestamp)),
-          and(eq(profileViews.lastViewedAt, new Date(cursor.timestamp)), gt(profileViews.id, cursor.id)),
-        ) : undefined,
-      )).orderBy(desc(profileViews.lastViewedAt), asc(profileViews.id)).limit(input.pageSize + 1);
-    const page = rows.slice(0, input.pageSize);
-    const profilesByUser = await this.publicProfiles(page.map(({ otherUserId }) => otherUserId));
-    const items = page.flatMap((row) => {
-      const profile = profilesByUser.get(row.otherUserId);
-      return profile ? [{
-        id: row.id,
-        viewCount: row.viewCount,
-        lastViewedAt: row.lastViewedAt.toISOString(),
-        profile,
-      }] : [];
+    return this.withViewerListTransaction(userId, async (tx) => {
+      const [ownerPrivacy] = await tx.select({ enabled: privacySettings.showProfileVisitors })
+        .from(privacySettings).where(eq(privacySettings.userId, userId)).limit(1);
+      if (!ownerPrivacy?.enabled) return { items: [], nextCursor: null };
+      return this.scanSafeRows({
+        tx,
+        viewerUserId: userId,
+        pageSize: input.pageSize,
+        cursor,
+        requireVisitorVisibility: true,
+        read: (after, limit) => tx.select({
+          id: profileViews.id,
+          otherUserId: profileViews.viewerUserId,
+          viewCount: profileViews.viewCount,
+          lastViewedAt: profileViews.lastViewedAt,
+        }).from(profileViews)
+          .innerJoin(privacySettings, eq(privacySettings.userId, profileViews.viewerUserId))
+          .where(and(
+            eq(profileViews.viewedUserId, userId),
+            eq(privacySettings.showProfileVisitors, true),
+            blockedSql(userId, profileViews.viewerUserId),
+            after ? or(
+              lt(profileViews.lastViewedAt, new Date(after.timestamp)),
+              and(eq(profileViews.lastViewedAt, new Date(after.timestamp)), gt(profileViews.id, after.id)),
+            ) : undefined,
+          )).orderBy(desc(profileViews.lastViewedAt), asc(profileViews.id)).limit(limit),
+        cursorFor: (row) => ({ timestamp: row.lastViewedAt.toISOString(), id: row.id }),
+        itemFor: (row, profile) => ({
+          id: row.id,
+          viewCount: row.viewCount,
+          lastViewedAt: row.lastViewedAt.toISOString(),
+          profile,
+        }),
+      });
     });
-    return this.pageResult(items, rows, input.pageSize, (row) => ({ timestamp: row.lastViewedAt.toISOString(), id: row.id }));
   }
 
   private async runAction<T extends Record<string, unknown>>(
@@ -397,9 +449,19 @@ export class SocialRepository {
     action: SocialAction,
     idempotencyKey: string,
     operation: (tx: SocialTransaction, targetUserId: string, now: Date) => Promise<T>,
-    options: { allowBlockCreation?: boolean } = {},
+    options: { allowBlockCreation?: boolean; requireVisibleTarget?: boolean } = {},
   ): Promise<T> {
     const keyHash = digest(this.idempotencySecret, "social-action", actorUserId, idempotencyKey);
+    const [replay] = await this.database.select().from(socialActionIdempotency).where(and(
+      eq(socialActionIdempotency.actorUserId, actorUserId),
+      eq(socialActionIdempotency.keyHash, keyHash),
+    )).limit(1);
+    if (replay) {
+      if (replay.action !== action || replay.targetProfileId !== targetProfileId) {
+        throw new Error("IDEMPOTENCY_CONFLICT");
+      }
+      return replay.response as T;
+    }
     return this.withTargetPair(actorUserId, targetProfileId, async (tx, targetUserId, now) => {
       const [existing] = await tx.select().from(socialActionIdempotency).where(and(
         eq(socialActionIdempotency.actorUserId, actorUserId),
@@ -422,7 +484,7 @@ export class SocialRepository {
         createdAt: now,
       });
       return response;
-    }, true);
+    }, options.requireVisibleTarget ?? true);
   }
 
   private async withTargetPair<T>(
@@ -439,13 +501,17 @@ export class SocialRepository {
         requireVisibleTarget ? eq(profiles.discoverable, true) : undefined,
       )).limit(1);
       if (!target || target.userId === actorUserId) throw new Error("INTERACTION_NOT_ALLOWED");
-      const pair = orderedPair(actorUserId, target.userId);
-      const locked = await tx.select({ id: users.id }).from(users)
-        .where(inArray(users.id, [pair.lowUserId, pair.highUserId]))
-        .orderBy(asc(users.id)).for("update");
-      if (locked.length !== 2) throw new Error("INTERACTION_NOT_ALLOWED");
+      await this.lockPairUsers(tx, actorUserId, target.userId);
       return operation(tx, target.userId, this.clock());
     });
+  }
+
+  private async lockPairUsers(tx: SocialTransaction, leftUserId: string, rightUserId: string) {
+    const pair = orderedPair(leftUserId, rightUserId);
+    const locked = await tx.select({ id: users.id }).from(users)
+      .where(inArray(users.id, [pair.lowUserId, pair.highUserId]))
+      .orderBy(asc(users.id)).for("update");
+    if (locked.length !== 2) throw new Error("INTERACTION_NOT_ALLOWED");
   }
 
   private async assertAllowedInTransaction(tx: SocialTransaction, actorUserId: string, targetUserId: string) {
@@ -456,24 +522,85 @@ export class SocialRepository {
     if (block) throw new Error("INTERACTION_NOT_ALLOWED");
   }
 
-  private pageResult<TItem, TRow>(
-    items: TItem[],
-    rows: TRow[],
-    pageSize: number,
-    cursorFor: (row: TRow) => Cursor,
+  private async withViewerListTransaction<T>(
+    viewerUserId: string,
+    read: (transaction: SocialTransaction) => Promise<T>,
   ) {
-    const nextCursor = rows.length > pageSize
-      ? encodeCursor(cursorFor(rows[pageSize - 1]!), this.cursorSecret)
-      : null;
-    return { items, nextCursor };
+    return this.database.transaction(async (transaction) => {
+      const tx = transaction as unknown as SocialTransaction;
+      const viewer = await tx.select({ id: users.id }).from(users)
+        .where(eq(users.id, viewerUserId)).for("share").limit(1);
+      if (viewer.length !== 1) throw new Error("SOCIAL_VIEWER_NOT_FOUND");
+      return read(tx);
+    });
   }
 
-  private async publicProfiles(userIds: string[]) {
+  private async scanSafeRows<
+    TRow extends { id: string; otherUserId: string },
+    TItem,
+  >(input: {
+    tx: SocialTransaction;
+    viewerUserId: string;
+    pageSize: number;
+    cursor: Cursor | null;
+    requireVisitorVisibility?: boolean;
+    read: (after: Cursor | null, limit: number) => Promise<TRow[]>;
+    cursorFor: (row: TRow) => Cursor;
+    itemFor: (row: TRow, profile: Record<string, unknown>) => TItem;
+  }) {
+    const items: TItem[] = [];
+    let after = input.cursor;
+    let scanned = 0;
+    let hasMore = false;
+
+    scan: while (items.length < input.pageSize && scanned < MAX_LIST_ROWS_SCANNED) {
+      const limit = Math.min(LIST_SCAN_BATCH, MAX_LIST_ROWS_SCANNED - scanned);
+      const rows = await input.read(after, limit);
+      if (rows.length === 0) {
+        hasMore = false;
+        break;
+      }
+      const profilesByUser = await this.publicProfiles(
+        input.tx,
+        input.viewerUserId,
+        rows.map(({ otherUserId }) => otherUserId),
+        { requireVisitorVisibility: input.requireVisitorVisibility },
+      );
+      for (let index = 0; index < rows.length; index += 1) {
+        const row = rows[index]!;
+        scanned += 1;
+        after = input.cursorFor(row);
+        const profile = profilesByUser.get(row.otherUserId);
+        if (profile) items.push(input.itemFor(row, profile));
+        if (items.length === input.pageSize) {
+          hasMore = index < rows.length - 1 || rows.length === limit;
+          break scan;
+        }
+      }
+      if (rows.length < limit) {
+        hasMore = false;
+        break;
+      }
+      hasMore = true;
+    }
+
+    return {
+      items,
+      nextCursor: hasMore && after ? encodeCursor(after, this.cursorSecret) : null,
+    };
+  }
+
+  private async publicProfiles(
+    database: SocialTransaction,
+    viewerUserId: string,
+    userIds: string[],
+    options: { requireVisitorVisibility?: boolean } = {},
+  ) {
     if (userIds.length === 0) return new Map<string, Record<string, unknown>>();
     const uniqueUserIds = [...new Set(userIds)];
     const now = this.clock();
     const [profileRows, photoRows, interestRows] = await Promise.all([
-      this.database.select({ profile: profiles, preferences: profilePreferences, privacy: privacySettings })
+      database.select({ profile: profiles, preferences: profilePreferences, privacy: privacySettings })
         .from(profiles)
         .innerJoin(profilePreferences, eq(profilePreferences.userId, profiles.userId))
         .innerJoin(privacySettings, eq(privacySettings.userId, profiles.userId))
@@ -481,17 +608,26 @@ export class SocialRepository {
           inArray(profiles.userId, uniqueUserIds),
           eq(profiles.status, "active"),
           eq(profiles.discoverable, true),
+          blockedSql(viewerUserId, profiles.userId),
+          options.requireVisitorVisibility ? eq(privacySettings.showProfileVisitors, true) : undefined,
+          sql`EXISTS (
+            SELECT 1 FROM ${profilePhotos} social_safe_photo
+            WHERE social_safe_photo.profile_id = ${profiles.id}
+              AND social_safe_photo.moderation_status = 'approved'
+              AND social_safe_photo.user_removed_at IS NULL
+              AND social_safe_photo.object_deleted_at IS NULL
+          )`,
         )),
-      this.database.select().from(profilePhotos).where(and(
+      database.select().from(profilePhotos).where(and(
         inArray(profilePhotos.userId, uniqueUserIds),
         eq(profilePhotos.moderationStatus, "approved"),
         isNull(profilePhotos.userRemovedAt),
         isNull(profilePhotos.objectDeletedAt),
       )).orderBy(asc(profilePhotos.position), asc(profilePhotos.id)),
-      this.database.select({ profileId: profileInterests.profileId, code: interests.code })
+      database.select({ profileId: profileInterests.profileId, code: interests.code })
         .from(profileInterests)
         .innerJoin(interests, eq(profileInterests.interestId, interests.id))
-        .where(inArray(profileInterests.profileId, this.database.select({ id: profiles.id })
+        .where(inArray(profileInterests.profileId, database.select({ id: profiles.id })
           .from(profiles).where(inArray(profiles.userId, uniqueUserIds)))),
     ]);
     const photosByUser = Map.groupBy(photoRows, (photo) => photo.userId);

@@ -155,6 +155,20 @@
       "when": 1786218063492,
       "tag": "0021_social_graph",
       "breakpoints": true
+    },
+    {
+      "idx": 22,
+      "version": "7",
+      "when": 1786219981314,
+      "tag": "0022_social_idempotency_ledger",
+      "breakpoints": true
+    },
+    {
+      "idx": 23,
+      "version": "7",
+      "when": 1786220296229,
+      "tag": "0023_social_outbox_suppression",
+      "breakpoints": true
     }
   ]
 }

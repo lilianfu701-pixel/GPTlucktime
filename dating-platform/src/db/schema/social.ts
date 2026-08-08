@@ -15,7 +15,6 @@ import {
 } from "drizzle-orm/pg-core";
 
 import { users } from "./auth";
-import { profiles } from "./profiles";
 
 const timestamptz = (name: string) => timestamp(name, { withTimezone: true });
 
@@ -102,13 +101,28 @@ export const socialOutboxEvents = pgTable("social_outbox_events", {
   availableAt: timestamptz("available_at").defaultNow().notNull(),
   leaseId: uuid("lease_id"),
   leaseExpiresAt: timestamptz("lease_expires_at"),
+  publishedAt: timestamptz("published_at"),
+  suppressedAt: timestamptz("suppressed_at"),
+  suppressionReason: text("suppression_reason"),
   createdAt: timestamptz("created_at").defaultNow().notNull(),
 }, (table) => [
   uniqueIndex("social_outbox_dedupe_unique").on(table.dedupeKey),
   index("social_outbox_claim_idx").on(table.status, table.availableAt, table.leaseExpiresAt),
   check("social_outbox_event_type_check", sql`${table.eventType} IN ('match.created')`),
-  check("social_outbox_status_check", sql`${table.status} IN ('pending', 'processing', 'published', 'failed')`),
+  check("social_outbox_status_check", sql`${table.status} IN ('pending', 'processing', 'published', 'failed', 'suppressed')`),
   check("social_outbox_attempts_check", sql`${table.attempts} >= 0`),
+  check("social_outbox_lease_consistency_check", sql`
+    (${table.status} = 'processing' AND ${table.leaseId} IS NOT NULL AND ${table.leaseExpiresAt} IS NOT NULL)
+    OR (${table.status} <> 'processing' AND ${table.leaseId} IS NULL AND ${table.leaseExpiresAt} IS NULL)
+  `),
+  check("social_outbox_publish_consistency_check", sql`
+    (${table.status} = 'published' AND ${table.publishedAt} IS NOT NULL)
+    OR (${table.status} <> 'published' AND ${table.publishedAt} IS NULL)
+  `),
+  check("social_outbox_suppression_consistency_check", sql`
+    (${table.status} = 'suppressed' AND ${table.suppressedAt} IS NOT NULL AND ${table.suppressionReason} IS NOT NULL)
+    OR (${table.status} <> 'suppressed' AND ${table.suppressedAt} IS NULL AND ${table.suppressionReason} IS NULL)
+  `),
 ]);
 
 export const realtimePairRevocations = pgTable("realtime_pair_revocations", {
@@ -129,11 +143,14 @@ export const socialActionIdempotency = pgTable("social_action_idempotency", {
   actorUserId: uuid("actor_user_id").notNull().references(() => users.id, { onDelete: "cascade" }),
   keyHash: varchar("key_hash", { length: 64 }).notNull(),
   action: text("action").notNull(),
-  targetProfileId: uuid("target_profile_id").notNull().references(() => profiles.id, { onDelete: "cascade" }),
+  // Immutable request ledger: profile deletion must not erase replay/conflict history.
+  targetProfileId: uuid("target_profile_id").notNull(),
   response: jsonb("response").$type<Record<string, unknown>>().notNull(),
   createdAt: timestamptz("created_at").defaultNow().notNull(),
 }, (table) => [
+  // Keys remain non-reusable; Task 14 owns per-user limits and any tombstone compaction policy.
   unique("social_action_idempotency_actor_key_unique").on(table.actorUserId, table.keyHash),
+  index("social_action_idempotency_owner_created_idx").on(table.actorUserId, table.createdAt),
   index("social_action_idempotency_created_idx").on(table.createdAt),
   check("social_action_idempotency_action_check", sql`${table.action} IN ('like', 'favorite', 'view', 'block')`),
 ]);
