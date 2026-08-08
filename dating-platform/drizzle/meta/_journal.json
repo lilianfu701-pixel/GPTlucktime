@@ -169,6 +169,13 @@
       "when": 1786220296229,
       "tag": "0023_social_outbox_suppression",
       "breakpoints": true
+    },
+    {
+      "idx": 24,
+      "version": "7",
+      "when": 1786223895747,
+      "tag": "0024_entitlements",
+      "breakpoints": true
     }
   ]
 }

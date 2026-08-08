@@ -1,0 +1,147 @@
+// @vitest-environment node
+
+import { randomUUID } from "node:crypto";
+import { readdir, readFile } from "node:fs/promises";
+
+import { eq } from "drizzle-orm";
+import { drizzle } from "drizzle-orm/node-postgres";
+import { Pool, type PoolClient } from "pg";
+import { afterAll, beforeAll, describe, expect, it } from "vitest";
+
+import * as schema from "@/db/schema";
+import { UsageRepository } from "@/modules/entitlements/usage-repository";
+
+const TEST_DATABASE_URL = process.env.TEST_DATABASE_URL;
+const runWithPostgres = TEST_DATABASE_URL ? describe : describe.skip;
+
+runWithPostgres("entitlement PostgreSQL concurrency with independent pools", () => {
+  const schemaName = `entitlement_test_${randomUUID().replaceAll("-", "")}`;
+  const now = new Date("2026-08-08T12:00:00Z");
+  let administrationPool: Pool;
+  let leftPool: Pool;
+  let rightPool: Pool;
+  let leftDatabase: ReturnType<typeof drizzle<typeof schema>>;
+  let rightDatabase: ReturnType<typeof drizzle<typeof schema>>;
+  let leftRepository: UsageRepository;
+  let rightRepository: UsageRepository;
+
+  const releaseTogether = async (operations: Array<() => Promise<unknown>>) => {
+    let release!: () => void;
+    let ready = 0;
+    let signalReady!: () => void;
+    const allReady = new Promise<void>((resolve) => { signalReady = resolve; });
+    const gate = new Promise<void>((resolve) => { release = resolve; });
+    const running = operations.map(async (operation) => {
+      ready += 1;
+      if (ready === operations.length) signalReady();
+      await gate;
+      return operation();
+    });
+    await allReady;
+    release();
+    return Promise.allSettled(running);
+  };
+
+  const migrateIsolatedSchema = async (client: PoolClient) => {
+    await client.query("begin");
+    try {
+      await client.query(`set local search_path to "${schemaName}"`);
+      const names = (await readdir(new URL("../../../drizzle", import.meta.url)))
+        .filter((name) => /^\d{4}_.+\.sql$/.test(name)).sort();
+      for (const name of names) {
+        const source = await readFile(new URL(`../../../drizzle/${name}`, import.meta.url), "utf8");
+        const isolated = source.replaceAll('"public".', `"${schemaName}".`);
+        for (const statement of isolated.split("--> statement-breakpoint").map((part) => part.trim()).filter(Boolean)) {
+          await client.query(statement);
+        }
+      }
+      await client.query("commit");
+    } catch (error) {
+      await client.query("rollback");
+      throw error;
+    }
+  };
+
+  const addUser = async (label: string) => {
+    const [{ id }] = await leftDatabase.insert(schema.users).values({
+      name: label,
+      email: `${schemaName}-${label.toLowerCase().replaceAll(" ", "-")}@example.test`,
+    }).returning({ id: schema.users.id });
+    return id;
+  };
+
+  beforeAll(async () => {
+    administrationPool = new Pool({ connectionString: TEST_DATABASE_URL, max: 1 });
+    await administrationPool.query(`create schema "${schemaName}"`);
+    const migrationClient = await administrationPool.connect();
+    try { await migrateIsolatedSchema(migrationClient); } finally { migrationClient.release(); }
+    const options = { connectionString: TEST_DATABASE_URL, options: `-c search_path=${schemaName}`, max: 2 };
+    leftPool = new Pool(options);
+    rightPool = new Pool(options);
+    leftDatabase = drizzle(leftPool, { schema });
+    rightDatabase = drizzle(rightPool, { schema });
+    leftRepository = new UsageRepository(leftDatabase, { clock: () => now });
+    rightRepository = new UsageRepository(rightDatabase, { clock: () => now });
+  }, 30_000);
+
+  afterAll(async () => {
+    await Promise.all([leftPool?.end(), rightPool?.end()]);
+    if (administrationPool) {
+      await administrationPool.query(`drop schema if exists "${schemaName}" cascade`);
+      await administrationPool.end();
+    }
+  });
+
+  it("lets exactly one independent transaction consume the last allowance", async () => {
+    const userId = await addUser("Quota Racer");
+    await leftDatabase.insert(schema.entitlementUserOverrides).values({
+      userId,
+      entitlementKey: "message.send.daily",
+      version: 1,
+      quotaLimit: 1,
+      effectiveAt: new Date("2026-08-01T00:00:00Z"),
+    });
+    const consume = (repository: UsageRepository, operationId: string) => repository.consume({
+      userId,
+      key: "message.send.daily",
+      operationId,
+      amount: 1,
+      context: {},
+      planRef: null,
+      policy: { safetyAllowed: true, verificationSatisfied: true },
+      now,
+    });
+    const settled = await releaseTogether([
+      () => consume(leftRepository, "00000000-0000-4000-8000-000000000021"),
+      () => consume(rightRepository, "00000000-0000-4000-8000-000000000022"),
+    ]);
+    const fulfilled = settled.flatMap((result) => result.status === "fulfilled" ? [result.value] : []);
+    expect(fulfilled).toHaveLength(2);
+    expect(fulfilled.filter((decision) => (decision as { allowed: boolean }).allowed)).toHaveLength(1);
+    const [counter] = await leftDatabase.select().from(schema.entitlementUsageCounters)
+      .where(eq(schema.entitlementUsageCounters.userId, userId));
+    expect(counter.used).toBe(1);
+  });
+
+  it("allows one owner for a globally unique operation ID across pools", async () => {
+    const leftUserId = await addUser("Operation Left");
+    const rightUserId = await addUser("Operation Right");
+    const operationId = "00000000-0000-4000-8000-000000000023";
+    const settled = await releaseTogether([
+      () => leftRepository.consume({
+        userId: leftUserId, key: "message.send.daily", operationId, amount: 1,
+        context: { side: "left" }, planRef: null,
+        policy: { safetyAllowed: true, verificationSatisfied: true }, now,
+      }),
+      () => rightRepository.consume({
+        userId: rightUserId, key: "message.send.daily", operationId, amount: 1,
+        context: { side: "right" }, planRef: null,
+        policy: { safetyAllowed: true, verificationSatisfied: true }, now,
+      }),
+    ]);
+    expect(settled.filter((result) => result.status === "fulfilled")).toHaveLength(1);
+    expect(settled.filter((result) => result.status === "rejected")).toHaveLength(1);
+    expect(await leftDatabase.select().from(schema.entitlementUsageOperations)
+      .where(eq(schema.entitlementUsageOperations.operationId, operationId))).toHaveLength(1);
+  });
+});

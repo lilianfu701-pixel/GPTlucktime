@@ -1,5 +1,7 @@
 import { z } from "zod";
 
+import type { EntitlementAuthorizer } from "@/modules/entitlements/types";
+
 import type { SocialRepository } from "./social-repository";
 
 type Session = { user: { id: string } };
@@ -71,6 +73,7 @@ export function createProfileActionHandler(input: {
 export function createSocialListHandler(input: {
   kind: ListKind;
   getSession: SessionReader;
+  authorizeEntitlement?: EntitlementAuthorizer;
   repository: Pick<SocialRepository, "listMatches" | "listLikes" | "listFavorites" | "listVisitors">;
 }) {
   return async (request: Request) => {
@@ -102,6 +105,22 @@ export function createSocialListHandler(input: {
     const direction = search.get("direction") ?? "received";
     if (input.kind === "likes" && direction !== "sent" && direction !== "received") {
       return errorResponse("INVALID_LIKES_DIRECTION", 400);
+    }
+
+    const entitlementKey = input.kind === "visitors"
+      ? "profile.visitors.view" as const
+      : input.kind === "likes" && direction === "received"
+        ? "likes.received.view" as const
+        : null;
+    if (entitlementKey) {
+      try {
+        if (!input.authorizeEntitlement
+          || !await input.authorizeEntitlement(session.user.id, entitlementKey)) {
+          return errorResponse("ENTITLEMENT_DENIED", 403);
+        }
+      } catch {
+        return errorResponse("INTERNAL_ERROR", 500);
+      }
     }
 
     try {

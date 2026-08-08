@@ -4,6 +4,19 @@ export const DISCOVERY_MODES = ["recommended", "new", "nearby", "online", "verif
 export type DiscoveryMode = (typeof DISCOVERY_MODES)[number];
 export const SAVED_SEARCH_SCHEMA_VERSION = 1;
 
+// P0 exposes only basic discovery controls. When the strict schemas below add
+// profile attributes, lifestyle, interests, verification-only, or recent-
+// activity filters, add their exact keys here in the same change. Keeping the
+// classifier beside the schemas prevents existing modes and basic fields from
+// being silently reclassified as paid capabilities.
+export const ADVANCED_DISCOVERY_FILTER_KEYS = [] as const satisfies readonly string[];
+
+export function requiresAdvancedSearchEntitlement(input: unknown) {
+  if (!input || typeof input !== "object" || Array.isArray(input)) return false;
+  const advanced = new Set<string>(ADVANCED_DISCOVERY_FILTER_KEYS);
+  return Object.keys(input).some((key) => advanced.has(key));
+}
+
 const code = z.string().trim().min(1).max(40).regex(/^[a-z][a-z0-9_-]*$/);
 const countryCode = z.string().trim().toUpperCase().regex(/^[A-Z]{2}$/);
 const unique = <T extends z.ZodTypeAny>(item: T, maximum: number) =>

@@ -62,4 +62,53 @@ describe("social service handlers", () => {
     expect((await handler(new Request("https://example.test/api/v1/matches?cursor=not-opaque"))).status).toBe(400);
     expect(listMatches).not.toHaveBeenCalled();
   });
+
+  it("requires likes.received.view only for received likes and stops before repository access", async () => {
+    const listLikes = vi.fn().mockResolvedValue({ items: [], nextCursor: null });
+    const authorizeEntitlement = vi.fn().mockResolvedValue(false);
+    const handler = createSocialListHandler({
+      kind: "likes",
+      getSession: async () => ({ user: { id: USER_ID } }),
+      authorizeEntitlement,
+      repository: { listLikes } as never,
+    });
+
+    const denied = await handler(new Request("https://example.test/api/v1/me/likes?direction=received"));
+    expect(denied.status).toBe(403);
+    expect(await denied.json()).toEqual({ code: "ENTITLEMENT_DENIED", message: "ENTITLEMENT_DENIED" });
+    expect(authorizeEntitlement).toHaveBeenCalledWith(USER_ID, "likes.received.view");
+    expect(listLikes).not.toHaveBeenCalled();
+
+    const sent = await handler(new Request("https://example.test/api/v1/me/likes?direction=sent"));
+    expect(sent.status).toBe(200);
+    expect(authorizeEntitlement).toHaveBeenCalledTimes(1);
+    expect(listLikes).toHaveBeenCalledOnce();
+  });
+
+  it("requires profile.visitors.view after authentication and before repository access", async () => {
+    const listVisitors = vi.fn();
+    const authorizeEntitlement = vi.fn().mockResolvedValue(false);
+    const handler = createSocialListHandler({
+      kind: "visitors",
+      getSession: async () => ({ user: { id: USER_ID } }),
+      authorizeEntitlement,
+      repository: { listVisitors } as never,
+    });
+    const response = await handler(new Request("https://example.test/api/v1/me/visitors"));
+    expect(response.status).toBe(403);
+    expect(authorizeEntitlement).toHaveBeenCalledWith(USER_ID, "profile.visitors.view");
+    expect(listVisitors).not.toHaveBeenCalled();
+  });
+
+  it("does not evaluate list entitlements for an unauthenticated request", async () => {
+    const authorizeEntitlement = vi.fn();
+    const handler = createSocialListHandler({
+      kind: "visitors",
+      getSession: async () => null,
+      authorizeEntitlement,
+      repository: { listVisitors: vi.fn() } as never,
+    });
+    expect((await handler(new Request("https://example.test/api/v1/me/visitors"))).status).toBe(401);
+    expect(authorizeEntitlement).not.toHaveBeenCalled();
+  });
 });

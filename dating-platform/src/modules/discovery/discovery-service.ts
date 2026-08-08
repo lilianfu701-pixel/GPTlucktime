@@ -1,8 +1,11 @@
 import { z } from "zod";
 
+import type { EntitlementAuthorizer } from "@/modules/entitlements/types";
+
 import type { DiscoveryRepository } from "./discovery-repository";
 import {
   publicDiscoveryFilterSchema,
+  requiresAdvancedSearchEntitlement,
   SAVED_SEARCH_SCHEMA_VERSION,
   savedDiscoveryFilterSchema,
 } from "./discovery-types";
@@ -18,7 +21,6 @@ const allowedQueryKeys = new Set([
 ]);
 const arrayQueryKeys = new Set(["genderCodes", "countryCodes", "relationshipGoalCodes", "languageCodes"]);
 const numberQueryKeys = new Set(["minimumAge", "maximumAge", "pageSize"]);
-
 function parseDiscoveryQuery(request: Request) {
   const search = new URL(request.url).searchParams;
   for (const key of search.keys()) if (!allowedQueryKeys.has(key)) throw new Error("INVALID_DISCOVERY");
@@ -30,21 +32,33 @@ function parseDiscoveryQuery(request: Request) {
     else if (numberQueryKeys.has(key)) input[key] = Number(search.get(key));
     else input[key] = search.get(key);
   }
-  return publicDiscoveryFilterSchema.parse(input);
+  return {
+    filters: publicDiscoveryFilterSchema.parse(input),
+    advanced: requiresAdvancedSearchEntitlement(input),
+  };
 }
 
 export function createDiscoverHandler(input: {
   getSession: SessionReader;
+  authorizeEntitlement?: EntitlementAuthorizer;
   repository: Pick<DiscoveryRepository, "discover">;
 }) {
   return async (request: Request) => {
     let session: Session | null;
     try { session = await input.getSession(request.headers); } catch { return errorResponse("INTERNAL_ERROR", 500); }
     if (!session) return errorResponse("UNAUTHORIZED", 401);
-    let filters;
-    try { filters = parseDiscoveryQuery(request); } catch { return errorResponse("INVALID_DISCOVERY", 400); }
+    let parsed;
+    try { parsed = parseDiscoveryQuery(request); } catch { return errorResponse("INVALID_DISCOVERY", 400); }
+    if (parsed.advanced) {
+      try {
+        if (!input.authorizeEntitlement
+          || !await input.authorizeEntitlement(session.user.id, "search.advanced.use")) {
+          return errorResponse("ENTITLEMENT_DENIED", 403);
+        }
+      } catch { return errorResponse("INTERNAL_ERROR", 500); }
+    }
     try {
-      return Response.json(await input.repository.discover(session.user.id, filters));
+      return Response.json(await input.repository.discover(session.user.id, parsed.filters));
     } catch (error) {
       if (error instanceof Error && error.message === "INVALID_CURSOR") return errorResponse("INVALID_CURSOR", 400);
       if (error instanceof Error && error.message === "PROFILE_INCOMPLETE") return errorResponse("PROFILE_INCOMPLETE", 409);
@@ -78,6 +92,7 @@ const safeSavedSearch = (row: Record<string, unknown>) => {
 
 export function createSavedSearchHandler(input: {
   getSession: SessionReader;
+  authorizeEntitlement?: EntitlementAuthorizer;
   repository: Pick<DiscoveryRepository,
     "listSavedSearches" | "createSavedSearch" | "renameSavedSearch" | "deleteSavedSearch">;
 }) {
@@ -98,6 +113,17 @@ export function createSavedSearchHandler(input: {
       if (request.method === "POST") {
         const parsed = createSavedSearchSchema.safeParse(body);
         if (!parsed.success) return errorResponse("INVALID_SAVED_SEARCH", 400);
+        const rawFilters = body && typeof body === "object" && !Array.isArray(body)
+          ? (body as { filters?: unknown }).filters
+          : null;
+        if (requiresAdvancedSearchEntitlement(rawFilters)) {
+          try {
+            if (!input.authorizeEntitlement
+              || !await input.authorizeEntitlement(session.user.id, "search.advanced.use")) {
+              return errorResponse("ENTITLEMENT_DENIED", 403);
+            }
+          } catch { return errorResponse("INTERNAL_ERROR", 500); }
+        }
         const created = await input.repository.createSavedSearch(session.user.id, parsed.data.name, parsed.data.filters);
         const safe = safeSavedSearch(created as Record<string, unknown>);
         return safe ? Response.json({ savedSearch: safe }, { status: 201 }) : errorResponse("INTERNAL_ERROR", 500);
