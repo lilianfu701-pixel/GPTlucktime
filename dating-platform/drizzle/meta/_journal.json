@@ -183,6 +183,13 @@
       "when": 1786227693335,
       "tag": "0025_harden_entitlements",
       "breakpoints": true
+    },
+    {
+      "idx": 26,
+      "version": "7",
+      "when": 1786229726173,
+      "tag": "0026_restrict_entitlement_plan_refs",
+      "breakpoints": true
     }
   ]
 }

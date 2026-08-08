@@ -145,7 +145,7 @@ export const entitlementPlanBenefits = pgTable("entitlement_plan_benefits", {
   }).onDelete("restrict"),
   index("entitlement_plan_benefits_resolution_idx")
     .on(table.planRef, table.entitlementKey, table.active, table.effectiveAt, table.expiresAt, table.version),
-  check("entitlement_plan_benefits_plan_ref_check", sql`length(${table.planRef}) BETWEEN 1 AND 80`),
+  check("entitlement_plan_benefits_plan_ref_check", sql`${table.planRef} ~ '^[a-z0-9][a-z0-9._-]{0,79}$'`),
   check("entitlement_plan_benefits_version_check", sql`${table.version} > 0`),
   check("entitlement_plan_benefits_kind_check", sql`${table.kind} IN ('boolean', 'quota', 'numeric')`),
   check("entitlement_plan_benefits_quota_check", sql`${table.quotaLimit} IS NULL OR ${table.quotaLimit} BETWEEN 0 AND 1000000`),

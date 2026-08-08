@@ -116,4 +116,23 @@ describe("GET /api/v1/me/entitlements", () => {
     const response = await handler(new Request("https://example.test/api/v1/me/entitlements"));
     expect(await response.json()).toEqual({ entitlements: [] });
   });
+
+  it("drops a known key when its claimed kind disagrees with the audited catalog", async () => {
+    const handler = createEntitlementsHandler({
+      getSession: async () => ({ user: { id: USER_ID } }),
+      service: { listPublic: vi.fn().mockResolvedValue([{
+        key: "message.send.daily",
+        kind: "boolean",
+        allowed: true,
+        value: true,
+        limit: null,
+        remaining: null,
+        resetAt: null,
+        reason: null,
+        upgradeHint: null,
+      }]) } as never,
+    });
+    const response = await handler(new Request("https://example.test/api/v1/me/entitlements"));
+    expect(await response.json()).toEqual({ entitlements: [] });
+  });
 });

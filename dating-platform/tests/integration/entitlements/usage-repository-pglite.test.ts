@@ -223,6 +223,57 @@ describe("entitlement usage repository", () => {
     expect(operationCount).toBe(2);
   });
 
+  it("coalesces concurrent identical operations behind a controlled barrier", async () => {
+    let signalArrival!: () => void;
+    const arrived = new Promise<void>((resolve) => { signalArrival = resolve; });
+    let release!: () => void;
+    const gate = new Promise<void>((resolve) => { release = resolve; });
+    const barrierRepository = new UsageRepository(database);
+    const barrierStore = {
+      transaction: async (work: (transaction: unknown) => Promise<unknown>) => {
+        signalArrival();
+        await gate;
+        return barrierRepository.transaction(work);
+      },
+      resolveInTransaction: barrierRepository.resolveInTransaction.bind(barrierRepository),
+      consumeResolvedInTransaction:
+        barrierRepository.consumeResolvedInTransaction.bind(barrierRepository),
+    } as never;
+    const barrierService = new EntitlementService({
+      store: barrierStore,
+      timeResolver: async () => NOW,
+      policyResolver: (transaction, ownerId, key, now) =>
+        barrierRepository.resolvePolicyInTransaction(transaction, ownerId, key, now),
+      planResolver: async () => null,
+    });
+    await database.insert(schema.entitlementUserOverrides).values({
+      userId,
+      entitlementKey: "message.send.daily",
+      kind: "quota",
+      version: 1,
+      quotaLimit: 2,
+      effectiveAt: new Date("2026-08-01T00:00:00Z"),
+    });
+    const input = {
+      userId,
+      key: "message.send.daily" as const,
+      operationId: "00000000-0000-4000-8000-000000000085",
+      amount: 1,
+      context: { conversationId: "controlled-barrier" },
+    };
+    const first = barrierService.consume(input);
+    await arrived;
+    const second = barrierService.consume(input);
+    release();
+    const decisions = await Promise.all([first, second]);
+    expect(decisions[1]).toEqual(decisions[0]);
+    expect(decisions[0]).toMatchObject({ allowed: true, remaining: 1 });
+    expect((await database.select().from(schema.entitlementUsageCounters))[0]?.used).toBe(1);
+    expect(await database.select().from(schema.entitlementUsageOperations)).toHaveLength(1);
+    await expect(barrierService.consume({ ...input, context: { conversationId: "different" } }))
+      .rejects.toThrow("OPERATION_ID_CONFLICT");
+  });
+
   it("does not consume a partial allowance when the requested amount is too large", async () => {
     await database.insert(schema.entitlementUserOverrides).values({
       userId,
@@ -395,6 +446,14 @@ describe("entitlement usage repository", () => {
       kind: "quota",
       version: 2,
       quotaLimit: 1_000_001,
+      effectiveAt: NOW,
+    })).rejects.toThrow();
+    await expect(database.insert(schema.entitlementPlanBenefits).values({
+      planRef: "Unsafe Plan Name",
+      entitlementKey: "super_like.monthly",
+      kind: "quota",
+      version: 3,
+      quotaLimit: 1,
       effectiveAt: NOW,
     })).rejects.toThrow();
   });

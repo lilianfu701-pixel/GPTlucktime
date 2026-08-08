@@ -9,7 +9,7 @@ import { UsageRepository } from "./usage-repository";
 // change instead of a caller-supplied boolean.
 const launchVerificationResolver = async () => true;
 
-export const entitlementRepository = new UsageRepository(db, {
+const entitlementRepository = new UsageRepository(db, {
   verificationResolver: launchVerificationResolver,
 });
 export const entitlementService = new EntitlementService({

@@ -183,6 +183,10 @@ export class EntitlementService {
   private readonly timeResolver: EntitlementTimeResolver;
   private readonly policyResolver: EntitlementPolicyResolver;
   private readonly planResolver: EntitlementPlanResolver;
+  private readonly inFlightOperations = new Map<string, {
+    signature: string;
+    promise: Promise<EntitlementDecision>;
+  }>();
 
   constructor(options: {
     store: EntitlementStore;
@@ -235,7 +239,27 @@ export class EntitlementService {
   }
 
   async consume(input: AuthoritativeConsumeInput) {
-    return this.store.transaction((transaction) => this.consumeInTransaction(transaction, input));
+    const signature = JSON.stringify({
+      userId: input.userId,
+      key: input.key,
+      amount: input.amount,
+      context: Object.fromEntries(Object.entries(input.context)
+        .sort(([left], [right]) => left < right ? -1 : left > right ? 1 : 0)),
+    });
+    const existing = this.inFlightOperations.get(input.operationId);
+    if (existing) {
+      if (existing.signature !== signature) throw new Error("OPERATION_ID_CONFLICT");
+      return existing.promise;
+    }
+    const transactionPromise = this.store.transaction((transaction) =>
+      this.consumeInTransaction(transaction, input));
+    const promise = transactionPromise.finally(() => {
+      if (this.inFlightOperations.get(input.operationId)?.promise === promise) {
+        this.inFlightOperations.delete(input.operationId);
+      }
+    });
+    this.inFlightOperations.set(input.operationId, { signature, promise });
+    return promise;
   }
 
   async consumeInTransaction(transaction: EntitlementTransaction, input: AuthoritativeConsumeInput) {
@@ -264,6 +288,7 @@ const publicReasons = new Set([
 const safeDecision = (row: Record<string, unknown>) => {
   if (typeof row.key !== "string" || !publicKeys.has(row.key)
     || typeof row.kind !== "string" || !publicKinds.has(row.kind)
+    || row.kind !== ENTITLEMENT_CATALOG[row.key as EntitlementKey].kind
     || typeof row.allowed !== "boolean"
     || (row.reason !== null && row.reason !== undefined
       && (typeof row.reason !== "string" || !publicReasons.has(row.reason)))

@@ -180,4 +180,35 @@ runWithPostgres("entitlement PostgreSQL concurrency with independent pools", () 
       .where(eq(schema.entitlementUsageOperations.operationId,
         "00000000-0000-4000-8000-000000000025"))).toHaveLength(0);
   });
+
+  it("replays concurrent identical operations from two independent pools", async () => {
+    const userId = await addUser("Concurrent Replay Owner");
+    await leftDatabase.insert(schema.entitlementUserOverrides).values({
+      userId,
+      entitlementKey: "message.send.daily",
+      kind: "quota",
+      version: 1,
+      quotaLimit: 2,
+      effectiveAt: new Date("2026-08-01T00:00:00Z"),
+    });
+    const input = {
+      userId,
+      key: "message.send.daily" as const,
+      operationId: "00000000-0000-4000-8000-000000000026",
+      amount: 1,
+      context: { conversationId: "two-pool-replay" },
+    };
+    const settled = await releaseTogether([
+      () => leftService.consume(input),
+      () => rightService.consume(input),
+    ]);
+    const fulfilled = settled.flatMap((result) => result.status === "fulfilled" ? [result.value] : []);
+    expect(fulfilled).toHaveLength(2);
+    expect(fulfilled[1]).toEqual(fulfilled[0]);
+    expect(await leftDatabase.select().from(schema.entitlementUsageOperations)
+      .where(eq(schema.entitlementUsageOperations.operationId, input.operationId))).toHaveLength(1);
+    const [counter] = await leftDatabase.select().from(schema.entitlementUsageCounters)
+      .where(eq(schema.entitlementUsageCounters.userId, userId));
+    expect(counter.used).toBe(1);
+  });
 });

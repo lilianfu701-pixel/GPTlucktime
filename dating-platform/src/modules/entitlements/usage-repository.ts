@@ -34,11 +34,16 @@ import {
   type EntitlementKey,
   type EntitlementPolicy,
   type EntitlementTransaction,
-  type ResolvedConsumeEntitlementInput,
   type ResolvedEntitlementSources,
   type ResolveEntitlementInput,
   type ResetPeriod,
 } from "./types";
+
+type ResolvedConsumeEntitlementInput = AuthoritativeConsumeInput & {
+  planRef: string | null;
+  now: Date;
+  policy: EntitlementPolicy;
+};
 
 type EntitlementDatabase = typeof productionDatabase;
 type GrantRow = {
@@ -219,10 +224,15 @@ export class UsageRepository {
       if (!operationMatches(replay, input, hash)) throw new Error("OPERATION_ID_CONFLICT");
       return operationToDecision(replay);
     }
-
     const [owner] = await tx.select({ id: users.id }).from(users)
       .where(eq(users.id, input.userId)).for("update").limit(1);
     if (!owner) throw new Error("ENTITLEMENT_OWNER_NOT_FOUND");
+
+    const lockedReplay = await this.findOperation(tx, input.operationId);
+    if (lockedReplay) {
+      if (!operationMatches(lockedReplay, input, hash)) throw new Error("OPERATION_ID_CONFLICT");
+      return operationToDecision(lockedReplay);
+    }
 
     const sources = await this.resolveInDatabase(tx, input);
     let decision = resolveEntitlement({

@@ -94,12 +94,6 @@ export type AuthoritativeConsumeInput = {
   context: Readonly<Record<string, string | number | boolean | null>>;
 };
 
-export type ResolvedConsumeEntitlementInput = AuthoritativeConsumeInput & {
-  planRef: string | null;
-  now: Date;
-  policy: EntitlementPolicy;
-};
-
 export type EntitlementTransaction = unknown;
 export type EntitlementTimeResolver = (transaction: EntitlementTransaction) => Promise<Date>;
 export type EntitlementPolicyResolver = (
@@ -122,7 +116,11 @@ export interface EntitlementStore {
   ): Promise<ResolvedEntitlementSources>;
   consumeResolvedInTransaction(
     transaction: EntitlementTransaction,
-    input: ResolvedConsumeEntitlementInput,
+    input: AuthoritativeConsumeInput & {
+      planRef: string | null;
+      now: Date;
+      policy: EntitlementPolicy;
+    },
   ): Promise<EntitlementDecision>;
 }
 
