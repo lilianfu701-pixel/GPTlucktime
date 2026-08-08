@@ -16,6 +16,8 @@ export type RankingInput = {
 
 export function rankCandidate(input: RankingInput) {
   if (!input.eligible) return null;
+  if (![input.compatibilityScore, input.activityScore, input.verificationScore, input.boost]
+    .every(Number.isFinite)) return null;
   const paidBoost = Math.min(Math.max(input.boost, 0), 1.5) * 10;
   return input.compatibilityScore + input.activityScore + input.verificationScore + paidBoost;
 }

@@ -1,7 +1,11 @@
 import { z } from "zod";
 
 import type { DiscoveryRepository } from "./discovery-repository";
-import { publicDiscoveryFilterSchema, savedDiscoveryFilterSchema } from "./discovery-types";
+import {
+  publicDiscoveryFilterSchema,
+  SAVED_SEARCH_SCHEMA_VERSION,
+  savedDiscoveryFilterSchema,
+} from "./discovery-types";
 
 type Session = { user: { id: string } };
 type SessionReader = (headers: Headers) => Promise<Session | null>;
@@ -63,7 +67,10 @@ const renameSavedSearchSchema = z.object({
 const deleteSavedSearchSchema = z.object({ id: z.string().uuid() }).strict();
 
 const safeSavedSearch = (row: Record<string, unknown>) => {
-  const safe: Record<string, unknown> = { id: String(row.id), name: String(row.name), filters: row.filters };
+  if (row.schemaVersion !== SAVED_SEARCH_SCHEMA_VERSION) return null;
+  const filters = savedDiscoveryFilterSchema.safeParse(row.filters);
+  if (!filters.success) return null;
+  const safe: Record<string, unknown> = { id: String(row.id), name: String(row.name), filters: filters.data };
   if (row.createdAt) safe.createdAt = row.createdAt instanceof Date ? row.createdAt.toISOString() : String(row.createdAt);
   if (row.updatedAt) safe.updatedAt = row.updatedAt instanceof Date ? row.updatedAt.toISOString() : String(row.updatedAt);
   return safe;
@@ -81,7 +88,10 @@ export function createSavedSearchHandler(input: {
     try {
       if (request.method === "GET") {
         const rows = await input.repository.listSavedSearches(session.user.id);
-        return Response.json({ savedSearches: rows.map((row) => safeSavedSearch(row as Record<string, unknown>)) });
+        return Response.json({ savedSearches: rows.flatMap((row) => {
+          const safe = safeSavedSearch(row as Record<string, unknown>);
+          return safe ? [safe] : [];
+        }) });
       }
       let body: unknown;
       try { body = await request.json(); } catch { return errorResponse("INVALID_SAVED_SEARCH", 400); }
@@ -89,15 +99,16 @@ export function createSavedSearchHandler(input: {
         const parsed = createSavedSearchSchema.safeParse(body);
         if (!parsed.success) return errorResponse("INVALID_SAVED_SEARCH", 400);
         const created = await input.repository.createSavedSearch(session.user.id, parsed.data.name, parsed.data.filters);
-        return Response.json({ savedSearch: safeSavedSearch(created as Record<string, unknown>) }, { status: 201 });
+        const safe = safeSavedSearch(created as Record<string, unknown>);
+        return safe ? Response.json({ savedSearch: safe }, { status: 201 }) : errorResponse("INTERNAL_ERROR", 500);
       }
       if (request.method === "PATCH") {
         const parsed = renameSavedSearchSchema.safeParse(body);
         if (!parsed.success) return errorResponse("INVALID_SAVED_SEARCH", 400);
         const updated = await input.repository.renameSavedSearch(session.user.id, parsed.data.id, parsed.data.name);
-        return updated
-          ? Response.json({ savedSearch: safeSavedSearch(updated as Record<string, unknown>) })
-          : errorResponse("SAVED_SEARCH_NOT_FOUND", 404);
+        if (!updated) return errorResponse("SAVED_SEARCH_NOT_FOUND", 404);
+        const safe = safeSavedSearch(updated as Record<string, unknown>);
+        return safe ? Response.json({ savedSearch: safe }) : errorResponse("INTERNAL_ERROR", 500);
       }
       if (request.method === "DELETE") {
         const parsed = deleteSavedSearchSchema.safeParse(body);

@@ -66,7 +66,9 @@ describe("saved-search route handler", () => {
     expect(invalid.status).toBe(400);
     expect(createSavedSearch).not.toHaveBeenCalled();
 
-    createSavedSearch.mockResolvedValue({ id: crypto.randomUUID(), name: "Safe", filters: { mode: "nearby" } });
+    createSavedSearch.mockResolvedValue({
+      id: crypto.randomUUID(), name: "Safe", schemaVersion: 1, filters: { mode: "nearby" },
+    });
     const valid = await handler(new Request("http://localhost/api/v1/saved-searches", {
       method: "POST",
       headers: { "content-type": "application/json" },
@@ -75,5 +77,32 @@ describe("saved-search route handler", () => {
     expect(valid.status).toBe(201);
     expect(createSavedSearch).toHaveBeenCalledWith("owner-id", "Safe", expect.objectContaining({ mode: "nearby" }));
     expect(await valid.json()).not.toHaveProperty("savedSearch.userId");
+  });
+
+  it("omits unsupported and invalid stored filters at the API boundary", async () => {
+    const validId = crypto.randomUUID();
+    const handler = createSavedSearchHandler({
+      getSession: async () => ({ user: { id: "owner-id" } }),
+      repository: {
+        listSavedSearches: vi.fn().mockResolvedValue([
+          { id: validId, name: "Valid", schemaVersion: 1, filters: { mode: "nearby" } },
+          {
+            id: crypto.randomUUID(),
+            name: "Legacy coordinates",
+            schemaVersion: 1,
+            filters: { mode: "nearby", latitude: 47.6, longitude: -122.3 },
+          },
+          { id: crypto.randomUUID(), name: "Future", schemaVersion: 99, filters: { mode: "recommended" } },
+        ]),
+        createSavedSearch: vi.fn(), renameSavedSearch: vi.fn(), deleteSavedSearch: vi.fn(),
+      },
+    });
+
+    const response = await handler(new Request("http://localhost/api/v1/saved-searches"));
+
+    expect(response.status).toBe(200);
+    expect(await response.json()).toEqual({
+      savedSearches: [{ id: validId, name: "Valid", filters: expect.objectContaining({ mode: "nearby" }) }],
+    });
   });
 });

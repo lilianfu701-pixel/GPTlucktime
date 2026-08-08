@@ -115,6 +115,8 @@ describe("0018/0019 discovery snapshot forward migration", () => {
       { id: emptySnapshotId, item_count: 0, status: "ready", truncated: false },
     ]);
 
+    await migration(client, "0020_discovery_snapshot_recovery.sql");
+
     const database = drizzle(client, { schema });
     const repository = new DiscoveryRepository(database, {
       clock: () => new Date("2026-08-08T12:00:00Z"),

@@ -141,6 +141,13 @@
       "when": 1786213435579,
       "tag": "0019_bounded_discovery_snapshots",
       "breakpoints": true
+    },
+    {
+      "idx": 20,
+      "version": "7",
+      "when": 1786216577366,
+      "tag": "0020_discovery_snapshot_recovery",
+      "breakpoints": true
     }
   ]
 }

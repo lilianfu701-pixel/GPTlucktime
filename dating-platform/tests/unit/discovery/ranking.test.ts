@@ -42,6 +42,22 @@ describe("rankCandidate", () => {
       boost: -2,
     })).toBe(70);
   });
+
+  it.each([
+    ["compatibility score", { compatibilityScore: Number.NaN }],
+    ["activity score", { activityScore: Number.POSITIVE_INFINITY }],
+    ["verification score", { verificationScore: Number.NEGATIVE_INFINITY }],
+    ["boost", { boost: Number.NaN }],
+  ])("rejects a non-finite %s", (_label, override) => {
+    expect(rankCandidate({
+      eligible: true,
+      compatibilityScore: 50,
+      activityScore: 10,
+      verificationScore: 10,
+      boost: 1,
+      ...override,
+    })).toBeNull();
+  });
 });
 
 describe("candidate hard-filter policy", () => {

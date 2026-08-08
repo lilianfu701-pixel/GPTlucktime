@@ -1,3 +1,5 @@
+import { randomUUID } from "node:crypto";
+
 import {
   and,
   asc,
@@ -37,6 +39,7 @@ import { publicProfile } from "@/modules/profiles/profile-service";
 import { ageOn, isCandidateEligible } from "./candidate-policy";
 import {
   publicDiscoveryFilterSchema,
+  SAVED_SEARCH_SCHEMA_VERSION,
   savedDiscoveryFilterSchema,
   type DiscoveryFilters,
   type SavedDiscoveryFilters,
@@ -60,6 +63,7 @@ type RankedCandidate = {
 };
 
 const SNAPSHOT_TTL_MS = 15 * 60_000;
+const BUILD_LEASE_MS = 60_000;
 const MAX_CANDIDATES_EVALUATED = 200;
 const MAX_SNAPSHOT_ITEMS = 100;
 const MAX_ACTIVE_SNAPSHOTS_PER_OWNER = 3;
@@ -144,6 +148,16 @@ export class DiscoveryRepository {
       const materialized = await this.rankSnapshotCandidates(userId, filters, now);
       const snapshot = await this.database.transaction(async (transaction) => {
         const tx = transaction as unknown as DiscoveryDatabase;
+        if (!reservation.buildLeaseId) throw new Error("DISCOVERY_SNAPSHOT_BUSY");
+        const [owned] = await tx.update(discoverySnapshots).set({
+          buildLeaseExpiresAt: new Date(this.clock().getTime() + BUILD_LEASE_MS),
+        }).where(and(
+          eq(discoverySnapshots.id, reservation.id),
+          eq(discoverySnapshots.ownerUserId, userId),
+          eq(discoverySnapshots.status, "building"),
+          eq(discoverySnapshots.buildLeaseId, reservation.buildLeaseId),
+        )).returning({ id: discoverySnapshots.id });
+        if (!owned) throw new Error("DISCOVERY_SNAPSHOT_BUSY");
         for (let offset = 0; offset < materialized.ranked.length; offset += 100) {
           const chunk = materialized.ranked.slice(offset, offset + 100);
           await tx.insert(discoverySnapshotItems).values(chunk.map((item, index) => ({
@@ -157,12 +171,15 @@ export class DiscoveryRepository {
         }
         const [ready] = await tx.update(discoverySnapshots).set({
           status: "ready",
+          buildLeaseId: null,
+          buildLeaseExpiresAt: null,
           itemCount: materialized.ranked.length,
           truncated: materialized.truncated,
         }).where(and(
           eq(discoverySnapshots.id, reservation.id),
           eq(discoverySnapshots.ownerUserId, userId),
           eq(discoverySnapshots.status, "building"),
+          eq(discoverySnapshots.buildLeaseId, reservation.buildLeaseId),
         )).returning();
         if (!ready) throw new Error("DISCOVERY_SNAPSHOT_BUSY");
         return ready;
@@ -173,6 +190,9 @@ export class DiscoveryRepository {
         eq(discoverySnapshots.id, reservation.id),
         eq(discoverySnapshots.ownerUserId, userId),
         eq(discoverySnapshots.status, "building"),
+        reservation.buildLeaseId
+          ? eq(discoverySnapshots.buildLeaseId, reservation.buildLeaseId)
+          : isNull(discoverySnapshots.buildLeaseId),
       )).catch(() => undefined);
       throw error;
     }
@@ -190,6 +210,14 @@ export class DiscoveryRepository {
       await tx.delete(discoverySnapshots).where(and(
         eq(discoverySnapshots.ownerUserId, userId),
         lte(discoverySnapshots.expiresAt, now),
+      ));
+      await tx.delete(discoverySnapshots).where(and(
+        eq(discoverySnapshots.ownerUserId, userId),
+        eq(discoverySnapshots.status, "building"),
+        or(
+          isNull(discoverySnapshots.buildLeaseExpiresAt),
+          lte(discoverySnapshots.buildLeaseExpiresAt, now),
+        ),
       ));
       const [existing] = await tx.select().from(discoverySnapshots).where(and(
         eq(discoverySnapshots.ownerUserId, userId),
@@ -221,6 +249,8 @@ export class DiscoveryRepository {
         filterFingerprint: fingerprint,
         rankingVersion: RANKING_VERSION,
         status: "building",
+        buildLeaseId: randomUUID(),
+        buildLeaseExpiresAt: new Date(now.getTime() + BUILD_LEASE_MS),
         itemCount: 0,
         truncated: false,
         expiresAt: new Date(now.getTime() + SNAPSHOT_TTL_MS),
@@ -658,8 +688,14 @@ export class DiscoveryRepository {
   }
 
   async listSavedSearches(userId: string) {
-    return this.database.select().from(savedSearches).where(eq(savedSearches.userId, userId))
-      .orderBy(desc(savedSearches.createdAt), asc(savedSearches.id));
+    const rows = await this.database.select().from(savedSearches).where(and(
+      eq(savedSearches.userId, userId),
+      eq(savedSearches.schemaVersion, SAVED_SEARCH_SCHEMA_VERSION),
+    )).orderBy(desc(savedSearches.createdAt), asc(savedSearches.id));
+    return rows.flatMap((row) => {
+      const filters = savedDiscoveryFilterSchema.safeParse(row.filters);
+      return filters.success ? [{ ...row, filters: filters.data }] : [];
+    });
   }
 
   async createSavedSearch(userId: string, name: string, input: unknown) {
@@ -672,8 +708,12 @@ export class DiscoveryRepository {
       const [{ value }] = await tx.select({ value: count() }).from(savedSearches)
         .where(eq(savedSearches.userId, userId));
       if (Number(value) >= 20) throw new Error("SAVED_SEARCH_LIMIT");
-      const [created] = await tx.insert(savedSearches).values({ userId, name: normalizedName, filters })
-        .returning();
+      const [created] = await tx.insert(savedSearches).values({
+        userId,
+        name: normalizedName,
+        filters,
+        schemaVersion: SAVED_SEARCH_SCHEMA_VERSION,
+      }).returning();
       return created!;
     });
   }

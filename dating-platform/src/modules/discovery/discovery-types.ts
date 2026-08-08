@@ -2,6 +2,7 @@ import { z } from "zod";
 
 export const DISCOVERY_MODES = ["recommended", "new", "nearby", "online", "verified"] as const;
 export type DiscoveryMode = (typeof DISCOVERY_MODES)[number];
+export const SAVED_SEARCH_SCHEMA_VERSION = 1;
 
 const code = z.string().trim().min(1).max(40).regex(/^[a-z][a-z0-9_-]*$/);
 const countryCode = z.string().trim().toUpperCase().regex(/^[A-Z]{2}$/);

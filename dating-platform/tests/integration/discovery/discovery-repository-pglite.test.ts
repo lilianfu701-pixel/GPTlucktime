@@ -4,7 +4,7 @@ import { PGlite } from "@electric-sql/pglite";
 import { eq, inArray } from "drizzle-orm";
 import { drizzle } from "drizzle-orm/pglite";
 import { migrate } from "drizzle-orm/pglite/migrator";
-import { afterEach, beforeEach, describe, expect, it } from "vitest";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
 import * as schema from "@/db/schema";
 import { publicDiscoveryFilterSchema } from "@/modules/discovery/discovery-types";
@@ -222,6 +222,117 @@ describe("discovery repository", () => {
       .where(eq(schema.discoverySnapshots.ownerUserId, viewerId))).length).toBeLessThanOrEqual(3);
   });
 
+  it("recovers an expired same-filter build lease without waiting for result expiry", async () => {
+    const filters = publicDiscoveryFilterSchema.parse({ minimumAge: 29 });
+    const staleSnapshotId = crypto.randomUUID();
+    await database.insert(schema.discoverySnapshots).values({
+      id: staleSnapshotId,
+      ownerUserId: viewerId,
+      mode: filters.mode,
+      filterFingerprint: filterFingerprint(filters),
+      rankingVersion: RANKING_VERSION,
+      status: "building",
+      buildLeaseId: crypto.randomUUID(),
+      buildLeaseExpiresAt: new Date(now.getTime() - 1),
+      itemCount: 0,
+      truncated: false,
+      expiresAt: new Date(now.getTime() + 15 * 60_000),
+      createdAt: now,
+    });
+
+    await expect(repository.discover(viewerId, filters)).resolves.toMatchObject({ items: [] });
+    expect(await database.select({ id: schema.discoverySnapshots.id }).from(schema.discoverySnapshots)
+      .where(eq(schema.discoverySnapshots.id, staleSnapshotId))).toEqual([]);
+  });
+
+  it("does not count stale building snapshots against the active snapshot cap", async () => {
+    await database.insert(schema.discoverySnapshots).values(Array.from({ length: 3 }, (_, index) => ({
+      ownerUserId: viewerId,
+      mode: "recommended",
+      filterFingerprint: `stale-filter-${index}`,
+      rankingVersion: RANKING_VERSION,
+      status: "building",
+      buildLeaseId: index === 0 ? null : crypto.randomUUID(),
+      buildLeaseExpiresAt: index === 0 ? null : new Date(now.getTime() - 1),
+      itemCount: 0,
+      truncated: false,
+      expiresAt: new Date(now.getTime() + 15 * 60_000),
+      createdAt: new Date(now.getTime() - index),
+    })));
+
+    await expect(repository.discover(viewerId, publicDiscoveryFilterSchema.parse({ minimumAge: 31 })))
+      .resolves.toMatchObject({ items: [] });
+    const active = await database.select().from(schema.discoverySnapshots)
+      .where(eq(schema.discoverySnapshots.ownerUserId, viewerId));
+    expect(active).toHaveLength(1);
+    expect(active[0]).toMatchObject({ status: "ready" });
+  });
+
+  it("keeps an active same-filter build lease busy", async () => {
+    const filters = publicDiscoveryFilterSchema.parse({ minimumAge: 32 });
+    await database.insert(schema.discoverySnapshots).values({
+      ownerUserId: viewerId,
+      mode: filters.mode,
+      filterFingerprint: filterFingerprint(filters),
+      rankingVersion: RANKING_VERSION,
+      status: "building",
+      buildLeaseId: crypto.randomUUID(),
+      buildLeaseExpiresAt: new Date(now.getTime() + 30_000),
+      itemCount: 0,
+      truncated: false,
+      expiresAt: new Date(now.getTime() + 15 * 60_000),
+      createdAt: now,
+    });
+
+    await expect(repository.discover(viewerId, filters)).rejects.toThrow("DISCOVERY_SNAPSHOT_BUSY");
+  });
+
+  it("rejects a stale builder after its lease is reclaimed", async () => {
+    type RankSnapshotCandidates = (
+      userId: string,
+      filters: Parameters<DiscoveryRepository["discover"]>[1],
+      rankingNow: Date,
+    ) => Promise<{
+      ranked: Array<{
+        candidateUserId: string;
+        profileId: string;
+        score: number;
+        createdAt: string;
+        reasons: string[];
+      }>;
+      truncated: boolean;
+    }>;
+    const filters = publicDiscoveryFilterSchema.parse({ minimumAge: 33 });
+    const internals = repository as unknown as { rankSnapshotCandidates: RankSnapshotCandidates };
+    const originalRank = internals.rankSnapshotCandidates.bind(repository);
+    let releaseOldBuilder!: () => void;
+    let signalOldBuilderStarted!: () => void;
+    const oldBuilderStarted = new Promise<void>((resolve) => { signalOldBuilderStarted = resolve; });
+    const oldBuilderReleased = new Promise<void>((resolve) => { releaseOldBuilder = resolve; });
+    vi.spyOn(internals, "rankSnapshotCandidates").mockImplementationOnce(async (...args) => {
+      signalOldBuilderStarted();
+      await oldBuilderReleased;
+      return originalRank(...args);
+    });
+
+    const oldBuild = repository.discover(viewerId, filters);
+    await oldBuilderStarted;
+    now = new Date(now.getTime() + 61_000);
+    const replacementRepository = new DiscoveryRepository(database, {
+      clock: () => now,
+      cursorSecret: CURSOR_SECRET,
+      disabledCountryCodes: ["CA"],
+    });
+    await expect(replacementRepository.discover(viewerId, filters)).resolves.toBeDefined();
+    releaseOldBuilder();
+    await expect(oldBuild).rejects.toThrow("DISCOVERY_SNAPSHOT_BUSY");
+
+    const snapshots = await database.select().from(schema.discoverySnapshots)
+      .where(eq(schema.discoverySnapshots.ownerUserId, viewerId));
+    expect(snapshots).toHaveLength(1);
+    expect(snapshots[0]).toMatchObject({ status: "ready" });
+  });
+
   it("caps evaluated candidates and marks a truncated snapshot", async () => {
     const olderEligible = await addPerson({
       email: "older-eligible@example.test",
@@ -429,5 +540,43 @@ describe("discovery repository", () => {
       .rejects.toThrow("SAVED_SEARCH_LIMIT");
     expect(await repository.deleteSavedSearch(other.userId, created.id)).toBe(false);
     expect(await repository.deleteSavedSearch(viewerId, created.id)).toBe(true);
+  });
+
+  it("lists only current, schema-valid saved searches", async () => {
+    const validId = crypto.randomUUID();
+    await database.insert(schema.savedSearches).values([
+      {
+        id: validId,
+        userId: viewerId,
+        name: "Current valid",
+        schemaVersion: 1,
+        filters: { mode: "nearby" },
+      },
+      {
+        userId: viewerId,
+        name: "Legacy exact coordinates",
+        schemaVersion: 1,
+        filters: { mode: "nearby", latitude: 47.6, longitude: -122.3 },
+      },
+      {
+        userId: viewerId,
+        name: "Unsupported future",
+        schemaVersion: 99,
+        filters: { mode: "recommended" },
+      },
+    ]);
+
+    const listed = await repository.listSavedSearches(viewerId);
+    expect(listed).toHaveLength(1);
+    expect(listed[0]).toMatchObject({
+      id: validId,
+      name: "Current valid",
+      schemaVersion: 1,
+      filters: expect.objectContaining({ mode: "nearby" }),
+    });
+    expect(listed[0]!.filters).not.toHaveProperty("latitude");
+
+    const created = await repository.createSavedSearch(viewerId, "New current", { mode: "verified" });
+    expect(created).toMatchObject({ schemaVersion: 1 });
   });
 });

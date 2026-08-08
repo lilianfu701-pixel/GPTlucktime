@@ -37,6 +37,7 @@ export const savedSearches = pgTable("saved_searches", {
   userId: uuid("user_id").notNull().references(() => users.id, { onDelete: "cascade" }),
   name: varchar("name", { length: 80 }).notNull(),
   filters: jsonb("filters").$type<Record<string, unknown>>().notNull(),
+  schemaVersion: integer("schema_version").default(1).notNull(),
   createdAt: timestamptz("created_at").defaultNow().notNull(),
   updatedAt: timestamptz("updated_at").defaultNow().notNull().$onUpdate(() => new Date()),
 }, (table) => [
@@ -51,6 +52,8 @@ export const discoverySnapshots = pgTable("discovery_snapshots", {
   filterFingerprint: varchar("filter_fingerprint", { length: 64 }).notNull(),
   rankingVersion: varchar("ranking_version", { length: 50 }).notNull(),
   status: text("status").default("building").notNull(),
+  buildLeaseId: uuid("build_lease_id"),
+  buildLeaseExpiresAt: timestamptz("build_lease_expires_at"),
   itemCount: integer("item_count").notNull(),
   truncated: boolean("truncated").default(false).notNull(),
   expiresAt: timestamptz("expires_at").notNull(),
@@ -58,6 +61,7 @@ export const discoverySnapshots = pgTable("discovery_snapshots", {
 }, (table) => [
   index("discovery_snapshots_owner_expiry_idx").on(table.ownerUserId, table.expiresAt),
   index("discovery_snapshots_owner_created_idx").on(table.ownerUserId, table.createdAt),
+  index("discovery_snapshots_build_lease_idx").on(table.status, table.buildLeaseExpiresAt),
   index("discovery_snapshots_expiry_idx").on(table.expiresAt),
   check("discovery_snapshots_status_check", sql`${table.status} IN ('building', 'ready')`),
 ]);
