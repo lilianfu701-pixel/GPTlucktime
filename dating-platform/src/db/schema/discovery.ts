@@ -1,8 +1,8 @@
 import { sql } from "drizzle-orm";
 import {
   boolean,
-  check,
   doublePrecision,
+  check,
   index,
   integer,
   jsonb,
@@ -19,18 +19,6 @@ import { users } from "./auth";
 import { profiles } from "./profiles";
 
 const timestamptz = (name: string) => timestamp(name, { withTimezone: true });
-
-export const userBlocks = pgTable("user_blocks", {
-  id: uuid("id").defaultRandom().primaryKey(),
-  blockerUserId: uuid("blocker_user_id").notNull().references(() => users.id, { onDelete: "cascade" }),
-  blockedUserId: uuid("blocked_user_id").notNull().references(() => users.id, { onDelete: "cascade" }),
-  reasonCode: text("reason_code"),
-  createdAt: timestamptz("created_at").defaultNow().notNull(),
-}, (table) => [
-  unique("user_blocks_direction_unique").on(table.blockerUserId, table.blockedUserId),
-  index("user_blocks_blocked_idx").on(table.blockedUserId, table.blockerUserId),
-  check("user_blocks_not_self_check", sql`${table.blockerUserId} <> ${table.blockedUserId}`),
-]);
 
 export const savedSearches = pgTable("saved_searches", {
   id: uuid("id").defaultRandom().primaryKey(),
