@@ -1,9 +1,17 @@
 "use client";
 
-import { useMemo, useState, type FormEvent } from "react";
+import { useEffect, useMemo, useState, type FormEvent } from "react";
 
 type Locale = "en" | "zh";
 type InitialProfile = Record<string, unknown> | null;
+type SafePhoto = {
+  id: string;
+  status: "pending" | "approved" | "rejected";
+  reason: string | null;
+  width: number | null;
+  height: number | null;
+  createdAt: string;
+};
 
 const copy = {
   en: {
@@ -27,6 +35,11 @@ const copy = {
     saved: "Profile saved.",
     photo: "Add a profile photo",
     photoHint: "JPEG, PNG, or WebP. Maximum 10 MiB. Photos remain private while review is pending.",
+    photoPending: "Review pending — not public",
+    photoApproved: "Approved and ready for your published profile",
+    photoRejected: "Rejected: choose a different photo",
+    removeRejected: "Remove rejected photo",
+    remove: "Remove",
     uploading: "Uploading securely…",
     pending: "Uploaded. Review is pending; this photo is not public yet.",
     error: "We could not save that. Check the highlighted fields and try again.",
@@ -54,6 +67,11 @@ const copy = {
     saved: "资料已保存。",
     photo: "添加个人照片",
     photoHint: "支持 JPEG、PNG 或 WebP，最大 10 MiB。审核期间照片保持私密。",
+    photoPending: "审核中，暂不公开",
+    photoApproved: "已审核，可用于已发布的个人资料",
+    photoRejected: "未通过审核：请选择其他照片",
+    removeRejected: "移除未通过审核的照片",
+    remove: "移除",
     uploading: "正在安全上传…",
     pending: "上传完成，正在审核；这张照片目前不会公开。",
     error: "暂时无法保存。请检查标出的字段后重试。",
@@ -68,7 +86,15 @@ const listValue = (profile: InitialProfile, key: string) =>
   Array.isArray(profile?.[key]) ? (profile[key] as string[]).join(", ") : "";
 const codes = (value: string) => value.split(",").map((entry) => entry.trim()).filter(Boolean);
 
-export default function OnboardingForm({ locale, initialProfile }: { locale: Locale; initialProfile: InitialProfile }) {
+export default function OnboardingForm({
+  locale,
+  initialProfile,
+  initialPhotos = [],
+}: {
+  locale: Locale;
+  initialProfile: InitialProfile;
+  initialPhotos?: SafePhoto[];
+}) {
   const text = copy[locale];
   const [form, setForm] = useState({
     displayName: stringValue(initialProfile, "displayName"),
@@ -80,14 +106,42 @@ export default function OnboardingForm({ locale, initialProfile }: { locale: Loc
     bio: stringValue(initialProfile, "bio"),
     languageCodes: listValue(initialProfile, "languageCodes"),
     interestCodes: listValue(initialProfile, "interestCodes"),
-    discoverable: initialProfile?.discoverable !== false,
+    timeZone: stringValue(initialProfile, "timeZone") || Intl.DateTimeFormat().resolvedOptions().timeZone,
+    publish: initialProfile?.publishRequested === true,
   });
+  const [photos, setPhotos] = useState<SafePhoto[]>(initialPhotos);
   const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
   const [saveStatus, setSaveStatus] = useState<"idle" | "saving" | "saved" | "error">("idle");
   const [photoStatus, setPhotoStatus] = useState<"idle" | "uploading" | "pending" | "error">("idle");
+  const hasPendingPhoto = photos.some((photo) => photo.status === "pending");
+
+  useEffect(() => {
+    if (!hasPendingPhoto) return;
+    let active = true;
+    let refreshing = false;
+    const refresh = async () => {
+      if (refreshing) return;
+      refreshing = true;
+      try {
+        const response = await fetch("/api/v1/me/photos", { method: "GET" });
+        if (!response.ok) return;
+        const body = await response.json() as { photos?: SafePhoto[] };
+        if (active && Array.isArray(body.photos)) setPhotos(body.photos);
+      } catch {
+        // The next bounded poll retries without exposing provider or storage details.
+      } finally {
+        refreshing = false;
+      }
+    };
+    const timer = window.setInterval(() => { void refresh(); }, 5_000);
+    return () => {
+      active = false;
+      window.clearInterval(timer);
+    };
+  }, [hasPendingPhoto]);
 
   const completeness = useMemo(() => {
-    const values = [form.displayName, form.birthDate, form.genderCode, form.countryCode, form.city, form.bio, form.languageCodes, form.interestCodes];
+    const values = [form.displayName, form.birthDate, form.genderCode, form.countryCode, form.city, form.bio, form.languageCodes, form.interestCodes, form.timeZone];
     return Math.round(values.filter((value) => value.trim()).length / values.length * 100);
   }, [form]);
 
@@ -99,8 +153,10 @@ export default function OnboardingForm({ locale, initialProfile }: { locale: Loc
   async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const errors: Record<string, string> = {};
-    for (const field of ["displayName", "birthDate", "genderCode", "countryCode"] as const) {
-      if (!form[field].trim()) errors[field] = text.required;
+    if (form.publish) {
+      for (const field of ["displayName", "birthDate", "genderCode", "countryCode"] as const) {
+        if (!form[field].trim()) errors[field] = text.required;
+      }
     }
     if (Object.keys(errors).length) {
       setFieldErrors(errors);
@@ -108,18 +164,23 @@ export default function OnboardingForm({ locale, initialProfile }: { locale: Loc
       return;
     }
     setSaveStatus("saving");
+    const payload: Record<string, unknown> = {
+      relationshipGoalCode: form.relationshipGoalCode || null,
+      city: form.city || null,
+      bio: form.bio || null,
+      timeZone: form.timeZone,
+      languageCodes: codes(form.languageCodes),
+      interestCodes: codes(form.interestCodes),
+      publish: form.publish,
+    };
+    if (form.displayName.trim()) payload.displayName = form.displayName;
+    if (form.birthDate.trim()) payload.birthDate = form.birthDate;
+    if (form.genderCode.trim()) payload.genderCode = form.genderCode;
+    if (form.countryCode.trim()) payload.countryCode = form.countryCode.toUpperCase();
     const response = await fetch("/api/v1/me/profile", {
       method: "PATCH",
       headers: { "content-type": "application/json" },
-      body: JSON.stringify({
-        ...form,
-        relationshipGoalCode: form.relationshipGoalCode || null,
-        city: form.city || null,
-        bio: form.bio || null,
-        countryCode: form.countryCode.toUpperCase(),
-        languageCodes: codes(form.languageCodes),
-        interestCodes: codes(form.interestCodes),
-      }),
+      body: JSON.stringify(payload),
     }).catch(() => null);
     setSaveStatus(response?.ok ? "saved" : "error");
   }
@@ -151,10 +212,21 @@ export default function OnboardingForm({ locale, initialProfile }: { locale: Loc
         body: JSON.stringify({ uploadId: upload.uploadId, uploadToken: upload.uploadToken }),
       });
       if (!completion.ok) throw new Error("PHOTO_COMPLETION_FAILED");
+      const completed = await completion.json() as { photo: SafePhoto };
+      setPhotos((current) => [completed.photo, ...current.filter((photo) => photo.id !== completed.photo.id)]);
       setPhotoStatus("pending");
     } catch {
       setPhotoStatus("error");
     }
+  }
+
+  async function removePhoto(photoId: string) {
+    const response = await fetch("/api/v1/me/photos", {
+      method: "DELETE",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ photoId }),
+    }).catch(() => null);
+    if (response?.ok) setPhotos((current) => current.filter((photo) => photo.id !== photoId));
   }
 
   const fieldClass = "mt-2 w-full rounded-2xl border border-rose-200 bg-white px-4 py-3 text-stone-900 outline-none focus:border-rose-600 focus:ring-2 focus:ring-rose-200";
@@ -177,7 +249,7 @@ export default function OnboardingForm({ locale, initialProfile }: { locale: Loc
           <label className={labelClass}>{text.languages}<input className={fieldClass} value={form.languageCodes} onChange={(e) => update("languageCodes", e.target.value)} aria-describedby="list-hint" /><span id="list-hint" className="mt-1 block text-xs font-normal text-stone-500">{text.listHint}</span></label>
           <label className={labelClass}>{text.interests}<input className={fieldClass} value={form.interestCodes} onChange={(e) => update("interestCodes", e.target.value)} aria-describedby="list-hint" /></label>
         </div>
-        <label className="mt-6 flex items-start gap-3 text-sm text-stone-700"><input className="mt-1 size-4 accent-rose-700" type="checkbox" checked={form.discoverable} onChange={(e) => update("discoverable", e.target.checked)} />{text.visible}</label>
+        <label className="mt-6 flex items-start gap-3 text-sm text-stone-700"><input className="mt-1 size-4 accent-rose-700" type="checkbox" checked={form.publish} onChange={(e) => update("publish", e.target.checked)} />{text.visible}</label>
         <button className="mt-8 rounded-full bg-rose-700 px-6 py-3 font-semibold text-white hover:bg-rose-800 disabled:cursor-wait disabled:opacity-60" disabled={saveStatus === "saving"}>{saveStatus === "saving" ? text.saving : text.save}</button>
         <div className="mt-3 min-h-6 text-sm" role="status" aria-live="polite">{saveStatus === "saved" ? <span className="text-emerald-700">{text.saved}</span> : saveStatus === "error" ? <span className="text-red-700">{text.error}</span> : null}</div>
       </form>
@@ -190,6 +262,16 @@ export default function OnboardingForm({ locale, initialProfile }: { locale: Loc
         <section className="rounded-3xl bg-white p-6 shadow-sm ring-1 ring-rose-100">
           <h2 className="text-lg font-semibold">{text.photo}</h2>
           <p className="mt-2 text-sm leading-6 text-stone-600">{text.photoHint}</p>
+          {photos.length > 0 ? <ul className="mt-4 space-y-3">
+            {photos.map((photo) => <li className="rounded-2xl border border-rose-100 p-3 text-sm" key={photo.id}>
+              {photo.status === "pending" ? <span>{text.photoPending}</span> : null}
+              {photo.status === "approved" ? <span>{text.photoApproved}</span> : null}
+              {photo.status === "rejected" ? <div className="flex items-center justify-between gap-3">
+                <span>{text.photoRejected}</span>
+                <button className="rounded-full border border-rose-300 px-3 py-1 text-rose-800" type="button" aria-label={text.removeRejected} onClick={() => removePhoto(photo.id)}>{text.remove}</button>
+              </div> : null}
+            </li>)}
+          </ul> : null}
           <label className="mt-5 block cursor-pointer rounded-2xl border border-dashed border-rose-300 bg-rose-50 px-4 py-8 text-center text-sm font-semibold text-rose-800 hover:bg-rose-100">
             {text.photo}
             <input className="sr-only" type="file" accept="image/jpeg,image/png,image/webp" disabled={photoStatus === "uploading"} onChange={(e) => uploadPhoto(e.target.files?.[0])} />

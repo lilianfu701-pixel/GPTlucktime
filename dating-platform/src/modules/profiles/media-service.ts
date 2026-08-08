@@ -1,6 +1,7 @@
 import { createHmac, randomUUID, timingSafeEqual } from "node:crypto";
 
 import {
+  CopyObjectCommand,
   DeleteObjectCommand,
   GetObjectCommand,
   HeadObjectCommand,
@@ -21,6 +22,7 @@ export interface StorageAdapter {
     expiresInSeconds: number;
   }): Promise<string>;
   headObject(objectKey: string): Promise<ObjectMetadata | null>;
+  copyObject(sourceObjectKey: string, destinationObjectKey: string): Promise<void>;
   readPrefix(objectKey: string, maximumBytes: number): Promise<Uint8Array>;
   deleteObject(objectKey: string): Promise<void>;
 }
@@ -44,11 +46,13 @@ export interface PhotoMediaStore {
   completeUpload(
     userId: string,
     uploadId: string,
-    metadata: { sizeBytes: number; mimeType: string },
+    finalize: (upload: ReservedUpload) => Promise<ObjectMetadata & { objectKey: string }>,
   ): Promise<{
     photo: { id: string; moderationStatus: string; [key: string]: unknown };
     job: { id: string; status: string; [key: string]: unknown };
   }>;
+  listPhotosForUser(userId: string): Promise<Array<Record<string, unknown>>>;
+  markPhotoRemoved(userId: string, photoId: string): Promise<boolean>;
 }
 
 export class S3StorageAdapter implements StorageAdapter {
@@ -61,11 +65,14 @@ export class S3StorageAdapter implements StorageAdapter {
     accessKeyId: string;
     secretAccessKey: string;
     forcePathStyle?: boolean;
+    requestTimeoutMs?: number;
+    client?: S3Client;
   }) {
-    this.client = new S3Client({
+    this.client = configuration.client ?? new S3Client({
       endpoint: configuration.endpoint,
       region: configuration.region,
       forcePathStyle: configuration.forcePathStyle ?? true,
+      requestChecksumCalculation: "WHEN_REQUIRED",
       credentials: {
         accessKeyId: configuration.accessKeyId,
         secretAccessKey: configuration.secretAccessKey,
@@ -87,7 +94,7 @@ export class S3StorageAdapter implements StorageAdapter {
       const result = await this.client.send(new HeadObjectCommand({
         Bucket: this.configuration.bucket,
         Key: objectKey,
-      }));
+      }), { abortSignal: AbortSignal.timeout(this.configuration.requestTimeoutMs ?? 10_000) });
       if (result.ContentLength === undefined || !result.ContentType) return null;
       return { sizeBytes: result.ContentLength, mimeType: result.ContentType.split(";", 1)[0]!.toLowerCase() };
     } catch (error) {
@@ -97,23 +104,55 @@ export class S3StorageAdapter implements StorageAdapter {
     }
   }
 
+  async copyObject(sourceObjectKey: string, destinationObjectKey: string) {
+    await this.client.send(new CopyObjectCommand({
+      Bucket: this.configuration.bucket,
+      Key: destinationObjectKey,
+      CopySource: `${this.configuration.bucket}/${sourceObjectKey.split("/").map(encodeURIComponent).join("/")}`,
+    }), { abortSignal: AbortSignal.timeout(this.configuration.requestTimeoutMs ?? 10_000) });
+  }
+
   async readPrefix(objectKey: string, maximumBytes: number) {
+    const controller = new AbortController();
     const result = await this.client.send(new GetObjectCommand({
       Bucket: this.configuration.bucket,
       Key: objectKey,
       Range: `bytes=0-${Math.max(0, maximumBytes - 1)}`,
-    }));
+    }), { abortSignal: AbortSignal.any([
+      controller.signal,
+      AbortSignal.timeout(this.configuration.requestTimeoutMs ?? 10_000),
+    ]) });
     if (!result.Body) throw new Error("STORAGE_OBJECT_MISSING");
-    const bytes = await result.Body.transformToByteArray();
-    return bytes.slice(0, maximumBytes);
+    return collectBoundedBody(result.Body, maximumBytes, controller);
   }
 
   async deleteObject(objectKey: string) {
     await this.client.send(new DeleteObjectCommand({
       Bucket: this.configuration.bucket,
       Key: objectKey,
-    }));
+    }), { abortSignal: AbortSignal.timeout(this.configuration.requestTimeoutMs ?? 10_000) });
   }
+}
+
+export async function collectBoundedBody(body: unknown, maximumBytes: number, controller: AbortController) {
+  if (!body || typeof (body as { [Symbol.asyncIterator]?: unknown })[Symbol.asyncIterator] !== "function") {
+    throw new Error("STORAGE_BODY_INVALID");
+  }
+  const chunks: Uint8Array[] = [];
+  let total = 0;
+  for await (const rawChunk of body as AsyncIterable<Uint8Array>) {
+    const chunk = rawChunk instanceof Uint8Array ? rawChunk : new Uint8Array(rawChunk);
+    total += chunk.byteLength;
+    if (total > maximumBytes) {
+      controller.abort();
+      throw new Error("STORAGE_OBJECT_TOO_LARGE");
+    }
+    chunks.push(chunk);
+  }
+  const bytes = new Uint8Array(total);
+  let offset = 0;
+  for (const chunk of chunks) { bytes.set(chunk, offset); offset += chunk.byteLength; }
+  return bytes;
 }
 
 const digest = (secret: string, ...parts: string[]) =>
@@ -136,6 +175,11 @@ export function isOwnedMediaKey(objectKey: string, userId: string) {
   return new RegExp(`^profile-media/${escaped}/[0-9a-f-]{36}/[0-9a-f-]{36}\\.(?:jpg|png|webp)$`, "i").test(objectKey);
 }
 
+export function isOwnedReviewKey(objectKey: string, userId: string) {
+  const escaped = userId.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  return new RegExp(`^profile-review/${escaped}/[0-9a-f-]{36}\\.(?:jpg|png|webp)$`, "i").test(objectKey);
+}
+
 type HandlerSession = { user: { id: string } };
 type HandlerDependencies = {
   getSession(headers: Headers): Promise<HandlerSession | null>;
@@ -148,6 +192,75 @@ type HandlerDependencies = {
 };
 
 const apiError = (code: string, status: number) => Response.json({ code, message: code }, { status });
+
+const actionableReason: Record<string, string> = {
+  CONTENT_UNSAFE: "PHOTO_CONTENT_UNSAFE",
+  LIVENESS_FAILED: "PHOTO_LIVENESS_FAILED",
+  MALWARE_DETECTED: "PHOTO_INVALID_FILE",
+  SIGNATURE_MIME_MISMATCH: "PHOTO_INVALID_FILE",
+  IMAGE_METADATA_INVALID: "PHOTO_INVALID_FILE",
+  IMAGE_DIMENSIONS_EXCEEDED: "PHOTO_INVALID_FILE",
+};
+
+export type SafeUserPhoto = {
+  id: string;
+  status: "pending" | "approved" | "rejected";
+  reason: string | null;
+  width: number | null;
+  height: number | null;
+  createdAt: string;
+};
+
+export function safeUserPhoto(photo: Record<string, unknown>): SafeUserPhoto {
+  const status: SafeUserPhoto["status"] = ["pending", "approved", "rejected"].includes(String(photo.moderationStatus))
+    ? (String(photo.moderationStatus) as SafeUserPhoto["status"])
+    : "pending";
+  return {
+    id: String(photo.id),
+    status,
+    reason: status === "rejected"
+      ? actionableReason[String(photo.moderationReasonCode)] ?? "PHOTO_REJECTED"
+      : null,
+    width: typeof photo.width === "number" ? photo.width : null,
+    height: typeof photo.height === "number" ? photo.height : null,
+    createdAt: photo.createdAt instanceof Date ? photo.createdAt.toISOString() : String(photo.createdAt),
+  };
+}
+
+export function createPhotoListHandler(input: {
+  getSession(headers: Headers): Promise<HandlerSession | null>;
+  store: Pick<PhotoMediaStore, "listPhotosForUser">;
+}) {
+  return async (request: Request) => {
+    let session: HandlerSession | null;
+    try { session = await input.getSession(request.headers); } catch { return apiError("INTERNAL_ERROR", 500); }
+    if (!session) return apiError("UNAUTHORIZED", 401);
+    try {
+      const photos = await input.store.listPhotosForUser(session.user.id);
+      return Response.json({ photos: photos.map(safeUserPhoto) });
+    } catch {
+      return apiError("INTERNAL_ERROR", 500);
+    }
+  };
+}
+
+export function createPhotoRemoveHandler(input: {
+  getSession(headers: Headers): Promise<HandlerSession | null>;
+  store: Pick<PhotoMediaStore, "markPhotoRemoved">;
+}) {
+  return async (request: Request) => {
+    let session: HandlerSession | null;
+    try { session = await input.getSession(request.headers); } catch { return apiError("INTERNAL_ERROR", 500); }
+    if (!session) return apiError("UNAUTHORIZED", 401);
+    let body: unknown;
+    try { body = await request.json(); } catch { return apiError("INVALID_PHOTO", 400); }
+    const photoId = body && typeof body === "object" ? (body as Record<string, unknown>).photoId : null;
+    if (typeof photoId !== "string" || !/^[0-9a-f-]{36}$/i.test(photoId)) return apiError("INVALID_PHOTO", 400);
+    return await input.store.markPhotoRemoved(session.user.id, photoId)
+      ? Response.json({ removed: true })
+      : apiError("PHOTO_NOT_FOUND", 404);
+  };
+}
 
 export function createPhotoUploadHandler(input: HandlerDependencies) {
   const maximumSizeBytes = input.maximumSizeBytes ?? 10 * 1024 * 1024;
@@ -219,14 +332,32 @@ export function createPhotoCompleteHandler(input: HandlerDependencies) {
       }
       const now = input.clock?.() ?? new Date();
       if (upload.expiresAt <= now) return apiError("UPLOAD_EXPIRED", 409);
-      const metadata = await input.storage.headObject(upload.objectKey);
-      if (!metadata || metadata.sizeBytes !== upload.declaredSizeBytes || metadata.mimeType !== upload.mimeType) {
-        if (metadata) await input.storage.deleteObject(upload.objectKey).catch(() => undefined);
+      const finalObjectKey = `profile-review/${session.user.id}/${upload.id}.${extensionForMime[upload.mimeType]}`;
+      const result = await input.store.completeUpload(session.user.id, upload.id, async (lockedUpload) => {
+        const stagingMetadata = await input.storage.headObject(lockedUpload.objectKey);
+        if (!stagingMetadata || stagingMetadata.sizeBytes !== lockedUpload.declaredSizeBytes
+          || stagingMetadata.mimeType !== lockedUpload.mimeType) {
+          if (stagingMetadata) await input.storage.deleteObject(lockedUpload.objectKey).catch(() => undefined);
+          throw new Error("UPLOAD_METADATA_MISMATCH");
+        }
+        await input.storage.copyObject(lockedUpload.objectKey, finalObjectKey);
+        const finalMetadata = await input.storage.headObject(finalObjectKey);
+        if (!finalMetadata || finalMetadata.sizeBytes !== lockedUpload.declaredSizeBytes
+          || finalMetadata.mimeType !== lockedUpload.mimeType) {
+          await input.storage.deleteObject(finalObjectKey).catch(() => undefined);
+          throw new Error("IMMUTABLE_COPY_MISMATCH");
+        }
+        return { ...finalMetadata, objectKey: finalObjectKey };
+      });
+      await input.storage.deleteObject(upload.objectKey).catch(() => undefined);
+      return Response.json({ photo: safeUserPhoto(result.photo) });
+    } catch (error) {
+      if (error instanceof Error && error.message === "UPLOAD_EXPIRED") {
+        return apiError("UPLOAD_EXPIRED", 409);
+      }
+      if (error instanceof Error && error.message === "UPLOAD_METADATA_MISMATCH") {
         return apiError("UPLOAD_METADATA_MISMATCH", 409);
       }
-      const result = await input.store.completeUpload(session.user.id, upload.id, metadata);
-      return Response.json(result);
-    } catch {
       return apiError("INTERNAL_ERROR", 500);
     }
   };

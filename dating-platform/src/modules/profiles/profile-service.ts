@@ -26,13 +26,27 @@ export const utcLegalAdultBoundary: DateBoundary = (_birthYear, month, day, adul
 
 export function assertAdult(
   birthDate: string,
-  now = new Date(),
+  instant = new Date(),
+  timeZone = "UTC",
   boundary: DateBoundary = utcLegalAdultBoundary,
 ) {
   const birth = parseDateOnly(birthDate);
+  if (Number.isNaN(instant.getTime())) throw new Error("INVALID_LEGAL_INSTANT");
+  let parts: Record<string, number>;
+  try {
+    parts = Object.fromEntries(new Intl.DateTimeFormat("en-US", {
+      timeZone,
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+    }).formatToParts(instant).filter(({ type }) => ["year", "month", "day"].includes(type))
+      .map(({ type, value }) => [type, Number(value)]));
+  } catch {
+    throw new Error("INVALID_TIME_ZONE");
+  }
   const adultYear = birth.year + 18;
   const adultDay = boundary(birth.year, birth.month, birth.day, adultYear);
-  const today = Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate());
+  const today = Date.UTC(parts.year!, parts.month! - 1, parts.day!);
   const eligibleAt = Date.UTC(adultYear, adultDay.month - 1, adultDay.day);
   if (today < eligibleAt) throw new Error("AGE_RESTRICTED");
 }
@@ -40,8 +54,6 @@ export function assertAdult(
 const PUBLIC_FIELDS = [
   "id",
   "displayName",
-  "city",
-  "countryCode",
   "age",
   "ageBand",
   "genderCode",
@@ -61,7 +73,7 @@ export function publicProfile(input: Record<string, unknown>) {
       output.photos = Array.isArray(value) ? value.flatMap((entry) => {
         if (!entry || typeof entry !== "object") return [];
         const photo = entry as Record<string, unknown>;
-        if (photo.moderationStatus !== "approved") return [];
+        if (photo.moderationStatus !== "approved" || photo.userRemovedAt) return [];
         const safe: Record<string, unknown> = {};
         for (const key of ["id", "url", "width", "height"] as const) {
           if (photo[key] !== undefined && photo[key] !== null) safe[key] = photo[key];
@@ -76,6 +88,14 @@ export function publicProfile(input: Record<string, unknown>) {
       output[field] = value;
     }
   }
+  const privacy = input.privacy && typeof input.privacy === "object"
+    ? input.privacy as Record<string, unknown>
+    : {};
+  const locationPrecision = privacy.locationPrecision;
+  if (["country", "city", "approximate"].includes(String(locationPrecision))
+    && typeof input.countryCode === "string") output.countryCode = input.countryCode;
+  if (locationPrecision === "city"
+    && typeof input.city === "string") output.city = input.city;
   return output;
 }
 
@@ -84,6 +104,7 @@ const COMPLETENESS_FIELDS = [
   "birthDate",
   "genderCode",
   "countryCode",
+  "timeZone",
   "city",
   "bio",
   "languageCodes",
@@ -103,17 +124,21 @@ export function profileVisibility(input: {
   profileStatus: string;
   discoverable: boolean;
   approvedPhotoCount: number;
+  isComplete?: boolean;
 }) {
   return input.accountStatus === "active"
     && input.profileStatus === "active"
     && input.discoverable
-    && input.approvedPhotoCount > 0;
+    && input.approvedPhotoCount > 0
+    && input.isComplete !== false;
 }
 
 export function validateProfilePatch(input: unknown, now = new Date()) {
   const result = completeProfileSchema.partial().safeParse(input);
   if (!result.success) throw new Error("INVALID_PROFILE");
-  if (result.data.birthDate) assertAdult(result.data.birthDate, now);
+  if (result.data.birthDate && result.data.timeZone) {
+    assertAdult(result.data.birthDate, now, result.data.timeZone);
+  }
   return result.data;
 }
 
@@ -155,15 +180,14 @@ export function createProfileHandler(input: {
     const parsed = profilePatchSchema.safeParse(body);
     if (!parsed.success) return handlerError("INVALID_PROFILE", 400);
     try {
-      if (parsed.data.birthDate) assertAdult(parsed.data.birthDate, input.clock?.() ?? new Date());
       const profile = await input.repository.upsertForUser(session.user.id, parsed.data);
       return Response.json({ profile });
     } catch (error) {
       if (error instanceof Error && error.message === "AGE_RESTRICTED") {
         return handlerError("AGE_RESTRICTED", 400);
       }
-      if (error instanceof Error && error.message === "PROFILE_INCOMPLETE") {
-        return handlerError("PROFILE_INCOMPLETE", 409);
+      if (error instanceof Error && ["PROFILE_INCOMPLETE", "PROFILE_NOT_READY"].includes(error.message)) {
+        return handlerError(error.message, 409);
       }
       return handlerError("INTERNAL_ERROR", 500);
     }

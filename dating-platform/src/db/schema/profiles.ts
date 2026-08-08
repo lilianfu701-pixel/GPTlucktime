@@ -32,15 +32,17 @@ export const profiles = pgTable(
       .notNull()
       .unique()
       .references(() => users.id, { onDelete: "cascade" }),
-    displayName: text("display_name").notNull(),
-    birthDate: date("birth_date").notNull(),
-    genderCode: text("gender_code").notNull(),
+    displayName: text("display_name"),
+    birthDate: date("birth_date"),
+    genderCode: text("gender_code"),
     relationshipGoalCode: text("relationship_goal_code"),
-    countryCode: varchar("country_code", { length: 2 }).notNull(),
+    countryCode: varchar("country_code", { length: 2 }),
+    timeZone: text("time_zone"),
     city: text("city"),
     bio: text("bio"),
-    discoverable: boolean("discoverable").default(true).notNull(),
-    status: text("status").default("active").notNull(),
+    publishRequested: boolean("publish_requested").default(false).notNull(),
+    discoverable: boolean("discoverable").default(false).notNull(),
+    status: text("status").default("draft").notNull(),
     createdAt: createdAt(),
     updatedAt: updatedAt(),
   },
@@ -104,6 +106,7 @@ export const profilePhotoUploads = pgTable(
     declaredSizeBytes: integer("declared_size_bytes").notNull(),
     tokenHash: text("token_hash").notNull(),
     idempotencyHash: text("idempotency_hash").notNull(),
+    quotaSlot: integer("quota_slot"),
     expiresAt: timestamptz("expires_at").notNull(),
     completedPhotoId: uuid("completed_photo_id"),
     createdAt: createdAt(),
@@ -111,9 +114,13 @@ export const profilePhotoUploads = pgTable(
   },
   (table) => [
     unique("profile_photo_uploads_user_idempotency_unique").on(table.userId, table.idempotencyHash),
+    uniqueIndex("profile_photo_uploads_user_quota_slot_active_idx")
+      .on(table.userId, table.quotaSlot)
+      .where(sql`${table.quotaSlot} IS NOT NULL`),
     index("profile_photo_uploads_quota_idx").on(table.userId, table.expiresAt),
     check("profile_photo_uploads_mime_check", sql`${table.mimeType} IN ('image/jpeg', 'image/png', 'image/webp')`),
     check("profile_photo_uploads_size_check", sql`${table.declaredSizeBytes} > 0`),
+    check("profile_photo_uploads_quota_slot_check", sql`${table.quotaSlot} IS NULL OR ${table.quotaSlot} >= 0`),
   ],
 );
 
@@ -139,6 +146,7 @@ export const profilePhotos = pgTable(
     reviewedAt: timestamptz("reviewed_at"),
     cleanupDueAt: timestamptz("cleanup_due_at"),
     objectDeletedAt: timestamptz("object_deleted_at"),
+    userRemovedAt: timestamptz("user_removed_at"),
     createdAt: createdAt(),
     updatedAt: updatedAt(),
   },
@@ -181,6 +189,27 @@ export const mediaReviewJobs = pgTable(
     index("media_review_jobs_claim_idx").on(table.status, table.availableAt, table.leaseExpiresAt),
     check("media_review_jobs_status_check", sql`${table.status} IN ('pending', 'processing', 'completed', 'failed')`),
     check("media_review_jobs_attempts_check", sql`${table.attempts} >= 0`),
+  ],
+);
+
+export const mediaReviewResults = pgTable(
+  "media_review_results",
+  {
+    id: uuid("id").defaultRandom().primaryKey(),
+    jobId: uuid("job_id").notNull().references(() => mediaReviewJobs.id, { onDelete: "restrict" }),
+    photoId: uuid("photo_id").notNull().references(() => profilePhotos.id, { onDelete: "restrict" }),
+    attempt: integer("attempt").notNull(),
+    provider: text("provider").notNull(),
+    providerVersion: text("provider_version").notNull(),
+    outcome: text("outcome").notNull(),
+    reasonCode: text("reason_code"),
+    createdAt: createdAt(),
+  },
+  (table) => [
+    unique("media_review_results_job_attempt_unique").on(table.jobId, table.attempt),
+    index("media_review_results_photo_idx").on(table.photoId, table.createdAt),
+    check("media_review_results_attempt_check", sql`${table.attempt} > 0`),
+    check("media_review_results_outcome_check", sql`${table.outcome} IN ('approved', 'rejected')`),
   ],
 );
 

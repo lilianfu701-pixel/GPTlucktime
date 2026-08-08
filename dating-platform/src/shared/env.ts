@@ -96,6 +96,7 @@ const schema = z
     MEDIA_REVIEW_URL: optionalValue(urlWithProtocols(["https:"], "MEDIA_REVIEW_URL must use https://")),
     MEDIA_REVIEW_API_KEY: optionalValue(z.string().min(1)),
     MEDIA_REVIEW_VERSION: optionalValue(z.string().trim().min(1).max(40)),
+    MEDIA_REVIEW_ALLOWED_ORIGINS: optionalValue(commaSeparatedHttpsOrigins),
     MEDIA_REVIEW_REJECTED_RETENTION_HOURS: optionalValue(z.coerce.number().int().min(1).max(24 * 365)),
   })
   .superRefine((env, context) => {
@@ -165,6 +166,7 @@ const schema = z
       "MEDIA_REVIEW_URL",
       "MEDIA_REVIEW_API_KEY",
       "MEDIA_REVIEW_VERSION",
+      "MEDIA_REVIEW_ALLOWED_ORIGINS",
     ]);
     if (env.SMS_HIGH_RISK_CALLING_CODES) {
       context.addIssue({

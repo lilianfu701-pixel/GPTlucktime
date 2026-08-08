@@ -39,13 +39,26 @@ export class HttpsMediaReviewAdapter implements MediaReviewAdapter {
     apiKey: string;
     provider: string;
     version: string;
+    allowedOrigins: string[];
+    timeoutMs?: number;
+    maximumResponseBytes?: number;
     fetchImplementation?: typeof fetch;
   }) {
     if (configuration) {
       const url = new URL(configuration.endpoint);
-      if (url.protocol !== "https:" || url.username || url.password) {
+      if (url.protocol !== "https:" || url.username || url.password
+        || url.port && url.port !== "443") {
         throw new Error("MEDIA_REVIEW_URL_INVALID");
       }
+      const allowed = configuration.allowedOrigins.map((origin) => {
+        const parsed = new URL(origin);
+        if (parsed.protocol !== "https:" || parsed.origin !== origin
+          || parsed.username || parsed.password || parsed.port && parsed.port !== "443") {
+          throw new Error("MEDIA_REVIEW_ORIGIN_INVALID");
+        }
+        return parsed.origin;
+      });
+      if (!allowed.includes(url.origin)) throw new Error("MEDIA_REVIEW_ORIGIN_DENIED");
     }
   }
 
@@ -54,12 +67,17 @@ export class HttpsMediaReviewAdapter implements MediaReviewAdapter {
     const fetchImplementation = this.configuration.fetchImplementation ?? fetch;
     let response: Response;
     try {
+      if (input.bytes.byteLength > 10 * 1024 * 1024) throw new MediaReviewRetryableError();
+      // This approved processor receives complete, bounded photo bytes. Production use must be
+      // covered by the platform's privacy agreement and retention/deletion controls.
       response = await fetchImplementation(this.configuration.endpoint, {
         method: "POST",
         headers: {
           authorization: `Bearer ${this.configuration.apiKey}`,
           "content-type": "application/json",
         },
+        redirect: "manual",
+        signal: AbortSignal.timeout(this.configuration.timeoutMs ?? 10_000),
         body: JSON.stringify({
           objectKey: input.objectKey,
           mimeType: input.mimeType,
@@ -74,9 +92,31 @@ export class HttpsMediaReviewAdapter implements MediaReviewAdapter {
     } catch {
       throw new MediaReviewRetryableError();
     }
-    if (!response.ok) throw new MediaReviewRetryableError();
+    if (response.status >= 300 || !response.ok) throw new MediaReviewRetryableError();
     let raw: unknown;
-    try { raw = await response.json(); } catch { throw new MediaReviewRetryableError(); }
+    try {
+      const maximumBytes = this.configuration.maximumResponseBytes ?? 64 * 1024;
+      const declaredLength = Number(response.headers.get("content-length"));
+      if (Number.isFinite(declaredLength) && declaredLength > maximumBytes) throw new Error("oversized");
+      if (!response.body) throw new Error("missing body");
+      const reader = response.body.getReader();
+      const chunks: Uint8Array[] = [];
+      let total = 0;
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+        total += value.byteLength;
+        if (total > maximumBytes) {
+          await reader.cancel();
+          throw new Error("oversized");
+        }
+        chunks.push(value);
+      }
+      const body = new Uint8Array(total);
+      let offset = 0;
+      for (const chunk of chunks) { body.set(chunk, offset); offset += chunk.byteLength; }
+      raw = JSON.parse(new TextDecoder().decode(body));
+    } catch { throw new MediaReviewRetryableError(); }
     if (!raw || typeof raw !== "object") throw new MediaReviewRetryableError();
     const result = raw as Record<string, unknown>;
     if (![result.malwareSafe, result.contentSafe, result.liveSubject]

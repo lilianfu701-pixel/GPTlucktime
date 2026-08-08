@@ -4,7 +4,11 @@ import {
   profileMediaStorage,
   profileMediaStore,
 } from "@/modules/profiles/media-runtime";
-import { createPhotoUploadHandler } from "@/modules/profiles/media-service";
+import {
+  createPhotoListHandler,
+  createPhotoRemoveHandler,
+  createPhotoUploadHandler,
+} from "@/modules/profiles/media-service";
 
 const unavailable = async (request: Request) => {
   try {
@@ -26,3 +30,13 @@ export const POST = profileMediaStorage && profileMediaRuntime.tokenSecret
       expirySeconds: profileMediaRuntime.expirySeconds,
     })
   : unavailable;
+
+export const GET = createPhotoListHandler({
+  getSession: (headers) => auth.api.getSession({ headers }),
+  store: profileMediaStore,
+});
+
+export const DELETE = createPhotoRemoveHandler({
+  getSession: (headers) => auth.api.getSession({ headers }),
+  store: profileMediaStore,
+});

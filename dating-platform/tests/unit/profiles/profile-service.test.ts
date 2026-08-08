@@ -10,7 +10,7 @@ import { profilePatchSchema } from "@/modules/profiles/profile-schema";
 
 describe("profile rules", () => {
   it("rejects a user younger than 18", () => {
-    expect(() => assertAdult("2010-08-05", new Date("2026-08-05T12:00:00Z"))).toThrow(
+    expect(() => assertAdult("2010-08-05", new Date("2026-08-05T12:00:00Z"), "UTC")).toThrow(
       "AGE_RESTRICTED",
     );
   });
@@ -22,7 +22,7 @@ describe("profile rules", () => {
       latitude: 47.61,
       longitude: -122.33,
     });
-    expect(result).toEqual({ id: "p1", city: "Seattle" });
+    expect(result).toEqual({ id: "p1" });
   });
 
   it.each([
@@ -30,14 +30,14 @@ describe("profile rules", () => {
     ["2008-08-04", true],
     ["2008-08-06", false],
   ])("applies the exact eighteenth birthday boundary for %s", (birthDate, allowed) => {
-    const call = () => assertAdult(birthDate, new Date("2026-08-05T23:59:59Z"));
+    const call = () => assertAdult(birthDate, new Date("2026-08-05T23:59:59Z"), "UTC");
     if (allowed) expect(call).not.toThrow();
     else expect(call).toThrow("AGE_RESTRICTED");
   });
 
   it("treats a leap-day birthday as reached on February 28 in a non-leap year", () => {
-    expect(() => assertAdult("2008-02-29", new Date("2026-02-28T00:00:00Z"))).not.toThrow();
-    expect(() => assertAdult("2008-02-29", new Date("2026-02-27T23:59:59Z"))).toThrow(
+    expect(() => assertAdult("2008-02-29", new Date("2026-02-28T00:00:00Z"), "UTC")).not.toThrow();
+    expect(() => assertAdult("2008-02-29", new Date("2026-02-27T23:59:59Z"), "UTC")).toThrow(
       "AGE_RESTRICTED",
     );
   });
@@ -45,7 +45,7 @@ describe("profile rules", () => {
   it.each(["2008-2-05", "2008-02-30", "2008-02-05T00:00:00Z"])(
     "rejects non-date-only or impossible date %s",
     (birthDate) => {
-      expect(() => assertAdult(birthDate, new Date("2026-08-05T12:00:00Z"))).toThrow(
+      expect(() => assertAdult(birthDate, new Date("2026-08-05T12:00:00Z"), "UTC")).toThrow(
         "INVALID_BIRTH_DATE",
       );
     },
@@ -58,6 +58,7 @@ describe("profile rules", () => {
       genderCode: "nonbinary_agender",
       relationshipGoalCode: "ethical_non_monogamy",
       countryCode: "US",
+      timeZone: "America/Los_Angeles",
       city: "Seattle",
       preferences: {
         genderCodes: ["woman", "nonbinary_agender", "self_described"],
@@ -67,9 +68,18 @@ describe("profile rules", () => {
         languageCodes: ["en", "zh-Hans"],
         relationshipGoalCodes: ["long_term", "ethical_non_monogamy"],
       },
-      privacy: { locationPrecision: "city" },
     }).success).toBe(true);
     expect(profilePatchSchema.safeParse({ countryCode: "ZZ" }).success).toBe(false);
+  });
+
+  it("uses the legal local date for the same instant across UTC-12 and UTC+14", () => {
+    const instant = new Date("2026-08-05T10:00:00Z");
+    expect(() => assertAdult("2008-08-05", instant, "Etc/GMT+12")).toThrow("AGE_RESTRICTED");
+    expect(() => assertAdult("2008-08-05", instant, "Pacific/Kiritimati")).not.toThrow();
+  });
+
+  it("rejects invalid IANA time zones", () => {
+    expect(profilePatchSchema.safeParse({ timeZone: "Mars/Olympus_Mons" }).success).toBe(false);
   });
 
   it("only returns explicitly approved public fields", () => {
@@ -92,8 +102,6 @@ describe("profile rules", () => {
     expect(result).toEqual({
       id: "p1",
       displayName: "Ari",
-      city: "Seattle",
-      countryCode: "US",
       age: 31,
     });
   });
@@ -114,6 +122,11 @@ describe("profile rules", () => {
         id: "photo-pending",
         url: "https://cdn.example.test/private/photo-pending",
         moderationStatus: "pending",
+      }, {
+        id: "photo-removed",
+        url: "https://cdn.example.test/private/photo-removed",
+        moderationStatus: "approved",
+        userRemovedAt: new Date("2026-08-05T12:00:00Z"),
       }],
     })).toEqual({
       id: "p1",
@@ -124,8 +137,8 @@ describe("profile rules", () => {
   it("calculates completeness deterministically", () => {
     expect(calculateProfileCompleteness({ displayName: "Ari" })).toEqual({
       completed: 1,
-      total: 8,
-      percent: 13,
+      total: 9,
+      percent: 11,
     });
     expect(calculateProfileCompleteness({
       displayName: "Ari",
@@ -136,7 +149,8 @@ describe("profile rules", () => {
       bio: "Hello",
       languageCodes: ["en"],
       interestCodes: ["hiking"],
-    })).toEqual({ completed: 8, total: 8, percent: 100 });
+      timeZone: "America/Los_Angeles",
+    })).toEqual({ completed: 9, total: 9, percent: 100 });
   });
 
   it("fails profile visibility closed for account state, profile state, and photo approval", () => {
@@ -144,5 +158,23 @@ describe("profile rules", () => {
     expect(profileVisibility({ accountStatus: "active", profileStatus: "active", discoverable: true, approvedPhotoCount: 0 })).toBe(false);
     expect(profileVisibility({ accountStatus: "suspended", profileStatus: "active", discoverable: true, approvedPhotoCount: 1 })).toBe(false);
     expect(profileVisibility({ accountStatus: "active", profileStatus: "draft", discoverable: true, approvedPhotoCount: 1 })).toBe(false);
+  });
+
+  it.each([
+    ["hidden", {}],
+    ["country", { countryCode: "US" }],
+    ["city", { countryCode: "US", city: "Seattle" }],
+    ["approximate", { countryCode: "US" }],
+  ] as const)("applies %s location privacy to public profiles", (locationPrecision, expectedLocation) => {
+    const result = publicProfile({
+      id: "p1",
+      displayName: "Ari",
+      countryCode: "US",
+      city: "Seattle",
+      latitude: 47.61,
+      longitude: -122.33,
+      privacy: { locationPrecision },
+    });
+    expect(result).toEqual({ id: "p1", displayName: "Ari", ...expectedLocation });
   });
 });

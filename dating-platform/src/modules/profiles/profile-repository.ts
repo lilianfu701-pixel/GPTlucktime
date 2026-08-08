@@ -1,25 +1,27 @@
-import { asc, eq, inArray } from "drizzle-orm";
+import { and, asc, count, eq, inArray, isNull } from "drizzle-orm";
 
 import {
   interests,
   privacySettings,
   profileInterests,
+  profilePhotos,
   profilePreferences,
   profiles,
 } from "@/db/schema";
 import type { db as productionDatabase } from "@/infrastructure/db/client";
 
 import type { ProfilePatch } from "./profile-schema";
+import { assertAdult, calculateProfileCompleteness } from "./profile-service";
 
 type ProfileDatabase = typeof productionDatabase;
 
-const requiredForCreate = ["displayName", "birthDate", "genderCode", "countryCode"] as const;
-
 export class ProfileRepository {
   readonly database: ProfileDatabase;
+  private readonly clock: () => Date;
 
-  constructor(database: unknown) {
+  constructor(database: unknown, options: { clock?: () => Date } = {}) {
     this.database = database as ProfileDatabase;
+    this.clock = options.clock ?? (() => new Date());
   }
 
   async getForUser(userId: string) {
@@ -27,12 +29,11 @@ export class ProfileRepository {
   }
 
   async upsertForUser(userId: string, patch: ProfilePatch) {
-    return this.database.transaction(async (transaction) => {
+    let publishNotReady = false;
+    const result = await this.database.transaction(async (transaction) => {
       const tx = transaction as unknown as ProfileDatabase;
       const existing = await this.read(tx, userId);
-      if (!existing && requiredForCreate.some((field) => patch[field] === undefined)) {
-        throw new Error("PROFILE_INCOMPLETE");
-      }
+      const now = this.clock();
 
       const [profile] = existing
         ? await tx.update(profiles).set({
@@ -41,21 +42,24 @@ export class ProfileRepository {
             ...(patch.genderCode !== undefined && { genderCode: patch.genderCode }),
             ...(patch.relationshipGoalCode !== undefined && { relationshipGoalCode: patch.relationshipGoalCode }),
             ...(patch.countryCode !== undefined && { countryCode: patch.countryCode }),
+            ...(patch.timeZone !== undefined && { timeZone: patch.timeZone }),
             ...(patch.city !== undefined && { city: patch.city }),
             ...(patch.bio !== undefined && { bio: patch.bio }),
-            ...(patch.discoverable !== undefined && { discoverable: patch.discoverable }),
-            updatedAt: new Date(),
+            updatedAt: now,
           }).where(eq(profiles.userId, userId)).returning()
         : await tx.insert(profiles).values({
             userId,
-            displayName: patch.displayName!,
-            birthDate: patch.birthDate!,
-            genderCode: patch.genderCode!,
+            displayName: patch.displayName,
+            birthDate: patch.birthDate,
+            genderCode: patch.genderCode,
             relationshipGoalCode: patch.relationshipGoalCode,
-            countryCode: patch.countryCode!,
+            countryCode: patch.countryCode,
+            timeZone: patch.timeZone,
             city: patch.city,
             bio: patch.bio,
-            discoverable: patch.discoverable ?? true,
+            discoverable: false,
+            publishRequested: false,
+            status: "draft",
           }).returning();
 
       const existingPreferences = existing?.preferences;
@@ -71,8 +75,9 @@ export class ProfileRepository {
         preferredCountryCodes: preferencePatch?.preferredCountryCodes ?? existingPreferences?.preferredCountryCodes ?? [],
         languageCodes,
         relationshipGoalCodes: preferencePatch?.relationshipGoalCodes ?? existingPreferences?.relationshipGoalCodes ?? [],
-        updatedAt: new Date(),
+        updatedAt: now,
       };
+      if (preferenceValues.minimumAge > preferenceValues.maximumAge) throw new Error("INVALID_PROFILE");
       await tx.insert(profilePreferences).values({ userId, ...preferenceValues }).onConflictDoUpdate({
         target: profilePreferences.userId,
         set: preferenceValues,
@@ -83,8 +88,8 @@ export class ProfileRepository {
         showOnlineStatus: patch.privacy?.showOnlineStatus ?? existingPrivacy?.showOnlineStatus ?? true,
         showLastActive: patch.privacy?.showLastActive ?? existingPrivacy?.showLastActive ?? true,
         showProfileVisitors: patch.privacy?.showProfileVisitors ?? existingPrivacy?.showProfileVisitors ?? true,
-        locationPrecision: patch.privacy?.locationPrecision ?? existingPrivacy?.locationPrecision ?? "city",
-        updatedAt: new Date(),
+        locationPrecision: patch.privacy?.locationPrecision ?? existingPrivacy?.locationPrecision ?? "hidden",
+        updatedAt: now,
       };
       await tx.insert(privacySettings).values({ userId, ...privacyValues }).onConflictDoUpdate({
         target: privacySettings.userId,
@@ -104,10 +109,34 @@ export class ProfileRepository {
           ).onConflictDoNothing();
         }
       }
-      const result = await this.read(tx, userId);
-      if (!result) throw new Error("PROFILE_WRITE_FAILED");
-      return result;
+      let merged = await this.read(tx, userId);
+      if (!merged) throw new Error("PROFILE_WRITE_FAILED");
+      if (merged.birthDate && merged.timeZone) assertAdult(merged.birthDate, now, merged.timeZone);
+      const completeness = calculateProfileCompleteness(merged);
+      const ready = completeness.percent === 100 && merged.approvedPhotoCount > 0;
+      if (patch.publish === false) {
+        await tx.update(profiles).set({
+          status: "draft", discoverable: false, publishRequested: false, updatedAt: now,
+        }).where(eq(profiles.userId, userId));
+      } else if (patch.publish === true) {
+        await tx.update(profiles).set({
+          status: ready ? "active" : "draft",
+          discoverable: ready,
+          publishRequested: ready,
+          updatedAt: now,
+        }).where(eq(profiles.userId, userId));
+        publishNotReady = !ready;
+      } else if (merged.status === "active" && !ready) {
+        await tx.update(profiles).set({
+          status: "draft", discoverable: false, publishRequested: false, updatedAt: now,
+        }).where(eq(profiles.userId, userId));
+      }
+      merged = await this.read(tx, userId);
+      if (!merged) throw new Error("PROFILE_WRITE_FAILED");
+      return merged;
     });
+    if (publishNotReady) throw new Error("PROFILE_NOT_READY");
+    return result;
   }
 
   private async read(database: ProfileDatabase, userId: string) {
@@ -122,10 +151,23 @@ export class ProfileRepository {
       .innerJoin(interests, eq(profileInterests.interestId, interests.id))
       .where(eq(profileInterests.profileId, profile.id))
       .orderBy(asc(interests.code));
+    const [{ value: approvedPhotoCount }] = await database.select({ value: count() })
+      .from(profilePhotos).where(and(
+        eq(profilePhotos.profileId, profile.id),
+        eq(profilePhotos.moderationStatus, "approved"),
+        isNull(profilePhotos.userRemovedAt),
+      ));
+    const completeness = calculateProfileCompleteness({
+      ...profile,
+      languageCodes: preferences?.languageCodes ?? [],
+      interestCodes: interestRows.map(({ code }) => code),
+    });
     return {
       ...profile,
       languageCodes: preferences?.languageCodes ?? [],
       interestCodes: interestRows.map(({ code }) => code),
+      approvedPhotoCount: Number(approvedPhotoCount),
+      completeness,
       preferences: preferences ? {
         genderCodes: preferences.genderCodes,
         minimumAge: preferences.minimumAge,

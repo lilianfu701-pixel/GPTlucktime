@@ -64,6 +64,41 @@
       "when": 1785974735412,
       "tag": "0008_profile_media_review",
       "breakpoints": true
+    },
+    {
+      "idx": 9,
+      "version": "7",
+      "when": 1785977186018,
+      "tag": "0009_profile_drafts_timezones",
+      "breakpoints": true
+    },
+    {
+      "idx": 10,
+      "version": "7",
+      "when": 1785977419907,
+      "tag": "0010_profile_media_quota_slots",
+      "breakpoints": true
+    },
+    {
+      "idx": 11,
+      "version": "7",
+      "when": 1785978062475,
+      "tag": "0011_immutable_media_review_results",
+      "breakpoints": true
+    },
+    {
+      "idx": 12,
+      "version": "7",
+      "when": 1785978852188,
+      "tag": "0012_profile_photo_user_removal",
+      "breakpoints": true
+    },
+    {
+      "idx": 13,
+      "version": "7",
+      "when": 1785982188919,
+      "tag": "0013_online_quota_and_timezone_safety",
+      "breakpoints": true
     }
   ]
 }

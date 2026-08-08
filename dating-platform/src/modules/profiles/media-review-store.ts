@@ -1,9 +1,10 @@
 import { randomUUID } from "node:crypto";
 
-import { and, asc, count, eq, isNull, lte, max, or, sql } from "drizzle-orm";
+import { and, asc, count, eq, inArray, isNull, lte, max, or } from "drizzle-orm";
 
 import {
   mediaReviewJobs,
+  mediaReviewResults,
   profilePhotoUploads,
   profilePhotos,
   profiles,
@@ -28,6 +29,12 @@ const permittedErrors = new Set([
   "MEDIA_REVIEW_FAILED",
 ]);
 
+const extensionForMime: Record<string, string> = {
+  "image/jpeg": "jpg",
+  "image/png": "png",
+  "image/webp": "webp",
+};
+
 export class MediaReviewStore implements PhotoMediaStore {
   readonly database: MediaDatabase;
   private readonly maximumPhotos: number;
@@ -49,21 +56,33 @@ export class MediaReviewStore implements PhotoMediaStore {
       if (existing) return existing;
       const [profile] = await tx.select().from(profiles).where(eq(profiles.userId, input.userId)).for("update");
       if (!profile) throw new Error("PROFILE_REQUIRED");
-      const [{ value: photoCount }] = await tx.select({ value: count() }).from(profilePhotos)
-        .where(eq(profilePhotos.userId, input.userId));
-      const [{ value: reservedCount }] = await tx.select({ value: count() }).from(profilePhotoUploads).where(and(
+      const now = this.clock();
+      await tx.update(profilePhotoUploads).set({ quotaSlot: null, updatedAt: now }).where(and(
         eq(profilePhotoUploads.userId, input.userId),
         isNull(profilePhotoUploads.completedPhotoId),
-        sql`${profilePhotoUploads.expiresAt} > now()`,
+        lte(profilePhotoUploads.expiresAt, now),
       ));
-      if (Number(photoCount) + Number(reservedCount) >= this.maximumPhotos) {
-        throw new Error("PHOTO_QUOTA_EXCEEDED");
+      const [{ value: legacyPhotos }] = await tx.select({ value: count() }).from(profilePhotos).where(and(
+        eq(profilePhotos.userId, input.userId),
+        isNull(profilePhotos.uploadId),
+        isNull(profilePhotos.userRemovedAt),
+        inArray(profilePhotos.moderationStatus, ["pending", "approved"]),
+      ));
+      const availableSlots = Math.max(0, this.maximumPhotos - Number(legacyPhotos));
+      for (let quotaSlot = 0; quotaSlot < availableSlots; quotaSlot += 1) {
+        const [created] = await tx.insert(profilePhotoUploads).values({
+          ...input,
+          profileId: profile.id,
+          quotaSlot,
+        }).onConflictDoNothing().returning();
+        if (created) return created;
       }
-      const [created] = await tx.insert(profilePhotoUploads).values({
-        ...input,
-        profileId: profile.id,
-      }).returning();
-      return created;
+      const [concurrentRetry] = await tx.select().from(profilePhotoUploads).where(and(
+        eq(profilePhotoUploads.userId, input.userId),
+        eq(profilePhotoUploads.idempotencyHash, input.idempotencyHash),
+      ));
+      if (concurrentRetry) return concurrentRetry;
+      throw new Error("PHOTO_QUOTA_EXCEEDED");
     });
   }
 
@@ -75,7 +94,13 @@ export class MediaReviewStore implements PhotoMediaStore {
     return upload ?? null;
   }
 
-  async completeUpload(userId: string, uploadId: string, metadata: { sizeBytes: number; mimeType: string }) {
+  async completeUpload(
+    userId: string,
+    uploadId: string,
+    finalize: (upload: typeof profilePhotoUploads.$inferSelect) => Promise<{
+      sizeBytes: number; mimeType: string; objectKey: string;
+    }>,
+  ) {
     return this.database.transaction(async (transaction) => {
       const tx = transaction as unknown as MediaDatabase;
       const [upload] = await tx.select().from(profilePhotoUploads).where(and(
@@ -84,6 +109,14 @@ export class MediaReviewStore implements PhotoMediaStore {
       )).for("update");
       if (!upload) throw new Error("UPLOAD_NOT_FOUND");
       if (upload.completedPhotoId) return this.readCompleted(tx, upload.completedPhotoId);
+      if (upload.expiresAt <= this.clock()) throw new Error("UPLOAD_EXPIRED");
+      const finalized = await finalize(upload);
+      const expectedFinalKey = `profile-review/${userId}/${upload.id}.${extensionForMime[upload.mimeType]}`;
+      if (finalized.objectKey !== expectedFinalKey
+        || finalized.mimeType !== upload.mimeType
+        || finalized.sizeBytes !== upload.declaredSizeBytes) {
+        throw new Error("INVALID_FINAL_MEDIA_KEY");
+      }
       const [lockedProfile] = await tx.select({ id: profiles.id }).from(profiles)
         .where(and(eq(profiles.id, upload.profileId), eq(profiles.userId, userId))).for("update");
       if (!lockedProfile) throw new Error("PROFILE_REQUIRED");
@@ -93,16 +126,16 @@ export class MediaReviewStore implements PhotoMediaStore {
         userId,
         profileId: upload.profileId,
         uploadId: upload.id,
-        objectKey: upload.objectKey,
+        objectKey: finalized.objectKey,
         position: (maximumPosition ?? -1) + 1,
-        actualMimeType: metadata.mimeType,
-        actualSizeBytes: metadata.sizeBytes,
+        actualMimeType: finalized.mimeType,
+        actualSizeBytes: finalized.sizeBytes,
         moderationStatus: "pending",
       }).returning();
       const [job] = await tx.insert(mediaReviewJobs).values({
         userId,
         photoId: photo.id,
-        objectKey: upload.objectKey,
+        objectKey: finalized.objectKey,
         availableAt: this.clock(),
       }).returning();
       await tx.update(profilePhotoUploads).set({ completedPhotoId: photo.id, updatedAt: this.clock() })
@@ -151,9 +184,26 @@ export class MediaReviewStore implements PhotoMediaStore {
   async completeReview(jobId: string, leaseId: string, result: ReviewOutcome, now = new Date(), rejectedRetentionMs = 7 * 86_400_000) {
     return this.database.transaction(async (transaction) => {
       const tx = transaction as unknown as MediaDatabase;
+      const [claimed] = await tx.select().from(mediaReviewJobs).where(and(
+        eq(mediaReviewJobs.id, jobId),
+        eq(mediaReviewJobs.leaseId, leaseId),
+        eq(mediaReviewJobs.status, "processing"),
+      )).for("update");
+      if (!claimed) return false;
+      const attempt = claimed.attempts + 1;
+      await tx.insert(mediaReviewResults).values({
+        jobId: claimed.id,
+        photoId: claimed.photoId,
+        attempt,
+        provider: result.provider,
+        providerVersion: result.version,
+        outcome: result.outcome,
+        reasonCode: result.outcome === "rejected" ? result.reasonCode ?? "MEDIA_REJECTED" : null,
+        createdAt: now,
+      });
       const [job] = await tx.update(mediaReviewJobs).set({
         status: "completed",
-        attempts: sql`${mediaReviewJobs.attempts} + 1`,
+        attempts: attempt,
         leaseId: null,
         leaseExpiresAt: null,
         lastError: null,
@@ -163,7 +213,7 @@ export class MediaReviewStore implements PhotoMediaStore {
         eq(mediaReviewJobs.leaseId, leaseId),
         eq(mediaReviewJobs.status, "processing"),
       )).returning();
-      if (!job) return false;
+      if (!job) throw new Error("MEDIA_REVIEW_LEASE_LOST");
       await tx.update(profilePhotos).set({
         moderationStatus: result.outcome,
         moderationReasonCode: result.outcome === "rejected" ? result.reasonCode ?? "MEDIA_REJECTED" : null,
@@ -175,6 +225,10 @@ export class MediaReviewStore implements PhotoMediaStore {
         cleanupDueAt: result.outcome === "rejected" ? new Date(now.getTime() + rejectedRetentionMs) : null,
         updatedAt: now,
       }).where(and(eq(profilePhotos.id, job.photoId), eq(profilePhotos.moderationStatus, "pending")));
+      if (result.outcome === "rejected") {
+        await tx.update(profilePhotoUploads).set({ quotaSlot: null, updatedAt: now })
+          .where(eq(profilePhotoUploads.completedPhotoId, job.photoId));
+      }
       return true;
     });
   }
@@ -186,28 +240,99 @@ export class MediaReviewStore implements PhotoMediaStore {
     errorCode = "MEDIA_REVIEW_FAILED",
     maxAttempts = Number.MAX_SAFE_INTEGER,
   ) {
-    const [job] = await this.database.select().from(mediaReviewJobs).where(and(
-      eq(mediaReviewJobs.id, jobId), eq(mediaReviewJobs.leaseId, leaseId), eq(mediaReviewJobs.status, "processing"),
-    ));
-    if (!job) return false;
-    const attempts = job.attempts + 1;
-    const updated = await this.database.update(mediaReviewJobs).set({
-      status: attempts >= maxAttempts ? "failed" : "pending",
-      attempts,
-      availableAt: new Date(now.getTime() + Math.min(3_600_000, 1_000 * (2 ** attempts))),
-      leaseId: null,
-      leaseExpiresAt: null,
-      lastError: permittedErrors.has(errorCode) ? errorCode : "MEDIA_REVIEW_FAILED",
-      updatedAt: now,
-    }).where(and(
-      eq(mediaReviewJobs.id, jobId), eq(mediaReviewJobs.leaseId, leaseId), eq(mediaReviewJobs.status, "processing"),
-    )).returning({ id: mediaReviewJobs.id });
-    return updated.length === 1;
+    return this.database.transaction(async (transaction) => {
+      const tx = transaction as unknown as MediaDatabase;
+      const [job] = await tx.select().from(mediaReviewJobs).where(and(
+        eq(mediaReviewJobs.id, jobId), eq(mediaReviewJobs.leaseId, leaseId), eq(mediaReviewJobs.status, "processing"),
+      )).for("update");
+      if (!job) return false;
+      const attempts = job.attempts + 1;
+      const terminal = attempts >= maxAttempts;
+      const [updated] = await tx.update(mediaReviewJobs).set({
+        status: terminal ? "failed" : "pending",
+        attempts,
+        availableAt: new Date(now.getTime() + Math.min(3_600_000, 1_000 * (2 ** attempts))),
+        leaseId: null,
+        leaseExpiresAt: null,
+        lastError: permittedErrors.has(errorCode) ? errorCode : "MEDIA_REVIEW_FAILED",
+        updatedAt: now,
+      }).where(and(
+        eq(mediaReviewJobs.id, jobId), eq(mediaReviewJobs.leaseId, leaseId), eq(mediaReviewJobs.status, "processing"),
+      )).returning({ id: mediaReviewJobs.id });
+      if (!updated) return false;
+      if (terminal) {
+        await tx.update(profilePhotos).set({
+          moderationStatus: "rejected",
+          moderationReasonCode: "MEDIA_REVIEW_FAILED",
+          reviewedAt: now,
+          cleanupDueAt: new Date(now.getTime() + 7 * 86_400_000),
+          updatedAt: now,
+        }).where(and(eq(profilePhotos.id, job.photoId), eq(profilePhotos.moderationStatus, "pending")));
+        await tx.update(profilePhotoUploads).set({ quotaSlot: null, updatedAt: now })
+          .where(eq(profilePhotoUploads.completedPhotoId, job.photoId));
+      }
+      return true;
+    });
   }
 
   async getPhoto(photoId: string) {
     const [photo] = await this.database.select().from(profilePhotos).where(eq(profilePhotos.id, photoId));
     return photo ?? null;
+  }
+
+  async listPhotosForUser(userId: string) {
+    return this.database.select().from(profilePhotos).where(and(
+      eq(profilePhotos.userId, userId),
+      isNull(profilePhotos.userRemovedAt),
+    )).orderBy(asc(profilePhotos.position));
+  }
+
+  async markPhotoRemoved(userId: string, photoId: string) {
+    return this.database.transaction(async (transaction) => {
+      const tx = transaction as unknown as MediaDatabase;
+      const now = this.clock();
+      const [ownedPhoto] = await tx.select({ profileId: profilePhotos.profileId }).from(profilePhotos).where(and(
+        eq(profilePhotos.id, photoId),
+        eq(profilePhotos.userId, userId),
+        isNull(profilePhotos.userRemovedAt),
+      ));
+      if (!ownedPhoto) return false;
+      // Serialize all removals for one profile so two different last photos cannot both
+      // observe the other as still approved and accidentally leave the profile public.
+      const [lockedProfile] = await tx.select({ id: profiles.id }).from(profiles)
+        .where(eq(profiles.id, ownedPhoto.profileId)).for("update");
+      if (!lockedProfile) return false;
+      const [photo] = await tx.update(profilePhotos).set({ userRemovedAt: now, updatedAt: now }).where(and(
+        eq(profilePhotos.id, photoId),
+        eq(profilePhotos.userId, userId),
+        isNull(profilePhotos.userRemovedAt),
+      )).returning({
+        id: profilePhotos.id,
+        profileId: profilePhotos.profileId,
+        uploadId: profilePhotos.uploadId,
+        moderationStatus: profilePhotos.moderationStatus,
+      });
+      if (!photo) return false;
+      if (photo.uploadId) {
+        await tx.update(profilePhotoUploads).set({ quotaSlot: null, updatedAt: now }).where(and(
+          eq(profilePhotoUploads.id, photo.uploadId),
+          eq(profilePhotoUploads.completedPhotoId, photo.id),
+        ));
+      }
+      if (photo.moderationStatus === "approved") {
+        const [{ value: remainingApproved }] = await tx.select({ value: count() }).from(profilePhotos).where(and(
+          eq(profilePhotos.profileId, photo.profileId),
+          eq(profilePhotos.moderationStatus, "approved"),
+          isNull(profilePhotos.userRemovedAt),
+        ));
+        if (Number(remainingApproved) === 0) {
+          await tx.update(profiles).set({
+            status: "draft", discoverable: false, publishRequested: false, updatedAt: now,
+          }).where(eq(profiles.id, photo.profileId));
+        }
+      }
+      return true;
+    });
   }
 
   async listCleanupDue(now = new Date(), limit = 20) {

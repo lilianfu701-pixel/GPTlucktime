@@ -1,0 +1,3 @@
+ALTER TABLE "profile_photo_uploads" ADD COLUMN "quota_slot" integer;--> statement-breakpoint
+ALTER TABLE "profile_photo_uploads" ADD CONSTRAINT "profile_photo_uploads_user_quota_slot_unique" UNIQUE("user_id","quota_slot");--> statement-breakpoint
+ALTER TABLE "profile_photo_uploads" ADD CONSTRAINT "profile_photo_uploads_quota_slot_check" CHECK ("profile_photo_uploads"."quota_slot" IS NULL OR "profile_photo_uploads"."quota_slot" >= 0);

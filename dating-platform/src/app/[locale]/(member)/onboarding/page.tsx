@@ -4,6 +4,8 @@ import { notFound, redirect } from "next/navigation";
 import { db } from "@/infrastructure/db/client";
 import { isSupportedLocale } from "@/i18n/locales";
 import { auth } from "@/modules/auth/auth";
+import { profileMediaStore } from "@/modules/profiles/media-runtime";
+import { safeUserPhoto } from "@/modules/profiles/media-service";
 import { ProfileRepository } from "@/modules/profiles/profile-repository";
 
 import OnboardingForm from "./onboarding-form";
@@ -13,7 +15,11 @@ export default async function OnboardingPage({ params }: { params: Promise<{ loc
   if (!isSupportedLocale(locale)) notFound();
   const session = await auth.api.getSession({ headers: await headers() });
   if (!session) redirect(`/${locale}/sign-in`);
-  const initialProfile = await new ProfileRepository(db).getForUser(session.user.id);
+  const [initialProfile, persistedPhotos] = await Promise.all([
+    new ProfileRepository(db).getForUser(session.user.id),
+    profileMediaStore.listPhotosForUser(session.user.id),
+  ]);
+  const initialPhotos = persistedPhotos.map(safeUserPhoto);
   const zh = locale === "zh";
 
   return (
@@ -30,7 +36,7 @@ export default async function OnboardingPage({ params }: { params: Promise<{ loc
         </p>
       </header>
       <section className="mx-auto max-w-6xl px-6 pb-20">
-        <OnboardingForm locale={locale} initialProfile={initialProfile} />
+        <OnboardingForm locale={locale} initialProfile={initialProfile} initialPhotos={initialPhotos} />
       </section>
     </main>
   );

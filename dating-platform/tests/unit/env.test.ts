@@ -78,6 +78,30 @@ describe("readEnv", () => {
     })).toThrow("PROFILE_MEDIA_STORAGE configuration must be complete");
   });
 
+  it("accepts only a complete allowlisted media review provider group", () => {
+    const mediaReview = readEnv({
+      ...validEnv,
+      MEDIA_REVIEW_PROVIDER: "moderator",
+      MEDIA_REVIEW_URL: "https://review.example.test/v1/check",
+      MEDIA_REVIEW_API_KEY: "review-key",
+      MEDIA_REVIEW_VERSION: "v1",
+      MEDIA_REVIEW_ALLOWED_ORIGINS: "https://review.example.test",
+    });
+    expect(mediaReview.MEDIA_REVIEW_PROVIDER).toBe("moderator");
+    expect(() => readEnv({
+      ...validEnv,
+      MEDIA_REVIEW_URL: "https://review.example.test/v1/check",
+    })).toThrow("MEDIA_REVIEW configuration must be complete");
+    expect(() => readEnv({
+      ...validEnv,
+      MEDIA_REVIEW_PROVIDER: "moderator",
+      MEDIA_REVIEW_URL: "https://review.example.test/v1/check",
+      MEDIA_REVIEW_API_KEY: "review-key",
+      MEDIA_REVIEW_VERSION: "v1",
+      MEDIA_REVIEW_ALLOWED_ORIGINS: "http://review.example.test",
+    })).toThrow("exact HTTPS origins");
+  });
+
   it("rejects duplicate encryption key ids", () => {
     expect(() => readEnv({
       ...validEnv,

@@ -20,6 +20,14 @@ const countryCode = z.string().trim().toUpperCase().refine(
   (value) => ISO_COUNTRY_CODES.has(value),
   "unknown ISO country code",
 );
+export const timeZoneSchema = z.string().trim().min(1).max(100).refine((value) => {
+  try {
+    new Intl.DateTimeFormat("en-US", { timeZone: value }).format(new Date(0));
+    return true;
+  } catch {
+    return false;
+  }
+}, "unknown IANA time zone");
 const uniqueCodes = <T extends z.ZodTypeAny>(schema: T, max: number) =>
   z.array(schema).max(max).refine((values) => new Set(values).size === values.length, "duplicate code");
 
@@ -45,12 +53,32 @@ export const privacySettingsSchema = z.object({
   locationPrecision: z.enum(["hidden", "country", "city", "approximate"]).default("city"),
 });
 
+export const profilePreferencesPatchSchema = z.object({
+  genderCodes: uniqueCodes(inclusiveCode, 30).optional(),
+  minimumAge: z.number().int().min(18).max(120).optional(),
+  maximumAge: z.number().int().min(18).max(120).optional(),
+  preferredCountryCodes: uniqueCodes(countryCode, ISO_COUNTRY_CODES.size).optional(),
+  languageCodes: uniqueCodes(
+    z.string().trim().min(2).max(35).regex(/^[A-Za-z]{2,3}(?:-[A-Za-z0-9]{2,8})*$/),
+    20,
+  ).optional(),
+  relationshipGoalCodes: uniqueCodes(inclusiveCode, 30).optional(),
+}).strict();
+
+export const privacySettingsPatchSchema = z.object({
+  showOnlineStatus: z.boolean().optional(),
+  showLastActive: z.boolean().optional(),
+  showProfileVisitors: z.boolean().optional(),
+  locationPrecision: z.enum(["hidden", "country", "city", "approximate"]).optional(),
+}).strict();
+
 const patchFields = z.object({
   displayName: z.string().trim().min(1).max(80),
   birthDate: dateOnly,
   genderCode: inclusiveCode,
   relationshipGoalCode: inclusiveCode.nullable(),
   countryCode,
+  timeZone: timeZoneSchema,
   city: z.string().trim().min(1).max(120).nullable(),
   bio: z.string().trim().max(2_000).nullable(),
   languageCodes: uniqueCodes(
@@ -58,9 +86,9 @@ const patchFields = z.object({
     20,
   ),
   interestCodes: uniqueCodes(inclusiveCode, 50),
-  discoverable: z.boolean(),
-  preferences: profilePreferencesSchema,
-  privacy: privacySettingsSchema,
+  publish: z.boolean(),
+  preferences: profilePreferencesPatchSchema,
+  privacy: privacySettingsPatchSchema,
 });
 
 export const profilePatchSchema = patchFields.partial().strict();
@@ -70,18 +98,19 @@ export const completeProfileSchema = patchFields.pick({
   genderCode: true,
   relationshipGoalCode: true,
   countryCode: true,
+  timeZone: true,
   city: true,
   bio: true,
   languageCodes: true,
   interestCodes: true,
-  discoverable: true,
+  publish: true,
 }).partial({
   relationshipGoalCode: true,
   city: true,
   bio: true,
   languageCodes: true,
   interestCodes: true,
-  discoverable: true,
+  publish: true,
 });
 
 export const photoUploadRequestSchema = z.object({
