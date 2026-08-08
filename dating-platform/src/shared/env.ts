@@ -103,6 +103,7 @@ const schema = z
       z.coerce.number().int().min(1).max(20).default(5),
     ),
     MEDIA_WORKER_CRON_SECRET: optionalValue(z.string().min(32).max(256)),
+    DISCOVERY_DISABLED_COUNTRY_CODES: optionalValue(z.string().regex(/^[A-Z]{2}(,[A-Z]{2})*$/)),
   })
   .superRefine((env, context) => {
     const requireCompleteGroup = (

@@ -18,6 +18,13 @@ describe("readEnv", () => {
     expect(readEnv(validEnv)).toEqual({ ...validEnv, MEDIA_REVIEW_MAX_ATTEMPTS: 5 });
   });
 
+  it("accepts only configured ISO-shaped disabled discovery countries", () => {
+    expect(readEnv({ ...validEnv, DISCOVERY_DISABLED_COUNTRY_CODES: "US,CA" }).DISCOVERY_DISABLED_COUNTRY_CODES)
+      .toBe("US,CA");
+    expect(() => readEnv({ ...validEnv, DISCOVERY_DISABLED_COUNTRY_CODES: "US,exact-location" }))
+      .toThrow("DISCOVERY_DISABLED_COUNTRY_CODES");
+  });
+
   it("accepts a server-only trusted ingress token", () => {
     expect(readEnv({
       ...validEnv,

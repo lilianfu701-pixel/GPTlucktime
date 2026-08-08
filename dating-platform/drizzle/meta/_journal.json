@@ -113,6 +113,34 @@
       "when": 1786177457912,
       "tag": "0015_media_cleanup_leases",
       "breakpoints": true
+    },
+    {
+      "idx": 16,
+      "version": "7",
+      "when": 1786210453926,
+      "tag": "0016_safe_discovery",
+      "breakpoints": true
+    },
+    {
+      "idx": 17,
+      "version": "7",
+      "when": 1786212406108,
+      "tag": "0017_materialized_discovery_snapshots",
+      "breakpoints": true
+    },
+    {
+      "idx": 18,
+      "version": "7",
+      "when": 1786212945651,
+      "tag": "0018_discovery_snapshot_item_count",
+      "breakpoints": true
+    },
+    {
+      "idx": 19,
+      "version": "7",
+      "when": 1786213435579,
+      "tag": "0019_bounded_discovery_snapshots",
+      "breakpoints": true
     }
   ]
 }
