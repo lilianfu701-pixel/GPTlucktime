@@ -15,7 +15,7 @@ const encryptionKey = Buffer.alloc(32, 7).toString("base64");
 
 describe("readEnv", () => {
   it("accepts a valid server environment", () => {
-    expect(readEnv(validEnv)).toEqual(validEnv);
+    expect(readEnv(validEnv)).toEqual({ ...validEnv, MEDIA_REVIEW_MAX_ATTEMPTS: 5 });
   });
 
   it("accepts a server-only trusted ingress token", () => {
@@ -100,6 +100,25 @@ describe("readEnv", () => {
       MEDIA_REVIEW_VERSION: "v1",
       MEDIA_REVIEW_ALLOWED_ORIGINS: "http://review.example.test",
     })).toThrow("exact HTTPS origins");
+  });
+
+  it("accepts only a strong internal media worker secret", () => {
+    expect(readEnv({
+      ...validEnv,
+      MEDIA_WORKER_CRON_SECRET: "media-worker-secret-that-is-at-least-32-characters",
+    }).MEDIA_WORKER_CRON_SECRET).toBe("media-worker-secret-that-is-at-least-32-characters");
+    expect(() => readEnv({ ...validEnv, MEDIA_WORKER_CRON_SECRET: "too-short" }))
+      .toThrow("MEDIA_WORKER_CRON_SECRET");
+  });
+
+  it("defaults and bounds media review retry attempts", () => {
+    expect(readEnv(validEnv).MEDIA_REVIEW_MAX_ATTEMPTS).toBe(5);
+    expect(readEnv({ ...validEnv, MEDIA_REVIEW_MAX_ATTEMPTS: "1" }).MEDIA_REVIEW_MAX_ATTEMPTS).toBe(1);
+    expect(readEnv({ ...validEnv, MEDIA_REVIEW_MAX_ATTEMPTS: "20" }).MEDIA_REVIEW_MAX_ATTEMPTS).toBe(20);
+    expect(() => readEnv({ ...validEnv, MEDIA_REVIEW_MAX_ATTEMPTS: "0" }))
+      .toThrow("MEDIA_REVIEW_MAX_ATTEMPTS");
+    expect(() => readEnv({ ...validEnv, MEDIA_REVIEW_MAX_ATTEMPTS: "21" }))
+      .toThrow("MEDIA_REVIEW_MAX_ATTEMPTS");
   });
 
   it("rejects duplicate encryption key ids", () => {

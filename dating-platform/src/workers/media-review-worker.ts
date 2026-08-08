@@ -54,6 +54,7 @@ export async function processMediaReviewJobs(input: {
   leaseMs?: number;
   batchSize?: number;
   rejectedRetentionMs?: number;
+  maxAttempts?: number;
 }) {
   const clock = input.clock ?? (() => new Date());
   const leaseMs = input.leaseMs ?? 30_000;
@@ -117,6 +118,7 @@ export async function processMediaReviewJobs(input: {
         job.leaseId,
         clock(),
         error instanceof MediaReviewRetryableError ? "MEDIA_REVIEW_PROVIDER_RETRY" : "MEDIA_REVIEW_STORAGE_RETRY",
+        input.maxAttempts ?? 5,
       );
     }
   }
@@ -143,6 +145,40 @@ export async function cleanupRejectedMedia(input: {
   return deleted;
 }
 
+export async function cleanupUploadArtifacts(input: {
+  store: MediaReviewStore;
+  storage: StorageAdapter;
+  clock?: () => Date;
+  batchSize?: number;
+}) {
+  const now = input.clock?.() ?? new Date();
+  const uploads = await input.store.listUploadArtifactCleanupDue(now, input.batchSize ?? 20);
+  let deleted = 0;
+  for (const upload of uploads) {
+    const claim = await input.store.claimUploadArtifactCleanup(upload.id, now);
+    if (!claim) continue;
+    try {
+      if (claim.deleteStagingObjectKey) {
+        await input.storage.deleteObject(claim.deleteStagingObjectKey);
+        if (await input.store.markStagingDeleted(
+          upload.id, claim.leaseId, claim.deleteStagingObjectKey, now,
+        )) deleted += 1;
+      }
+      if (claim.deleteFinalObjectKey) {
+        await input.storage.deleteObject(claim.deleteFinalObjectKey);
+        if (await input.store.markFinalOrphanDeleted(
+          upload.id, claim.leaseId, claim.deleteFinalObjectKey, now,
+        )) deleted += 1;
+      }
+    } catch {
+      // Durable due timestamps leave failed deletion eligible for a later claim.
+    } finally {
+      await input.store.releaseUploadArtifactCleanup(upload.id, claim.leaseId, now);
+    }
+  }
+  return deleted;
+}
+
 export async function drainMediaWorkers(input: {
   store: MediaReviewStore;
   storage: StorageAdapter;
@@ -151,6 +187,7 @@ export async function drainMediaWorkers(input: {
   leaseMs?: number;
   batchSize?: number;
   rejectedRetentionMs?: number;
+  maxAttempts?: number;
 }) {
   const reviewed = await processMediaReviewJobs(input);
   const deleted = await cleanupRejectedMedia({
@@ -159,7 +196,13 @@ export async function drainMediaWorkers(input: {
     clock: input.clock,
     batchSize: input.batchSize,
   });
-  return { reviewed, deleted };
+  const uploadArtifactsDeleted = await cleanupUploadArtifacts({
+    store: input.store,
+    storage: input.storage,
+    clock: input.clock,
+    batchSize: input.batchSize,
+  });
+  return { reviewed, deleted, uploadArtifactsDeleted };
 }
 
 export async function runConfiguredMediaReviewWorker() {
@@ -167,7 +210,7 @@ export async function runConfiguredMediaReviewWorker() {
     import("@/modules/profiles/media-runtime"),
     import("@/shared/env"),
   ]);
-  if (!profileMediaStorage) return 0;
+  if (!profileMediaStorage) return { reviewed: 0, deleted: 0, uploadArtifactsDeleted: 0 };
   const env = readEnv(process.env);
   const adapter = new HttpsMediaReviewAdapter(
     env.MEDIA_REVIEW_URL && env.MEDIA_REVIEW_API_KEY
@@ -186,5 +229,6 @@ export async function runConfiguredMediaReviewWorker() {
     storage: profileMediaStorage,
     adapter,
     rejectedRetentionMs: (env.MEDIA_REVIEW_REJECTED_RETENTION_HOURS ?? 168) * 3_600_000,
+    maxAttempts: env.MEDIA_REVIEW_MAX_ATTEMPTS,
   });
 }

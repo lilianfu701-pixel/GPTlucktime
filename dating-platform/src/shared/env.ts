@@ -98,6 +98,11 @@ const schema = z
     MEDIA_REVIEW_VERSION: optionalValue(z.string().trim().min(1).max(40)),
     MEDIA_REVIEW_ALLOWED_ORIGINS: optionalValue(commaSeparatedHttpsOrigins),
     MEDIA_REVIEW_REJECTED_RETENTION_HOURS: optionalValue(z.coerce.number().int().min(1).max(24 * 365)),
+    MEDIA_REVIEW_MAX_ATTEMPTS: z.preprocess(
+      (value) => value === "" ? undefined : value,
+      z.coerce.number().int().min(1).max(20).default(5),
+    ),
+    MEDIA_WORKER_CRON_SECRET: optionalValue(z.string().min(32).max(256)),
   })
   .superRefine((env, context) => {
     const requireCompleteGroup = (

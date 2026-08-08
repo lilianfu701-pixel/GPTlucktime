@@ -15,19 +15,31 @@ import { MediaReviewStore } from "@/modules/profiles/media-review-store";
 import type { StorageAdapter } from "@/modules/profiles/media-service";
 import { ProfileRepository } from "@/modules/profiles/profile-repository";
 import { getProfileSharp } from "@/modules/profiles/sharp-runtime";
-import { cleanupRejectedMedia, drainMediaWorkers, processMediaReviewJobs } from "@/workers/media-review-worker";
+import {
+  cleanupRejectedMedia,
+  cleanupUploadArtifacts,
+  drainMediaWorkers,
+  processMediaReviewJobs,
+} from "@/workers/media-review-worker";
 
 const sharp = getProfileSharp();
 
 class MemoryStorage implements StorageAdapter {
   bytes: Uint8Array;
   deleted: string[] = [];
+  failDeletes = 0;
   constructor(bytes: Uint8Array) { this.bytes = bytes; }
   async createPutUrl() { return "https://storage.example.test/signed?secret=hidden"; }
-  async headObject() { return { mimeType: "image/png", sizeBytes: this.bytes.length }; }
+  async headObject() { return { mimeType: "image/png", sizeBytes: this.bytes.length, etag: "memory-etag" }; }
   async copyObject() {}
   async readPrefix(_key: string, maximumBytes: number) { return this.bytes.slice(0, maximumBytes); }
-  async deleteObject(key: string) { this.deleted.push(key); }
+  async deleteObject(key: string) {
+    if (this.failDeletes > 0) {
+      this.failDeletes -= 1;
+      throw new Error("simulated object deletion failure");
+    }
+    this.deleted.push(key);
+  }
 }
 
 describe("durable profile media review", () => {
@@ -103,6 +115,117 @@ describe("durable profile media review", () => {
     expect(await database.select().from(schema.profilePhotos)).toHaveLength(1);
   });
 
+  it("leases durable finalization, recovers expiration, and replays the committed result", async () => {
+    const upload = await store.reserveUpload({
+      userId, objectKey: `profile-media/${userId}/${crypto.randomUUID()}/${crypto.randomUUID()}.png`,
+      mimeType: "image/png", declaredSizeBytes: 24, tokenHash: "lease-token",
+      idempotencyHash: "lease-finalization", expiresAt: new Date(storeNow.getTime() + 300_000),
+    });
+    const durable = store as unknown as {
+      claimUploadFinalization(userId: string, uploadId: string, now: Date, leaseMs: number): Promise<Record<string, unknown>>;
+      bindUploadSourceEtag(uploadId: string, leaseId: string, etag: string, now: Date): Promise<boolean>;
+      commitUploadFinalization(userId: string, uploadId: string, leaseId: string, metadata: {
+        objectKey: string; mimeType: string; sizeBytes: number;
+      }, now: Date): Promise<Record<string, unknown>>;
+    };
+    const first = await durable.claimUploadFinalization(userId, upload.id, storeNow, 1_000);
+    expect(first).toMatchObject({ state: "claimed", upload: { id: upload.id }, leaseId: expect.any(String) });
+    const busy = await durable.claimUploadFinalization(userId, upload.id, storeNow, 1_000);
+    expect(busy).toMatchObject({ state: "busy" });
+    storeNow = new Date(storeNow.getTime() + 1_001);
+    const recovered = await durable.claimUploadFinalization(userId, upload.id, storeNow, 1_000);
+    expect(recovered).toMatchObject({ state: "claimed" });
+    expect(recovered.leaseId).not.toBe(first.leaseId);
+    await expect(durable.bindUploadSourceEtag(upload.id, String(recovered.leaseId), "etag-v1", storeNow))
+      .resolves.toBe(true);
+    await expect(durable.bindUploadSourceEtag(upload.id, String(recovered.leaseId), "etag-v2", storeNow))
+      .resolves.toBe(false);
+    const finalObjectKey = `profile-review/${userId}/${upload.id}.png`;
+    const committed = await durable.commitUploadFinalization(userId, upload.id, String(recovered.leaseId), {
+      objectKey: finalObjectKey, mimeType: "image/png", sizeBytes: 24,
+    }, storeNow);
+    expect(committed).toMatchObject({ photo: { objectKey: finalObjectKey }, job: { status: "pending" } });
+    const replay = await durable.claimUploadFinalization(userId, upload.id, storeNow, 1_000);
+    expect(replay).toMatchObject({ state: "completed", result: { photo: { id: expect.any(String) } } });
+  });
+
+  it("refuses an expired finalize lease so cleanup cannot race a stale commit", async () => {
+    const upload = await store.reserveUpload({
+      userId, objectKey: `profile-media/${userId}/${crypto.randomUUID()}/${crypto.randomUUID()}.png`,
+      mimeType: "image/png", declaredSizeBytes: 24, tokenHash: "stale-lease-token",
+      idempotencyHash: "stale-lease-commit", expiresAt: new Date(storeNow.getTime() + 300_000),
+    });
+    const claim = await store.claimUploadFinalization(userId, upload.id, storeNow, 50);
+    expect(claim.state).toBe("claimed");
+    if (claim.state !== "claimed") throw new Error("expected claim");
+    storeNow = new Date(storeNow.getTime() + 51);
+    await expect(store.commitUploadFinalization(userId, upload.id, claim.leaseId, {
+      objectKey: claim.upload.finalObjectKey!, mimeType: "image/png", sizeBytes: 24, etag: "final-etag",
+    }, storeNow)).rejects.toThrow("UPLOAD_FINALIZATION_LEASE_LOST");
+    expect(await database.select().from(schema.profilePhotos)).toHaveLength(0);
+    expect(await database.select().from(schema.mediaReviewJobs)).toHaveLength(0);
+  });
+
+  it("makes cleanup wait for a commit row lock and never authorizes final deletion after commit", async () => {
+    const upload = await store.reserveUpload({
+      userId, objectKey: `profile-media/${userId}/${crypto.randomUUID()}/${crypto.randomUUID()}.png`,
+      mimeType: "image/png", declaredSizeBytes: 24, tokenHash: "cleanup-race-token",
+      idempotencyHash: "commit-first-race", expiresAt: new Date(storeNow.getTime() + 50),
+    });
+    const claim = await store.claimUploadFinalization(userId, upload.id, storeNow, 50);
+    if (claim.state !== "claimed") throw new Error("expected claim");
+    const cleanupNow = new Date(storeNow.getTime() + 51);
+    let signalLocked!: () => void;
+    const locked = new Promise<void>((resolve) => { signalLocked = resolve; });
+    let releaseCommit!: () => void;
+    const commitGate = new Promise<void>((resolve) => { releaseCommit = resolve; });
+    const committedPhotoId = crypto.randomUUID();
+    const committing = database.transaction(async (transaction) => {
+      await transaction.select().from(schema.profilePhotoUploads)
+        .where(eq(schema.profilePhotoUploads.id, upload.id)).for("update");
+      signalLocked();
+      await commitGate;
+      await transaction.update(schema.profilePhotoUploads).set({
+        completedPhotoId: committedPhotoId,
+        finalizationStatus: "finalized",
+        finalizationLeaseId: null,
+        finalizationLeaseExpiresAt: null,
+        stagingCleanupDueAt: cleanupNow,
+        finalOrphanCleanupDueAt: null,
+      }).where(eq(schema.profilePhotoUploads.id, upload.id));
+    });
+    await locked;
+    let cleanupSettled = false;
+    const cleaning = store.claimUploadArtifactCleanup(upload.id, cleanupNow)
+      .then((value) => { cleanupSettled = true; return value; });
+    await new Promise((resolve) => setTimeout(resolve, 10));
+    expect(cleanupSettled).toBe(false);
+    releaseCommit();
+    await committing;
+    await expect(cleaning).resolves.toMatchObject({
+      deleteFinalObjectKey: null,
+      deleteStagingObjectKey: upload.objectKey,
+    });
+  });
+
+  it("lets cleanup claim first invalidate the stale finalize lease before deleting an orphan", async () => {
+    const upload = await store.reserveUpload({
+      userId, objectKey: `profile-media/${userId}/${crypto.randomUUID()}/${crypto.randomUUID()}.png`,
+      mimeType: "image/png", declaredSizeBytes: 24, tokenHash: "cleanup-first-token",
+      idempotencyHash: "cleanup-first-race", expiresAt: new Date(storeNow.getTime() + 50),
+    });
+    const claim = await store.claimUploadFinalization(userId, upload.id, storeNow, 50);
+    if (claim.state !== "claimed") throw new Error("expected claim");
+    const cleanupNow = new Date(storeNow.getTime() + 51);
+    await expect(store.claimUploadArtifactCleanup(upload.id, cleanupNow)).resolves.toMatchObject({
+      deleteFinalObjectKey: claim.upload.finalObjectKey,
+      deleteStagingObjectKey: upload.objectKey,
+    });
+    await expect(store.commitUploadFinalization(userId, upload.id, claim.leaseId, {
+      objectKey: claim.upload.finalObjectKey!, mimeType: "image/png", sizeBytes: 24, etag: "final-etag",
+    }, new Date(storeNow.getTime() + 49))).rejects.toThrow("UPLOAD_FINALIZATION_LEASE_LOST");
+  });
+
   it("refuses to persist a staging key across the repository trust boundary", async () => {
     const upload = await store.reserveUpload({
       userId, objectKey: `profile-media/${userId}/${crypto.randomUUID()}/${crypto.randomUUID()}.png`,
@@ -172,6 +295,24 @@ describe("durable profile media review", () => {
     expect(upload.quotaSlot).toBeNull();
     expect(profile).toMatchObject({ status: "draft", discoverable: false, publishRequested: false });
     expect((await new ProfileRepository(database).getForUser(userId))?.approvedPhotoCount).toBe(0);
+    let [removedPhoto] = await database.select().from(schema.profilePhotos)
+      .where(eq(schema.profilePhotos.id, photo.id));
+    expect(removedPhoto.cleanupDueAt).toEqual(storeNow);
+
+    const storage = new MemoryStorage(new Uint8Array());
+    storage.failDeletes = 1;
+    await expect(cleanupRejectedMedia({ store, storage, clock: () => storeNow })).resolves.toBe(0);
+    [removedPhoto] = await database.select().from(schema.profilePhotos)
+      .where(eq(schema.profilePhotos.id, photo.id));
+    expect(removedPhoto.objectDeletedAt).toBeNull();
+    await expect(cleanupRejectedMedia({ store, storage, clock: () => storeNow })).resolves.toBe(1);
+    [removedPhoto] = await database.select().from(schema.profilePhotos)
+      .where(eq(schema.profilePhotos.id, photo.id));
+    expect(removedPhoto.objectDeletedAt).toEqual(storeNow);
+    expect(storage.deleted).toEqual([photo.objectKey]);
+    expect(await database.select().from(schema.profilePhotos)
+      .where(eq(schema.profilePhotos.id, photo.id))).toHaveLength(1);
+    await expect(cleanupRejectedMedia({ store, storage, clock: () => storeNow })).resolves.toBe(0);
 
     const reserveReplacement = (suffix: string) => store.reserveUpload({
       userId,
@@ -182,6 +323,24 @@ describe("durable profile media review", () => {
     const replacements = await Promise.allSettled([reserveReplacement("a"), reserveReplacement("b")]);
     expect(replacements.filter(({ status }) => status === "fulfilled")).toHaveLength(1);
     expect(replacements.filter(({ status }) => status === "rejected")).toHaveLength(1);
+  });
+
+  it("keeps cleanup due when removal races an in-flight approval", async () => {
+    const storage = new MemoryStorage(new Uint8Array(24));
+    const { photo, job } = await pending(24);
+    const [claim] = await store.claimDue(storeNow, 1_000, 1);
+    await expect(store.markPhotoRemoved(userId, photo.id)).resolves.toBe(true);
+    await expect(store.completeReview(job.id, claim.leaseId!, {
+      outcome: "approved", provider: "test", version: "v1", width: 10, height: 10,
+    }, storeNow)).resolves.toBe(true);
+    const [removed] = await database.select().from(schema.profilePhotos)
+      .where(eq(schema.profilePhotos.id, photo.id));
+    expect(removed.userRemovedAt).toEqual(storeNow);
+    expect(removed.cleanupDueAt).toEqual(storeNow);
+    await expect(cleanupRejectedMedia({ store, storage, clock: () => storeNow })).resolves.toBe(1);
+    const [cleaned] = await database.select().from(schema.profilePhotos)
+      .where(eq(schema.profilePhotos.id, photo.id));
+    expect(cleaned.objectDeletedAt).toEqual(storeNow);
   });
 
   it("releases quota for rejected and terminally failed photos", async () => {
@@ -298,6 +457,47 @@ describe("durable profile media review", () => {
     expect(rejected.objectDeletedAt).toBeNull();
   });
 
+  it("bounds worker retries and records one immutable internal terminal result", async () => {
+    const now = new Date("2026-08-05T12:00:00Z");
+    const realPng = await sharp({ create: { width: 2, height: 2, channels: 3, background: "#111827" } }).png().toBuffer();
+    const storage = new MemoryStorage(realPng);
+    const { photo } = await pending(realPng.length);
+    const retryingAdapter = new HttpsMediaReviewAdapter();
+
+    await processMediaReviewJobs({
+      store, storage, adapter: retryingAdapter, clock: () => now, maxAttempts: 2,
+    });
+    await database.update(schema.mediaReviewJobs).set({ availableAt: now });
+    const terminalRuns = await Promise.all([
+      processMediaReviewJobs({ store, storage, adapter: retryingAdapter, clock: () => now, maxAttempts: 2 }),
+      processMediaReviewJobs({ store, storage, adapter: retryingAdapter, clock: () => now, maxAttempts: 2 }),
+    ]);
+
+    expect(terminalRuns.reduce((sum, count) => sum + count, 0)).toBe(1);
+    const [job] = await database.select().from(schema.mediaReviewJobs);
+    const [terminalPhoto] = await database.select().from(schema.profilePhotos)
+      .where(eq(schema.profilePhotos.id, photo.id));
+    const results = await database.select().from(schema.mediaReviewResults);
+    const [upload] = await database.select().from(schema.profilePhotoUploads);
+    expect(job).toMatchObject({ status: "failed", attempts: 2 });
+    expect(terminalPhoto).toMatchObject({
+      moderationStatus: "rejected",
+      moderationReasonCode: "MEDIA_REVIEW_FAILED",
+    });
+    expect(terminalPhoto.cleanupDueAt).toBeInstanceOf(Date);
+    expect(upload.quotaSlot).toBeNull();
+    expect(results).toHaveLength(1);
+    expect(results[0]).toMatchObject({
+      jobId: job.id,
+      photoId: photo.id,
+      attempt: 2,
+      provider: "internal",
+      providerVersion: "retry-v1",
+      outcome: "rejected",
+      reasonCode: "MEDIA_REVIEW_FAILED",
+    });
+  });
+
   it("runs provider approve, signature rejection, and retry paths without publishing pending media", async () => {
     const now = new Date("2026-08-05T12:00:00Z");
     const realPng = await sharp({ create: { width: 800, height: 600, channels: 3, background: "#111827" } }).png().toBuffer();
@@ -364,6 +564,41 @@ describe("durable profile media review", () => {
     expect(await cleanupRejectedMedia({ store, storage, clock: () => new Date(now.getTime() + 2_000) })).toBe(0);
   });
 
+  it("durably retries staging deletion and records final artifact cleanup", async () => {
+    const storage = new MemoryStorage(new Uint8Array(24));
+    const { photo } = await pending(24);
+    storage.failDeletes = 1;
+    await expect(cleanupUploadArtifacts({ store, storage, clock: () => storeNow })).resolves.toBe(0);
+    let [upload] = await database.select().from(schema.profilePhotoUploads);
+    expect(upload.stagingDeletedAt).toBeNull();
+    await expect(cleanupUploadArtifacts({ store, storage, clock: () => storeNow })).resolves.toBe(1);
+    [upload] = await database.select().from(schema.profilePhotoUploads);
+    expect(upload.stagingDeletedAt).toEqual(storeNow);
+    expect(upload.completedPhotoId).toBe(photo.id);
+    expect(storage.deleted).toEqual([upload.objectKey]);
+    await expect(cleanupUploadArtifacts({ store, storage, clock: () => storeNow })).resolves.toBe(0);
+  });
+
+  it("cleans a deterministic uncommitted final orphan without listing the bucket", async () => {
+    const upload = await store.reserveUpload({
+      userId, objectKey: `profile-media/${userId}/${crypto.randomUUID()}/${crypto.randomUUID()}.png`,
+      mimeType: "image/png", declaredSizeBytes: 24, tokenHash: "orphan-token",
+      idempotencyHash: "orphan-final", expiresAt: new Date(storeNow.getTime() + 100),
+    });
+    const claim = await store.claimUploadFinalization(userId, upload.id, storeNow, 50);
+    expect(claim.state).toBe("claimed");
+    const finalObjectKey = claim.state === "claimed" ? claim.upload.finalObjectKey! : "";
+    storeNow = new Date(storeNow.getTime() + 101);
+    const storage = new MemoryStorage(new Uint8Array(24));
+    await expect(cleanupUploadArtifacts({ store, storage, clock: () => storeNow })).resolves.toBe(2);
+    const [cleaned] = await database.select().from(schema.profilePhotoUploads)
+      .where(eq(schema.profilePhotoUploads.id, upload.id));
+    expect(cleaned.stagingDeletedAt).toEqual(storeNow);
+    expect(cleaned.finalOrphanDeletedAt).toEqual(storeNow);
+    expect(cleaned.completedPhotoId).toBeNull();
+    expect(storage.deleted.sort()).toEqual([finalObjectKey, upload.objectKey].sort());
+  });
+
   it("exports one production tick that drains review jobs and due cleanup", async () => {
     const now = new Date("2026-08-05T12:00:00Z");
     const bytes = await sharp({ create: { width: 2, height: 2, channels: 3, background: "#111827" } }).png().toBuffer();
@@ -378,7 +613,7 @@ describe("durable profile media review", () => {
       clock: () => now,
       rejectedRetentionMs: 1_000,
     });
-    expect(first).toEqual({ reviewed: 1, deleted: 0 });
+    expect(first).toEqual({ reviewed: 1, deleted: 0, uploadArtifactsDeleted: 1 });
     const due = await drainMediaWorkers({
       store,
       storage,
@@ -386,10 +621,10 @@ describe("durable profile media review", () => {
       clock: () => new Date(now.getTime() + 1_000),
       rejectedRetentionMs: 1_000,
     });
-    expect(due).toEqual({ reviewed: 0, deleted: 1 });
+    expect(due).toEqual({ reviewed: 0, deleted: 1, uploadArtifactsDeleted: 0 });
     await expect(drainMediaWorkers({
       store, storage, adapter: new InMemoryMediaReviewAdapter(),
       clock: () => new Date(now.getTime() + 2_000), rejectedRetentionMs: 1_000,
-    })).resolves.toEqual({ reviewed: 0, deleted: 0 });
+    })).resolves.toEqual({ reviewed: 0, deleted: 0, uploadArtifactsDeleted: 0 });
   });
 });

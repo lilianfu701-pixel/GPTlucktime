@@ -12,7 +12,7 @@ import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
 
 import { photoCompleteRequestSchema, photoUploadRequestSchema } from "./profile-schema";
 
-export type ObjectMetadata = { sizeBytes: number; mimeType: string };
+export type ObjectMetadata = { sizeBytes: number; mimeType: string; etag: string };
 
 export interface StorageAdapter {
   createPutUrl(input: {
@@ -22,7 +22,11 @@ export interface StorageAdapter {
     expiresInSeconds: number;
   }): Promise<string>;
   headObject(objectKey: string): Promise<ObjectMetadata | null>;
-  copyObject(sourceObjectKey: string, destinationObjectKey: string): Promise<void>;
+  copyObject(
+    sourceObjectKey: string,
+    destinationObjectKey: string,
+    options: { sourceETag: string },
+  ): Promise<void>;
   readPrefix(objectKey: string, maximumBytes: number): Promise<Uint8Array>;
   deleteObject(objectKey: string): Promise<void>;
 }
@@ -38,19 +42,47 @@ export type ReservedUpload = {
   idempotencyHash: string;
   expiresAt: Date;
   completedPhotoId: string | null;
+  finalObjectKey: string | null;
+  sourceEtag: string | null;
+  finalizationStatus: string;
+  finalizationLeaseId: string | null;
+  finalizationLeaseExpiresAt: Date | null;
 };
 
+type FinalizationResult = {
+  photo: { id: string; moderationStatus: string; [key: string]: unknown };
+  job: { id: string; status: string; [key: string]: unknown };
+};
+
+export type UploadFinalizationClaim =
+  | { state: "completed"; result: FinalizationResult }
+  | { state: "busy" }
+  | { state: "claimed"; upload: ReservedUpload; leaseId: string };
+
+export type ReservedUploadInput = Omit<ReservedUpload,
+  | "id"
+  | "profileId"
+  | "completedPhotoId"
+  | "finalObjectKey"
+  | "sourceEtag"
+  | "finalizationStatus"
+  | "finalizationLeaseId"
+  | "finalizationLeaseExpiresAt"
+>;
+
 export interface PhotoMediaStore {
-  reserveUpload(input: Omit<ReservedUpload, "id" | "profileId" | "completedPhotoId">): Promise<ReservedUpload>;
+  reserveUpload(input: ReservedUploadInput): Promise<ReservedUpload>;
   findUpload(userId: string, uploadId: string): Promise<ReservedUpload | null>;
-  completeUpload(
+  claimUploadFinalization(userId: string, uploadId: string, now: Date, leaseMs: number): Promise<UploadFinalizationClaim>;
+  bindUploadSourceEtag(uploadId: string, leaseId: string, etag: string, now: Date): Promise<boolean>;
+  commitUploadFinalization(
     userId: string,
     uploadId: string,
-    finalize: (upload: ReservedUpload) => Promise<ObjectMetadata & { objectKey: string }>,
-  ): Promise<{
-    photo: { id: string; moderationStatus: string; [key: string]: unknown };
-    job: { id: string; status: string; [key: string]: unknown };
-  }>;
+    leaseId: string,
+    finalized: ObjectMetadata & { objectKey: string },
+    now: Date,
+  ): Promise<FinalizationResult>;
+  abandonUploadFinalization(uploadId: string, leaseId: string, now: Date): Promise<boolean>;
   listPhotosForUser(userId: string): Promise<Array<Record<string, unknown>>>;
   markPhotoRemoved(userId: string, photoId: string): Promise<boolean>;
 }
@@ -95,8 +127,12 @@ export class S3StorageAdapter implements StorageAdapter {
         Bucket: this.configuration.bucket,
         Key: objectKey,
       }), { abortSignal: AbortSignal.timeout(this.configuration.requestTimeoutMs ?? 10_000) });
-      if (result.ContentLength === undefined || !result.ContentType) return null;
-      return { sizeBytes: result.ContentLength, mimeType: result.ContentType.split(";", 1)[0]!.toLowerCase() };
+      if (result.ContentLength === undefined || !result.ContentType || !result.ETag) return null;
+      return {
+        sizeBytes: result.ContentLength,
+        mimeType: result.ContentType.split(";", 1)[0]!.toLowerCase(),
+        etag: result.ETag.replace(/^"|"$/g, ""),
+      };
     } catch (error) {
       const status = (error as { $metadata?: { httpStatusCode?: number } }).$metadata?.httpStatusCode;
       if (status === 404) return null;
@@ -104,11 +140,12 @@ export class S3StorageAdapter implements StorageAdapter {
     }
   }
 
-  async copyObject(sourceObjectKey: string, destinationObjectKey: string) {
+  async copyObject(sourceObjectKey: string, destinationObjectKey: string, options: { sourceETag: string }) {
     await this.client.send(new CopyObjectCommand({
       Bucket: this.configuration.bucket,
       Key: destinationObjectKey,
       CopySource: `${this.configuration.bucket}/${sourceObjectKey.split("/").map(encodeURIComponent).join("/")}`,
+      CopySourceIfMatch: options.sourceETag,
     }), { abortSignal: AbortSignal.timeout(this.configuration.requestTimeoutMs ?? 10_000) });
   }
 
@@ -189,6 +226,8 @@ type HandlerDependencies = {
   clock?: () => Date;
   maximumSizeBytes?: number;
   expirySeconds?: number;
+  finalizationLeaseMs?: number;
+  sleep?: (milliseconds: number) => Promise<void>;
 };
 
 const apiError = (code: string, status: number) => Response.json({ code, message: code }, { status });
@@ -331,32 +370,78 @@ export function createPhotoCompleteHandler(input: HandlerDependencies) {
         return apiError("UPLOAD_NOT_FOUND", 404);
       }
       const now = input.clock?.() ?? new Date();
-      if (upload.expiresAt <= now) return apiError("UPLOAD_EXPIRED", 409);
-      const finalObjectKey = `profile-review/${session.user.id}/${upload.id}.${extensionForMime[upload.mimeType]}`;
-      const result = await input.store.completeUpload(session.user.id, upload.id, async (lockedUpload) => {
-        const stagingMetadata = await input.storage.headObject(lockedUpload.objectKey);
-        if (!stagingMetadata || stagingMetadata.sizeBytes !== lockedUpload.declaredSizeBytes
-          || stagingMetadata.mimeType !== lockedUpload.mimeType) {
-          if (stagingMetadata) await input.storage.deleteObject(lockedUpload.objectKey).catch(() => undefined);
-          throw new Error("UPLOAD_METADATA_MISMATCH");
+      if (!upload.completedPhotoId && upload.expiresAt <= now) return apiError("UPLOAD_EXPIRED", 409);
+      const sleep = input.sleep ?? ((milliseconds: number) => new Promise<void>((resolve) => setTimeout(resolve, milliseconds)));
+      for (let waitAttempt = 0; waitAttempt < 100; waitAttempt += 1) {
+        const claimNow = input.clock?.() ?? new Date();
+        const claim = await input.store.claimUploadFinalization(
+          session.user.id,
+          upload.id,
+          claimNow,
+          input.finalizationLeaseMs ?? 30_000,
+        );
+        if (claim.state === "completed") {
+          return Response.json({ photo: safeUserPhoto(claim.result.photo) });
         }
-        await input.storage.copyObject(lockedUpload.objectKey, finalObjectKey);
-        const finalMetadata = await input.storage.headObject(finalObjectKey);
-        if (!finalMetadata || finalMetadata.sizeBytes !== lockedUpload.declaredSizeBytes
-          || finalMetadata.mimeType !== lockedUpload.mimeType) {
-          await input.storage.deleteObject(finalObjectKey).catch(() => undefined);
-          throw new Error("IMMUTABLE_COPY_MISMATCH");
+        if (claim.state === "busy") {
+          await sleep(10);
+          continue;
         }
-        return { ...finalMetadata, objectKey: finalObjectKey };
-      });
-      await input.storage.deleteObject(upload.objectKey).catch(() => undefined);
-      return Response.json({ photo: safeUserPhoto(result.photo) });
+        let commitStarted = false;
+        try {
+          const stagingMetadata = await input.storage.headObject(claim.upload.objectKey);
+          if (!stagingMetadata || stagingMetadata.sizeBytes !== claim.upload.declaredSizeBytes
+            || stagingMetadata.mimeType !== claim.upload.mimeType) {
+            throw new Error("UPLOAD_METADATA_MISMATCH");
+          }
+          if (!await input.store.bindUploadSourceEtag(
+            claim.upload.id,
+            claim.leaseId,
+            stagingMetadata.etag,
+            claimNow,
+          )) {
+            throw new Error("UPLOAD_SOURCE_CHANGED");
+          }
+          const finalObjectKey = claim.upload.finalObjectKey
+            ?? `profile-review/${session.user.id}/${claim.upload.id}.${extensionForMime[claim.upload.mimeType]}`;
+          await input.storage.copyObject(claim.upload.objectKey, finalObjectKey, {
+            sourceETag: stagingMetadata.etag,
+          });
+          const finalMetadata = await input.storage.headObject(finalObjectKey);
+          if (!finalMetadata || finalMetadata.sizeBytes !== claim.upload.declaredSizeBytes
+            || finalMetadata.mimeType !== claim.upload.mimeType) {
+            throw new Error("IMMUTABLE_COPY_MISMATCH");
+          }
+          commitStarted = true;
+          const result = await input.store.commitUploadFinalization(
+            session.user.id,
+            claim.upload.id,
+            claim.leaseId,
+            { ...finalMetadata, objectKey: finalObjectKey },
+            input.clock?.() ?? new Date(),
+          );
+          return Response.json({ photo: safeUserPhoto(result.photo) });
+        } catch (error) {
+          if (!commitStarted) {
+            await input.store.abandonUploadFinalization(
+              claim.upload.id,
+              claim.leaseId,
+              input.clock?.() ?? new Date(),
+            ).catch(() => undefined);
+          }
+          throw error;
+        }
+      }
+      return apiError("UPLOAD_FINALIZATION_IN_PROGRESS", 409);
     } catch (error) {
       if (error instanceof Error && error.message === "UPLOAD_EXPIRED") {
         return apiError("UPLOAD_EXPIRED", 409);
       }
       if (error instanceof Error && error.message === "UPLOAD_METADATA_MISMATCH") {
         return apiError("UPLOAD_METADATA_MISMATCH", 409);
+      }
+      if (error instanceof Error && error.message === "UPLOAD_SOURCE_CHANGED") {
+        return apiError("UPLOAD_SOURCE_CHANGED", 409);
       }
       return apiError("INTERNAL_ERROR", 500);
     }
