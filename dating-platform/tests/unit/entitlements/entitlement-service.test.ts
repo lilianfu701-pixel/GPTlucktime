@@ -5,6 +5,7 @@ import { describe, expect, it, vi } from "vitest";
 import {
   decideEntitlement,
   EntitlementService,
+  parseEntitlementGrant,
   resolveEntitlement,
 } from "@/modules/entitlements/entitlement-service";
 import type {
@@ -131,12 +132,56 @@ describe("resolveEntitlement", () => {
     });
     expect(numeric).toMatchObject({ kind: "numeric", allowed: true, value: 1, remaining: null });
   });
+
+  it("fails closed instead of falling through an invalid higher-priority grant", () => {
+    const decision = resolveEntitlement({
+      key: "profile.incognito.use",
+      sources: {
+        globalEnabled: true,
+        configurationInvalid: true,
+        userOverride: null,
+        planBenefit: null,
+        freeDefault: {
+          kind: "boolean", enabled: true, booleanValue: true, quotaLimit: null,
+          numericValue: null, resetPeriod: "none", upgradeHint: null,
+        },
+        used: 0,
+      },
+      policy: { safetyAllowed: true, verificationSatisfied: true },
+      now: NOW,
+    });
+    expect(decision).toMatchObject({ allowed: false, reason: "CONFIGURATION_INVALID" });
+  });
+
+  it("rejects wrong kinds, invalid shapes, unsafe hints, and non-finite numeric grants", () => {
+    const base = {
+      enabled: true,
+      booleanValue: null,
+      quotaLimit: null,
+      numericValue: null,
+      upgradeHint: null,
+    };
+    expect(() => parseEntitlementGrant({ ...base, kind: "quota", quotaLimit: 1 }, "boolean", "none"))
+      .toThrow("CONFIGURATION_INVALID");
+    expect(() => parseEntitlementGrant({ ...base, kind: "boolean", booleanValue: null }, "boolean", "none"))
+      .toThrow("CONFIGURATION_INVALID");
+    expect(() => parseEntitlementGrant({
+      ...base, kind: "boolean", booleanValue: true, upgradeHint: "Internal Plan Name",
+    }, "boolean", "none")).toThrow("CONFIGURATION_INVALID");
+    for (const numericValue of [Number.NaN, Number.POSITIVE_INFINITY, Number.NEGATIVE_INFINITY, 1.00001]) {
+      expect(() => parseEntitlementGrant({ ...base, kind: "numeric", numericValue }, "numeric", "none"))
+        .toThrow("CONFIGURATION_INVALID");
+    }
+  });
 });
 
 describe("EntitlementService", () => {
   it("stays PostgreSQL-authoritative on cache miss and cache outage", async () => {
-    const resolve = vi.fn().mockResolvedValue(freeMessage);
-    const store = { resolve } as unknown as EntitlementStore;
+    const resolveInTransaction = vi.fn().mockResolvedValue({ ...freeMessage, publicVisible: true });
+    const store = {
+      transaction: async <T>(work: (transaction: unknown) => Promise<T>) => work({}),
+      resolveInTransaction,
+    } as unknown as EntitlementStore;
     const missCache: EntitlementCache = {
       get: vi.fn().mockResolvedValue(null),
       set: vi.fn().mockResolvedValue(undefined),
@@ -147,13 +192,16 @@ describe("EntitlementService", () => {
     };
 
     for (const cache of [missCache, outageCache]) {
-      const service = new EntitlementService({ store, cache, clock: () => NOW });
-      await expect(service.decide({
-        userId: USER_ID,
-        key: "message.send.daily",
-        policy: { safetyAllowed: true, verificationSatisfied: true },
-      })).resolves.toMatchObject({ allowed: true, remaining: null });
+      const service = new EntitlementService({
+        store,
+        cache,
+        timeResolver: async () => NOW,
+        policyResolver: async () => ({ safetyAllowed: true, verificationSatisfied: true }),
+        planResolver: async () => null,
+      });
+      await expect(service.decideForUser(USER_ID, "message.send.daily"))
+        .resolves.toMatchObject({ allowed: true, remaining: null });
     }
-    expect(resolve).toHaveBeenCalledTimes(2);
+    expect(resolveInTransaction).toHaveBeenCalledTimes(2);
   });
 });

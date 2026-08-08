@@ -1,13 +1,21 @@
 import {
   ENTITLEMENT_CATALOG,
+  ENTITLEMENT_NUMERIC_SCALE,
+  MAX_ENTITLEMENT_NUMERIC,
+  MAX_ENTITLEMENT_QUOTA,
   PUBLIC_ENTITLEMENT_KEYS,
+  type AuthoritativeConsumeInput,
   type EntitlementCache,
   type EntitlementDecision,
   type EntitlementGrant,
   type EntitlementKey,
   type EntitlementPolicy,
+  type EntitlementPolicyResolver,
+  type EntitlementPlanResolver,
   type EntitlementReason,
   type EntitlementStore,
+  type EntitlementTimeResolver,
+  type EntitlementTransaction,
   type ResolvedEntitlementSources,
   type ResetPeriod,
 } from "./types";
@@ -49,6 +57,55 @@ export function periodBounds(period: ResetPeriod, at: Date) {
   };
 }
 
+const publicUpgradePattern = /^[a-z0-9][a-z0-9._-]{0,79}$/;
+
+const hasSupportedScale = (value: number) => {
+  const factor = 10 ** ENTITLEMENT_NUMERIC_SCALE;
+  const scaled = value * factor;
+  return Math.abs(scaled - Math.round(scaled)) <= Number.EPSILON * Math.max(1, Math.abs(scaled)) * 4;
+};
+
+export function parseEntitlementGrant(
+  row: {
+    kind: unknown;
+    enabled: unknown;
+    booleanValue: unknown;
+    quotaLimit: unknown;
+    numericValue: unknown;
+    upgradeHint: unknown;
+  },
+  expectedKind: EntitlementGrant["kind"],
+  resetPeriod: ResetPeriod,
+): EntitlementGrant {
+  if (row.kind !== expectedKind || typeof row.enabled !== "boolean"
+    || (row.upgradeHint !== null && (typeof row.upgradeHint !== "string"
+      || !publicUpgradePattern.test(row.upgradeHint)))) throw new Error("CONFIGURATION_INVALID");
+  if (expectedKind === "boolean") {
+    if (typeof row.booleanValue !== "boolean" || row.quotaLimit !== null || row.numericValue !== null
+      || resetPeriod !== "none") throw new Error("CONFIGURATION_INVALID");
+  } else if (expectedKind === "quota") {
+    if (row.booleanValue !== null || row.numericValue !== null
+      || (row.quotaLimit !== null && (typeof row.quotaLimit !== "number"
+        || !Number.isInteger(row.quotaLimit) || row.quotaLimit < 0
+        || row.quotaLimit > MAX_ENTITLEMENT_QUOTA))
+      || resetPeriod === "none") throw new Error("CONFIGURATION_INVALID");
+  } else if (row.booleanValue !== null || row.quotaLimit !== null
+    || typeof row.numericValue !== "number" || !Number.isFinite(row.numericValue)
+    || row.numericValue < 0 || row.numericValue > MAX_ENTITLEMENT_NUMERIC
+    || !hasSupportedScale(row.numericValue) || resetPeriod !== "none") {
+    throw new Error("CONFIGURATION_INVALID");
+  }
+  return {
+    kind: expectedKind,
+    enabled: row.enabled,
+    booleanValue: row.booleanValue as boolean | null,
+    quotaLimit: row.quotaLimit as number | null,
+    numericValue: row.numericValue as number | null,
+    resetPeriod,
+    upgradeHint: row.upgradeHint as string | null,
+  };
+}
+
 function deniedDecision(
   key: EntitlementKey,
   sources: ResolvedEntitlementSources,
@@ -78,6 +135,7 @@ export function resolveEntitlement(input: {
   if (!policy.safetyAllowed) return deniedDecision(key, sources, "SAFETY_RESTRICTED");
   if (!policy.verificationSatisfied) return deniedDecision(key, sources, "VERIFICATION_REQUIRED");
   if (!sources.globalEnabled) return deniedDecision(key, sources, "FEATURE_DISABLED");
+  if (sources.configurationInvalid) return deniedDecision(key, sources, "CONFIGURATION_INVALID");
 
   const grant: EntitlementGrant | null = sources.userOverride ?? sources.planBenefit ?? sources.freeDefault;
   if (!grant || !grant.enabled) return deniedDecision(key, sources, "NOT_INCLUDED");
@@ -122,79 +180,77 @@ export function resolveEntitlement(input: {
 export class EntitlementService {
   private readonly store: EntitlementStore;
   private readonly cache?: EntitlementCache;
-  private readonly clock: () => Date;
-  private readonly policyResolver: (userId: string, key: EntitlementKey) => Promise<EntitlementPolicy>;
-  private readonly planResolver: (userId: string) => Promise<string | null>;
+  private readonly timeResolver: EntitlementTimeResolver;
+  private readonly policyResolver: EntitlementPolicyResolver;
+  private readonly planResolver: EntitlementPlanResolver;
 
   constructor(options: {
     store: EntitlementStore;
     cache?: EntitlementCache;
-    clock?: () => Date;
-    policyResolver?: (userId: string, key: EntitlementKey) => Promise<EntitlementPolicy>;
-    planResolver?: (userId: string) => Promise<string | null>;
+    timeResolver: EntitlementTimeResolver;
+    policyResolver: EntitlementPolicyResolver;
+    planResolver: EntitlementPlanResolver;
   }) {
     this.store = options.store;
     this.cache = options.cache;
-    this.clock = options.clock ?? (() => new Date());
-    this.policyResolver = options.policyResolver ?? (async () => ({
-      safetyAllowed: true,
-      verificationSatisfied: true,
-    }));
-    this.planResolver = options.planResolver ?? (async () => null);
+    this.timeResolver = options.timeResolver;
+    this.policyResolver = options.policyResolver;
+    this.planResolver = options.planResolver;
   }
 
-  async decide(input: {
-    userId: string;
-    key: EntitlementKey;
-    policy: EntitlementPolicy;
-    planRef?: string | null;
-  }) {
-    const now = this.clock();
-    try { await this.cache?.get(input.userId, input.key); } catch { /* cache is advisory */ }
-    const sources = await this.store.resolve({
-      userId: input.userId,
-      key: input.key,
-      planRef: input.planRef ?? null,
-      now,
-    });
-    const decision = resolveEntitlement({ key: input.key, sources, policy: input.policy, now });
-    try { await this.cache?.set(input.userId, input.key, decision); } catch { /* PostgreSQL won */ }
-    return decision;
+  private async decideInTransaction(
+    transaction: EntitlementTransaction,
+    userId: string,
+    key: EntitlementKey,
+    now: Date,
+    planRef: string | null,
+  ) {
+    try { await this.cache?.get(userId, key); } catch { /* cache is advisory */ }
+    const policy = await this.policyResolver(transaction, userId, key, now);
+    const sources = await this.store.resolveInTransaction(transaction, { userId, key, planRef, now });
+    const decision = resolveEntitlement({ key, sources, policy, now });
+    try { await this.cache?.set(userId, key, decision); } catch { /* PostgreSQL won */ }
+    return { decision, publicVisible: sources.publicVisible === true };
   }
 
   async listPublic(userId: string) {
-    const planRef = await this.planResolver(userId);
-    return Promise.all(PUBLIC_ENTITLEMENT_KEYS.map((key) => this.decideForUser(userId, key, planRef)));
-  }
-
-  async decideForUser(userId: string, key: EntitlementKey, knownPlanRef?: string | null) {
-    const planRef = knownPlanRef === undefined ? await this.planResolver(userId) : knownPlanRef;
-    return this.decide({
-      userId,
-      key,
-      planRef,
-      policy: await this.policyResolver(userId, key),
+    return this.store.transaction(async (transaction) => {
+      const now = await this.timeResolver(transaction);
+      const planRef = await this.planResolver(transaction, userId, now);
+      const rows = [] as EntitlementDecision[];
+      for (const key of PUBLIC_ENTITLEMENT_KEYS) {
+        const resolved = await this.decideInTransaction(transaction, userId, key, now, planRef);
+        if (resolved.publicVisible) rows.push(resolved.decision);
+      }
+      return rows;
     });
   }
 
-  async consume(input: {
-    userId: string;
-    key: EntitlementKey;
-    operationId: string;
-    amount?: number;
-    context?: Readonly<Record<string, string | number | boolean | null>>;
-    policy: EntitlementPolicy;
-    planRef?: string | null;
-  }) {
-    return this.store.consume({
+  async decideForUser(userId: string, key: EntitlementKey) {
+    return this.store.transaction(async (transaction) => {
+      const now = await this.timeResolver(transaction);
+      const planRef = await this.planResolver(transaction, userId, now);
+      return (await this.decideInTransaction(transaction, userId, key, now, planRef)).decision;
+    });
+  }
+
+  async consume(input: AuthoritativeConsumeInput) {
+    return this.store.transaction((transaction) => this.consumeInTransaction(transaction, input));
+  }
+
+  async consumeInTransaction(transaction: EntitlementTransaction, input: AuthoritativeConsumeInput) {
+    const now = await this.timeResolver(transaction);
+    const policy = await this.policyResolver(transaction, input.userId, input.key, now);
+    const planRef = await this.planResolver(transaction, input.userId, now);
+    return this.store.consumeResolvedInTransaction(transaction, {
       userId: input.userId,
       key: input.key,
       operationId: input.operationId,
-      amount: input.amount ?? 1,
-      context: input.context ?? {},
-      policy: input.policy,
-      planRef: input.planRef ?? null,
-      now: this.clock(),
+      amount: input.amount,
+      context: input.context,
+      policy,
+      planRef,
+      now,
     });
   }
 }
@@ -203,15 +259,34 @@ const publicKeys = new Set<string>(PUBLIC_ENTITLEMENT_KEYS);
 const publicKinds = new Set(["boolean", "quota", "numeric"]);
 const publicReasons = new Set([
   "SAFETY_RESTRICTED", "VERIFICATION_REQUIRED", "FEATURE_DISABLED", "NOT_INCLUDED", "LIMIT_REACHED",
+  "CONFIGURATION_INVALID",
 ]);
-const publicUpgradePattern = /^[a-z0-9][a-z0-9._-]{0,79}$/;
 const safeDecision = (row: Record<string, unknown>) => {
-  if (!publicKeys.has(String(row.key))
-    || !publicKinds.has(String(row.kind))
+  if (typeof row.key !== "string" || !publicKeys.has(row.key)
+    || typeof row.kind !== "string" || !publicKinds.has(row.kind)
     || typeof row.allowed !== "boolean"
-    || (row.reason !== null && row.reason !== undefined && !publicReasons.has(String(row.reason)))
+    || (row.reason !== null && row.reason !== undefined
+      && (typeof row.reason !== "string" || !publicReasons.has(row.reason)))
     || (row.upgradeHint !== null && row.upgradeHint !== undefined
-      && !publicUpgradePattern.test(String(row.upgradeHint)))) return null;
+      && (typeof row.upgradeHint !== "string" || !publicUpgradePattern.test(row.upgradeHint)))
+    || (row.resetAt !== null && row.resetAt !== undefined
+      && (typeof row.resetAt !== "string" || Number.isNaN(Date.parse(row.resetAt))))
+    || (row.value !== null && row.value !== undefined
+      && (typeof row.value !== "boolean" && (typeof row.value !== "number" || !Number.isFinite(row.value))))
+    || (row.limit !== null && row.limit !== undefined
+      && (typeof row.limit !== "number" || !Number.isInteger(row.limit) || row.limit < 0
+        || row.limit > MAX_ENTITLEMENT_QUOTA))
+    || (row.remaining !== null && row.remaining !== undefined
+      && (typeof row.remaining !== "number" || !Number.isInteger(row.remaining) || row.remaining < 0
+        || row.remaining > MAX_ENTITLEMENT_QUOTA))) return null;
+  if (row.kind === "boolean" && ((row.value !== null && row.value !== undefined
+    && typeof row.value !== "boolean") || row.limit != null || row.remaining != null || row.resetAt != null)) return null;
+  if (row.kind === "numeric" && ((row.value !== null && row.value !== undefined
+    && (typeof row.value !== "number" || row.value < 0 || row.value > MAX_ENTITLEMENT_NUMERIC
+      || !hasSupportedScale(row.value))) || row.limit != null || row.remaining != null || row.resetAt != null)) return null;
+  if (row.kind === "quota" && (row.value != null
+    || (row.limit !== null && row.limit !== undefined && row.remaining !== null
+      && row.remaining !== undefined && row.remaining > row.limit))) return null;
   return {
     key: row.key,
     kind: row.kind,

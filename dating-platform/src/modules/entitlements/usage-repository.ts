@@ -15,6 +15,7 @@ import {
   entitlementConfigurations,
   entitlementDefinitions,
   entitlementPlanBenefits,
+  entitlementUserPlanAssignments,
   entitlementUsageCounters,
   entitlementUsageOperations,
   entitlementUserOverrides,
@@ -23,13 +24,17 @@ import {
 } from "@/db/schema";
 import type { db as productionDatabase } from "@/infrastructure/db/client";
 
-import { periodBounds, resolveEntitlement } from "./entitlement-service";
+import { parseEntitlementGrant, periodBounds, resolveEntitlement } from "./entitlement-service";
 import {
   ENTITLEMENT_CATALOG,
-  type ConsumeEntitlementInput,
+  MAX_ENTITLEMENT_QUOTA,
+  type AuthoritativeConsumeInput,
   type EntitlementDecision,
   type EntitlementGrant,
   type EntitlementKey,
+  type EntitlementPolicy,
+  type EntitlementTransaction,
+  type ResolvedConsumeEntitlementInput,
   type ResolvedEntitlementSources,
   type ResolveEntitlementInput,
   type ResetPeriod,
@@ -47,12 +52,15 @@ type GrantRow = {
 
 const UUID_PATTERN = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
 const PUBLIC_REF_PATTERN = /^[a-z0-9][a-z0-9._-]{0,79}$/;
-const CONTEXT_KEY_PATTERN = /^[A-Za-z][A-Za-z0-9_.-]{0,63}$/;
+const CONTEXT_KEY_PATTERN = /^[\p{L}_][\p{L}\p{N}_.-]{0,63}$/u;
 
-function canonicalContext(context: ConsumeEntitlementInput["context"]) {
+function canonicalContext(context: AuthoritativeConsumeInput["context"]) {
+  if (context === null || typeof context !== "object" || Array.isArray(context)) {
+    throw new Error("INVALID_ENTITLEMENT_CONTEXT");
+  }
   const entries = Object.entries(context);
   if (entries.length > 20) throw new Error("INVALID_ENTITLEMENT_CONTEXT");
-  entries.sort(([left], [right]) => left.localeCompare(right));
+  entries.sort(([left], [right]) => left < right ? -1 : left > right ? 1 : 0);
   for (const [key, value] of entries) {
     if (!CONTEXT_KEY_PATTERN.test(key)) throw new Error("INVALID_ENTITLEMENT_CONTEXT");
     if (value !== null && !["string", "number", "boolean"].includes(typeof value)) {
@@ -64,7 +72,7 @@ function canonicalContext(context: ConsumeEntitlementInput["context"]) {
   return JSON.stringify(Object.fromEntries(entries));
 }
 
-function contextHash(context: ConsumeEntitlementInput["context"]) {
+function contextHash(context: AuthoritativeConsumeInput["context"]) {
   return createHash("sha256").update(canonicalContext(context)).digest("hex");
 }
 
@@ -73,17 +81,8 @@ function asGrant(
   expectedKind: EntitlementGrant["kind"],
   resetPeriod: ResetPeriod,
 ): EntitlementGrant | null {
-  if (!row || row.kind !== expectedKind) return null;
-  if (row.upgradeHint !== null && !PUBLIC_REF_PATTERN.test(row.upgradeHint)) return null;
-  return {
-    kind: row.kind as EntitlementGrant["kind"],
-    enabled: row.enabled,
-    booleanValue: row.booleanValue,
-    quotaLimit: row.quotaLimit,
-    numericValue: row.numericValue,
-    resetPeriod,
-    upgradeHint: row.upgradeHint,
-  };
+  if (!row) return null;
+  return parseEntitlementGrant(row, expectedKind, resetPeriod);
 }
 
 function operationToDecision(row: typeof entitlementUsageOperations.$inferSelect): EntitlementDecision {
@@ -105,7 +104,7 @@ function operationToDecision(row: typeof entitlementUsageOperations.$inferSelect
 
 function operationMatches(
   row: typeof entitlementUsageOperations.$inferSelect,
-  input: ConsumeEntitlementInput,
+  input: ResolvedConsumeEntitlementInput,
   hash: string,
 ) {
   return row.userId === input.userId
@@ -116,11 +115,27 @@ function operationMatches(
 
 export class UsageRepository {
   private readonly database: EntitlementDatabase;
-  private readonly clock: () => Date;
+  private readonly verificationResolver: (
+    transaction: EntitlementTransaction,
+    userId: string,
+    key: EntitlementKey,
+    now: Date,
+  ) => Promise<boolean>;
 
-  constructor(database: unknown, options: { clock?: () => Date } = {}) {
+  constructor(database: unknown, options: {
+    verificationResolver?: (
+      transaction: EntitlementTransaction,
+      userId: string,
+      key: EntitlementKey,
+      now: Date,
+    ) => Promise<boolean>;
+  } = {}) {
     this.database = database as EntitlementDatabase;
-    this.clock = options.clock ?? (() => new Date());
+    this.verificationResolver = options.verificationResolver ?? (async () => true);
+  }
+
+  transaction<T>(work: (transaction: EntitlementTransaction) => Promise<T>) {
+    return this.database.transaction((transaction) => work(transaction));
   }
 
   async resolve(input: ResolveEntitlementInput): Promise<ResolvedEntitlementSources> {
@@ -128,45 +143,64 @@ export class UsageRepository {
     return this.resolveInDatabase(this.database, input);
   }
 
-  async resolvePolicy(userId: string) {
+  async resolveInTransaction(transaction: EntitlementTransaction, input: ResolveEntitlementInput) {
+    this.validateResolveInput(input);
+    return this.resolveInDatabase(transaction as EntitlementDatabase, input);
+  }
+
+  async resolvePolicyInTransaction(
+    transaction: EntitlementTransaction,
+    userId: string,
+    key: EntitlementKey,
+    now: Date,
+  ): Promise<EntitlementPolicy> {
     if (!UUID_PATTERN.test(userId)) throw new Error("INVALID_USER_ID");
-    const [profile] = await this.database.select({ status: profiles.status })
+    const database = transaction as EntitlementDatabase;
+    const [profile] = await database.select({ status: profiles.status })
       .from(profiles).where(eq(profiles.userId, userId)).limit(1);
     return {
       safetyAllowed: !profile || !["restricted", "suspended", "banned"].includes(profile.status),
-      // No launch entitlement currently requires verification. Future policy
-      // adapters can supply a stricter value without changing rule precedence.
-      verificationSatisfied: true,
+      verificationSatisfied: await this.verificationResolver(transaction, userId, key, now),
     };
   }
 
-  async consume(rawInput: ConsumeEntitlementInput): Promise<EntitlementDecision> {
-    const input = { ...rawInput, now: rawInput.now ?? this.clock() };
-    this.validateConsumeInput(input);
-    const hash = contextHash(input.context);
-
-    const existing = await this.findOperation(this.database, input.operationId);
-    if (existing) {
-      if (!operationMatches(existing, input, hash)) throw new Error("OPERATION_ID_CONFLICT");
-      return operationToDecision(existing);
-    }
-
-    try {
-      return await this.database.transaction((transaction) =>
-        this.consumeLocked(transaction as unknown as EntitlementDatabase, input, hash));
-    } catch (error) {
-      if ((error as { code?: string }).code !== "23505") throw error;
-      const replay = await this.findOperation(this.database, input.operationId);
-      if (replay && operationMatches(replay, input, hash)) return operationToDecision(replay);
-      if (replay) throw new Error("OPERATION_ID_CONFLICT");
-      throw error;
-    }
+  async resolvePolicy(userId: string, key: EntitlementKey = "message.send.daily") {
+    return this.transaction(async (transaction) => this.resolvePolicyInTransaction(
+      transaction, userId, key, await this.authoritativeNow(transaction),
+    ));
   }
 
-  // Used by workflows such as Task 8 message persistence so the domain write
-  // and allowance ledger commit or roll back together.
-  async consumeInTransaction(transaction: unknown, rawInput: ConsumeEntitlementInput) {
-    const input = { ...rawInput, now: rawInput.now ?? this.clock() };
+  async authoritativeNow(transaction: EntitlementTransaction) {
+    const result = await (transaction as EntitlementDatabase).execute(sql`SELECT CURRENT_TIMESTAMP AS "now"`);
+    const rows = (result as unknown as { rows?: Array<{ now: Date | string }> }).rows
+      ?? result as unknown as Array<{ now: Date | string }>;
+    const value = rows[0]?.now;
+    const now = value instanceof Date ? value : new Date(String(value));
+    if (Number.isNaN(now.getTime())) throw new Error("AUTHORITATIVE_TIME_UNAVAILABLE");
+    return now;
+  }
+
+  async resolveActivePlanInTransaction(transaction: EntitlementTransaction, userId: string, now: Date) {
+    if (!UUID_PATTERN.test(userId) || Number.isNaN(now.getTime())) throw new Error("INVALID_PLAN_ASSIGNMENT_LOOKUP");
+    const [assignment] = await (transaction as EntitlementDatabase).select({
+      planRef: entitlementUserPlanAssignments.planRef,
+    }).from(entitlementUserPlanAssignments).where(and(
+      eq(entitlementUserPlanAssignments.userId, userId),
+      eq(entitlementUserPlanAssignments.active, true),
+      lte(entitlementUserPlanAssignments.effectiveAt, now),
+      or(isNull(entitlementUserPlanAssignments.expiresAt), gt(entitlementUserPlanAssignments.expiresAt, now)),
+    )).orderBy(
+      desc(entitlementUserPlanAssignments.version),
+      desc(entitlementUserPlanAssignments.effectiveAt),
+    ).limit(1);
+    return assignment?.planRef ?? null;
+  }
+
+  /** @internal Called only by EntitlementService after server authority resolution. */
+  async consumeResolvedInTransaction(
+    transaction: EntitlementTransaction,
+    input: ResolvedConsumeEntitlementInput,
+  ) {
     this.validateConsumeInput(input);
     return this.consumeLocked(
       transaction as EntitlementDatabase,
@@ -177,18 +211,18 @@ export class UsageRepository {
 
   private async consumeLocked(
     tx: EntitlementDatabase,
-    input: ConsumeEntitlementInput,
+    input: ResolvedConsumeEntitlementInput,
     hash: string,
   ): Promise<EntitlementDecision> {
-    const [owner] = await tx.select({ id: users.id }).from(users)
-      .where(eq(users.id, input.userId)).for("update").limit(1);
-    if (!owner) throw new Error("ENTITLEMENT_OWNER_NOT_FOUND");
-
     const replay = await this.findOperation(tx, input.operationId);
     if (replay) {
       if (!operationMatches(replay, input, hash)) throw new Error("OPERATION_ID_CONFLICT");
       return operationToDecision(replay);
     }
+
+    const [owner] = await tx.select({ id: users.id }).from(users)
+      .where(eq(users.id, input.userId)).for("update").limit(1);
+    if (!owner) throw new Error("ENTITLEMENT_OWNER_NOT_FOUND");
 
     const sources = await this.resolveInDatabase(tx, input);
     let decision = resolveEntitlement({
@@ -220,7 +254,10 @@ export class UsageRepository {
         eq(entitlementUsageCounters.userId, input.userId),
         eq(entitlementUsageCounters.entitlementKey, input.key),
         eq(entitlementUsageCounters.periodStart, periodStart),
-        lte(sql`${entitlementUsageCounters.used} + ${input.amount}`, decision.limit),
+        lte(
+          entitlementUsageCounters.used,
+          sql`${decision.limit}::integer - ${input.amount}::integer`,
+        ),
       )).returning({ used: entitlementUsageCounters.used });
       if (updated) {
         decision = { ...decision, remaining: Math.max(decision.limit - updated.used, 0) };
@@ -240,22 +277,29 @@ export class UsageRepository {
       }
     }
 
-    await tx.insert(entitlementUsageOperations).values({
-      operationId: input.operationId,
-      userId: input.userId,
-      entitlementKey: input.key,
-      contextHash: hash,
-      amount: input.amount,
-      kind: decision.kind,
-      allowed: decision.allowed,
-      value: typeof decision.value === "boolean" ? (decision.value ? 1 : 0) : decision.value,
-      limit: decision.limit,
-      remaining: decision.remaining,
-      resetAt: decision.resetAt ? new Date(decision.resetAt) : null,
-      reason: decision.reason,
-      upgradeHint: decision.upgradeHint,
-      createdAt: input.now,
-    });
+    try {
+      await tx.insert(entitlementUsageOperations).values({
+        operationId: input.operationId,
+        userId: input.userId,
+        entitlementKey: input.key,
+        contextHash: hash,
+        amount: input.amount,
+        kind: decision.kind,
+        allowed: decision.allowed,
+        value: typeof decision.value === "boolean" ? (decision.value ? 1 : 0) : decision.value,
+        limit: decision.limit,
+        remaining: decision.remaining,
+        resetAt: decision.resetAt ? new Date(decision.resetAt) : null,
+        reason: decision.reason,
+        upgradeHint: decision.upgradeHint,
+        createdAt: input.now,
+      });
+    } catch (error) {
+      const code = (error as { code?: string; cause?: { code?: string } }).code
+        ?? (error as { cause?: { code?: string } }).cause?.code;
+      if (code === "23505") throw new Error("OPERATION_ID_CONFLICT");
+      throw error;
+    }
     return decision;
   }
 
@@ -263,14 +307,23 @@ export class UsageRepository {
     const [definition] = await database.select().from(entitlementDefinitions)
       .where(eq(entitlementDefinitions.key, input.key)).limit(1);
     if (!definition) throw new Error("UNKNOWN_ENTITLEMENT");
+    const catalog = ENTITLEMENT_CATALOG[input.key];
     const resetPeriod = definition.resetPeriod as ResetPeriod;
+    let configurationInvalid = definition.kind !== catalog.kind || resetPeriod !== catalog.resetPeriod;
     const activeAt = and(
       eq(entitlementConfigurations.entitlementKey, input.key),
       eq(entitlementConfigurations.active, true),
       lte(entitlementConfigurations.effectiveAt, input.now),
       or(isNull(entitlementConfigurations.expiresAt), gt(entitlementConfigurations.expiresAt, input.now)),
     );
-    const [global] = await database.select({ enabled: entitlementConfigurations.enabled })
+    const [global] = await database.select({
+      kind: entitlementConfigurations.kind,
+      enabled: entitlementConfigurations.enabled,
+      booleanValue: entitlementConfigurations.booleanValue,
+      quotaLimit: entitlementConfigurations.quotaLimit,
+      numericValue: entitlementConfigurations.numericValue,
+      upgradeHint: entitlementConfigurations.upgradeHint,
+    })
       .from(entitlementConfigurations).where(and(
         activeAt,
         eq(entitlementConfigurations.scope, "global_flag"),
@@ -329,11 +382,25 @@ export class UsageRepository {
         )).limit(1);
       used = counter?.used ?? 0;
     }
+    const globalInvalid = Boolean(global && (global.kind !== catalog.kind || global.booleanValue !== null
+      || global.quotaLimit !== null || global.numericValue !== null || global.upgradeHint !== null));
+    if (globalInvalid) configurationInvalid = true;
+    const parse = (row: GrantRow | undefined) => {
+      try { return asGrant(row, catalog.kind, catalog.resetPeriod); } catch {
+        configurationInvalid = true;
+        return null;
+      }
+    };
+    const parsedOverride = parse(userOverride);
+    const parsedPlan = parse(planBenefit);
+    const parsedDefault = parse(freeDefault);
     return {
-      globalEnabled: global?.enabled ?? true,
-      userOverride: asGrant(userOverride, definition.kind as EntitlementGrant["kind"], resetPeriod),
-      planBenefit: asGrant(planBenefit, definition.kind as EntitlementGrant["kind"], resetPeriod),
-      freeDefault: asGrant(freeDefault, definition.kind as EntitlementGrant["kind"], resetPeriod),
+      globalEnabled: globalInvalid ? true : global?.enabled ?? true,
+      configurationInvalid,
+      publicVisible: definition.publicVisible && !configurationInvalid,
+      userOverride: parsedOverride,
+      planBenefit: parsedPlan,
+      freeDefault: parsedDefault,
       used,
     } satisfies ResolvedEntitlementSources;
   }
@@ -353,10 +420,10 @@ export class UsageRepository {
     }
   }
 
-  private validateConsumeInput(input: ConsumeEntitlementInput) {
+  private validateConsumeInput(input: ResolvedConsumeEntitlementInput) {
     this.validateResolveInput(input);
     if (!UUID_PATTERN.test(input.operationId)) throw new Error("INVALID_OPERATION_ID");
-    if (!Number.isInteger(input.amount) || input.amount < 1 || input.amount > 100) {
+    if (!Number.isInteger(input.amount) || input.amount < 1 || input.amount > MAX_ENTITLEMENT_QUOTA) {
       throw new Error("INVALID_ENTITLEMENT_AMOUNT");
     }
     if (typeof input.policy?.safetyAllowed !== "boolean"

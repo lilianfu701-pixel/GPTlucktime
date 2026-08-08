@@ -176,6 +176,13 @@
       "when": 1786223895747,
       "tag": "0024_entitlements",
       "breakpoints": true
+    },
+    {
+      "idx": 25,
+      "version": "7",
+      "when": 1786227693335,
+      "tag": "0025_harden_entitlements",
+      "breakpoints": true
     }
   ]
 }

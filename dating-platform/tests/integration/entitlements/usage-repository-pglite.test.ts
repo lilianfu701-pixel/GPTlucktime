@@ -7,7 +7,7 @@ import { migrate } from "drizzle-orm/pglite/migrator";
 import { afterEach, beforeEach, describe, expect, it } from "vitest";
 
 import * as schema from "@/db/schema";
-import { resolveEntitlement } from "@/modules/entitlements/entitlement-service";
+import { EntitlementService, resolveEntitlement } from "@/modules/entitlements/entitlement-service";
 import { UsageRepository } from "@/modules/entitlements/usage-repository";
 
 const NOW = new Date("2026-08-08T12:00:00Z");
@@ -17,6 +17,7 @@ describe("entitlement usage repository", () => {
   let client: PGlite;
   let database: ReturnType<typeof drizzle<typeof schema>>;
   let repository: UsageRepository;
+  let service: EntitlementService;
   let userId: string;
 
   beforeEach(async () => {
@@ -27,7 +28,15 @@ describe("entitlement usage repository", () => {
       name: "Entitled User",
       email: "entitled@example.test",
     }).returning({ id: schema.users.id });
-    repository = new UsageRepository(database, { clock: () => NOW });
+    repository = new UsageRepository(database);
+    service = new EntitlementService({
+      store: repository,
+      timeResolver: async () => NOW,
+      policyResolver: (transaction, ownerId, key, now) =>
+        repository.resolvePolicyInTransaction(transaction, ownerId, key, now),
+      planResolver: (transaction, ownerId, now) =>
+        repository.resolveActivePlanInTransaction(transaction, ownerId, now),
+    });
   });
 
   afterEach(async () => client.close());
@@ -78,6 +87,7 @@ describe("entitlement usage repository", () => {
     await database.insert(schema.entitlementPlanBenefits).values({
       planRef: "plus-v1",
       entitlementKey: "super_like.monthly",
+      kind: "quota",
       version: 1,
       enabled: true,
       quotaLimit: 5,
@@ -86,6 +96,7 @@ describe("entitlement usage repository", () => {
     await database.insert(schema.entitlementUserOverrides).values([{
       userId,
       entitlementKey: "super_like.monthly",
+      kind: "quota",
       version: 1,
       enabled: true,
       quotaLimit: 7,
@@ -94,6 +105,7 @@ describe("entitlement usage repository", () => {
     }, {
       userId,
       entitlementKey: "message.send.daily",
+      kind: "quota",
       version: 1,
       enabled: true,
       quotaLimit: 1,
@@ -117,6 +129,7 @@ describe("entitlement usage repository", () => {
     await database.insert(schema.entitlementPlanBenefits).values({
       planRef: "expired-plus",
       entitlementKey: "super_like.monthly",
+      kind: "quota",
       version: 1,
       quotaLimit: 5,
       effectiveAt: new Date("2026-08-01T00:00:00Z"),
@@ -150,6 +163,7 @@ describe("entitlement usage repository", () => {
     await database.insert(schema.entitlementUserOverrides).values({
       userId,
       entitlementKey: "message.send.daily",
+      kind: "quota",
       version: 1,
       enabled: true,
       quotaLimit: 2,
@@ -161,22 +175,19 @@ describe("entitlement usage repository", () => {
       operationId,
       amount: 1,
       context: { conversationId: "conversation-a" },
-      planRef: null,
-      policy: { safetyAllowed: true, verificationSatisfied: true },
-      now: NOW,
     };
-    const first = await repository.consume(input);
-    const replay = await repository.consume(input);
+    const first = await service.consume(input);
+    const replay = await service.consume(input);
     expect(replay).toEqual(first);
     expect(first).toMatchObject({ allowed: true, remaining: 1 });
     const [usage] = await database.select().from(schema.entitlementUsageCounters);
     expect(usage.used).toBe(1);
 
-    await expect(repository.consume({ ...input, userId: OTHER_USER_ID }))
+    await expect(service.consume({ ...input, userId: OTHER_USER_ID }))
       .rejects.toThrow("OPERATION_ID_CONFLICT");
-    await expect(repository.consume({ ...input, key: "super_like.monthly" }))
+    await expect(service.consume({ ...input, key: "super_like.monthly" }))
       .rejects.toThrow("OPERATION_ID_CONFLICT");
-    await expect(repository.consume({ ...input, context: { conversationId: "conversation-b" } }))
+    await expect(service.consume({ ...input, context: { conversationId: "conversation-b" } }))
       .rejects.toThrow("OPERATION_ID_CONFLICT");
   });
 
@@ -184,20 +195,18 @@ describe("entitlement usage repository", () => {
     await database.insert(schema.entitlementUserOverrides).values({
       userId,
       entitlementKey: "message.send.daily",
+      kind: "quota",
       version: 1,
       enabled: true,
       quotaLimit: 1,
       effectiveAt: new Date("2026-08-01T00:00:00Z"),
     });
-    const consume = (operationId: string) => repository.consume({
+    const consume = (operationId: string) => service.consume({
       userId,
       key: "message.send.daily",
       operationId,
       amount: 1,
       context: {},
-      planRef: null,
-      policy: { safetyAllowed: true, verificationSatisfied: true },
-      now: NOW,
     });
 
     const results = await Promise.all([
@@ -218,23 +227,54 @@ describe("entitlement usage repository", () => {
     await database.insert(schema.entitlementUserOverrides).values({
       userId,
       entitlementKey: "message.send.daily",
+      kind: "quota",
       version: 1,
       quotaLimit: 1,
       effectiveAt: new Date("2026-08-01T00:00:00Z"),
     });
-    const result = await repository.consume({
+    const result = await service.consume({
       userId,
       key: "message.send.daily",
       operationId: "00000000-0000-4000-8000-000000000013",
       amount: 2,
       context: {},
-      planRef: null,
-      policy: { safetyAllowed: true, verificationSatisfied: true },
-      now: NOW,
     });
     expect(result).toMatchObject({ allowed: false, remaining: 1, reason: "LIMIT_REACHED" });
     const [usage] = await database.select().from(schema.entitlementUsageCounters);
     expect(usage.used).toBe(0);
+  });
+
+  it("accepts the exact quota ceiling without overflow and rejects amounts above it", async () => {
+    await database.insert(schema.entitlementUserOverrides).values({
+      userId,
+      entitlementKey: "message.send.daily",
+      kind: "quota",
+      version: 1,
+      quotaLimit: 1_000_000,
+      effectiveAt: new Date("2026-08-01T00:00:00Z"),
+    });
+    await database.insert(schema.entitlementUsageCounters).values({
+      userId,
+      entitlementKey: "message.send.daily",
+      periodStart: new Date("2026-08-08T00:00:00Z"),
+      resetAt: new Date("2026-08-09T00:00:00Z"),
+      used: 999_999,
+      updatedAt: NOW,
+    });
+    await expect(service.consume({
+      userId,
+      key: "message.send.daily",
+      operationId: "00000000-0000-4000-8000-000000000080",
+      amount: 1,
+      context: {},
+    })).resolves.toMatchObject({ allowed: true, remaining: 0 });
+    await expect(service.consume({
+      userId,
+      key: "message.send.daily",
+      operationId: "00000000-0000-4000-8000-000000000081",
+      amount: 1_000_001,
+      context: {},
+    })).rejects.toThrow("INVALID_ENTITLEMENT_AMOUNT");
   });
 
   it("records a disabled decision without creating a usage counter", async () => {
@@ -246,19 +286,51 @@ describe("entitlement usage repository", () => {
       enabled: false,
       effectiveAt: new Date("2026-08-01T00:00:00Z"),
     });
-    const result = await repository.consume({
+    const result = await service.consume({
       userId,
       key: "message.send.daily",
       operationId: "00000000-0000-4000-8000-000000000014",
       amount: 1,
       context: {},
-      planRef: null,
-      policy: { safetyAllowed: true, verificationSatisfied: true },
-      now: NOW,
     });
     expect(result).toMatchObject({ allowed: false, reason: "FEATURE_DISABLED" });
     expect(await database.select().from(schema.entitlementUsageCounters)).toEqual([]);
     expect(await database.select().from(schema.entitlementUsageOperations)).toHaveLength(1);
+  });
+
+  it("reads current safety status and verification policy inside the consume transaction", async () => {
+    await database.insert(schema.profiles).values({ userId, status: "restricted" });
+    await expect(service.consume({
+      userId,
+      key: "message.send.daily",
+      operationId: "00000000-0000-4000-8000-000000000083",
+      amount: 1,
+      context: {},
+    })).resolves.toMatchObject({ allowed: false, reason: "SAFETY_RESTRICTED" });
+
+    await database.update(schema.profiles).set({ status: "active" })
+      .where(eq(schema.profiles.userId, userId));
+    const verificationRepository = new UsageRepository(database, {
+      verificationResolver: async (transaction, ownerId, key, at) => {
+        expect(transaction).toBeDefined();
+        expect({ ownerId, key, at }).toEqual({ ownerId: userId, key: "message.send.daily", at: NOW });
+        return false;
+      },
+    });
+    const verificationService = new EntitlementService({
+      store: verificationRepository,
+      timeResolver: async () => NOW,
+      policyResolver: (transaction, ownerId, key, now) =>
+        verificationRepository.resolvePolicyInTransaction(transaction, ownerId, key, now),
+      planResolver: async () => null,
+    });
+    await expect(verificationService.consume({
+      userId,
+      key: "message.send.daily",
+      operationId: "00000000-0000-4000-8000-000000000084",
+      amount: 1,
+      context: {},
+    })).resolves.toMatchObject({ allowed: false, reason: "VERIFICATION_REQUIRED" });
   });
 
   it("rejects non-primitive contexts and malformed runtime policy values", async () => {
@@ -268,18 +340,11 @@ describe("entitlement usage repository", () => {
       operationId: "00000000-0000-4000-8000-000000000015",
       amount: 1,
       context: {},
-      planRef: null,
-      policy: { safetyAllowed: true, verificationSatisfied: true },
-      now: NOW,
     };
-    await expect(repository.consume({
+    await expect(service.consume({
       ...base,
       context: { nested: {} } as never,
     })).rejects.toThrow("INVALID_ENTITLEMENT_CONTEXT");
-    await expect(repository.consume({
-      ...base,
-      policy: { safetyAllowed: "yes", verificationSatisfied: true } as never,
-    })).rejects.toThrow("INVALID_ENTITLEMENT_POLICY");
   });
 
   it("can join a caller transaction and rolls usage back with the caller write", async () => {
@@ -289,15 +354,99 @@ describe("entitlement usage repository", () => {
       operationId: "00000000-0000-4000-8000-000000000016",
       amount: 1,
       context: { conversationId: "future-task-8" },
-      planRef: null,
-      policy: { safetyAllowed: true, verificationSatisfied: true },
-      now: NOW,
     };
     await expect(database.transaction(async (transaction) => {
-      await repository.consumeInTransaction(transaction, input);
+      await service.consumeInTransaction(transaction, input);
       throw new Error("CALLER_ROLLBACK");
     })).rejects.toThrow("CALLER_ROLLBACK");
     expect(await database.select().from(schema.entitlementUsageCounters)).toEqual([]);
     expect(await database.select().from(schema.entitlementUsageOperations)).toEqual([]);
+  });
+
+  it("rejects database grants whose kind, value, hint, or numeric bounds are invalid", async () => {
+    await expect(database.insert(schema.entitlementUserOverrides).values({
+      userId,
+      entitlementKey: "profile.incognito.use",
+      kind: "quota",
+      version: 1,
+      quotaLimit: 1,
+      effectiveAt: NOW,
+    })).rejects.toThrow();
+    await expect(database.insert(schema.entitlementPlanBenefits).values({
+      planRef: "plus",
+      entitlementKey: "profile.incognito.use",
+      kind: "boolean",
+      version: 1,
+      booleanValue: true,
+      upgradeHint: "Unsafe Plan Name",
+      effectiveAt: NOW,
+    })).rejects.toThrow();
+    await expect(database.insert(schema.entitlementPlanBenefits).values({
+      planRef: "plus",
+      entitlementKey: "ranking.boost.multiplier",
+      kind: "numeric",
+      version: 1,
+      numericValue: Number.POSITIVE_INFINITY,
+      effectiveAt: NOW,
+    })).rejects.toThrow();
+    await expect(database.insert(schema.entitlementUserOverrides).values({
+      userId,
+      entitlementKey: "message.send.daily",
+      kind: "quota",
+      version: 2,
+      quotaLimit: 1_000_001,
+      effectiveAt: NOW,
+    })).rejects.toThrow();
+  });
+
+  it("resolves only active versioned user plan assignments", async () => {
+    await database.insert(schema.entitlementUserPlanAssignments).values([{
+      userId,
+      planRef: "expired-plus",
+      version: 1,
+      effectiveAt: new Date("2026-08-01T00:00:00Z"),
+      expiresAt: new Date("2026-08-08T00:00:00Z"),
+    }, {
+      userId,
+      planRef: "active-plus",
+      version: 2,
+      effectiveAt: new Date("2026-08-01T00:00:00Z"),
+      expiresAt: new Date("2026-08-09T00:00:00Z"),
+    }]);
+    await expect(database.transaction((transaction) =>
+      repository.resolveActivePlanInTransaction(transaction, userId, NOW)))
+      .resolves.toBe("active-plus");
+    await database.update(schema.entitlementUserPlanAssignments).set({ active: false })
+      .where(eq(schema.entitlementUserPlanAssignments.planRef, "active-plus"));
+    await expect(database.transaction((transaction) =>
+      repository.resolveActivePlanInTransaction(transaction, userId, NOW)))
+      .resolves.toBeNull();
+  });
+
+  it("uses code-unit context ordering for stable Unicode idempotency", async () => {
+    const operationId = "00000000-0000-4000-8000-000000000082";
+    const base = {
+      userId,
+      key: "message.send.daily" as const,
+      operationId,
+      amount: 1,
+    };
+    const first = await service.consume({ ...base, context: { "ä": 1, Z: 2 } });
+    const replay = await service.consume({ ...base, context: { Z: 2, "ä": 1 } });
+    expect(replay).toEqual(first);
+  });
+
+  it("does not list a known registry key when public_visible is false", async () => {
+    await database.update(schema.entitlementDefinitions).set({ publicVisible: false })
+      .where(eq(schema.entitlementDefinitions.key, "profile.visitors.view"));
+    const visibilityService = new EntitlementService({
+      store: repository,
+      timeResolver: async () => NOW,
+      policyResolver: (transaction, ownerId, key, now) =>
+        repository.resolvePolicyInTransaction(transaction, ownerId, key, now),
+      planResolver: async () => null,
+    });
+    expect((await visibilityService.listPublic(userId)).map((decision) => decision.key))
+      .not.toContain("profile.visitors.view");
   });
 });

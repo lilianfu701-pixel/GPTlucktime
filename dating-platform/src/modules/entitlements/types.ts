@@ -16,12 +16,16 @@ export const PUBLIC_ENTITLEMENT_KEYS = [
 export type EntitlementKey = typeof PUBLIC_ENTITLEMENT_KEYS[number];
 export type EntitlementKind = "boolean" | "quota" | "numeric";
 export type ResetPeriod = "none" | "daily" | "monthly";
+export const MAX_ENTITLEMENT_QUOTA = 1_000_000;
+export const MAX_ENTITLEMENT_NUMERIC = 1_000_000;
+export const ENTITLEMENT_NUMERIC_SCALE = 4;
 export type EntitlementReason =
   | "SAFETY_RESTRICTED"
   | "VERIFICATION_REQUIRED"
   | "FEATURE_DISABLED"
   | "NOT_INCLUDED"
-  | "LIMIT_REACHED";
+  | "LIMIT_REACHED"
+  | "CONFIGURATION_INVALID";
 
 export const ENTITLEMENT_CATALOG: Readonly<Record<EntitlementKey, {
   kind: EntitlementKind;
@@ -55,6 +59,8 @@ export type EntitlementGrant = {
 
 export type ResolvedEntitlementSources = {
   globalEnabled: boolean;
+  configurationInvalid?: boolean;
+  publicVisible?: boolean;
   userOverride: EntitlementGrant | null;
   planBenefit: EntitlementGrant | null;
   freeDefault: EntitlementGrant | null;
@@ -80,16 +86,44 @@ export type ResolveEntitlementInput = {
   now: Date;
 };
 
-export type ConsumeEntitlementInput = ResolveEntitlementInput & {
+export type AuthoritativeConsumeInput = {
+  userId: string;
+  key: EntitlementKey;
   operationId: string;
   amount: number;
   context: Readonly<Record<string, string | number | boolean | null>>;
+};
+
+export type ResolvedConsumeEntitlementInput = AuthoritativeConsumeInput & {
+  planRef: string | null;
+  now: Date;
   policy: EntitlementPolicy;
 };
 
+export type EntitlementTransaction = unknown;
+export type EntitlementTimeResolver = (transaction: EntitlementTransaction) => Promise<Date>;
+export type EntitlementPolicyResolver = (
+  transaction: EntitlementTransaction,
+  userId: string,
+  key: EntitlementKey,
+  now: Date,
+) => Promise<EntitlementPolicy>;
+export type EntitlementPlanResolver = (
+  transaction: EntitlementTransaction,
+  userId: string,
+  now: Date,
+) => Promise<string | null>;
+
 export interface EntitlementStore {
-  resolve(input: ResolveEntitlementInput): Promise<ResolvedEntitlementSources>;
-  consume(input: ConsumeEntitlementInput): Promise<EntitlementDecision>;
+  transaction<T>(work: (transaction: EntitlementTransaction) => Promise<T>): Promise<T>;
+  resolveInTransaction(
+    transaction: EntitlementTransaction,
+    input: ResolveEntitlementInput,
+  ): Promise<ResolvedEntitlementSources>;
+  consumeResolvedInTransaction(
+    transaction: EntitlementTransaction,
+    input: ResolvedConsumeEntitlementInput,
+  ): Promise<EntitlementDecision>;
 }
 
 export interface EntitlementCache {

@@ -9,6 +9,7 @@ import { Pool, type PoolClient } from "pg";
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
 
 import * as schema from "@/db/schema";
+import { EntitlementService } from "@/modules/entitlements/entitlement-service";
 import { UsageRepository } from "@/modules/entitlements/usage-repository";
 
 const TEST_DATABASE_URL = process.env.TEST_DATABASE_URL;
@@ -24,6 +25,17 @@ runWithPostgres("entitlement PostgreSQL concurrency with independent pools", () 
   let rightDatabase: ReturnType<typeof drizzle<typeof schema>>;
   let leftRepository: UsageRepository;
   let rightRepository: UsageRepository;
+  let leftService: EntitlementService;
+  let rightService: EntitlementService;
+
+  const serviceFor = (repository: UsageRepository) => new EntitlementService({
+    store: repository,
+    timeResolver: async () => now,
+    policyResolver: (transaction, userId, key, at) =>
+      repository.resolvePolicyInTransaction(transaction, userId, key, at),
+    planResolver: (transaction, userId, at) =>
+      repository.resolveActivePlanInTransaction(transaction, userId, at),
+  });
 
   const releaseTogether = async (operations: Array<() => Promise<unknown>>) => {
     let release!: () => void;
@@ -80,8 +92,10 @@ runWithPostgres("entitlement PostgreSQL concurrency with independent pools", () 
     rightPool = new Pool(options);
     leftDatabase = drizzle(leftPool, { schema });
     rightDatabase = drizzle(rightPool, { schema });
-    leftRepository = new UsageRepository(leftDatabase, { clock: () => now });
-    rightRepository = new UsageRepository(rightDatabase, { clock: () => now });
+    leftRepository = new UsageRepository(leftDatabase);
+    rightRepository = new UsageRepository(rightDatabase);
+    leftService = serviceFor(leftRepository);
+    rightService = serviceFor(rightRepository);
   }, 30_000);
 
   afterAll(async () => {
@@ -97,23 +111,21 @@ runWithPostgres("entitlement PostgreSQL concurrency with independent pools", () 
     await leftDatabase.insert(schema.entitlementUserOverrides).values({
       userId,
       entitlementKey: "message.send.daily",
+      kind: "quota",
       version: 1,
       quotaLimit: 1,
       effectiveAt: new Date("2026-08-01T00:00:00Z"),
     });
-    const consume = (repository: UsageRepository, operationId: string) => repository.consume({
+    const consume = (service: EntitlementService, operationId: string) => service.consume({
       userId,
       key: "message.send.daily",
       operationId,
       amount: 1,
       context: {},
-      planRef: null,
-      policy: { safetyAllowed: true, verificationSatisfied: true },
-      now,
     });
     const settled = await releaseTogether([
-      () => consume(leftRepository, "00000000-0000-4000-8000-000000000021"),
-      () => consume(rightRepository, "00000000-0000-4000-8000-000000000022"),
+      () => consume(leftService, "00000000-0000-4000-8000-000000000021"),
+      () => consume(rightService, "00000000-0000-4000-8000-000000000022"),
     ]);
     const fulfilled = settled.flatMap((result) => result.status === "fulfilled" ? [result.value] : []);
     expect(fulfilled).toHaveLength(2);
@@ -128,20 +140,44 @@ runWithPostgres("entitlement PostgreSQL concurrency with independent pools", () 
     const rightUserId = await addUser("Operation Right");
     const operationId = "00000000-0000-4000-8000-000000000023";
     const settled = await releaseTogether([
-      () => leftRepository.consume({
+      () => leftService.consume({
         userId: leftUserId, key: "message.send.daily", operationId, amount: 1,
-        context: { side: "left" }, planRef: null,
-        policy: { safetyAllowed: true, verificationSatisfied: true }, now,
+        context: { side: "left" },
       }),
-      () => rightRepository.consume({
+      () => rightService.consume({
         userId: rightUserId, key: "message.send.daily", operationId, amount: 1,
-        context: { side: "right" }, planRef: null,
-        policy: { safetyAllowed: true, verificationSatisfied: true }, now,
+        context: { side: "right" },
       }),
     ]);
     expect(settled.filter((result) => result.status === "fulfilled")).toHaveLength(1);
-    expect(settled.filter((result) => result.status === "rejected")).toHaveLength(1);
+    const rejected = settled.filter((result) => result.status === "rejected");
+    expect(rejected).toHaveLength(1);
+    expect(String((rejected[0] as PromiseRejectedResult).reason)).toContain("OPERATION_ID_CONFLICT");
     expect(await leftDatabase.select().from(schema.entitlementUsageOperations)
       .where(eq(schema.entitlementUsageOperations.operationId, operationId))).toHaveLength(1);
+  });
+
+  it("replays the same operation and rolls caller transactions back atomically", async () => {
+    const userId = await addUser("Replay Owner");
+    const input = {
+      userId,
+      key: "message.send.daily" as const,
+      operationId: "00000000-0000-4000-8000-000000000024",
+      amount: 1,
+      context: { conversationId: "same-operation" },
+    };
+    const first = await leftService.consume(input);
+    await expect(rightService.consume(input)).resolves.toEqual(first);
+
+    await expect(leftDatabase.transaction(async (transaction) => {
+      await leftService.consumeInTransaction(transaction, {
+        ...input,
+        operationId: "00000000-0000-4000-8000-000000000025",
+      });
+      throw new Error("CALLER_ROLLBACK");
+    })).rejects.toThrow("CALLER_ROLLBACK");
+    expect(await leftDatabase.select().from(schema.entitlementUsageOperations)
+      .where(eq(schema.entitlementUsageOperations.operationId,
+        "00000000-0000-4000-8000-000000000025"))).toHaveLength(0);
   });
 });
