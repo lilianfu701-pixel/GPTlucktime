@@ -1,6 +1,7 @@
 import { z } from "zod";
 
 import { MessageRepository, MessagingError } from "./message-repository";
+import type { MessageReceiptService } from "./message-receipt-service";
 import { normalizeSendMessageInput } from "./message-input";
 
 type Session = { user: { id: string }; session: { id: string } };
@@ -219,6 +220,40 @@ export function createRealtimeTicketHandler(input: {
         return errorResponse("REALTIME_SESSION_NOT_AVAILABLE", 403);
       }
       return errorResponse("INTERNAL_ERROR", 500);
+    }
+  };
+}
+
+export function createMessageReceiptsHandler(input: {
+  getSession: SessionReader;
+  receipts: Pick<MessageReceiptService, "listVisible">;
+}) {
+  return async (request: Request, context: MessageContext) => {
+    let session: Session | null;
+    try { session = await requireSession(input.getSession, request.headers); } catch {
+      return errorResponse("INTERNAL_ERROR", 500);
+    }
+    if (!session) return errorResponse("UNAUTHORIZED", 401);
+    if (request.method !== "GET") return errorResponse("METHOD_NOT_ALLOWED", 405);
+    let conversationId: string;
+    try { conversationId = uuid.parse((await context.params).conversationId); } catch {
+      return errorResponse("CONVERSATION_NOT_AVAILABLE", 404);
+    }
+    const search = new URL(request.url).searchParams;
+    for (const key of search.keys()) {
+      if (key !== "afterSequence" || search.getAll(key).length !== 1) {
+        return errorResponse("INVALID_PAGINATION", 400);
+      }
+    }
+    const rawAfter = search.get("afterSequence");
+    const afterSequence = rawAfter === null ? 0 : Number(rawAfter);
+    if (!Number.isSafeInteger(afterSequence) || afterSequence < 0) {
+      return errorResponse("INVALID_PAGINATION", 400);
+    }
+    try {
+      return Response.json(await input.receipts.listVisible(session.user.id, conversationId, afterSequence));
+    } catch {
+      return errorResponse("CONVERSATION_NOT_AVAILABLE", 404);
     }
   };
 }

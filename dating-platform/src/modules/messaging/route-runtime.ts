@@ -7,6 +7,8 @@ import { SocialRepository } from "@/modules/social/social-repository";
 import { readEnv } from "@/shared/env";
 
 import { DrizzleMessageVerificationPolicy, MessageRepository } from "./message-repository";
+import { MessageReceiptRepository } from "./message-receipt-repository";
+import { MessageReceiptService } from "./message-receipt-service";
 import { DrizzleSocketTicketIssuer, parseSocketTicketKeyRing } from "./socket-ticket";
 
 const env = readEnv(process.env);
@@ -14,6 +16,7 @@ const socialRepository = new SocialRepository(db, {
   cursorSecret: env.BETTER_AUTH_SECRET,
   idempotencySecret: env.BETTER_AUTH_SECRET,
 });
+const receiptRepository = new MessageReceiptRepository(db, { interactionPolicy: socialRepository });
 
 export const messagingRouteDependencies = {
   getSession: async (headers: Headers) => {
@@ -32,4 +35,5 @@ export const messagingRouteDependencies = {
   issuer: env.REALTIME_TICKET_KEYS
     ? new DrizzleSocketTicketIssuer(db, parseSocketTicketKeyRing(env.REALTIME_TICKET_KEYS))
     : null,
+  receipts: new MessageReceiptService(receiptRepository, entitlementService),
 };

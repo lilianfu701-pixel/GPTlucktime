@@ -116,6 +116,13 @@ const schema = z
     MEDIA_WORKER_CRON_SECRET: optionalValue(z.string().min(32).max(256)),
     DISCOVERY_DISABLED_COUNTRY_CODES: optionalValue(z.string().regex(/^[A-Z]{2}(,[A-Z]{2})*$/)),
     REALTIME_TICKET_KEYS: optionalValue(realtimeTicketKeyRing),
+    REALTIME_HOST: optionalValue(z.enum(["127.0.0.1", "0.0.0.0"])),
+    REALTIME_PORT: optionalValue(z.coerce.number().int().min(1).max(65535)),
+    REALTIME_POLL_MS: optionalValue(z.coerce.number().int().min(100).max(60_000)),
+    REALTIME_PUBLIC_URL: optionalValue(urlWithProtocols(
+      ["http:", "https:"],
+      "REALTIME_PUBLIC_URL must use http:// or https://",
+    )),
   })
   .superRefine((env, context) => {
     const requireCompleteGroup = (
@@ -212,6 +219,13 @@ const schema = z
         code: "custom",
         message: "PROFILE_MEDIA_STORAGE_ENDPOINT must use https:// in production",
         path: ["PROFILE_MEDIA_STORAGE_ENDPOINT"],
+      });
+    }
+    if (env.REALTIME_PUBLIC_URL && new URL(env.REALTIME_PUBLIC_URL).protocol !== "https:") {
+      context.addIssue({
+        code: "custom",
+        message: "REALTIME_PUBLIC_URL must use https:// in production",
+        path: ["REALTIME_PUBLIC_URL"],
       });
     }
   });

@@ -204,6 +204,20 @@
       "when": 1786235735094,
       "tag": "0028_harden_messaging_authorization",
       "breakpoints": true
+    },
+    {
+      "idx": 29,
+      "version": "7",
+      "when": 1786238436453,
+      "tag": "0029_realtime_delivery",
+      "breakpoints": true
+    },
+    {
+      "idx": 30,
+      "version": "7",
+      "when": 1786239076826,
+      "tag": "0030_suppress_blocked_message_delivery",
+      "breakpoints": true
     }
   ]
 }

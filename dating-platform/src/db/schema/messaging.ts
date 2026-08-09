@@ -114,6 +114,10 @@ export const messageOutboxEvents = pgTable("message_outbox_events", {
   availableAt: timestamptz("available_at").defaultNow().notNull(),
   leaseId: uuid("lease_id"),
   leaseExpiresAt: timestamptz("lease_expires_at"),
+  lastErrorCode: varchar("last_error_code", { length: 80 }),
+  failedAt: timestamptz("failed_at"),
+  suppressionReason: varchar("suppression_reason", { length: 80 }),
+  suppressedAt: timestamptz("suppressed_at"),
   publishedAt: timestamptz("published_at"),
   createdAt: timestamptz("created_at").defaultNow().notNull(),
 }, (table) => [
@@ -121,7 +125,7 @@ export const messageOutboxEvents = pgTable("message_outbox_events", {
   uniqueIndex("message_outbox_dedupe_unique").on(table.dedupeKey),
   index("message_outbox_claim_idx").on(table.status, table.availableAt, table.leaseExpiresAt),
   check("message_outbox_type_check", sql`${table.eventType} = 'message.created'`),
-  check("message_outbox_status_check", sql`${table.status} IN ('pending', 'processing', 'published', 'failed')`),
+  check("message_outbox_status_check", sql`${table.status} IN ('pending', 'processing', 'published', 'failed', 'suppressed')`),
   check("message_outbox_attempts_check", sql`${table.attempts} >= 0`),
   check("message_outbox_lease_check", sql`
     (${table.status} = 'processing' AND ${table.leaseId} IS NOT NULL AND ${table.leaseExpiresAt} IS NOT NULL)
@@ -130,6 +134,14 @@ export const messageOutboxEvents = pgTable("message_outbox_events", {
   check("message_outbox_publish_check", sql`
     (${table.status} = 'published' AND ${table.publishedAt} IS NOT NULL)
     OR (${table.status} <> 'published' AND ${table.publishedAt} IS NULL)
+  `),
+  check("message_outbox_failure_check", sql`
+    (${table.status} = 'failed' AND ${table.failedAt} IS NOT NULL AND ${table.lastErrorCode} IS NOT NULL)
+    OR (${table.status} <> 'failed' AND ${table.failedAt} IS NULL)
+  `),
+  check("message_outbox_suppression_check", sql`
+    (${table.status} = 'suppressed' AND ${table.suppressedAt} IS NOT NULL AND ${table.suppressionReason} IS NOT NULL)
+    OR (${table.status} <> 'suppressed' AND ${table.suppressedAt} IS NULL AND ${table.suppressionReason} IS NULL)
   `),
 ]);
 

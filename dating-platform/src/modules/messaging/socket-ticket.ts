@@ -85,7 +85,19 @@ function parseObject(segment: string) {
   }
 }
 
-export function verifySocketTicket(token: string, keys: SocketTicketKeyRing, now = new Date()) {
+export type VerifiedSocketTicket = {
+  sub: string;
+  sessionId: string;
+  aud: "realtime";
+  exp: number;
+  issuedAt: Date;
+};
+
+export function verifySocketTicket(
+  token: string,
+  keys: SocketTicketKeyRing,
+  now = new Date(),
+): VerifiedSocketTicket {
   if (!token || token.length > 4096 || Number.isNaN(now.getTime())) invalidTicket();
   const [encodedHeader, encodedPayload, encodedSignature, extra] = token.split(".");
   if (!encodedHeader || !encodedPayload || !encodedSignature || extra) invalidTicket();
@@ -113,8 +125,8 @@ export function verifySocketTicket(token: string, keys: SocketTicketKeyRing, now
   const issuedAtSeconds = exp - TICKET_TTL_SECONDS;
   if (issuedAtSeconds > nowSeconds || exp <= nowSeconds) invalidTicket();
   return {
-    sub: payload.sub,
-    sessionId: payload.sessionId,
+    sub: payload.sub as string,
+    sessionId: payload.sessionId as string,
     aud: "realtime" as const,
     exp,
     issuedAt: new Date(issuedAtSeconds * 1000),
