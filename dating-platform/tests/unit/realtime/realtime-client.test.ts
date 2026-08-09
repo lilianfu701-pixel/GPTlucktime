@@ -7,6 +7,7 @@ import {
   CoalescedAbortableRequests,
   PendingSendLedger,
   RequestGenerations,
+  requireRealtimeRecoveryResponse,
   recoverAllMessagePages,
   ReceiptDeliveryQueue,
   RealtimeMessageStore,
@@ -198,9 +199,16 @@ it("coalesces dense receipt refresh requests and cancels them on cleanup", async
     await new Promise<void>((_resolve, reject) => signal.addEventListener("abort", () => reject(signal.reason), { once: true }));
   });
   await Promise.resolve();
+  const cancelledSignal = signals.at(-1);
   requests.cancelAll();
-  await active;
-  expect(signals.at(-1)?.aborted).toBe(true);
+  let replacementCalls = 0;
+  const replacement = requests.run("other", async (signal) => {
+    replacementCalls += 1;
+    expect(signal.aborted).toBe(false);
+  });
+  await Promise.all([active, replacement]);
+  expect(cancelledSignal?.aborted).toBe(true);
+  expect(replacementCalls).toBe(1);
 });
 
 it("continues after each bounded recovery round until every page is hydrated", async () => {
@@ -222,4 +230,10 @@ it("continues after each bounded recovery round until every page is hydrated", a
   }, { afterSequence: 0, maxPagesPerRound: 2, yieldToEventLoop: async () => undefined });
   expect(calls).toEqual([0, 1, 2, 3, 4]);
   expect(rows.map(({ sequence }) => sequence)).toEqual([1, 2, 3, 4, 5]);
+});
+
+it("classifies only explicit HTTP authorization failures as permanently unavailable", () => {
+  expect(() => requireRealtimeRecoveryResponse({ ok: false, status: 404 })).toThrow("NOT_AVAILABLE");
+  expect(() => requireRealtimeRecoveryResponse({ ok: false, status: 500 })).toThrow("RECOVERY_RETRY_LATER");
+  expect(() => requireRealtimeRecoveryResponse({ ok: true, status: 200 })).not.toThrow();
 });

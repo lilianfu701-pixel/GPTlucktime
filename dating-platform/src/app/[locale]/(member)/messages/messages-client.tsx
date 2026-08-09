@@ -7,6 +7,7 @@ import {
   createRealtimeClient,
   PendingSendLedger,
   recoverAllMessagePages,
+  requireRealtimeRecoveryResponse,
   type RealtimeConnectionState,
   type RecoveredMessage,
 } from "@/modules/messaging/realtime-client";
@@ -61,7 +62,7 @@ export function MessagesClient({ locale, realtimeUrl }: { locale: "en" | "zh"; r
         credentials: "same-origin",
         signal: pageSignal,
       });
-      if (!response.ok) throw new Error("MESSAGES_UNAVAILABLE");
+      requireRealtimeRecoveryResponse(response);
       const result = await response.json() as { messages?: RecoveredMessage[]; nextAfterSequence?: number | null };
       return {
         messages: Array.isArray(result.messages) ? result.messages : [],
@@ -99,6 +100,14 @@ export function MessagesClient({ locale, realtimeUrl }: { locale: "en" | "zh"; r
     }
   }), []);
 
+  const safelyLoadReceipts = useCallback((conversationId: string) => {
+    void loadReceipts(conversationId).catch(() => {
+      setReceipts((current) => current[conversationId]
+        ? current
+        : { ...current, [conversationId]: {} });
+    });
+  }, [loadReceipts]);
+
   useEffect(() => () => receiptRequestsRef.current.cancelAll(), []);
 
   useEffect(() => {
@@ -119,7 +128,7 @@ export function MessagesClient({ locale, realtimeUrl }: { locale: "en" | "zh"; r
       onState: setState,
       onMessages: (conversationId, rows) => {
         setMessages((current) => ({ ...current, [conversationId]: rows }));
-        void loadReceipts(conversationId);
+        safelyLoadReceipts(conversationId);
       },
     });
     clientRef.current = client;
@@ -128,7 +137,7 @@ export function MessagesClient({ locale, realtimeUrl }: { locale: "en" | "zh"; r
       client.stop();
       if (clientRef.current === client) clientRef.current = null;
     };
-  }, [realtimeUrl, recover, loadReceipts]);
+  }, [realtimeUrl, recover, safelyLoadReceipts]);
 
   useEffect(() => {
     if (!selected) return;
@@ -142,7 +151,7 @@ export function MessagesClient({ locale, realtimeUrl }: { locale: "en" | "zh"; r
         .then((rows) => {
           if (selectionGenerationRef.current !== generation || selectedRef.current !== selected) return;
           setMessages((current) => ({ ...current, [selected]: rows }));
-          void loadReceipts(selected);
+          safelyLoadReceipts(selected);
         })
         .catch(() => undefined);
     }
@@ -150,7 +159,7 @@ export function MessagesClient({ locale, realtimeUrl }: { locale: "en" | "zh"; r
       controller.abort();
       receiptRequests.cancel(selected);
     };
-  }, [selected, realtimeUrl, recover, loadReceipts]);
+  }, [selected, realtimeUrl, recover, safelyLoadReceipts]);
 
   const selectConversation = (conversationId: string) => {
     selectedRef.current = conversationId;
@@ -200,7 +209,7 @@ export function MessagesClient({ locale, realtimeUrl }: { locale: "en" | "zh"; r
         const rows = await recover(selected, 0);
         if (selectionGenerationRef.current === generation && selectedRef.current === selected) {
           setMessages((current) => ({ ...current, [selected]: rows }));
-          void loadReceipts(selected);
+          safelyLoadReceipts(selected);
         }
       }
     } catch {

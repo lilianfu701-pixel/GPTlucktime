@@ -14,6 +14,16 @@ class RealtimeActionError extends Error {
   }
 }
 
+export class RealtimeRecoveryError extends Error {
+  constructor(readonly code: "NOT_AVAILABLE") { super(code); }
+}
+
+export const requireRealtimeRecoveryResponse = (response: { ok: boolean; status: number }) => {
+  if (response.ok) return;
+  if ([401, 403, 404].includes(response.status)) throw new RealtimeRecoveryError("NOT_AVAILABLE");
+  throw new Error("RECOVERY_RETRY_LATER");
+};
+
 export class CoalescedRecovery {
   private readonly active = new Map<string, { dirty: boolean; promise: Promise<void> }>();
   run(key: string, recover: () => Promise<void>) {
@@ -22,7 +32,9 @@ export class CoalescedRecovery {
     const state = { dirty: true, promise: Promise.resolve() };
     state.promise = (async () => {
       while (state.dirty) { state.dirty = false; await recover(); }
-    })().finally(() => this.active.delete(key));
+    })().finally(() => {
+      if (this.active.get(key) === state) this.active.delete(key);
+    });
     this.active.set(key, state);
     return state.promise;
   }
@@ -57,11 +69,16 @@ export class CoalescedAbortableRequests {
   }
 
   cancel(key: string) {
-    this.active.get(key)?.controller.abort();
+    const state = this.active.get(key);
+    if (!state) return;
+    this.active.delete(key);
+    state.controller.abort();
   }
 
   cancelAll() {
-    for (const state of this.active.values()) state.controller.abort();
+    const states = [...this.active.values()];
+    this.active.clear();
+    for (const state of states) state.controller.abort();
   }
 }
 
@@ -334,6 +351,8 @@ export function createRealtimeClient(options: {
   let stopped = false;
   let connecting = false;
   let terminalJoinFailure = false;
+  const authorizedConversationIds = new Set<string>();
+  const deferredReceipts = new Map<string, { kind: ReceiptKind; message: RecoveredMessage }>();
   const stopController = new AbortController();
   const recoveryCoordinator = new CoalescedRecovery();
 
@@ -358,6 +377,9 @@ export function createRealtimeClient(options: {
 
   const receiptQueue = new ReceiptDeliveryQueue({
     send: async (kind, message, at) => {
+      if (!authorizedConversationIds.has(message.conversationId)) {
+        return { ok: false, code: "RETRY_LATER", retryAfterMs: 250 };
+      }
       try {
         await emitAck("receipt.update", {
           conversationId: message.conversationId,
@@ -375,6 +397,23 @@ export function createRealtimeClient(options: {
     },
     onError: options.onBackgroundError,
   });
+  const queueReceipt = (kind: ReceiptKind, message: RecoveredMessage) => {
+    if (message.sender !== "them") return;
+    if (authorizedConversationIds.has(message.conversationId)) {
+      receiptQueue.enqueue(kind, message);
+      return;
+    }
+    const current = deferredReceipts.get(message.id);
+    if (!current || kind === "read") deferredReceipts.set(message.id, { kind, message });
+  };
+  const queueAuthorizedConversationReceipts = (conversationId: string) => {
+    for (const message of store.messages(conversationId)) receiptQueue.enqueue("delivered", message);
+    for (const [messageId, receipt] of deferredReceipts) {
+      if (receipt.message.conversationId !== conversationId) continue;
+      receiptQueue.enqueue(receipt.kind, receipt.message);
+      deferredReceipts.delete(messageId);
+    }
+  };
 
   const recover = async (conversationId: string) => {
     return recoveryCoordinator.run(conversationId, async () => {
@@ -386,12 +425,15 @@ export function createRealtimeClient(options: {
         store.mergeRecovery(conversationId, rows);
         const hydrated = store.messages(conversationId);
         options.onMessages(conversationId, hydrated);
-        if (socket?.connected) for (const message of rows) receiptQueue.enqueue("delivered", message);
+        if (authorizedConversationIds.has(conversationId)) {
+          for (const message of rows) queueReceipt("delivered", message);
+        }
     });
   };
   const joinAndRecover = async (conversationId: string) => {
     await emitAck("conversation.join", { conversationId });
-    for (const message of store.messages(conversationId)) receiptQueue.enqueue("delivered", message);
+    authorizedConversationIds.add(conversationId);
+    queueAuthorizedConversationReceipts(conversationId);
     await recover(conversationId);
   };
   const joinWithBudget = async (conversationId: string) => {
@@ -404,24 +446,36 @@ export function createRealtimeClient(options: {
         options.onState("online");
         return;
       } catch (error) {
-        if (!(error instanceof RealtimeActionError) || error.code === "NOT_AVAILABLE") {
+        if (stopped) return;
+        const actionError = error instanceof RealtimeActionError
+          ? error
+          : error instanceof RealtimeRecoveryError
+            ? new RealtimeActionError("NOT_AVAILABLE")
+            : new RealtimeActionError("RETRY_LATER");
+        if (actionError.code === "NOT_AVAILABLE") {
           terminalJoinFailure = true;
           options.onState("failed");
-          throw error;
+          throw actionError;
         }
         attempts += 1;
         if (attempts > (options.maxRetries ?? 8)) {
           terminalJoinFailure = true;
           options.onState("failed");
-          throw error;
+          throw actionError;
         }
         options.onState("retrying");
-        await new Promise<void>((resolve) => setTimeout(
-          resolve,
-          error.retryAfterMs ?? Math.min(100 * 2 ** (attempts - 1), 2_000),
-        ));
+        try {
+          await abortableDelay(
+            actionError.retryAfterMs ?? Math.min(100 * 2 ** (attempts - 1), 2_000),
+            stopController.signal,
+          );
+        } catch {
+          if (stopped || stopController.signal.aborted) return;
+          throw actionError;
+        }
       }
     }
+    if (stopped) return;
     throw new RealtimeActionError("RETRY_LATER");
   };
   const schedule = () => {
@@ -459,7 +513,10 @@ export function createRealtimeClient(options: {
           if (store.mergeLive(event)) await recover(event.conversationId);
         } catch { socket?.disconnect(); }
       });
-      socket.on("disconnect", schedule);
+      socket.on("disconnect", () => {
+        authorizedConversationIds.clear();
+        schedule();
+      });
       socket.on("connect_error", schedule);
       if (refreshTimer) clearTimeout(refreshTimer);
       const refreshIn = Math.max(Date.parse(ticket.expiresAt) - Date.now() - 30_000, 1_000);
@@ -470,17 +527,16 @@ export function createRealtimeClient(options: {
     start: connect,
     async join(conversationId: string) {
       conversations.add(conversationId);
-      await recover(conversationId);
       if (socket?.connected) {
         terminalJoinFailure = false;
         await joinWithBudget(conversationId);
-      }
+      } else await recover(conversationId);
     },
     async markDelivered(message: RecoveredMessage) {
-      receiptQueue.enqueue("delivered", message);
+      queueReceipt("delivered", message);
     },
     async markRead(message: RecoveredMessage) {
-      receiptQueue.enqueue("read", message);
+      queueReceipt("read", message);
     },
     async refresh(conversationId: string) {
       if (!conversations.has(conversationId)) conversations.add(conversationId);

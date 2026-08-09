@@ -110,11 +110,15 @@ export function createRealtimeServer(options: {
         joinCount = 0;
         receiptCount = 0;
       }
-      if (concurrentActions >= maxConcurrent) return false;
-      if (kind === "join" && ++joinCount > 60) return false;
-      if (kind === "receipt" && ++receiptCount > 120) return false;
+      if (concurrentActions >= maxConcurrent) return { admitted: false, retryAfterMs: 250 };
+      if (kind === "join" && ++joinCount > 60) {
+        return { admitted: false, retryAfterMs: Math.max(60_000 - (now - rateWindowStartedAt), 250) };
+      }
+      if (kind === "receipt" && ++receiptCount > 120) {
+        return { admitted: false, retryAfterMs: Math.max(60_000 - (now - rateWindowStartedAt), 250) };
+      }
       concurrentActions += 1;
-      return true;
+      return { admitted: true, retryAfterMs: 0 };
     };
     const release = () => { concurrentActions = Math.max(concurrentActions - 1, 0); };
     socket.on("conversation.join", async (raw, acknowledge?: (result: unknown) => void) => {
@@ -124,10 +128,11 @@ export function createRealtimeServer(options: {
         && socket.data.conversations.size >= maxRooms) {
         return acknowledge?.({ ok: false, code: "LIMIT_REACHED" });
       }
-      if (!admit("join")) return acknowledge?.({
+      const admission = admit("join");
+      if (!admission.admitted) return acknowledge?.({
         ok: false,
         code: "RETRY_LATER",
-        retryAfterMs: Math.max(60_000 - (Date.now() - rateWindowStartedAt), 250),
+        retryAfterMs: admission.retryAfterMs,
       });
       try {
         const authorized = await options.authorization.authorizeConversation(socket.data.identity, parsed.data.conversationId);
@@ -138,7 +143,10 @@ export function createRealtimeServer(options: {
         if (error instanceof Error && error.message === "RETRY_LATER") {
           return acknowledge?.({ ok: false, code: "RETRY_LATER", retryAfterMs: 250 });
         }
-        return acknowledge?.({ ok: false, code: "NOT_AVAILABLE" });
+        if (error instanceof Error && ["NOT_AUTHORIZED", "NOT_AVAILABLE"].includes(error.message)) {
+          return acknowledge?.({ ok: false, code: "NOT_AVAILABLE" });
+        }
+        return acknowledge?.({ ok: false, code: "RETRY_LATER", retryAfterMs: 500 });
       } finally { release(); }
     });
     socket.on("receipt.update", async (raw, acknowledge?: (result: unknown) => void) => {
@@ -146,16 +154,20 @@ export function createRealtimeServer(options: {
       if (!parsed.success || !socket.data.conversations.has(parsed.data.conversationId)) {
         return acknowledge?.({ ok: false, code: "NOT_AVAILABLE" });
       }
-      if (!admit("receipt")) return acknowledge?.({
+      const admission = admit("receipt");
+      if (!admission.admitted) return acknowledge?.({
         ok: false,
         code: "RETRY_LATER",
-        retryAfterMs: Math.max(60_000 - (Date.now() - rateWindowStartedAt), 250),
+        retryAfterMs: admission.retryAfterMs,
       });
       try {
         const result = await options.receipts.record(socket.data.identity.userId, parsed.data);
         return acknowledge?.({ ok: true, receipt: result });
-      } catch {
-        return acknowledge?.({ ok: false, code: "NOT_AVAILABLE" });
+      } catch (error) {
+        if (error instanceof Error && ["RECEIPT_NOT_AVAILABLE", "NOT_AUTHORIZED", "NOT_AVAILABLE"].includes(error.message)) {
+          return acknowledge?.({ ok: false, code: "NOT_AVAILABLE" });
+        }
+        return acknowledge?.({ ok: false, code: "RETRY_LATER", retryAfterMs: 500 });
       } finally { release(); }
     });
   });
