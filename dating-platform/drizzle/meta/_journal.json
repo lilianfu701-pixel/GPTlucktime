@@ -197,6 +197,13 @@
       "when": 1786231862165,
       "tag": "0027_messaging",
       "breakpoints": true
+    },
+    {
+      "idx": 28,
+      "version": "7",
+      "when": 1786235735094,
+      "tag": "0028_harden_messaging_authorization",
+      "breakpoints": true
     }
   ]
 }

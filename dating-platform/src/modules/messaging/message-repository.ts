@@ -1,4 +1,4 @@
-import { createHmac, timingSafeEqual } from "node:crypto";
+import { createHash, createHmac, timingSafeEqual } from "node:crypto";
 
 import { and, asc, desc, eq, gt, isNull, lt, or, sql } from "drizzle-orm";
 
@@ -16,6 +16,8 @@ import { launchVerificationPolicy, type VerificationDecision } from "@/modules/a
 import type { EntitlementService } from "@/modules/entitlements/entitlement-service";
 import type { InteractionPolicy, SocialTransaction } from "@/modules/social/social-repository";
 
+import { normalizeSendMessageInput } from "./message-input";
+
 type MessagingDatabase = typeof productionDatabase;
 type MessageTransaction = SocialTransaction;
 type Cursor = { timestamp: string; id: string };
@@ -25,7 +27,7 @@ const MAX_CONVERSATION_SCAN = 200;
 export class MessagingError extends Error {
   constructor(
     readonly code: "CONVERSATION_NOT_AVAILABLE" | "MESSAGE_IDEMPOTENCY_CONFLICT"
-      | "VERIFICATION_REQUIRED" | "MESSAGE_SEND_DENIED" | "INVALID_CURSOR",
+      | "VERIFICATION_REQUIRED" | "MESSAGE_SEND_DENIED" | "INVALID_CURSOR" | "INVALID_MESSAGE",
     readonly unmet?: Array<keyof VerificationDecision>,
   ) {
     super(code);
@@ -78,6 +80,21 @@ export class DrizzleMessageVerificationPolicy implements MessageVerificationPoli
 const orderedPair = (left: string, right: string) => left < right
   ? { lowUserId: left, highUserId: right }
   : { lowUserId: right, highUserId: left };
+
+export const deriveMessageEntitlementOperationId = (senderUserId: string, clientId: string) => {
+  const namespace = Buffer.from("20e13938671851b2b0a3cc840b02d62e", "hex");
+  const digest = createHash("sha1")
+    .update(namespace)
+    .update("global-dating-platform.messaging.entitlement-operation.v1\0", "utf8")
+    .update(senderUserId, "utf8")
+    .update("\0message.send.daily\0", "utf8")
+    .update(clientId, "utf8")
+    .digest().subarray(0, 16);
+  digest[6] = (digest[6]! & 0x0f) | 0x50;
+  digest[8] = (digest[8]! & 0x3f) | 0x80;
+  const hex = digest.toString("hex");
+  return `${hex.slice(0, 8)}-${hex.slice(8, 12)}-${hex.slice(12, 16)}-${hex.slice(16, 20)}-${hex.slice(20)}`;
+};
 
 const serializeMessage = (row: typeof messages.$inferSelect, viewerUserId: string) => ({
   id: row.id,
@@ -168,8 +185,8 @@ export class MessageRepository {
           [conversation] = await tx.insert(conversations).values({ ...pair, createdAt: now, updatedAt: now })
             .returning();
           await tx.insert(conversationMembers).values([
-            { conversationId: conversation.id, userId: pair.lowUserId, joinedAt: now, updatedAt: now },
-            { conversationId: conversation.id, userId: pair.highUserId, joinedAt: now, updatedAt: now },
+            { conversationId: conversation.id, userId: pair.lowUserId, ...pair, joinedAt: now, updatedAt: now },
+            { conversationId: conversation.id, userId: pair.highUserId, ...pair, joinedAt: now, updatedAt: now },
           ]);
           return this.serializeConversation(conversation);
         },
@@ -188,18 +205,24 @@ export class MessageRepository {
     conversationId: string,
     input: { clientId: string; body: string },
   ) {
-    const replay = await this.findReplay(this.database, senderUserId, input.clientId);
-    if (replay) return this.validateReplay(replay, conversationId, input.body);
+    let normalized: { clientId: string; body: string };
+    try {
+      normalized = normalizeSendMessageInput(input);
+    } catch {
+      throw new MessagingError("INVALID_MESSAGE");
+    }
     const membership = await this.findMembership(this.database, senderUserId, conversationId);
     if (!membership) throw new MessagingError("CONVERSATION_NOT_AVAILABLE");
+    const replay = await this.findReplay(this.database, senderUserId, normalized.clientId);
+    if (replay) return this.validateReplay(replay, conversationId, normalized.body);
     const targetUserId = membership.lowUserId === senderUserId
       ? membership.highUserId
       : membership.lowUserId;
     try {
       return await this.interactionPolicy.withAllowedInteraction(senderUserId, targetUserId, async (transaction) => {
         const tx = transaction as MessagingDatabase;
-        const lockedReplay = await this.findReplay(tx, senderUserId, input.clientId);
-        if (lockedReplay) return this.validateReplay(lockedReplay, conversationId, input.body);
+        const lockedReplay = await this.findReplay(tx, senderUserId, normalized.clientId);
+        if (lockedReplay) return this.validateReplay(lockedReplay, conversationId, normalized.body);
         const currentMembership = await this.findMembership(tx, senderUserId, conversationId);
         if (!currentMembership || currentMembership.status !== "active") {
           throw new MessagingError("CONVERSATION_NOT_AVAILABLE");
@@ -210,7 +233,7 @@ export class MessageRepository {
         const decision = await this.entitlementService.consumeInTransaction(transaction, {
           userId: senderUserId,
           key: "message.send.daily",
-          operationId: input.clientId,
+          operationId: deriveMessageEntitlementOperationId(senderUserId, normalized.clientId),
           amount: 1,
           context: { conversationId },
         });
@@ -227,10 +250,12 @@ export class MessageRepository {
         }
         const [message] = await tx.insert(messages).values({
           conversationId,
+          lowUserId: currentMembership.lowUserId,
+          highUserId: currentMembership.highUserId,
           sequence,
           senderUserId,
-          clientId: input.clientId,
-          body: input.body,
+          clientId: normalized.clientId,
+          body: normalized.body,
           createdAt: now,
         }).returning();
         await tx.update(conversations).set({
@@ -298,6 +323,7 @@ export class MessageRepository {
         )).where(and(
           eq(conversations.status, "active"),
           isNull(conversationMembers.hiddenAt),
+          or(eq(conversations.lowUserId, userId), eq(conversations.highUserId, userId)),
           after ? or(
             lt(sortTime, new Date(after.timestamp)),
             and(eq(sortTime, new Date(after.timestamp)), gt(conversations.id, after.id)),
@@ -364,7 +390,10 @@ export class MessageRepository {
     }).from(conversations).innerJoin(conversationMembers, and(
       eq(conversationMembers.conversationId, conversations.id),
       eq(conversationMembers.userId, userId),
-    )).where(eq(conversations.id, conversationId)).limit(1);
+    )).where(and(
+      eq(conversations.id, conversationId),
+      or(eq(conversations.lowUserId, userId), eq(conversations.highUserId, userId)),
+    )).limit(1);
     return row;
   }
 

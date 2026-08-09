@@ -1,6 +1,7 @@
 import { z } from "zod";
 
 import { MessageRepository, MessagingError } from "./message-repository";
+import { normalizeSendMessageInput } from "./message-input";
 
 type Session = { user: { id: string }; session: { id: string } };
 type SessionReader = (headers: Headers) => Promise<Session | null>;
@@ -9,33 +10,70 @@ type TicketIssuer = { issue(userId: string, sessionId: string): Promise<{ ticket
 
 const uuid = z.string().uuid();
 const cursorPattern = /^[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+$/;
-const forbiddenControls = /[\u0000-\u0008\u000B-\u001F\u007F-\u009F]/u;
-const loneSurrogate = /[\uD800-\uDFFF]/u;
-
-const messageInput = z.object({
-  clientId: uuid,
-  body: z.string(),
-}).strict();
+const CONVERSATION_JSON_MAX_BYTES = 1_024;
+const MESSAGE_JSON_MAX_BYTES = 16_384;
+const REALTIME_JSON_MAX_BYTES = 1_024;
 
 export function parseSendMessageInput(value: unknown) {
-  const parsed = messageInput.safeParse(value);
-  if (!parsed.success) throw new Error("INVALID_MESSAGE");
-  const body = parsed.data.body.normalize("NFC");
-  if (body.trim().length === 0 || Array.from(body).length > 2000
-    || forbiddenControls.test(body) || loneSurrogate.test(body)) throw new Error("INVALID_MESSAGE");
-  return { clientId: parsed.data.clientId, body };
+  return normalizeSendMessageInput(value);
 }
 
 const errorResponse = (code: string, status: number, extra?: Record<string, unknown>) =>
   Response.json({ code, message: code, ...extra }, { status });
 
-async function readJson(request: Request) {
-  try {
-    return await request.json() as unknown;
-  } catch {
-    throw new Error("INVALID_REQUEST");
+class RequestBodyError extends Error {
+  constructor(readonly code: "INVALID_REQUEST" | "PAYLOAD_TOO_LARGE" | "UNSUPPORTED_MEDIA_TYPE") {
+    super(code);
   }
 }
+
+async function readJson(request: Request, maxBytes: number) {
+  const contentType = request.headers.get("content-type")?.trim() ?? "";
+  if (!/^application\/json(?:\s*;\s*charset=utf-8)?$/iu.test(contentType)) {
+    throw new RequestBodyError("UNSUPPORTED_MEDIA_TYPE");
+  }
+  const declared = request.headers.get("content-length");
+  if (declared !== null) {
+    if (!/^\d+$/u.test(declared)) throw new RequestBodyError("INVALID_REQUEST");
+    if (Number(declared) > maxBytes) throw new RequestBodyError("PAYLOAD_TOO_LARGE");
+  }
+  if (!request.body) throw new RequestBodyError("INVALID_REQUEST");
+  const reader = request.body.getReader();
+  const chunks: Uint8Array[] = [];
+  let total = 0;
+  try {
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      total += value.byteLength;
+      if (total > maxBytes) {
+        await reader.cancel();
+        throw new RequestBodyError("PAYLOAD_TOO_LARGE");
+      }
+      chunks.push(value);
+    }
+    const bytes = new Uint8Array(total);
+    let offset = 0;
+    for (const chunk of chunks) {
+      bytes.set(chunk, offset);
+      offset += chunk.byteLength;
+    }
+    return JSON.parse(new TextDecoder("utf-8", { fatal: true }).decode(bytes)) as unknown;
+  } catch {
+    if (total > maxBytes) throw new RequestBodyError("PAYLOAD_TOO_LARGE");
+    throw new RequestBodyError("INVALID_REQUEST");
+  }
+}
+
+const bodyErrorResponse = (error: unknown, invalidCode: "INVALID_REQUEST" | "INVALID_MESSAGE") => {
+  if (error instanceof RequestBodyError && error.code === "PAYLOAD_TOO_LARGE") {
+    return errorResponse("PAYLOAD_TOO_LARGE", 413);
+  }
+  if (error instanceof RequestBodyError && error.code === "UNSUPPORTED_MEDIA_TYPE") {
+    return errorResponse("UNSUPPORTED_MEDIA_TYPE", 415);
+  }
+  return errorResponse(invalidCode, 400);
+};
 
 async function requireSession(getSession: SessionReader, headers: Headers) {
   try {
@@ -58,7 +96,9 @@ export function createConversationsHandler(input: {
 
     if (request.method === "POST") {
       let payload: unknown;
-      try { payload = await readJson(request); } catch { return errorResponse("INVALID_REQUEST", 400); }
+      try { payload = await readJson(request, CONVERSATION_JSON_MAX_BYTES); } catch (error) {
+        return bodyErrorResponse(error, "INVALID_REQUEST");
+      }
       const parsed = z.object({ profileId: uuid }).strict().safeParse(payload);
       if (!parsed.success) return errorResponse("INVALID_REQUEST", 400);
       try {
@@ -111,7 +151,9 @@ export function createMessagesHandler(input: {
 
     if (request.method === "POST") {
       let payload: unknown;
-      try { payload = await readJson(request); } catch { return errorResponse("INVALID_MESSAGE", 400); }
+      try { payload = await readJson(request, MESSAGE_JSON_MAX_BYTES); } catch (error) {
+        return bodyErrorResponse(error, "INVALID_MESSAGE");
+      }
       let parsed: { clientId: string; body: string };
       try { parsed = parseSendMessageInput(payload); } catch { return errorResponse("INVALID_MESSAGE", 400); }
       try {
@@ -162,7 +204,9 @@ export function createRealtimeTicketHandler(input: {
     if (!session) return errorResponse("UNAUTHORIZED", 401);
     if (request.method !== "POST") return errorResponse("METHOD_NOT_ALLOWED", 405);
     let payload: unknown;
-    try { payload = await readJson(request); } catch { return errorResponse("INVALID_REQUEST", 400); }
+    try { payload = await readJson(request, REALTIME_JSON_MAX_BYTES); } catch (error) {
+      return bodyErrorResponse(error, "INVALID_REQUEST");
+    }
     if (!payload || typeof payload !== "object" || Array.isArray(payload)
       || Object.keys(payload as Record<string, unknown>).length !== 0) {
       return errorResponse("INVALID_REQUEST", 400);
@@ -187,6 +231,7 @@ function mapMessagingError(error: unknown) {
   if (error.code === "MESSAGE_IDEMPOTENCY_CONFLICT") {
     return errorResponse("MESSAGE_IDEMPOTENCY_CONFLICT", 409);
   }
+  if (error.code === "INVALID_MESSAGE") return errorResponse("INVALID_MESSAGE", 400);
   if (error.code === "VERIFICATION_REQUIRED") {
     return errorResponse("VERIFICATION_REQUIRED", 403, { unmet: error.unmet ?? [] });
   }

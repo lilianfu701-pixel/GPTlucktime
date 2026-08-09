@@ -198,6 +198,46 @@ describe("message repository", () => {
     expect(await database.select().from(schema.entitlementUsageOperations)).toHaveLength(1);
   });
 
+  it("scopes entitlement operations by sender when different users reuse the same client id", async () => {
+    const alice = await addPerson("Scoped Alice");
+    const bob = await addPerson("Scoped Bob");
+    const charlie = await addPerson("Scoped Charlie");
+    const diana = await addPerson("Scoped Diana");
+    const aliceConversation = await repository.createConversation(alice.userId, bob.profileId);
+    const charlieConversation = await repository.createConversation(charlie.userId, diana.profileId);
+    const sharedClientId = "00000000-0000-4000-8000-000000000130";
+    const results = [
+      await repository.sendMessage(alice.userId, aliceConversation.id, { clientId: sharedClientId, body: "Alice" }),
+      await repository.sendMessage(charlie.userId, charlieConversation.id, { clientId: sharedClientId, body: "Charlie" }),
+    ];
+    expect(results).toHaveLength(2);
+    const operations = await database.select().from(schema.entitlementUsageOperations);
+    expect(operations).toHaveLength(2);
+    expect(new Set(operations.map(({ operationId }) => operationId)).size).toBe(2);
+    expect(operations.every(({ operationId }) => /^[0-9a-f]{8}-[0-9a-f]{4}-5[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/.test(operationId)))
+      .toBe(true);
+  });
+
+  it("normalizes and validates client message input at the repository boundary", async () => {
+    const alice = await addPerson("Boundary Alice");
+    const bob = await addPerson("Boundary Bob");
+    const conversation = await repository.createConversation(alice.userId, bob.profileId);
+    const normalized = await repository.sendMessage(alice.userId, conversation.id, {
+      clientId: "00000000-0000-4000-8000-000000000131", body: "e\u0301",
+    });
+    expect(normalized.body).toBe("é");
+    for (const [clientId, body] of [
+      ["not-a-uuid", "valid"],
+      ["00000000-0000-4000-8000-000000000132", "bad\u0000body"],
+      ["00000000-0000-4000-8000-000000000133", " \n\t "],
+      ["00000000-0000-4000-8000-000000000134", "a".repeat(2001)],
+    ]) {
+      await expect(repository.sendMessage(alice.userId, conversation.id, { clientId, body }))
+        .rejects.toMatchObject({ code: "INVALID_MESSAGE" });
+    }
+    expect(await database.select().from(schema.messages)).toHaveLength(1);
+  });
+
   it("checks membership, verification, and entitlement and rolls every denial back", async () => {
     const alice = await addPerson("Policy Alice");
     const bob = await addPerson("Policy Bob");
@@ -277,6 +317,99 @@ describe("message repository", () => {
     })).messages[0]?.sequence).toBe(2);
     await expect(repository.listMessages(outsider.userId, conversation.id, { afterSequence: 0, pageSize: 10 }))
       .rejects.toMatchObject({ code: "CONVERSATION_NOT_AVAILABLE" });
+  });
+
+  it("rejects third-party members, senders, and receipts at the database boundary", async () => {
+    const alice = await addPerson("Constraint Alice");
+    const bob = await addPerson("Constraint Bob");
+    const outsider = await addPerson("Constraint Outsider");
+    const conversation = await repository.createConversation(alice.userId, bob.profileId);
+    const sent = await repository.sendMessage(alice.userId, conversation.id, {
+      clientId: "00000000-0000-4000-8000-000000000136", body: "valid",
+    });
+    const [pair] = await database.select().from(schema.conversations)
+      .where(eq(schema.conversations.id, conversation.id));
+    await expect(database.insert(schema.conversationMembers).values({
+      conversationId: conversation.id,
+      userId: outsider.userId,
+      lowUserId: pair.lowUserId,
+      highUserId: pair.highUserId,
+    })).rejects.toThrow();
+    await expect(database.insert(schema.messages).values({
+      conversationId: conversation.id,
+      lowUserId: pair.lowUserId,
+      highUserId: pair.highUserId,
+      sequence: 2,
+      senderUserId: outsider.userId,
+      clientId: "00000000-0000-4000-8000-000000000135",
+      body: "forged",
+    })).rejects.toThrow();
+    await expect(database.insert(schema.messageReceipts).values({
+      messageId: sent.id,
+      conversationId: conversation.id,
+      userId: outsider.userId,
+      deliveredAt: NOW,
+    })).rejects.toThrow();
+  });
+
+  it("does not trust a corrupted third-party membership for list, history, or send authorization", async () => {
+    const alice = await addPerson("Corrupt Alice");
+    const bob = await addPerson("Corrupt Bob");
+    const outsider = await addPerson("Corrupt Outsider");
+    const conversation = await repository.createConversation(alice.userId, bob.profileId);
+    await repository.sendMessage(alice.userId, conversation.id, {
+      clientId: "00000000-0000-4000-8000-000000000137", body: "private",
+    });
+    await client.exec(`
+      ALTER TABLE conversation_members DROP CONSTRAINT IF EXISTS conversation_members_conversation_pair_fk;
+      ALTER TABLE conversation_members DROP CONSTRAINT IF EXISTS conversation_members_user_in_pair_check;
+      DO $$ BEGIN
+        IF EXISTS (
+          SELECT 1 FROM information_schema.columns
+          WHERE table_name = 'conversation_members' AND column_name = 'low_user_id'
+        ) THEN
+          INSERT INTO conversation_members
+            (conversation_id, user_id, low_user_id, high_user_id, last_read_sequence, version, joined_at, updated_at)
+          SELECT id, '${outsider.userId}', low_user_id, high_user_id, 0, 1, now(), now()
+          FROM conversations WHERE id = '${conversation.id}';
+        ELSE
+          INSERT INTO conversation_members
+            (conversation_id, user_id, last_read_sequence, version, joined_at, updated_at)
+          VALUES ('${conversation.id}', '${outsider.userId}', 0, 1, now(), now());
+        END IF;
+      END $$;
+    `);
+    await expect(repository.listMessages(outsider.userId, conversation.id, { afterSequence: 0, pageSize: 10 }))
+      .rejects.toMatchObject({ code: "CONVERSATION_NOT_AVAILABLE" });
+    expect((await repository.listConversations(outsider.userId, { pageSize: 10 })).conversations).toEqual([]);
+    await expect(repository.sendMessage(outsider.userId, conversation.id, {
+      clientId: "00000000-0000-4000-8000-000000000138", body: "intrusion",
+    })).rejects.toMatchObject({ code: "CONVERSATION_NOT_AVAILABLE" });
+  });
+
+  it("requires delivered receipts and monotonic receipt timestamps", async () => {
+    const alice = await addPerson("Receipt Alice");
+    const bob = await addPerson("Receipt Bob");
+    const conversation = await repository.createConversation(alice.userId, bob.profileId);
+    const sent = await repository.sendMessage(alice.userId, conversation.id, {
+      clientId: "00000000-0000-4000-8000-000000000139", body: "receipt",
+    });
+    await expect(database.insert(schema.messageReceipts).values({
+      messageId: sent.id, conversationId: conversation.id, userId: bob.userId, readAt: NOW,
+    })).rejects.toThrow();
+    await expect(database.insert(schema.messageReceipts).values({
+      messageId: sent.id, userId: bob.userId,
+      conversationId: conversation.id,
+      deliveredAt: new Date("2026-08-08T12:01:00.000Z"), readAt: NOW,
+    })).rejects.toThrow();
+  });
+
+  it("retains messaging records until the explicit Task 13 anonymization workflow runs", async () => {
+    const alice = await addPerson("Delete Alice");
+    const bob = await addPerson("Delete Bob");
+    await repository.createConversation(alice.userId, bob.profileId);
+    await expect(database.delete(schema.users).where(eq(schema.users.id, alice.userId))).rejects.toThrow();
+    expect(await database.select().from(schema.conversations)).toHaveLength(1);
   });
 
   it("linearizes a send against block and rejects every send after block completion", async () => {

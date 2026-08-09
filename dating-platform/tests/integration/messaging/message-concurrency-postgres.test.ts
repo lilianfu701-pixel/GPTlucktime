@@ -3,7 +3,7 @@
 import { randomUUID } from "node:crypto";
 import { readdir, readFile } from "node:fs/promises";
 
-import { count } from "drizzle-orm";
+import { count, eq } from "drizzle-orm";
 import { drizzle } from "drizzle-orm/node-postgres";
 import { Pool, type PoolClient } from "pg";
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
@@ -30,6 +30,8 @@ runWithPostgres("messaging PostgreSQL concurrency with independent pools", () =>
   let rightSocial: SocialRepository;
   let leftRepository: MessageRepository;
   let rightRepository: MessageRepository;
+  const leftApplicationName = `${schemaName}_left`;
+  const rightApplicationName = `${schemaName}_right`;
 
   const migrateIsolatedSchema = async (client: PoolClient) => {
     await client.query("begin");
@@ -114,14 +116,28 @@ runWithPostgres("messaging PostgreSQL concurrency with independent pools", () =>
     return Promise.allSettled(running);
   };
 
+  const waitForLockContention = async (applicationName: string) => {
+    for (let attempt = 0; attempt < 200; attempt += 1) {
+      const result = await administrationPool.query<{ blocked: boolean }>(`
+        select exists (
+          select 1 from pg_stat_activity
+          where application_name = $1 and wait_event_type = 'Lock'
+        ) as blocked
+      `, [applicationName]);
+      if (result.rows[0]?.blocked) return;
+      await new Promise((resolve) => setTimeout(resolve, 10));
+    }
+    throw new Error(`LOCK_CONTENTION_NOT_OBSERVED:${applicationName}`);
+  };
+
   beforeAll(async () => {
     administrationPool = new Pool({ connectionString: TEST_DATABASE_URL, max: 1 });
     await administrationPool.query(`create schema "${schemaName}"`);
     const migrationClient = await administrationPool.connect();
     try { await migrateIsolatedSchema(migrationClient); } finally { migrationClient.release(); }
     const options = { connectionString: TEST_DATABASE_URL, options: `-c search_path=${schemaName}`, max: 2 };
-    leftPool = new Pool(options);
-    rightPool = new Pool(options);
+    leftPool = new Pool({ ...options, application_name: leftApplicationName });
+    rightPool = new Pool({ ...options, application_name: rightApplicationName });
     leftDatabase = drizzle(leftPool, { schema });
     rightDatabase = drizzle(rightPool, { schema });
     leftSocial = new SocialRepository(leftDatabase, {
@@ -147,16 +163,66 @@ runWithPostgres("messaging PostgreSQL concurrency with independent pools", () =>
     const bob = await addPerson("PG Message Bob");
     const conversation = await leftRepository.createConversation(alice.userId, bob.profileId);
     const input = { clientId: "00000000-0000-4000-8000-000000000201", body: "Same client" };
-    const settled = await releaseTogether([
-      () => leftRepository.sendMessage(alice.userId, conversation.id, input),
-      () => rightRepository.sendMessage(alice.userId, conversation.id, input),
-    ]);
+    let signalPairLocked!: () => void;
+    let releaseFirst!: () => void;
+    const pairLocked = new Promise<void>((resolve) => { signalPairLocked = resolve; });
+    const firstGate = new Promise<void>((resolve) => { releaseFirst = resolve; });
+    const pausingPolicy: InteractionPolicy = {
+      validateRealtimeTicket: leftSocial.validateRealtimeTicket.bind(leftSocial),
+      withAllowedProfileInteraction: leftSocial.withAllowedProfileInteraction.bind(leftSocial),
+      withSafeViewerRead: leftSocial.withSafeViewerRead.bind(leftSocial),
+      safeConversationProfilesInTransaction: leftSocial.safeConversationProfilesInTransaction.bind(leftSocial),
+      withAllowedInteraction: (actor, target, write) => leftSocial.withAllowedInteraction(actor, target, async (tx) => {
+        signalPairLocked();
+        await firstGate;
+        return write(tx);
+      }),
+    };
+    const first = repositoryFor(leftDatabase, pausingPolicy)
+      .sendMessage(alice.userId, conversation.id, input);
+    await pairLocked;
+    const second = rightRepository.sendMessage(alice.userId, conversation.id, input);
+    await waitForLockContention(rightApplicationName);
+    releaseFirst();
+    const settled = await Promise.allSettled([first, second]);
     const fulfilled = settled.flatMap((result) => result.status === "fulfilled" ? [result.value] : []);
     expect(fulfilled).toHaveLength(2);
     expect(fulfilled[1]).toEqual(fulfilled[0]);
     expect(await leftDatabase.select().from(schema.messages)).toHaveLength(1);
     expect(await leftDatabase.select().from(schema.messageOutboxEvents)).toHaveLength(1);
     expect(await leftDatabase.select().from(schema.entitlementUsageOperations)).toHaveLength(1);
+  });
+
+  it("allows different users to reuse one client id concurrently across pools", async () => {
+    const alice = await addPerson("PG Scoped Alice");
+    const bob = await addPerson("PG Scoped Bob");
+    const charlie = await addPerson("PG Scoped Charlie");
+    const diana = await addPerson("PG Scoped Diana");
+    const aliceConversation = await leftRepository.createConversation(alice.userId, bob.profileId);
+    const charlieConversation = await rightRepository.createConversation(charlie.userId, diana.profileId);
+    const clientId = "00000000-0000-4000-8000-000000000206";
+    const settled = await releaseTogether([
+      () => leftRepository.sendMessage(alice.userId, aliceConversation.id, { clientId, body: "Alice" }),
+      () => rightRepository.sendMessage(charlie.userId, charlieConversation.id, { clientId, body: "Charlie" }),
+    ]);
+    expect(settled.every(({ status }) => status === "fulfilled")).toBe(true);
+    expect(await leftDatabase.select().from(schema.messages)).toHaveLength(2);
+    expect(await leftDatabase.select().from(schema.entitlementUsageOperations)).toHaveLength(2);
+  });
+
+  it("rejects a raw third-party conversation member", async () => {
+    const alice = await addPerson("PG Member Alice");
+    const bob = await addPerson("PG Member Bob");
+    const outsider = await addPerson("PG Member Outsider");
+    const conversation = await leftRepository.createConversation(alice.userId, bob.profileId);
+    const [pair] = await leftDatabase.select().from(schema.conversations)
+      .where(eq(schema.conversations.id, conversation.id));
+    await expect(leftDatabase.insert(schema.conversationMembers).values({
+      conversationId: conversation.id,
+      userId: outsider.userId,
+      lowUserId: pair.lowUserId,
+      highUserId: pair.highUserId,
+    })).rejects.toThrow();
   });
 
   it("allocates distinct ordered sequences for simultaneous opposite senders", async () => {
