@@ -1,0 +1,379 @@
+import { createHmac, timingSafeEqual } from "node:crypto";
+
+import { and, asc, desc, eq, gt, isNull, lt, or, sql } from "drizzle-orm";
+
+import {
+  conversationMembers,
+  conversations,
+  messageOutboxEvents,
+  messages,
+  profiles,
+  users,
+  verificationAttempts,
+} from "@/db/schema";
+import type { db as productionDatabase } from "@/infrastructure/db/client";
+import { launchVerificationPolicy, type VerificationDecision } from "@/modules/auth/verification-policy";
+import type { EntitlementService } from "@/modules/entitlements/entitlement-service";
+import type { InteractionPolicy, SocialTransaction } from "@/modules/social/social-repository";
+
+type MessagingDatabase = typeof productionDatabase;
+type MessageTransaction = SocialTransaction;
+type Cursor = { timestamp: string; id: string };
+const UUID_PATTERN = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
+const MAX_CONVERSATION_SCAN = 200;
+
+export class MessagingError extends Error {
+  constructor(
+    readonly code: "CONVERSATION_NOT_AVAILABLE" | "MESSAGE_IDEMPOTENCY_CONFLICT"
+      | "VERIFICATION_REQUIRED" | "MESSAGE_SEND_DENIED" | "INVALID_CURSOR",
+    readonly unmet?: Array<keyof VerificationDecision>,
+  ) {
+    super(code);
+  }
+}
+
+export interface MessageVerificationPolicy {
+  unmetInTransaction(
+    transaction: MessageTransaction,
+    userId: string,
+    now: Date,
+  ): Promise<Array<keyof VerificationDecision>>;
+}
+
+export class DrizzleMessageVerificationPolicy implements MessageVerificationPolicy {
+  async unmetInTransaction(transaction: MessageTransaction, userId: string, now: Date) {
+    const tx = transaction as MessagingDatabase;
+    const [account] = await tx.select({
+      emailVerified: users.emailVerified,
+      phoneVerified: users.phoneNumberVerified,
+      countryCode: profiles.countryCode,
+      profileStatus: profiles.status,
+    }).from(users).leftJoin(profiles, eq(profiles.userId, users.id))
+      .where(eq(users.id, userId)).limit(1);
+    if (!account) throw new MessagingError("CONVERSATION_NOT_AVAILABLE");
+    const approved = await tx.select({ kind: verificationAttempts.kind }).from(verificationAttempts).where(and(
+      eq(verificationAttempts.userId, userId),
+      eq(verificationAttempts.status, "approved"),
+      gt(verificationAttempts.expiresAt, now),
+    ));
+    const approvedKinds = new Set(approved.map(({ kind }) => kind));
+    const required = await launchVerificationPolicy.decide({
+      selfDeclaredCountryCode: account.countryCode ?? "ZZ",
+      risk: account.profileStatus && ["restricted", "suspended", "banned"].includes(account.profileStatus)
+        ? "high"
+        : "medium",
+      action: "message",
+    });
+    const satisfied: VerificationDecision = {
+      email: account.emailVerified,
+      phone: account.phoneVerified,
+      liveness: approvedKinds.has("liveness"),
+      identity: approvedKinds.has("identity"),
+    };
+    return (Object.keys(required) as Array<keyof VerificationDecision>)
+      .filter((key) => required[key] && !satisfied[key]);
+  }
+}
+
+const orderedPair = (left: string, right: string) => left < right
+  ? { lowUserId: left, highUserId: right }
+  : { lowUserId: right, highUserId: left };
+
+const serializeMessage = (row: typeof messages.$inferSelect, viewerUserId: string) => ({
+  id: row.id,
+  conversationId: row.conversationId,
+  sequence: row.sequence,
+  sender: row.senderUserId === viewerUserId ? "me" as const : "other" as const,
+  body: row.body,
+  createdAt: row.createdAt.toISOString(),
+});
+
+const cursorSignature = (body: string, secret: string) => createHmac("sha256", secret)
+  .update(body).digest("base64url");
+const encodeCursor = (cursor: Cursor, secret: string) => {
+  const body = Buffer.from(JSON.stringify(cursor), "utf8").toString("base64url");
+  return `${body}.${cursorSignature(body, secret)}`;
+};
+const decodeCursor = (cursor: string | undefined, secret: string): Cursor | null => {
+  if (!cursor) return null;
+  const [body, signature, extra] = cursor.split(".");
+  if (!body || !signature || extra || body.length > 1024 || signature.length > 100) {
+    throw new MessagingError("INVALID_CURSOR");
+  }
+  const expected = cursorSignature(body, secret);
+  const suppliedBytes = Buffer.from(signature);
+  const expectedBytes = Buffer.from(expected);
+  if (suppliedBytes.length !== expectedBytes.length || !timingSafeEqual(suppliedBytes, expectedBytes)) {
+    throw new MessagingError("INVALID_CURSOR");
+  }
+  try {
+    const decoded = JSON.parse(Buffer.from(body, "base64url").toString("utf8")) as Record<string, unknown>;
+    if (Object.keys(decoded).length !== 2 || typeof decoded.timestamp !== "string"
+      || Number.isNaN(Date.parse(decoded.timestamp)) || typeof decoded.id !== "string"
+      || !UUID_PATTERN.test(decoded.id)) throw new Error();
+    return { timestamp: decoded.timestamp, id: decoded.id };
+  } catch {
+    throw new MessagingError("INVALID_CURSOR");
+  }
+};
+
+export class MessageRepository {
+  private readonly database: MessagingDatabase;
+  private readonly interactionPolicy: InteractionPolicy;
+  private readonly entitlementService: Pick<EntitlementService, "consumeInTransaction" | "decideInTransaction">;
+  private readonly verificationPolicy: MessageVerificationPolicy;
+  private readonly cursorSecret: string;
+  private readonly clock: () => Date;
+
+  constructor(database: unknown, options: {
+    interactionPolicy: InteractionPolicy;
+    entitlementService: Pick<EntitlementService, "consumeInTransaction" | "decideInTransaction">;
+    verificationPolicy: MessageVerificationPolicy;
+    cursorSecret: string;
+    clock?: () => Date;
+  }) {
+    this.database = database as MessagingDatabase;
+    this.interactionPolicy = options.interactionPolicy;
+    this.entitlementService = options.entitlementService;
+    this.verificationPolicy = options.verificationPolicy;
+    this.cursorSecret = options.cursorSecret;
+    this.clock = options.clock ?? (() => new Date());
+  }
+
+  async createConversation(actorUserId: string, targetProfileId: string) {
+    try {
+      return await this.interactionPolicy.withAllowedProfileInteraction(
+        actorUserId,
+        targetProfileId,
+        async (transaction, targetUserId) => {
+          const tx = transaction as MessagingDatabase;
+          const pair = orderedPair(actorUserId, targetUserId);
+          let [conversation] = await tx.select().from(conversations).where(and(
+            eq(conversations.lowUserId, pair.lowUserId),
+            eq(conversations.highUserId, pair.highUserId),
+          )).limit(1);
+          if (conversation) {
+            if (conversation.status !== "active") throw new MessagingError("CONVERSATION_NOT_AVAILABLE");
+            return this.serializeConversation(conversation);
+          }
+          const now = this.clock();
+          const unmet = await this.verificationPolicy.unmetInTransaction(transaction, actorUserId, now);
+          if (unmet.length > 0) throw new MessagingError("VERIFICATION_REQUIRED", unmet);
+          const entitlement = await this.entitlementService.decideInTransaction(
+            transaction,
+            actorUserId,
+            "message.send.daily",
+          );
+          if (!entitlement.allowed) throw new MessagingError("MESSAGE_SEND_DENIED");
+          [conversation] = await tx.insert(conversations).values({ ...pair, createdAt: now, updatedAt: now })
+            .returning();
+          await tx.insert(conversationMembers).values([
+            { conversationId: conversation.id, userId: pair.lowUserId, joinedAt: now, updatedAt: now },
+            { conversationId: conversation.id, userId: pair.highUserId, joinedAt: now, updatedAt: now },
+          ]);
+          return this.serializeConversation(conversation);
+        },
+      );
+    } catch (error) {
+      if (error instanceof MessagingError) throw error;
+      if (error instanceof Error && error.message === "INTERACTION_NOT_ALLOWED") {
+        throw new MessagingError("CONVERSATION_NOT_AVAILABLE");
+      }
+      throw error;
+    }
+  }
+
+  async sendMessage(
+    senderUserId: string,
+    conversationId: string,
+    input: { clientId: string; body: string },
+  ) {
+    const replay = await this.findReplay(this.database, senderUserId, input.clientId);
+    if (replay) return this.validateReplay(replay, conversationId, input.body);
+    const membership = await this.findMembership(this.database, senderUserId, conversationId);
+    if (!membership) throw new MessagingError("CONVERSATION_NOT_AVAILABLE");
+    const targetUserId = membership.lowUserId === senderUserId
+      ? membership.highUserId
+      : membership.lowUserId;
+    try {
+      return await this.interactionPolicy.withAllowedInteraction(senderUserId, targetUserId, async (transaction) => {
+        const tx = transaction as MessagingDatabase;
+        const lockedReplay = await this.findReplay(tx, senderUserId, input.clientId);
+        if (lockedReplay) return this.validateReplay(lockedReplay, conversationId, input.body);
+        const currentMembership = await this.findMembership(tx, senderUserId, conversationId);
+        if (!currentMembership || currentMembership.status !== "active") {
+          throw new MessagingError("CONVERSATION_NOT_AVAILABLE");
+        }
+        const now = this.clock();
+        const unmet = await this.verificationPolicy.unmetInTransaction(transaction, senderUserId, now);
+        if (unmet.length > 0) throw new MessagingError("VERIFICATION_REQUIRED", unmet);
+        const decision = await this.entitlementService.consumeInTransaction(transaction, {
+          userId: senderUserId,
+          key: "message.send.daily",
+          operationId: input.clientId,
+          amount: 1,
+          context: { conversationId },
+        });
+        if (!decision.allowed) throw new MessagingError("MESSAGE_SEND_DENIED");
+
+        const [lockedConversation] = await tx.select().from(conversations).where(and(
+          eq(conversations.id, conversationId),
+          eq(conversations.status, "active"),
+        )).for("update").limit(1);
+        if (!lockedConversation) throw new MessagingError("CONVERSATION_NOT_AVAILABLE");
+        const sequence = lockedConversation.nextSequence;
+        if (!Number.isSafeInteger(sequence) || sequence < 1 || sequence >= Number.MAX_SAFE_INTEGER) {
+          throw new Error("CONVERSATION_SEQUENCE_EXHAUSTED");
+        }
+        const [message] = await tx.insert(messages).values({
+          conversationId,
+          sequence,
+          senderUserId,
+          clientId: input.clientId,
+          body: input.body,
+          createdAt: now,
+        }).returning();
+        await tx.update(conversations).set({
+          nextSequence: sequence + 1,
+          version: sql`${conversations.version} + 1`,
+          lastMessageAt: now,
+          updatedAt: now,
+        }).where(eq(conversations.id, conversationId));
+        await tx.insert(messageOutboxEvents).values({
+          messageId: message.id,
+          eventType: "message.created",
+          dedupeKey: `message.created:${message.id}`,
+          payload: { messageId: message.id, conversationId, senderUserId, sequence },
+          status: "pending",
+          availableAt: now,
+          createdAt: now,
+        });
+        return serializeMessage(message, senderUserId);
+      });
+    } catch (error) {
+      if (error instanceof MessagingError) throw error;
+      if (error instanceof Error && error.message === "INTERACTION_NOT_ALLOWED") {
+        throw new MessagingError("CONVERSATION_NOT_AVAILABLE");
+      }
+      throw error;
+    }
+  }
+
+  async listMessages(
+    userId: string,
+    conversationId: string,
+    input: { afterSequence: number; pageSize: number },
+  ) {
+    const membership = await this.findMembership(this.database, userId, conversationId);
+    if (!membership) throw new MessagingError("CONVERSATION_NOT_AVAILABLE");
+    const rows = await this.database.select().from(messages).where(and(
+      eq(messages.conversationId, conversationId),
+      gt(messages.sequence, input.afterSequence),
+    )).orderBy(asc(messages.sequence)).limit(input.pageSize + 1);
+    const hasMore = rows.length > input.pageSize;
+    const pageRows = rows.slice(0, input.pageSize);
+    return {
+      messages: pageRows.map((message) => serializeMessage(message, userId)),
+      nextAfterSequence: hasMore ? pageRows.at(-1)?.sequence ?? null : null,
+    };
+  }
+
+  async listConversations(userId: string, input: { pageSize: number; cursor?: string }) {
+    const initialCursor = decodeCursor(input.cursor, this.cursorSecret);
+    return this.interactionPolicy.withSafeViewerRead(userId, async (transaction) => {
+      const tx = transaction as MessagingDatabase;
+      const items: Array<Record<string, unknown>> = [];
+      let after = initialCursor;
+      let scanned = 0;
+      let hasMore = false;
+      while (items.length < input.pageSize && scanned < MAX_CONVERSATION_SCAN) {
+        const limit = Math.min(50, MAX_CONVERSATION_SCAN - scanned);
+        const sortTime = sql<Date>`coalesce(${conversations.lastMessageAt}, ${conversations.createdAt})`;
+        const rows = await tx.select({
+          conversation: conversations,
+          sortTime,
+        }).from(conversations).innerJoin(conversationMembers, and(
+          eq(conversationMembers.conversationId, conversations.id),
+          eq(conversationMembers.userId, userId),
+        )).where(and(
+          eq(conversations.status, "active"),
+          isNull(conversationMembers.hiddenAt),
+          after ? or(
+            lt(sortTime, new Date(after.timestamp)),
+            and(eq(sortTime, new Date(after.timestamp)), gt(conversations.id, after.id)),
+          ) : undefined,
+        )).orderBy(desc(sortTime), asc(conversations.id)).limit(limit);
+        if (rows.length === 0) break;
+        const counterpartIds = rows.map(({ conversation }) => conversation.lowUserId === userId
+          ? conversation.highUserId
+          : conversation.lowUserId);
+        const profilesByUser = await this.interactionPolicy.safeConversationProfilesInTransaction(
+          transaction,
+          userId,
+          counterpartIds,
+        );
+        for (let index = 0; index < rows.length; index += 1) {
+          const row = rows[index]!;
+          scanned += 1;
+          const rowSortTime = row.sortTime instanceof Date
+            ? row.sortTime
+            : new Date(String(row.sortTime));
+          if (Number.isNaN(rowSortTime.getTime())) throw new Error("INVALID_CONVERSATION_TIMESTAMP");
+          after = { timestamp: rowSortTime.toISOString(), id: row.conversation.id };
+          const counterpartUserId = row.conversation.lowUserId === userId
+            ? row.conversation.highUserId
+            : row.conversation.lowUserId;
+          const profile = profilesByUser.get(counterpartUserId);
+          if (profile) items.push({ ...this.serializeConversation(row.conversation), profile });
+          if (items.length === input.pageSize) {
+            hasMore = index < rows.length - 1 || rows.length === limit;
+            break;
+          }
+        }
+        if (items.length === input.pageSize || rows.length < limit) break;
+        hasMore = true;
+      }
+      return {
+        conversations: items,
+        nextCursor: hasMore && after ? encodeCursor(after, this.cursorSecret) : null,
+      };
+    });
+  }
+
+  private async findReplay(database: MessagingDatabase, senderUserId: string, clientId: string) {
+    const [row] = await database.select().from(messages).where(and(
+      eq(messages.senderUserId, senderUserId),
+      eq(messages.clientId, clientId),
+    )).limit(1);
+    return row;
+  }
+
+  private validateReplay(row: typeof messages.$inferSelect, conversationId: string, body: string) {
+    if (row.conversationId !== conversationId || row.body !== body) {
+      throw new MessagingError("MESSAGE_IDEMPOTENCY_CONFLICT");
+    }
+    return serializeMessage(row, row.senderUserId);
+  }
+
+  private async findMembership(database: MessagingDatabase, userId: string, conversationId: string) {
+    const [row] = await database.select({
+      id: conversations.id,
+      lowUserId: conversations.lowUserId,
+      highUserId: conversations.highUserId,
+      status: conversations.status,
+    }).from(conversations).innerJoin(conversationMembers, and(
+      eq(conversationMembers.conversationId, conversations.id),
+      eq(conversationMembers.userId, userId),
+    )).where(eq(conversations.id, conversationId)).limit(1);
+    return row;
+  }
+
+  private serializeConversation(row: typeof conversations.$inferSelect) {
+    return {
+      id: row.id,
+      createdAt: row.createdAt.toISOString(),
+      lastMessageAt: row.lastMessageAt?.toISOString() ?? null,
+      latestSequence: row.nextSequence - 1,
+    };
+  }
+}

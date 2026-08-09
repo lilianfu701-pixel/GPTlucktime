@@ -202,7 +202,7 @@ export class EntitlementService {
     this.planResolver = options.planResolver;
   }
 
-  private async decideInTransaction(
+  private async resolveDecisionInTransaction(
     transaction: EntitlementTransaction,
     userId: string,
     key: EntitlementKey,
@@ -223,7 +223,7 @@ export class EntitlementService {
       const planRef = await this.planResolver(transaction, userId, now);
       const rows = [] as EntitlementDecision[];
       for (const key of PUBLIC_ENTITLEMENT_KEYS) {
-        const resolved = await this.decideInTransaction(transaction, userId, key, now, planRef);
+        const resolved = await this.resolveDecisionInTransaction(transaction, userId, key, now, planRef);
         if (resolved.publicVisible) rows.push(resolved.decision);
       }
       return rows;
@@ -234,8 +234,18 @@ export class EntitlementService {
     return this.store.transaction(async (transaction) => {
       const now = await this.timeResolver(transaction);
       const planRef = await this.planResolver(transaction, userId, now);
-      return (await this.decideInTransaction(transaction, userId, key, now, planRef)).decision;
+      return (await this.resolveDecisionInTransaction(transaction, userId, key, now, planRef)).decision;
     });
+  }
+
+  async decideInTransaction(
+    transaction: EntitlementTransaction,
+    userId: string,
+    key: EntitlementKey,
+  ) {
+    const now = await this.timeResolver(transaction);
+    const planRef = await this.planResolver(transaction, userId, now);
+    return (await this.resolveDecisionInTransaction(transaction, userId, key, now, planRef)).decision;
   }
 
   async consume(input: AuthoritativeConsumeInput) {

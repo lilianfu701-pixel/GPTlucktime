@@ -25,6 +25,13 @@ describe("readEnv", () => {
       .toThrow("DISCOVERY_DISABLED_COUNTRY_CODES");
   });
 
+  it("accepts an optional valid realtime ticket key ring and rejects malformed rings", () => {
+    const ring = `active:${Buffer.alloc(32, 4).toString("base64url")},old:${Buffer.alloc(32, 5).toString("base64url")}`;
+    expect(readEnv({ ...validEnv, REALTIME_TICKET_KEYS: ring }).REALTIME_TICKET_KEYS).toBe(ring);
+    expect(() => readEnv({ ...validEnv, REALTIME_TICKET_KEYS: "active:short" }))
+      .toThrow("REALTIME_TICKET_KEYS_INVALID");
+  });
+
   it("accepts a server-only trusted ingress token", () => {
     expect(readEnv({
       ...validEnv,

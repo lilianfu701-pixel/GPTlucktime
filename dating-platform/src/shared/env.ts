@@ -1,6 +1,7 @@
 import { z } from "zod";
 
 import { parseEncryptionKeyRing, parseLegacyEncryptionKeys } from "@/modules/auth/auth-crypto";
+import { parseSocketTicketKeyRing } from "@/modules/messaging/socket-ticket";
 
 const urlWithProtocols = (protocols: readonly string[], message: string) =>
   z
@@ -34,6 +35,16 @@ const legacyEncryptionKey = z.string().superRefine((value, context) => {
     context.addIssue({
       code: "custom",
       message: error instanceof Error ? error.message : "AUTH_LEGACY_ENCRYPTION_KEY is invalid",
+    });
+  }
+});
+const realtimeTicketKeyRing = z.string().superRefine((value, context) => {
+  try {
+    parseSocketTicketKeyRing(value);
+  } catch (error) {
+    context.addIssue({
+      code: "custom",
+      message: error instanceof Error ? error.message : "REALTIME_TICKET_KEYS_INVALID",
     });
   }
 });
@@ -104,6 +115,7 @@ const schema = z
     ),
     MEDIA_WORKER_CRON_SECRET: optionalValue(z.string().min(32).max(256)),
     DISCOVERY_DISABLED_COUNTRY_CODES: optionalValue(z.string().regex(/^[A-Z]{2}(,[A-Z]{2})*$/)),
+    REALTIME_TICKET_KEYS: optionalValue(realtimeTicketKeyRing),
   })
   .superRefine((env, context) => {
     const requireCompleteGroup = (

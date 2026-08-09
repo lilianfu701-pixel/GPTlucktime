@@ -101,6 +101,20 @@ export interface InteractionPolicy {
     targetUserId: string,
     write: (transaction: SocialTransaction) => Promise<T>,
   ): Promise<T>;
+  withAllowedProfileInteraction<T>(
+    actorUserId: string,
+    targetProfileId: string,
+    write: (transaction: SocialTransaction, targetUserId: string) => Promise<T>,
+  ): Promise<T>;
+  withSafeViewerRead<T>(
+    viewerUserId: string,
+    read: (transaction: SocialTransaction) => Promise<T>,
+  ): Promise<T>;
+  safeConversationProfilesInTransaction(
+    transaction: SocialTransaction,
+    viewerUserId: string,
+    userIds: string[],
+  ): Promise<Map<string, Record<string, unknown>>>;
   validateRealtimeTicket(actorUserId: string, targetUserId: string, issuedAt: Date): Promise<boolean>;
 }
 
@@ -133,6 +147,32 @@ export class SocialRepository implements InteractionPolicy {
       await this.assertAllowedInTransaction(tx, actorUserId, targetUserId);
       return write(tx);
     });
+  }
+
+  async withAllowedProfileInteraction<T>(
+    actorUserId: string,
+    targetProfileId: string,
+    write: (transaction: SocialTransaction, targetUserId: string) => Promise<T>,
+  ) {
+    return this.withTargetPair(actorUserId, targetProfileId, async (tx, targetUserId) => {
+      await this.assertAllowedInTransaction(tx, actorUserId, targetUserId);
+      return write(tx, targetUserId);
+    }, true);
+  }
+
+  async withSafeViewerRead<T>(
+    viewerUserId: string,
+    read: (transaction: SocialTransaction) => Promise<T>,
+  ) {
+    return this.withViewerListTransaction(viewerUserId, read);
+  }
+
+  async safeConversationProfilesInTransaction(
+    transaction: SocialTransaction,
+    viewerUserId: string,
+    userIds: string[],
+  ) {
+    return this.publicProfiles(transaction, viewerUserId, userIds, { requireDiscoverable: false });
   }
 
   async validateRealtimeTicket(actorUserId: string, targetUserId: string, issuedAt: Date) {
@@ -515,6 +555,11 @@ export class SocialRepository implements InteractionPolicy {
   }
 
   private async assertAllowedInTransaction(tx: SocialTransaction, actorUserId: string, targetUserId: string) {
+    const activeProfiles = await tx.select({ userId: profiles.userId }).from(profiles).where(and(
+      inArray(profiles.userId, [actorUserId, targetUserId]),
+      eq(profiles.status, "active"),
+    )).orderBy(asc(profiles.userId)).for("share");
+    if (activeProfiles.length !== 2) throw new Error("INTERACTION_NOT_ALLOWED");
     const [block] = await tx.select({ id: userBlocks.id }).from(userBlocks).where(or(
       and(eq(userBlocks.blockerUserId, actorUserId), eq(userBlocks.blockedUserId, targetUserId)),
       and(eq(userBlocks.blockerUserId, targetUserId), eq(userBlocks.blockedUserId, actorUserId)),
@@ -594,7 +639,7 @@ export class SocialRepository implements InteractionPolicy {
     database: SocialTransaction,
     viewerUserId: string,
     userIds: string[],
-    options: { requireVisitorVisibility?: boolean } = {},
+    options: { requireVisitorVisibility?: boolean; requireDiscoverable?: boolean } = {},
   ) {
     if (userIds.length === 0) return new Map<string, Record<string, unknown>>();
     const uniqueUserIds = [...new Set(userIds)];
@@ -607,7 +652,7 @@ export class SocialRepository implements InteractionPolicy {
         .where(and(
           inArray(profiles.userId, uniqueUserIds),
           eq(profiles.status, "active"),
-          eq(profiles.discoverable, true),
+          options.requireDiscoverable === false ? undefined : eq(profiles.discoverable, true),
           blockedSql(viewerUserId, profiles.userId),
           options.requireVisitorVisibility ? eq(privacySettings.showProfileVisitors, true) : undefined,
           sql`EXISTS (
