@@ -41,6 +41,11 @@ const messageEvent = z.object({
 
 export type ReceiptInput = z.infer<typeof receiptInput>;
 export type RealtimeMessageEvent = z.infer<typeof messageEvent>;
+export type RealtimeBackgroundErrorCode = "REVOCATION_POLL_FAILED" | "OUTBOX_CONSUME_FAILED";
+
+export const createRealtimeBackgroundReporter = (
+  write: (code: RealtimeBackgroundErrorCode) => void = (code) => { process.stderr.write(`${code}\n`); },
+) => (code: RealtimeBackgroundErrorCode) => write(code);
 
 type SocketData = {
   identity: SocketIdentity;
@@ -119,13 +124,20 @@ export function createRealtimeServer(options: {
         && socket.data.conversations.size >= maxRooms) {
         return acknowledge?.({ ok: false, code: "LIMIT_REACHED" });
       }
-      if (!admit("join")) return acknowledge?.({ ok: false, code: "RETRY_LATER" });
+      if (!admit("join")) return acknowledge?.({
+        ok: false,
+        code: "RETRY_LATER",
+        retryAfterMs: Math.max(60_000 - (Date.now() - rateWindowStartedAt), 250),
+      });
       try {
         const authorized = await options.authorization.authorizeConversation(socket.data.identity, parsed.data.conversationId);
         socket.data.conversations.set(authorized.conversationId, authorized);
         await socket.join(`conversation:${authorized.conversationId}`);
         return acknowledge?.({ ok: true });
-      } catch {
+      } catch (error) {
+        if (error instanceof Error && error.message === "RETRY_LATER") {
+          return acknowledge?.({ ok: false, code: "RETRY_LATER", retryAfterMs: 250 });
+        }
         return acknowledge?.({ ok: false, code: "NOT_AVAILABLE" });
       } finally { release(); }
     });
@@ -134,7 +146,11 @@ export function createRealtimeServer(options: {
       if (!parsed.success || !socket.data.conversations.has(parsed.data.conversationId)) {
         return acknowledge?.({ ok: false, code: "NOT_AVAILABLE" });
       }
-      if (!admit("receipt")) return acknowledge?.({ ok: false, code: "RETRY_LATER" });
+      if (!admit("receipt")) return acknowledge?.({
+        ok: false,
+        code: "RETRY_LATER",
+        retryAfterMs: Math.max(60_000 - (Date.now() - rateWindowStartedAt), 250),
+      });
       try {
         const result = await options.receipts.record(socket.data.identity.userId, parsed.data);
         return acknowledge?.({ ok: true, receipt: result });
@@ -221,6 +237,7 @@ export async function startRealtimeProcess(input: Partial<NodeJS.ProcessEnv> = p
     idempotencySecret: env.BETTER_AUTH_SECRET,
   });
   const receiptRepository = new receiptModule.MessageReceiptRepository(db, { interactionPolicy: social });
+  const reportBackgroundError = createRealtimeBackgroundReporter();
   const { entitlementService } = await import("@/modules/entitlements/runtime");
   const { MessageReceiptService } = await import("@/modules/messaging/message-receipt-service");
   const server = createRealtimeServer({
@@ -230,6 +247,7 @@ export async function startRealtimeProcess(input: Partial<NodeJS.ProcessEnv> = p
     revocations: new authModule.DrizzleRealtimeRevocationSource(db),
     revocationPollMs: env.REALTIME_POLL_MS ?? 1_000,
     allowedOrigins: [new URL(env.APP_URL).origin],
+    onBackgroundError: reportBackgroundError,
   });
   const store = new outboxModule.DrizzleMessageOutboxStore(db);
   const publish = outboxModule.createAuthorizedRealtimePublisher(db, social, server.publishMessage);
@@ -238,7 +256,7 @@ export async function startRealtimeProcess(input: Partial<NodeJS.ProcessEnv> = p
   const consume = async () => {
     if (running) return;
     running = true;
-    try { await consumer.runOnce(); } catch { /* a later bounded poll recovers leases */ } finally { running = false; }
+    try { await consumer.runOnce(); } catch { reportBackgroundError("OUTBOX_CONSUME_FAILED"); } finally { running = false; }
   };
   const address = await server.start({
     host: env.REALTIME_HOST ?? "127.0.0.1",

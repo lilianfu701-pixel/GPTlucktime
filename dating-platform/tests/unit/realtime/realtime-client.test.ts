@@ -4,11 +4,23 @@ import { describe, expect, it } from "vitest";
 
 import {
   CoalescedRecovery,
+  CoalescedAbortableRequests,
   PendingSendLedger,
   RequestGenerations,
   recoverAllMessagePages,
+  ReceiptDeliveryQueue,
   RealtimeMessageStore,
+  type RecoveredMessage,
 } from "@/modules/messaging/realtime-client";
+
+const receiptMessage = (sequence: number): RecoveredMessage => ({
+  id: `00000000-0000-4000-8000-${String(sequence).padStart(12, "0")}`,
+  conversationId: "00000000-0000-4000-8000-000000000001",
+  sequence,
+  body: String(sequence),
+  sender: "them",
+  createdAt: "2026-08-08T12:00:00.000Z",
+});
 
 describe("realtime message store", () => {
   it("does not advance the recovery cursor until a notification has been hydrated from HTTP", () => {
@@ -76,6 +88,119 @@ it("prevents a late request generation from replacing newer conversation state",
   const fast = generations.begin("conversation");
   expect(generations.isCurrent("conversation", fast)).toBe(true);
   expect(generations.isCurrent("conversation", slow)).toBe(false);
+});
+
+describe("durable receipt delivery queue", () => {
+  it("coalesces delivered into read before sending", async () => {
+    const sent: string[] = [];
+    const queue = new ReceiptDeliveryQueue({
+      send: async (kind) => { sent.push(kind); return { ok: true }; },
+    });
+    queue.enqueue("delivered", receiptMessage(1));
+    queue.enqueue("read", receiptMessage(1));
+    await queue.drain();
+    expect(sent).toEqual(["read"]);
+  });
+
+  it("retries RETRY_LATER with bounded backoff and then succeeds", async () => {
+    let attempts = 0;
+    const delays: number[] = [];
+    const queue = new ReceiptDeliveryQueue({
+      send: async () => (++attempts === 1
+        ? { ok: false, code: "RETRY_LATER", retryAfterMs: 75 }
+        : { ok: true }),
+      sleep: async (milliseconds) => { delays.push(milliseconds); },
+    });
+    queue.enqueue("delivered", receiptMessage(1));
+    await queue.drain();
+    expect(attempts).toBe(2);
+    expect(delays).toEqual([75]);
+  });
+
+  it("processes more than 100 messages with bounded concurrency", async () => {
+    let active = 0;
+    let maximumActive = 0;
+    const sent: string[] = [];
+    const queue = new ReceiptDeliveryQueue({
+      send: async (_kind, message) => {
+        active += 1;
+        maximumActive = Math.max(maximumActive, active);
+        await Promise.resolve();
+        sent.push(message.id);
+        active -= 1;
+        return { ok: true };
+      },
+    });
+    for (let sequence = 1; sequence <= 205; sequence += 1) {
+      queue.enqueue("delivered", receiptMessage(sequence));
+    }
+    await queue.drain();
+    expect(sent).toHaveLength(205);
+    expect(new Set(sent).size).toBe(205);
+    expect(maximumActive).toBe(1);
+  });
+
+  it("cancels active and queued work on stop", async () => {
+    let attempts = 0;
+    const queue = new ReceiptDeliveryQueue({
+      send: async (_kind, _message, _at, signal) => {
+        attempts += 1;
+        await new Promise<void>((_resolve, reject) => signal.addEventListener("abort", () => reject(signal.reason), { once: true }));
+        return { ok: true };
+      },
+    });
+    queue.enqueue("delivered", receiptMessage(1));
+    queue.enqueue("delivered", receiptMessage(2));
+    await Promise.resolve();
+    queue.stop();
+    await queue.drain();
+    expect(attempts).toBe(1);
+  });
+
+  it("does not retry a permanently unavailable receipt after it is re-enqueued", async () => {
+    let attempts = 0;
+    const errors: string[] = [];
+    const queue = new ReceiptDeliveryQueue({
+      send: async () => { attempts += 1; return { ok: false, code: "NOT_AVAILABLE" }; },
+      onError: (code) => errors.push(code),
+    });
+    queue.enqueue("delivered", receiptMessage(1));
+    await queue.drain();
+    queue.enqueue("read", receiptMessage(1));
+    await queue.drain();
+    expect(attempts).toBe(1);
+    expect(errors).toEqual(["RECEIPT_NOT_AVAILABLE"]);
+  });
+});
+
+it("coalesces dense receipt refresh requests and cancels them on cleanup", async () => {
+  const requests = new CoalescedAbortableRequests();
+  let release!: () => void;
+  const barrier = new Promise<void>((resolve) => { release = resolve; });
+  const signals: AbortSignal[] = [];
+  let calls = 0;
+  const fetchPages = async (signal: AbortSignal) => {
+    calls += 1;
+    signals.push(signal);
+    if (calls === 1) await barrier;
+  };
+
+  const first = requests.run("conversation", fetchPages);
+  await Promise.resolve();
+  const second = requests.run("conversation", fetchPages);
+  const third = requests.run("conversation", fetchPages);
+  release();
+  await Promise.all([first, second, third]);
+  expect(calls).toBe(2);
+
+  const active = requests.run("other", async (signal) => {
+    signals.push(signal);
+    await new Promise<void>((_resolve, reject) => signal.addEventListener("abort", () => reject(signal.reason), { once: true }));
+  });
+  await Promise.resolve();
+  requests.cancelAll();
+  await active;
+  expect(signals.at(-1)?.aborted).toBe(true);
 });
 
 it("continues after each bounded recovery round until every page is hydrated", async () => {

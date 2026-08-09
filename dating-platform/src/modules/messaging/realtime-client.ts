@@ -8,6 +8,12 @@ export type RecoveredMessage = {
   id: string; conversationId: string; sequence: number; body: string; sender: "me" | "them"; createdAt: string;
 };
 
+class RealtimeActionError extends Error {
+  constructor(readonly code: "RETRY_LATER" | "NOT_AVAILABLE", readonly retryAfterMs?: number) {
+    super(code);
+  }
+}
+
 export class CoalescedRecovery {
   private readonly active = new Map<string, { dirty: boolean; promise: Promise<void> }>();
   run(key: string, recover: () => Promise<void>) {
@@ -19,6 +25,43 @@ export class CoalescedRecovery {
     })().finally(() => this.active.delete(key));
     this.active.set(key, state);
     return state.promise;
+  }
+}
+
+export class CoalescedAbortableRequests {
+  private readonly active = new Map<string, {
+    dirty: boolean;
+    controller: AbortController;
+    promise: Promise<void>;
+  }>();
+
+  run(key: string, request: (signal: AbortSignal) => Promise<void>) {
+    const existing = this.active.get(key);
+    if (existing) {
+      existing.dirty = true;
+      return existing.promise;
+    }
+    const state = { dirty: true, controller: new AbortController(), promise: Promise.resolve() };
+    state.promise = (async () => {
+      while (state.dirty && !state.controller.signal.aborted) {
+        state.dirty = false;
+        try {
+          await request(state.controller.signal);
+        } catch (error) {
+          if (!state.controller.signal.aborted) throw error;
+        }
+      }
+    })().finally(() => this.active.delete(key));
+    this.active.set(key, state);
+    return state.promise;
+  }
+
+  cancel(key: string) {
+    this.active.get(key)?.controller.abort();
+  }
+
+  cancelAll() {
+    for (const state of this.active.values()) state.controller.abort();
   }
 }
 
@@ -58,6 +101,144 @@ export class PendingSendLedger {
     } catch { this.storage.removeItem(this.key(conversationId)); }
   }
 }
+
+type ReceiptKind = "delivered" | "read";
+type ReceiptSendResult = { ok: true } | {
+  ok: false;
+  code: "RETRY_LATER" | "NOT_AVAILABLE";
+  retryAfterMs?: number;
+};
+
+export class ReceiptDeliveryQueue {
+  private readonly pending = new Map<string, { kind: ReceiptKind; message: RecoveredMessage }>();
+  private readonly completed = new Map<string, ReceiptKind>();
+  private readonly permanentlyUnavailable = new Set<string>();
+  private readonly controller = new AbortController();
+  private readonly idleWaiters = new Set<() => void>();
+  private processing = false;
+  private scheduled = false;
+  private stopped = false;
+
+  constructor(private readonly options: {
+    send(kind: ReceiptKind, message: RecoveredMessage, at: string, signal: AbortSignal): Promise<ReceiptSendResult>;
+    sleep?: (milliseconds: number, signal: AbortSignal) => Promise<void>;
+    clock?: () => Date;
+    maxRetries?: number;
+    maxPending?: number;
+    onError?: (code: "RECEIPT_NOT_AVAILABLE" | "RECEIPT_RETRY_EXHAUSTED" | "RECEIPT_QUEUE_FULL") => void;
+  }) {}
+
+  enqueue(kind: ReceiptKind, message: RecoveredMessage) {
+    if (this.stopped || message.sender !== "them" || this.permanentlyUnavailable.has(message.id)) return;
+    const completed = this.completed.get(message.id);
+    if (completed === "read" || (completed === "delivered" && kind === "delivered")) return;
+    const current = this.pending.get(message.id);
+    if (current) {
+      if (kind === "read") current.kind = "read";
+      return;
+    }
+    if (this.pending.size >= (this.options.maxPending ?? 5_000)) {
+      this.options.onError?.("RECEIPT_QUEUE_FULL");
+      return;
+    }
+    this.pending.set(message.id, { kind, message });
+    this.schedule();
+  }
+
+  drain() {
+    if (!this.processing && !this.scheduled && this.pending.size === 0) return Promise.resolve();
+    return new Promise<void>((resolve) => this.idleWaiters.add(resolve));
+  }
+
+  stop() {
+    if (this.stopped) return;
+    this.stopped = true;
+    this.pending.clear();
+    this.controller.abort(new DOMException("Stopped", "AbortError"));
+    if (!this.processing) this.resolveIdle();
+  }
+
+  private schedule() {
+    if (this.scheduled || this.processing || this.stopped) return;
+    this.scheduled = true;
+    queueMicrotask(() => {
+      this.scheduled = false;
+      void this.process();
+    });
+  }
+
+  private async process() {
+    if (this.processing || this.stopped) return;
+    this.processing = true;
+    try {
+      while (!this.stopped) {
+        const entry = this.pending.entries().next().value as [string, { kind: ReceiptKind; message: RecoveredMessage }] | undefined;
+        if (!entry) break;
+        const [messageId, task] = entry;
+        this.pending.delete(messageId);
+        let attempts = 0;
+        while (!this.stopped) {
+          try {
+            const result = await this.options.send(
+              task.kind,
+              task.message,
+              (this.options.clock?.() ?? new Date()).toISOString(),
+              this.controller.signal,
+            );
+            if (result.ok) {
+              this.completed.set(messageId, task.kind);
+              break;
+            }
+            if (result.code === "NOT_AVAILABLE") {
+              this.permanentlyUnavailable.add(messageId);
+              this.options.onError?.("RECEIPT_NOT_AVAILABLE");
+              break;
+            }
+            attempts += 1;
+            if (attempts > (this.options.maxRetries ?? 5)) {
+              this.options.onError?.("RECEIPT_RETRY_EXHAUSTED");
+              break;
+            }
+            await (this.options.sleep ?? abortableDelay)(
+              result.retryAfterMs ?? Math.min(250 * 2 ** (attempts - 1), 60_000),
+              this.controller.signal,
+            );
+          } catch {
+            if (this.stopped || this.controller.signal.aborted) break;
+            attempts += 1;
+            if (attempts > (this.options.maxRetries ?? 5)) {
+              this.options.onError?.("RECEIPT_RETRY_EXHAUSTED");
+              break;
+            }
+            await (this.options.sleep ?? abortableDelay)(
+              Math.min(250 * 2 ** (attempts - 1), 60_000),
+              this.controller.signal,
+            );
+          }
+        }
+      }
+    } finally {
+      this.processing = false;
+      if (!this.stopped && this.pending.size > 0) this.schedule();
+      else this.resolveIdle();
+    }
+  }
+
+  private resolveIdle() {
+    for (const resolve of this.idleWaiters) resolve();
+    this.idleWaiters.clear();
+  }
+}
+
+const abortableDelay = (milliseconds: number, signal: AbortSignal) => new Promise<void>((resolve, reject) => {
+  if (signal.aborted) return reject(signal.reason);
+  const timer = setTimeout(resolve, milliseconds);
+  timer.unref?.();
+  signal.addEventListener("abort", () => {
+    clearTimeout(timer);
+    reject(signal.reason);
+  }, { once: true });
+});
 
 export async function recoverAllMessagePages(
   fetchPage: (afterSequence: number, signal?: AbortSignal) => Promise<{
@@ -142,6 +323,7 @@ export function createRealtimeClient(options: {
   onMessages: (conversationId: string, messages: RecoveredMessage[]) => void;
   maxRetries?: number;
   ackTimeoutMs?: number;
+  onBackgroundError?: (code: "RECEIPT_NOT_AVAILABLE" | "RECEIPT_RETRY_EXHAUSTED" | "RECEIPT_QUEUE_FULL") => void;
 }) {
   const store = new RealtimeMessageStore();
   const conversations = new Set<string>();
@@ -151,31 +333,48 @@ export function createRealtimeClient(options: {
   let retries = 0;
   let stopped = false;
   let connecting = false;
+  let terminalJoinFailure = false;
   const stopController = new AbortController();
   const recoveryCoordinator = new CoalescedRecovery();
-  const receiptState = new Map<string, "delivered" | "read">();
 
   const emitAck = async (event: string, payload: Record<string, unknown>) => {
     if (!socket?.connected) throw new Error("REALTIME_NOT_CONNECTED");
-    const ack = await socket.timeout(options.ackTimeoutMs ?? 5_000).emitWithAck(event, payload) as unknown;
+    let ack: unknown;
+    try {
+      ack = await socket.timeout(options.ackTimeoutMs ?? 5_000).emitWithAck(event, payload) as unknown;
+    } catch {
+      throw new RealtimeActionError("RETRY_LATER");
+    }
     if (!ack || typeof ack !== "object" || (ack as { ok?: unknown }).ok !== true) {
-      throw new Error("REALTIME_ACTION_REJECTED");
+      const rejected = ack as { code?: unknown; retryAfterMs?: unknown };
+      const code = rejected.code === "RETRY_LATER" ? "RETRY_LATER" : "NOT_AVAILABLE";
+      const retryAfterMs = typeof rejected.retryAfterMs === "number"
+        ? Math.min(Math.max(rejected.retryAfterMs, 0), 60_000)
+        : undefined;
+      throw new RealtimeActionError(code, retryAfterMs);
     }
     return ack;
   };
 
-  const sendReceipt = async (kind: "delivered" | "read", message: RecoveredMessage) => {
-    if (message.sender !== "them") return;
-    const previous = receiptState.get(message.id);
-    if (previous === "read" || (previous === "delivered" && kind === "delivered")) return;
-    await emitAck("receipt.update", {
-      conversationId: message.conversationId,
-      messageId: message.id,
-      kind,
-      at: new Date().toISOString(),
-    });
-    receiptState.set(message.id, kind);
-  };
+  const receiptQueue = new ReceiptDeliveryQueue({
+    send: async (kind, message, at) => {
+      try {
+        await emitAck("receipt.update", {
+          conversationId: message.conversationId,
+          messageId: message.id,
+          kind,
+          at,
+        });
+        return { ok: true };
+      } catch (error) {
+        if (error instanceof RealtimeActionError) {
+          return { ok: false, code: error.code, retryAfterMs: error.retryAfterMs };
+        }
+        return { ok: false, code: "RETRY_LATER" };
+      }
+    },
+    onError: options.onBackgroundError,
+  });
 
   const recover = async (conversationId: string) => {
     return recoveryCoordinator.run(conversationId, async () => {
@@ -187,14 +386,46 @@ export function createRealtimeClient(options: {
         store.mergeRecovery(conversationId, rows);
         const hydrated = store.messages(conversationId);
         options.onMessages(conversationId, hydrated);
-        for (const message of hydrated.slice(-100)) await sendReceipt("delivered", message);
+        if (socket?.connected) for (const message of rows) receiptQueue.enqueue("delivered", message);
     });
   };
   const joinAndRecover = async (conversationId: string) => {
     await emitAck("conversation.join", { conversationId });
+    for (const message of store.messages(conversationId)) receiptQueue.enqueue("delivered", message);
     await recover(conversationId);
   };
+  const joinWithBudget = async (conversationId: string) => {
+    let attempts = 0;
+    while (!stopped && socket?.connected) {
+      try {
+        await joinAndRecover(conversationId);
+        terminalJoinFailure = false;
+        retries = 0;
+        options.onState("online");
+        return;
+      } catch (error) {
+        if (!(error instanceof RealtimeActionError) || error.code === "NOT_AVAILABLE") {
+          terminalJoinFailure = true;
+          options.onState("failed");
+          throw error;
+        }
+        attempts += 1;
+        if (attempts > (options.maxRetries ?? 8)) {
+          terminalJoinFailure = true;
+          options.onState("failed");
+          throw error;
+        }
+        options.onState("retrying");
+        await new Promise<void>((resolve) => setTimeout(
+          resolve,
+          error.retryAfterMs ?? Math.min(100 * 2 ** (attempts - 1), 2_000),
+        ));
+      }
+    }
+    throw new RealtimeActionError("RETRY_LATER");
+  };
   const schedule = () => {
+    if (terminalJoinFailure) return options.onState("failed");
     if (stopped || retryTimer) return;
     retries += 1;
     if (retries > (options.maxRetries ?? 8)) return options.onState("failed");
@@ -217,11 +448,11 @@ export function createRealtimeClient(options: {
       socket.on("connect", async () => {
         try {
           for (const conversationId of conversations) {
-            await joinAndRecover(conversationId);
+            await joinWithBudget(conversationId);
           }
           retries = 0;
-          options.onState("online");
-        } catch { socket?.disconnect(); }
+          if (conversations.size === 0) options.onState("online");
+        } catch { if (!terminalJoinFailure) socket?.disconnect(); }
       });
       socket.on("message.created", async (event: MessageNotification) => {
         try {
@@ -239,13 +470,17 @@ export function createRealtimeClient(options: {
     start: connect,
     async join(conversationId: string) {
       conversations.add(conversationId);
-      if (socket?.connected) await joinAndRecover(conversationId);
+      await recover(conversationId);
+      if (socket?.connected) {
+        terminalJoinFailure = false;
+        await joinWithBudget(conversationId);
+      }
     },
     async markDelivered(message: RecoveredMessage) {
-      await sendReceipt("delivered", message);
+      receiptQueue.enqueue("delivered", message);
     },
     async markRead(message: RecoveredMessage) {
-      await sendReceipt("read", message);
+      receiptQueue.enqueue("read", message);
     },
     async refresh(conversationId: string) {
       if (!conversations.has(conversationId)) conversations.add(conversationId);
@@ -256,6 +491,7 @@ export function createRealtimeClient(options: {
       stopController.abort();
       if (retryTimer) clearTimeout(retryTimer);
       if (refreshTimer) clearTimeout(refreshTimer);
+      receiptQueue.stop();
       socket?.removeAllListeners();
       socket?.disconnect();
     },

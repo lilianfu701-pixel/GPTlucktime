@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 
 import {
+  CoalescedAbortableRequests,
   createRealtimeClient,
   PendingSendLedger,
   recoverAllMessagePages,
@@ -32,6 +33,7 @@ export function MessagesClient({ locale, realtimeUrl }: { locale: "en" | "zh"; r
   const ledgerRef = useRef<PendingSendLedger | null>(null);
   const selectionGenerationRef = useRef(0);
   const receiptGenerationsRef = useRef(new Map<string, number>());
+  const receiptRequestsRef = useRef(new CoalescedAbortableRequests());
 
   useEffect(() => {
     let active = true;
@@ -69,7 +71,7 @@ export function MessagesClient({ locale, realtimeUrl }: { locale: "en" | "zh"; r
       };
     }, { afterSequence, signal }), []);
 
-  const loadReceipts = useCallback(async (conversationId: string, signal?: AbortSignal) => {
+  const loadReceipts = useCallback((conversationId: string) => receiptRequestsRef.current.run(conversationId, async (signal) => {
     const generation = (receiptGenerationsRef.current.get(conversationId) ?? 0) + 1;
     receiptGenerationsRef.current.set(conversationId, generation);
     const isCurrent = () => receiptGenerationsRef.current.get(conversationId) === generation;
@@ -81,6 +83,7 @@ export function MessagesClient({ locale, realtimeUrl }: { locale: "en" | "zh"; r
       const result = await response.json() as { visible?: boolean; receipts?: Receipt[]; nextAfterSequence?: number | null };
       if (result.visible !== true) {
         if (isCurrent()) setReceipts((current) => ({ ...current, [conversationId]: {} }));
+        receiptRequestsRef.current.cancel(conversationId);
         return;
       }
       if (Array.isArray(result.receipts)) rows.push(...result.receipts);
@@ -94,7 +97,9 @@ export function MessagesClient({ locale, realtimeUrl }: { locale: "en" | "zh"; r
         [conversationId]: Object.fromEntries(rows.map((receipt) => [receipt.messageId, receipt])),
       }));
     }
-  }, []);
+  }), []);
+
+  useEffect(() => () => receiptRequestsRef.current.cancelAll(), []);
 
   useEffect(() => {
     if (!realtimeUrl) return;
@@ -129,18 +134,22 @@ export function MessagesClient({ locale, realtimeUrl }: { locale: "en" | "zh"; r
     if (!selected) return;
     const generation = ++selectionGenerationRef.current;
     const controller = new AbortController();
+    const receiptRequests = receiptRequestsRef.current;
     if (realtimeUrl) {
-      void clientRef.current?.join(selected).catch(() => undefined);
+      void clientRef.current?.join(selected).catch(() => setState("failed"));
     } else {
       void recover(selected, 0, controller.signal)
         .then((rows) => {
           if (selectionGenerationRef.current !== generation || selectedRef.current !== selected) return;
           setMessages((current) => ({ ...current, [selected]: rows }));
-          void loadReceipts(selected, controller.signal);
+          void loadReceipts(selected);
         })
         .catch(() => undefined);
     }
-    return () => controller.abort();
+    return () => {
+      controller.abort();
+      receiptRequests.cancel(selected);
+    };
   }, [selected, realtimeUrl, recover, loadReceipts]);
 
   const selectConversation = (conversationId: string) => {
@@ -155,7 +164,7 @@ export function MessagesClient({ locale, realtimeUrl }: { locale: "en" | "zh"; r
     if (!selected) return;
     const markVisibleRead = () => {
       if (document.visibilityState !== "visible") return;
-      for (const message of (messages[selected] ?? []).filter(({ sender }) => sender === "them").slice(-100)) {
+      for (const message of (messages[selected] ?? []).filter(({ sender }) => sender === "them")) {
         void clientRef.current?.markRead(message).catch(() => undefined);
       }
     };

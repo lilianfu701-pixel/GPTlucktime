@@ -55,7 +55,7 @@ describe("HTTP to outbox to socket delivery", () => {
     return { user, profile };
   };
 
-  it("persists through the real message handler then publishes one body-free notification", async () => {
+  it("delivers through two authenticated sockets and recovers only the missed durable message", async () => {
     const alice = await addPerson("http-alice");
     const bob = await addPerson("http-bob");
     const social = new SocialRepository(database, {
@@ -76,18 +76,26 @@ describe("HTTP to outbox to socket delivery", () => {
       clock: () => NOW,
     });
     const conversation = await repository.createConversation(alice.user.id, bob.profile.id);
-    const handler = createMessagesHandler({
+    const senderHandler = createMessagesHandler({
       getSession: async () => ({ user: { id: alice.user.id }, session: { id: "00000000-0000-4000-8000-000000000010" } }),
       repository,
     });
+    const recipientHandler = createMessagesHandler({
+      getSession: async () => ({ user: { id: bob.user.id }, session: { id: "00000000-0000-4000-8000-000000000011" } }),
+      repository,
+    });
+    const receipts: Array<{ userId: string; messageId: string }> = [];
 
     const realtime = createRealtimeServer({
       httpServer: createHttpServer(),
       authorization: {
         authenticate: async (ticket) => {
-          if (ticket !== "bob-ticket") throw new Error("NOT_AUTHORIZED");
+          const userId = ticket === "alice-ticket"
+            ? alice.user.id
+            : ["bob-ticket", "bob-ticket-2"].includes(ticket) ? bob.user.id : null;
+          if (!userId) throw new Error("NOT_AUTHORIZED");
           return {
-            userId: bob.user.id,
+            userId,
             sessionId: "00000000-0000-4000-8000-000000000011",
             issuedAt: NOW,
             expiresAt: new Date(Date.now() + 60_000),
@@ -98,22 +106,30 @@ describe("HTTP to outbox to socket delivery", () => {
           return { conversationId: id, lowUserId: [alice.user.id, bob.user.id].sort()[0]!, highUserId: [alice.user.id, bob.user.id].sort()[1]! };
         },
       },
-      receipts: { record: async () => ({}) },
+      receipts: { record: async (userId, input) => {
+        receipts.push({ userId, messageId: input.messageId });
+        return {};
+      } },
     });
     cleanup.push(() => realtime.stop());
     const address = await realtime.start({ host: "127.0.0.1", port: 0 });
-    const socket = createClient(address.url, { transports: ["websocket"], reconnection: false, auth: { ticket: "bob-ticket" } });
-    cleanup.push(() => { socket.disconnect(); });
-    await new Promise<void>((resolve) => socket.once("connect", resolve));
-    expect(await socket.emitWithAck("conversation.join", { conversationId: conversation.id })).toEqual({ ok: true });
+    const senderSocket = createClient(address.url, { transports: ["websocket"], reconnection: false, auth: { ticket: "alice-ticket" } });
+    const recipientSocket = createClient(address.url, { transports: ["websocket"], reconnection: false, auth: { ticket: "bob-ticket" } });
+    cleanup.push(() => { senderSocket.disconnect(); recipientSocket.disconnect(); });
+    await Promise.all([
+      new Promise<void>((resolve) => senderSocket.once("connect", resolve)),
+      new Promise<void>((resolve) => recipientSocket.once("connect", resolve)),
+    ]);
+    expect(await senderSocket.emitWithAck("conversation.join", { conversationId: conversation.id })).toEqual({ ok: true });
+    expect(await recipientSocket.emitWithAck("conversation.join", { conversationId: conversation.id })).toEqual({ ok: true });
 
     const input = { clientId: "00000000-0000-4000-8000-000000000012", body: "private message" };
-    const response = await handler(new Request(`https://app.test/api/v1/conversations/${conversation.id}/messages`, {
+    const response = await senderHandler(new Request(`https://app.test/api/v1/conversations/${conversation.id}/messages`, {
       method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify(input),
     }), { params: Promise.resolve({ conversationId: conversation.id }) });
     expect(response.status).toBe(201);
 
-    const received = new Promise<RealtimeMessageEvent>((resolve) => socket.once("message.created", resolve));
+    const received = new Promise<RealtimeMessageEvent>((resolve) => recipientSocket.once("message.created", resolve));
     const store = new DrizzleMessageOutboxStore(database, { clock: () => NOW });
     const publish = createAuthorizedRealtimePublisher(database, social, realtime.publishMessage);
     const consumer = new MessageOutboxConsumer(store, publish);
@@ -123,7 +139,39 @@ describe("HTTP to outbox to socket delivery", () => {
     expect(event).not.toHaveProperty("body");
     expect(await consumer.runOnce()).toBe(0);
 
-    const replay = await handler(new Request(`https://app.test/api/v1/conversations/${conversation.id}/messages`, {
+    const firstHistory = await recipientHandler(new Request(
+      `https://app.test/api/v1/conversations/${conversation.id}/messages?afterSequence=0&pageSize=100`,
+    ), { params: Promise.resolve({ conversationId: conversation.id }) });
+    const firstRows = await firstHistory.json() as { messages: Array<{ id: string; sequence: number }> };
+    expect(firstRows.messages.map(({ sequence }) => sequence)).toEqual([1]);
+    recipientSocket.disconnect();
+
+    const secondInput = { clientId: "00000000-0000-4000-8000-000000000013", body: "missed while offline" };
+    const secondResponse = await senderHandler(new Request(`https://app.test/api/v1/conversations/${conversation.id}/messages`, {
+      method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify(secondInput),
+    }), { params: Promise.resolve({ conversationId: conversation.id }) });
+    expect(secondResponse.status).toBe(201);
+    expect(await consumer.runOnce()).toBe(1);
+
+    const reconnect = createClient(address.url, { transports: ["websocket"], reconnection: false, auth: { ticket: "bob-ticket-2" } });
+    cleanup.push(() => { reconnect.disconnect(); });
+    await new Promise<void>((resolve) => reconnect.once("connect", resolve));
+    expect(await reconnect.emitWithAck("conversation.join", { conversationId: conversation.id })).toEqual({ ok: true });
+    const recoveryResponse = await recipientHandler(new Request(
+      `https://app.test/api/v1/conversations/${conversation.id}/messages?afterSequence=${event.sequence}&pageSize=100`,
+    ), { params: Promise.resolve({ conversationId: conversation.id }) });
+    const recovery = await recoveryResponse.json() as { messages: Array<{ id: string; sequence: number }> };
+    expect(recovery.messages.map(({ sequence }) => sequence)).toEqual([2]);
+    expect([event.sequence, ...recovery.messages.map(({ sequence }) => sequence)]).toEqual([1, 2]);
+    expect(await reconnect.emitWithAck("receipt.update", {
+      conversationId: conversation.id,
+      messageId: recovery.messages[0]!.id,
+      kind: "delivered",
+      at: NOW.toISOString(),
+    })).toMatchObject({ ok: true });
+    expect(receipts).toEqual([{ userId: bob.user.id, messageId: recovery.messages[0]!.id }]);
+
+    const replay = await senderHandler(new Request(`https://app.test/api/v1/conversations/${conversation.id}/messages`, {
       method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify(input),
     }), { params: Promise.resolve({ conversationId: conversation.id }) });
     expect(replay.status).toBe(201);

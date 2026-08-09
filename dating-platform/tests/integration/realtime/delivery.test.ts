@@ -42,6 +42,7 @@ describe("real-time delivery", () => {
     revocations?: { versionsForPairs(pairs: Array<{ lowUserId: string; highUserId: string }>): Promise<Array<{ lowUserId: string; highUserId: string; version: number }>> };
     onBackgroundError?: (code: "REVOCATION_POLL_FAILED") => void;
     receiptRecord?: (userId: string, input: ReceiptInput) => Promise<Record<string, unknown>>;
+    authorizeConversation?: (identity: SocketIdentity, conversationId: string) => Promise<{ conversationId: string; lowUserId: string; highUserId: string }>;
   } = {}) => {
     const httpServer = createHttpServer();
     let blocked = false;
@@ -60,6 +61,7 @@ describe("real-time delivery", () => {
         },
         authorizeConversation: async (identity, requestedId) => {
           authorizationCalls += 1;
+          if (options.authorizeConversation) return options.authorizeConversation(identity, requestedId);
           if (blocked || ![conversationId, secondConversationId].includes(requestedId) || ![alice, bob].includes(identity.userId)) {
             throw new Error("NOT_AUTHORIZED");
           }
@@ -252,5 +254,96 @@ describe("real-time delivery", () => {
     } finally {
       client.stop();
     }
+  });
+
+  it("retries a transient join requested after the socket is already online", async () => {
+    let joinAttempts = 0;
+    const states: string[] = [];
+    const { url } = await setup({
+      authorizeConversation: async (_identity, requestedId) => {
+        joinAttempts += 1;
+        if (joinAttempts === 1) throw new Error("RETRY_LATER");
+        return { conversationId: requestedId, lowUserId: alice, highUserId: bob };
+      },
+    });
+    const client = createRealtimeClient({
+      url,
+      fetchTicket: async () => ({ ticket: "bob-ticket", expiresAt: new Date(Date.now() + 60_000).toISOString() }),
+      recover: async () => [],
+      onState: (state) => states.push(state),
+      onMessages: () => undefined,
+      maxRetries: 2,
+      ackTimeoutMs: 100,
+    });
+    try {
+      await client.start();
+      await waitFor(() => states.at(-1) === "online");
+      await client.join(conversationId);
+      expect(joinAttempts).toBe(2);
+      expect(states).toContain("retrying");
+      expect(states.at(-1)).toBe("online");
+    } finally { client.stop(); }
+  });
+
+  it("hydrates HTTP history even when the real-time socket never connects", async () => {
+    const history: RecoveredMessage[] = [{
+      id: "00000000-0000-4000-8000-000000000401",
+      conversationId,
+      sequence: 1,
+      body: "HTTP remains available",
+      sender: "them",
+      createdAt: "2026-08-08T12:00:00.000Z",
+    }];
+    let observed: RecoveredMessage[] = [];
+    const states: string[] = [];
+    const client = createRealtimeClient({
+      url: "http://127.0.0.1:1",
+      fetchTicket: async () => ({ ticket: "unused", expiresAt: new Date(Date.now() + 60_000).toISOString() }),
+      recover: async () => history,
+      onState: (state) => states.push(state),
+      onMessages: (_requestedId, rows) => { observed = rows; },
+      maxRetries: 0,
+      ackTimeoutMs: 50,
+    });
+    try {
+      await client.start();
+      await waitFor(() => states.at(-1) === "failed");
+      await client.join(conversationId);
+      expect(observed).toEqual(history);
+      expect(states.at(-1)).toBe("failed");
+    } finally { client.stop(); }
+  });
+
+  it("queues delivered receipts for every newly hydrated message beyond 100", async () => {
+    const delivered = new Set<string>();
+    const { url } = await setup({
+      receiptRecord: async (_userId, input) => {
+        if (input.kind === "delivered") delivered.add(input.messageId);
+        return {};
+      },
+    });
+    const history = Array.from({ length: 101 }, (_, index): RecoveredMessage => ({
+      id: `00000000-0000-4000-8000-${String(index + 500).padStart(12, "0")}`,
+      conversationId,
+      sequence: index + 1,
+      body: String(index + 1),
+      sender: "them",
+      createdAt: "2026-08-08T12:00:00.000Z",
+    }));
+    const client = createRealtimeClient({
+      url,
+      fetchTicket: async () => ({ ticket: "bob-ticket", expiresAt: new Date(Date.now() + 60_000).toISOString() }),
+      recover: async (_requestedId, afterSequence) => history.filter(({ sequence }) => sequence > afterSequence),
+      onState: () => undefined,
+      onMessages: () => undefined,
+      ackTimeoutMs: 500,
+    });
+    try {
+      await client.join(conversationId);
+      await client.start();
+      await waitFor(() => delivered.size >= 100);
+      await new Promise((resolve) => setTimeout(resolve, 50));
+      expect(delivered.size).toBe(101);
+    } finally { client.stop(); }
   });
 });
