@@ -14,12 +14,12 @@ export class MessageReceiptService {
     return this.repository.record(userId, input);
   }
 
-  async listVisible(userId: string, conversationId: string, afterSequence: number) {
+  async listVisible(userId: string, conversationId: string, afterSequence: number, pageSize = 100) {
     const decision = await this.entitlements.decideForUser(userId, "message.read_receipt.view");
     if (!decision.allowed) return { visible: false, receipts: [] };
     return {
       visible: true,
-      receipts: await this.repository.listForSender(userId, conversationId, afterSequence),
+      ...(await this.repository.listForSender(userId, conversationId, afterSequence, pageSize)),
     };
   }
 }

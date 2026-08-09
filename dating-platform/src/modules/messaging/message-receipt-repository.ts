@@ -89,9 +89,10 @@ export class MessageReceiptRepository {
     }
   }
 
-  async listForSender(userId: string, conversationId: string, afterSequence: number) {
+  async listForSender(userId: string, conversationId: string, afterSequence: number, pageSize = 100) {
     if (!z.string().uuid().safeParse(conversationId).success
-      || !Number.isSafeInteger(afterSequence) || afterSequence < 0) return unavailable();
+      || !Number.isSafeInteger(afterSequence) || afterSequence < 0
+      || !Number.isInteger(pageSize) || pageSize < 1 || pageSize > 100) return unavailable();
     const [membership] = await this.database.select({
       lowUserId: conversations.lowUserId,
       highUserId: conversations.highUserId,
@@ -119,13 +120,15 @@ export class MessageReceiptRepository {
           eq(messages.conversationId, conversationId),
           eq(messages.senderUserId, userId),
           gt(messages.sequence, afterSequence),
-        )).orderBy(asc(messages.sequence)).limit(100);
-        return rows.map((row) => ({
+        )).orderBy(asc(messages.sequence)).limit(pageSize + 1);
+        const hasMore = rows.length > pageSize;
+        const pageRows = rows.slice(0, pageSize);
+        return { receipts: pageRows.map((row) => ({
           messageId: row.messageId,
           sequence: row.sequence,
           deliveredAt: row.deliveredAt?.toISOString() ?? null,
           readAt: row.readAt?.toISOString() ?? null,
-        }));
+        })), nextAfterSequence: hasMore ? pageRows.at(-1)?.sequence ?? null : null };
       });
     } catch (error) {
       if (error instanceof Error && error.message === "INTERACTION_NOT_ALLOWED") return unavailable();

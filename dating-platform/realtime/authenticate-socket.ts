@@ -35,7 +35,7 @@ export class DrizzleRealtimeAuthorization implements RealtimeAuthorization {
     } catch {
       return unauthorized();
     }
-    const [row] = await this.database.select({ sessionId: sessions.id }).from(sessions)
+    const [row] = await this.database.select({ sessionId: sessions.id, expiresAt: sessions.expiresAt }).from(sessions)
       .innerJoin(users, eq(users.id, sessions.userId))
       .innerJoin(profiles, eq(profiles.userId, users.id))
       .where(and(
@@ -49,7 +49,7 @@ export class DrizzleRealtimeAuthorization implements RealtimeAuthorization {
       userId: verified.sub,
       sessionId: verified.sessionId,
       issuedAt: verified.issuedAt,
-      expiresAt: new Date(verified.exp * 1000),
+      expiresAt: new Date(Math.min(verified.exp * 1000, row.expiresAt.getTime())),
     };
   }
 

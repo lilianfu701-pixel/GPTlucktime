@@ -241,17 +241,20 @@ export function createMessageReceiptsHandler(input: {
     }
     const search = new URL(request.url).searchParams;
     for (const key of search.keys()) {
-      if (key !== "afterSequence" || search.getAll(key).length !== 1) {
+      if (!["afterSequence", "pageSize"].includes(key) || search.getAll(key).length !== 1) {
         return errorResponse("INVALID_PAGINATION", 400);
       }
     }
     const rawAfter = search.get("afterSequence");
+    const rawPageSize = search.get("pageSize");
     const afterSequence = rawAfter === null ? 0 : Number(rawAfter);
-    if (!Number.isSafeInteger(afterSequence) || afterSequence < 0) {
+    const pageSize = rawPageSize === null ? 100 : Number(rawPageSize);
+    if (!Number.isSafeInteger(afterSequence) || afterSequence < 0
+      || !Number.isInteger(pageSize) || pageSize < 1 || pageSize > 100) {
       return errorResponse("INVALID_PAGINATION", 400);
     }
     try {
-      return Response.json(await input.receipts.listVisible(session.user.id, conversationId, afterSequence));
+      return Response.json(await input.receipts.listVisible(session.user.id, conversationId, afterSequence, pageSize));
     } catch {
       return errorResponse("CONVERSATION_NOT_AVAILABLE", 404);
     }

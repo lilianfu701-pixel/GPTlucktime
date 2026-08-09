@@ -64,6 +64,12 @@ describe("real-time authorization and receipts", () => {
       conversationId: conversation.id,
     });
 
+    await database.update(schema.sessions)
+      .set({ expiresAt: new Date("2026-08-08T12:02:00.000Z") })
+      .where(eq(schema.sessions.id, alice.session.id));
+    const sessionBoundIdentity = await authorization.authenticate(signed);
+    expect(sessionBoundIdentity.expiresAt).toEqual(new Date("2026-08-08T12:02:00.000Z"));
+
     await database.insert(schema.realtimePairRevocations).values({
       lowUserId: [alice.user.id, bob.user.id].sort()[0]!,
       highUserId: [alice.user.id, bob.user.id].sort()[1]!,
@@ -120,5 +126,34 @@ describe("real-time authorization and receipts", () => {
       visible: true,
       receipts: [{ messageId: message.id, readAt: NOW.toISOString() }],
     });
+
+    const additionalMessages = await database.insert(schema.messages).values(
+      Array.from({ length: 100 }, (_, index) => {
+        const sequence = index + 2;
+        return {
+          conversationId: conversation.id,
+          lowUserId: conversation.lowUserId,
+          highUserId: conversation.highUserId,
+          sequence,
+          senderUserId: alice.user.id,
+          clientId: `00000000-0000-4000-8000-${String(sequence).padStart(12, "0")}`,
+          body: `message ${sequence}`,
+        };
+      }),
+    ).returning();
+    await database.insert(schema.messageReceipts).values(additionalMessages.map((row) => ({
+      messageId: row.id,
+      conversationId: conversation.id,
+      userId: bob.user.id,
+      deliveredAt: NOW,
+      readAt: NOW,
+    })));
+
+    const firstPage = await allowed.listVisible(alice.user.id, conversation.id, 0, 100);
+    expect(firstPage).toMatchObject({ visible: true, nextAfterSequence: 100 });
+    expect(firstPage.receipts).toHaveLength(100);
+    const secondPage = await allowed.listVisible(alice.user.id, conversation.id, 100, 100);
+    expect(secondPage).toMatchObject({ visible: true, nextAfterSequence: null });
+    expect(secondPage.receipts.map(({ sequence }) => sequence)).toEqual([101]);
   });
 });

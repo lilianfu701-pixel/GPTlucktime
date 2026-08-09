@@ -8,6 +8,57 @@ export type RecoveredMessage = {
   id: string; conversationId: string; sequence: number; body: string; sender: "me" | "them"; createdAt: string;
 };
 
+export class CoalescedRecovery {
+  private readonly active = new Map<string, { dirty: boolean; promise: Promise<void> }>();
+  run(key: string, recover: () => Promise<void>) {
+    const existing = this.active.get(key);
+    if (existing) { existing.dirty = true; return existing.promise; }
+    const state = { dirty: true, promise: Promise.resolve() };
+    state.promise = (async () => {
+      while (state.dirty) { state.dirty = false; await recover(); }
+    })().finally(() => this.active.delete(key));
+    this.active.set(key, state);
+    return state.promise;
+  }
+}
+
+export class RequestGenerations {
+  private readonly values = new Map<string, number>();
+  begin(key: string) {
+    const generation = (this.values.get(key) ?? 0) + 1;
+    this.values.set(key, generation);
+    return generation;
+  }
+  isCurrent(key: string, generation: number) {
+    return this.values.get(key) === generation;
+  }
+}
+
+export class PendingSendLedger {
+  constructor(private readonly storage: Pick<Storage, "getItem" | "setItem" | "removeItem">) {}
+  private key(conversationId: string) { return `heartline:pending:${conversationId}`; }
+  prepare(conversationId: string, body: string) {
+    const raw = this.storage.getItem(this.key(conversationId));
+    if (raw) {
+      try {
+        const saved = JSON.parse(raw) as { clientId?: unknown; conversationId?: unknown; body?: unknown };
+        if (saved.conversationId === conversationId && saved.body === body
+          && typeof saved.clientId === "string") return saved as { clientId: string; conversationId: string; body: string };
+      } catch { /* replace malformed local-only state */ }
+    }
+    const pending = { clientId: crypto.randomUUID(), conversationId, body };
+    this.storage.setItem(this.key(conversationId), JSON.stringify(pending));
+    return pending;
+  }
+  clear(conversationId: string, clientId: string) {
+    const raw = this.storage.getItem(this.key(conversationId));
+    if (!raw) return;
+    try {
+      if ((JSON.parse(raw) as { clientId?: unknown }).clientId === clientId) this.storage.removeItem(this.key(conversationId));
+    } catch { this.storage.removeItem(this.key(conversationId)); }
+  }
+}
+
 export async function recoverAllMessagePages(
   fetchPage: (afterSequence: number, signal?: AbortSignal) => Promise<{
     messages: RecoveredMessage[];
@@ -90,6 +141,7 @@ export function createRealtimeClient(options: {
   onState: (state: RealtimeConnectionState) => void;
   onMessages: (conversationId: string, messages: RecoveredMessage[]) => void;
   maxRetries?: number;
+  ackTimeoutMs?: number;
 }) {
   const store = new RealtimeMessageStore();
   const conversations = new Set<string>();
@@ -100,22 +152,47 @@ export function createRealtimeClient(options: {
   let stopped = false;
   let connecting = false;
   const stopController = new AbortController();
-  const recoveryInFlight = new Map<string, Promise<void>>();
+  const recoveryCoordinator = new CoalescedRecovery();
+  const receiptState = new Map<string, "delivered" | "read">();
+
+  const emitAck = async (event: string, payload: Record<string, unknown>) => {
+    if (!socket?.connected) throw new Error("REALTIME_NOT_CONNECTED");
+    const ack = await socket.timeout(options.ackTimeoutMs ?? 5_000).emitWithAck(event, payload) as unknown;
+    if (!ack || typeof ack !== "object" || (ack as { ok?: unknown }).ok !== true) {
+      throw new Error("REALTIME_ACTION_REJECTED");
+    }
+    return ack;
+  };
+
+  const sendReceipt = async (kind: "delivered" | "read", message: RecoveredMessage) => {
+    if (message.sender !== "them") return;
+    const previous = receiptState.get(message.id);
+    if (previous === "read" || (previous === "delivered" && kind === "delivered")) return;
+    await emitAck("receipt.update", {
+      conversationId: message.conversationId,
+      messageId: message.id,
+      kind,
+      at: new Date().toISOString(),
+    });
+    receiptState.set(message.id, kind);
+  };
 
   const recover = async (conversationId: string) => {
-    const existing = recoveryInFlight.get(conversationId);
-    if (existing) return existing;
-    const operation = (async () => {
-      const rows = await options.recover(
-        conversationId,
-        store.lastSequence(conversationId),
-        stopController.signal,
-      );
-      store.mergeRecovery(conversationId, rows);
-      options.onMessages(conversationId, store.messages(conversationId));
-    })().finally(() => recoveryInFlight.delete(conversationId));
-    recoveryInFlight.set(conversationId, operation);
-    return operation;
+    return recoveryCoordinator.run(conversationId, async () => {
+        const rows = await options.recover(
+          conversationId,
+          store.lastSequence(conversationId),
+          stopController.signal,
+        );
+        store.mergeRecovery(conversationId, rows);
+        const hydrated = store.messages(conversationId);
+        options.onMessages(conversationId, hydrated);
+        for (const message of hydrated.slice(-100)) await sendReceipt("delivered", message);
+    });
+  };
+  const joinAndRecover = async (conversationId: string) => {
+    await emitAck("conversation.join", { conversationId });
+    await recover(conversationId);
   };
   const schedule = () => {
     if (stopped || retryTimer) return;
@@ -138,13 +215,12 @@ export function createRealtimeClient(options: {
       socket?.disconnect();
       socket = io(options.url, { transports: ["websocket"], auth: { ticket: ticket.ticket }, reconnection: false });
       socket.on("connect", async () => {
-        retries = 0;
-        options.onState("online");
         try {
           for (const conversationId of conversations) {
-            await socket!.emitWithAck("conversation.join", { conversationId });
-            await recover(conversationId);
+            await joinAndRecover(conversationId);
           }
+          retries = 0;
+          options.onState("online");
         } catch { socket?.disconnect(); }
       });
       socket.on("message.created", async (event: MessageNotification) => {
@@ -163,10 +239,17 @@ export function createRealtimeClient(options: {
     start: connect,
     async join(conversationId: string) {
       conversations.add(conversationId);
-      if (socket?.connected) {
-        await socket.emitWithAck("conversation.join", { conversationId });
-        await recover(conversationId);
-      }
+      if (socket?.connected) await joinAndRecover(conversationId);
+    },
+    async markDelivered(message: RecoveredMessage) {
+      await sendReceipt("delivered", message);
+    },
+    async markRead(message: RecoveredMessage) {
+      await sendReceipt("read", message);
+    },
+    async refresh(conversationId: string) {
+      if (!conversations.has(conversationId)) conversations.add(conversationId);
+      await recover(conversationId);
     },
     stop() {
       stopped = true;

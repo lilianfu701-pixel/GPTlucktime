@@ -5,16 +5,28 @@ import { createServer as createHttpServer } from "node:http";
 import { io as createClient, type Socket as ClientSocket } from "socket.io-client";
 import { afterEach, describe, expect, it } from "vitest";
 
-import { createRealtimeServer, type SocketIdentity } from "../../../realtime/server";
-import { RealtimeMessageStore } from "@/modules/messaging/realtime-client";
+import { createRealtimeServer, type ReceiptInput, type SocketIdentity } from "../../../realtime/server";
+import {
+  createRealtimeClient,
+  type RecoveredMessage,
+  RealtimeMessageStore,
+} from "@/modules/messaging/realtime-client";
 
 const alice = "00000000-0000-4000-8000-000000000001";
 const bob = "00000000-0000-4000-8000-000000000002";
 const conversationId = "00000000-0000-4000-8000-000000000101";
+const secondConversationId = "00000000-0000-4000-8000-000000000102";
 
 const once = <T>(socket: ClientSocket, event: string) => new Promise<T>((resolve) => {
   socket.once(event, resolve);
 });
+const waitFor = async (predicate: () => boolean, timeoutMs = 5_000) => {
+  const deadline = Date.now() + timeoutMs;
+  while (!predicate()) {
+    if (Date.now() >= deadline) throw new Error("TEST_WAIT_TIMEOUT");
+    await new Promise((resolve) => setTimeout(resolve, 20));
+  }
+};
 
 describe("real-time delivery", () => {
   const clients: ClientSocket[] = [];
@@ -25,9 +37,15 @@ describe("real-time delivery", () => {
     for (const server of servers) await server.stop();
   });
 
-  const setup = async () => {
+  const setup = async (options: {
+    maxConversationRooms?: number;
+    revocations?: { versionsForPairs(pairs: Array<{ lowUserId: string; highUserId: string }>): Promise<Array<{ lowUserId: string; highUserId: string; version: number }>> };
+    onBackgroundError?: (code: "REVOCATION_POLL_FAILED") => void;
+    receiptRecord?: (userId: string, input: ReceiptInput) => Promise<Record<string, unknown>>;
+  } = {}) => {
     const httpServer = createHttpServer();
     let blocked = false;
+    let authorizationCalls = 0;
     const identities = new Map<string, SocketIdentity>([
       ["alice-ticket", { userId: alice, sessionId: "00000000-0000-4000-8000-000000000011", issuedAt: new Date("2026-08-08T12:00:00Z"), expiresAt: new Date(Date.now() + 60_000) }],
       ["bob-ticket", { userId: bob, sessionId: "00000000-0000-4000-8000-000000000012", issuedAt: new Date("2026-08-08T12:00:00Z"), expiresAt: new Date(Date.now() + 60_000) }],
@@ -41,15 +59,19 @@ describe("real-time delivery", () => {
           return identity;
         },
         authorizeConversation: async (identity, requestedId) => {
-          if (blocked || requestedId !== conversationId || ![alice, bob].includes(identity.userId)) {
+          authorizationCalls += 1;
+          if (blocked || ![conversationId, secondConversationId].includes(requestedId) || ![alice, bob].includes(identity.userId)) {
             throw new Error("NOT_AUTHORIZED");
           }
-          return { conversationId, lowUserId: alice, highUserId: bob };
+          return { conversationId: requestedId, lowUserId: alice, highUserId: bob };
         },
       },
       receipts: {
-        record: async (userId, input) => ({ ...input, userId, deliveredAt: input.at, readAt: input.kind === "read" ? input.at : null }),
+        record: options.receiptRecord ?? (async (userId, input) => ({ ...input, userId, deliveredAt: input.at, readAt: input.kind === "read" ? input.at : null })),
       },
+      maxConversationRooms: options.maxConversationRooms,
+      revocations: options.revocations,
+      onBackgroundError: options.onBackgroundError,
     });
     servers.push(server);
     const address = await server.start({ host: "127.0.0.1", port: 0 });
@@ -63,7 +85,7 @@ describe("real-time delivery", () => {
       clients.push(socket);
       return socket;
     };
-    return { server, connect, block: () => { blocked = true; } };
+    return { server, connect, url: address.url, block: () => { blocked = true; }, authorizationCalls: () => authorizationCalls };
   };
 
   it("accepts only a valid ticket and authorizes opaque conversation rooms", async () => {
@@ -118,5 +140,117 @@ describe("real-time delivery", () => {
     await once(reconnect, "connect");
     expect(await reconnect.emitWithAck("conversation.join", { conversationId }))
       .toEqual({ ok: false, code: "NOT_AVAILABLE" });
+  });
+
+  it("rejects room growth before another authorization query", async () => {
+    const { connect, authorizationCalls } = await setup({ maxConversationRooms: 1 });
+    const socket = connect("alice-ticket");
+    await once(socket, "connect");
+    expect(await socket.emitWithAck("conversation.join", { conversationId })).toEqual({ ok: true });
+    expect(await socket.emitWithAck("conversation.join", { conversationId: secondConversationId }))
+      .toEqual({ ok: false, code: "LIMIT_REACHED" });
+    expect(authorizationCalls()).toBe(1);
+  });
+
+  it("coalesces revocation polls and reports background failures without rejecting", async () => {
+    let release!: () => void;
+    const barrier = new Promise<void>((resolve) => { release = resolve; });
+    let calls = 0;
+    const errors: string[] = [];
+    const { server, connect } = await setup({
+      revocations: {
+        versionsForPairs: async () => {
+          calls += 1;
+          if (calls === 1) await barrier;
+          else throw new Error("database temporarily unavailable");
+          return [];
+        },
+      },
+      onBackgroundError: (code) => errors.push(code),
+    });
+    const socket = connect("alice-ticket");
+    await once(socket, "connect");
+    await socket.emitWithAck("conversation.join", { conversationId });
+
+    const first = server.pollRevocations();
+    const overlapping = server.pollRevocations();
+    await overlapping;
+    expect(calls).toBe(1);
+    release();
+    await first;
+    await expect(server.pollRevocations()).resolves.toBeUndefined();
+    expect(errors).toEqual(["REVOCATION_POLL_FAILED"]);
+  });
+
+  it("recovers a missed message after a real disconnect and acknowledges delivered/read receipts", async () => {
+    const recorded: Array<{ userId: string; input: ReceiptInput }> = [];
+    const { server, url } = await setup({
+      receiptRecord: async (userId, input) => {
+        recorded.push({ userId, input });
+        return { userId, ...input };
+      },
+    });
+    const recovered: RecoveredMessage[] = [{
+      id: "00000000-0000-4000-8000-000000000301",
+      conversationId,
+      sequence: 1,
+      body: "before connect",
+      sender: "them",
+      createdAt: "2026-08-08T12:00:00.000Z",
+    }];
+    let observed: RecoveredMessage[] = [];
+    const states: string[] = [];
+    const client = createRealtimeClient({
+      url,
+      fetchTicket: async () => ({ ticket: "bob-ticket", expiresAt: new Date(Date.now() + 60_000).toISOString() }),
+      recover: async (_requestedId, afterSequence) => recovered.filter(({ sequence }) => sequence > afterSequence),
+      onState: (state) => states.push(state),
+      onMessages: (_requestedId, rows) => { observed = rows; },
+      ackTimeoutMs: 500,
+    });
+    try {
+      await client.join(conversationId);
+      await client.start();
+      await waitFor(() => observed.some(({ sequence }) => sequence === 1));
+      await waitFor(() => recorded.some(({ input }) => input.messageId === recovered[0]!.id && input.kind === "delivered"));
+
+      const live: RecoveredMessage = {
+        id: "00000000-0000-4000-8000-000000000302",
+        conversationId,
+        sequence: 2,
+        body: "while online",
+        sender: "them",
+        createdAt: "2026-08-08T12:01:00.000Z",
+      };
+      recovered.push(live);
+      await server.publishMessage({
+        eventId: "00000000-0000-4000-8000-000000000202",
+        messageId: live.id,
+        conversationId,
+        sequence: live.sequence,
+      });
+      await waitFor(() => observed.some(({ sequence }) => sequence === 2));
+
+      for (const socket of server.io.sockets.sockets.values()) socket.disconnect(true);
+      const missed: RecoveredMessage = {
+        id: "00000000-0000-4000-8000-000000000303",
+        conversationId,
+        sequence: 3,
+        body: "missed during disconnect",
+        sender: "them",
+        createdAt: "2026-08-08T12:02:00.000Z",
+      };
+      recovered.push(missed);
+      await waitFor(() => observed.some(({ sequence }) => sequence === 3));
+      await client.markRead(missed);
+      await waitFor(() => recorded.some(({ input }) => input.messageId === missed.id && input.kind === "read"));
+
+      expect(observed.map(({ sequence }) => sequence)).toEqual([1, 2, 3]);
+      expect(recorded.filter(({ input }) => input.kind === "delivered").map(({ input }) => input.messageId))
+        .toEqual(expect.arrayContaining(recovered.map(({ id }) => id)));
+      expect(states.filter((state) => state === "online")).toHaveLength(2);
+    } finally {
+      client.stop();
+    }
   });
 });

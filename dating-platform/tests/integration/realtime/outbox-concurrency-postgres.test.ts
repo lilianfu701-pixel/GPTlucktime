@@ -93,5 +93,33 @@ runWithPostgres("real-time outbox PostgreSQL SKIP LOCKED", () => {
     }
     const leftStore = new DrizzleMessageOutboxStore(leftDatabase, { clock: () => NOW });
     expect(await leftStore.claim(1)).toMatchObject([{ id: event.id }]);
+
+    const additionalMessages = await leftDatabase.insert(schema.messages).values(
+      Array.from({ length: 4 }, (_, index) => ({
+        conversationId: conversation.id,
+        lowUserId,
+        highUserId,
+        sequence: index + 2,
+        senderUserId: lowUserId,
+        clientId: randomUUID(),
+        body: `parallel ${index + 2}`,
+      })),
+    ).returning();
+    await leftDatabase.insert(schema.messageOutboxEvents).values(additionalMessages.map((row) => ({
+      messageId: row.id,
+      dedupeKey: `message.created:${row.id}`,
+      payload: {
+        messageId: row.id,
+        conversationId: conversation.id,
+        senderUserId: lowUserId,
+        sequence: row.sequence,
+      },
+      availableAt: NOW,
+    })));
+    const rightStore = new DrizzleMessageOutboxStore(drizzle(rightPool, { schema }), { clock: () => NOW });
+    const [leftBatch, rightBatch] = await Promise.all([leftStore.claim(2), rightStore.claim(2)]);
+    const claimedIds = [...leftBatch, ...rightBatch].map(({ id }) => id);
+    expect(claimedIds).toHaveLength(4);
+    expect(new Set(claimedIds).size).toBe(4);
   });
 });

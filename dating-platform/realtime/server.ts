@@ -56,6 +56,9 @@ export function createRealtimeServer(options: {
   revocations?: RealtimeRevocationSource;
   revocationPollMs?: number;
   allowedOrigins?: readonly string[];
+  maxConversationRooms?: number;
+  maxConcurrentActions?: number;
+  onBackgroundError?: (code: "REVOCATION_POLL_FAILED") => void;
 }) {
   const io = new Server<Record<string, never>, Record<string, never>, Record<string, never>, SocketData>(options.httpServer, {
     serveClient: false,
@@ -67,6 +70,9 @@ export function createRealtimeServer(options: {
     },
   });
   let pollTimer: ReturnType<typeof setInterval> | undefined;
+  let pollInFlight = false;
+  const maxRooms = Math.min(Math.max(options.maxConversationRooms ?? 100, 1), 500);
+  const maxConcurrent = Math.min(Math.max(options.maxConcurrentActions ?? 4, 1), 20);
 
   io.use(async (socket, next) => {
     const parsed = handshake.safeParse(socket.handshake.auth);
@@ -88,9 +94,32 @@ export function createRealtimeServer(options: {
     );
     disconnectAtExpiry.unref?.();
     socket.once("disconnect", () => clearTimeout(disconnectAtExpiry));
+    let concurrentActions = 0;
+    let rateWindowStartedAt = Date.now();
+    let joinCount = 0;
+    let receiptCount = 0;
+    const admit = (kind: "join" | "receipt") => {
+      const now = Date.now();
+      if (now - rateWindowStartedAt >= 60_000) {
+        rateWindowStartedAt = now;
+        joinCount = 0;
+        receiptCount = 0;
+      }
+      if (concurrentActions >= maxConcurrent) return false;
+      if (kind === "join" && ++joinCount > 60) return false;
+      if (kind === "receipt" && ++receiptCount > 120) return false;
+      concurrentActions += 1;
+      return true;
+    };
+    const release = () => { concurrentActions = Math.max(concurrentActions - 1, 0); };
     socket.on("conversation.join", async (raw, acknowledge?: (result: unknown) => void) => {
       const parsed = joinInput.safeParse(raw);
       if (!parsed.success) return acknowledge?.({ ok: false, code: "NOT_AVAILABLE" });
+      if (!socket.data.conversations.has(parsed.data.conversationId)
+        && socket.data.conversations.size >= maxRooms) {
+        return acknowledge?.({ ok: false, code: "LIMIT_REACHED" });
+      }
+      if (!admit("join")) return acknowledge?.({ ok: false, code: "RETRY_LATER" });
       try {
         const authorized = await options.authorization.authorizeConversation(socket.data.identity, parsed.data.conversationId);
         socket.data.conversations.set(authorized.conversationId, authorized);
@@ -98,19 +127,20 @@ export function createRealtimeServer(options: {
         return acknowledge?.({ ok: true });
       } catch {
         return acknowledge?.({ ok: false, code: "NOT_AVAILABLE" });
-      }
+      } finally { release(); }
     });
     socket.on("receipt.update", async (raw, acknowledge?: (result: unknown) => void) => {
       const parsed = receiptInput.safeParse(raw);
       if (!parsed.success || !socket.data.conversations.has(parsed.data.conversationId)) {
         return acknowledge?.({ ok: false, code: "NOT_AVAILABLE" });
       }
+      if (!admit("receipt")) return acknowledge?.({ ok: false, code: "RETRY_LATER" });
       try {
         const result = await options.receipts.record(socket.data.identity.userId, parsed.data);
         return acknowledge?.({ ok: true, receipt: result });
       } catch {
         return acknowledge?.({ ok: false, code: "NOT_AVAILABLE" });
-      }
+      } finally { release(); }
     });
   });
 
@@ -125,19 +155,22 @@ export function createRealtimeServer(options: {
   };
 
   const pollRevocations = async () => {
-    if (!options.revocations) return;
-    const byPair = new Map<string, { lowUserId: string; highUserId: string }>();
-    for (const socket of io.sockets.sockets.values()) {
-      for (const conversation of socket.data.conversations.values()) {
-        byPair.set(pairKey(conversation.lowUserId, conversation.highUserId), conversation);
+    if (!options.revocations || pollInFlight) return;
+    pollInFlight = true;
+    try {
+      const byPair = new Map<string, { lowUserId: string; highUserId: string }>();
+      for (const socket of io.sockets.sockets.values()) {
+        for (const conversation of socket.data.conversations.values()) {
+          byPair.set(pairKey(conversation.lowUserId, conversation.highUserId), conversation);
+        }
       }
-    }
-    const pairs = [...byPair.values()];
-    for (let index = 0; index < pairs.length; index += 100) {
-      for (const revocation of await options.revocations.versionsForPairs(pairs.slice(index, index + 100))) {
-        await revokePair(revocation);
+      const pairs = [...byPair.values()];
+      for (let index = 0; index < pairs.length; index += 100) {
+        for (const revocation of await options.revocations.versionsForPairs(pairs.slice(index, index + 100))) {
+          await revokePair(revocation);
+        }
       }
-    }
+    } catch { options.onBackgroundError?.("REVOCATION_POLL_FAILED"); } finally { pollInFlight = false; }
   };
 
   return {

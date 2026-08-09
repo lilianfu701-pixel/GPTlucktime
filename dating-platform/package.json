@@ -7,6 +7,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "realtime:start": "tsx realtime/main.ts",
     "lint": "eslint",
     "test": "vitest run",
     "test:watch": "vitest",
@@ -31,6 +32,7 @@
     "socket.io": "^4.8.3",
     "socket.io-client": "^4.8.3",
     "stripe": "^22.4.0",
+    "tsx": "^4.23.8",
     "zod": "^4.4.3"
   },
   "devDependencies": {
