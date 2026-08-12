@@ -32,4 +32,62 @@ ALTER TABLE "profile_photos" ADD CONSTRAINT "profile_photos_deletion_lease_check
       ("profile_photos"."deletion_status" = 'idle' AND "profile_photos"."deletion_lease_id" IS NULL AND "profile_photos"."deletion_lease_expires_at" IS NULL)
       OR ("profile_photos"."deletion_status" IN ('claimed', 'deleting') AND "profile_photos"."deletion_lease_id" IS NOT NULL
         AND "profile_photos"."deletion_lease_expires_at" IS NOT NULL)
-    );
+    );--> statement-breakpoint
+CREATE FUNCTION validate_moderation_content_quarantine_target() RETURNS trigger
+LANGUAGE plpgsql AS $$
+DECLARE
+  case_report uuid;
+  report_subject uuid;
+  report_profile uuid;
+  report_message uuid;
+  report_conversation uuid;
+BEGIN
+  SELECT c.report_id, r.target_user_id, r.target_profile_id, r.message_id, r.conversation_id
+    INTO case_report, report_subject, report_profile, report_message, report_conversation
+    FROM moderation_cases c
+    JOIN reports r ON r.id = c.report_id
+    WHERE c.id = NEW.case_id;
+
+  IF case_report IS NULL OR case_report <> NEW.report_id THEN
+    RAISE EXCEPTION 'MODERATION_RELATION_INVALID';
+  END IF;
+
+  IF NEW.content_type = 'profile' THEN
+    IF NEW.content_id <> report_profile THEN
+      RAISE EXCEPTION 'MODERATION_RELATION_INVALID';
+    END IF;
+  ELSIF NEW.content_type = 'photo' THEN
+    IF NOT EXISTS (
+      SELECT 1
+      FROM profile_photos p
+      WHERE p.id = NEW.content_id AND p.user_id = report_subject
+    ) OR NOT EXISTS (
+      SELECT 1
+      FROM moderation_evidence e
+      WHERE e.case_id = NEW.case_id
+        AND e.report_id = NEW.report_id
+        AND e.locator->>'referenceType' = 'photo'
+        AND e.locator->>'referenceId' = NEW.content_id::text
+    ) THEN
+      RAISE EXCEPTION 'MODERATION_RELATION_INVALID';
+    END IF;
+  ELSIF NEW.content_type = 'message' THEN
+    IF report_message IS NULL OR NEW.content_id <> report_message OR NOT EXISTS (
+      SELECT 1
+      FROM messages m
+      WHERE m.id = NEW.content_id
+        AND m.sender_user_id = report_subject
+        AND m.conversation_id = report_conversation
+    ) THEN
+      RAISE EXCEPTION 'MODERATION_RELATION_INVALID';
+    END IF;
+  ELSE
+    RAISE EXCEPTION 'MODERATION_RELATION_INVALID';
+  END IF;
+
+  RETURN NEW;
+END;
+$$;--> statement-breakpoint
+CREATE TRIGGER moderation_content_quarantines_validate_target
+BEFORE INSERT OR UPDATE ON moderation_content_quarantines
+FOR EACH ROW EXECUTE FUNCTION validate_moderation_content_quarantine_target();

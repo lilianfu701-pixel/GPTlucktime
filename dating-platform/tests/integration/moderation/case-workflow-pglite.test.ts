@@ -369,9 +369,9 @@ describe("moderation case governance", () => {
         createdAt: NOW,
       });
     await expect(insertQuarantineDirectly("profile", other.profile.id))
-      .rejects.toThrow("MODERATION_RELATION_INVALID");
+      .rejects.toMatchObject({ cause: { message: expect.stringContaining("MODERATION_RELATION_INVALID") } });
     await expect(insertQuarantineDirectly("photo", otherPhoto.id))
-      .rejects.toThrow("MODERATION_RELATION_INVALID");
+      .rejects.toMatchObject({ cause: { message: expect.stringContaining("MODERATION_RELATION_INVALID") } });
     await expect(action({ type: "profile", id: other.profile.id })).rejects.toThrow("INVALID_ACTION");
     await expect(action({ type: "photo", id: otherPhoto.id })).rejects.toThrow("INVALID_ACTION");
     await expect(action({ type: "profile", id: target.profile.id })).resolves.toBeTruthy();
@@ -394,9 +394,9 @@ describe("moderation case governance", () => {
       },
     ]).returning();
     await expect(insertQuarantineDirectly("message", targetMessage.id))
-      .rejects.toThrow("MODERATION_RELATION_INVALID");
+      .rejects.toMatchObject({ cause: { message: expect.stringContaining("MODERATION_RELATION_INVALID") } });
     await expect(insertQuarantineDirectly("message", otherMessage.id))
-      .rejects.toThrow("MODERATION_RELATION_INVALID");
+      .rejects.toMatchObject({ cause: { message: expect.stringContaining("MODERATION_RELATION_INVALID") } });
     await expect(action({ type: "message", id: targetMessage.id })).rejects.toThrow("INVALID_ACTION");
     await expect(action({ type: "message", id: otherMessage.id })).rejects.toThrow("INVALID_ACTION");
 

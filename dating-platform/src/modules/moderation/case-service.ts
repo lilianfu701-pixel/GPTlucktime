@@ -16,6 +16,8 @@ import {
   realtimePairRevocations,
   safetyAlerts,
   legalWorkflowTasks,
+  messages,
+  profilePhotos,
 } from "@/db/schema";
 import type { db as productionDatabase } from "@/infrastructure/db/client";
 
@@ -145,9 +147,39 @@ export class DrizzleCaseService {
       const current = await this.lockCase(tx, caseId);
       await this.authorizeCaseActor(tx, current, actor);
       if (current.status !== "under_review") throw new ModerationError("INVALID_ACTION");
-      const [target] = await tx.select({ userId: reports.targetUserId }).from(reports)
+      const [target] = await tx.select({
+        userId: reports.targetUserId,
+        profileId: reports.targetProfileId,
+        messageId: reports.messageId,
+        conversationId: reports.conversationId,
+      }).from(reports)
         .where(eq(reports.id, current.reportId)).limit(1);
       if (!target || target.userId !== input.subjectUserId) throw new ModerationError("INVALID_ACTION");
+      if (input.actionType === "quarantine_content" && input.contentTarget) {
+        let validTarget = input.contentTarget.type === "profile"
+          && input.contentTarget.id === target.profileId;
+        if (input.contentTarget.type === "photo") {
+          const [photo] = await tx.select({ userId: profilePhotos.userId }).from(profilePhotos)
+            .where(eq(profilePhotos.id, input.contentTarget.id)).limit(1);
+          const evidence = await tx.select({ locator: moderationEvidence.locator }).from(moderationEvidence)
+            .where(and(
+              eq(moderationEvidence.caseId, caseId),
+              eq(moderationEvidence.reportId, current.reportId),
+            ));
+          validTarget = photo?.userId === input.subjectUserId && evidence.some(({ locator }) =>
+            locator.referenceType === "photo" && locator.referenceId === input.contentTarget?.id);
+        }
+        if (input.contentTarget.type === "message") {
+          const [message] = await tx.select({
+            senderUserId: messages.senderUserId,
+            conversationId: messages.conversationId,
+          }).from(messages).where(eq(messages.id, input.contentTarget.id)).limit(1);
+          validTarget = target.messageId === input.contentTarget.id
+            && message?.senderUserId === input.subjectUserId
+            && message.conversationId === target.conversationId;
+        }
+        if (!validTarget) throw new ModerationError("INVALID_ACTION");
+      }
       await tx.select({ id: users.id }).from(users).where(eq(users.id, input.subjectUserId)).for("update");
       const [created] = await tx.insert(moderationActions).values({
         caseId,
