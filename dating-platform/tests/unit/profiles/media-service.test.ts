@@ -423,6 +423,7 @@ describe("signed profile photo uploads", () => {
           return [{
             id: "photo-1", moderationStatus: "rejected", moderationReasonCode: "CONTENT_UNSAFE",
             objectKey: "private/object.png", reviewProvider: "secret-provider", width: 80, height: 60,
+            preservationStatus: "preservation_pending",
             createdAt: new Date("2026-08-05T12:00:00Z"),
           }];
         },
@@ -434,6 +435,6 @@ describe("signed profile photo uploads", () => {
       id: "photo-1", status: "rejected", reason: "PHOTO_CONTENT_UNSAFE",
       width: 80, height: 60, createdAt: "2026-08-05T12:00:00.000Z",
     }] });
-    expect(JSON.stringify(body)).not.toMatch(/objectKey|reviewProvider|secret-provider/);
+    expect(JSON.stringify(body)).not.toMatch(/objectKey|reviewProvider|secret-provider|preservation/);
   });
 });

@@ -253,6 +253,13 @@
       "when": 1786544585052,
       "tag": "0035_early_hellion",
       "breakpoints": true
+    },
+    {
+      "idx": 36,
+      "version": "7",
+      "when": 1786548254166,
+      "tag": "0036_legacy_media_preservation",
+      "breakpoints": true
     }
   ]
 }

@@ -485,7 +485,11 @@ export class DrizzleCaseService {
         .where(eq(legalWorkflowTasks.caseId, current.id)).for("update").limit(1);
       if (!legalTask) throw new ModerationError("FORBIDDEN");
       const now = this.clock();
-      const released = await tx.update(moderationMediaHolds).set({ active: false, releasedAt: now }).where(and(
+      const released = await tx.update(moderationMediaHolds).set({
+        active: false,
+        releasedAt: now,
+        releasedByUserId: actor.userId,
+      }).where(and(
         eq(moderationMediaHolds.caseId, current.id),
         eq(moderationMediaHolds.active, true),
       )).returning({ id: moderationMediaHolds.id });

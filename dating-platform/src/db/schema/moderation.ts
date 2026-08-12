@@ -215,6 +215,7 @@ export const moderationMediaCopies = pgTable("moderation_media_copies", {
   sourceObjectKey: text("source_object_key").notNull(),
   sourceObjectVersion: text("source_object_version").notNull(),
   sourceObjectEtag: text("source_object_etag").notNull(),
+  captureMode: text("capture_mode").default("immutable_version").notNull(),
   objectKey: text("object_key").notNull().unique(),
   objectVersion: text("object_version").notNull(),
   objectEtag: text("object_etag").notNull(),
@@ -222,6 +223,7 @@ export const moderationMediaCopies = pgTable("moderation_media_copies", {
 }, (table) => [
   unique("moderation_media_copies_report_photo_unique").on(table.reportId, table.photoId),
   index("moderation_media_copies_case_idx").on(table.caseId, table.createdAt),
+  check("moderation_media_copies_capture_mode_check", sql`${table.captureMode} IN ('immutable_version', 'current_object_etag')`),
 ]);
 
 export const moderationMediaHolds = pgTable("moderation_media_holds", {
@@ -231,12 +233,14 @@ export const moderationMediaHolds = pgTable("moderation_media_holds", {
   subjectUserId: uuid("subject_user_id").notNull().references(() => users.id, { onDelete: "restrict" }),
   photoId: uuid("photo_id").notNull().references(() => profilePhotos.id, { onDelete: "restrict" }),
   evidenceCopyId: uuid("evidence_copy_id").references(() => moderationMediaCopies.id, { onDelete: "restrict" }),
+  legacy: boolean("legacy").default(false).notNull(),
   objectKey: text("object_key").notNull(),
   objectVersion: text("object_version").notNull(),
   snapshotSha256: varchar("snapshot_sha256", { length: 64 }).notNull(),
   preserveUntil: timestamptz("preserve_until").notNull(),
   active: boolean("active").default(true).notNull(),
   releasedAt: timestamptz("released_at"),
+  releasedByUserId: uuid("released_by_user_id").references(() => users.id, { onDelete: "restrict" }),
   createdAt: timestamptz("created_at").defaultNow().notNull(),
 }, (table) => [
   unique("moderation_media_holds_report_photo_unique").on(table.reportId, table.photoId),
@@ -245,6 +249,42 @@ export const moderationMediaHolds = pgTable("moderation_media_holds", {
   check("moderation_media_holds_release_check", sql`
     (${table.active} AND ${table.releasedAt} IS NULL)
     OR (NOT ${table.active} AND ${table.releasedAt} IS NOT NULL)
+  `),
+  check("moderation_media_holds_release_actor_check", sql`
+    (${table.active} AND ${table.releasedByUserId} IS NULL)
+    OR (NOT ${table.active} AND (${table.legacy} OR ${table.releasedByUserId} IS NOT NULL))
+  `),
+]);
+
+export const mediaPreservationTasks = pgTable("media_preservation_tasks", {
+  id: uuid("id").defaultRandom().primaryKey(),
+  reportId: uuid("report_id").notNull().references(() => reports.id, { onDelete: "restrict" }),
+  caseId: uuid("case_id").notNull().references(() => moderationCases.id, { onDelete: "restrict" }),
+  subjectUserId: uuid("subject_user_id").notNull().references(() => users.id, { onDelete: "restrict" }),
+  photoId: uuid("photo_id").notNull().references(() => profilePhotos.id, { onDelete: "restrict" }),
+  sourceObjectKey: text("source_object_key").notNull(),
+  destinationObjectKey: text("destination_object_key").notNull().unique(),
+  status: text("status").default("pending").notNull(),
+  attempts: integer("attempts").default(0).notNull(),
+  leaseId: uuid("lease_id"),
+  leaseExpiresAt: timestamptz("lease_expires_at"),
+  evidenceCopyId: uuid("evidence_copy_id").references(() => moderationMediaCopies.id, { onDelete: "restrict" }),
+  lastError: text("last_error"),
+  createdAt: timestamptz("created_at").defaultNow().notNull(),
+  updatedAt: timestamptz("updated_at").defaultNow().notNull(),
+  completedAt: timestamptz("completed_at"),
+}, (table) => [
+  unique("media_preservation_tasks_report_photo_unique").on(table.reportId, table.photoId),
+  index("media_preservation_tasks_claim_idx").on(table.status, table.leaseExpiresAt, table.createdAt),
+  check("media_preservation_tasks_status_check", sql`${table.status} IN ('pending', 'processing', 'completed', 'manual_review')`),
+  check("media_preservation_tasks_attempts_check", sql`${table.attempts} >= 0`),
+  check("media_preservation_tasks_lease_check", sql`
+    (${table.status} = 'processing' AND ${table.leaseId} IS NOT NULL AND ${table.leaseExpiresAt} IS NOT NULL)
+    OR (${table.status} <> 'processing' AND ${table.leaseId} IS NULL AND ${table.leaseExpiresAt} IS NULL)
+  `),
+  check("media_preservation_tasks_completion_check", sql`
+    (${table.status} = 'completed' AND ${table.evidenceCopyId} IS NOT NULL AND ${table.completedAt} IS NOT NULL)
+    OR (${table.status} <> 'completed' AND ${table.completedAt} IS NULL)
   `),
 ]);
 

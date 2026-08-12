@@ -6,6 +6,7 @@ import {
   conversationMembers,
   conversations,
   legalWorkflowTasks,
+  mediaPreservationTasks,
   messages,
   moderationAuditEvents,
   moderationCases,
@@ -196,8 +197,44 @@ export class DrizzleReportRepository implements ReportSubmissionRepository {
                 subjectUserId: target.userId,
               });
               if (!source) throw new ModerationError("REPORT_NOT_AVAILABLE");
+              if (source.preservationStatus !== "versioned" || !source.objectVersion || !source.objectEtag) {
+                const destinationObjectKey = `restricted-evidence/${created.id}/${photoId}`;
+                await tx.update(profilePhotos).set({
+                  preservationStatus: "preservation_pending",
+                  updatedAt: now,
+                }).where(and(
+                  eq(profilePhotos.id, source.photoId),
+                  eq(profilePhotos.userId, source.subjectUserId),
+                ));
+                await tx.insert(mediaPreservationTasks).values({
+                  reportId: created.id,
+                  caseId: moderationCase.id,
+                  subjectUserId: source.subjectUserId,
+                  photoId: source.photoId,
+                  sourceObjectKey: source.objectKey,
+                  destinationObjectKey,
+                  status: "pending",
+                  createdAt: now,
+                  updatedAt: now,
+                });
+                await tx.insert(moderationOutboxEvents).values({
+                  caseId: moderationCase.id,
+                  eventType: "media.legacy_preservation.requested",
+                  dedupeKey: `legacy-media-preservation:${created.id}:${photoId}`,
+                  payload: { reportId: created.id, photoId },
+                  availableAt: now,
+                  createdAt: now,
+                });
+                continue;
+              }
               const copied = await this.mediaEvidencePreserver.preserve(
-                source,
+                {
+                  photoId: source.photoId,
+                  subjectUserId: source.subjectUserId,
+                  objectKey: source.objectKey,
+                  objectVersion: source.objectVersion,
+                  objectEtag: source.objectEtag,
+                },
                 `restricted-evidence/${created.id}/${photoId}`,
               );
               const [evidenceCopy] = await tx.insert(moderationMediaCopies).values({

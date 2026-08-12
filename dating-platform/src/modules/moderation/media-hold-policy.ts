@@ -17,12 +17,17 @@ export type MediaDeletionClaim = {
 };
 
 export type ImmutableMediaSource = Omit<MediaDeletionClaim, "leaseId">;
+export type MediaHoldSource = Omit<ImmutableMediaSource, "objectVersion" | "objectEtag"> & {
+  objectVersion: string | null;
+  objectEtag: string | null;
+  preservationStatus: string;
+};
 
 export interface MediaLegalHoldPolicy {
   prepareHoldInTransaction(
     transaction: unknown,
     input: { photoId: string; subjectUserId: string },
-  ): Promise<ImmutableMediaSource | null>;
+  ): Promise<MediaHoldSource | null>;
   claimDeletion(photoId: string, expectedObjectKey: string, now: Date): Promise<MediaDeletionClaim | null>;
   validateDeletionClaim(claim: MediaDeletionClaim, now: Date): Promise<boolean>;
   finalizeDeletionClaim(claim: MediaDeletionClaim, now: Date): Promise<boolean>;
@@ -43,7 +48,7 @@ export class DrizzleMediaLegalHoldPolicy implements MediaLegalHoldPolicy {
       eq(profilePhotos.id, input.photoId),
       eq(profilePhotos.userId, input.subjectUserId),
     )).for("update").limit(1);
-    if (!photo || !photo.objectVersion || !photo.objectEtag) return null;
+    if (!photo) return null;
     if (photo.objectDeletedAt && photo.deletionStatus !== "deleting") return null;
     if (photo.deletionStatus === "claimed") {
       await tx.update(profilePhotos).set({
@@ -58,6 +63,7 @@ export class DrizzleMediaLegalHoldPolicy implements MediaLegalHoldPolicy {
       objectKey: photo.objectKey,
       objectVersion: photo.objectVersion,
       objectEtag: photo.objectEtag,
+      preservationStatus: photo.preservationStatus,
     };
   }
 
@@ -73,7 +79,8 @@ export class DrizzleMediaLegalHoldPolicy implements MediaLegalHoldPolicy {
         eq(profilePhotos.id, photoId),
         eq(profilePhotos.objectKey, expectedObjectKey),
       )).for("update").limit(1);
-      if (!photo || photo.objectDeletedAt || !photo.objectVersion || !photo.objectEtag || !photo.cleanupDueAt
+      if (!photo || photo.objectDeletedAt || photo.preservationStatus !== "versioned"
+        || !photo.objectVersion || !photo.objectEtag || !photo.cleanupDueAt
         || photo.cleanupDueAt > now || photo.deletionStatus === "deleting"
         || (photo.deletionStatus === "claimed" && photo.deletionLeaseExpiresAt && photo.deletionLeaseExpiresAt > now)) {
         return null;

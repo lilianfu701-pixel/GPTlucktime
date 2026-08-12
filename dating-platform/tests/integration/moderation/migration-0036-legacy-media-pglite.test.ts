@@ -9,7 +9,10 @@ import { afterEach, describe, expect, it } from "vitest";
 import * as schema from "@/db/schema";
 import { DrizzleCaseService } from "@/modules/moderation/case-service";
 import { DrizzleMediaLegalHoldPolicy } from "@/modules/moderation/media-hold-policy";
-import { unavailableMediaEvidencePreserver } from "@/modules/moderation/media-evidence-preserver";
+import {
+  preserveLegacyMediaTasks,
+  unavailableMediaEvidencePreserver,
+} from "@/modules/moderation/media-evidence-preserver";
 import { DrizzleReportRepository } from "@/modules/moderation/report-repository";
 import { ReportService, RuleBasedReportRiskAssessor } from "@/modules/moderation/report-service";
 import { MediaReviewStore } from "@/modules/profiles/media-review-store";
@@ -32,8 +35,13 @@ const ids = {
 
 const applyMigration = async (client: PGlite, name: string) => {
   const source = await readFile(new URL(`../../../drizzle/${name}`, import.meta.url), "utf8");
-  for (const statement of source.split("--> statement-breakpoint").map((part) => part.trim()).filter(Boolean)) {
-    await client.exec(statement);
+  const statements = source.split("--> statement-breakpoint").map((part) => part.trim()).filter(Boolean);
+  for (const [index, statement] of statements.entries()) {
+    try {
+      await client.exec(statement);
+    } catch (error) {
+      throw new Error(`MIGRATION_FAILED:${name}:${index}:${statement.slice(0, 80)}`, { cause: error });
+    }
   }
 };
 
@@ -128,7 +136,9 @@ describe("0036 legacy moderation media upgrade", () => {
     await expect(caseService.releaseMediaHolds(ids.moderationCase, {
       userId: ids.legalUser,
       role: "legal_reviewer",
-    }, "legacy hold reviewed")).resolves.toEqual({ releasedCount: 1 });
+    }, "legacy hold reviewed").catch((error) => {
+      throw new Error("LEGACY_RELEASE_STAGE", { cause: error });
+    })).resolves.toEqual({ releasedCount: 1 });
     expect((await client.query<{ active: boolean; released_by_user_id: string | null }>(
       "SELECT active,released_by_user_id FROM moderation_media_holds WHERE id=$1",
       [ids.hold],
@@ -159,14 +169,17 @@ describe("0036 legacy moderation media upgrade", () => {
         dueAt: new Date(NOW.getTime() + 60_000),
       }),
     }), new RuleBasedReportRiskAssessor());
-    await expect(reportService.submit(ids.reporterUser, {
+    const submitted = await reportService.submit(ids.reporterUser, {
       clientId: "00000000-0000-4000-8000-000000003613",
       targetProfileId: ids.targetProfile,
       reason: "MINOR_SAFETY",
       locale: "en-US",
       explanation: "legacy media must preserve report availability",
       evidenceReferences: [{ type: "photo", id: ids.photo }],
-    })).resolves.toMatchObject({ status: "submitted" });
+    }).catch((error) => {
+      throw new Error("LEGACY_REPORT_STAGE", { cause: error });
+    });
+    expect(submitted).toMatchObject({ status: "submitted" });
     expect((await client.query<{ status: string; source_object_key: string }>(
       "SELECT status,source_object_key FROM media_preservation_tasks WHERE photo_id=$1",
       [ids.photo],
@@ -174,5 +187,40 @@ describe("0036 legacy moderation media upgrade", () => {
     expect((await client.query<{ event_type: string }>(
       "SELECT event_type FROM moderation_outbox_events WHERE event_type='media.legacy_preservation.requested'",
     )).rows).toHaveLength(1);
+
+    const copied: Array<{ source: string; destination: string; sourceVersionId?: string }> = [];
+    await expect(preserveLegacyMediaTasks({
+      database: database as never,
+      storage: {
+        headObject: async (objectKey: string) => objectKey === "legacy-media/original.jpg"
+          ? { sizeBytes: 100, mimeType: "image/jpeg", etag: "current-source-etag", versionId: "current-source-version" }
+          : { sizeBytes: 100, mimeType: "image/jpeg", etag: "restricted-copy-etag", versionId: "restricted-copy-version" },
+        copyObject: async (source, destination, options) => {
+          copied.push({ source, destination, sourceVersionId: options.sourceVersionId });
+        },
+      },
+      clock: () => NOW,
+    })).resolves.toBe(1);
+    expect(copied).toEqual([{
+      source: "legacy-media/original.jpg",
+      destination: `restricted-evidence/${submitted.id}/${ids.photo}`,
+      sourceVersionId: "current-source-version",
+    }]);
+    expect((await client.query<{ capture_mode: string; source_object_version: string; object_version: string }>(
+      "SELECT capture_mode,source_object_version,object_version FROM moderation_media_copies WHERE report_id=$1",
+      [submitted.id],
+    )).rows).toEqual([{
+      capture_mode: "current_object_etag",
+      source_object_version: "current-source-version",
+      object_version: "restricted-copy-version",
+    }]);
+    expect((await client.query<{ legacy: boolean; object_version: string }>(
+      "SELECT legacy,object_version FROM moderation_media_holds WHERE report_id=$1",
+      [submitted.id],
+    )).rows).toEqual([{ legacy: false, object_version: "restricted-copy-version" }]);
+    expect((await client.query<{ preservation_status: string }>(
+      "SELECT preservation_status FROM profile_photos WHERE id=$1",
+      [ids.photo],
+    )).rows).toEqual([{ preservation_status: "legacy_preserved" }]);
   });
 });

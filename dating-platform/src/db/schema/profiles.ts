@@ -154,6 +154,7 @@ export const profilePhotos = pgTable(
     objectKey: text("object_key").notNull().unique(),
     objectVersion: text("object_version"),
     objectEtag: text("object_etag"),
+    preservationStatus: text("preservation_status").default("versioned").notNull(),
     position: integer("position").default(0).notNull(),
     actualMimeType: text("actual_mime_type"),
     actualSizeBytes: integer("actual_size_bytes"),
@@ -190,6 +191,7 @@ export const profilePhotos = pgTable(
       sql`${table.moderationStatus} IN ('pending', 'approved', 'rejected')`,
     ),
     check("profile_photos_deletion_status_check", sql`${table.deletionStatus} IN ('idle', 'claimed', 'deleting')`),
+    check("profile_photos_preservation_status_check", sql`${table.preservationStatus} IN ('versioned', 'legacy_unversioned', 'preservation_pending', 'legacy_preserved')`),
     check("profile_photos_deletion_lease_check", sql`
       (${table.deletionStatus} = 'idle' AND ${table.deletionLeaseId} IS NULL AND ${table.deletionLeaseExpiresAt} IS NULL)
       OR (${table.deletionStatus} IN ('claimed', 'deleting') AND ${table.deletionLeaseId} IS NOT NULL
