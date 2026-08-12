@@ -311,6 +311,122 @@ describe("moderation case governance", () => {
     ))).toHaveLength(2);
   });
 
+  it("quarantines only content owned by the case subject and bound to the report context", async () => {
+    const reporter = await addUser("quarantine-owner-reporter");
+    const target = await addUser("quarantine-owner-target");
+    const other = await addUser("quarantine-owner-other");
+    const [targetPhoto] = await database.insert(schema.profilePhotos).values({
+      userId: target.user.id,
+      profileId: target.profile.id,
+      objectKey: "quarantine-owner/target.jpg",
+      objectVersion: "target-version",
+      objectEtag: "target-etag",
+      position: 0,
+      moderationStatus: "approved",
+    }).returning();
+    const [otherPhoto] = await database.insert(schema.profilePhotos).values({
+      userId: other.user.id,
+      profileId: other.profile.id,
+      objectKey: "quarantine-owner/other.jpg",
+      objectVersion: "other-version",
+      objectEtag: "other-etag",
+      position: 0,
+      moderationStatus: "approved",
+    }).returning();
+    const report = await reportService.submit(reporter.user.id, {
+      clientId: "00000000-0000-4000-8000-000000000581",
+      targetProfileId: target.profile.id,
+      reason: "HARASSMENT",
+      locale: "en-US",
+      explanation: "content ownership quarantine fixture",
+      evidenceReferences: [{ type: "photo", id: targetPhoto.id }],
+    });
+    const [moderationCase] = await database.select().from(schema.moderationCases)
+      .where(eq(schema.moderationCases.reportId, report.id));
+    const worker = await addUser("quarantine-owner-worker");
+    const actor = { userId: worker.user.id, role: "case_worker" as const };
+    await caseService.transition(moderationCase.id, actor, "triaged");
+    await caseService.transition(moderationCase.id, actor, "under_review");
+    const action = (contentTarget: { type: "profile" | "message" | "photo"; id: string }) =>
+      caseService.recordAction(moderationCase.id, actor, {
+        subjectUserId: target.user.id,
+        actionType: "quarantine_content",
+        reasonCode: "CONTENT_OWNER_CHECK",
+        evidenceSummary: "quarantine only case-bound subject content",
+        expiryPolicy: "fixed",
+        expiresAt: new Date(NOW.getTime() + 60_000),
+        contentTarget,
+      });
+    const insertQuarantineDirectly = (contentType: "profile" | "message" | "photo", contentId: string) =>
+      database.insert(schema.moderationContentQuarantines).values({
+        caseId: moderationCase.id,
+        reportId: report.id,
+        contentType,
+        contentId,
+        reasonCode: "DIRECT_DATABASE_OWNERSHIP_CHECK",
+        startsAt: NOW,
+        preserveUntil: new Date(NOW.getTime() + 60_000),
+        createdAt: NOW,
+      });
+    await expect(insertQuarantineDirectly("profile", other.profile.id))
+      .rejects.toThrow("MODERATION_RELATION_INVALID");
+    await expect(insertQuarantineDirectly("photo", otherPhoto.id))
+      .rejects.toThrow("MODERATION_RELATION_INVALID");
+    await expect(action({ type: "profile", id: other.profile.id })).rejects.toThrow("INVALID_ACTION");
+    await expect(action({ type: "photo", id: otherPhoto.id })).rejects.toThrow("INVALID_ACTION");
+    await expect(action({ type: "profile", id: target.profile.id })).resolves.toBeTruthy();
+    await expect(action({ type: "photo", id: targetPhoto.id })).resolves.toBeTruthy();
+
+    const [lowUserId, highUserId] = [reporter.user.id, target.user.id].sort();
+    const [conversation] = await database.insert(schema.conversations).values({ lowUserId, highUserId }).returning();
+    await database.insert(schema.conversationMembers).values([
+      { conversationId: conversation.id, userId: lowUserId, lowUserId, highUserId },
+      { conversationId: conversation.id, userId: highUserId, lowUserId, highUserId },
+    ]);
+    const [targetMessage, otherMessage] = await database.insert(schema.messages).values([
+      {
+        conversationId: conversation.id, lowUserId, highUserId, sequence: 1,
+        senderUserId: target.user.id, clientId: "00000000-0000-4000-8000-000000000582", body: "case message",
+      },
+      {
+        conversationId: conversation.id, lowUserId, highUserId, sequence: 2,
+        senderUserId: reporter.user.id, clientId: "00000000-0000-4000-8000-000000000583", body: "other message",
+      },
+    ]).returning();
+    await expect(insertQuarantineDirectly("message", targetMessage.id))
+      .rejects.toThrow("MODERATION_RELATION_INVALID");
+    await expect(insertQuarantineDirectly("message", otherMessage.id))
+      .rejects.toThrow("MODERATION_RELATION_INVALID");
+    await expect(action({ type: "message", id: targetMessage.id })).rejects.toThrow("INVALID_ACTION");
+    await expect(action({ type: "message", id: otherMessage.id })).rejects.toThrow("INVALID_ACTION");
+
+    const messageReport = await reportService.submit(reporter.user.id, {
+      clientId: "00000000-0000-4000-8000-000000000584",
+      targetProfileId: target.profile.id,
+      conversationId: conversation.id,
+      messageId: targetMessage.id,
+      reason: "HARASSMENT",
+      locale: "en-US",
+      explanation: "message context quarantine fixture",
+      evidenceReferences: [],
+    });
+    const [messageCase] = await database.select().from(schema.moderationCases)
+      .where(eq(schema.moderationCases.reportId, messageReport.id));
+    const messageWorker = await addUser("quarantine-message-worker");
+    const messageActor = { userId: messageWorker.user.id, role: "case_worker" as const };
+    await caseService.transition(messageCase.id, messageActor, "triaged");
+    await caseService.transition(messageCase.id, messageActor, "under_review");
+    await expect(caseService.recordAction(messageCase.id, messageActor, {
+      subjectUserId: target.user.id,
+      actionType: "quarantine_content",
+      reasonCode: "MESSAGE_CONTEXT_CHECK",
+      evidenceSummary: "valid subject-authored report message",
+      expiryPolicy: "fixed",
+      expiresAt: new Date(NOW.getTime() + 60_000),
+      contentTarget: { type: "message", id: targetMessage.id },
+    })).resolves.toBeTruthy();
+  });
+
   it("creates a distinct appeal review case and preserves the original final decision", async () => {
     const { moderationCase, target } = await createCase();
     const worker = await addUser("original-worker");
