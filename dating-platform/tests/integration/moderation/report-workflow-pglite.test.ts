@@ -1,7 +1,7 @@
 // @vitest-environment node
 
 import { PGlite } from "@electric-sql/pglite";
-import { eq } from "drizzle-orm";
+import { eq, sql } from "drizzle-orm";
 import { drizzle } from "drizzle-orm/pglite";
 import { migrate } from "drizzle-orm/pglite/migrator";
 import { afterEach, beforeEach, describe, expect, it } from "vitest";
@@ -292,6 +292,14 @@ describe("report submission transaction", () => {
       body: "this must be denied by the moderation hold",
     })).rejects.toThrow("MESSAGE_SEND_DENIED");
     expect(await database.select().from(schema.messages)).toHaveLength(1);
+    await expect(repository.listMessages(reporter.user.id, conversation.id, {
+      afterSequence: 0,
+      pageSize: 1,
+    })).rejects.toThrow("CONVERSATION_NOT_AVAILABLE");
+    await database.update(schema.userRestrictions).set({
+      startsAt: sql`statement_timestamp() - interval '1 minute'`,
+      expiresAt: sql`statement_timestamp() + interval '1 minute'`,
+    }).where(eq(schema.userRestrictions.subjectUserId, target.user.id));
     await expect(database.insert(schema.messages).values({
       conversationId: conversation.id,
       lowUserId: conversation.lowUserId,
@@ -311,10 +319,6 @@ describe("report submission transaction", () => {
       clientId: `00000000-0000-4000-8000-${String(sequence + 400).padStart(12, "0")}`,
       body: `history ${sequence}`,
     })))).rejects.toThrow();
-    await expect(repository.listMessages(reporter.user.id, conversation.id, {
-      afterSequence: 0,
-      pageSize: 1,
-    })).rejects.toThrow("CONVERSATION_NOT_AVAILABLE");
   });
 
   it("holds referenced child-safety photo object through user removal and cleanup until explicit release", async () => {

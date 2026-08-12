@@ -90,4 +90,21 @@ END;
 $$;--> statement-breakpoint
 CREATE TRIGGER moderation_content_quarantines_validate_target
 BEFORE INSERT OR UPDATE ON moderation_content_quarantines
-FOR EACH ROW EXECUTE FUNCTION validate_moderation_content_quarantine_target();
+FOR EACH ROW EXECUTE FUNCTION validate_moderation_content_quarantine_target();--> statement-breakpoint
+CREATE OR REPLACE FUNCTION enforce_message_moderation_restriction() RETURNS trigger
+LANGUAGE plpgsql AS $$
+BEGIN
+  PERFORM id FROM users WHERE id IN (NEW.low_user_id, NEW.high_user_id) ORDER BY id FOR UPDATE;
+  IF EXISTS (
+    SELECT 1 FROM user_restrictions
+    WHERE subject_user_id IN (NEW.low_user_id, NEW.high_user_id)
+      AND active = true
+      AND starts_at <= statement_timestamp()
+      AND expires_at > statement_timestamp()
+      AND scope IN ('all_interactions', 'messaging')
+  ) THEN
+    RAISE EXCEPTION 'MESSAGE_INSERT_NOT_AVAILABLE';
+  END IF;
+  RETURN NEW;
+END;
+$$;
