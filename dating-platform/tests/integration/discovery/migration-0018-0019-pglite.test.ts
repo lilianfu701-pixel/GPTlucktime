@@ -1,6 +1,6 @@
 // @vitest-environment node
 
-import { readFile } from "node:fs/promises";
+import { readdir, readFile } from "node:fs/promises";
 
 import { PGlite } from "@electric-sql/pglite";
 import { drizzle } from "drizzle-orm/pglite";
@@ -118,6 +118,11 @@ describe("0018/0019 discovery snapshot forward migration", () => {
     ]);
 
     await migration(client, "0020_discovery_snapshot_recovery.sql");
+
+    const remainingMigrations = (await readdir(new URL("../../../drizzle", import.meta.url)))
+      .filter((name) => /^\d{4}_.+\.sql$/.test(name) && name >= "0021_")
+      .sort();
+    for (const name of remainingMigrations) await migration(client, name);
 
     const database = drizzle(client, { schema });
     const repository = new DiscoveryRepository(database, {
