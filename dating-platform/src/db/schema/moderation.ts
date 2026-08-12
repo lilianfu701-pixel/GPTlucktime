@@ -256,6 +256,11 @@ export const moderationMediaHolds = pgTable("moderation_media_holds", {
   `),
 ]);
 
+export const migratedLegacyMediaHolds = pgTable("migrated_legacy_media_holds", {
+  holdId: uuid("hold_id").primaryKey().references(() => moderationMediaHolds.id, { onDelete: "restrict" }),
+  migratedAt: timestamptz("migrated_at").defaultNow().notNull(),
+});
+
 export const mediaPreservationTasks = pgTable("media_preservation_tasks", {
   id: uuid("id").defaultRandom().primaryKey(),
   reportId: uuid("report_id").notNull().references(() => reports.id, { onDelete: "restrict" }),

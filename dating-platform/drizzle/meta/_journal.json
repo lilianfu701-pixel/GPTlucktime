@@ -260,6 +260,13 @@
       "when": 1786548254166,
       "tag": "0036_legacy_media_preservation",
       "breakpoints": true
+    },
+    {
+      "idx": 37,
+      "version": "7",
+      "when": 1786550378131,
+      "tag": "0037_lock_legacy_preservation",
+      "breakpoints": true
     }
   ]
 }

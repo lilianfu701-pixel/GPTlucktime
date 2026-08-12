@@ -41,10 +41,6 @@ ALTER TABLE "media_preservation_tasks" ADD CONSTRAINT "media_preservation_tasks_
 CREATE INDEX "media_preservation_tasks_claim_idx" ON "media_preservation_tasks" USING btree ("status","lease_expires_at","created_at");--> statement-breakpoint
 ALTER TABLE "moderation_media_holds" ADD CONSTRAINT "moderation_media_holds_released_by_user_id_users_id_fk" FOREIGN KEY ("released_by_user_id") REFERENCES "public"."users"("id") ON DELETE restrict ON UPDATE no action;--> statement-breakpoint
 ALTER TABLE "moderation_media_copies" ADD CONSTRAINT "moderation_media_copies_capture_mode_check" CHECK ("moderation_media_copies"."capture_mode" IN ('immutable_version', 'current_object_etag'));--> statement-breakpoint
-ALTER TABLE "moderation_media_holds" ADD CONSTRAINT "moderation_media_holds_release_actor_check" CHECK (
-    ("moderation_media_holds"."active" AND "moderation_media_holds"."released_by_user_id" IS NULL)
-    OR (NOT "moderation_media_holds"."active" AND ("moderation_media_holds"."legacy" OR "moderation_media_holds"."released_by_user_id" IS NOT NULL))
-  );--> statement-breakpoint
 ALTER TABLE "profile_photos" ADD CONSTRAINT "profile_photos_preservation_status_check" CHECK ("profile_photos"."preservation_status" IN ('versioned', 'legacy_unversioned', 'preservation_pending', 'legacy_preserved'));--> statement-breakpoint
 CREATE FUNCTION classify_profile_photo_preservation() RETURNS trigger
 LANGUAGE plpgsql AS $$
@@ -171,6 +167,10 @@ UPDATE "moderation_media_holds" SET "legacy" = true WHERE "evidence_copy_id" IS 
 UPDATE "profile_photos"
 SET "preservation_status" = 'legacy_unversioned'
 WHERE "object_version" IS NULL OR "object_etag" IS NULL;--> statement-breakpoint
+ALTER TABLE "moderation_media_holds" ADD CONSTRAINT "moderation_media_holds_release_actor_check" CHECK (
+    ("moderation_media_holds"."active" AND "moderation_media_holds"."released_by_user_id" IS NULL)
+    OR (NOT "moderation_media_holds"."active" AND ("moderation_media_holds"."legacy" OR "moderation_media_holds"."released_by_user_id" IS NOT NULL))
+  );--> statement-breakpoint
 CREATE OR REPLACE FUNCTION protect_moderation_media_hold_facts() RETURNS trigger
 LANGUAGE plpgsql AS $$
 BEGIN
