@@ -629,8 +629,9 @@ describe("durable profile media review", () => {
       }]),
       clock: () => now,
       rejectedRetentionMs: 1_000,
+      preserveLegacyMedia: async () => 2,
     });
-    expect(first).toEqual({ reviewed: 1, deleted: 0, uploadArtifactsDeleted: 1 });
+    expect(first).toEqual({ reviewed: 1, deleted: 0, uploadArtifactsDeleted: 1, legacyPreserved: 2 });
     const due = await drainMediaWorkers({
       store,
       storage,

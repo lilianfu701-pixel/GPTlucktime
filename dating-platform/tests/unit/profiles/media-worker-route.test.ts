@@ -28,7 +28,9 @@ describe("internal media worker route", () => {
   });
 
   it("returns observable review and cleanup counts", async () => {
-    const run = vi.fn().mockResolvedValue({ reviewed: 3, deleted: 2, uploadArtifactsDeleted: 4 });
+    const run = vi.fn().mockResolvedValue({
+      reviewed: 3, deleted: 2, uploadArtifactsDeleted: 4, legacyPreserved: 5,
+    });
     const POST = createMediaWorkerRoute({ secret, run });
 
     const response = await POST(new Request("https://app.test/api/internal/workers/media-review", {
@@ -41,6 +43,7 @@ describe("internal media worker route", () => {
       reviewed: 3,
       deleted: 2,
       uploadArtifactsDeleted: 4,
+      legacyPreserved: 5,
     });
     expect(run).toHaveBeenCalledOnce();
   });
