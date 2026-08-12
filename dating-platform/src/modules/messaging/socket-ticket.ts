@@ -4,6 +4,7 @@ import { and, eq, gt } from "drizzle-orm";
 
 import { profiles, sessions } from "@/db/schema";
 import type { db as productionDatabase } from "@/infrastructure/db/client";
+import type { ModerationRestrictionPolicy } from "@/modules/moderation/restriction-policy";
 
 const TICKET_TTL_SECONDS = 300;
 const UUID_PATTERN = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
@@ -138,14 +139,16 @@ type TicketDatabase = typeof productionDatabase;
 export class DrizzleSocketTicketIssuer {
   private readonly database: TicketDatabase;
   private readonly clock: () => Date;
+  private readonly restrictionPolicy: ModerationRestrictionPolicy;
 
   constructor(
     database: unknown,
     private readonly keys: SocketTicketKeyRing,
-    options: { clock?: () => Date } = {},
+    options: { clock?: () => Date; restrictionPolicy: ModerationRestrictionPolicy },
   ) {
     this.database = database as TicketDatabase;
     this.clock = options.clock ?? (() => new Date());
+    this.restrictionPolicy = options.restrictionPolicy;
   }
 
   async issue(userId: string, sessionId: string) {
@@ -162,6 +165,10 @@ export class DrizzleSocketTicketIssuer {
         eq(profiles.status, "active"),
       )).limit(1);
     if (!eligible) throw new Error("REALTIME_SESSION_NOT_AVAILABLE");
+    const allowed = await this.restrictionPolicy.filterAllowedInTransaction(
+      this.database, [userId], "messaging", now,
+    );
+    if (!allowed.has(userId)) throw new Error("REALTIME_SESSION_NOT_AVAILABLE");
     return signSocketTicket({ sub: userId, sessionId }, this.keys, now);
   }
 }

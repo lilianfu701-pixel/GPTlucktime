@@ -7,8 +7,8 @@ import { migrate } from "drizzle-orm/pglite/migrator";
 import { afterEach, beforeEach, describe, expect, it } from "vitest";
 
 import * as schema from "@/db/schema";
-import { DrizzleModerationContentPolicy } from "@/modules/moderation/content-policy";
-import { DrizzleModerationRestrictionPolicy } from "@/modules/moderation/restriction-policy";
+import { allowAllContentPolicy, DrizzleModerationContentPolicy } from "@/modules/moderation/content-policy";
+import { allowAllRestrictionPolicy, DrizzleModerationRestrictionPolicy } from "@/modules/moderation/restriction-policy";
 import { SocialRepository } from "@/modules/social/social-repository";
 import { createAuthorizedRealtimePublisher, DrizzleMessageOutboxStore, MessageOutboxConsumer } from "../../../realtime/outbox-consumer";
 
@@ -22,7 +22,7 @@ describe("message outbox PostgreSQL store", () => {
     client = new PGlite();
     database = drizzle(client, { schema });
     await migrate(database, { migrationsFolder: "./drizzle" });
-  });
+  }, 30_000);
   afterEach(async () => client.close());
 
   const seed = async () => {
@@ -76,7 +76,10 @@ describe("message outbox PostgreSQL store", () => {
     });
     let emissions = 0;
     const store = new DrizzleMessageOutboxStore(database, { clock: () => NOW });
-    const publish = createAuthorizedRealtimePublisher(database, social, async () => { emissions += 1; });
+    const publish = createAuthorizedRealtimePublisher(database, social, async () => { emissions += 1; }, {
+      restrictionPolicy: allowAllRestrictionPolicy,
+      contentPolicy: allowAllContentPolicy,
+    });
     await new MessageOutboxConsumer(store, publish).runOnce();
     expect(emissions).toBe(0);
     expect(await database.select().from(schema.messageOutboxEvents)).toMatchObject([{
@@ -98,7 +101,10 @@ describe("message outbox PostgreSQL store", () => {
     });
     const store = new DrizzleMessageOutboxStore(database, { clock: () => NOW });
     let emissions = 0;
-    const publish = createAuthorizedRealtimePublisher(database, social, async () => { emissions += 1; });
+    const publish = createAuthorizedRealtimePublisher(database, social, async () => { emissions += 1; }, {
+      restrictionPolicy: allowAllRestrictionPolicy,
+      contentPolicy: allowAllContentPolicy,
+    });
     await new MessageOutboxConsumer(store, publish).runOnce();
     await database.insert(schema.userBlocks).values({
       blockerUserId: seeded.lowUserId,

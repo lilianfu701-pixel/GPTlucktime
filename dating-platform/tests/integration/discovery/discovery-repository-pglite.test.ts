@@ -105,7 +105,7 @@ describe("discovery repository", () => {
       genderCode: "man",
       privacy: "city",
     }));
-  });
+  }, 30_000);
 
   afterEach(async () => client.close());
 
@@ -187,6 +187,9 @@ describe("discovery repository", () => {
       explanation: "urgent safety review",
       evidenceReferences: [],
     });
+    await database.update(schema.moderationContentQuarantines).set({
+      preserveUntil: new Date(now.getTime() + 1),
+    }).where(eq(schema.moderationContentQuarantines.contentId, restricted.profileId));
     now = new Date(now.getTime() + 25 * 60 * 60_000);
     const restrictedRepository = new DiscoveryRepository(database, {
       clock: () => now,

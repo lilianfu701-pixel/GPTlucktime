@@ -15,11 +15,9 @@ import type { db as productionDatabase } from "@/infrastructure/db/client";
 import { launchVerificationPolicy, type VerificationDecision } from "@/modules/auth/verification-policy";
 import type { EntitlementService } from "@/modules/entitlements/entitlement-service";
 import {
-  allowAllRestrictionPolicy,
   type ModerationRestrictionPolicy,
 } from "@/modules/moderation/restriction-policy";
 import {
-  allowAllContentPolicy,
   type ModerationContentPolicy,
 } from "@/modules/moderation/content-policy";
 import type { InteractionPolicy, SocialTransaction } from "@/modules/social/social-repository";
@@ -158,8 +156,8 @@ export class MessageRepository {
     interactionPolicy: InteractionPolicy;
     entitlementService: Pick<EntitlementService, "consumeInTransaction" | "decideInTransaction">;
     verificationPolicy: MessageVerificationPolicy;
-    restrictionPolicy?: ModerationRestrictionPolicy;
-    contentPolicy?: ModerationContentPolicy;
+    restrictionPolicy: ModerationRestrictionPolicy;
+    contentPolicy: ModerationContentPolicy;
     cursorSecret: string;
     clock?: () => Date;
   }) {
@@ -167,8 +165,8 @@ export class MessageRepository {
     this.interactionPolicy = options.interactionPolicy;
     this.entitlementService = options.entitlementService;
     this.verificationPolicy = options.verificationPolicy;
-    this.restrictionPolicy = options.restrictionPolicy ?? allowAllRestrictionPolicy;
-    this.contentPolicy = options.contentPolicy ?? allowAllContentPolicy;
+    this.restrictionPolicy = options.restrictionPolicy;
+    this.contentPolicy = options.contentPolicy;
     this.cursorSecret = options.cursorSecret;
     this.clock = options.clock ?? (() => new Date());
   }
@@ -181,6 +179,13 @@ export class MessageRepository {
         async (transaction, targetUserId) => {
           const tx = transaction as MessagingDatabase;
           const pair = orderedPair(actorUserId, targetUserId);
+          const now = this.clock();
+          const allowedUsers = await this.restrictionPolicy.filterAllowedInTransaction(
+            transaction, [actorUserId, targetUserId], "messaging", now,
+          );
+          if (!allowedUsers.has(actorUserId) || !allowedUsers.has(targetUserId)) {
+            throw new MessagingError("CONVERSATION_NOT_AVAILABLE");
+          }
           let [conversation] = await tx.select().from(conversations).where(and(
             eq(conversations.lowUserId, pair.lowUserId),
             eq(conversations.highUserId, pair.highUserId),
@@ -189,7 +194,6 @@ export class MessageRepository {
             if (conversation.status !== "active") throw new MessagingError("CONVERSATION_NOT_AVAILABLE");
             return this.serializeConversation(conversation);
           }
-          const now = this.clock();
           const unmet = await this.verificationPolicy.unmetInTransaction(transaction, actorUserId, now);
           if (unmet.length > 0) throw new MessagingError("VERIFICATION_REQUIRED", unmet);
           const entitlement = await this.entitlementService.decideInTransaction(
@@ -316,6 +320,13 @@ export class MessageRepository {
   ) {
     const membership = await this.findMembership(this.database, userId, conversationId);
     if (!membership) throw new MessagingError("CONVERSATION_NOT_AVAILABLE");
+    const counterpartUserId = membership.lowUserId === userId ? membership.highUserId : membership.lowUserId;
+    const allowedUsers = await this.restrictionPolicy.filterAllowedInTransaction(
+      this.database, [userId, counterpartUserId], "messaging", this.clock(),
+    );
+    if (!allowedUsers.has(userId) || !allowedUsers.has(counterpartUserId)) {
+      throw new MessagingError("CONVERSATION_NOT_AVAILABLE");
+    }
     const visibleRows: Array<typeof messages.$inferSelect> = [];
     let scanSequence = input.afterSequence;
     let scanned = 0;
@@ -355,6 +366,10 @@ export class MessageRepository {
     const initialCursor = decodeCursor(input.cursor, this.cursorSecret);
     return this.interactionPolicy.withSafeViewerRead(userId, async (transaction) => {
       const tx = transaction as MessagingDatabase;
+      const viewerAllowed = await this.restrictionPolicy.filterAllowedInTransaction(
+        transaction, [userId], "messaging", this.clock(),
+      );
+      if (!viewerAllowed.has(userId)) return { conversations: [], nextCursor: null };
       const items: Array<Record<string, unknown>> = [];
       let after = initialCursor;
       let scanned = 0;
@@ -386,6 +401,9 @@ export class MessageRepository {
           userId,
           counterpartIds,
         );
+        const allowedCounterparts = await this.restrictionPolicy.filterAllowedInTransaction(
+          transaction, counterpartIds, "messaging", this.clock(),
+        );
         for (let index = 0; index < rows.length; index += 1) {
           const row = rows[index]!;
           scanned += 1;
@@ -398,7 +416,9 @@ export class MessageRepository {
             ? row.conversation.highUserId
             : row.conversation.lowUserId;
           const profile = profilesByUser.get(counterpartUserId);
-          if (profile) items.push({ ...this.serializeConversation(row.conversation), profile });
+          if (profile && allowedCounterparts.has(counterpartUserId)) {
+            items.push({ ...this.serializeConversation(row.conversation), profile });
+          }
           if (items.length === input.pageSize) {
             hasMore = index < rows.length - 1 || rows.length === limit;
             break;

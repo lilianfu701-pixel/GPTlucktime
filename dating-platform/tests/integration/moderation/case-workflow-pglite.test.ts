@@ -11,6 +11,7 @@ import { DrizzleCaseService } from "@/modules/moderation/case-service";
 import { MessageRepository } from "@/modules/messaging/message-repository";
 import { DrizzleReportRepository } from "@/modules/moderation/report-repository";
 import { DrizzleModerationRestrictionPolicy } from "@/modules/moderation/restriction-policy";
+import { allowAllContentPolicy } from "@/modules/moderation/content-policy";
 import { SocialRepository } from "@/modules/social/social-repository";
 import { ReportService, RuleBasedReportRiskAssessor } from "@/modules/moderation/report-service";
 
@@ -21,12 +22,17 @@ describe("moderation case governance", () => {
   let database: ReturnType<typeof drizzle<typeof schema>>;
   let caseService: DrizzleCaseService;
   let reportService: ReportService;
+  let trustedEvidenceRoles: Map<string, "case_worker" | "safety_specialist" | "legal_reviewer">;
 
   beforeEach(async () => {
     client = new PGlite();
     database = drizzle(client, { schema });
     await migrate(database, { migrationsFolder: "./drizzle" });
-    caseService = new DrizzleCaseService(database, { clock: () => NOW });
+    trustedEvidenceRoles = new Map();
+    caseService = new DrizzleCaseService(database, {
+      clock: () => NOW,
+      resolveEvidenceReaderRole: async (userId) => trustedEvidenceRoles.get(userId) ?? null,
+    });
     reportService = new ReportService(new DrizzleReportRepository(database, {
       idempotencySecret: "moderation-test-secret",
       clock: () => NOW,
@@ -226,6 +232,7 @@ describe("moderation case governance", () => {
       } as never,
       verificationPolicy: { unmetInTransaction: async () => [] },
       restrictionPolicy: new DrizzleModerationRestrictionPolicy(),
+      contentPolicy: allowAllContentPolicy,
       cursorSecret: "case-action-message-policy-secret",
       clock,
     });
@@ -263,6 +270,43 @@ describe("moderation case governance", () => {
       .where(eq(schema.moderationActions.caseId, moderationCase.id))).toEqual([]);
   });
 
+  it("materializes a targeted content quarantine and explicitly restores it with audit", async () => {
+    const { moderationCase, target } = await createCase();
+    const worker = await addUser("content-action-worker");
+    const actor = { userId: worker.user.id, role: "case_worker" as const };
+    await caseService.transition(moderationCase.id, actor, "triaged");
+    await caseService.transition(moderationCase.id, actor, "under_review");
+    const expiresAt = new Date(NOW.getTime() + 24 * 60 * 60_000);
+    await caseService.recordAction(moderationCase.id, actor, {
+      subjectUserId: target.user.id,
+      actionType: "quarantine_content",
+      reasonCode: "PROFILE_REVIEW",
+      evidenceSummary: "specific profile requires review",
+      expiryPolicy: "fixed",
+      expiresAt,
+      contentTarget: { type: "profile", id: target.profile.id },
+    });
+    expect(await database.select().from(schema.moderationContentQuarantines)).toEqual([
+      expect.objectContaining({ contentType: "profile", contentId: target.profile.id, active: true }),
+    ]);
+    await caseService.recordAction(moderationCase.id, actor, {
+      subjectUserId: target.user.id,
+      actionType: "restore",
+      reasonCode: "REVIEW_CLEARED",
+      evidenceSummary: "review cleared specific enforcement projections",
+      expiryPolicy: "fixed",
+      expiresAt,
+    });
+    expect(await database.select({
+      active: schema.moderationContentQuarantines.active,
+      releasedAt: schema.moderationContentQuarantines.releasedAt,
+    }).from(schema.moderationContentQuarantines)).toEqual([{ active: false, releasedAt: NOW }]);
+    expect(await database.select().from(schema.moderationAuditEvents).where(eq(
+      schema.moderationAuditEvents.eventType,
+      "action_recorded",
+    ))).toHaveLength(2);
+  });
+
   it("creates a distinct appeal review case and preserves the original final decision", async () => {
     const { moderationCase, target } = await createCase();
     const worker = await addUser("original-worker");
@@ -270,6 +314,14 @@ describe("moderation case governance", () => {
     const actor = { userId: worker.user.id, role: "case_worker" as const };
     await caseService.transition(moderationCase.id, actor, "triaged");
     await caseService.transition(moderationCase.id, actor, "under_review");
+    await caseService.recordAction(moderationCase.id, actor, {
+      subjectUserId: target.user.id,
+      actionType: "temporary_restriction",
+      reasonCode: "APPEAL_FIXTURE_RESTRICTION",
+      evidenceSummary: "original decision enforcement",
+      expiryPolicy: "fixed",
+      expiresAt: new Date(NOW.getTime() + 24 * 60 * 60_000),
+    });
     await caseService.transition(moderationCase.id, actor, "actioned", {
       finalDecisionSummary: "temporary restriction upheld",
     });
@@ -297,6 +349,66 @@ describe("moderation case governance", () => {
       .where(eq(schema.moderationCases.id, appeal.reviewCaseId));
     expect(original).toMatchObject({ status: "actioned", finalDecisionSummary: "temporary restriction upheld" });
     expect(review).toMatchObject({ kind: "appeal", status: "actioned", originalCaseId: moderationCase.id });
+    expect(await database.select({ active: schema.userRestrictions.active }).from(schema.userRestrictions)
+      .where(eq(schema.userRestrictions.sourceCaseId, moderationCase.id))).toEqual([{ active: false }]);
+    expect(await database.select({ publicStatus: schema.reports.publicStatus }).from(schema.reports)
+      .where(eq(schema.reports.id, moderationCase.reportId))).toEqual([{ publicStatus: "resolved" }]);
+    expect(await database.select().from(schema.moderationAuditEvents).where(eq(
+      schema.moderationAuditEvents.eventType,
+      "appeal_enforcement_revoked",
+    ))).toHaveLength(1);
+  });
+
+  it("materializes a modified appeal projection and audits both original and review cases", async () => {
+    const { moderationCase, target } = await createCase();
+    const worker = await addUser("modified-original-worker");
+    const reviewer = await addUser("modified-appeal-reviewer");
+    const actor = { userId: worker.user.id, role: "case_worker" as const };
+    await caseService.transition(moderationCase.id, actor, "triaged");
+    await caseService.transition(moderationCase.id, actor, "under_review");
+    await caseService.recordAction(moderationCase.id, actor, {
+      subjectUserId: target.user.id,
+      actionType: "suspend",
+      reasonCode: "MODIFIED_APPEAL_FIXTURE",
+      evidenceSummary: "original longer restriction",
+      expiryPolicy: "fixed",
+      expiresAt: new Date(NOW.getTime() + 7 * 24 * 60 * 60_000),
+    });
+    await caseService.transition(moderationCase.id, actor, "actioned", {
+      finalDecisionSummary: "original suspension",
+    });
+    const appeal = await caseService.createAppeal(target.user.id, moderationCase.id, "reduce the duration");
+    const appealActor = { userId: reviewer.user.id, role: "appeal_reviewer" as const };
+    await caseService.transition(appeal.reviewCaseId, appealActor, "triaged");
+    await caseService.transition(appeal.reviewCaseId, appealActor, "under_review");
+    const modifiedExpiry = new Date(NOW.getTime() + 12 * 60 * 60_000);
+    await caseService.finalizeAppeal(
+      appeal.id,
+      appealActor,
+      "modified",
+      "restriction shortened after independent review",
+      { restrictionExpiresAt: modifiedExpiry },
+    );
+    expect(await database.select({
+      active: schema.userRestrictions.active,
+      expiresAt: schema.userRestrictions.expiresAt,
+    }).from(schema.userRestrictions).where(eq(
+      schema.userRestrictions.sourceCaseId,
+      moderationCase.id,
+    ))).toEqual([{ active: true, expiresAt: modifiedExpiry }]);
+    expect(await database.select({ publicStatus: schema.reports.publicStatus }).from(schema.reports)
+      .where(eq(schema.reports.id, moderationCase.reportId))).toEqual([{ publicStatus: "resolved" }]);
+    expect(await database.select({
+      caseId: schema.moderationAuditEvents.caseId,
+      eventType: schema.moderationAuditEvents.eventType,
+    }).from(schema.moderationAuditEvents).where(eq(
+      schema.moderationAuditEvents.eventType,
+      "appeal_enforcement_modified",
+    ))).toEqual([{ caseId: moderationCase.id, eventType: "appeal_enforcement_modified" }]);
+    expect(await database.select().from(schema.moderationAuditEvents).where(eq(
+      schema.moderationAuditEvents.eventType,
+      "appeal_finalized",
+    ))).toEqual([expect.objectContaining({ caseId: appeal.reviewCaseId })]);
   });
 
   it("lets only designated safety or legal roles read isolated evidence and logs each access", async () => {
@@ -304,6 +416,10 @@ describe("moderation case governance", () => {
     const admin = await addUser("evidence-admin");
     const worker = await addUser("evidence-worker");
     const safety = await addUser("safety-specialist");
+    const legal = await addUser("legal-reviewer");
+    trustedEvidenceRoles.set(worker.user.id, "case_worker");
+    trustedEvidenceRoles.set(safety.user.id, "safety_specialist");
+    trustedEvidenceRoles.set(legal.user.id, "legal_reviewer");
 
     await expect(caseService.readEvidence(moderationCase.id, {
       userId: admin.user.id,
@@ -323,11 +439,38 @@ describe("moderation case governance", () => {
     expect(await database.select().from(schema.moderationEvidenceAccess)).toEqual(expect.arrayContaining([
       expect.objectContaining({ actorUserId: safety.user.id, actorRole: "safety_specialist" }),
     ]));
+    await expect(caseService.readEvidence(moderationCase.id, {
+      userId: legal.user.id,
+      role: "legal_reviewer",
+    }, "legal_workflow_review")).resolves.toEqual(expect.arrayContaining([
+      expect.objectContaining({ classification: "restricted_safety" }),
+    ]));
+    await expect(caseService.readEvidence(moderationCase.id, {
+      userId: admin.user.id,
+      role: "safety_specialist",
+    }, "forged_role")).rejects.toThrow("FORBIDDEN");
+  });
+
+  it("lets the assigned ordinary case worker read only integrity-verified evidence", async () => {
+    const { moderationCase } = await createCase();
+    const worker = await addUser("assigned-evidence-worker");
+    trustedEvidenceRoles.set(worker.user.id, "case_worker");
+    await caseService.transition(moderationCase.id, {
+      userId: worker.user.id,
+      role: "case_worker",
+    }, "triaged");
+    await expect(caseService.readEvidence(moderationCase.id, {
+      userId: worker.user.id,
+      role: "case_worker",
+    }, "assigned_case_review")).resolves.toEqual(expect.arrayContaining([
+      expect.objectContaining({ classification: "ordinary" }),
+    ]));
   });
 
   it("rejects evidence whose controlled snapshot binding does not match its integrity hash", async () => {
     const { moderationCase } = await createCase("MINOR_SAFETY");
     const safety = await addUser("integrity-safety-specialist");
+    trustedEvidenceRoles.set(safety.user.id, "safety_specialist");
     await database.insert(schema.moderationEvidence).values({
       reportId: moderationCase.reportId,
       caseId: moderationCase.id,
@@ -348,6 +491,58 @@ describe("moderation case governance", () => {
       role: "safety_specialist",
     }, "integrity_review")).rejects.toThrow("EVIDENCE_NOT_AVAILABLE");
     expect(await database.select().from(schema.moderationEvidenceAccess)).toEqual([]);
+  });
+
+  it("rejects cross-row moderation relationships that do not bind to one report subject", async () => {
+    const first = await createCase();
+    const second = await createCase("MINOR_SAFETY");
+    const operator = await addUser("relationship-guard-operator");
+    const [photo] = await database.insert(schema.profilePhotos).values({
+      profileId: first.target.profile.id,
+      userId: first.target.user.id,
+      objectKey: "relationship-guard/photo.jpg",
+      position: 0,
+      moderationStatus: "approved",
+      createdAt: NOW,
+      updatedAt: NOW,
+    }).returning();
+
+    await expect(database.insert(schema.moderationActions).values({
+      caseId: first.moderationCase.id,
+      subjectUserId: second.target.user.id,
+      actionType: "warn",
+      reasonCode: "BAD_RELATION",
+      evidenceSummary: "must not cross subjects",
+      operatorUserId: operator.user.id,
+      expiryPolicy: "fixed",
+      expiresAt: new Date(NOW.getTime() + 60_000),
+      createdAt: NOW,
+    })).rejects.toThrow();
+    await expect(database.insert(schema.moderationEvidence).values({
+      reportId: second.moderationCase.reportId,
+      caseId: first.moderationCase.id,
+      kind: "profile_snapshot",
+      classification: "ordinary",
+      locator: {
+        schemaVersion: 1,
+        referenceType: "profile",
+        referenceId: first.target.profile.id,
+      },
+      integritySha256: "a".repeat(64),
+      preserveUntil: new Date(NOW.getTime() + 60_000),
+      createdAt: NOW,
+    })).rejects.toThrow();
+    await expect(database.insert(schema.moderationMediaHolds).values({
+      reportId: first.moderationCase.reportId,
+      caseId: first.moderationCase.id,
+      subjectUserId: second.target.user.id,
+      photoId: photo.id,
+      objectKey: photo.objectKey,
+      objectVersion: photo.updatedAt.toISOString(),
+      snapshotSha256: "b".repeat(64),
+      preserveUntil: new Date(NOW.getTime() + 60_000),
+      createdAt: NOW,
+    })).rejects.toThrow();
   });
 
   it("protects immutable report facts, case identity and evidence content while allowing workflow updates", async () => {

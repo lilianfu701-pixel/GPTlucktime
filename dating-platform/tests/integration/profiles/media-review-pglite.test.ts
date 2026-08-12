@@ -7,6 +7,7 @@ import { eq } from "drizzle-orm";
 import { afterEach, beforeEach, describe, expect, it } from "vitest";
 
 import * as schema from "@/db/schema";
+import { allowAllMediaLegalHoldPolicy } from "@/modules/moderation/media-hold-policy";
 import {
   HttpsMediaReviewAdapter,
   InMemoryMediaReviewAdapter,
@@ -63,7 +64,7 @@ describe("durable profile media review", () => {
     await database.insert(schema.profiles).values({
       userId, displayName: "Owner", birthDate: "1990-01-01", genderCode: "self_described", countryCode: "US",
     });
-  });
+  }, 30_000);
 
   afterEach(async () => client.close());
 
@@ -301,18 +302,18 @@ describe("durable profile media review", () => {
 
     const storage = new MemoryStorage(new Uint8Array());
     storage.failDeletes = 1;
-    await expect(cleanupRejectedMedia({ store, storage, clock: () => storeNow })).resolves.toBe(0);
+    await expect(cleanupRejectedMedia({ store, storage, holdPolicy: allowAllMediaLegalHoldPolicy, clock: () => storeNow })).resolves.toBe(0);
     [removedPhoto] = await database.select().from(schema.profilePhotos)
       .where(eq(schema.profilePhotos.id, photo.id));
     expect(removedPhoto.objectDeletedAt).toBeNull();
-    await expect(cleanupRejectedMedia({ store, storage, clock: () => storeNow })).resolves.toBe(1);
+    await expect(cleanupRejectedMedia({ store, storage, holdPolicy: allowAllMediaLegalHoldPolicy, clock: () => storeNow })).resolves.toBe(1);
     [removedPhoto] = await database.select().from(schema.profilePhotos)
       .where(eq(schema.profilePhotos.id, photo.id));
     expect(removedPhoto.objectDeletedAt).toEqual(storeNow);
     expect(storage.deleted).toEqual([photo.objectKey]);
     expect(await database.select().from(schema.profilePhotos)
       .where(eq(schema.profilePhotos.id, photo.id))).toHaveLength(1);
-    await expect(cleanupRejectedMedia({ store, storage, clock: () => storeNow })).resolves.toBe(0);
+    await expect(cleanupRejectedMedia({ store, storage, holdPolicy: allowAllMediaLegalHoldPolicy, clock: () => storeNow })).resolves.toBe(0);
 
     const reserveReplacement = (suffix: string) => store.reserveUpload({
       userId,
@@ -337,7 +338,7 @@ describe("durable profile media review", () => {
       .where(eq(schema.profilePhotos.id, photo.id));
     expect(removed.userRemovedAt).toEqual(storeNow);
     expect(removed.cleanupDueAt).toEqual(storeNow);
-    await expect(cleanupRejectedMedia({ store, storage, clock: () => storeNow })).resolves.toBe(1);
+    await expect(cleanupRejectedMedia({ store, storage, holdPolicy: allowAllMediaLegalHoldPolicy, clock: () => storeNow })).resolves.toBe(1);
     const [cleaned] = await database.select().from(schema.profilePhotos)
       .where(eq(schema.profilePhotos.id, photo.id));
     expect(cleaned.objectDeletedAt).toEqual(storeNow);
@@ -557,11 +558,11 @@ describe("durable profile media review", () => {
       clock: () => now,
       rejectedRetentionMs: 1_000,
     });
-    expect(await cleanupRejectedMedia({ store, storage, clock: () => new Date(now.getTime() + 999) })).toBe(0);
+    expect(await cleanupRejectedMedia({ store, storage, holdPolicy: allowAllMediaLegalHoldPolicy, clock: () => new Date(now.getTime() + 999) })).toBe(0);
     expect(storage.deleted).toHaveLength(0);
-    expect(await cleanupRejectedMedia({ store, storage, clock: () => new Date(now.getTime() + 1_000) })).toBe(1);
+    expect(await cleanupRejectedMedia({ store, storage, holdPolicy: allowAllMediaLegalHoldPolicy, clock: () => new Date(now.getTime() + 1_000) })).toBe(1);
     expect(storage.deleted).toEqual([photo.objectKey]);
-    expect(await cleanupRejectedMedia({ store, storage, clock: () => new Date(now.getTime() + 2_000) })).toBe(0);
+    expect(await cleanupRejectedMedia({ store, storage, holdPolicy: allowAllMediaLegalHoldPolicy, clock: () => new Date(now.getTime() + 2_000) })).toBe(0);
   });
 
   it("durably retries staging deletion and records final artifact cleanup", async () => {
@@ -607,6 +608,7 @@ describe("durable profile media review", () => {
     const first = await drainMediaWorkers({
       store,
       storage,
+      holdPolicy: allowAllMediaLegalHoldPolicy,
       adapter: new InMemoryMediaReviewAdapter([{
         outcome: "rejected", provider: "test", version: "v1", reasonCode: "CONTENT_UNSAFE",
       }]),
@@ -617,13 +619,15 @@ describe("durable profile media review", () => {
     const due = await drainMediaWorkers({
       store,
       storage,
+      holdPolicy: allowAllMediaLegalHoldPolicy,
       adapter: new InMemoryMediaReviewAdapter(),
       clock: () => new Date(now.getTime() + 1_000),
       rejectedRetentionMs: 1_000,
     });
     expect(due).toEqual({ reviewed: 0, deleted: 1, uploadArtifactsDeleted: 0 });
     await expect(drainMediaWorkers({
-      store, storage, adapter: new InMemoryMediaReviewAdapter(),
+      store, storage, holdPolicy: allowAllMediaLegalHoldPolicy,
+      adapter: new InMemoryMediaReviewAdapter(),
       clock: () => new Date(now.getTime() + 2_000), rejectedRetentionMs: 1_000,
     })).resolves.toEqual({ reviewed: 0, deleted: 0, uploadArtifactsDeleted: 0 });
   });

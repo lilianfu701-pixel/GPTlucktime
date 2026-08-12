@@ -13,6 +13,10 @@ import { ReportService, RuleBasedReportRiskAssessor } from "@/modules/moderation
 import { DrizzleModerationContentPolicy } from "@/modules/moderation/content-policy";
 import { DrizzleModerationRestrictionPolicy } from "@/modules/moderation/restriction-policy";
 import { SocialRepository } from "@/modules/social/social-repository";
+import { DrizzleMediaLegalHoldPolicy } from "@/modules/moderation/media-hold-policy";
+import { MediaReviewStore } from "@/modules/profiles/media-review-store";
+import { cleanupRejectedMedia } from "@/workers/media-review-worker";
+import { DrizzleCaseService } from "@/modules/moderation/case-service";
 
 const NOW = new Date("2026-08-11T12:00:00.000Z");
 const CLIENT_ID = "00000000-0000-4000-8000-000000000101";
@@ -276,7 +280,7 @@ describe("report submission transaction", () => {
       body: "this must be denied by the moderation hold",
     })).rejects.toThrow("MESSAGE_SEND_DENIED");
     expect(await database.select().from(schema.messages)).toHaveLength(1);
-    const additional = await database.insert(schema.messages).values([2, 3, 4].map((sequence) => ({
+    await expect(database.insert(schema.messages).values([2, 3, 4].map((sequence) => ({
       conversationId: conversation.id,
       lowUserId: conversation.lowUserId,
       highUserId: conversation.highUserId,
@@ -284,22 +288,77 @@ describe("report submission transaction", () => {
       senderUserId: reporter.user.id,
       clientId: `00000000-0000-4000-8000-${String(sequence + 400).padStart(12, "0")}`,
       body: `history ${sequence}`,
-    }))).returning();
-    const [emergencyCase] = await database.select().from(schema.moderationCases);
-    const [emergencyReport] = await database.select().from(schema.reports);
-    await database.insert(schema.moderationContentQuarantines).values(additional.slice(0, 2).map((row) => ({
-      caseId: emergencyCase!.id,
-      reportId: emergencyReport!.id,
-      contentType: "message",
-      contentId: row.id,
-      reasonCode: "EMERGENCY_SAFETY_QUARANTINE",
-      startsAt: NOW,
-      preserveUntil: new Date("2033-08-11T12:00:00.000Z"),
-      createdAt: NOW,
-    })));
+    })))).rejects.toThrow();
     await expect(repository.listMessages(reporter.user.id, conversation.id, {
       afterSequence: 0,
       pageSize: 1,
-    })).resolves.toMatchObject({ messages: [{ sequence: 4, body: "history 4" }] });
+    })).rejects.toThrow("CONVERSATION_NOT_AVAILABLE");
+  });
+
+  it("holds referenced child-safety photo object through user removal and cleanup until explicit release", async () => {
+    const reporter = await addUser("media-hold-reporter");
+    const target = await addUser("media-hold-target");
+    const [photo] = await database.insert(schema.profilePhotos).values({
+      userId: target.user.id,
+      profileId: target.profile.id,
+      objectKey: `held/${target.profile.id}.jpg`,
+      reviewVersion: "provider-v7",
+      moderationStatus: "approved",
+      position: 0,
+      createdAt: NOW,
+      updatedAt: NOW,
+    }).returning();
+    await service.submit(reporter.user.id, {
+      clientId: "00000000-0000-4000-8000-000000000777",
+      targetProfileId: target.profile.id,
+      reason: "MINOR_SAFETY",
+      locale: "en-US",
+      explanation: "preserve referenced child safety media",
+      evidenceReferences: [{ type: "photo", id: photo.id }],
+    });
+    const [moderationCase] = await database.select().from(schema.moderationCases)
+      .innerJoin(schema.reports, eq(schema.reports.id, schema.moderationCases.reportId))
+      .where(eq(schema.reports.targetUserId, target.user.id))
+      .then((rows) => rows.map((row) => row.moderation_cases));
+    expect(await database.select().from(schema.moderationMediaHolds)).toEqual([
+      expect.objectContaining({
+        photoId: photo.id,
+        objectKey: photo.objectKey,
+        objectVersion: "provider-v7",
+        active: true,
+      }),
+    ]);
+    const store = new MediaReviewStore(database, { clock: () => NOW });
+    await expect(store.markPhotoRemoved(target.user.id, photo.id)).resolves.toBe(true);
+    const deleted: string[] = [];
+    const storage = { deleteObject: async (key: string) => { deleted.push(key); } } as never;
+    const holdPolicy = new DrizzleMediaLegalHoldPolicy(database as never);
+    await expect(cleanupRejectedMedia({ store, storage, holdPolicy, clock: () => NOW })).resolves.toBe(0);
+    expect(deleted).toEqual([]);
+    const legal = await addUser("media-hold-legal-reviewer");
+    const caseService = new DrizzleCaseService(database, {
+      clock: () => NOW,
+      resolveEvidenceReaderRole: async (userId) => userId === legal.user.id ? "legal_reviewer" : null,
+    });
+    await expect(caseService.readEvidence(moderationCase.id, {
+      userId: legal.user.id,
+      role: "legal_reviewer",
+    }, "preserved_media_review")).resolves.toEqual(expect.arrayContaining([
+      expect.objectContaining({ classification: "restricted_safety" }),
+    ]));
+    await expect(caseService.releaseMediaHolds(moderationCase.id, {
+      userId: reporter.user.id,
+      role: "legal_reviewer",
+    }, "forged legal release")).rejects.toThrow("FORBIDDEN");
+    await expect(caseService.releaseMediaHolds(moderationCase.id, {
+      userId: legal.user.id,
+      role: "legal_reviewer",
+    }, "retention review completed")).resolves.toEqual({ releasedCount: 1 });
+    expect(await database.select().from(schema.moderationAuditEvents).where(eq(
+      schema.moderationAuditEvents.eventType,
+      "media_hold_released",
+    ))).toEqual([expect.objectContaining({ actorUserId: legal.user.id })]);
+    await expect(cleanupRejectedMedia({ store, storage, holdPolicy, clock: () => NOW })).resolves.toBe(1);
+    expect(deleted).toEqual([photo.objectKey]);
   });
 });

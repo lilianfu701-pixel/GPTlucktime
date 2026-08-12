@@ -14,6 +14,12 @@ import {
   MessageRepository,
 } from "@/modules/messaging/message-repository";
 import { SocialRepository, type InteractionPolicy } from "@/modules/social/social-repository";
+import { allowAllContentPolicy } from "@/modules/moderation/content-policy";
+import {
+  allowAllRestrictionPolicy,
+  DrizzleModerationRestrictionPolicy,
+  type ModerationRestrictionPolicy,
+} from "@/modules/moderation/restriction-policy";
 
 const NOW = new Date("2026-08-08T12:00:00.000Z");
 const SECRET = "messaging-cursor-secret-that-is-long-enough";
@@ -70,10 +76,53 @@ describe("message repository", () => {
     await database.insert(schema.socialMatches).values({ lowUserId, highUserId, status: "active" });
   };
 
-  const makeRepository = (interactionPolicy: InteractionPolicy = social) => new MessageRepository(database, {
+  const restrictAllInteractions = async (reporterUserId: string, subject: { userId: string; profileId: string }) => {
+    const [report] = await database.insert(schema.reports).values({
+      reporterUserId,
+      targetUserId: subject.userId,
+      targetProfileId: subject.profileId,
+      targetType: "profile",
+      reasonCode: "HARASSMENT",
+      locale: "en-US",
+      explanation: "restriction fixture",
+      clientId: crypto.randomUUID(),
+      requestHash: "a".repeat(64),
+      dedupeKey: crypto.randomUUID().replaceAll("-", "").padEnd(64, "0"),
+      targetSnapshot: {
+        schemaVersion: 1,
+        targetType: "profile",
+        targetUserId: subject.userId,
+        targetProfileId: subject.profileId,
+        capturedAt: NOW.toISOString(),
+        displayName: null,
+        messageId: null,
+        conversationId: null,
+      },
+      createdAt: NOW,
+      updatedAt: NOW,
+    }).returning();
+    const [moderationCase] = await database.insert(schema.moderationCases).values({
+      reportId: report.id, createdAt: NOW, updatedAt: NOW,
+    }).returning();
+    await database.insert(schema.userRestrictions).values({
+      subjectUserId: subject.userId,
+      sourceCaseId: moderationCase.id,
+      scope: "all_interactions",
+      reasonCode: "TEST_RESTRICTION",
+      startsAt: NOW,
+      expiresAt: new Date(NOW.getTime() + 60_000),
+    });
+  };
+
+  const makeRepository = (
+    interactionPolicy: InteractionPolicy = social,
+    restrictionPolicy: ModerationRestrictionPolicy = allowAllRestrictionPolicy,
+  ) => new MessageRepository(database, {
     interactionPolicy,
     entitlementService,
     verificationPolicy: new DrizzleMessageVerificationPolicy(),
+    restrictionPolicy,
+    contentPolicy: allowAllContentPolicy,
     cursorSecret: SECRET,
     clock: () => NOW,
   });
@@ -95,7 +144,7 @@ describe("message repository", () => {
       planResolver: async () => null,
     });
     repository = makeRepository();
-  });
+  }, 30_000);
 
   afterEach(async () => client.close());
 
@@ -496,5 +545,20 @@ describe("message repository", () => {
     ));
     await social.block(alice.userId, bob.profileId, "conversation-list-block");
     expect((await repository.listConversations(alice.userId, { pageSize: 20 })).conversations).toEqual([]);
+  });
+
+  it("hides conversation lists and history when either participant has an all-interactions restriction", async () => {
+    const alice = await addPerson("Restricted List Alice");
+    const bob = await addPerson("Restricted List Bob");
+    await match(alice.userId, bob.userId);
+    const conversation = await repository.createConversation(alice.userId, bob.profileId);
+    const governed = makeRepository(social, new DrizzleModerationRestrictionPolicy());
+    await restrictAllInteractions(alice.userId, bob);
+    expect((await governed.listConversations(alice.userId, { pageSize: 20 })).conversations).toEqual([]);
+    await expect(governed.listMessages(alice.userId, conversation.id, {
+      afterSequence: 0,
+      pageSize: 20,
+    })).rejects.toMatchObject({ code: "CONVERSATION_NOT_AVAILABLE" });
+    expect((await governed.listConversations(bob.userId, { pageSize: 20 })).conversations).toEqual([]);
   });
 });

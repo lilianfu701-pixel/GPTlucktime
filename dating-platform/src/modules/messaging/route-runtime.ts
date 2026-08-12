@@ -18,7 +18,11 @@ const socialRepository = new SocialRepository(db, {
   cursorSecret: env.BETTER_AUTH_SECRET,
   idempotencySecret: env.BETTER_AUTH_SECRET,
 });
-const receiptRepository = new MessageReceiptRepository(db, { interactionPolicy: socialRepository });
+const restrictionPolicy = new DrizzleModerationRestrictionPolicy();
+const receiptRepository = new MessageReceiptRepository(db, {
+  interactionPolicy: socialRepository,
+  restrictionPolicy,
+});
 
 export const messagingRouteDependencies = {
   getSession: async (headers: Headers) => {
@@ -32,12 +36,12 @@ export const messagingRouteDependencies = {
     interactionPolicy: socialRepository,
     entitlementService,
     verificationPolicy: new DrizzleMessageVerificationPolicy(),
-    restrictionPolicy: new DrizzleModerationRestrictionPolicy(),
+    restrictionPolicy,
     contentPolicy: new DrizzleModerationContentPolicy(),
     cursorSecret: env.BETTER_AUTH_SECRET,
   }),
   issuer: env.REALTIME_TICKET_KEYS
-    ? new DrizzleSocketTicketIssuer(db, parseSocketTicketKeyRing(env.REALTIME_TICKET_KEYS))
+    ? new DrizzleSocketTicketIssuer(db, parseSocketTicketKeyRing(env.REALTIME_TICKET_KEYS), { restrictionPolicy })
     : null,
   receipts: new MessageReceiptService(receiptRepository, entitlementService),
 };

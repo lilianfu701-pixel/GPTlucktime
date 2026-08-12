@@ -17,7 +17,7 @@ import {
 
 import { users } from "./auth";
 import { conversations, messages } from "./messaging";
-import { profiles } from "./profiles";
+import { profilePhotos, profiles } from "./profiles";
 
 const timestamptz = (name: string) => timestamp(name, { withTimezone: true });
 
@@ -204,6 +204,29 @@ export const moderationEvidenceAccess = pgTable("moderation_evidence_access", {
   index("moderation_evidence_access_evidence_idx").on(table.evidenceId, table.accessedAt),
   index("moderation_evidence_access_actor_idx").on(table.actorUserId, table.accessedAt),
   check("moderation_evidence_access_role_check", sql`${table.actorRole} IN ('case_worker', 'safety_specialist', 'legal_reviewer')`),
+]);
+
+export const moderationMediaHolds = pgTable("moderation_media_holds", {
+  id: uuid("id").defaultRandom().primaryKey(),
+  reportId: uuid("report_id").notNull().references(() => reports.id, { onDelete: "restrict" }),
+  caseId: uuid("case_id").notNull().references(() => moderationCases.id, { onDelete: "restrict" }),
+  subjectUserId: uuid("subject_user_id").notNull().references(() => users.id, { onDelete: "restrict" }),
+  photoId: uuid("photo_id").notNull().references(() => profilePhotos.id, { onDelete: "restrict" }),
+  objectKey: text("object_key").notNull(),
+  objectVersion: text("object_version").notNull(),
+  snapshotSha256: varchar("snapshot_sha256", { length: 64 }).notNull(),
+  preserveUntil: timestamptz("preserve_until").notNull(),
+  active: boolean("active").default(true).notNull(),
+  releasedAt: timestamptz("released_at"),
+  createdAt: timestamptz("created_at").defaultNow().notNull(),
+}, (table) => [
+  unique("moderation_media_holds_report_photo_unique").on(table.reportId, table.photoId),
+  index("moderation_media_holds_photo_active_idx").on(table.photoId, table.active, table.preserveUntil),
+  check("moderation_media_holds_hash_check", sql`char_length(${table.snapshotSha256}) = 64`),
+  check("moderation_media_holds_release_check", sql`
+    (${table.active} AND ${table.releasedAt} IS NULL)
+    OR (NOT ${table.active} AND ${table.releasedAt} IS NOT NULL)
+  `),
 ]);
 
 export const moderationAuditEvents = pgTable("moderation_audit_events", {

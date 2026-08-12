@@ -12,6 +12,7 @@ import {
   parseSocketTicketKeyRing,
   verifySocketTicket,
 } from "@/modules/messaging/socket-ticket";
+import { allowAllRestrictionPolicy } from "@/modules/moderation/restriction-policy";
 
 const NOW = new Date("2026-08-08T12:00:00.000Z");
 const keys = parseSocketTicketKeyRing(`active:${Buffer.alloc(32, 4).toString("base64url")}`);
@@ -37,7 +38,9 @@ describe("socket ticket issuer", () => {
       token: "opaque-session-token",
       expiresAt: new Date(NOW.getTime() + 60_000),
     }).returning({ id: schema.sessions.id });
-    const issuer = new DrizzleSocketTicketIssuer(database, keys, { clock: () => NOW });
+    const issuer = new DrizzleSocketTicketIssuer(database, keys, {
+      clock: () => NOW, restrictionPolicy: allowAllRestrictionPolicy,
+    });
     const signed = await issuer.issue(userId, sessionId);
     expect(verifySocketTicket(signed.ticket, keys, NOW)).toMatchObject({ sub: userId, sessionId });
 
@@ -58,7 +61,9 @@ describe("socket ticket issuer", () => {
       token: "expired-session-token",
       expiresAt: NOW,
     }).returning({ id: schema.sessions.id });
-    const issuer = new DrizzleSocketTicketIssuer(database, keys, { clock: () => NOW });
+    const issuer = new DrizzleSocketTicketIssuer(database, keys, {
+      clock: () => NOW, restrictionPolicy: allowAllRestrictionPolicy,
+    });
     for (const ownerId of [userId, otherUserId]) {
       await expect(issuer.issue(ownerId, sessionId)).rejects.toThrow("REALTIME_SESSION_NOT_AVAILABLE");
     }

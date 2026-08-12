@@ -5,11 +5,9 @@ import { conversations, messageOutboxEvents, messages } from "@/db/schema";
 import type { db as productionDatabase } from "@/infrastructure/db/client";
 import type { InteractionPolicy } from "@/modules/social/social-repository";
 import {
-  allowAllContentPolicy,
   type ModerationContentPolicy,
 } from "@/modules/moderation/content-policy";
 import {
-  allowAllRestrictionPolicy,
   type ModerationRestrictionPolicy,
 } from "@/modules/moderation/restriction-policy";
 import type { RealtimeMessageEvent } from "./server";
@@ -105,14 +103,14 @@ export function createAuthorizedRealtimePublisher(
   interactionPolicy: Pick<InteractionPolicy, "withAllowedInteraction">,
   emit: (event: RealtimeMessageEvent) => Promise<void>,
   options: {
-    restrictionPolicy?: ModerationRestrictionPolicy;
-    contentPolicy?: ModerationContentPolicy;
+    restrictionPolicy: ModerationRestrictionPolicy;
+    contentPolicy: ModerationContentPolicy;
     clock?: () => Date;
-  } = {},
+  },
 ) {
   const db = database as OutboxDatabase;
-  const restrictionPolicy = options.restrictionPolicy ?? allowAllRestrictionPolicy;
-  const contentPolicy = options.contentPolicy ?? allowAllContentPolicy;
+  const restrictionPolicy = options.restrictionPolicy;
+  const contentPolicy = options.contentPolicy;
   return async (event: RealtimeMessageEvent) => {
     const [pair] = await db.select({
       lowUserId: conversations.lowUserId,

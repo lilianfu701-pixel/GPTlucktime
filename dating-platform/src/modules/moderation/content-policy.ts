@@ -1,4 +1,4 @@
-import { and, eq, gt, inArray, lte } from "drizzle-orm";
+import { and, eq, inArray, lte } from "drizzle-orm";
 
 import { moderationContentQuarantines } from "@/db/schema";
 import type { db as productionDatabase } from "@/infrastructure/db/client";
@@ -42,7 +42,6 @@ export class DrizzleModerationContentPolicy implements ModerationContentPolicy {
       inArray(moderationContentQuarantines.contentId, uniqueIds),
       eq(moderationContentQuarantines.active, true),
       lte(moderationContentQuarantines.startsAt, now),
-      gt(moderationContentQuarantines.preserveUntil, now),
     ));
     const hidden = new Set(quarantined.map(({ contentId }) => contentId));
     return new Set(uniqueIds.filter((id) => !hidden.has(id)));

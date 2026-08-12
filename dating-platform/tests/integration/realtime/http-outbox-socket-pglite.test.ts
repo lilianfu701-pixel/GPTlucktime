@@ -13,9 +13,14 @@ import { EntitlementService } from "@/modules/entitlements/entitlement-service";
 import { UsageRepository } from "@/modules/entitlements/usage-repository";
 import { DrizzleMessageVerificationPolicy, MessageRepository } from "@/modules/messaging/message-repository";
 import { createMessagesHandler } from "@/modules/messaging/message-service";
+import { DrizzleModerationContentPolicy } from "@/modules/moderation/content-policy";
+import { DrizzleModerationRestrictionPolicy } from "@/modules/moderation/restriction-policy";
 import { SocialRepository } from "@/modules/social/social-repository";
+import { DrizzleReportRepository } from "@/modules/moderation/report-repository";
+import { ReportService, RuleBasedReportRiskAssessor } from "@/modules/moderation/report-service";
 import { createAuthorizedRealtimePublisher, DrizzleMessageOutboxStore, MessageOutboxConsumer } from "../../../realtime/outbox-consumer";
 import { createRealtimeServer, type RealtimeMessageEvent } from "../../../realtime/server";
+import { DrizzleRealtimeRevocationSource } from "../../../realtime/authenticate-socket";
 
 const NOW = new Date("2026-08-08T12:00:00.000Z");
 const SECRET = "http-outbox-socket-test-secret-at-least-32";
@@ -72,6 +77,8 @@ describe("HTTP to outbox to socket delivery", () => {
       interactionPolicy: social,
       entitlementService: entitlements,
       verificationPolicy: new DrizzleMessageVerificationPolicy(),
+      restrictionPolicy: new DrizzleModerationRestrictionPolicy(),
+      contentPolicy: new DrizzleModerationContentPolicy(),
       cursorSecret: SECRET,
       clock: () => NOW,
     });
@@ -110,6 +117,8 @@ describe("HTTP to outbox to socket delivery", () => {
         receipts.push({ userId, messageId: input.messageId });
         return {};
       } },
+      revocations: new DrizzleRealtimeRevocationSource(database),
+      revocationPollMs: 10,
     });
     cleanup.push(() => realtime.stop());
     const address = await realtime.start({ host: "127.0.0.1", port: 0 });
@@ -131,7 +140,11 @@ describe("HTTP to outbox to socket delivery", () => {
 
     const received = new Promise<RealtimeMessageEvent>((resolve) => recipientSocket.once("message.created", resolve));
     const store = new DrizzleMessageOutboxStore(database, { clock: () => NOW });
-    const publish = createAuthorizedRealtimePublisher(database, social, realtime.publishMessage);
+    const publish = createAuthorizedRealtimePublisher(database, social, realtime.publishMessage, {
+      restrictionPolicy: new DrizzleModerationRestrictionPolicy(),
+      contentPolicy: new DrizzleModerationContentPolicy(),
+      clock: () => NOW,
+    });
     const consumer = new MessageOutboxConsumer(store, publish);
     expect(await consumer.runOnce()).toBe(1);
     const event = await received;
@@ -176,5 +189,31 @@ describe("HTTP to outbox to socket delivery", () => {
     }), { params: Promise.resolve({ conversationId: conversation.id }) });
     expect(replay.status).toBe(201);
     expect(await consumer.runOnce()).toBe(0);
+
+    const disconnectedByRestriction = new Promise<void>((resolve) => reconnect.once("disconnect", () => resolve()));
+    const reportService = new ReportService(new DrizzleReportRepository(database, {
+      idempotencySecret: "realtime-revocation-report-secret",
+      clock: () => NOW,
+      jurisdictionPolicy: (countryCode) => ({
+        jurisdictionCode: countryCode,
+        workflowCode: "minor-safety-review-v1",
+        dueAt: new Date(NOW.getTime() + 60 * 60_000),
+      }),
+    }), new RuleBasedReportRiskAssessor());
+    await reportService.submit(alice.user.id, {
+      clientId: "00000000-0000-4000-8000-000000000099",
+      targetProfileId: bob.profile.id,
+      reason: "MINOR_SAFETY",
+      locale: "en-US",
+      explanation: "activate a live all-interactions restriction",
+      evidenceReferences: [],
+    });
+    await expect(disconnectedByRestriction).resolves.toBeUndefined();
+    expect(await database.select().from(schema.realtimePairRevocations)).toEqual([
+      expect.objectContaining({
+        lowUserId: [alice.user.id, bob.user.id].sort()[0],
+        highUserId: [alice.user.id, bob.user.id].sort()[1],
+      }),
+    ]);
   });
 });

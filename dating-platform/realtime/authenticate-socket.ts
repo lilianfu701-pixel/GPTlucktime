@@ -11,6 +11,7 @@ import {
 } from "@/db/schema";
 import type { db as productionDatabase } from "@/infrastructure/db/client";
 import { type SocketTicketKeyRing, verifySocketTicket } from "@/modules/messaging/socket-ticket";
+import type { ModerationRestrictionPolicy } from "@/modules/moderation/restriction-policy";
 
 import type { RealtimeAuthorization, SocketIdentity } from "./server";
 
@@ -22,10 +23,15 @@ export class DrizzleRealtimeAuthorization implements RealtimeAuthorization {
   private readonly database: RealtimeDatabase;
   private readonly clock: () => Date;
 
-  constructor(database: unknown, private readonly keys: SocketTicketKeyRing, options: { clock?: () => Date } = {}) {
+  constructor(database: unknown, private readonly keys: SocketTicketKeyRing, options: {
+    clock?: () => Date;
+    restrictionPolicy: ModerationRestrictionPolicy;
+  }) {
     this.database = database as RealtimeDatabase;
     this.clock = options.clock ?? (() => new Date());
+    this.restrictionPolicy = options.restrictionPolicy;
   }
+  private readonly restrictionPolicy: ModerationRestrictionPolicy;
 
   async authenticate(ticket: string): Promise<SocketIdentity> {
     let verified: ReturnType<typeof verifySocketTicket>;
@@ -43,8 +49,12 @@ export class DrizzleRealtimeAuthorization implements RealtimeAuthorization {
         eq(sessions.userId, verified.sub),
         gt(sessions.expiresAt, now),
         eq(profiles.status, "active"),
-      )).limit(1);
+    )).limit(1);
     if (!row) return unauthorized();
+    const allowed = await this.restrictionPolicy.filterAllowedInTransaction(
+      this.database, [verified.sub], "messaging", now,
+    );
+    if (!allowed.has(verified.sub)) return unauthorized();
     return {
       userId: verified.sub,
       sessionId: verified.sessionId,
@@ -80,6 +90,12 @@ export class DrizzleRealtimeAuthorization implements RealtimeAuthorization {
         or(eq(conversations.lowUserId, identity.userId), eq(conversations.highUserId, identity.userId)),
       )).limit(1);
       if (!conversation) return unauthorized();
+      const allowedUsers = await this.restrictionPolicy.filterAllowedInTransaction(
+        tx, [conversation.lowUserId, conversation.highUserId], "messaging", now,
+      );
+      if (!allowedUsers.has(conversation.lowUserId) || !allowedUsers.has(conversation.highUserId)) {
+        return unauthorized();
+      }
       await tx.select({ id: users.id }).from(users).where(or(
         eq(users.id, conversation.lowUserId),
         eq(users.id, conversation.highUserId),

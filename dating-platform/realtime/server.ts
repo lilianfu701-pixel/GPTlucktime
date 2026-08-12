@@ -248,13 +248,20 @@ export async function startRealtimeProcess(input: Partial<NodeJS.ProcessEnv> = p
     cursorSecret: env.BETTER_AUTH_SECRET,
     idempotencySecret: env.BETTER_AUTH_SECRET,
   });
-  const receiptRepository = new receiptModule.MessageReceiptRepository(db, { interactionPolicy: social });
+  const { DrizzleModerationRestrictionPolicy } = await import("@/modules/moderation/restriction-policy");
+  const restrictionPolicy = new DrizzleModerationRestrictionPolicy();
+  const receiptRepository = new receiptModule.MessageReceiptRepository(db, {
+    interactionPolicy: social,
+    restrictionPolicy,
+  });
   const reportBackgroundError = createRealtimeBackgroundReporter();
   const { entitlementService } = await import("@/modules/entitlements/runtime");
   const { MessageReceiptService } = await import("@/modules/messaging/message-receipt-service");
   const server = createRealtimeServer({
     httpServer,
-    authorization: new authModule.DrizzleRealtimeAuthorization(db, parseSocketTicketKeyRing(env.REALTIME_TICKET_KEYS)),
+    authorization: new authModule.DrizzleRealtimeAuthorization(db, parseSocketTicketKeyRing(env.REALTIME_TICKET_KEYS), {
+      restrictionPolicy,
+    }),
     receipts: new MessageReceiptService(receiptRepository, entitlementService),
     revocations: new authModule.DrizzleRealtimeRevocationSource(db),
     revocationPollMs: env.REALTIME_POLL_MS ?? 1_000,
@@ -262,12 +269,9 @@ export async function startRealtimeProcess(input: Partial<NodeJS.ProcessEnv> = p
     onBackgroundError: reportBackgroundError,
   });
   const store = new outboxModule.DrizzleMessageOutboxStore(db);
-  const [{ DrizzleModerationRestrictionPolicy }, { DrizzleModerationContentPolicy }] = await Promise.all([
-    import("@/modules/moderation/restriction-policy"),
-    import("@/modules/moderation/content-policy"),
-  ]);
+  const { DrizzleModerationContentPolicy } = await import("@/modules/moderation/content-policy");
   const publish = outboxModule.createAuthorizedRealtimePublisher(db, social, server.publishMessage, {
-    restrictionPolicy: new DrizzleModerationRestrictionPolicy(),
+    restrictionPolicy,
     contentPolicy: new DrizzleModerationContentPolicy(),
   });
   const consumer = new outboxModule.MessageOutboxConsumer(store, publish);

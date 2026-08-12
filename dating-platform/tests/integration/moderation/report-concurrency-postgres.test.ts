@@ -3,6 +3,7 @@
 import { randomUUID } from "node:crypto";
 import { readdir, readFile } from "node:fs/promises";
 
+import { eq } from "drizzle-orm";
 import { drizzle } from "drizzle-orm/node-postgres";
 import { Pool, type PoolClient } from "pg";
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
@@ -14,7 +15,7 @@ import { ReportService, RuleBasedReportRiskAssessor } from "@/modules/moderation
 const TEST_DATABASE_URL = process.env.TEST_DATABASE_URL;
 const runWithPostgres = TEST_DATABASE_URL ? describe : describe.skip;
 
-runWithPostgres("report PostgreSQL concurrency with independent pools", () => {
+runWithPostgres("report PostgreSQL concurrency with independent pools (requires TEST_DATABASE_URL)", () => {
   const schemaName = `moderation_test_${randomUUID().replaceAll("-", "")}`;
   const now = new Date("2026-08-11T12:00:00.000Z");
   let administrationPool: Pool;
@@ -115,5 +116,69 @@ runWithPostgres("report PostgreSQL concurrency with independent pools", () => {
     expect(await leftDatabase.select().from(schema.userRestrictions)).toHaveLength(1);
     expect(await leftDatabase.select().from(schema.safetyAlerts)).toHaveLength(1);
     expect(await leftDatabase.select().from(schema.legalWorkflowTasks)).toHaveLength(1);
+  });
+
+  it("serializes an in-flight independent message insert behind restriction activation", async () => {
+    const [reporter] = await leftDatabase.insert(schema.users).values({
+      name: "PG Activation Reporter", email: `${schemaName}-activation-reporter@example.test`,
+    }).returning();
+    const [target] = await leftDatabase.insert(schema.users).values({
+      name: "PG Activation Target", email: `${schemaName}-activation-target@example.test`,
+    }).returning();
+    const [profile] = await leftDatabase.insert(schema.profiles).values({
+      userId: target.id, displayName: "Target", birthDate: "1990-01-01", genderCode: "person",
+      countryCode: "US", timeZone: "UTC", status: "active", discoverable: true,
+    }).returning();
+    const [lowUserId, highUserId] = [reporter.id, target.id].sort();
+    const [conversation] = await leftDatabase.insert(schema.conversations).values({ lowUserId, highUserId }).returning();
+    await leftDatabase.insert(schema.conversationMembers).values([
+      { conversationId: conversation.id, userId: lowUserId, lowUserId, highUserId },
+      { conversationId: conversation.id, userId: highUserId, lowUserId, highUserId },
+    ]);
+    const report = await leftService.submit(reporter.id, {
+      clientId: "00000000-0000-4000-8000-000000000899",
+      targetProfileId: profile.id,
+      reason: "HARASSMENT",
+      locale: "en-US",
+      explanation: "create a source case for a controlled activation barrier",
+      evidenceReferences: [],
+    });
+    const [moderationCase] = await leftDatabase.select({ id: schema.moderationCases.id })
+      .from(schema.moderationCases).where(eq(schema.moderationCases.reportId, report.id));
+    const activation = await leftPool.connect();
+    await activation.query("begin");
+    await activation.query("select id from users where id in ($1, $2) order by id for update", [lowUserId, highUserId]);
+    await activation.query(`insert into user_restrictions
+      (subject_user_id, source_case_id, scope, reason_code, starts_at, expires_at)
+      values ($1, $2, 'all_interactions', 'CONTROLLED_ACTIVATION', $3, $4)`, [
+      target.id,
+      moderationCase!.id,
+      now,
+      new Date(now.getTime() + 60_000),
+    ]);
+    const lateInsert = rightDatabase.insert(schema.messages).values({
+      conversationId: conversation.id,
+      lowUserId,
+      highUserId,
+      sequence: 1,
+      senderUserId: target.id,
+      clientId: "00000000-0000-4000-8000-000000000898",
+      body: "must not appear after activation",
+      createdAt: now,
+    }).then(
+      () => ({ status: "fulfilled" as const, error: null }),
+      (error: unknown) => ({ status: "rejected" as const, error }),
+    );
+    const beforeCommit = await Promise.race([
+      lateInsert.then(({ status }) => status),
+      new Promise<"pending">((resolve) => setTimeout(() => resolve("pending"), 50)),
+    ]);
+    await activation.query("commit");
+    activation.release();
+    expect(beforeCommit).toBe("pending");
+    const result = await lateInsert;
+    expect(result.status).toBe("rejected");
+    expect(result.error).toBeTruthy();
+    expect(await leftDatabase.select().from(schema.messages)).toEqual([]);
   });
 });

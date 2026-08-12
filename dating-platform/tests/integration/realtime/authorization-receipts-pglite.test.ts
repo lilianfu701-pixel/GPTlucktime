@@ -10,6 +10,7 @@ import * as schema from "@/db/schema";
 import { MessageReceiptRepository } from "@/modules/messaging/message-receipt-repository";
 import { MessageReceiptService } from "@/modules/messaging/message-receipt-service";
 import { parseSocketTicketKeyRing, signSocketTicket } from "@/modules/messaging/socket-ticket";
+import { allowAllRestrictionPolicy, DrizzleModerationRestrictionPolicy } from "@/modules/moderation/restriction-policy";
 import { DrizzleRealtimeAuthorization } from "../../../realtime/authenticate-socket";
 
 const NOW = new Date("2026-08-08T12:00:00.000Z");
@@ -23,7 +24,7 @@ describe("real-time authorization and receipts", () => {
     client = new PGlite();
     database = drizzle(client, { schema });
     await migrate(database, { migrationsFolder: "./drizzle" });
-  });
+  }, 30_000);
 
   afterEach(async () => client.close());
 
@@ -31,15 +32,15 @@ describe("real-time authorization and receipts", () => {
     const [user] = await database.insert(schema.users).values({
       name, email: `${name}@test.example`, emailVerified: true,
     }).returning();
-    await database.insert(schema.profiles).values({
+    const [profile] = await database.insert(schema.profiles).values({
       userId: user.id, displayName: name, birthDate: "1990-01-01", genderCode: "person",
       relationshipGoalCode: "long_term", countryCode: "US", city: "Seattle", timeZone: "UTC",
       status: "active", discoverable: true,
-    });
+    }).returning();
     const [session] = await database.insert(schema.sessions).values({
       userId: user.id, token: `${name}-session`, expiresAt: new Date("2026-08-08T13:00:00Z"),
     }).returning();
-    return { user, session };
+    return { user, profile, session };
   };
 
   const addConversation = async (left: string, right: string) => {
@@ -56,7 +57,10 @@ describe("real-time authorization and receipts", () => {
     const alice = await addUser("auth-alice");
     const bob = await addUser("auth-bob");
     const conversation = await addConversation(alice.user.id, bob.user.id);
-    const authorization = new DrizzleRealtimeAuthorization(database, keyRing, { clock: () => NOW });
+    const authorization = new DrizzleRealtimeAuthorization(database, keyRing, {
+      clock: () => NOW,
+      restrictionPolicy: allowAllRestrictionPolicy,
+    });
     const signed = signSocketTicket({ sub: alice.user.id, sessionId: alice.session.id }, keyRing, NOW).ticket;
     const identity = await authorization.authenticate(signed);
     expect(identity).toMatchObject({ userId: alice.user.id, sessionId: alice.session.id, issuedAt: NOW });
@@ -81,6 +85,52 @@ describe("real-time authorization and receipts", () => {
     await expect(authorization.authenticate(signed)).rejects.toThrow("NOT_AUTHORIZED");
   });
 
+  it("rejects socket authentication immediately for an all-interactions restricted subject", async () => {
+    const alice = await addUser("restricted-socket-auth");
+    const reporter = await addUser("restricted-socket-reporter");
+    const authorization = new DrizzleRealtimeAuthorization(database, keyRing, {
+      clock: () => NOW,
+      restrictionPolicy: new DrizzleModerationRestrictionPolicy(),
+    });
+    const signed = signSocketTicket({ sub: alice.user.id, sessionId: alice.session.id }, keyRing, NOW).ticket;
+    const [report] = await database.insert(schema.reports).values({
+      reporterUserId: reporter.user.id,
+      targetUserId: alice.user.id,
+      targetProfileId: alice.profile.id,
+      targetType: "profile",
+      reasonCode: "HARASSMENT",
+      locale: "en-US",
+      explanation: "socket restriction fixture",
+      clientId: crypto.randomUUID(),
+      requestHash: "a".repeat(64),
+      dedupeKey: "b".repeat(64),
+      targetSnapshot: {
+        schemaVersion: 1,
+        targetType: "profile",
+        targetUserId: alice.user.id,
+        targetProfileId: alice.profile.id,
+        capturedAt: NOW.toISOString(),
+        displayName: alice.user.name,
+        messageId: null,
+        conversationId: null,
+      },
+      createdAt: NOW,
+      updatedAt: NOW,
+    }).returning();
+    const [moderationCase] = await database.insert(schema.moderationCases).values({
+      reportId: report.id, createdAt: NOW, updatedAt: NOW,
+    }).returning();
+    await database.insert(schema.userRestrictions).values({
+      subjectUserId: alice.user.id,
+      sourceCaseId: moderationCase.id,
+      scope: "all_interactions",
+      reasonCode: "TEST_RESTRICTION",
+      startsAt: NOW,
+      expiresAt: new Date(NOW.getTime() + 60_000),
+    });
+    await expect(authorization.authenticate(signed)).rejects.toThrow("NOT_AUTHORIZED");
+  });
+
   it("upserts recipient receipts monotonically and read implies delivered", async () => {
     const alice = await addUser("receipt-alice");
     const bob = await addUser("receipt-bob");
@@ -98,6 +148,7 @@ describe("real-time authorization and receipts", () => {
       interactionPolicy: {
         withAllowedInteraction: async (_actor, _target, write) => database.transaction((tx) => write(tx as never)),
       },
+      restrictionPolicy: allowAllRestrictionPolicy,
       clock: () => NOW,
     });
     await expect(repository.record(alice.user.id, { messageId: message.id, conversationId: conversation.id, kind: "read", at: NOW.toISOString() }))

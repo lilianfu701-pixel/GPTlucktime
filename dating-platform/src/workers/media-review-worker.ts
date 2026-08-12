@@ -128,13 +128,16 @@ export async function processMediaReviewJobs(input: {
 export async function cleanupRejectedMedia(input: {
   store: MediaReviewStore;
   storage: StorageAdapter;
+  holdPolicy: import("@/modules/moderation/media-hold-policy").MediaLegalHoldPolicy;
   clock?: () => Date;
   batchSize?: number;
 }) {
   const now = input.clock?.() ?? new Date();
   const photos = await input.store.listCleanupDue(now, input.batchSize ?? 20);
+  const deletablePhotoIds = await input.holdPolicy.filterDeletablePhotoIds(photos.map(({ id }) => id));
   let deleted = 0;
   for (const photo of photos) {
+    if (!deletablePhotoIds.has(photo.id)) continue;
     try {
       await input.storage.deleteObject(photo.objectKey);
       if (await input.store.markObjectDeleted(photo.id, photo.objectKey, now)) deleted += 1;
@@ -188,6 +191,7 @@ export async function drainMediaWorkers(input: {
   batchSize?: number;
   rejectedRetentionMs?: number;
   maxAttempts?: number;
+  holdPolicy: import("@/modules/moderation/media-hold-policy").MediaLegalHoldPolicy;
 }) {
   const reviewed = await processMediaReviewJobs(input);
   const deleted = await cleanupRejectedMedia({
@@ -195,6 +199,7 @@ export async function drainMediaWorkers(input: {
     storage: input.storage,
     clock: input.clock,
     batchSize: input.batchSize,
+    holdPolicy: input.holdPolicy,
   });
   const uploadArtifactsDeleted = await cleanupUploadArtifacts({
     store: input.store,
@@ -224,11 +229,14 @@ export async function runConfiguredMediaReviewWorker() {
         }
       : undefined,
   );
+  const { DrizzleMediaLegalHoldPolicy } = await import("@/modules/moderation/media-hold-policy");
+  const { db } = await import("@/infrastructure/db/client");
   return drainMediaWorkers({
     store: profileMediaStore,
     storage: profileMediaStorage,
     adapter,
     rejectedRetentionMs: (env.MEDIA_REVIEW_REJECTED_RETENTION_HOURS ?? 168) * 3_600_000,
     maxAttempts: env.MEDIA_REVIEW_MAX_ATTEMPTS,
+    holdPolicy: new DrizzleMediaLegalHoldPolicy(db),
   });
 }

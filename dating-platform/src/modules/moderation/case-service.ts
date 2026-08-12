@@ -1,4 +1,4 @@
-import { and, eq } from "drizzle-orm";
+import { and, eq, or, sql } from "drizzle-orm";
 
 import {
   appeals,
@@ -7,13 +7,21 @@ import {
   moderationCases,
   moderationEvidence,
   moderationEvidenceAccess,
+  moderationMediaHolds,
+  moderationContentQuarantines,
   reports,
   userRestrictions,
+  users,
+  conversations,
+  realtimePairRevocations,
+  safetyAlerts,
+  legalWorkflowTasks,
 } from "@/db/schema";
 import type { db as productionDatabase } from "@/infrastructure/db/client";
 
 import { ModerationError } from "./report-service";
 import { verifyEvidenceIntegrity } from "./evidence-integrity";
+import { verifyMediaHoldSnapshot } from "./media-hold-integrity";
 
 type ModerationDatabase = typeof productionDatabase;
 export type ModerationActor = {
@@ -22,6 +30,7 @@ export type ModerationActor = {
 };
 type CaseStatus = typeof moderationCases.$inferSelect["status"];
 type AppealDecision = "upheld" | "overturned" | "modified";
+type EvidenceReaderRole = "case_worker" | "safety_specialist" | "legal_reviewer";
 const INDEFINITE_REVIEW_EXPIRES_AT = new Date("9999-12-31T23:59:59.000Z");
 
 const transitions: Record<string, readonly string[]> = {
@@ -40,10 +49,15 @@ const validText = (value: string, max: number) => {
 export class DrizzleCaseService {
   private readonly database: ModerationDatabase;
   private readonly clock: () => Date;
+  private readonly resolveEvidenceReaderRole: (userId: string) => Promise<EvidenceReaderRole | null>;
 
-  constructor(database: unknown, options: { clock?: () => Date } = {}) {
+  constructor(database: unknown, options: {
+    clock?: () => Date;
+    resolveEvidenceReaderRole: (userId: string) => Promise<EvidenceReaderRole | null>;
+  }) {
     this.database = database as ModerationDatabase;
     this.clock = options.clock ?? (() => new Date());
+    this.resolveEvidenceReaderRole = options.resolveEvidenceReaderRole;
   }
 
   async transition(
@@ -107,6 +121,7 @@ export class DrizzleCaseService {
     evidenceSummary: string;
     expiryPolicy: "fixed" | "indefinite_review";
     expiresAt: Date | null;
+    contentTarget?: { type: "profile" | "message" | "photo"; id: string };
   }) {
     const reasonCode = validText(input.reasonCode, 80);
     const evidenceSummary = validText(input.evidenceSummary, 2000);
@@ -122,6 +137,9 @@ export class DrizzleCaseService {
       || (input.actionType === "ban" && input.expiryPolicy !== "indefinite_review")) {
       throw new ModerationError("INVALID_ACTION");
     }
+    if ((input.actionType === "quarantine_content") !== Boolean(input.contentTarget)) {
+      throw new ModerationError("INVALID_ACTION");
+    }
     return this.database.transaction(async (transaction) => {
       const tx = transaction as unknown as ModerationDatabase;
       const current = await this.lockCase(tx, caseId);
@@ -130,6 +148,7 @@ export class DrizzleCaseService {
       const [target] = await tx.select({ userId: reports.targetUserId }).from(reports)
         .where(eq(reports.id, current.reportId)).limit(1);
       if (!target || target.userId !== input.subjectUserId) throw new ModerationError("INVALID_ACTION");
+      await tx.select({ id: users.id }).from(users).where(eq(users.id, input.subjectUserId)).for("update");
       const [created] = await tx.insert(moderationActions).values({
         caseId,
         subjectUserId: input.subjectUserId,
@@ -165,6 +184,37 @@ export class DrizzleCaseService {
             revokedAt: null,
           },
         });
+        const pairs = await tx.select({
+          lowUserId: conversations.lowUserId,
+          highUserId: conversations.highUserId,
+        }).from(conversations).where(or(
+          eq(conversations.lowUserId, input.subjectUserId),
+          eq(conversations.highUserId, input.subjectUserId),
+        ));
+        for (const pair of pairs) await tx.insert(realtimePairRevocations).values({
+          ...pair, version: 1, revokedBefore: now, updatedAt: now,
+        }).onConflictDoUpdate({
+          target: [realtimePairRevocations.lowUserId, realtimePairRevocations.highUserId],
+          set: { version: sql`${realtimePairRevocations.version} + 1`, revokedBefore: now, updatedAt: now },
+        });
+      }
+      if (input.actionType === "quarantine_content" && input.contentTarget) {
+        await tx.insert(moderationContentQuarantines).values({
+          caseId,
+          reportId: current.reportId,
+          contentType: input.contentTarget.type,
+          contentId: input.contentTarget.id,
+          reasonCode,
+          startsAt: now,
+          preserveUntil: expiresAt,
+          createdAt: now,
+        });
+      }
+      if (input.actionType === "restore") {
+        await tx.update(userRestrictions).set({ active: false, revokedAt: now })
+          .where(and(eq(userRestrictions.sourceCaseId, caseId), eq(userRestrictions.active, true)));
+        await tx.update(moderationContentQuarantines).set({ active: false, releasedAt: now })
+          .where(and(eq(moderationContentQuarantines.caseId, caseId), eq(moderationContentQuarantines.active, true)));
       }
       await tx.insert(moderationAuditEvents).values({
         caseId,
@@ -239,9 +289,15 @@ export class DrizzleCaseService {
     actor: ModerationActor,
     decision: AppealDecision,
     rawSummary: string,
+    projection?: { restrictionExpiresAt: Date },
   ) {
     const summary = validText(rawSummary, 2000);
-    if (!summary || actor.role !== "appeal_reviewer") throw new ModerationError("INVALID_APPEAL");
+    const modifiedExpiry = projection?.restrictionExpiresAt;
+    if (!summary || actor.role !== "appeal_reviewer"
+      || (decision === "modified") !== Boolean(modifiedExpiry)
+      || (modifiedExpiry && (Number.isNaN(modifiedExpiry.getTime()) || modifiedExpiry <= this.clock()))) {
+      throw new ModerationError("INVALID_APPEAL");
+    }
     return this.database.transaction(async (transaction) => {
       const tx = transaction as unknown as ModerationDatabase;
       const [appeal] = await tx.select().from(appeals).where(eq(appeals.id, appealId)).for("update").limit(1);
@@ -250,6 +306,45 @@ export class DrizzleCaseService {
       await this.authorizeCaseActor(tx, review, actor);
       if (review.status !== "under_review") throw new ModerationError("INVALID_APPEAL");
       const now = this.clock();
+      if (decision === "overturned") {
+        await tx.update(userRestrictions).set({ active: false, revokedAt: now }).where(and(
+          eq(userRestrictions.sourceCaseId, appeal.originalCaseId), eq(userRestrictions.active, true),
+        ));
+        await tx.update(moderationContentQuarantines).set({ active: false, releasedAt: now }).where(and(
+          eq(moderationContentQuarantines.caseId, appeal.originalCaseId),
+          eq(moderationContentQuarantines.active, true),
+        ));
+        await tx.insert(moderationAuditEvents).values({
+          caseId: appeal.originalCaseId,
+          actorUserId: actor.userId,
+          actorRole: actor.role,
+          eventType: "appeal_enforcement_revoked",
+          summary: { appealId: appeal.id, reviewCaseId: review.id },
+          createdAt: now,
+        });
+      }
+      if (decision === "modified" && modifiedExpiry) {
+        const adjusted = await tx.update(userRestrictions).set({
+          expiryPolicy: "fixed",
+          expiresAt: modifiedExpiry,
+        }).where(and(
+          eq(userRestrictions.sourceCaseId, appeal.originalCaseId),
+          eq(userRestrictions.active, true),
+        )).returning({ id: userRestrictions.id });
+        if (adjusted.length === 0) throw new ModerationError("INVALID_APPEAL");
+        await tx.insert(moderationAuditEvents).values({
+          caseId: appeal.originalCaseId,
+          actorUserId: actor.userId,
+          actorRole: actor.role,
+          eventType: "appeal_enforcement_modified",
+          summary: {
+            appealId: appeal.id,
+            reviewCaseId: review.id,
+            restrictionExpiresAt: modifiedExpiry.toISOString(),
+          },
+          createdAt: now,
+        });
+      }
       const [updatedAppeal] = await tx.update(appeals).set({
         status: decision,
         finalDecisionSummary: summary,
@@ -262,6 +357,8 @@ export class DrizzleCaseService {
         finalizedAt: now,
         updatedAt: now,
       }).where(and(eq(moderationCases.id, review.id), eq(moderationCases.status, "under_review")));
+      await tx.update(reports).set({ publicStatus: "resolved", updatedAt: now })
+        .where(eq(reports.id, review.reportId));
       await tx.insert(moderationAuditEvents).values({
         caseId: review.id,
         actorUserId: actor.userId,
@@ -276,18 +373,35 @@ export class DrizzleCaseService {
 
   async readEvidence(caseId: string, actor: ModerationActor, purposeCode: string) {
     const purpose = validText(purposeCode, 80);
-    if (!purpose || !(["case_worker", "safety_specialist", "legal_reviewer"] as string[]).includes(actor.role)) {
+    const trustedRole = await this.resolveEvidenceReaderRole(actor.userId);
+    if (!purpose || !trustedRole || actor.role !== trustedRole) {
       throw new ModerationError("FORBIDDEN");
     }
     return this.database.transaction(async (transaction) => {
       const tx = transaction as unknown as ModerationDatabase;
       const current = await this.lockCase(tx, caseId);
+      if (trustedRole === "case_worker" && current.assignedWorkerUserId !== actor.userId) {
+        throw new ModerationError("FORBIDDEN");
+      }
+      if (trustedRole === "safety_specialist" && current.assignedWorkerUserId !== actor.userId) {
+        const [designation] = await tx.select({ id: safetyAlerts.id }).from(safetyAlerts).where(and(
+          eq(safetyAlerts.caseId, current.id), eq(safetyAlerts.designatedRole, "safety_specialist"),
+        )).limit(1);
+        if (!designation) throw new ModerationError("FORBIDDEN");
+      }
+      if (trustedRole === "legal_reviewer") {
+        const [legalTask] = await tx.select({ id: legalWorkflowTasks.id }).from(legalWorkflowTasks)
+          .where(eq(legalWorkflowTasks.caseId, current.id)).limit(1);
+        if (!legalTask) throw new ModerationError("FORBIDDEN");
+      }
       const joinedRows = await tx.select({
         evidence: moderationEvidence,
         targetSnapshot: reports.targetSnapshot,
         subjectUserId: reports.targetUserId,
-      }).from(moderationEvidence).innerJoin(reports, eq(reports.id, moderationEvidence.reportId))
-        .where(eq(moderationEvidence.caseId, current.id));
+      }).from(moderationEvidence).innerJoin(reports, and(
+        eq(reports.id, moderationEvidence.reportId),
+        eq(reports.id, current.reportId),
+      )).where(eq(moderationEvidence.caseId, current.id));
       if (joinedRows.some((row) => !verifyEvidenceIntegrity({
         reportId: row.evidence.reportId,
         caseId: row.evidence.caseId,
@@ -296,19 +410,64 @@ export class DrizzleCaseService {
         locator: row.evidence.locator,
         capturedAt: row.evidence.createdAt,
       }, row.evidence.integritySha256))) throw new ModerationError("EVIDENCE_NOT_AVAILABLE");
+      const heldMedia = await tx.select().from(moderationMediaHolds).where(and(
+        eq(moderationMediaHolds.caseId, current.id),
+        eq(moderationMediaHolds.reportId, current.reportId),
+        eq(moderationMediaHolds.active, true),
+      ));
+      if (heldMedia.some((hold) => !verifyMediaHoldSnapshot({
+        reportId: hold.reportId,
+        caseId: hold.caseId,
+        subjectUserId: hold.subjectUserId,
+        photoId: hold.photoId,
+        objectKey: hold.objectKey,
+        objectVersion: hold.objectVersion,
+        preserveUntil: hold.preserveUntil,
+      }, hold.snapshotSha256))) throw new ModerationError("EVIDENCE_NOT_AVAILABLE");
       const rows = joinedRows.map(({ evidence }) => evidence);
       const restricted = rows.some((row) => row.classification === "restricted_safety");
-      if (restricted && !(["safety_specialist", "legal_reviewer"] as string[]).includes(actor.role)) {
+      if (restricted && trustedRole === "case_worker") {
         throw new ModerationError("FORBIDDEN");
       }
       if (rows.length > 0) await tx.insert(moderationEvidenceAccess).values(rows.map((row) => ({
         evidenceId: row.id,
         actorUserId: actor.userId,
-        actorRole: actor.role as "case_worker" | "safety_specialist" | "legal_reviewer",
+        actorRole: trustedRole,
         purposeCode: purpose,
         accessedAt: this.clock(),
       })));
       return rows;
+    });
+  }
+
+  async releaseMediaHolds(caseId: string, actor: ModerationActor, rawReason: string) {
+    const reason = validText(rawReason, 500);
+    const trustedRole = await this.resolveEvidenceReaderRole(actor.userId);
+    if (!reason || actor.role !== "legal_reviewer" || trustedRole !== "legal_reviewer") {
+      throw new ModerationError("FORBIDDEN");
+    }
+    return this.database.transaction(async (transaction) => {
+      const tx = transaction as unknown as ModerationDatabase;
+      const current = await this.lockCase(tx, caseId);
+      const [legalTask] = await tx.select({ id: legalWorkflowTasks.id }).from(legalWorkflowTasks)
+        .where(eq(legalWorkflowTasks.caseId, current.id)).for("update").limit(1);
+      if (!legalTask) throw new ModerationError("FORBIDDEN");
+      const now = this.clock();
+      const released = await tx.update(moderationMediaHolds).set({ active: false, releasedAt: now }).where(and(
+        eq(moderationMediaHolds.caseId, current.id),
+        eq(moderationMediaHolds.active, true),
+      )).returning({ id: moderationMediaHolds.id });
+      await tx.update(legalWorkflowTasks).set({ status: "completed", completedAt: now })
+        .where(eq(legalWorkflowTasks.id, legalTask.id));
+      await tx.insert(moderationAuditEvents).values({
+        caseId: current.id,
+        actorUserId: actor.userId,
+        actorRole: "legal_reviewer",
+        eventType: "media_hold_released",
+        summary: { releasedCount: released.length, reason },
+        createdAt: now,
+      });
+      return { releasedCount: released.length };
     });
   }
 

@@ -4,6 +4,7 @@ import { z } from "zod";
 import { conversationMembers, conversations, messageReceipts, messages } from "@/db/schema";
 import type { db as productionDatabase } from "@/infrastructure/db/client";
 import type { SocialTransaction } from "@/modules/social/social-repository";
+import type { ModerationRestrictionPolicy } from "@/modules/moderation/restriction-policy";
 
 type ReceiptDatabase = typeof productionDatabase;
 type ReceiptPolicy = {
@@ -22,7 +23,11 @@ const maxDate = (...values: Array<Date | null | undefined>) => new Date(Math.max
 export class MessageReceiptRepository {
   private readonly database: ReceiptDatabase;
   private readonly clock: () => Date;
-  constructor(database: unknown, private readonly options: { interactionPolicy: ReceiptPolicy; clock?: () => Date }) {
+  constructor(database: unknown, private readonly options: {
+    interactionPolicy: ReceiptPolicy;
+    restrictionPolicy: ModerationRestrictionPolicy;
+    clock?: () => Date;
+  }) {
     this.database = database as ReceiptDatabase;
     this.clock = options.clock ?? (() => new Date());
   }
@@ -49,6 +54,10 @@ export class MessageReceiptRepository {
     try {
       return await this.options.interactionPolicy.withAllowedInteraction(userId, message.senderUserId, async (transaction) => {
         const tx = transaction as ReceiptDatabase;
+        const allowed = await this.options.restrictionPolicy.filterAllowedInTransaction(
+          transaction, [userId, message.senderUserId], "messaging", now,
+        );
+        if (!allowed.has(userId) || !allowed.has(message.senderUserId)) return unavailable();
         const [current] = await tx.select().from(messageReceipts).where(and(
           eq(messageReceipts.messageId, parsed.data.messageId),
           eq(messageReceipts.userId, userId),
@@ -108,6 +117,10 @@ export class MessageReceiptRepository {
     try {
       return await this.options.interactionPolicy.withAllowedInteraction(userId, targetUserId, async (transaction) => {
         const tx = transaction as ReceiptDatabase;
+        const allowed = await this.options.restrictionPolicy.filterAllowedInTransaction(
+          transaction, [userId, targetUserId], "messaging", this.clock(),
+        );
+        if (!allowed.has(userId) || !allowed.has(targetUserId)) return unavailable();
         const rows = await tx.select({
           messageId: messages.id,
           sequence: messages.sequence,

@@ -1,16 +1,19 @@
 import { createHmac, timingSafeEqual } from "node:crypto";
 
-import { and, desc, eq, lt, or } from "drizzle-orm";
+import { and, desc, eq, lt, or, sql } from "drizzle-orm";
 
 import {
   conversationMembers,
+  conversations,
   legalWorkflowTasks,
   messages,
   moderationAuditEvents,
   moderationCases,
   moderationContentQuarantines,
   moderationEvidence,
+  moderationMediaHolds,
   moderationOutboxEvents,
+  realtimePairRevocations,
   profilePhotos,
   profiles,
   reports,
@@ -30,6 +33,7 @@ import {
   type SubmitReportInput,
 } from "./report-service";
 import { evidenceIntegritySha256 } from "./evidence-integrity";
+import { mediaHoldSnapshotSha256 } from "./media-hold-integrity";
 
 type ModerationDatabase = typeof productionDatabase;
 type JurisdictionWorkflow = {
@@ -85,8 +89,10 @@ export class DrizzleReportRepository implements ReportSubmissionRepository {
         if (lockedDuplicate) return serializePublic(lockedDuplicate, true);
 
         const [reporter] = await tx.select({ id: users.id }).from(users)
-          .where(eq(users.id, input.reporterUserId)).for("update").limit(1);
-        if (!reporter) throw new ModerationError("REPORT_NOT_AVAILABLE");
+          .where(eq(users.id, input.reporterUserId)).limit(1);
+        if (!reporter) {
+          throw new ModerationError("REPORT_NOT_AVAILABLE");
+        }
         const [target] = await tx.select({
           profileId: profiles.id,
           userId: profiles.userId,
@@ -96,6 +102,9 @@ export class DrizzleReportRepository implements ReportSubmissionRepository {
         if (!target || target.userId === input.reporterUserId) {
           throw new ModerationError("REPORT_NOT_AVAILABLE");
         }
+        await tx.select({ id: users.id }).from(users).where(or(
+          eq(users.id, input.reporterUserId), eq(users.id, target.userId),
+        )).orderBy(users.id).for("update");
 
         await this.authorizeReferences(tx, input.reporterUserId, target.userId, input.report);
         const now = this.clock();
@@ -167,6 +176,48 @@ export class DrizzleReportRepository implements ReportSubmissionRepository {
           quarantinedAt: emergency ? now : null,
           createdAt: now,
         })));
+        if (emergency) {
+          const referencedPhotoIds = input.report.evidenceReferences
+            .filter((reference) => reference.type === "photo")
+            .map(({ id }) => id);
+          if (referencedPhotoIds.length > 0) {
+            const heldPhotos = await tx.select({
+              id: profilePhotos.id,
+              userId: profilePhotos.userId,
+              objectKey: profilePhotos.objectKey,
+              reviewVersion: profilePhotos.reviewVersion,
+              updatedAt: profilePhotos.updatedAt,
+            }).from(profilePhotos).where(and(
+              eq(profilePhotos.profileId, target.profileId),
+              or(...referencedPhotoIds.map((id) => eq(profilePhotos.id, id))),
+            ));
+            if (heldPhotos.length !== new Set(referencedPhotoIds).size) {
+              throw new ModerationError("REPORT_NOT_AVAILABLE");
+            }
+            await tx.insert(moderationMediaHolds).values(heldPhotos.map((photo) => {
+              const objectVersion = photo.reviewVersion ?? photo.updatedAt.toISOString();
+              return {
+                reportId: created.id,
+                caseId: moderationCase.id,
+                subjectUserId: photo.userId,
+                photoId: photo.id,
+                objectKey: photo.objectKey,
+                objectVersion,
+                snapshotSha256: mediaHoldSnapshotSha256({
+                  reportId: created.id,
+                  caseId: moderationCase.id,
+                  subjectUserId: photo.userId,
+                  photoId: photo.id,
+                  objectKey: photo.objectKey,
+                  objectVersion,
+                  preserveUntil,
+                }),
+                preserveUntil,
+                createdAt: now,
+              };
+            }));
+          }
+        }
 
         await tx.insert(moderationAuditEvents).values({
           caseId: moderationCase.id,
@@ -208,6 +259,18 @@ export class DrizzleReportRepository implements ReportSubmissionRepository {
             startsAt: now,
             expiresAt: restrictionExpiresAt,
             createdAt: now,
+          });
+          const subjectPairs = await tx.select({
+            lowUserId: conversations.lowUserId,
+            highUserId: conversations.highUserId,
+          }).from(conversations).where(or(
+            eq(conversations.lowUserId, target.userId), eq(conversations.highUserId, target.userId),
+          ));
+          for (const pair of subjectPairs) await tx.insert(realtimePairRevocations).values({
+            ...pair, version: 1, revokedBefore: now, updatedAt: now,
+          }).onConflictDoUpdate({
+            target: [realtimePairRevocations.lowUserId, realtimePairRevocations.highUserId],
+            set: { version: sql`${realtimePairRevocations.version} + 1`, revokedBefore: now, updatedAt: now },
           });
           await tx.insert(safetyAlerts).values({
             caseId: moderationCase.id,

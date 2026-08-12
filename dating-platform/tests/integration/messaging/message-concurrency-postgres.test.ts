@@ -13,6 +13,8 @@ import { EntitlementService } from "@/modules/entitlements/entitlement-service";
 import { UsageRepository } from "@/modules/entitlements/usage-repository";
 import { DrizzleMessageVerificationPolicy, MessageRepository } from "@/modules/messaging/message-repository";
 import { SocialRepository, type InteractionPolicy } from "@/modules/social/social-repository";
+import { allowAllContentPolicy } from "@/modules/moderation/content-policy";
+import { allowAllRestrictionPolicy } from "@/modules/moderation/restriction-policy";
 
 const TEST_DATABASE_URL = process.env.TEST_DATABASE_URL;
 const runWithPostgres = TEST_DATABASE_URL ? describe : describe.skip;
@@ -69,6 +71,8 @@ runWithPostgres("messaging PostgreSQL concurrency with independent pools", () =>
     interactionPolicy,
     entitlementService: serviceFor(database),
     verificationPolicy: new DrizzleMessageVerificationPolicy(),
+    restrictionPolicy: allowAllRestrictionPolicy,
+    contentPolicy: allowAllContentPolicy,
     cursorSecret: SECRET,
     clock: () => NOW,
   });
