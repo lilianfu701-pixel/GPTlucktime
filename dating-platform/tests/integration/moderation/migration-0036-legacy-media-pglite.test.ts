@@ -230,6 +230,7 @@ describe("0036 legacy moderation media upgrade", () => {
       new Date(NOW.getTime() + 86_400_000), NOW])).rejects.toThrow();
 
     const copied: Array<{ source: string; destination: string; sourceVersionId?: string }> = [];
+    const workerEvents: Array<{ event: string; taskId: string; attempt: number }> = [];
     await expect(preserveLegacyMediaTasks({
       database: database as never,
       storage: {
@@ -239,6 +240,7 @@ describe("0036 legacy moderation media upgrade", () => {
       clock: () => NOW,
       retryBaseMs: 1_000,
       maxAttempts: 3,
+      logger: (event) => workerEvents.push(event),
     })).resolves.toBe(0);
     expect((await client.query<{ status: string; attempts: number; last_error: string; updated_at: Date }>(
       "SELECT status,attempts,last_error,updated_at FROM media_preservation_tasks WHERE photo_id=$1",
@@ -258,6 +260,7 @@ describe("0036 legacy moderation media upgrade", () => {
       clock: () => new Date(NOW.getTime() + 500),
       retryBaseMs: 1_000,
       maxAttempts: 3,
+      logger: (event) => workerEvents.push(event),
     })).resolves.toBe(0);
     const successfulWorker = () => preserveLegacyMediaTasks({
       database: database as never,
@@ -272,6 +275,7 @@ describe("0036 legacy moderation media upgrade", () => {
       clock: () => new Date(NOW.getTime() + 1_000),
       retryBaseMs: 1_000,
       maxAttempts: 3,
+      logger: (event) => workerEvents.push(event),
     });
     const concurrent = await Promise.all([successfulWorker(), successfulWorker()]);
     expect(concurrent.reduce((sum, value) => sum + value, 0)).toBe(1);
@@ -319,6 +323,7 @@ describe("0036 legacy moderation media upgrade", () => {
       clock: () => new Date(NOW.getTime() + 2_000),
       retryBaseMs: 1_000,
       maxAttempts: 3,
+      logger: (event) => workerEvents.push(event),
     })).resolves.toBe(0);
     expect((await client.query<{ status: string; attempts: number; last_error: string }>(
       "SELECT status,attempts,last_error FROM media_preservation_tasks WHERE photo_id=$1",
@@ -328,5 +333,11 @@ describe("0036 legacy moderation media upgrade", () => {
       attempts: 1,
       last_error: "LEGACY_MEDIA_MANUAL_REVIEW",
     }]);
+    expect(workerEvents.map(({ event }) => event)).toEqual([
+      "legacy_media_retry_scheduled",
+      "legacy_media_preserved",
+      "legacy_media_manual_review",
+    ]);
+    expect(JSON.stringify(workerEvents)).not.toContain("secret provider detail");
   });
 });

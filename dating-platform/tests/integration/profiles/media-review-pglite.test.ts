@@ -640,11 +640,11 @@ describe("durable profile media review", () => {
       clock: () => new Date(now.getTime() + 1_000),
       rejectedRetentionMs: 1_000,
     });
-    expect(due).toEqual({ reviewed: 0, deleted: 1, uploadArtifactsDeleted: 0 });
+    expect(due).toEqual({ reviewed: 0, deleted: 1, uploadArtifactsDeleted: 0, legacyPreserved: 0 });
     await expect(drainMediaWorkers({
       store, storage, holdPolicy,
       adapter: new InMemoryMediaReviewAdapter(),
       clock: () => new Date(now.getTime() + 2_000), rejectedRetentionMs: 1_000,
-    })).resolves.toEqual({ reviewed: 0, deleted: 0, uploadArtifactsDeleted: 0 });
+    })).resolves.toEqual({ reviewed: 0, deleted: 0, uploadArtifactsDeleted: 0, legacyPreserved: 0 });
   });
 });

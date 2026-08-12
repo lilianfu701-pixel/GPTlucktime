@@ -129,7 +129,6 @@ export async function cleanupRejectedMedia(input: {
   store: MediaReviewStore;
   storage: StorageAdapter;
   holdPolicy: import("@/modules/moderation/media-hold-policy").MediaLegalHoldPolicy;
-  preserveLegacyMedia?: () => Promise<number>;
   clock?: () => Date;
   batchSize?: number;
 }) {
@@ -195,6 +194,7 @@ export async function drainMediaWorkers(input: {
   rejectedRetentionMs?: number;
   maxAttempts?: number;
   holdPolicy: import("@/modules/moderation/media-hold-policy").MediaLegalHoldPolicy;
+  preserveLegacyMedia?: () => Promise<number>;
 }) {
   const reviewed = await processMediaReviewJobs(input);
   const deleted = await cleanupRejectedMedia({
@@ -210,12 +210,12 @@ export async function drainMediaWorkers(input: {
     clock: input.clock,
     batchSize: input.batchSize,
   });
-  const legacyPreserved = input.preserveLegacyMedia ? await input.preserveLegacyMedia() : undefined;
+  const legacyPreserved = input.preserveLegacyMedia ? await input.preserveLegacyMedia() : 0;
   return {
     reviewed,
     deleted,
     uploadArtifactsDeleted,
-    ...(legacyPreserved === undefined ? {} : { legacyPreserved }),
+    legacyPreserved,
   };
 }
 
@@ -254,6 +254,7 @@ export async function runConfiguredMediaReviewWorker() {
       database: db,
       storage: profileMediaStorage,
       batchSize: 10,
+      logger: (event) => console.info(JSON.stringify(event)),
     }),
   });
 }

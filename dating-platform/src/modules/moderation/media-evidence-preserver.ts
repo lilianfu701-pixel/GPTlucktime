@@ -61,6 +61,7 @@ export async function preserveLegacyMediaTasks(input: {
   leaseMs?: number;
   retryBaseMs?: number;
   maxAttempts?: number;
+  logger?: (event: { event: string; taskId: string; attempt: number }) => void;
 }) {
   let completed = 0;
   const batchSize = Math.max(1, Math.min(50, input.batchSize ?? 10));
@@ -172,7 +173,10 @@ export async function preserveLegacyMediaTasks(input: {
       ));
       return true;
       });
-      if (done) completed += 1;
+      if (done) {
+        completed += 1;
+        input.logger?.({ event: "legacy_media_preserved", taskId: claim.id, attempt: claim.attempts });
+      }
     } catch (error) {
       const now = input.clock?.() ?? new Date();
       const message = error instanceof Error ? error.message : "";
@@ -193,6 +197,11 @@ export async function preserveLegacyMediaTasks(input: {
         eq(mediaPreservationTasks.status, "processing"),
         eq(mediaPreservationTasks.leaseId, claim.leaseId!),
       ));
+      input.logger?.({
+        event: terminal ? "legacy_media_manual_review" : "legacy_media_retry_scheduled",
+        taskId: claim.id,
+        attempt: claim.attempts,
+      });
     }
   }
   return completed;
