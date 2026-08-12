@@ -129,6 +129,7 @@ export async function cleanupRejectedMedia(input: {
   store: MediaReviewStore;
   storage: StorageAdapter;
   holdPolicy: import("@/modules/moderation/media-hold-policy").MediaLegalHoldPolicy;
+  preserveLegacyMedia?: () => Promise<number>;
   clock?: () => Date;
   batchSize?: number;
 }) {
@@ -209,7 +210,13 @@ export async function drainMediaWorkers(input: {
     clock: input.clock,
     batchSize: input.batchSize,
   });
-  return { reviewed, deleted, uploadArtifactsDeleted };
+  const legacyPreserved = input.preserveLegacyMedia ? await input.preserveLegacyMedia() : undefined;
+  return {
+    reviewed,
+    deleted,
+    uploadArtifactsDeleted,
+    ...(legacyPreserved === undefined ? {} : { legacyPreserved }),
+  };
 }
 
 export async function runConfiguredMediaReviewWorker() {
@@ -217,7 +224,9 @@ export async function runConfiguredMediaReviewWorker() {
     import("@/modules/profiles/media-runtime"),
     import("@/shared/env"),
   ]);
-  if (!profileMediaStorage) return { reviewed: 0, deleted: 0, uploadArtifactsDeleted: 0 };
+  if (!profileMediaStorage) {
+    return { reviewed: 0, deleted: 0, uploadArtifactsDeleted: 0, legacyPreserved: 0 };
+  }
   const env = readEnv(process.env);
   const adapter = new HttpsMediaReviewAdapter(
     env.MEDIA_REVIEW_URL && env.MEDIA_REVIEW_API_KEY
@@ -232,6 +241,7 @@ export async function runConfiguredMediaReviewWorker() {
       : undefined,
   );
   const { DrizzleMediaLegalHoldPolicy } = await import("@/modules/moderation/media-hold-policy");
+  const { preserveLegacyMediaTasks } = await import("@/modules/moderation/media-evidence-preserver");
   const { db } = await import("@/infrastructure/db/client");
   return drainMediaWorkers({
     store: profileMediaStore,
@@ -240,5 +250,10 @@ export async function runConfiguredMediaReviewWorker() {
     rejectedRetentionMs: (env.MEDIA_REVIEW_REJECTED_RETENTION_HOURS ?? 168) * 3_600_000,
     maxAttempts: env.MEDIA_REVIEW_MAX_ATTEMPTS,
     holdPolicy: new DrizzleMediaLegalHoldPolicy(db),
+    preserveLegacyMedia: () => preserveLegacyMediaTasks({
+      database: db,
+      storage: profileMediaStorage,
+      batchSize: 10,
+    }),
   });
 }

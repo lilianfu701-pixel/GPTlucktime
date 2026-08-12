@@ -4,6 +4,7 @@ export type MediaWorkerCounts = {
   reviewed: number;
   deleted: number;
   uploadArtifactsDeleted: number;
+  legacyPreserved: number;
 };
 
 const exactSecretMatch = (authorization: string | null, secret: string) => {
