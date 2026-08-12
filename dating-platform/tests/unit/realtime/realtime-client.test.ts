@@ -3,6 +3,7 @@
 import { describe, expect, it } from "vitest";
 
 import {
+  abortableDelay,
   CoalescedRecovery,
   CoalescedAbortableRequests,
   PendingSendLedger,
@@ -209,6 +210,54 @@ it("coalesces dense receipt refresh requests and cancels them on cleanup", async
   await Promise.all([active, replacement]);
   expect(cancelledSignal?.aborted).toBe(true);
   expect(replacementCalls).toBe(1);
+});
+
+it("keeps a replacement request registered when a cancelled predecessor finally settles", async () => {
+  const requests = new CoalescedAbortableRequests();
+  let finishOld!: () => void;
+  const oldGate = new Promise<void>((resolve) => { finishOld = resolve; });
+  const old = requests.run("same", async (signal) => {
+    await new Promise<void>((resolve) => signal.addEventListener("abort", () => resolve(), { once: true }));
+    await oldGate;
+  });
+  await Promise.resolve();
+  requests.cancel("same");
+
+  let replacementSignal: AbortSignal | undefined;
+  const replacement = requests.run("same", async (signal) => {
+    replacementSignal = signal;
+    await new Promise<void>((resolve) => signal.addEventListener("abort", () => resolve(), { once: true }));
+  });
+  await Promise.resolve();
+  finishOld();
+  await old;
+
+  let unexpectedThirdCalls = 0;
+  const third = requests.run("same", async () => { unexpectedThirdCalls += 1; });
+  expect(third).toBe(replacement);
+  requests.cancelAll();
+  await Promise.all([replacement, third]);
+  expect(replacementSignal?.aborted).toBe(true);
+  expect(unexpectedThirdCalls).toBe(0);
+});
+
+it("removes the abort listener after a delay completes normally", async () => {
+  class TrackingSignal extends EventTarget {
+    aborted = false;
+    reason: unknown;
+    listeners = 0;
+    override addEventListener(...args: Parameters<EventTarget["addEventListener"]>) {
+      this.listeners += 1;
+      return super.addEventListener(...args);
+    }
+    override removeEventListener(...args: Parameters<EventTarget["removeEventListener"]>) {
+      this.listeners -= 1;
+      return super.removeEventListener(...args);
+    }
+  }
+  const signal = new TrackingSignal();
+  await abortableDelay(0, signal as unknown as AbortSignal);
+  expect(signal.listeners).toBe(0);
 });
 
 it("continues after each bounded recovery round until every page is hydrated", async () => {

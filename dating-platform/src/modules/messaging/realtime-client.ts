@@ -63,7 +63,9 @@ export class CoalescedAbortableRequests {
           if (!state.controller.signal.aborted) throw error;
         }
       }
-    })().finally(() => this.active.delete(key));
+    })().finally(() => {
+      if (this.active.get(key) === state) this.active.delete(key);
+    });
     this.active.set(key, state);
     return state.promise;
   }
@@ -247,14 +249,19 @@ export class ReceiptDeliveryQueue {
   }
 }
 
-const abortableDelay = (milliseconds: number, signal: AbortSignal) => new Promise<void>((resolve, reject) => {
+export const abortableDelay = (milliseconds: number, signal: AbortSignal) => new Promise<void>((resolve, reject) => {
   if (signal.aborted) return reject(signal.reason);
-  const timer = setTimeout(resolve, milliseconds);
-  timer.unref?.();
-  signal.addEventListener("abort", () => {
+  const onAbort = () => {
     clearTimeout(timer);
+    signal.removeEventListener("abort", onAbort);
     reject(signal.reason);
-  }, { once: true });
+  };
+  const timer = setTimeout(() => {
+    signal.removeEventListener("abort", onAbort);
+    resolve();
+  }, milliseconds);
+  timer.unref?.();
+  signal.addEventListener("abort", onAbort, { once: true });
 });
 
 export async function recoverAllMessagePages(
@@ -349,6 +356,7 @@ export function createRealtimeClient(options: {
   let refreshTimer: ReturnType<typeof setTimeout> | undefined;
   let retries = 0;
   let stopped = false;
+  let started = false;
   let connecting = false;
   let terminalJoinFailure = false;
   const authorizedConversationIds = new Set<string>();
@@ -430,6 +438,42 @@ export function createRealtimeClient(options: {
         }
     });
   };
+  const recoveryError = (error: unknown) => error instanceof RealtimeRecoveryError
+    ? new RealtimeActionError("NOT_AVAILABLE")
+    : new RealtimeActionError("RETRY_LATER");
+  const recoverWithBudget = async (conversationId: string) => {
+    let attempts = 0;
+    while (!stopped) {
+      try {
+        await recover(conversationId);
+        if (started && !socket?.connected) options.onState("failed");
+        return;
+      } catch (error) {
+        if (stopped) return;
+        const actionError = recoveryError(error);
+        if (actionError.code === "NOT_AVAILABLE") {
+          terminalJoinFailure = true;
+          socket?.disconnect();
+          options.onState("failed");
+          throw actionError;
+        }
+        attempts += 1;
+        if (attempts > (options.maxRetries ?? 8)) {
+          terminalJoinFailure = true;
+          socket?.disconnect();
+          options.onState("failed");
+          throw actionError;
+        }
+        options.onState("retrying");
+        try {
+          await abortableDelay(Math.min(100 * 2 ** (attempts - 1), 2_000), stopController.signal);
+        } catch {
+          if (stopped || stopController.signal.aborted) return;
+          throw actionError;
+        }
+      }
+    }
+  };
   const joinAndRecover = async (conversationId: string) => {
     await emitAck("conversation.join", { conversationId });
     authorizedConversationIds.add(conversationId);
@@ -449,17 +493,19 @@ export function createRealtimeClient(options: {
         if (stopped) return;
         const actionError = error instanceof RealtimeActionError
           ? error
-          : error instanceof RealtimeRecoveryError
-            ? new RealtimeActionError("NOT_AVAILABLE")
-            : new RealtimeActionError("RETRY_LATER");
+          : recoveryError(error);
         if (actionError.code === "NOT_AVAILABLE") {
           terminalJoinFailure = true;
+          authorizedConversationIds.clear();
+          socket?.disconnect();
           options.onState("failed");
           throw actionError;
         }
         attempts += 1;
         if (attempts > (options.maxRetries ?? 8)) {
           terminalJoinFailure = true;
+          authorizedConversationIds.clear();
+          socket?.disconnect();
           options.onState("failed");
           throw actionError;
         }
@@ -490,6 +536,7 @@ export function createRealtimeClient(options: {
     }, Math.min(500 * 2 ** (retries - 1), 15_000));
   };
   const connect = async () => {
+    if (terminalJoinFailure) return options.onState("failed");
     if (stopped || connecting || socket?.connected) return;
     connecting = true;
     options.onState(retries ? "retrying" : "connecting");
@@ -524,13 +571,16 @@ export function createRealtimeClient(options: {
     } catch { schedule(); } finally { connecting = false; }
   };
   return {
-    start: connect,
+    async start() {
+      started = true;
+      await connect();
+    },
     async join(conversationId: string) {
       conversations.add(conversationId);
       if (socket?.connected) {
         terminalJoinFailure = false;
         await joinWithBudget(conversationId);
-      } else await recover(conversationId);
+      } else await recoverWithBudget(conversationId);
     },
     async markDelivered(message: RecoveredMessage) {
       queueReceipt("delivered", message);
@@ -540,7 +590,7 @@ export function createRealtimeClient(options: {
     },
     async refresh(conversationId: string) {
       if (!conversations.has(conversationId)) conversations.add(conversationId);
-      await recover(conversationId);
+      await recoverWithBudget(conversationId);
     },
     stop() {
       stopped = true;

@@ -8,6 +8,7 @@ import { afterEach, describe, expect, it } from "vitest";
 import { createRealtimeServer, type ReceiptInput, type SocketIdentity } from "../../../realtime/server";
 import {
   createRealtimeClient,
+  RealtimeRecoveryError,
   type RecoveredMessage,
   RealtimeMessageStore,
 } from "@/modules/messaging/realtime-client";
@@ -508,5 +509,87 @@ describe("real-time delivery", () => {
       release();
       managed.stop();
     }
+  });
+
+  it("retries offline HTTP recovery with a finite budget and stops permanently on explicit authorization failure", async () => {
+    let transientAttempts = 0;
+    const transientStates: string[] = [];
+    const transient = createRealtimeClient({
+      url: "http://127.0.0.1:1",
+      fetchTicket: async () => { throw new Error("unused"); },
+      recover: async () => {
+        transientAttempts += 1;
+        if (transientAttempts < 3) throw new Error("temporary network failure");
+        return [];
+      },
+      onState: (state) => transientStates.push(state),
+      onMessages: () => undefined,
+      maxRetries: 2,
+    });
+    await transient.join(conversationId);
+    expect(transientAttempts).toBe(3);
+    expect(transientStates).toContain("retrying");
+    transient.stop();
+
+    let permanentAttempts = 0;
+    let permanentTicketAttempts = 0;
+    const permanentStates: string[] = [];
+    const permanent = createRealtimeClient({
+      url: "http://127.0.0.1:1",
+      fetchTicket: async () => {
+        permanentTicketAttempts += 1;
+        return { ticket: "must-not-be-used", expiresAt: new Date(Date.now() + 60_000).toISOString() };
+      },
+      recover: async () => {
+        permanentAttempts += 1;
+        throw new RealtimeRecoveryError("NOT_AVAILABLE");
+      },
+      onState: (state) => permanentStates.push(state),
+      onMessages: () => undefined,
+      maxRetries: 5,
+    });
+    await expect(permanent.join(conversationId)).rejects.toThrow("NOT_AVAILABLE");
+    expect(permanentAttempts).toBe(1);
+    expect(permanentStates.at(-1)).toBe("failed");
+    await permanent.start();
+    expect(permanentTicketAttempts).toBe(0);
+    permanent.stop();
+  });
+
+  it("cancels offline recovery backoff on stop and disconnects an authorized room after recovery exhaustion", async () => {
+    const offlineStates: string[] = [];
+    const offline = createRealtimeClient({
+      url: "http://127.0.0.1:1",
+      fetchTicket: async () => { throw new Error("unused"); },
+      recover: async () => { throw new Error("still offline"); },
+      onState: (state) => offlineStates.push(state),
+      onMessages: () => undefined,
+      maxRetries: 5,
+    });
+    let offlineSettled = false;
+    void offline.join(conversationId).then(() => { offlineSettled = true; }, () => { offlineSettled = true; });
+    await waitFor(() => offlineStates.at(-1) === "retrying");
+    offline.stop();
+    await waitFor(() => offlineSettled, 100);
+
+    const { server, url } = await setup();
+    const states: string[] = [];
+    let recoverAttempts = 0;
+    const connected = createRealtimeClient({
+      url,
+      fetchTicket: async () => ({ ticket: "bob-ticket", expiresAt: new Date(Date.now() + 60_000).toISOString() }),
+      recover: async () => { recoverAttempts += 1; throw new Error("database temporarily unavailable"); },
+      onState: (state) => states.push(state),
+      onMessages: () => undefined,
+      maxRetries: 1,
+    });
+    try {
+      await connected.start();
+      await waitFor(() => states.at(-1) === "online");
+      await expect(connected.join(conversationId)).rejects.toThrow("RETRY_LATER");
+      await waitFor(() => states.at(-1) === "failed");
+      await waitFor(() => server.io.sockets.sockets.size === 0);
+      expect(recoverAttempts).toBe(2);
+    } finally { connected.stop(); }
   });
 });
