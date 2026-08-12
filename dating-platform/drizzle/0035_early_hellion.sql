@@ -107,4 +107,92 @@ BEGIN
   END IF;
   RETURN NEW;
 END;
+$$;--> statement-breakpoint
+CREATE FUNCTION validate_moderation_media_copy_relation() RETURNS trigger
+LANGUAGE plpgsql AS $$
+DECLARE
+  case_report uuid;
+  report_subject uuid;
+  photo_subject uuid;
+  photo_key text;
+  photo_version text;
+  photo_etag text;
+BEGIN
+  SELECT c.report_id, r.target_user_id
+    INTO case_report, report_subject
+    FROM moderation_cases c
+    JOIN reports r ON r.id = c.report_id
+    WHERE c.id = NEW.case_id;
+  SELECT p.user_id, p.object_key, p.object_version, p.object_etag
+    INTO photo_subject, photo_key, photo_version, photo_etag
+    FROM profile_photos p
+    WHERE p.id = NEW.photo_id;
+
+  IF case_report IS NULL
+    OR case_report <> NEW.report_id
+    OR report_subject <> NEW.subject_user_id
+    OR photo_subject IS NULL
+    OR photo_subject <> NEW.subject_user_id
+    OR photo_key IS DISTINCT FROM NEW.source_object_key
+    OR photo_version IS DISTINCT FROM NEW.source_object_version
+    OR photo_etag IS DISTINCT FROM NEW.source_object_etag THEN
+    RAISE EXCEPTION 'MODERATION_RELATION_INVALID';
+  END IF;
+  RETURN NEW;
+END;
+$$;--> statement-breakpoint
+CREATE TRIGGER moderation_media_copies_validate_relation
+BEFORE INSERT OR UPDATE ON moderation_media_copies
+FOR EACH ROW EXECUTE FUNCTION validate_moderation_media_copy_relation();--> statement-breakpoint
+CREATE FUNCTION protect_moderation_media_copy_facts() RETURNS trigger
+LANGUAGE plpgsql AS $$
+BEGIN
+  IF TG_OP = 'DELETE' OR ROW(NEW.id, NEW.report_id, NEW.case_id, NEW.subject_user_id, NEW.photo_id,
+    NEW.source_object_key, NEW.source_object_version, NEW.source_object_etag,
+    NEW.object_key, NEW.object_version, NEW.object_etag, NEW.created_at)
+    IS DISTINCT FROM ROW(OLD.id, OLD.report_id, OLD.case_id, OLD.subject_user_id, OLD.photo_id,
+    OLD.source_object_key, OLD.source_object_version, OLD.source_object_etag,
+    OLD.object_key, OLD.object_version, OLD.object_etag, OLD.created_at) THEN
+    RAISE EXCEPTION 'MODERATION_MEDIA_COPY_IMMUTABLE';
+  END IF;
+  RETURN NEW;
+END;
+$$;--> statement-breakpoint
+CREATE TRIGGER moderation_media_copies_protect_facts
+BEFORE UPDATE OR DELETE ON moderation_media_copies
+FOR EACH ROW EXECUTE FUNCTION protect_moderation_media_copy_facts();--> statement-breakpoint
+CREATE FUNCTION validate_moderation_media_hold_copy_relation() RETURNS trigger
+LANGUAGE plpgsql AS $$
+BEGIN
+  IF NEW.evidence_copy_id IS NULL OR NOT EXISTS (
+    SELECT 1
+    FROM moderation_media_copies copy
+    WHERE copy.id = NEW.evidence_copy_id
+      AND copy.report_id = NEW.report_id
+      AND copy.case_id = NEW.case_id
+      AND copy.subject_user_id = NEW.subject_user_id
+      AND copy.photo_id = NEW.photo_id
+      AND copy.object_key = NEW.object_key
+      AND copy.object_version = NEW.object_version
+  ) THEN
+    RAISE EXCEPTION 'MODERATION_RELATION_INVALID';
+  END IF;
+  RETURN NEW;
+END;
+$$;--> statement-breakpoint
+CREATE TRIGGER moderation_media_holds_validate_copy_relation
+BEFORE INSERT OR UPDATE ON moderation_media_holds
+FOR EACH ROW EXECUTE FUNCTION validate_moderation_media_hold_copy_relation();--> statement-breakpoint
+CREATE OR REPLACE FUNCTION protect_moderation_media_hold_facts() RETURNS trigger
+LANGUAGE plpgsql AS $$
+BEGIN
+  IF TG_OP = 'DELETE' THEN RAISE EXCEPTION 'MODERATION_MEDIA_HOLD_IMMUTABLE'; END IF;
+  IF ROW(NEW.id, NEW.report_id, NEW.case_id, NEW.subject_user_id, NEW.photo_id, NEW.evidence_copy_id,
+    NEW.object_key, NEW.object_version, NEW.snapshot_sha256, NEW.preserve_until, NEW.created_at)
+    IS DISTINCT FROM ROW(OLD.id, OLD.report_id, OLD.case_id, OLD.subject_user_id, OLD.photo_id, OLD.evidence_copy_id,
+    OLD.object_key, OLD.object_version, OLD.snapshot_sha256, OLD.preserve_until, OLD.created_at) THEN
+    RAISE EXCEPTION 'MODERATION_MEDIA_HOLD_IMMUTABLE';
+  END IF;
+  RETURN NEW;
+END;
 $$;
