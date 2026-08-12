@@ -5,8 +5,8 @@ import { notFound, redirect } from "next/navigation";
 import { db } from "@/infrastructure/db/client";
 import { isSupportedLocale } from "@/i18n/locales";
 import { auth } from "@/modules/auth/auth";
-import { DiscoveryRepository } from "@/modules/discovery/discovery-repository";
 import { DISCOVERY_MODES, publicDiscoveryFilterSchema, type DiscoveryMode } from "@/modules/discovery/discovery-types";
+import { createProductionDiscoveryRepository } from "@/modules/discovery/runtime";
 import { readEnv } from "@/shared/env";
 
 const labels: Record<DiscoveryMode, { en: string; zh: string }> = {
@@ -32,7 +32,7 @@ export default async function DiscoverPage({
     ? query.mode as DiscoveryMode
     : "recommended";
   const env = readEnv(process.env);
-  const result = await new DiscoveryRepository(db, {
+  const result = await createProductionDiscoveryRepository(db, {
     cursorSecret: env.BETTER_AUTH_SECRET,
     disabledCountryCodes: env.DISCOVERY_DISABLED_COUNTRY_CODES?.split(","),
   }).discover(session.user.id, publicDiscoveryFilterSchema.parse({ mode, pageSize: 20 }));

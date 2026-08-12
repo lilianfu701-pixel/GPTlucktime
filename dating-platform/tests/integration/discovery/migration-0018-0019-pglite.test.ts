@@ -9,6 +9,8 @@ import { afterEach, describe, expect, it } from "vitest";
 import * as schema from "@/db/schema";
 import { publicDiscoveryFilterSchema } from "@/modules/discovery/discovery-types";
 import { DiscoveryRepository } from "@/modules/discovery/discovery-repository";
+import { allowAllContentPolicy } from "@/modules/moderation/content-policy";
+import { allowAllRestrictionPolicy } from "@/modules/moderation/restriction-policy";
 import { filterFingerprint, RANKING_VERSION } from "@/modules/discovery/ranking";
 
 const migration = async (client: PGlite, name: string) => {
@@ -121,6 +123,8 @@ describe("0018/0019 discovery snapshot forward migration", () => {
     const repository = new DiscoveryRepository(database, {
       clock: () => new Date("2026-08-08T12:00:00Z"),
       cursorSecret: "migration-test-cursor-secret-at-least-32-characters",
+      restrictionPolicy: allowAllRestrictionPolicy,
+      contentPolicy: allowAllContentPolicy,
     });
     const result = await repository.discover(ownerUserId, filters);
     expect(result.items.map(({ id }) => id)).toEqual([candidateProfileId]);

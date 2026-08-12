@@ -34,12 +34,8 @@ import {
   verificationAttempts,
 } from "@/db/schema";
 import type { db as productionDatabase } from "@/infrastructure/db/client";
+import type { ModerationContentPolicy } from "@/modules/moderation/content-policy";
 import {
-  allowAllContentPolicy,
-  type ModerationContentPolicy,
-} from "@/modules/moderation/content-policy";
-import {
-  allowAllRestrictionPolicy,
   type ModerationRestrictionPolicy,
 } from "@/modules/moderation/restriction-policy";
 import { publicProfile } from "@/modules/profiles/profile-service";
@@ -91,15 +87,15 @@ export class DiscoveryRepository {
     clock?: () => Date;
     cursorSecret: string;
     disabledCountryCodes?: readonly string[];
-    restrictionPolicy?: ModerationRestrictionPolicy;
-    contentPolicy?: ModerationContentPolicy;
+    restrictionPolicy: ModerationRestrictionPolicy;
+    contentPolicy: ModerationContentPolicy;
   }) {
     this.database = database as DiscoveryDatabase;
     this.clock = options.clock ?? (() => new Date());
     this.cursorSecret = options.cursorSecret;
     this.disabledCountryCodes = new Set(options.disabledCountryCodes ?? []);
-    this.restrictionPolicy = options.restrictionPolicy ?? allowAllRestrictionPolicy;
-    this.contentPolicy = options.contentPolicy ?? allowAllContentPolicy;
+    this.restrictionPolicy = options.restrictionPolicy;
+    this.contentPolicy = options.contentPolicy;
   }
 
   async discover(userId: string, rawFilters: DiscoveryFilters) {

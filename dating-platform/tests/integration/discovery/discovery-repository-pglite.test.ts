@@ -9,8 +9,11 @@ import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import * as schema from "@/db/schema";
 import { publicDiscoveryFilterSchema } from "@/modules/discovery/discovery-types";
 import { DiscoveryRepository } from "@/modules/discovery/discovery-repository";
-import { DrizzleModerationContentPolicy } from "@/modules/moderation/content-policy";
-import { DrizzleModerationRestrictionPolicy } from "@/modules/moderation/restriction-policy";
+import { allowAllContentPolicy, DrizzleModerationContentPolicy } from "@/modules/moderation/content-policy";
+import {
+  allowAllRestrictionPolicy,
+  DrizzleModerationRestrictionPolicy,
+} from "@/modules/moderation/restriction-policy";
 import { DrizzleReportRepository } from "@/modules/moderation/report-repository";
 import { ReportService, RuleBasedReportRiskAssessor } from "@/modules/moderation/report-service";
 import {
@@ -92,6 +95,8 @@ describe("discovery repository", () => {
       clock: () => now,
       cursorSecret: CURSOR_SECRET,
       disabledCountryCodes: ["CA"],
+      restrictionPolicy: allowAllRestrictionPolicy,
+      contentPolicy: allowAllContentPolicy,
     });
     ({ userId: viewerId } = await addPerson({
       email: "viewer@example.test",
@@ -153,6 +158,8 @@ describe("discovery repository", () => {
       clock: () => new Date("2026-08-08T12:00:00Z"),
       cursorSecret: CURSOR_SECRET,
       disabledCountryCodes: ["US"],
+      restrictionPolicy: allowAllRestrictionPolicy,
+      contentPolicy: allowAllContentPolicy,
     });
     const result = await disabledForViewer.discover(viewerId, publicDiscoveryFilterSchema.parse({}));
     expect(result.items).toEqual([]);
@@ -380,6 +387,8 @@ describe("discovery repository", () => {
       clock: () => now,
       cursorSecret: CURSOR_SECRET,
       disabledCountryCodes: ["CA"],
+      restrictionPolicy: allowAllRestrictionPolicy,
+      contentPolicy: allowAllContentPolicy,
     });
     await expect(replacementRepository.discover(viewerId, filters)).resolves.toBeDefined();
     releaseOldBuilder();
