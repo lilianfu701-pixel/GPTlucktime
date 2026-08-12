@@ -14,6 +14,8 @@ import { DrizzleModerationRestrictionPolicy } from "@/modules/moderation/restric
 import { allowAllContentPolicy } from "@/modules/moderation/content-policy";
 import { SocialRepository } from "@/modules/social/social-repository";
 import { ReportService, RuleBasedReportRiskAssessor } from "@/modules/moderation/report-service";
+import { DrizzleMediaLegalHoldPolicy } from "@/modules/moderation/media-hold-policy";
+import { unavailableMediaEvidencePreserver } from "@/modules/moderation/media-evidence-preserver";
 
 const NOW = new Date("2026-08-11T12:00:00.000Z");
 
@@ -35,6 +37,8 @@ describe("moderation case governance", () => {
     });
     reportService = new ReportService(new DrizzleReportRepository(database, {
       idempotencySecret: "moderation-test-secret",
+      mediaHoldPolicy: new DrizzleMediaLegalHoldPolicy(database as never),
+      mediaEvidencePreserver: unavailableMediaEvidencePreserver,
       clock: () => NOW,
       jurisdictionPolicy: (countryCode) => ({
         jurisdictionCode: countryCode,

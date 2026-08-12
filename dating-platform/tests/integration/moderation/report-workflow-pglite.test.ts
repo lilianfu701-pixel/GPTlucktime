@@ -17,6 +17,7 @@ import { DrizzleMediaLegalHoldPolicy } from "@/modules/moderation/media-hold-pol
 import { MediaReviewStore } from "@/modules/profiles/media-review-store";
 import { cleanupRejectedMedia } from "@/workers/media-review-worker";
 import { DrizzleCaseService } from "@/modules/moderation/case-service";
+import type { MediaEvidencePreserver } from "@/modules/moderation/media-evidence-preserver";
 
 const NOW = new Date("2026-08-11T12:00:00.000Z");
 const CLIENT_ID = "00000000-0000-4000-8000-000000000101";
@@ -25,14 +26,25 @@ describe("report submission transaction", () => {
   let client: PGlite;
   let database: ReturnType<typeof drizzle<typeof schema>>;
   let service: ReportService;
+  let holdPolicy: DrizzleMediaLegalHoldPolicy;
+  const evidencePreserver: MediaEvidencePreserver = {
+    preserve: async (source, destinationObjectKey) => ({
+      objectKey: destinationObjectKey,
+      objectVersion: `copy-${source.objectVersion}`,
+      objectEtag: `copy-${source.objectEtag}`,
+    }),
+  };
 
   beforeEach(async () => {
     client = new PGlite();
     database = drizzle(client, { schema });
     await migrate(database, { migrationsFolder: "./drizzle" });
+    holdPolicy = new DrizzleMediaLegalHoldPolicy(database as never);
     service = new ReportService(new DrizzleReportRepository(database, {
       idempotencySecret: "moderation-test-secret",
       clock: () => NOW,
+      mediaHoldPolicy: holdPolicy,
+      mediaEvidencePreserver: evidencePreserver,
       jurisdictionPolicy: (countryCode) => ({
         jurisdictionCode: countryCode,
         workflowCode: "minor-safety-review-v1",
@@ -302,7 +314,8 @@ describe("report submission transaction", () => {
       userId: target.user.id,
       profileId: target.profile.id,
       objectKey: `held/${target.profile.id}.jpg`,
-      reviewVersion: "provider-v7",
+      objectVersion: "provider-version-v7",
+      objectEtag: "provider-etag-v7",
       moderationStatus: "approved",
       position: 0,
       createdAt: NOW,
@@ -323,8 +336,8 @@ describe("report submission transaction", () => {
     expect(await database.select().from(schema.moderationMediaHolds)).toEqual([
       expect.objectContaining({
         photoId: photo.id,
-        objectKey: photo.objectKey,
-        objectVersion: "provider-v7",
+        objectKey: `restricted-evidence/${moderationCase.reportId}/${photo.id}`,
+        objectVersion: "copy-provider-version-v7",
         active: true,
       }),
     ]);
@@ -332,7 +345,6 @@ describe("report submission transaction", () => {
     await expect(store.markPhotoRemoved(target.user.id, photo.id)).resolves.toBe(true);
     const deleted: string[] = [];
     const storage = { deleteObject: async (key: string) => { deleted.push(key); } } as never;
-    const holdPolicy = new DrizzleMediaLegalHoldPolicy(database as never);
     await expect(cleanupRejectedMedia({ store, storage, holdPolicy, clock: () => NOW })).resolves.toBe(0);
     expect(deleted).toEqual([]);
     const legal = await addUser("media-hold-legal-reviewer");
@@ -370,6 +382,7 @@ describe("report submission transaction", () => {
       profileId: target.profile.id,
       objectKey: `held/${target.profile.id}-claim-race.jpg`,
       objectVersion: "immutable-etag-claim-race",
+      objectEtag: "immutable-content-etag-claim-race",
       moderationStatus: "approved",
       position: 0,
       createdAt: NOW,
@@ -401,6 +414,7 @@ describe("report submission transaction", () => {
       idempotencySecret: "claim-race-report-secret",
       clock: () => NOW,
       mediaHoldPolicy: coordinator,
+      mediaEvidencePreserver: evidencePreserver,
       jurisdictionPolicy: (countryCode) => ({
         jurisdictionCode: countryCode,
         workflowCode: "minor-safety-review-v1",
@@ -419,7 +433,7 @@ describe("report submission transaction", () => {
     await expect(cleanup).resolves.toBe(0);
     expect(deleted).toEqual([]);
     expect(await database.select().from(schema.moderationMediaHolds)).toEqual([
-      expect.objectContaining({ photoId: photo.id, objectVersion: "immutable-etag-claim-race", active: true }),
+      expect.objectContaining({ photoId: photo.id, objectVersion: "copy-immutable-etag-claim-race", active: true }),
     ]);
   });
 
@@ -431,6 +445,7 @@ describe("report submission transaction", () => {
       profileId: target.profile.id,
       objectKey: `held/${target.profile.id}-hold-lock-race.jpg`,
       objectVersion: "immutable-etag-hold-lock-race",
+      objectEtag: "immutable-content-etag-hold-lock-race",
       moderationStatus: "approved",
       position: 0,
       createdAt: NOW,
@@ -454,6 +469,7 @@ describe("report submission transaction", () => {
       idempotencySecret: "hold-lock-race-report-secret",
       clock: () => NOW,
       mediaHoldPolicy: pausedCoordinator,
+      mediaEvidencePreserver: evidencePreserver,
       jurisdictionPolicy: (countryCode) => ({
         jurisdictionCode: countryCode,
         workflowCode: "minor-safety-review-v1",
@@ -484,5 +500,76 @@ describe("report submission transaction", () => {
     await reporting;
     await expect(cleanup).resolves.toBe(0);
     expect(deleted).toEqual([]);
+  });
+
+  it("preserves an immutable evidence copy when report arrives after pre-delete validation", async () => {
+    const reporter = await addUser("validated-delete-reporter");
+    const target = await addUser("validated-delete-target");
+    const [photo] = await database.insert(schema.profilePhotos).values({
+      userId: target.user.id,
+      profileId: target.profile.id,
+      objectKey: `held/${target.profile.id}-validated-delete.jpg`,
+      objectVersion: "source-version-before-delete",
+      objectEtag: "source-etag-before-delete",
+      moderationStatus: "approved",
+      position: 0,
+      createdAt: NOW,
+      updatedAt: NOW,
+    }).returning();
+    const store = new MediaReviewStore(database, { clock: () => NOW });
+    await store.markPhotoRemoved(target.user.id, photo.id);
+    const coordinator = new DrizzleMediaLegalHoldPolicy(database as never);
+    let validatedResolve!: () => void;
+    let resumeDeleteResolve!: () => void;
+    const validated = new Promise<void>((resolve) => { validatedResolve = resolve; });
+    const resumeDelete = new Promise<void>((resolve) => { resumeDeleteResolve = resolve; });
+    const pausedCoordinator: DrizzleMediaLegalHoldPolicy = Object.create(coordinator) as DrizzleMediaLegalHoldPolicy;
+    pausedCoordinator.validateDeletionClaim = async (...args) => {
+      const allowed = await coordinator.validateDeletionClaim(...args);
+      validatedResolve();
+      await resumeDelete;
+      return allowed;
+    };
+    const deleted: string[] = [];
+    const cleanup = cleanupRejectedMedia({
+      store,
+      storage: { deleteObject: async (key: string) => { deleted.push(key); } } as never,
+      holdPolicy: pausedCoordinator,
+      clock: () => NOW,
+    });
+    await validated;
+    const raceService = new ReportService(new DrizzleReportRepository(database, {
+      idempotencySecret: "validated-delete-report-secret",
+      clock: () => NOW,
+      mediaHoldPolicy: coordinator,
+      mediaEvidencePreserver: evidencePreserver,
+      jurisdictionPolicy: (countryCode) => ({
+        jurisdictionCode: countryCode,
+        workflowCode: "minor-safety-review-v1",
+        dueAt: new Date(NOW.getTime() + 60 * 60_000),
+      }),
+    }), new RuleBasedReportRiskAssessor());
+    const report = await raceService.submit(reporter.user.id, {
+      clientId: "00000000-0000-4000-8000-000000000780",
+      targetProfileId: target.profile.id,
+      reason: "MINOR_SAFETY",
+      locale: "en-US",
+      explanation: "copy the immutable source version before original deletion",
+      evidenceReferences: [{ type: "photo", id: photo.id }],
+    });
+    resumeDeleteResolve();
+    await expect(cleanup).resolves.toBe(1);
+    expect(deleted).toEqual([photo.objectKey]);
+    const [copy] = await database.select().from(schema.moderationMediaCopies)
+      .where(eq(schema.moderationMediaCopies.reportId, report.id));
+    expect(copy).toMatchObject({
+      sourceObjectKey: photo.objectKey,
+      sourceObjectVersion: "source-version-before-delete",
+      objectKey: `restricted-evidence/${report.id}/${photo.id}`,
+      objectVersion: "copy-source-version-before-delete",
+    });
+    expect(await database.select().from(schema.moderationMediaHolds)).toEqual([
+      expect.objectContaining({ evidenceCopyId: copy.id, objectKey: copy.objectKey, objectVersion: copy.objectVersion }),
+    ]);
   });
 });

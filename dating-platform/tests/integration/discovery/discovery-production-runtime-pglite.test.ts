@@ -11,6 +11,8 @@ import { publicDiscoveryFilterSchema } from "@/modules/discovery/discovery-types
 import { createProductionDiscoveryRepository } from "@/modules/discovery/runtime";
 import { DrizzleReportRepository } from "@/modules/moderation/report-repository";
 import { ReportService, RuleBasedReportRiskAssessor } from "@/modules/moderation/report-service";
+import { DrizzleMediaLegalHoldPolicy } from "@/modules/moderation/media-hold-policy";
+import { unavailableMediaEvidencePreserver } from "@/modules/moderation/media-evidence-preserver";
 
 const NOW = new Date("2026-08-11T12:00:00.000Z");
 
@@ -72,6 +74,8 @@ describe("production discovery composition used by SSR", () => {
     const quarantined = await addPerson("runtime-quarantined", "woman");
     const service = new ReportService(new DrizzleReportRepository(database, {
       idempotencySecret: "production-discovery-moderation-secret",
+      mediaHoldPolicy: new DrizzleMediaLegalHoldPolicy(database as never),
+      mediaEvidencePreserver: unavailableMediaEvidencePreserver,
       clock: () => NOW,
       jurisdictionPolicy: (countryCode) => ({
         jurisdictionCode: countryCode,

@@ -5,14 +5,19 @@ import { createClient } from "redis";
 import { db } from "@/infrastructure/db/client";
 import { auth } from "@/modules/auth/auth";
 import { readEnv } from "@/shared/env";
+import { profileMediaStorage } from "@/modules/profiles/media-runtime";
 
 import { DrizzleReportRepository } from "./report-repository";
 import { RedisReportRateLimiter } from "./report-rate-limiter";
 import { ReportService, RuleBasedReportRiskAssessor } from "./report-service";
+import { DrizzleMediaLegalHoldPolicy } from "./media-hold-policy";
+import { StorageMediaEvidencePreserver } from "./media-evidence-preserver";
 
 const env = readEnv(process.env);
 const repository = new DrizzleReportRepository(db, {
   idempotencySecret: env.BETTER_AUTH_SECRET,
+  mediaHoldPolicy: new DrizzleMediaLegalHoldPolicy(db),
+  mediaEvidencePreserver: new StorageMediaEvidencePreserver(profileMediaStorage),
   jurisdictionPolicy: (countryCode) => ({
     jurisdictionCode: /^[A-Z]{2}$/u.test(countryCode) ? countryCode : "ZZ",
     workflowCode: "safety-legal-review-v1",

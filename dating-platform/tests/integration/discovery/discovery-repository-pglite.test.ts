@@ -16,6 +16,8 @@ import {
 } from "@/modules/moderation/restriction-policy";
 import { DrizzleReportRepository } from "@/modules/moderation/report-repository";
 import { ReportService, RuleBasedReportRiskAssessor } from "@/modules/moderation/report-service";
+import { DrizzleMediaLegalHoldPolicy } from "@/modules/moderation/media-hold-policy";
+import { unavailableMediaEvidencePreserver } from "@/modules/moderation/media-evidence-preserver";
 import {
   decodeDiscoveryCursor,
   encodeDiscoveryCursor,
@@ -172,6 +174,8 @@ describe("discovery repository", () => {
     });
     const reportService = new ReportService(new DrizzleReportRepository(database, {
       idempotencySecret: "moderation-discovery-test-secret",
+      mediaHoldPolicy: new DrizzleMediaLegalHoldPolicy(database as never),
+      mediaEvidencePreserver: unavailableMediaEvidencePreserver,
       clock: () => now,
       jurisdictionPolicy: (countryCode) => ({
         jurisdictionCode: countryCode,

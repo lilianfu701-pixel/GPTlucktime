@@ -18,6 +18,8 @@ import { DrizzleModerationRestrictionPolicy } from "@/modules/moderation/restric
 import { SocialRepository } from "@/modules/social/social-repository";
 import { DrizzleReportRepository } from "@/modules/moderation/report-repository";
 import { ReportService, RuleBasedReportRiskAssessor } from "@/modules/moderation/report-service";
+import { DrizzleMediaLegalHoldPolicy } from "@/modules/moderation/media-hold-policy";
+import { unavailableMediaEvidencePreserver } from "@/modules/moderation/media-evidence-preserver";
 import { createAuthorizedRealtimePublisher, DrizzleMessageOutboxStore, MessageOutboxConsumer } from "../../../realtime/outbox-consumer";
 import { createRealtimeServer, type RealtimeMessageEvent } from "../../../realtime/server";
 import { DrizzleRealtimeRevocationSource } from "../../../realtime/authenticate-socket";
@@ -193,6 +195,8 @@ describe("HTTP to outbox to socket delivery", () => {
     const disconnectedByRestriction = new Promise<void>((resolve) => reconnect.once("disconnect", () => resolve()));
     const reportService = new ReportService(new DrizzleReportRepository(database, {
       idempotencySecret: "realtime-revocation-report-secret",
+      mediaHoldPolicy: new DrizzleMediaLegalHoldPolicy(database as never),
+      mediaEvidencePreserver: unavailableMediaEvidencePreserver,
       clock: () => NOW,
       jurisdictionPolicy: (countryCode) => ({
         jurisdictionCode: countryCode,

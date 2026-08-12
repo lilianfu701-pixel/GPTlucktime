@@ -11,6 +11,9 @@ import { afterAll, beforeAll, describe, expect, it } from "vitest";
 import * as schema from "@/db/schema";
 import { DrizzleReportRepository } from "@/modules/moderation/report-repository";
 import { ReportService, RuleBasedReportRiskAssessor } from "@/modules/moderation/report-service";
+import { DrizzleMediaLegalHoldPolicy } from "@/modules/moderation/media-hold-policy";
+import { unavailableMediaEvidencePreserver } from "@/modules/moderation/media-evidence-preserver";
+import type { MediaEvidencePreserver } from "@/modules/moderation/media-evidence-preserver";
 
 const TEST_DATABASE_URL = process.env.TEST_DATABASE_URL;
 const runWithPostgres = TEST_DATABASE_URL ? describe : describe.skip;
@@ -48,6 +51,8 @@ runWithPostgres("report PostgreSQL concurrency with independent pools (requires 
 
   const repository = (database: unknown) => new DrizzleReportRepository(database, {
     idempotencySecret: "postgres-moderation-concurrency-secret",
+    mediaHoldPolicy: new DrizzleMediaLegalHoldPolicy(database as never),
+    mediaEvidencePreserver: unavailableMediaEvidencePreserver,
     clock: () => now,
     jurisdictionPolicy: (countryCode) => ({
       jurisdictionCode: countryCode,
@@ -180,5 +185,97 @@ runWithPostgres("report PostgreSQL concurrency with independent pools (requires 
     expect(result.status).toBe("rejected");
     expect(result.error).toBeTruthy();
     expect(await leftDatabase.select().from(schema.messages)).toEqual([]);
+  });
+
+  it("coordinates hold creation and cleanup leases across independent pools", async () => {
+    const [reporter] = await leftDatabase.insert(schema.users).values({
+      name: "PG Hold Reporter", email: `${schemaName}-hold-reporter@example.test`,
+    }).returning();
+    const [secondReporter] = await leftDatabase.insert(schema.users).values({
+      name: "PG Hold Reporter Two", email: `${schemaName}-hold-reporter-two@example.test`,
+    }).returning();
+    const [target] = await leftDatabase.insert(schema.users).values({
+      name: "PG Hold Target", email: `${schemaName}-hold-target@example.test`,
+    }).returning();
+    const [profile] = await leftDatabase.insert(schema.profiles).values({
+      userId: target.id, displayName: "Hold Target", birthDate: "1990-01-01", genderCode: "person",
+      countryCode: "US", timeZone: "UTC", status: "active", discoverable: true,
+    }).returning();
+    const [firstPhoto, secondPhoto] = await leftDatabase.insert(schema.profilePhotos).values([
+      {
+        userId: target.id, profileId: profile.id, objectKey: `${schemaName}/claim-first.jpg`,
+        objectVersion: "claim-first-version", objectEtag: "claim-first-etag", position: 0,
+        moderationStatus: "approved", cleanupDueAt: now, userRemovedAt: now,
+      },
+      {
+        userId: target.id, profileId: profile.id, objectKey: `${schemaName}/hold-first.jpg`,
+        objectVersion: "hold-first-version", objectEtag: "hold-first-etag", position: 1,
+        moderationStatus: "approved", cleanupDueAt: now, userRemovedAt: now,
+      },
+    ]).returning();
+    const leftCoordinator = new DrizzleMediaLegalHoldPolicy(leftDatabase as never);
+    const rightCoordinator = new DrizzleMediaLegalHoldPolicy(rightDatabase as never);
+    const preserver: MediaEvidencePreserver = {
+      preserve: async (source, destinationObjectKey) => ({
+        objectKey: destinationObjectKey,
+        objectVersion: `copy-${source.objectVersion}`,
+        objectEtag: `copy-${source.objectEtag}`,
+      }),
+    };
+    const photoService = (database: unknown, coordinator: DrizzleMediaLegalHoldPolicy) => new ReportService(
+      new DrizzleReportRepository(database, {
+        idempotencySecret: "postgres-hold-concurrency-secret",
+        clock: () => now,
+        mediaHoldPolicy: coordinator,
+        mediaEvidencePreserver: preserver,
+        jurisdictionPolicy: (countryCode) => ({
+          jurisdictionCode: countryCode,
+          workflowCode: "minor-safety-review-v1",
+          dueAt: new Date(now.getTime() + 60 * 60_000),
+        }),
+      }),
+      new RuleBasedReportRiskAssessor(),
+    );
+
+    const claim = await leftCoordinator.claimDeletion(firstPhoto.id, firstPhoto.objectKey, now);
+    expect(claim).toBeTruthy();
+    await photoService(rightDatabase, rightCoordinator).submit(reporter.id, {
+      clientId: "00000000-0000-4000-8000-000000000991",
+      targetProfileId: profile.id,
+      reason: "MINOR_SAFETY",
+      locale: "en-US",
+      explanation: "independent pool invalidates deletion claim",
+      evidenceReferences: [{ type: "photo", id: firstPhoto.id }],
+    });
+    await expect(leftCoordinator.validateDeletionClaim(claim!, now)).resolves.toBe(false);
+
+    let holdLockedResolve!: () => void;
+    let resumeHoldResolve!: () => void;
+    const holdLocked = new Promise<void>((resolve) => { holdLockedResolve = resolve; });
+    const resumeHold = new Promise<void>((resolve) => { resumeHoldResolve = resolve; });
+    const paused: DrizzleMediaLegalHoldPolicy = Object.create(leftCoordinator) as DrizzleMediaLegalHoldPolicy;
+    paused.prepareHoldInTransaction = async (...args) => {
+      const source = await leftCoordinator.prepareHoldInTransaction(...args);
+      holdLockedResolve();
+      await resumeHold;
+      return source;
+    };
+    const reporting = photoService(leftDatabase, paused).submit(secondReporter.id, {
+      clientId: "00000000-0000-4000-8000-000000000992",
+      targetProfileId: profile.id,
+      reason: "MINOR_SAFETY",
+      locale: "en-US",
+      explanation: "independent pool cleanup waits for hold",
+      evidenceReferences: [{ type: "photo", id: secondPhoto.id }],
+    });
+    await holdLocked;
+    const cleanupClaim = rightCoordinator.claimDeletion(secondPhoto.id, secondPhoto.objectKey, now);
+    expect(await Promise.race([
+      cleanupClaim.then(() => "finished" as const),
+      new Promise<"pending">((resolve) => setTimeout(() => resolve("pending"), 50)),
+    ])).toBe("pending");
+    resumeHoldResolve();
+    await reporting;
+    await expect(cleanupClaim).resolves.toBeNull();
   });
 });

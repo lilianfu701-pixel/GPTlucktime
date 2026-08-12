@@ -208,7 +208,7 @@ describe("signed profile photo uploads", () => {
       clock: () => now, tokenSecret: "test-upload-token-secret-at-least-32-bytes",
     });
 
-    storage.metadata = { sizeBytes: 122, mimeType: "image/png", etag: "etag-v1" };
+    storage.metadata = { sizeBytes: 122, mimeType: "image/png", etag: "etag-v1", versionId: "version-v1" };
     const mismatch = await complete(new Request("http://localhost", {
       method: "POST", body: JSON.stringify({ uploadId: reserved.uploadId, uploadToken: reserved.uploadToken }),
     }));
@@ -216,7 +216,7 @@ describe("signed profile photo uploads", () => {
     expect(storage.deleted).toEqual([]);
     expect(store.created).toBe(0);
 
-    storage.metadata = { sizeBytes: 123, mimeType: "image/png", etag: "etag-v1" };
+    storage.metadata = { sizeBytes: 123, mimeType: "image/png", etag: "etag-v1", versionId: "version-v1" };
     storage.contents.set(storage.prescribedKey, "original-content");
     const first = await complete(new Request("http://localhost", {
       method: "POST", body: JSON.stringify({ uploadId: reserved.uploadId, uploadToken: reserved.uploadToken }),
@@ -254,14 +254,14 @@ describe("signed profile photo uploads", () => {
       getSession: async () => ({ user: { id: userId } }), storage, store,
       tokenSecret: "test-upload-token-secret-at-least-32-bytes",
     });
-    storage.metadata = { sizeBytes: 123, mimeType: "image/png", etag: "etag-v1" };
+    storage.metadata = { sizeBytes: 123, mimeType: "image/png", etag: "etag-v1", versionId: "version-v1" };
     storage.copyFailure = true;
     await expect(complete(new Request("http://localhost", { method: "POST", body: JSON.stringify({
       uploadId: reserved.uploadId, uploadToken: reserved.uploadToken,
     }) }))).resolves.toMatchObject({ status: 500 });
 
     storage.copyFailure = false;
-    storage.metadata = { sizeBytes: 123, mimeType: "image/png", etag: "etag-v2" };
+    storage.metadata = { sizeBytes: 123, mimeType: "image/png", etag: "etag-v2", versionId: "version-v2" };
     const changed = await complete(new Request("http://localhost", { method: "POST", body: JSON.stringify({
       uploadId: reserved.uploadId, uploadToken: reserved.uploadToken,
     }) }));
@@ -285,7 +285,7 @@ describe("signed profile photo uploads", () => {
       clock: () => now, finalizationLeaseMs: 10,
       tokenSecret: "test-upload-token-secret-at-least-32-bytes",
     });
-    storage.metadata = { sizeBytes: 123, mimeType: "image/png", etag: "stable-etag" };
+    storage.metadata = { sizeBytes: 123, mimeType: "image/png", etag: "stable-etag", versionId: "stable-version" };
     store.commitFailures = 1;
     const request = () => new Request("http://localhost", { method: "POST", body: JSON.stringify({
       uploadId: reserved.uploadId, uploadToken: reserved.uploadToken,
@@ -311,7 +311,7 @@ describe("signed profile photo uploads", () => {
     const reserved = await (await upload(new Request("http://localhost", {
       method: "POST", body: JSON.stringify({ mimeType: "image/png", sizeBytes: 123, idempotencyKey: "expired-replay" }),
     }))).json();
-    storage.metadata = { sizeBytes: 123, mimeType: "image/png", etag: "stable-etag" };
+    storage.metadata = { sizeBytes: 123, mimeType: "image/png", etag: "stable-etag", versionId: "stable-version" };
     const complete = createPhotoCompleteHandler({
       getSession: async () => ({ user: { id: userId } }), storage, store,
       clock: () => now, tokenSecret: "test-upload-token-secret-at-least-32-bytes",
@@ -339,7 +339,7 @@ describe("signed profile photo uploads", () => {
     const reserved = await (await upload(new Request("http://localhost", {
       method: "POST", body: JSON.stringify({ mimeType: "image/png", sizeBytes: 123, idempotencyKey: `failure-${failure}` }),
     }))).json();
-    storage.metadata = { sizeBytes: 123, mimeType: "image/png", etag: "failure-etag" };
+    storage.metadata = { sizeBytes: 123, mimeType: "image/png", etag: "failure-etag", versionId: "failure-version" };
     storage.copyFailure = failure === "copy";
     storage.finalHeadFailure = failure === "head";
     const response = await createPhotoCompleteHandler({
@@ -371,7 +371,9 @@ describe("signed profile photo uploads", () => {
         const name = command.constructor.name;
         calls.push(name);
         expect(options?.abortSignal).toBeInstanceOf(AbortSignal);
-        if (name === "HeadObjectCommand") return { ContentLength: 4, ContentType: "image/png", ETag: '"source-etag"' };
+        if (name === "HeadObjectCommand") {
+          return { ContentLength: 4, ContentType: "image/png", ETag: '"source-etag"', VersionId: "source-version" };
+        }
         if (name === "GetObjectCommand") return { Body: { async *[Symbol.asyncIterator]() { yield new Uint8Array(4); } } };
         return {};
       },
@@ -379,7 +381,10 @@ describe("signed profile photo uploads", () => {
     const adapter = new S3StorageAdapter({ ...s3Configuration, client: client as unknown as S3Client, requestTimeoutMs: 50 });
     await adapter.headObject("staging");
     await adapter.readPrefix("review", 4);
-    await adapter.copyObject("staging", "review", { sourceETag: "source-etag" });
+    await adapter.copyObject("staging", "review", {
+      sourceETag: "source-etag",
+      sourceVersionId: "source-version",
+    });
     await adapter.deleteObject("staging");
     expect(calls).toEqual(["HeadObjectCommand", "GetObjectCommand", "CopyObjectCommand", "DeleteObjectCommand"]);
   });

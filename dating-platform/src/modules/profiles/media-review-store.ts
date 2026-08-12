@@ -159,7 +159,7 @@ export class MediaReviewStore implements PhotoMediaStore {
     userId: string,
     uploadId: string,
     leaseId: string,
-    finalized: { sizeBytes: number; mimeType: string; objectKey: string; etag?: string },
+    finalized: { sizeBytes: number; mimeType: string; objectKey: string; etag: string; versionId: string },
     now = new Date(),
   ) {
     return this.database.transaction(async (transaction) => {
@@ -176,7 +176,8 @@ export class MediaReviewStore implements PhotoMediaStore {
       }
       const expectedFinalKey = `profile-review/${userId}/${upload.id}.${extensionForMime[upload.mimeType]}`;
       if (upload.finalObjectKey !== expectedFinalKey || finalized.objectKey !== expectedFinalKey
-        || finalized.mimeType !== upload.mimeType || finalized.sizeBytes !== upload.declaredSizeBytes) {
+        || finalized.mimeType !== upload.mimeType || finalized.sizeBytes !== upload.declaredSizeBytes
+        || !finalized.etag) {
         throw new Error("INVALID_FINAL_MEDIA_KEY");
       }
       const [lockedProfile] = await tx.select({ id: profiles.id }).from(profiles)
@@ -189,6 +190,8 @@ export class MediaReviewStore implements PhotoMediaStore {
         profileId: upload.profileId,
         uploadId: upload.id,
         objectKey: finalized.objectKey,
+        objectVersion: finalized.versionId,
+        objectEtag: finalized.etag,
         position: (maximumPosition ?? -1) + 1,
         actualMimeType: finalized.mimeType,
         actualSizeBytes: finalized.sizeBytes,
@@ -220,7 +223,7 @@ export class MediaReviewStore implements PhotoMediaStore {
     userId: string,
     uploadId: string,
     finalize: (upload: typeof profilePhotoUploads.$inferSelect) => Promise<{
-      sizeBytes: number; mimeType: string; objectKey: string;
+      sizeBytes: number; mimeType: string; objectKey: string; etag: string; versionId: string;
     }>,
   ) {
     for (let attempt = 0; attempt < 200; attempt += 1) {

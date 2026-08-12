@@ -7,7 +7,7 @@ import { eq } from "drizzle-orm";
 import { afterEach, beforeEach, describe, expect, it } from "vitest";
 
 import * as schema from "@/db/schema";
-import { allowAllMediaLegalHoldPolicy } from "@/modules/moderation/media-hold-policy";
+import { DrizzleMediaLegalHoldPolicy } from "@/modules/moderation/media-hold-policy";
 import {
   HttpsMediaReviewAdapter,
   InMemoryMediaReviewAdapter,
@@ -31,7 +31,9 @@ class MemoryStorage implements StorageAdapter {
   failDeletes = 0;
   constructor(bytes: Uint8Array) { this.bytes = bytes; }
   async createPutUrl() { return "https://storage.example.test/signed?secret=hidden"; }
-  async headObject() { return { mimeType: "image/png", sizeBytes: this.bytes.length, etag: "memory-etag" }; }
+  async headObject() {
+    return { mimeType: "image/png", sizeBytes: this.bytes.length, etag: "memory-etag", versionId: "memory-v1" };
+  }
   async copyObject() {}
   async readPrefix(_key: string, maximumBytes: number) { return this.bytes.slice(0, maximumBytes); }
   async deleteObject(key: string) {
@@ -49,6 +51,7 @@ describe("durable profile media review", () => {
   let store: MediaReviewStore;
   let storeNow: Date;
   let userId: string;
+  let holdPolicy: DrizzleMediaLegalHoldPolicy;
 
   beforeEach(async () => {
     client = new PGlite();
@@ -59,6 +62,7 @@ describe("durable profile media review", () => {
       maximumPhotos: 6,
       clock: () => storeNow,
     });
+    holdPolicy = new DrizzleMediaLegalHoldPolicy(database as never);
     [{ id: userId }] = await database.insert(schema.users).values({ name: "Owner", email: "media@example.test" })
       .returning({ id: schema.users.id });
     await database.insert(schema.profiles).values({
@@ -80,6 +84,7 @@ describe("durable profile media review", () => {
     });
     return store.completeUpload(userId, upload.id, async () => ({
       mimeType: "image/png", sizeBytes, objectKey: `profile-review/${userId}/${upload.id}.png`,
+      etag: "test-etag", versionId: "test-version",
     }));
   }
 
@@ -88,6 +93,7 @@ describe("durable profile media review", () => {
     const existingUpload = (await database.select().from(schema.profilePhotoUploads))[0]!;
     const second = await store.completeUpload(userId, existingUpload.id, async () => ({
       mimeType: "image/png", sizeBytes: 24, objectKey: `profile-review/${userId}/${existingUpload.id}.png`,
+      etag: "test-etag", versionId: "test-version",
     }));
     expect(second.photo.id).toBe(first.photo.id);
     expect(await database.select().from(schema.profilePhotos)).toHaveLength(1);
@@ -105,7 +111,10 @@ describe("durable profile media review", () => {
     const finalize = async () => {
       finalizations += 1;
       await Promise.resolve();
-      return { mimeType: "image/png", sizeBytes: 24, objectKey: `profile-review/${userId}/${upload.id}.png` };
+      return {
+        mimeType: "image/png", sizeBytes: 24, objectKey: `profile-review/${userId}/${upload.id}.png`,
+        etag: "test-etag", versionId: "test-version",
+      };
     };
     const [first, second] = await Promise.all([
       store.completeUpload(userId, upload.id, finalize),
@@ -126,7 +135,7 @@ describe("durable profile media review", () => {
       claimUploadFinalization(userId: string, uploadId: string, now: Date, leaseMs: number): Promise<Record<string, unknown>>;
       bindUploadSourceEtag(uploadId: string, leaseId: string, etag: string, now: Date): Promise<boolean>;
       commitUploadFinalization(userId: string, uploadId: string, leaseId: string, metadata: {
-        objectKey: string; mimeType: string; sizeBytes: number;
+        objectKey: string; mimeType: string; sizeBytes: number; etag: string; versionId: string;
       }, now: Date): Promise<Record<string, unknown>>;
     };
     const first = await durable.claimUploadFinalization(userId, upload.id, storeNow, 1_000);
@@ -144,6 +153,7 @@ describe("durable profile media review", () => {
     const finalObjectKey = `profile-review/${userId}/${upload.id}.png`;
     const committed = await durable.commitUploadFinalization(userId, upload.id, String(recovered.leaseId), {
       objectKey: finalObjectKey, mimeType: "image/png", sizeBytes: 24,
+      etag: "final-etag", versionId: "final-version",
     }, storeNow);
     expect(committed).toMatchObject({ photo: { objectKey: finalObjectKey }, job: { status: "pending" } });
     const replay = await durable.claimUploadFinalization(userId, upload.id, storeNow, 1_000);
@@ -161,7 +171,8 @@ describe("durable profile media review", () => {
     if (claim.state !== "claimed") throw new Error("expected claim");
     storeNow = new Date(storeNow.getTime() + 51);
     await expect(store.commitUploadFinalization(userId, upload.id, claim.leaseId, {
-      objectKey: claim.upload.finalObjectKey!, mimeType: "image/png", sizeBytes: 24, etag: "final-etag",
+      objectKey: claim.upload.finalObjectKey!, mimeType: "image/png", sizeBytes: 24,
+      etag: "final-etag", versionId: "final-version",
     }, storeNow)).rejects.toThrow("UPLOAD_FINALIZATION_LEASE_LOST");
     expect(await database.select().from(schema.profilePhotos)).toHaveLength(0);
     expect(await database.select().from(schema.mediaReviewJobs)).toHaveLength(0);
@@ -223,7 +234,8 @@ describe("durable profile media review", () => {
       deleteStagingObjectKey: upload.objectKey,
     });
     await expect(store.commitUploadFinalization(userId, upload.id, claim.leaseId, {
-      objectKey: claim.upload.finalObjectKey!, mimeType: "image/png", sizeBytes: 24, etag: "final-etag",
+      objectKey: claim.upload.finalObjectKey!, mimeType: "image/png", sizeBytes: 24,
+      etag: "final-etag", versionId: "final-version",
     }, new Date(storeNow.getTime() + 49))).rejects.toThrow("UPLOAD_FINALIZATION_LEASE_LOST");
   });
 
@@ -235,6 +247,7 @@ describe("durable profile media review", () => {
     });
     await expect(store.completeUpload(userId, upload.id, async () => ({
       mimeType: "image/png", sizeBytes: 24, objectKey: upload.objectKey,
+      etag: "test-etag", versionId: "test-version",
     }))).rejects.toThrow("INVALID_FINAL_MEDIA_KEY");
     expect(await database.select().from(schema.profilePhotos)).toHaveLength(0);
   });
@@ -252,6 +265,7 @@ describe("durable profile media review", () => {
     storeNow = new Date(storeNow.getTime() + 51);
     await expect(store.completeUpload(userId, upload.id, async () => ({
       mimeType: "image/png", sizeBytes: 24, objectKey: `profile-review/${userId}/${upload.id}.png`,
+      etag: "test-etag", versionId: "test-version",
     })))
       .rejects.toThrow("UPLOAD_EXPIRED");
     expect(await database.select().from(schema.profilePhotos)).toHaveLength(0);
@@ -302,18 +316,18 @@ describe("durable profile media review", () => {
 
     const storage = new MemoryStorage(new Uint8Array());
     storage.failDeletes = 1;
-    await expect(cleanupRejectedMedia({ store, storage, holdPolicy: allowAllMediaLegalHoldPolicy, clock: () => storeNow })).resolves.toBe(0);
+    await expect(cleanupRejectedMedia({ store, storage, holdPolicy, clock: () => storeNow })).resolves.toBe(0);
     [removedPhoto] = await database.select().from(schema.profilePhotos)
       .where(eq(schema.profilePhotos.id, photo.id));
     expect(removedPhoto.objectDeletedAt).toBeNull();
-    await expect(cleanupRejectedMedia({ store, storage, holdPolicy: allowAllMediaLegalHoldPolicy, clock: () => storeNow })).resolves.toBe(1);
+    await expect(cleanupRejectedMedia({ store, storage, holdPolicy, clock: () => storeNow })).resolves.toBe(1);
     [removedPhoto] = await database.select().from(schema.profilePhotos)
       .where(eq(schema.profilePhotos.id, photo.id));
     expect(removedPhoto.objectDeletedAt).toEqual(storeNow);
     expect(storage.deleted).toEqual([photo.objectKey]);
     expect(await database.select().from(schema.profilePhotos)
       .where(eq(schema.profilePhotos.id, photo.id))).toHaveLength(1);
-    await expect(cleanupRejectedMedia({ store, storage, holdPolicy: allowAllMediaLegalHoldPolicy, clock: () => storeNow })).resolves.toBe(0);
+    await expect(cleanupRejectedMedia({ store, storage, holdPolicy, clock: () => storeNow })).resolves.toBe(0);
 
     const reserveReplacement = (suffix: string) => store.reserveUpload({
       userId,
@@ -338,7 +352,7 @@ describe("durable profile media review", () => {
       .where(eq(schema.profilePhotos.id, photo.id));
     expect(removed.userRemovedAt).toEqual(storeNow);
     expect(removed.cleanupDueAt).toEqual(storeNow);
-    await expect(cleanupRejectedMedia({ store, storage, holdPolicy: allowAllMediaLegalHoldPolicy, clock: () => storeNow })).resolves.toBe(1);
+    await expect(cleanupRejectedMedia({ store, storage, holdPolicy, clock: () => storeNow })).resolves.toBe(1);
     const [cleaned] = await database.select().from(schema.profilePhotos)
       .where(eq(schema.profilePhotos.id, photo.id));
     expect(cleaned.objectDeletedAt).toEqual(storeNow);
@@ -366,6 +380,7 @@ describe("durable profile media review", () => {
       .find((upload) => upload.idempotencyHash === "after-rejected")!;
     const failed = await store.completeUpload(userId, replacement.id, async () => ({
       mimeType: "image/png", sizeBytes: 24, objectKey: `profile-review/${userId}/${replacement.id}.png`,
+      etag: "test-etag", versionId: "test-version",
     }));
     [claim] = await store.claimDue(storeNow, 1_000, 1);
     expect(claim.id).toBe(failed.job.id);
@@ -558,11 +573,11 @@ describe("durable profile media review", () => {
       clock: () => now,
       rejectedRetentionMs: 1_000,
     });
-    expect(await cleanupRejectedMedia({ store, storage, holdPolicy: allowAllMediaLegalHoldPolicy, clock: () => new Date(now.getTime() + 999) })).toBe(0);
+    expect(await cleanupRejectedMedia({ store, storage, holdPolicy, clock: () => new Date(now.getTime() + 999) })).toBe(0);
     expect(storage.deleted).toHaveLength(0);
-    expect(await cleanupRejectedMedia({ store, storage, holdPolicy: allowAllMediaLegalHoldPolicy, clock: () => new Date(now.getTime() + 1_000) })).toBe(1);
+    expect(await cleanupRejectedMedia({ store, storage, holdPolicy, clock: () => new Date(now.getTime() + 1_000) })).toBe(1);
     expect(storage.deleted).toEqual([photo.objectKey]);
-    expect(await cleanupRejectedMedia({ store, storage, holdPolicy: allowAllMediaLegalHoldPolicy, clock: () => new Date(now.getTime() + 2_000) })).toBe(0);
+    expect(await cleanupRejectedMedia({ store, storage, holdPolicy, clock: () => new Date(now.getTime() + 2_000) })).toBe(0);
   });
 
   it("durably retries staging deletion and records final artifact cleanup", async () => {
@@ -608,7 +623,7 @@ describe("durable profile media review", () => {
     const first = await drainMediaWorkers({
       store,
       storage,
-      holdPolicy: allowAllMediaLegalHoldPolicy,
+      holdPolicy,
       adapter: new InMemoryMediaReviewAdapter([{
         outcome: "rejected", provider: "test", version: "v1", reasonCode: "CONTENT_UNSAFE",
       }]),
@@ -619,14 +634,14 @@ describe("durable profile media review", () => {
     const due = await drainMediaWorkers({
       store,
       storage,
-      holdPolicy: allowAllMediaLegalHoldPolicy,
+      holdPolicy,
       adapter: new InMemoryMediaReviewAdapter(),
       clock: () => new Date(now.getTime() + 1_000),
       rejectedRetentionMs: 1_000,
     });
     expect(due).toEqual({ reviewed: 0, deleted: 1, uploadArtifactsDeleted: 0 });
     await expect(drainMediaWorkers({
-      store, storage, holdPolicy: allowAllMediaLegalHoldPolicy,
+      store, storage, holdPolicy,
       adapter: new InMemoryMediaReviewAdapter(),
       clock: () => new Date(now.getTime() + 2_000), rejectedRetentionMs: 1_000,
     })).resolves.toEqual({ reviewed: 0, deleted: 0, uploadArtifactsDeleted: 0 });

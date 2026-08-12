@@ -206,12 +206,31 @@ export const moderationEvidenceAccess = pgTable("moderation_evidence_access", {
   check("moderation_evidence_access_role_check", sql`${table.actorRole} IN ('case_worker', 'safety_specialist', 'legal_reviewer')`),
 ]);
 
+export const moderationMediaCopies = pgTable("moderation_media_copies", {
+  id: uuid("id").defaultRandom().primaryKey(),
+  reportId: uuid("report_id").notNull().references(() => reports.id, { onDelete: "restrict" }),
+  caseId: uuid("case_id").notNull().references(() => moderationCases.id, { onDelete: "restrict" }),
+  subjectUserId: uuid("subject_user_id").notNull().references(() => users.id, { onDelete: "restrict" }),
+  photoId: uuid("photo_id").notNull().references(() => profilePhotos.id, { onDelete: "restrict" }),
+  sourceObjectKey: text("source_object_key").notNull(),
+  sourceObjectVersion: text("source_object_version").notNull(),
+  sourceObjectEtag: text("source_object_etag").notNull(),
+  objectKey: text("object_key").notNull().unique(),
+  objectVersion: text("object_version").notNull(),
+  objectEtag: text("object_etag").notNull(),
+  createdAt: timestamptz("created_at").defaultNow().notNull(),
+}, (table) => [
+  unique("moderation_media_copies_report_photo_unique").on(table.reportId, table.photoId),
+  index("moderation_media_copies_case_idx").on(table.caseId, table.createdAt),
+]);
+
 export const moderationMediaHolds = pgTable("moderation_media_holds", {
   id: uuid("id").defaultRandom().primaryKey(),
   reportId: uuid("report_id").notNull().references(() => reports.id, { onDelete: "restrict" }),
   caseId: uuid("case_id").notNull().references(() => moderationCases.id, { onDelete: "restrict" }),
   subjectUserId: uuid("subject_user_id").notNull().references(() => users.id, { onDelete: "restrict" }),
   photoId: uuid("photo_id").notNull().references(() => profilePhotos.id, { onDelete: "restrict" }),
+  evidenceCopyId: uuid("evidence_copy_id").references(() => moderationMediaCopies.id, { onDelete: "restrict" }),
   objectKey: text("object_key").notNull(),
   objectVersion: text("object_version").notNull(),
   snapshotSha256: varchar("snapshot_sha256", { length: 64 }).notNull(),

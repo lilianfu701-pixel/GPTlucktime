@@ -134,14 +134,16 @@ export async function cleanupRejectedMedia(input: {
 }) {
   const now = input.clock?.() ?? new Date();
   const photos = await input.store.listCleanupDue(now, input.batchSize ?? 20);
-  const deletablePhotoIds = await input.holdPolicy.filterDeletablePhotoIds(photos.map(({ id }) => id));
   let deleted = 0;
   for (const photo of photos) {
-    if (!deletablePhotoIds.has(photo.id)) continue;
+    const claim = await input.holdPolicy.claimDeletion(photo.id, photo.objectKey, now);
+    if (!claim) continue;
     try {
+      if (!await input.holdPolicy.validateDeletionClaim(claim, input.clock?.() ?? new Date())) continue;
       await input.storage.deleteObject(photo.objectKey);
-      if (await input.store.markObjectDeleted(photo.id, photo.objectKey, now)) deleted += 1;
+      if (await input.holdPolicy.finalizeDeletionClaim(claim, input.clock?.() ?? new Date())) deleted += 1;
     } catch {
+      await input.holdPolicy.abortDeletionClaim(claim);
       // A later cleanup pass retries; provider/storage details are intentionally not persisted here.
     }
   }

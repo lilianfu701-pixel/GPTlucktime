@@ -11,6 +11,7 @@ import {
   moderationCases,
   moderationContentQuarantines,
   moderationEvidence,
+  moderationMediaCopies,
   moderationMediaHolds,
   moderationOutboxEvents,
   realtimePairRevocations,
@@ -34,6 +35,8 @@ import {
 } from "./report-service";
 import { evidenceIntegritySha256 } from "./evidence-integrity";
 import { mediaHoldSnapshotSha256 } from "./media-hold-integrity";
+import type { MediaEvidencePreserver } from "./media-evidence-preserver";
+import type { MediaLegalHoldPolicy } from "./media-hold-policy";
 
 type ModerationDatabase = typeof productionDatabase;
 type JurisdictionWorkflow = {
@@ -59,17 +62,23 @@ export class DrizzleReportRepository implements ReportSubmissionRepository {
   private readonly idempotencySecret: string;
   private readonly clock: () => Date;
   private readonly jurisdictionPolicy: (countryCode: string) => JurisdictionWorkflow;
+  private readonly mediaHoldPolicy: MediaLegalHoldPolicy;
+  private readonly mediaEvidencePreserver: MediaEvidencePreserver;
 
   constructor(database: unknown, options: {
     idempotencySecret: string;
     clock?: () => Date;
     jurisdictionPolicy: (countryCode: string) => JurisdictionWorkflow;
+    mediaHoldPolicy: MediaLegalHoldPolicy;
+    mediaEvidencePreserver: MediaEvidencePreserver;
   }) {
     if (options.idempotencySecret.length < 16) throw new Error("MODERATION_IDEMPOTENCY_SECRET_TOO_SHORT");
     this.database = database as ModerationDatabase;
     this.idempotencySecret = options.idempotencySecret;
     this.clock = options.clock ?? (() => new Date());
     this.jurisdictionPolicy = options.jurisdictionPolicy;
+    this.mediaHoldPolicy = options.mediaHoldPolicy;
+    this.mediaEvidencePreserver = options.mediaEvidencePreserver;
   }
 
   async submit(input: Parameters<ReportSubmissionRepository["submit"]>[0]) {
@@ -181,41 +190,50 @@ export class DrizzleReportRepository implements ReportSubmissionRepository {
             .filter((reference) => reference.type === "photo")
             .map(({ id }) => id);
           if (referencedPhotoIds.length > 0) {
-            const heldPhotos = await tx.select({
-              id: profilePhotos.id,
-              userId: profilePhotos.userId,
-              objectKey: profilePhotos.objectKey,
-              reviewVersion: profilePhotos.reviewVersion,
-              updatedAt: profilePhotos.updatedAt,
-            }).from(profilePhotos).where(and(
-              eq(profilePhotos.profileId, target.profileId),
-              or(...referencedPhotoIds.map((id) => eq(profilePhotos.id, id))),
-            ));
-            if (heldPhotos.length !== new Set(referencedPhotoIds).size) {
-              throw new ModerationError("REPORT_NOT_AVAILABLE");
-            }
-            await tx.insert(moderationMediaHolds).values(heldPhotos.map((photo) => {
-              const objectVersion = photo.reviewVersion ?? photo.updatedAt.toISOString();
-              return {
+            for (const photoId of new Set(referencedPhotoIds)) {
+              const source = await this.mediaHoldPolicy.prepareHoldInTransaction(tx, {
+                photoId,
+                subjectUserId: target.userId,
+              });
+              if (!source) throw new ModerationError("REPORT_NOT_AVAILABLE");
+              const copied = await this.mediaEvidencePreserver.preserve(
+                source,
+                `restricted-evidence/${created.id}/${photoId}`,
+              );
+              const [evidenceCopy] = await tx.insert(moderationMediaCopies).values({
                 reportId: created.id,
                 caseId: moderationCase.id,
-                subjectUserId: photo.userId,
-                photoId: photo.id,
-                objectKey: photo.objectKey,
-                objectVersion,
+                subjectUserId: source.subjectUserId,
+                photoId: source.photoId,
+                sourceObjectKey: source.objectKey,
+                sourceObjectVersion: source.objectVersion,
+                sourceObjectEtag: source.objectEtag,
+                objectKey: copied.objectKey,
+                objectVersion: copied.objectVersion,
+                objectEtag: copied.objectEtag,
+                createdAt: now,
+              }).returning();
+              await tx.insert(moderationMediaHolds).values({
+                reportId: created.id,
+                caseId: moderationCase.id,
+                subjectUserId: source.subjectUserId,
+                photoId: source.photoId,
+                evidenceCopyId: evidenceCopy.id,
+                objectKey: copied.objectKey,
+                objectVersion: copied.objectVersion,
                 snapshotSha256: mediaHoldSnapshotSha256({
                   reportId: created.id,
                   caseId: moderationCase.id,
-                  subjectUserId: photo.userId,
-                  photoId: photo.id,
-                  objectKey: photo.objectKey,
-                  objectVersion,
+                  subjectUserId: source.subjectUserId,
+                  photoId: source.photoId,
+                  objectKey: copied.objectKey,
+                  objectVersion: copied.objectVersion,
                   preserveUntil,
                 }),
                 preserveUntil,
                 createdAt: now,
-              };
-            }));
+              });
+            }
           }
         }
 

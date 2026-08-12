@@ -12,7 +12,7 @@ import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
 
 import { photoCompleteRequestSchema, photoUploadRequestSchema } from "./profile-schema";
 
-export type ObjectMetadata = { sizeBytes: number; mimeType: string; etag: string };
+export type ObjectMetadata = { sizeBytes: number; mimeType: string; etag: string; versionId: string };
 
 export interface StorageAdapter {
   createPutUrl(input: {
@@ -25,7 +25,7 @@ export interface StorageAdapter {
   copyObject(
     sourceObjectKey: string,
     destinationObjectKey: string,
-    options: { sourceETag: string },
+    options: { sourceETag: string; sourceVersionId?: string },
   ): Promise<void>;
   readPrefix(objectKey: string, maximumBytes: number): Promise<Uint8Array>;
   deleteObject(objectKey: string): Promise<void>;
@@ -127,11 +127,14 @@ export class S3StorageAdapter implements StorageAdapter {
         Bucket: this.configuration.bucket,
         Key: objectKey,
       }), { abortSignal: AbortSignal.timeout(this.configuration.requestTimeoutMs ?? 10_000) });
-      if (result.ContentLength === undefined || !result.ContentType || !result.ETag) return null;
+      if (result.ContentLength === undefined || !result.ContentType || !result.ETag || !result.VersionId) {
+        throw new Error("STORAGE_VERSIONING_REQUIRED");
+      }
       return {
         sizeBytes: result.ContentLength,
         mimeType: result.ContentType.split(";", 1)[0]!.toLowerCase(),
         etag: result.ETag.replace(/^"|"$/g, ""),
+        versionId: result.VersionId,
       };
     } catch (error) {
       const status = (error as { $metadata?: { httpStatusCode?: number } }).$metadata?.httpStatusCode;
@@ -140,11 +143,17 @@ export class S3StorageAdapter implements StorageAdapter {
     }
   }
 
-  async copyObject(sourceObjectKey: string, destinationObjectKey: string, options: { sourceETag: string }) {
+  async copyObject(sourceObjectKey: string, destinationObjectKey: string, options: {
+    sourceETag: string;
+    sourceVersionId?: string;
+  }) {
+    const source = `${this.configuration.bucket}/${sourceObjectKey.split("/").map(encodeURIComponent).join("/")}`;
     await this.client.send(new CopyObjectCommand({
       Bucket: this.configuration.bucket,
       Key: destinationObjectKey,
-      CopySource: `${this.configuration.bucket}/${sourceObjectKey.split("/").map(encodeURIComponent).join("/")}`,
+      CopySource: options.sourceVersionId
+        ? `${source}?versionId=${encodeURIComponent(options.sourceVersionId)}`
+        : source,
       CopySourceIfMatch: options.sourceETag,
     }), { abortSignal: AbortSignal.timeout(this.configuration.requestTimeoutMs ?? 10_000) });
   }

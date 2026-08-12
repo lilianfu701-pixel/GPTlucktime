@@ -152,6 +152,8 @@ export const profilePhotos = pgTable(
     profileId: uuid("profile_id").notNull(),
     uploadId: uuid("upload_id").unique().references(() => profilePhotoUploads.id, { onDelete: "set null" }),
     objectKey: text("object_key").notNull().unique(),
+    objectVersion: text("object_version"),
+    objectEtag: text("object_etag"),
     position: integer("position").default(0).notNull(),
     actualMimeType: text("actual_mime_type"),
     actualSizeBytes: integer("actual_size_bytes"),
@@ -164,6 +166,9 @@ export const profilePhotos = pgTable(
     reviewedAt: timestamptz("reviewed_at"),
     cleanupDueAt: timestamptz("cleanup_due_at"),
     objectDeletedAt: timestamptz("object_deleted_at"),
+    deletionStatus: text("deletion_status").default("idle").notNull(),
+    deletionLeaseId: uuid("deletion_lease_id"),
+    deletionLeaseExpiresAt: timestamptz("deletion_lease_expires_at"),
     userRemovedAt: timestamptz("user_removed_at"),
     createdAt: createdAt(),
     updatedAt: updatedAt(),
@@ -184,6 +189,12 @@ export const profilePhotos = pgTable(
       "profile_photos_moderation_status_check",
       sql`${table.moderationStatus} IN ('pending', 'approved', 'rejected')`,
     ),
+    check("profile_photos_deletion_status_check", sql`${table.deletionStatus} IN ('idle', 'claimed', 'deleting')`),
+    check("profile_photos_deletion_lease_check", sql`
+      (${table.deletionStatus} = 'idle' AND ${table.deletionLeaseId} IS NULL AND ${table.deletionLeaseExpiresAt} IS NULL)
+      OR (${table.deletionStatus} IN ('claimed', 'deleting') AND ${table.deletionLeaseId} IS NOT NULL
+        AND ${table.deletionLeaseExpiresAt} IS NOT NULL)
+    `),
   ],
 );
 
