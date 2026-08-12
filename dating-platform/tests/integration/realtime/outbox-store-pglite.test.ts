@@ -181,7 +181,7 @@ describe("message outbox PostgreSQL store", () => {
     expect(emissions).toBe(0);
     expect(await database.select().from(schema.messageOutboxEvents)).toMatchObject([{
       status: "suppressed",
-      suppressionReason: "PAIR_BLOCKED",
+      suppressionReason: "CONTENT_QUARANTINED",
     }]);
   });
 

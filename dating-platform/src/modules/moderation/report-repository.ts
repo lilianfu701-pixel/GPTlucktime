@@ -1,4 +1,4 @@
-import { createHash, createHmac, timingSafeEqual } from "node:crypto";
+import { createHmac, timingSafeEqual } from "node:crypto";
 
 import { and, desc, eq, lt, or } from "drizzle-orm";
 
@@ -29,6 +29,7 @@ import {
   type ReportSubmissionRepository,
   type SubmitReportInput,
 } from "./report-service";
+import { evidenceIntegritySha256 } from "./evidence-integrity";
 
 type ModerationDatabase = typeof productionDatabase;
 type JurisdictionWorkflow = {
@@ -38,7 +39,6 @@ type JurisdictionWorkflow = {
 };
 type Cursor = { createdAt: string; id: string };
 
-const sha256 = (value: string) => createHash("sha256").update(value).digest("hex");
 const canonical = (value: unknown) => JSON.stringify(value);
 const dbErrorCode = (error: unknown) => (error as { code?: string; cause?: { code?: string } }).code
   ?? (error as { cause?: { code?: string } }).cause?.code;
@@ -155,7 +155,14 @@ export class DrizzleReportRepository implements ReportSubmissionRepository {
           kind,
           classification,
           locator,
-          integritySha256: sha256(canonical(locator)),
+          integritySha256: evidenceIntegritySha256({
+            reportId: created.id,
+            caseId: moderationCase.id,
+            subjectUserId: target.userId,
+            targetSnapshot: snapshot,
+            locator,
+            capturedAt: now,
+          }),
           preserveUntil,
           quarantinedAt: emergency ? now : null,
           createdAt: now,

@@ -2,7 +2,12 @@
 
 import { describe, expect, it, vi } from "vitest";
 
-import { MessageOutboxConsumer, type ClaimedMessageEvent, type MessageOutboxStore } from "../../../realtime/outbox-consumer";
+import {
+  DeliverySuppressedError,
+  MessageOutboxConsumer,
+  type ClaimedMessageEvent,
+  type MessageOutboxStore,
+} from "../../../realtime/outbox-consumer";
 
 const event: ClaimedMessageEvent = {
   id: "00000000-0000-4000-8000-000000000001",
@@ -49,16 +54,18 @@ describe("message outbox consumer", () => {
   });
 
   it("suppresses a permanently unauthorized event instead of retrying or failing it", async () => {
-    const suppressed: string[] = [];
+    const suppressed: Array<{ id: string; reason: string }> = [];
     const store: MessageOutboxStore = {
       claim: async () => [event],
       markPublished: vi.fn(),
       reschedule: vi.fn(),
-      suppress: async (id) => { suppressed.push(id); return true; },
+      suppress: async (id, _leaseId, reason) => { suppressed.push({ id, reason }); return true; },
       failInvalid: vi.fn(),
     };
-    await new MessageOutboxConsumer(store, async () => { throw new Error("DELIVERY_NOT_ALLOWED"); }).runOnce();
-    expect(suppressed).toEqual([event.id]);
+    await new MessageOutboxConsumer(store, async () => {
+      throw new DeliverySuppressedError("MODERATION_RESTRICTED");
+    }).runOnce();
+    expect(suppressed).toEqual([{ id: event.id, reason: "MODERATION_RESTRICTED" }]);
     expect(store.reschedule).not.toHaveBeenCalled();
   });
 

@@ -9,6 +9,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import * as schema from "@/db/schema";
 import { publicDiscoveryFilterSchema } from "@/modules/discovery/discovery-types";
 import { DiscoveryRepository } from "@/modules/discovery/discovery-repository";
+import { DrizzleModerationContentPolicy } from "@/modules/moderation/content-policy";
 import { DrizzleModerationRestrictionPolicy } from "@/modules/moderation/restriction-policy";
 import { DrizzleReportRepository } from "@/modules/moderation/report-repository";
 import { ReportService, RuleBasedReportRiskAssessor } from "@/modules/moderation/report-service";
@@ -157,7 +158,7 @@ describe("discovery repository", () => {
     expect(result.items).toEqual([]);
   });
 
-  it("consumes the moderation restriction policy and hides an emergency-restricted candidate", async () => {
+  it("keeps an emergency-quarantined profile hidden after the short restriction expires and rechecks snapshots", async () => {
     const restricted = await addPerson({
       email: "restricted-by-report@example.test",
       displayName: "Restricted by emergency report",
@@ -179,13 +180,36 @@ describe("discovery repository", () => {
       explanation: "urgent safety review",
       evidenceReferences: [],
     });
+    now = new Date(now.getTime() + 25 * 60 * 60_000);
     const restrictedRepository = new DiscoveryRepository(database, {
       clock: () => now,
       cursorSecret: CURSOR_SECRET,
       restrictionPolicy: new DrizzleModerationRestrictionPolicy(),
+      contentPolicy: new DrizzleModerationContentPolicy(),
     });
-    const result = await restrictedRepository.discover(viewerId, publicDiscoveryFilterSchema.parse({}));
-    expect(result.items.map((item) => item.id)).not.toContain(restricted.profileId);
+    const hiddenAfterRestrictionExpiry = await restrictedRepository.discover(
+      viewerId,
+      publicDiscoveryFilterSchema.parse({}),
+    );
+    expect(hiddenAfterRestrictionExpiry.items.map((item) => item.id)).not.toContain(restricted.profileId);
+
+    await database.update(schema.moderationContentQuarantines).set({
+      active: false,
+      releasedAt: now,
+    }).where(eq(schema.moderationContentQuarantines.contentId, restricted.profileId));
+    now = new Date(now.getTime() + 16 * 60_000);
+    const restored = await restrictedRepository.discover(viewerId, publicDiscoveryFilterSchema.parse({}));
+    expect(restored.items.map((item) => item.id)).toContain(restricted.profileId);
+
+    await database.update(schema.moderationContentQuarantines).set({
+      active: true,
+      releasedAt: null,
+    }).where(eq(schema.moderationContentQuarantines.contentId, restricted.profileId));
+    const hiddenFromExistingSnapshot = await restrictedRepository.discover(
+      viewerId,
+      publicDiscoveryFilterSchema.parse({}),
+    );
+    expect(hiddenFromExistingSnapshot.items.map((item) => item.id)).not.toContain(restricted.profileId);
   });
 
   it("uses signed stable keyset pagination without duplicates", async () => {

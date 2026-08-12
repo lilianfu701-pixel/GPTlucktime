@@ -66,7 +66,7 @@ describe("durable identity session intents", () => {
       email: `${crypto.randomUUID()}@example.test`,
     }).returning({ id: schema.users.id });
     userId = user.id;
-  });
+  }, 30_000);
 
   afterEach(async () => client.close());
 

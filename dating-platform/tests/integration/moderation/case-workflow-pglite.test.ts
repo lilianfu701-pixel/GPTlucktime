@@ -1,14 +1,17 @@
 // @vitest-environment node
 
 import { PGlite } from "@electric-sql/pglite";
-import { eq } from "drizzle-orm";
+import { eq, sql } from "drizzle-orm";
 import { drizzle } from "drizzle-orm/pglite";
 import { migrate } from "drizzle-orm/pglite/migrator";
 import { afterEach, beforeEach, describe, expect, it } from "vitest";
 
 import * as schema from "@/db/schema";
 import { DrizzleCaseService } from "@/modules/moderation/case-service";
+import { MessageRepository } from "@/modules/messaging/message-repository";
 import { DrizzleReportRepository } from "@/modules/moderation/report-repository";
+import { DrizzleModerationRestrictionPolicy } from "@/modules/moderation/restriction-policy";
+import { SocialRepository } from "@/modules/social/social-repository";
 import { ReportService, RuleBasedReportRiskAssessor } from "@/modules/moderation/report-service";
 
 const NOW = new Date("2026-08-11T12:00:00.000Z");
@@ -139,6 +142,25 @@ describe("moderation case governance", () => {
       expiresAt: new Date("9999-12-31T23:59:59.000Z"),
     });
     expect(action).toMatchObject({ operatorUserId: worker.user.id, subjectUserId: target.user.id });
+    expect(await database.select().from(schema.userRestrictions)
+      .where(eq(schema.userRestrictions.sourceCaseId, moderationCase.id))).toEqual([
+      expect.objectContaining({
+        subjectUserId: target.user.id,
+        scope: "all_interactions",
+        expiryPolicy: "indefinite_review",
+        expiresAt: new Date("9999-12-31T23:59:59.000Z"),
+        active: true,
+      }),
+    ]);
+    expect(await database.select({ status: schema.profiles.status }).from(schema.profiles)
+      .where(eq(schema.profiles.userId, target.user.id))).toEqual([{ status: "active" }]);
+    const allowed = await new DrizzleModerationRestrictionPolicy().filterAllowedInTransaction(
+      database,
+      [target.user.id],
+      "messaging",
+      NOW,
+    );
+    expect(allowed.has(target.user.id)).toBe(false);
     expect(await database.select().from(schema.moderationAuditEvents)
       .where(eq(schema.moderationAuditEvents.eventType, "action_recorded"))).toHaveLength(1);
     await expect(database.update(schema.moderationActions).set({ reasonCode: "REWRITTEN" })
@@ -147,6 +169,98 @@ describe("moderation case governance", () => {
       .where(eq(schema.moderationAuditEvents.eventType, "action_recorded"));
     await expect(database.delete(schema.moderationAuditEvents)
       .where(eq(schema.moderationAuditEvents.id, audit!.id))).rejects.toThrow();
+  });
+
+  it("enforces fixed action expiry and rejects ambiguous permanent-action windows", async () => {
+    const { moderationCase, reporter, target } = await createCase();
+    const worker = await addUser("temporary-action-worker");
+    const actor = { userId: worker.user.id, role: "case_worker" as const };
+    await caseService.transition(moderationCase.id, actor, "triaged");
+    await caseService.transition(moderationCase.id, actor, "under_review");
+
+    await expect(caseService.recordAction(moderationCase.id, actor, {
+      subjectUserId: target.user.id,
+      actionType: "temporary_restriction",
+      reasonCode: "TEMPORARY_SAFETY_HOLD",
+      evidenceSummary: "short review window",
+      expiryPolicy: "indefinite_review",
+      expiresAt: new Date("9999-12-31T23:59:59.000Z"),
+    })).rejects.toThrow("INVALID_ACTION");
+
+    const expiresAt = new Date(NOW.getTime() + 60 * 60_000);
+    await caseService.recordAction(moderationCase.id, actor, {
+      subjectUserId: target.user.id,
+      actionType: "temporary_restriction",
+      reasonCode: "TEMPORARY_SAFETY_HOLD",
+      evidenceSummary: "short review window",
+      expiryPolicy: "fixed",
+      expiresAt,
+    });
+    const policy = new DrizzleModerationRestrictionPolicy();
+    const during = await policy.filterAllowedInTransaction(database, [target.user.id], "discovery", NOW);
+    const after = await policy.filterAllowedInTransaction(
+      database,
+      [target.user.id],
+      "discovery",
+      new Date(expiresAt.getTime() + 1),
+    );
+    expect(during.has(target.user.id)).toBe(false);
+    expect(after.has(target.user.id)).toBe(true);
+    expect(await database.select({ status: schema.profiles.status }).from(schema.profiles)
+      .where(eq(schema.profiles.userId, target.user.id))).toEqual([{ status: "active" }]);
+
+    const [lowUserId, highUserId] = [reporter.user.id, target.user.id].sort();
+    const [conversation] = await database.insert(schema.conversations).values({ lowUserId, highUserId }).returning();
+    await database.insert(schema.conversationMembers).values([
+      { conversationId: conversation.id, userId: lowUserId, lowUserId, highUserId },
+      { conversationId: conversation.id, userId: highUserId, lowUserId, highUserId },
+    ]);
+    const messageRepository = (clock: () => Date) => new MessageRepository(database, {
+      interactionPolicy: new SocialRepository(database, {
+        cursorSecret: "case-action-message-policy-secret",
+        idempotencySecret: "case-action-message-policy-secret",
+      }),
+      entitlementService: {
+        consumeInTransaction: async () => ({ allowed: true }),
+        decideInTransaction: async () => ({ allowed: true }),
+      } as never,
+      verificationPolicy: { unmetInTransaction: async () => [] },
+      restrictionPolicy: new DrizzleModerationRestrictionPolicy(),
+      cursorSecret: "case-action-message-policy-secret",
+      clock,
+    });
+    await expect(messageRepository(() => NOW).sendMessage(reporter.user.id, conversation.id, {
+      clientId: "00000000-0000-4000-8000-000000000801",
+      body: "blocked during worker restriction",
+    })).rejects.toThrow("MESSAGE_SEND_DENIED");
+    await expect(messageRepository(() => new Date(expiresAt.getTime() + 1)).sendMessage(
+      reporter.user.id,
+      conversation.id,
+      { clientId: "00000000-0000-4000-8000-000000000802", body: "allowed after expiry" },
+    )).resolves.toMatchObject({ body: "allowed after expiry" });
+  });
+
+  it("rolls back the action ledger if its enforcement projection cannot be written", async () => {
+    const { moderationCase, target } = await createCase();
+    const worker = await addUser("atomic-action-worker");
+    const actor = { userId: worker.user.id, role: "case_worker" as const };
+    await caseService.transition(moderationCase.id, actor, "triaged");
+    await caseService.transition(moderationCase.id, actor, "under_review");
+    await database.execute(sql`CREATE FUNCTION reject_test_restriction() RETURNS trigger
+      LANGUAGE plpgsql AS $$ BEGIN RAISE EXCEPTION 'TEST_ENFORCEMENT_WRITE_FAILED'; END; $$`);
+    await database.execute(sql`CREATE TRIGGER reject_test_restriction
+      BEFORE INSERT ON user_restrictions FOR EACH ROW EXECUTE FUNCTION reject_test_restriction()`);
+
+    await expect(caseService.recordAction(moderationCase.id, actor, {
+      subjectUserId: target.user.id,
+      actionType: "suspend",
+      reasonCode: "CONFIRMED_ABUSE",
+      evidenceSummary: "must be atomic",
+      expiryPolicy: "fixed",
+      expiresAt: new Date(NOW.getTime() + 60 * 60_000),
+    })).rejects.toThrow();
+    expect(await database.select().from(schema.moderationActions)
+      .where(eq(schema.moderationActions.caseId, moderationCase.id))).toEqual([]);
   });
 
   it("creates a distinct appeal review case and preserves the original final decision", async () => {
@@ -170,6 +284,8 @@ describe("moderation case governance", () => {
       userId: reviewer.user.id,
       role: "appeal_reviewer",
     }, "under_review");
+    expect(await database.select({ status: schema.appeals.status }).from(schema.appeals)
+      .where(eq(schema.appeals.id, appeal.id))).toEqual([{ status: "under_review" }]);
     await caseService.finalizeAppeal(appeal.id, {
       userId: reviewer.user.id,
       role: "appeal_reviewer",
@@ -207,5 +323,56 @@ describe("moderation case governance", () => {
     expect(await database.select().from(schema.moderationEvidenceAccess)).toEqual(expect.arrayContaining([
       expect.objectContaining({ actorUserId: safety.user.id, actorRole: "safety_specialist" }),
     ]));
+  });
+
+  it("rejects evidence whose controlled snapshot binding does not match its integrity hash", async () => {
+    const { moderationCase } = await createCase("MINOR_SAFETY");
+    const safety = await addUser("integrity-safety-specialist");
+    await database.insert(schema.moderationEvidence).values({
+      reportId: moderationCase.reportId,
+      caseId: moderationCase.id,
+      kind: "photo_reference",
+      classification: "restricted_safety",
+      locator: {
+        schemaVersion: 1,
+        referenceType: "photo",
+        referenceId: "00000000-0000-4000-8000-000000000999",
+      },
+      integritySha256: "f".repeat(64),
+      preserveUntil: new Date("2033-08-11T00:00:00.000Z"),
+      quarantinedAt: NOW,
+      createdAt: NOW,
+    });
+    await expect(caseService.readEvidence(moderationCase.id, {
+      userId: safety.user.id,
+      role: "safety_specialist",
+    }, "integrity_review")).rejects.toThrow("EVIDENCE_NOT_AVAILABLE");
+    expect(await database.select().from(schema.moderationEvidenceAccess)).toEqual([]);
+  });
+
+  it("protects immutable report facts, case identity and evidence content while allowing workflow updates", async () => {
+    const first = await createCase();
+    const second = await createCase("MINOR_SAFETY");
+    const [evidence] = await database.select().from(schema.moderationEvidence)
+      .where(eq(schema.moderationEvidence.caseId, first.moderationCase.id));
+
+    await expect(database.update(schema.reports).set({ reasonCode: "SPAM" })
+      .where(eq(schema.reports.id, first.moderationCase.reportId))).rejects.toThrow();
+    await expect(database.delete(schema.reports)
+      .where(eq(schema.reports.id, first.moderationCase.reportId))).rejects.toThrow();
+    await expect(database.update(schema.moderationCases).set({ reportId: second.moderationCase.reportId })
+      .where(eq(schema.moderationCases.id, first.moderationCase.id))).rejects.toThrow();
+    await expect(database.update(schema.moderationEvidence).set({
+      integritySha256: "0".repeat(64),
+    }).where(eq(schema.moderationEvidence.id, evidence!.id))).rejects.toThrow();
+    await expect(database.delete(schema.moderationEvidence)
+      .where(eq(schema.moderationEvidence.id, evidence!.id))).rejects.toThrow();
+
+    await expect(database.update(schema.reports).set({ publicStatus: "in_review", updatedAt: NOW })
+      .where(eq(schema.reports.id, first.moderationCase.reportId))).resolves.toBeDefined();
+    await expect(database.update(schema.moderationCases).set({
+      assignedWorkerUserId: second.reporter.user.id,
+      updatedAt: NOW,
+    }).where(eq(schema.moderationCases.id, first.moderationCase.id))).resolves.toBeDefined();
   });
 });

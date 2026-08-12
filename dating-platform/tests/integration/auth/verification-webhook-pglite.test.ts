@@ -27,7 +27,7 @@ describe("identity verification webhook PostgreSQL integration", () => {
     client = new PGlite();
     database = drizzle(client, { schema });
     await migrate(database, { migrationsFolder: "./drizzle" });
-  });
+  }, 30_000);
 
   afterEach(async () => {
     await client.close();

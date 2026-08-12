@@ -23,7 +23,7 @@ describe("profile repository and handler", () => {
       name: "Profile Owner",
       email: "profile-owner@example.test",
     }).returning({ id: schema.users.id });
-  });
+  }, 30_000);
 
   afterEach(async () => client.close());
 

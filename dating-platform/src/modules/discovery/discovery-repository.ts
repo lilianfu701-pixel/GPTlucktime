@@ -35,6 +35,10 @@ import {
 } from "@/db/schema";
 import type { db as productionDatabase } from "@/infrastructure/db/client";
 import {
+  allowAllContentPolicy,
+  type ModerationContentPolicy,
+} from "@/modules/moderation/content-policy";
+import {
   allowAllRestrictionPolicy,
   type ModerationRestrictionPolicy,
 } from "@/modules/moderation/restriction-policy";
@@ -81,18 +85,21 @@ export class DiscoveryRepository {
   private readonly cursorSecret: string;
   private readonly disabledCountryCodes: ReadonlySet<string>;
   private readonly restrictionPolicy: ModerationRestrictionPolicy;
+  private readonly contentPolicy: ModerationContentPolicy;
 
   constructor(database: unknown, options: {
     clock?: () => Date;
     cursorSecret: string;
     disabledCountryCodes?: readonly string[];
     restrictionPolicy?: ModerationRestrictionPolicy;
+    contentPolicy?: ModerationContentPolicy;
   }) {
     this.database = database as DiscoveryDatabase;
     this.clock = options.clock ?? (() => new Date());
     this.cursorSecret = options.cursorSecret;
     this.disabledCountryCodes = new Set(options.disabledCountryCodes ?? []);
     this.restrictionPolicy = options.restrictionPolicy ?? allowAllRestrictionPolicy;
+    this.contentPolicy = options.contentPolicy ?? allowAllContentPolicy;
   }
 
   async discover(userId: string, rawFilters: DiscoveryFilters) {
@@ -286,6 +293,10 @@ export class DiscoveryRepository {
         tx, [userId], "discovery", now,
       );
       if (!allowedViewer.has(userId)) return { ranked: [], truncated: false };
+      const visibleViewerProfileIds = await this.contentPolicy.filterVisibleProfileIdsInTransaction(
+        tx, [viewerRow.profile.id], now,
+      );
+      if (!visibleViewerProfileIds.has(viewerRow.profile.id)) return { ranked: [], truncated: false };
 
       let ranked: RankedCandidate[] = [];
       let truncatedByEvaluation = false;
@@ -374,8 +385,15 @@ export class DiscoveryRepository {
           "discovery",
           now,
         );
+        const visibleCandidateProfileIds = await this.contentPolicy.filterVisibleProfileIdsInTransaction(
+          tx,
+          poolProfiles.map(({ id }) => id),
+          now,
+        );
         const evaluatedProfileIds = poolProfiles
-          .filter(({ userId: candidateUserId }) => allowedCandidateIds.has(candidateUserId))
+          .filter(({ id, userId: candidateUserId }) => (
+            allowedCandidateIds.has(candidateUserId) && visibleCandidateProfileIds.has(id)
+          ))
           .map(({ id }) => id);
         const candidateRows = await tx.select({
           profile: profiles,
@@ -604,10 +622,17 @@ export class DiscoveryRepository {
         tx, [userId], "discovery", now,
       );
       if (!allowedViewer.has(userId)) return new Map<string, Record<string, unknown>>();
+      const visibleViewerProfileIds = await this.contentPolicy.filterVisibleProfileIdsInTransaction(
+        tx, [viewer.id], now,
+      );
+      if (!visibleViewerProfileIds.has(viewer.id)) return new Map<string, Record<string, unknown>>();
       const candidateProfileIds = rows.map(({ candidateProfileId }) => candidateProfileId);
       const candidateUserIds = rows.map(({ candidateUserId }) => candidateUserId);
       const allowedCandidateIds = await this.restrictionPolicy.filterAllowedInTransaction(
         tx, candidateUserIds, "discovery", now,
+      );
+      const visibleCandidateProfileIds = await this.contentPolicy.filterVisibleProfileIdsInTransaction(
+        tx, candidateProfileIds, now,
       );
       const [candidateRows, photoRows, blockRows, interestRows, verifiedRows, onlineRows] = await Promise.all([
         tx.select({ profile: profiles, preferences: profilePreferences, privacy: privacySettings })
@@ -654,7 +679,7 @@ export class DiscoveryRepository {
       const snapshotItemsByProfile = new Map(rows.map((row) => [row.candidateProfileId, row]));
       const safe = new Map<string, Record<string, unknown>>();
       for (const { profile, preferences, privacy } of candidateRows) {
-        if (!allowedCandidateIds.has(profile.userId)) continue;
+        if (!allowedCandidateIds.has(profile.userId) || !visibleCandidateProfileIds.has(profile.id)) continue;
         const photos = photosByProfile.get(profile.id) ?? [];
         if (!profile.birthDate || !profile.genderCode || !profile.countryCode) continue;
         const eligible = isCandidateEligible({

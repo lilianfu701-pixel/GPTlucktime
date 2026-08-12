@@ -7,12 +7,13 @@ import {
   moderationCases,
   moderationEvidence,
   moderationEvidenceAccess,
-  profiles,
   reports,
+  userRestrictions,
 } from "@/db/schema";
 import type { db as productionDatabase } from "@/infrastructure/db/client";
 
 import { ModerationError } from "./report-service";
+import { verifyEvidenceIntegrity } from "./evidence-integrity";
 
 type ModerationDatabase = typeof productionDatabase;
 export type ModerationActor = {
@@ -21,6 +22,7 @@ export type ModerationActor = {
 };
 type CaseStatus = typeof moderationCases.$inferSelect["status"];
 type AppealDecision = "upheld" | "overturned" | "modified";
+const INDEFINITE_REVIEW_EXPIRES_AT = new Date("9999-12-31T23:59:59.000Z");
 
 const transitions: Record<string, readonly string[]> = {
   submitted: ["triaged"],
@@ -80,6 +82,12 @@ export class DrizzleCaseService {
         publicStatus: isFinal ? "resolved" : "in_review",
         updatedAt: now,
       }).where(eq(reports.id, current.reportId));
+      if (current.kind === "appeal" && nextStatus === "under_review") {
+        await tx.update(appeals).set({ status: "under_review" }).where(and(
+          eq(appeals.reviewCaseId, current.id),
+          eq(appeals.status, "submitted"),
+        ));
+      }
       await tx.insert(moderationAuditEvents).values({
         caseId,
         actorUserId: actor.userId,
@@ -108,6 +116,12 @@ export class DrizzleCaseService {
       || Number.isNaN(expiresAt.getTime()) || expiresAt <= now) {
       throw new ModerationError("INVALID_ACTION");
     }
+    const isIndefiniteSentinel = expiresAt.getTime() === INDEFINITE_REVIEW_EXPIRES_AT.getTime();
+    if ((input.expiryPolicy === "indefinite_review") !== isIndefiniteSentinel
+      || (input.actionType === "temporary_restriction" && input.expiryPolicy !== "fixed")
+      || (input.actionType === "ban" && input.expiryPolicy !== "indefinite_review")) {
+      throw new ModerationError("INVALID_ACTION");
+    }
     return this.database.transaction(async (transaction) => {
       const tx = transaction as unknown as ModerationDatabase;
       const current = await this.lockCase(tx, caseId);
@@ -127,15 +141,31 @@ export class DrizzleCaseService {
         expiresAt,
         createdAt: now,
       }).returning();
-      const status = input.actionType === "ban"
-        ? "banned"
-        : input.actionType === "suspend"
-          ? "suspended"
-          : input.actionType === "temporary_restriction"
-            ? "restricted"
-            : null;
-      if (status) await tx.update(profiles).set({ status, updatedAt: now })
-        .where(eq(profiles.userId, input.subjectUserId));
+      if ((["temporary_restriction", "suspend", "ban"] as string[]).includes(input.actionType)) {
+        await tx.insert(userRestrictions).values({
+          subjectUserId: input.subjectUserId,
+          sourceCaseId: caseId,
+          scope: "all_interactions",
+          reasonCode,
+          expiryPolicy: input.expiryPolicy,
+          active: true,
+          startsAt: now,
+          expiresAt,
+          revokedAt: null,
+          createdAt: now,
+        }).onConflictDoUpdate({
+          target: [userRestrictions.sourceCaseId, userRestrictions.scope],
+          set: {
+            subjectUserId: input.subjectUserId,
+            reasonCode,
+            expiryPolicy: input.expiryPolicy,
+            active: true,
+            startsAt: now,
+            expiresAt,
+            revokedAt: null,
+          },
+        });
+      }
       await tx.insert(moderationAuditEvents).values({
         caseId,
         actorUserId: actor.userId,
@@ -215,7 +245,7 @@ export class DrizzleCaseService {
     return this.database.transaction(async (transaction) => {
       const tx = transaction as unknown as ModerationDatabase;
       const [appeal] = await tx.select().from(appeals).where(eq(appeals.id, appealId)).for("update").limit(1);
-      if (!appeal || appeal.status !== "submitted") throw new ModerationError("INVALID_APPEAL");
+      if (!appeal || appeal.status !== "under_review") throw new ModerationError("INVALID_APPEAL");
       const review = await this.lockCase(tx, appeal.reviewCaseId);
       await this.authorizeCaseActor(tx, review, actor);
       if (review.status !== "under_review") throw new ModerationError("INVALID_APPEAL");
@@ -225,7 +255,7 @@ export class DrizzleCaseService {
         finalDecisionSummary: summary,
         decidedByUserId: actor.userId,
         finalizedAt: now,
-      }).where(and(eq(appeals.id, appeal.id), eq(appeals.status, "submitted"))).returning();
+      }).where(and(eq(appeals.id, appeal.id), eq(appeals.status, "under_review"))).returning();
       await tx.update(moderationCases).set({
         status: "actioned",
         finalDecisionSummary: summary,
@@ -252,8 +282,21 @@ export class DrizzleCaseService {
     return this.database.transaction(async (transaction) => {
       const tx = transaction as unknown as ModerationDatabase;
       const current = await this.lockCase(tx, caseId);
-      const rows = await tx.select().from(moderationEvidence)
+      const joinedRows = await tx.select({
+        evidence: moderationEvidence,
+        targetSnapshot: reports.targetSnapshot,
+        subjectUserId: reports.targetUserId,
+      }).from(moderationEvidence).innerJoin(reports, eq(reports.id, moderationEvidence.reportId))
         .where(eq(moderationEvidence.caseId, current.id));
+      if (joinedRows.some((row) => !verifyEvidenceIntegrity({
+        reportId: row.evidence.reportId,
+        caseId: row.evidence.caseId,
+        subjectUserId: row.subjectUserId,
+        targetSnapshot: row.targetSnapshot,
+        locator: row.evidence.locator,
+        capturedAt: row.evidence.createdAt,
+      }, row.evidence.integritySha256))) throw new ModerationError("EVIDENCE_NOT_AVAILABLE");
+      const rows = joinedRows.map(({ evidence }) => evidence);
       const restricted = rows.some((row) => row.classification === "restricted_safety");
       if (restricted && !(["safety_specialist", "legal_reviewer"] as string[]).includes(actor.role)) {
         throw new ModerationError("FORBIDDEN");

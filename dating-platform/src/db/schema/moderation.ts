@@ -128,6 +128,7 @@ export const moderationActions = pgTable("moderation_actions", {
   index("moderation_actions_subject_created_idx").on(table.subjectUserId, table.createdAt),
   check("moderation_actions_type_check", sql`${table.actionType} IN ('warn', 'temporary_restriction', 'suspend', 'ban', 'quarantine_content', 'restore')`),
   check("moderation_actions_expiry_policy_check", sql`${table.expiryPolicy} IN ('fixed', 'indefinite_review')`),
+  check("moderation_actions_window_check", sql`${table.expiresAt} > ${table.createdAt}`),
   check("moderation_actions_reason_length_check", sql`char_length(${table.reasonCode}) BETWEEN 1 AND 80`),
   check("moderation_actions_evidence_length_check", sql`char_length(${table.evidenceSummary}) BETWEEN 1 AND 2000`),
 ]);
@@ -276,6 +277,7 @@ export const userRestrictions = pgTable("user_restrictions", {
   sourceCaseId: uuid("source_case_id").notNull().references(() => moderationCases.id, { onDelete: "restrict" }),
   scope: text("scope").notNull(),
   reasonCode: varchar("reason_code", { length: 80 }).notNull(),
+  expiryPolicy: text("expiry_policy").default("fixed").notNull(),
   active: boolean("active").default(true).notNull(),
   startsAt: timestamptz("starts_at").defaultNow().notNull(),
   expiresAt: timestamptz("expires_at").notNull(),
@@ -285,6 +287,7 @@ export const userRestrictions = pgTable("user_restrictions", {
   unique("user_restrictions_case_scope_unique").on(table.sourceCaseId, table.scope),
   index("user_restrictions_subject_scope_active_idx").on(table.subjectUserId, table.scope, table.active, table.expiresAt),
   check("user_restrictions_scope_check", sql`${table.scope} IN ('all_interactions', 'messaging', 'discovery')`),
+  check("user_restrictions_expiry_policy_check", sql`${table.expiryPolicy} IN ('fixed', 'indefinite_review')`),
   check("user_restrictions_window_check", sql`${table.expiresAt} > ${table.startsAt}`),
   check("user_restrictions_revocation_check", sql`(${table.active} AND ${table.revokedAt} IS NULL) OR (NOT ${table.active} AND ${table.revokedAt} IS NOT NULL)`),
 ]);

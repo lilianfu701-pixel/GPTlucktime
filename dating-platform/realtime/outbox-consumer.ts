@@ -25,11 +25,17 @@ export type ClaimedMessageEvent = {
     sequence: number;
   };
 };
+export type MessageSuppressionReason = "PAIR_BLOCKED" | "MODERATION_RESTRICTED" | "CONTENT_QUARANTINED";
+export class DeliverySuppressedError extends Error {
+  constructor(readonly reason: MessageSuppressionReason) {
+    super("DELIVERY_NOT_ALLOWED");
+  }
+}
 export interface MessageOutboxStore {
   claim(limit: number): Promise<ClaimedMessageEvent[]>;
   markPublished(id: string, leaseId: string): Promise<boolean>;
   reschedule(id: string, leaseId: string, update: { failed: boolean; delayMs: number }): Promise<boolean>;
-  suppress(id: string, leaseId: string): Promise<boolean>;
+  suppress(id: string, leaseId: string, reason: MessageSuppressionReason): Promise<boolean>;
   failInvalid(id: string, leaseId: string): Promise<boolean>;
 }
 
@@ -81,8 +87,8 @@ export class MessageOutboxConsumer {
         });
         await this.store.markPublished(event.id, event.leaseId);
       } catch (error) {
-        if (error instanceof Error && error.message === "DELIVERY_NOT_ALLOWED") {
-          await this.store.suppress(event.id, event.leaseId);
+        if (error instanceof DeliverySuppressedError) {
+          await this.store.suppress(event.id, event.leaseId, error.reason);
           continue;
         }
         const failed = event.attempts >= this.maxAttempts;
@@ -112,7 +118,7 @@ export function createAuthorizedRealtimePublisher(
       lowUserId: conversations.lowUserId,
       highUserId: conversations.highUserId,
     }).from(conversations).where(eq(conversations.id, event.conversationId)).limit(1);
-    if (!pair) throw new Error("DELIVERY_NOT_ALLOWED");
+    if (!pair) throw new DeliverySuppressedError("PAIR_BLOCKED");
     try {
       await interactionPolicy.withAllowedInteraction(pair.lowUserId, pair.highUserId, async (transaction) => {
         const tx = transaction as OutboxDatabase;
@@ -121,12 +127,12 @@ export function createAuthorizedRealtimePublisher(
           transaction, [pair.lowUserId, pair.highUserId], "messaging", now,
         );
         if (!allowedUsers.has(pair.lowUserId) || !allowedUsers.has(pair.highUserId)) {
-          throw new Error("DELIVERY_NOT_ALLOWED");
+          throw new DeliverySuppressedError("MODERATION_RESTRICTED");
         }
         const visibleMessageIds = await contentPolicy.filterVisibleMessageIdsInTransaction(
           transaction, [event.messageId], now,
         );
-        if (!visibleMessageIds.has(event.messageId)) throw new Error("DELIVERY_NOT_ALLOWED");
+        if (!visibleMessageIds.has(event.messageId)) throw new DeliverySuppressedError("CONTENT_QUARANTINED");
         const [authorized] = await tx.select({ id: messageOutboxEvents.id })
           .from(messageOutboxEvents)
           .innerJoin(messages, eq(messages.id, messageOutboxEvents.messageId))
@@ -139,12 +145,13 @@ export function createAuthorizedRealtimePublisher(
             eq(messages.sequence, event.sequence),
             eq(conversations.status, "active"),
           )).limit(1);
-        if (!authorized) throw new Error("DELIVERY_NOT_ALLOWED");
+        if (!authorized) throw new DeliverySuppressedError("PAIR_BLOCKED");
         await emit(event);
       });
     } catch (error) {
+      if (error instanceof DeliverySuppressedError) throw error;
       if (error instanceof Error && ["INTERACTION_NOT_ALLOWED", "DELIVERY_NOT_ALLOWED"].includes(error.message)) {
-        throw new Error("DELIVERY_NOT_ALLOWED");
+        throw new DeliverySuppressedError("PAIR_BLOCKED");
       }
       throw error;
     }
@@ -224,13 +231,13 @@ export class DrizzleMessageOutboxStore implements MessageOutboxStore {
     return rowsOf(result).length === 1;
   }
 
-  async suppress(id: string, leaseId: string) {
+  async suppress(id: string, leaseId: string, reason: MessageSuppressionReason) {
     const now = this.options.clock?.() ?? new Date();
     const result = await this.database.execute(sql`
       UPDATE message_outbox_events
       SET status = 'suppressed', lease_id = NULL, lease_expires_at = NULL,
           last_error_code = NULL, failed_at = NULL,
-          suppression_reason = 'PAIR_BLOCKED', suppressed_at = ${now}
+          suppression_reason = ${reason}, suppressed_at = ${now}
       WHERE id = ${id}::uuid AND lease_id = ${leaseId}::uuid AND status = 'processing'
       RETURNING id
     `);
