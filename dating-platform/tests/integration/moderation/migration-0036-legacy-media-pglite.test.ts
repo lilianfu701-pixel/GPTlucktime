@@ -233,6 +233,35 @@ describe("0036 legacy moderation media upgrade", () => {
     await expect(preserveLegacyMediaTasks({
       database: database as never,
       storage: {
+        headObject: async () => { throw new Error("temporary storage endpoint detail"); },
+        copyObject: async () => { throw new Error("copy must not run"); },
+      },
+      clock: () => NOW,
+      retryBaseMs: 1_000,
+      maxAttempts: 3,
+    })).resolves.toBe(0);
+    expect((await client.query<{ status: string; attempts: number; last_error: string; updated_at: Date }>(
+      "SELECT status,attempts,last_error,updated_at FROM media_preservation_tasks WHERE photo_id=$1",
+      [ids.photo],
+    )).rows).toEqual([{
+      status: "pending",
+      attempts: 1,
+      last_error: "LEGACY_MEDIA_STORAGE_RETRY",
+      updated_at: new Date(NOW.getTime() + 1_000),
+    }]);
+    await expect(preserveLegacyMediaTasks({
+      database: database as never,
+      storage: {
+        headObject: async () => { throw new Error("must not run before retry time"); },
+        copyObject: async () => { throw new Error("must not copy before retry time"); },
+      },
+      clock: () => new Date(NOW.getTime() + 500),
+      retryBaseMs: 1_000,
+      maxAttempts: 3,
+    })).resolves.toBe(0);
+    const successfulWorker = () => preserveLegacyMediaTasks({
+      database: database as never,
+      storage: {
         headObject: async (objectKey: string) => objectKey === "legacy-media/original.jpg"
           ? { sizeBytes: 100, mimeType: "image/jpeg", etag: "current-source-etag", versionId: "current-source-version" }
           : { sizeBytes: 100, mimeType: "image/jpeg", etag: "restricted-copy-etag", versionId: "restricted-copy-version" },
@@ -240,8 +269,12 @@ describe("0036 legacy moderation media upgrade", () => {
           copied.push({ source, destination, sourceVersionId: options.sourceVersionId });
         },
       },
-      clock: () => NOW,
-    })).resolves.toBe(1);
+      clock: () => new Date(NOW.getTime() + 1_000),
+      retryBaseMs: 1_000,
+      maxAttempts: 3,
+    });
+    const concurrent = await Promise.all([successfulWorker(), successfulWorker()]);
+    expect(concurrent.reduce((sum, value) => sum + value, 0)).toBe(1);
     expect(copied).toEqual([{
       source: "legacy-media/original.jpg",
       destination: `restricted-evidence/${submitted.id}/${ids.photo}`,
@@ -263,5 +296,37 @@ describe("0036 legacy moderation media upgrade", () => {
       "SELECT preservation_status FROM profile_photos WHERE id=$1",
       [ids.photo],
     )).rows).toEqual([{ preservation_status: "legacy_preserved" }]);
+    await expect(successfulWorker()).resolves.toBe(0);
+    expect(copied).toHaveLength(1);
+
+    await database.insert(schema.mediaPreservationTasks).values({
+      reportId: ids.releasedReport,
+      caseId: ids.releasedCase,
+      subjectUserId: ids.targetUser,
+      photoId: ids.releasedPhoto,
+      sourceObjectKey: "legacy-media/already-released.jpg",
+      destinationObjectKey: `restricted-evidence/${ids.releasedReport}/${ids.releasedPhoto}`,
+      status: "pending",
+      createdAt: NOW,
+      updatedAt: NOW,
+    });
+    await expect(preserveLegacyMediaTasks({
+      database: database as never,
+      storage: {
+        headObject: async () => { throw new Error("STORAGE_ACCESS_DENIED secret provider detail"); },
+        copyObject: async () => { throw new Error("copy must not run"); },
+      },
+      clock: () => new Date(NOW.getTime() + 2_000),
+      retryBaseMs: 1_000,
+      maxAttempts: 3,
+    })).resolves.toBe(0);
+    expect((await client.query<{ status: string; attempts: number; last_error: string }>(
+      "SELECT status,attempts,last_error FROM media_preservation_tasks WHERE photo_id=$1",
+      [ids.releasedPhoto],
+    )).rows).toEqual([{
+      status: "manual_review",
+      attempts: 1,
+      last_error: "LEGACY_MEDIA_MANUAL_REVIEW",
+    }]);
   });
 });
