@@ -361,4 +361,128 @@ describe("report submission transaction", () => {
     await expect(cleanupRejectedMedia({ store, storage, holdPolicy, clock: () => NOW })).resolves.toBe(1);
     expect(deleted).toEqual([photo.objectKey]);
   });
+
+  it("revokes a paused cleanup claim when an emergency report establishes a hold", async () => {
+    const reporter = await addUser("claim-race-reporter");
+    const target = await addUser("claim-race-target");
+    const [photo] = await database.insert(schema.profilePhotos).values({
+      userId: target.user.id,
+      profileId: target.profile.id,
+      objectKey: `held/${target.profile.id}-claim-race.jpg`,
+      objectVersion: "immutable-etag-claim-race",
+      moderationStatus: "approved",
+      position: 0,
+      createdAt: NOW,
+      updatedAt: NOW,
+    }).returning();
+    const store = new MediaReviewStore(database, { clock: () => NOW });
+    await store.markPhotoRemoved(target.user.id, photo.id);
+    const coordinator = new DrizzleMediaLegalHoldPolicy(database as never);
+    let claimReachedResolve!: () => void;
+    let resumeClaimResolve!: () => void;
+    const claimReached = new Promise<void>((resolve) => { claimReachedResolve = resolve; });
+    const resumeClaim = new Promise<void>((resolve) => { resumeClaimResolve = resolve; });
+    const pausedCoordinator: DrizzleMediaLegalHoldPolicy = Object.create(coordinator) as DrizzleMediaLegalHoldPolicy;
+    pausedCoordinator.claimDeletion = async (...args) => {
+      const claim = await coordinator.claimDeletion(...args);
+      claimReachedResolve();
+      await resumeClaim;
+      return claim;
+    };
+    const deleted: string[] = [];
+    const cleanup = cleanupRejectedMedia({
+      store,
+      storage: { deleteObject: async (key: string) => { deleted.push(key); } } as never,
+      holdPolicy: pausedCoordinator,
+      clock: () => NOW,
+    });
+    await claimReached;
+    const raceService = new ReportService(new DrizzleReportRepository(database, {
+      idempotencySecret: "claim-race-report-secret",
+      clock: () => NOW,
+      mediaHoldPolicy: coordinator,
+      jurisdictionPolicy: (countryCode) => ({
+        jurisdictionCode: countryCode,
+        workflowCode: "minor-safety-review-v1",
+        dueAt: new Date(NOW.getTime() + 60 * 60_000),
+      }),
+    }), new RuleBasedReportRiskAssessor());
+    await raceService.submit(reporter.user.id, {
+      clientId: "00000000-0000-4000-8000-000000000778",
+      targetProfileId: target.profile.id,
+      reason: "MINOR_SAFETY",
+      locale: "en-US",
+      explanation: "hold must invalidate a cleanup claim",
+      evidenceReferences: [{ type: "photo", id: photo.id }],
+    });
+    resumeClaimResolve();
+    await expect(cleanup).resolves.toBe(0);
+    expect(deleted).toEqual([]);
+    expect(await database.select().from(schema.moderationMediaHolds)).toEqual([
+      expect.objectContaining({ photoId: photo.id, objectVersion: "immutable-etag-claim-race", active: true }),
+    ]);
+  });
+
+  it("keeps cleanup pending behind a report photo lock and skips after the hold commits", async () => {
+    const reporter = await addUser("hold-lock-race-reporter");
+    const target = await addUser("hold-lock-race-target");
+    const [photo] = await database.insert(schema.profilePhotos).values({
+      userId: target.user.id,
+      profileId: target.profile.id,
+      objectKey: `held/${target.profile.id}-hold-lock-race.jpg`,
+      objectVersion: "immutable-etag-hold-lock-race",
+      moderationStatus: "approved",
+      position: 0,
+      createdAt: NOW,
+      updatedAt: NOW,
+    }).returning();
+    const store = new MediaReviewStore(database, { clock: () => NOW });
+    await store.markPhotoRemoved(target.user.id, photo.id);
+    const coordinator = new DrizzleMediaLegalHoldPolicy(database as never);
+    let holdLockedResolve!: () => void;
+    let resumeHoldResolve!: () => void;
+    const holdLocked = new Promise<void>((resolve) => { holdLockedResolve = resolve; });
+    const resumeHold = new Promise<void>((resolve) => { resumeHoldResolve = resolve; });
+    const pausedCoordinator: DrizzleMediaLegalHoldPolicy = Object.create(coordinator) as DrizzleMediaLegalHoldPolicy;
+    pausedCoordinator.prepareHoldInTransaction = async (...args) => {
+      const source = await coordinator.prepareHoldInTransaction(...args);
+      holdLockedResolve();
+      await resumeHold;
+      return source;
+    };
+    const raceService = new ReportService(new DrizzleReportRepository(database, {
+      idempotencySecret: "hold-lock-race-report-secret",
+      clock: () => NOW,
+      mediaHoldPolicy: pausedCoordinator,
+      jurisdictionPolicy: (countryCode) => ({
+        jurisdictionCode: countryCode,
+        workflowCode: "minor-safety-review-v1",
+        dueAt: new Date(NOW.getTime() + 60 * 60_000),
+      }),
+    }), new RuleBasedReportRiskAssessor());
+    const reporting = raceService.submit(reporter.user.id, {
+      clientId: "00000000-0000-4000-8000-000000000779",
+      targetProfileId: target.profile.id,
+      reason: "MINOR_SAFETY",
+      locale: "en-US",
+      explanation: "cleanup must wait for the hold transaction",
+      evidenceReferences: [{ type: "photo", id: photo.id }],
+    });
+    await holdLocked;
+    const deleted: string[] = [];
+    const cleanup = cleanupRejectedMedia({
+      store,
+      storage: { deleteObject: async (key: string) => { deleted.push(key); } } as never,
+      holdPolicy: coordinator,
+      clock: () => NOW,
+    });
+    expect(await Promise.race([
+      cleanup.then(() => "finished" as const),
+      new Promise<"pending">((resolve) => setTimeout(() => resolve("pending"), 25)),
+    ])).toBe("pending");
+    resumeHoldResolve();
+    await reporting;
+    await expect(cleanup).resolves.toBe(0);
+    expect(deleted).toEqual([]);
+  });
 });
