@@ -292,6 +292,16 @@ describe("report submission transaction", () => {
       body: "this must be denied by the moderation hold",
     })).rejects.toThrow("MESSAGE_SEND_DENIED");
     expect(await database.select().from(schema.messages)).toHaveLength(1);
+    await expect(database.insert(schema.messages).values({
+      conversationId: conversation.id,
+      lowUserId: conversation.lowUserId,
+      highUserId: conversation.highUserId,
+      sequence: 2,
+      senderUserId: reporter.user.id,
+      clientId: "00000000-0000-4000-8000-000000000398",
+      body: "a forged historical timestamp must not bypass a current restriction",
+      createdAt: new Date("2025-01-01T00:00:00.000Z"),
+    })).rejects.toThrow();
     await expect(database.insert(schema.messages).values([2, 3, 4].map((sequence) => ({
       conversationId: conversation.id,
       lowUserId: conversation.lowUserId,
