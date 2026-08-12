@@ -31,6 +31,10 @@ const ids = {
   moderationCase: "00000000-0000-4000-8000-000000003609",
   hold: "00000000-0000-4000-8000-000000003610",
   legalTask: "00000000-0000-4000-8000-000000003611",
+  releasedPhoto: "00000000-0000-4000-8000-000000003614",
+  releasedReport: "00000000-0000-4000-8000-000000003615",
+  releasedCase: "00000000-0000-4000-8000-000000003616",
+  releasedHold: "00000000-0000-4000-8000-000000003617",
 };
 
 const applyMigration = async (client: PGlite, name: string) => {
@@ -74,8 +78,10 @@ describe("0036 legacy moderation media upgrade", () => {
     await client.query(`
       INSERT INTO profile_photos
         (id,user_id,profile_id,object_key,position,moderation_status,cleanup_due_at,user_removed_at)
-      VALUES ($1,$2,$3,'legacy-media/original.jpg',0,'approved',$4,$4)
-    `, [ids.photo, ids.targetUser, ids.targetProfile, new Date(NOW.getTime() - 60_000)]);
+      VALUES
+        ($1,$2,$3,'legacy-media/original.jpg',0,'approved',$5,$5),
+        ($4,$2,$3,'legacy-media/already-released.jpg',1,'approved',$5,$5)
+    `, [ids.photo, ids.targetUser, ids.targetProfile, ids.releasedPhoto, new Date(NOW.getTime() - 60_000)]);
     await client.query(`
       INSERT INTO reports
         (id,reporter_user_id,target_user_id,target_profile_id,target_type,reason_code,locale,explanation,
@@ -110,9 +116,29 @@ describe("0036 legacy moderation media upgrade", () => {
       INSERT INTO legal_workflow_tasks (id,case_id,jurisdiction_code,workflow_code,status,due_at,dedupe_key,created_at)
       VALUES ($1,$2,'US','legacy-review','pending',$3,'legacy-review:0036',$4)
     `, [ids.legalTask, ids.moderationCase, new Date(NOW.getTime() + 60_000), NOW]);
+    await client.query(`
+      INSERT INTO reports
+        (id,reporter_user_id,target_user_id,target_profile_id,target_type,reason_code,locale,explanation,
+         client_id,request_hash,dedupe_key,target_snapshot,public_status,created_at,updated_at)
+      SELECT $1,reporter_user_id,target_user_id,target_profile_id,target_type,reason_code,locale,
+        'already released legacy hold', '00000000-0000-4000-8000-000000003618',$2,$3,target_snapshot,
+        'resolved',created_at,updated_at FROM reports WHERE id=$4
+    `, [ids.releasedReport, "d".repeat(64), "e".repeat(64), ids.report]);
+    await client.query(`
+      INSERT INTO moderation_cases (id,report_id,status,priority,created_at,updated_at)
+      VALUES ($1,$2,'triaged','emergency',$3,$3)
+    `, [ids.releasedCase, ids.releasedReport, NOW]);
+    await client.query(`
+      INSERT INTO moderation_media_holds
+        (id,report_id,case_id,subject_user_id,photo_id,object_key,object_version,snapshot_sha256,
+         preserve_until,active,released_at,created_at)
+      VALUES ($1,$2,$3,$4,$5,'legacy-media/already-released.jpg','legacy-unverified-version',$6,$7,false,$8,$8)
+    `, [ids.releasedHold, ids.releasedReport, ids.releasedCase, ids.targetUser, ids.releasedPhoto,
+      "f".repeat(64), new Date(NOW.getTime() + 86_400_000), new Date(NOW.getTime() - 30_000)]);
 
     await applyMigration(client, "0035_early_hellion.sql");
     await applyMigration(client, "0036_legacy_media_preservation.sql");
+    await applyMigration(client, "0037_lock_legacy_preservation.sql");
 
     expect((await client.query<{ preservation_status: string }>(
       "SELECT preservation_status FROM profile_photos WHERE id=$1",
@@ -122,6 +148,10 @@ describe("0036 legacy moderation media upgrade", () => {
       "SELECT legacy,evidence_copy_id FROM moderation_media_holds WHERE id=$1",
       [ids.hold],
     )).rows).toEqual([{ legacy: true, evidence_copy_id: null }]);
+    expect((await client.query<{ legacy: boolean; active: boolean; released_by_user_id: string | null }>(
+      "SELECT legacy,active,released_by_user_id FROM moderation_media_holds WHERE id=$1",
+      [ids.releasedHold],
+    )).rows).toEqual([{ legacy: true, active: false, released_by_user_id: null }]);
 
     await expect(client.query(
       "UPDATE moderation_media_holds SET object_key='forged' WHERE id=$1",
@@ -187,6 +217,17 @@ describe("0036 legacy moderation media upgrade", () => {
     expect((await client.query<{ event_type: string }>(
       "SELECT event_type FROM moderation_outbox_events WHERE event_type='media.legacy_preservation.requested'",
     )).rows).toHaveLength(1);
+    const [submittedCase] = (await client.query<{ id: string }>(
+      "SELECT id FROM moderation_cases WHERE report_id=$1",
+      [submitted.id],
+    )).rows;
+    await expect(client.query(`
+      INSERT INTO moderation_media_holds
+        (report_id,case_id,subject_user_id,photo_id,evidence_copy_id,legacy,object_key,object_version,
+         snapshot_sha256,preserve_until,created_at)
+      VALUES ($1,$2,$3,$4,NULL,true,'forged/legacy.jpg','forged-version',$5,$6,$7)
+    `, [submitted.id, submittedCase!.id, ids.targetUser, ids.photo, "1".repeat(64),
+      new Date(NOW.getTime() + 86_400_000), NOW])).rejects.toThrow();
 
     const copied: Array<{ source: string; destination: string; sourceVersionId?: string }> = [];
     await expect(preserveLegacyMediaTasks({
