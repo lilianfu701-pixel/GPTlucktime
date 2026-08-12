@@ -388,6 +388,91 @@ describe("report submission transaction", () => {
     expect(deleted).toEqual([photo.objectKey]);
   });
 
+  it("rejects media copies and holds that do not match the report subject and immutable photo version", async () => {
+    const reporter = await addUser("media-relation-reporter");
+    const target = await addUser("media-relation-target");
+    const other = await addUser("media-relation-other");
+    const [targetPhoto] = await database.insert(schema.profilePhotos).values({
+      userId: target.user.id,
+      profileId: target.profile.id,
+      objectKey: "media-relation/target.jpg",
+      objectVersion: "target-source-version",
+      objectEtag: "target-source-etag",
+      moderationStatus: "approved",
+      position: 0,
+      createdAt: NOW,
+      updatedAt: NOW,
+    }).returning();
+    const [otherPhoto] = await database.insert(schema.profilePhotos).values({
+      userId: other.user.id,
+      profileId: other.profile.id,
+      objectKey: "media-relation/other.jpg",
+      objectVersion: "other-source-version",
+      objectEtag: "other-source-etag",
+      moderationStatus: "approved",
+      position: 0,
+      createdAt: NOW,
+      updatedAt: NOW,
+    }).returning();
+    const report = await service.submit(reporter.user.id, {
+      clientId: "00000000-0000-4000-8000-000000000776",
+      targetProfileId: target.profile.id,
+      reason: "HARASSMENT",
+      locale: "en-US",
+      explanation: "media relation guard fixture",
+      evidenceReferences: [{ type: "photo", id: targetPhoto.id }],
+    });
+    const [moderationCase] = await database.select().from(schema.moderationCases)
+      .where(eq(schema.moderationCases.reportId, report.id));
+    const copyValues = {
+      reportId: report.id,
+      caseId: moderationCase.id,
+      subjectUserId: target.user.id,
+      photoId: targetPhoto.id,
+      sourceObjectKey: targetPhoto.objectKey,
+      sourceObjectVersion: targetPhoto.objectVersion!,
+      sourceObjectEtag: targetPhoto.objectEtag!,
+      objectKey: `restricted-evidence/${report.id}/${targetPhoto.id}`,
+      objectVersion: "restricted-copy-version",
+      objectEtag: "restricted-copy-etag",
+      createdAt: NOW,
+    };
+    await expect(database.insert(schema.moderationMediaCopies).values({
+      ...copyValues,
+      photoId: otherPhoto.id,
+      sourceObjectKey: otherPhoto.objectKey,
+      sourceObjectVersion: otherPhoto.objectVersion!,
+      sourceObjectEtag: otherPhoto.objectEtag!,
+      objectKey: `${copyValues.objectKey}-wrong-owner`,
+    })).rejects.toMatchObject({ cause: { message: expect.stringContaining("MODERATION_RELATION_INVALID") } });
+    await expect(database.insert(schema.moderationMediaCopies).values({
+      ...copyValues,
+      sourceObjectVersion: "forged-source-version",
+    })).rejects.toMatchObject({ cause: { message: expect.stringContaining("MODERATION_RELATION_INVALID") } });
+    const [copy] = await database.insert(schema.moderationMediaCopies).values(copyValues).returning();
+    const holdValues = {
+      reportId: report.id,
+      caseId: moderationCase.id,
+      subjectUserId: target.user.id,
+      photoId: targetPhoto.id,
+      evidenceCopyId: copy.id,
+      objectKey: copy.objectKey,
+      objectVersion: copy.objectVersion,
+      snapshotSha256: "a".repeat(64),
+      preserveUntil: new Date(NOW.getTime() + 60_000),
+      createdAt: NOW,
+    };
+    await expect(database.insert(schema.moderationMediaHolds).values({
+      ...holdValues,
+      objectVersion: "forged-copy-version",
+    })).rejects.toMatchObject({ cause: { message: expect.stringContaining("MODERATION_RELATION_INVALID") } });
+    await expect(database.insert(schema.moderationMediaHolds).values({
+      ...holdValues,
+      photoId: otherPhoto.id,
+    })).rejects.toMatchObject({ cause: { message: expect.stringContaining("MODERATION_RELATION_INVALID") } });
+    await expect(database.insert(schema.moderationMediaHolds).values(holdValues)).resolves.toBeTruthy();
+  });
+
   it("revokes a paused cleanup claim when an emergency report establishes a hold", async () => {
     const reporter = await addUser("claim-race-reporter");
     const target = await addUser("claim-race-target");
