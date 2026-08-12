@@ -1,11 +1,14 @@
 // @vitest-environment node
 
 import { PGlite } from "@electric-sql/pglite";
+import { eq } from "drizzle-orm";
 import { drizzle } from "drizzle-orm/pglite";
 import { migrate } from "drizzle-orm/pglite/migrator";
 import { afterEach, beforeEach, describe, expect, it } from "vitest";
 
 import * as schema from "@/db/schema";
+import { DrizzleModerationContentPolicy } from "@/modules/moderation/content-policy";
+import { DrizzleModerationRestrictionPolicy } from "@/modules/moderation/restriction-policy";
 import { SocialRepository } from "@/modules/social/social-repository";
 import { createAuthorizedRealtimePublisher, DrizzleMessageOutboxStore, MessageOutboxConsumer } from "../../../realtime/outbox-consumer";
 
@@ -108,6 +111,77 @@ describe("message outbox PostgreSQL store", () => {
       publishedAt: NOW,
       suppressionReason: null,
       suppressedAt: null,
+    }]);
+  });
+
+  it("suppresses a message quarantined by moderation before real-time publication", async () => {
+    const seeded = await seed();
+    const [targetProfile] = await database.select().from(schema.profiles)
+      .where(eq(schema.profiles.userId, seeded.lowUserId));
+    const [report] = await database.insert(schema.reports).values({
+      reporterUserId: seeded.highUserId,
+      targetUserId: seeded.lowUserId,
+      targetProfileId: targetProfile!.id,
+      targetType: "message",
+      messageId: seeded.message.id,
+      conversationId: seeded.conversation.id,
+      reasonCode: "MINOR_SAFETY",
+      locale: "en-US",
+      explanation: "urgent quarantine",
+      clientId: "00000000-0000-4000-8000-000000000088",
+      requestHash: "a".repeat(64),
+      dedupeKey: "b".repeat(64),
+      targetSnapshot: {
+        schemaVersion: 1,
+        targetType: "message",
+        targetUserId: seeded.lowUserId,
+        targetProfileId: targetProfile!.id,
+        capturedAt: NOW.toISOString(),
+        displayName: null,
+        messageId: seeded.message.id,
+        conversationId: seeded.conversation.id,
+      },
+      createdAt: NOW,
+      updatedAt: NOW,
+    }).returning();
+    const [moderationCase] = await database.insert(schema.moderationCases).values({
+      reportId: report.id,
+      status: "triaged",
+      priority: "emergency",
+      createdAt: NOW,
+      updatedAt: NOW,
+    }).returning();
+    await database.insert(schema.moderationContentQuarantines).values({
+      caseId: moderationCase.id,
+      reportId: report.id,
+      contentType: "message",
+      contentId: seeded.message.id,
+      reasonCode: "EMERGENCY_SAFETY_QUARANTINE",
+      startsAt: NOW,
+      preserveUntil: new Date("2033-08-08T12:00:00.000Z"),
+      createdAt: NOW,
+    });
+    const social = new SocialRepository(database, {
+      cursorSecret: "realtime-test-secret-at-least-32-characters",
+      idempotencySecret: "realtime-test-secret-at-least-32-characters",
+    });
+    let emissions = 0;
+    const store = new DrizzleMessageOutboxStore(database, { clock: () => NOW });
+    const publish = createAuthorizedRealtimePublisher(
+      database,
+      social,
+      async () => { emissions += 1; },
+      {
+        restrictionPolicy: new DrizzleModerationRestrictionPolicy(),
+        contentPolicy: new DrizzleModerationContentPolicy(),
+        clock: () => NOW,
+      },
+    );
+    await new MessageOutboxConsumer(store, publish).runOnce();
+    expect(emissions).toBe(0);
+    expect(await database.select().from(schema.messageOutboxEvents)).toMatchObject([{
+      status: "suppressed",
+      suppressionReason: "PAIR_BLOCKED",
     }]);
   });
 

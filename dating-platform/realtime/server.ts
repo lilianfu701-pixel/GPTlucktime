@@ -262,7 +262,14 @@ export async function startRealtimeProcess(input: Partial<NodeJS.ProcessEnv> = p
     onBackgroundError: reportBackgroundError,
   });
   const store = new outboxModule.DrizzleMessageOutboxStore(db);
-  const publish = outboxModule.createAuthorizedRealtimePublisher(db, social, server.publishMessage);
+  const [{ DrizzleModerationRestrictionPolicy }, { DrizzleModerationContentPolicy }] = await Promise.all([
+    import("@/modules/moderation/restriction-policy"),
+    import("@/modules/moderation/content-policy"),
+  ]);
+  const publish = outboxModule.createAuthorizedRealtimePublisher(db, social, server.publishMessage, {
+    restrictionPolicy: new DrizzleModerationRestrictionPolicy(),
+    contentPolicy: new DrizzleModerationContentPolicy(),
+  });
   const consumer = new outboxModule.MessageOutboxConsumer(store, publish);
   let running = false;
   const consume = async () => {

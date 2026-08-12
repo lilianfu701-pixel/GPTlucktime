@@ -4,6 +4,14 @@ import { z } from "zod";
 import { conversations, messageOutboxEvents, messages } from "@/db/schema";
 import type { db as productionDatabase } from "@/infrastructure/db/client";
 import type { InteractionPolicy } from "@/modules/social/social-repository";
+import {
+  allowAllContentPolicy,
+  type ModerationContentPolicy,
+} from "@/modules/moderation/content-policy";
+import {
+  allowAllRestrictionPolicy,
+  type ModerationRestrictionPolicy,
+} from "@/modules/moderation/restriction-policy";
 import type { RealtimeMessageEvent } from "./server";
 
 export type ClaimedMessageEvent = {
@@ -90,8 +98,15 @@ export function createAuthorizedRealtimePublisher(
   database: unknown,
   interactionPolicy: Pick<InteractionPolicy, "withAllowedInteraction">,
   emit: (event: RealtimeMessageEvent) => Promise<void>,
+  options: {
+    restrictionPolicy?: ModerationRestrictionPolicy;
+    contentPolicy?: ModerationContentPolicy;
+    clock?: () => Date;
+  } = {},
 ) {
   const db = database as OutboxDatabase;
+  const restrictionPolicy = options.restrictionPolicy ?? allowAllRestrictionPolicy;
+  const contentPolicy = options.contentPolicy ?? allowAllContentPolicy;
   return async (event: RealtimeMessageEvent) => {
     const [pair] = await db.select({
       lowUserId: conversations.lowUserId,
@@ -101,6 +116,17 @@ export function createAuthorizedRealtimePublisher(
     try {
       await interactionPolicy.withAllowedInteraction(pair.lowUserId, pair.highUserId, async (transaction) => {
         const tx = transaction as OutboxDatabase;
+        const now = options.clock?.() ?? new Date();
+        const allowedUsers = await restrictionPolicy.filterAllowedInTransaction(
+          transaction, [pair.lowUserId, pair.highUserId], "messaging", now,
+        );
+        if (!allowedUsers.has(pair.lowUserId) || !allowedUsers.has(pair.highUserId)) {
+          throw new Error("DELIVERY_NOT_ALLOWED");
+        }
+        const visibleMessageIds = await contentPolicy.filterVisibleMessageIdsInTransaction(
+          transaction, [event.messageId], now,
+        );
+        if (!visibleMessageIds.has(event.messageId)) throw new Error("DELIVERY_NOT_ALLOWED");
         const [authorized] = await tx.select({ id: messageOutboxEvents.id })
           .from(messageOutboxEvents)
           .innerJoin(messages, eq(messages.id, messageOutboxEvents.messageId))

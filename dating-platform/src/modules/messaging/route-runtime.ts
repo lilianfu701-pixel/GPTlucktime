@@ -4,6 +4,8 @@ import { db } from "@/infrastructure/db/client";
 import { auth } from "@/modules/auth/auth";
 import { entitlementService } from "@/modules/entitlements/runtime";
 import { SocialRepository } from "@/modules/social/social-repository";
+import { DrizzleModerationRestrictionPolicy } from "@/modules/moderation/restriction-policy";
+import { DrizzleModerationContentPolicy } from "@/modules/moderation/content-policy";
 import { readEnv } from "@/shared/env";
 
 import { DrizzleMessageVerificationPolicy, MessageRepository } from "./message-repository";
@@ -30,6 +32,8 @@ export const messagingRouteDependencies = {
     interactionPolicy: socialRepository,
     entitlementService,
     verificationPolicy: new DrizzleMessageVerificationPolicy(),
+    restrictionPolicy: new DrizzleModerationRestrictionPolicy(),
+    contentPolicy: new DrizzleModerationContentPolicy(),
     cursorSecret: env.BETTER_AUTH_SECRET,
   }),
   issuer: env.REALTIME_TICKET_KEYS

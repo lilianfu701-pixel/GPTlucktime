@@ -9,6 +9,9 @@ import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import * as schema from "@/db/schema";
 import { publicDiscoveryFilterSchema } from "@/modules/discovery/discovery-types";
 import { DiscoveryRepository } from "@/modules/discovery/discovery-repository";
+import { DrizzleModerationRestrictionPolicy } from "@/modules/moderation/restriction-policy";
+import { DrizzleReportRepository } from "@/modules/moderation/report-repository";
+import { ReportService, RuleBasedReportRiskAssessor } from "@/modules/moderation/report-service";
 import {
   decodeDiscoveryCursor,
   encodeDiscoveryCursor,
@@ -152,6 +155,37 @@ describe("discovery repository", () => {
     });
     const result = await disabledForViewer.discover(viewerId, publicDiscoveryFilterSchema.parse({}));
     expect(result.items).toEqual([]);
+  });
+
+  it("consumes the moderation restriction policy and hides an emergency-restricted candidate", async () => {
+    const restricted = await addPerson({
+      email: "restricted-by-report@example.test",
+      displayName: "Restricted by emergency report",
+    });
+    const reportService = new ReportService(new DrizzleReportRepository(database, {
+      idempotencySecret: "moderation-discovery-test-secret",
+      clock: () => now,
+      jurisdictionPolicy: (countryCode) => ({
+        jurisdictionCode: countryCode,
+        workflowCode: "minor-safety-review-v1",
+        dueAt: new Date(now.getTime() + 60 * 60_000),
+      }),
+    }), new RuleBasedReportRiskAssessor());
+    await reportService.submit(viewerId, {
+      clientId: "00000000-0000-4000-8000-000000000901",
+      targetProfileId: restricted.profileId,
+      reason: "MINOR_SAFETY",
+      locale: "en-US",
+      explanation: "urgent safety review",
+      evidenceReferences: [],
+    });
+    const restrictedRepository = new DiscoveryRepository(database, {
+      clock: () => now,
+      cursorSecret: CURSOR_SECRET,
+      restrictionPolicy: new DrizzleModerationRestrictionPolicy(),
+    });
+    const result = await restrictedRepository.discover(viewerId, publicDiscoveryFilterSchema.parse({}));
+    expect(result.items.map((item) => item.id)).not.toContain(restricted.profileId);
   });
 
   it("uses signed stable keyset pagination without duplicates", async () => {

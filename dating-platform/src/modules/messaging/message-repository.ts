@@ -14,6 +14,14 @@ import {
 import type { db as productionDatabase } from "@/infrastructure/db/client";
 import { launchVerificationPolicy, type VerificationDecision } from "@/modules/auth/verification-policy";
 import type { EntitlementService } from "@/modules/entitlements/entitlement-service";
+import {
+  allowAllRestrictionPolicy,
+  type ModerationRestrictionPolicy,
+} from "@/modules/moderation/restriction-policy";
+import {
+  allowAllContentPolicy,
+  type ModerationContentPolicy,
+} from "@/modules/moderation/content-policy";
 import type { InteractionPolicy, SocialTransaction } from "@/modules/social/social-repository";
 
 import { normalizeSendMessageInput } from "./message-input";
@@ -23,6 +31,8 @@ type MessageTransaction = SocialTransaction;
 type Cursor = { timestamp: string; id: string };
 const UUID_PATTERN = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
 const MAX_CONVERSATION_SCAN = 200;
+const MAX_MESSAGE_VISIBILITY_SCAN = 500;
+const MESSAGE_VISIBILITY_BATCH = 100;
 
 export class MessagingError extends Error {
   constructor(
@@ -139,6 +149,8 @@ export class MessageRepository {
   private readonly interactionPolicy: InteractionPolicy;
   private readonly entitlementService: Pick<EntitlementService, "consumeInTransaction" | "decideInTransaction">;
   private readonly verificationPolicy: MessageVerificationPolicy;
+  private readonly restrictionPolicy: ModerationRestrictionPolicy;
+  private readonly contentPolicy: ModerationContentPolicy;
   private readonly cursorSecret: string;
   private readonly clock: () => Date;
 
@@ -146,6 +158,8 @@ export class MessageRepository {
     interactionPolicy: InteractionPolicy;
     entitlementService: Pick<EntitlementService, "consumeInTransaction" | "decideInTransaction">;
     verificationPolicy: MessageVerificationPolicy;
+    restrictionPolicy?: ModerationRestrictionPolicy;
+    contentPolicy?: ModerationContentPolicy;
     cursorSecret: string;
     clock?: () => Date;
   }) {
@@ -153,6 +167,8 @@ export class MessageRepository {
     this.interactionPolicy = options.interactionPolicy;
     this.entitlementService = options.entitlementService;
     this.verificationPolicy = options.verificationPolicy;
+    this.restrictionPolicy = options.restrictionPolicy ?? allowAllRestrictionPolicy;
+    this.contentPolicy = options.contentPolicy ?? allowAllContentPolicy;
     this.cursorSecret = options.cursorSecret;
     this.clock = options.clock ?? (() => new Date());
   }
@@ -228,6 +244,15 @@ export class MessageRepository {
           throw new MessagingError("CONVERSATION_NOT_AVAILABLE");
         }
         const now = this.clock();
+        const allowedUsers = await this.restrictionPolicy.filterAllowedInTransaction(
+          transaction,
+          [senderUserId, targetUserId],
+          "messaging",
+          now,
+        );
+        if (!allowedUsers.has(senderUserId) || !allowedUsers.has(targetUserId)) {
+          throw new MessagingError("MESSAGE_SEND_DENIED");
+        }
         const unmet = await this.verificationPolicy.unmetInTransaction(transaction, senderUserId, now);
         if (unmet.length > 0) throw new MessagingError("VERIFICATION_REQUIRED", unmet);
         const decision = await this.entitlementService.consumeInTransaction(transaction, {
@@ -291,15 +316,38 @@ export class MessageRepository {
   ) {
     const membership = await this.findMembership(this.database, userId, conversationId);
     if (!membership) throw new MessagingError("CONVERSATION_NOT_AVAILABLE");
-    const rows = await this.database.select().from(messages).where(and(
-      eq(messages.conversationId, conversationId),
-      gt(messages.sequence, input.afterSequence),
-    )).orderBy(asc(messages.sequence)).limit(input.pageSize + 1);
-    const hasMore = rows.length > input.pageSize;
-    const pageRows = rows.slice(0, input.pageSize);
+    const visibleRows: Array<typeof messages.$inferSelect> = [];
+    let scanSequence = input.afterSequence;
+    let scanned = 0;
+    let reachedEnd = false;
+    while (visibleRows.length <= input.pageSize && scanned < MAX_MESSAGE_VISIBILITY_SCAN && !reachedEnd) {
+      const batchSize = Math.min(MESSAGE_VISIBILITY_BATCH, MAX_MESSAGE_VISIBILITY_SCAN - scanned);
+      const rows = await this.database.select().from(messages).where(and(
+        eq(messages.conversationId, conversationId),
+        gt(messages.sequence, scanSequence),
+      )).orderBy(asc(messages.sequence)).limit(batchSize);
+      if (rows.length === 0) {
+        reachedEnd = true;
+        break;
+      }
+      scanned += rows.length;
+      scanSequence = rows.at(-1)!.sequence;
+      reachedEnd = rows.length < batchSize;
+      const visibleIds = await this.contentPolicy.filterVisibleMessageIdsInTransaction(
+        this.database,
+        rows.map(({ id }) => id),
+        this.clock(),
+      );
+      for (const row of rows) {
+        if (visibleIds.has(row.id)) visibleRows.push(row);
+        if (visibleRows.length > input.pageSize) break;
+      }
+    }
+    const hasMore = visibleRows.length > input.pageSize || !reachedEnd;
+    const pageRows = visibleRows.slice(0, input.pageSize);
     return {
       messages: pageRows.map((message) => serializeMessage(message, userId)),
-      nextAfterSequence: hasMore ? pageRows.at(-1)?.sequence ?? null : null,
+      nextAfterSequence: hasMore ? pageRows.at(-1)?.sequence ?? scanSequence : null,
     };
   }
 

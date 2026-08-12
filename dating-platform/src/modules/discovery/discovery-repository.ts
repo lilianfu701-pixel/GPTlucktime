@@ -34,6 +34,10 @@ import {
   verificationAttempts,
 } from "@/db/schema";
 import type { db as productionDatabase } from "@/infrastructure/db/client";
+import {
+  allowAllRestrictionPolicy,
+  type ModerationRestrictionPolicy,
+} from "@/modules/moderation/restriction-policy";
 import { publicProfile } from "@/modules/profiles/profile-service";
 
 import { ageOn, isCandidateEligible } from "./candidate-policy";
@@ -76,16 +80,19 @@ export class DiscoveryRepository {
   private readonly clock: () => Date;
   private readonly cursorSecret: string;
   private readonly disabledCountryCodes: ReadonlySet<string>;
+  private readonly restrictionPolicy: ModerationRestrictionPolicy;
 
   constructor(database: unknown, options: {
     clock?: () => Date;
     cursorSecret: string;
     disabledCountryCodes?: readonly string[];
+    restrictionPolicy?: ModerationRestrictionPolicy;
   }) {
     this.database = database as DiscoveryDatabase;
     this.clock = options.clock ?? (() => new Date());
     this.cursorSecret = options.cursorSecret;
     this.disabledCountryCodes = new Set(options.disabledCountryCodes ?? []);
+    this.restrictionPolicy = options.restrictionPolicy ?? allowAllRestrictionPolicy;
   }
 
   async discover(userId: string, rawFilters: DiscoveryFilters) {
@@ -275,6 +282,11 @@ export class DiscoveryRepository {
         throw new Error("PROFILE_INCOMPLETE");
       }
 
+      const allowedViewer = await this.restrictionPolicy.filterAllowedInTransaction(
+        tx, [userId], "discovery", now,
+      );
+      if (!allowedViewer.has(userId)) return { ranked: [], truncated: false };
+
       let ranked: RankedCandidate[] = [];
       let truncatedByEvaluation = false;
       if (!this.disabledCountryCodes.has(viewerRow.profile.countryCode)) {
@@ -353,7 +365,18 @@ export class DiscoveryRepository {
           .where(baseWhere)
           .orderBy(desc(profiles.createdAt), asc(profiles.id)).limit(MAX_CANDIDATES_EVALUATED + 1);
         truncatedByEvaluation = candidatePool.length > MAX_CANDIDATES_EVALUATED;
-        const evaluatedProfileIds = candidatePool.slice(0, MAX_CANDIDATES_EVALUATED).map(({ id }) => id);
+        const candidatePoolRows = candidatePool.slice(0, MAX_CANDIDATES_EVALUATED);
+        const poolProfiles = await tx.select({ id: profiles.id, userId: profiles.userId }).from(profiles)
+          .where(inArray(profiles.id, candidatePoolRows.map(({ id }) => id)));
+        const allowedCandidateIds = await this.restrictionPolicy.filterAllowedInTransaction(
+          tx,
+          poolProfiles.map(({ userId: candidateUserId }) => candidateUserId),
+          "discovery",
+          now,
+        );
+        const evaluatedProfileIds = poolProfiles
+          .filter(({ userId: candidateUserId }) => allowedCandidateIds.has(candidateUserId))
+          .map(({ id }) => id);
         const candidateRows = await tx.select({
           profile: profiles,
           preferences: profilePreferences,
@@ -577,8 +600,15 @@ export class DiscoveryRepository {
       const viewer = viewerRow?.profile;
       if (!viewer?.birthDate || !viewer.genderCode || !viewer.countryCode || viewer.status !== "active"
         || this.disabledCountryCodes.has(viewer.countryCode)) return new Map<string, Record<string, unknown>>();
+      const allowedViewer = await this.restrictionPolicy.filterAllowedInTransaction(
+        tx, [userId], "discovery", now,
+      );
+      if (!allowedViewer.has(userId)) return new Map<string, Record<string, unknown>>();
       const candidateProfileIds = rows.map(({ candidateProfileId }) => candidateProfileId);
       const candidateUserIds = rows.map(({ candidateUserId }) => candidateUserId);
+      const allowedCandidateIds = await this.restrictionPolicy.filterAllowedInTransaction(
+        tx, candidateUserIds, "discovery", now,
+      );
       const [candidateRows, photoRows, blockRows, interestRows, verifiedRows, onlineRows] = await Promise.all([
         tx.select({ profile: profiles, preferences: profilePreferences, privacy: privacySettings })
           .from(profiles)
@@ -624,6 +654,7 @@ export class DiscoveryRepository {
       const snapshotItemsByProfile = new Map(rows.map((row) => [row.candidateProfileId, row]));
       const safe = new Map<string, Record<string, unknown>>();
       for (const { profile, preferences, privacy } of candidateRows) {
+        if (!allowedCandidateIds.has(profile.userId)) continue;
         const photos = photosByProfile.get(profile.id) ?? [];
         if (!profile.birthDate || !profile.genderCode || !profile.countryCode) continue;
         const eligible = isCandidateEligible({
