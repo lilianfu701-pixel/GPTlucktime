@@ -114,6 +114,9 @@ const schema = z
       z.coerce.number().int().min(1).max(20).default(5),
     ),
     MEDIA_WORKER_CRON_SECRET: optionalValue(z.string().min(32).max(256)),
+    STRIPE_SECRET_KEY: optionalValue(z.string().min(16).max(256)),
+    STRIPE_WEBHOOK_SECRET: optionalValue(z.string().min(32).max(256)),
+    BILLING_WORKER_CRON_SECRET: optionalValue(z.string().min(32).max(256)),
     DISCOVERY_DISABLED_COUNTRY_CODES: optionalValue(z.string().regex(/^[A-Z]{2}(,[A-Z]{2})*$/)),
     REALTIME_TICKET_KEYS: optionalValue(realtimeTicketKeyRing),
     REALTIME_HOST: optionalValue(z.enum(["127.0.0.1", "0.0.0.0"])),
@@ -193,6 +196,7 @@ const schema = z
       "MEDIA_REVIEW_VERSION",
       "MEDIA_REVIEW_ALLOWED_ORIGINS",
     ]);
+    requireCompleteGroup("STRIPE", ["STRIPE_SECRET_KEY", "STRIPE_WEBHOOK_SECRET"]);
     if (env.SMS_HIGH_RISK_CALLING_CODES) {
       context.addIssue({
         code: "custom",

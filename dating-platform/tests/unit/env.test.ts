@@ -125,6 +125,19 @@ describe("readEnv", () => {
       .toThrow("MEDIA_WORKER_CRON_SECRET");
   });
 
+  it("accepts only a complete server-side Stripe group and strong billing worker secret", () => {
+    const billing = readEnv({ ...validEnv,
+      STRIPE_SECRET_KEY: "sk_test_placeholder_value",
+      STRIPE_WEBHOOK_SECRET: "whsec_placeholder_value_at_least_32",
+      BILLING_WORKER_CRON_SECRET: "billing-worker-secret-at-least-32-characters",
+    });
+    expect(billing.STRIPE_SECRET_KEY).toBe("sk_test_placeholder_value");
+    expect(() => readEnv({ ...validEnv, STRIPE_SECRET_KEY: "sk_test_only" }))
+      .toThrow("STRIPE configuration must be complete");
+    expect(() => readEnv({ ...validEnv, BILLING_WORKER_CRON_SECRET: "short" }))
+      .toThrow("BILLING_WORKER_CRON_SECRET");
+  });
+
   it("defaults and bounds media review retry attempts", () => {
     expect(readEnv(validEnv).MEDIA_REVIEW_MAX_ATTEMPTS).toBe(5);
     expect(readEnv({ ...validEnv, MEDIA_REVIEW_MAX_ATTEMPTS: "1" }).MEDIA_REVIEW_MAX_ATTEMPTS).toBe(1);

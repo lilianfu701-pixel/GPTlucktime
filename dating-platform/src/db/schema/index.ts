@@ -1,4 +1,5 @@
 export * from "./auth";
+export * from "./billing";
 export * from "./discovery";
 export * from "./entitlements";
 export * from "./messaging";
