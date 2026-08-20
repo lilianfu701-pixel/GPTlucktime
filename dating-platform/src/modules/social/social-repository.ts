@@ -33,6 +33,7 @@ import {
 } from "@/db/schema";
 import type { db as productionDatabase } from "@/infrastructure/db/client";
 import { ageOn } from "@/modules/discovery/candidate-policy";
+import { enqueueProductionNotification } from "@/modules/notifications/notification-producer";
 import { publicProfile } from "@/modules/profiles/profile-service";
 
 type SocialDatabase = typeof productionDatabase;
@@ -241,6 +242,12 @@ export class SocialRepository implements InteractionPolicy {
           availableAt: now,
           createdAt: now,
         }).onConflictDoNothing();
+        for (const userId of [pair.lowUserId, pair.highUserId]) {
+          await enqueueProductionNotification(tx, { userId, dedupeKey: `match-created:${match.id}:${userId}`,
+            category: "transactional", templateKey: "notifications.newMatch",
+            payload: { matchId: match.id, expiresAt: new Date(now.getTime() + 7 * 86_400_000).toISOString() },
+            availableAt: now });
+        }
       }
       return { liked: true, matched: true, matchId: match.id };
     });

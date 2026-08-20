@@ -21,6 +21,7 @@ import {
   type ModerationContentPolicy,
 } from "@/modules/moderation/content-policy";
 import type { InteractionPolicy, SocialTransaction } from "@/modules/social/social-repository";
+import { enqueueProductionNotification } from "@/modules/notifications/notification-producer";
 
 import { normalizeSendMessageInput } from "./message-input";
 
@@ -302,6 +303,10 @@ export class MessageRepository {
           availableAt: now,
           createdAt: now,
         });
+        await enqueueProductionNotification(tx, { userId: targetUserId,
+          dedupeKey: `message-created:${message.id}:${targetUserId}`, category: "transactional",
+          templateKey: "notifications.newMessage", payload: { conversationId, messageId: message.id,
+            expiresAt: new Date(now.getTime() + 7 * 86_400_000).toISOString() }, availableAt: now });
         return serializeMessage(message, senderUserId);
       });
     } catch (error) {

@@ -1,7 +1,16 @@
 import { act, cleanup, fireEvent, render, screen, waitFor, within } from "@testing-library/react";
 import { afterEach, describe, expect, it, vi } from "vitest";
+import { NextIntlClientProvider } from "next-intl";
 
 import OnboardingForm from "@/app/[locale]/(member)/onboarding/onboarding-form";
+import en from "../../../messages/en.json";
+import zh from "../../../messages/zh-CN.json";
+
+const renderOnboarding = (locale: "en" | "zh", props: React.ComponentProps<typeof OnboardingForm>) => render(
+  <NextIntlClientProvider locale={locale === "zh" ? "zh-CN" : "en"} messages={locale === "zh" ? zh : en}>
+    <OnboardingForm {...props} />
+  </NextIntlClientProvider>,
+);
 
 describe("onboarding persisted photo state", () => {
   afterEach(() => {
@@ -10,14 +19,13 @@ describe("onboarding persisted photo state", () => {
     vi.useRealTimers();
   });
   it("renders pending and rejected states safely after reload", () => {
-    const { container } = render(<OnboardingForm
-      locale="en"
-      initialProfile={null}
-      initialPhotos={[
+    const { container } = renderOnboarding("en", {
+      initialProfile: null,
+      initialPhotos: [
         { id: "pending-1", status: "pending", reason: null, width: null, height: null, createdAt: "2026-08-05T12:00:00.000Z" },
         { id: "rejected-1", status: "rejected", reason: "PHOTO_INVALID_FILE", width: null, height: null, createdAt: "2026-08-05T12:01:00.000Z" },
-      ]}
-    />);
+      ],
+    });
     expect(screen.getByText("Review pending — not public")).toBeTruthy();
     expect(screen.getByText("Rejected: choose a different photo")).toBeTruthy();
     expect(screen.getByRole("button", { name: "Remove rejected photo" })).toBeTruthy();
@@ -27,7 +35,7 @@ describe("onboarding persisted photo state", () => {
   it("saves an incomplete profile as a draft without sending invalid blank fields", async () => {
     const fetchMock = vi.fn().mockResolvedValue(new Response(null, { status: 200 }));
     vi.stubGlobal("fetch", fetchMock);
-    const { container } = render(<OnboardingForm locale="en" initialProfile={null} />);
+    const { container } = renderOnboarding("en", { initialProfile: null });
     const form = within(container);
     fireEvent.change(form.getByLabelText("About you"), { target: { value: "A small draft." } });
     fireEvent.click(form.getByRole("button", { name: "Save and continue" }));
@@ -39,11 +47,11 @@ describe("onboarding persisted photo state", () => {
   });
 
   it("renders every photo moderation state in Chinese without English status text", () => {
-    const { container } = render(<OnboardingForm locale="zh" initialProfile={null} initialPhotos={[
+    const { container } = renderOnboarding("zh", { initialProfile: null, initialPhotos: [
       { id: "pending-zh", status: "pending", reason: null, width: null, height: null, createdAt: "2026-08-05T12:00:00.000Z" },
       { id: "approved-zh", status: "approved", reason: null, width: 10, height: 10, createdAt: "2026-08-05T12:01:00.000Z" },
       { id: "rejected-zh", status: "rejected", reason: "PHOTO_INVALID_FILE", width: null, height: null, createdAt: "2026-08-05T12:02:00.000Z" },
-    ]} />);
+    ] });
     expect(container.textContent).toContain("审核中，暂不公开");
     expect(container.textContent).toContain("已审核，可用于已发布的个人资料");
     expect(container.textContent).toContain("未通过审核：请选择其他照片");
@@ -58,9 +66,9 @@ describe("onboarding persisted photo state", () => {
       createdAt: "2026-08-05T12:00:00.000Z",
     }] }), { status: 200, headers: { "content-type": "application/json" } }));
     vi.stubGlobal("fetch", fetchMock);
-    const { unmount } = render(<OnboardingForm locale="en" initialProfile={null} initialPhotos={[
+    const { unmount } = renderOnboarding("en", { initialProfile: null, initialPhotos: [
       { id: "pending-1", status: "pending", reason: null, width: null, height: null, createdAt: "2026-08-05T12:00:00.000Z" },
-    ]} />);
+    ] });
 
     await act(async () => { await vi.advanceTimersByTimeAsync(5_000); });
     expect(fetchMock).toHaveBeenCalledWith("/api/v1/me/photos", { method: "GET" });

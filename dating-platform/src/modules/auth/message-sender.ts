@@ -23,6 +23,8 @@ export class NotificationDeliveryError extends Error {
 export type EmailVerificationMessage = { to: string; verificationUrl: string };
 export type PasswordResetMessage = { to: string; resetUrl: string };
 export type SmsOtpMessage = { to: string; code: string };
+export type TemplateNotificationMessage = { to: string; templateKey: string; locale: "en" | "zh-CN";
+  variables?: Record<string, string> };
 export type DeliveryContext = { deliveryKey: string };
 export type EnqueueEmailVerificationMessage = EmailVerificationMessage & { validUntil: Date };
 export type EnqueuePasswordResetMessage = PasswordResetMessage & { validUntil: Date };
@@ -33,6 +35,8 @@ export interface MessageSender {
   sendEmailVerification(message: EmailVerificationMessage, context: DeliveryContext): Promise<void>;
   sendPasswordReset(message: PasswordResetMessage, context: DeliveryContext): Promise<void>;
   sendSmsOtp(message: SmsOtpMessage, context: DeliveryContext): Promise<void>;
+  sendTemplateNotification(channel: "email" | "sms", message: TemplateNotificationMessage,
+    context: DeliveryContext): Promise<void>;
 }
 
 type WebhookProvider = { endpoint: string; token: string };
@@ -72,7 +76,7 @@ export class HttpMessageSender implements MessageSender {
   private async send(
     channel: "email" | "sms",
     provider: WebhookProvider | undefined,
-    payload: EmailVerificationMessage | PasswordResetMessage | SmsOtpMessage,
+    payload: EmailVerificationMessage | PasswordResetMessage | SmsOtpMessage | TemplateNotificationMessage,
     context: DeliveryContext,
   ): Promise<void> {
     if (!provider) throw new NotificationNotConfiguredError(channel);
@@ -98,12 +102,18 @@ export class HttpMessageSender implements MessageSender {
   sendPasswordReset(message: PasswordResetMessage, context: DeliveryContext): Promise<void> {
     return this.send("email", this.options.email, message, context);
   }
+
+  sendTemplateNotification(channel: "email" | "sms", message: TemplateNotificationMessage,
+    context: DeliveryContext): Promise<void> {
+    return this.send(channel, this.options[channel], message, context);
+  }
 }
 
 export class InMemoryMessageSender implements MessageSender {
   readonly emails: EmailVerificationMessage[] = [];
   readonly passwordResets: PasswordResetMessage[] = [];
   readonly sms: SmsOtpMessage[] = [];
+  readonly templates: TemplateNotificationMessage[] = [];
 
   assertAvailable(): void {}
 
@@ -120,6 +130,12 @@ export class InMemoryMessageSender implements MessageSender {
   async sendSmsOtp(message: SmsOtpMessage, context: DeliveryContext): Promise<void> {
     void context;
     this.sms.push(message);
+  }
+
+  async sendTemplateNotification(_channel: "email" | "sms", message: TemplateNotificationMessage,
+    context: DeliveryContext): Promise<void> {
+    void context;
+    this.templates.push(message);
   }
 }
 

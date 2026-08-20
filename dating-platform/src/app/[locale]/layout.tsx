@@ -1,14 +1,21 @@
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
+import { NextIntlClientProvider } from "next-intl";
+import { getMessages, getTranslations } from "next-intl/server";
 
-import { isSupportedLocale } from "@/i18n/locales";
+import { resolveLocale } from "@/i18n/request";
 
 import "../globals.css";
 
-export const metadata: Metadata = {
-  title: "Heartline",
-  description: "A welcoming place for meaningful international connections.",
-};
+const htmlLocales = { en: "en", "zh-CN": "zh-CN" } as const;
+
+export async function generateMetadata({ params }: Pick<LocaleLayoutProps, "params">): Promise<Metadata> {
+  const { locale } = await params;
+  const [t, brand] = await Promise.all([
+    getTranslations({ locale: resolveLocale(locale), namespace: "metadata" }),
+    getTranslations({ locale: resolveLocale(locale), namespace: "brand" }),
+  ]);
+  return { title: brand("name"), description: t("description") };
+}
 
 type LocaleLayoutProps = {
   children: React.ReactNode;
@@ -17,14 +24,12 @@ type LocaleLayoutProps = {
 
 export default async function LocaleLayout({ children, params }: LocaleLayoutProps) {
   const { locale } = await params;
-
-  if (!isSupportedLocale(locale)) {
-    notFound();
-  }
+  const resolvedLocale = resolveLocale(locale);
+  const messages = await getMessages({ locale: resolvedLocale });
 
   return (
-    <html lang={locale === "zh" ? "zh-CN" : "en"}>
-      <body>{children}</body>
+    <html lang={htmlLocales[resolvedLocale]}>
+      <body><NextIntlClientProvider messages={messages}>{children}</NextIntlClientProvider></body>
     </html>
   );
 }

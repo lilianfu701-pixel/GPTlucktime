@@ -133,7 +133,7 @@ export const authNotificationDeliveries = pgTable(
     ),
     index("auth_notification_expiry_idx").on(table.expiresAt),
     index("auth_notification_retention_idx").on(table.status, table.updatedAt),
-    check("auth_notification_kind_check", sql`${table.kind} in ('email_verification', 'password_reset', 'sms_otp')`),
+    check("auth_notification_kind_check", sql`${table.kind} in ('email_verification', 'password_reset', 'sms_otp', 'deletion_cancellation', 'privacy_export_download')`),
     check("auth_notification_status_check", sql`${table.status} in ('pending', 'processing', 'sent', 'failed', 'expired')`),
     check("auth_notification_attempts_check", sql`${table.attempts} >= 0`),
   ],

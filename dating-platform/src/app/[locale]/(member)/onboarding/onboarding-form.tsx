@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useMemo, useState, type FormEvent } from "react";
+import { useTranslations } from "next-intl";
 
-type Locale = "en" | "zh";
 type InitialProfile = Record<string, unknown> | null;
 type SafePhoto = {
   id: string;
@@ -13,73 +13,6 @@ type SafePhoto = {
   createdAt: string;
 };
 
-const copy = {
-  en: {
-    title: "Create a profile that feels like you",
-    intro: "Share what matters to you. Your exact birth date and private settings are never shown publicly.",
-    progress: "Profile completeness",
-    name: "Display name",
-    birthDate: "Birth date",
-    gender: "Gender identity",
-    genderHint: "Use the words that fit you, such as woman, man, nonbinary, or self_described.",
-    goal: "Relationship goal",
-    country: "Country code",
-    city: "City",
-    bio: "About you",
-    languages: "Languages",
-    interests: "Interests",
-    listHint: "Separate entries with commas.",
-    visible: "Let my approved profile appear in discovery",
-    save: "Save and continue",
-    saving: "Saving…",
-    saved: "Profile saved.",
-    photo: "Add a profile photo",
-    photoHint: "JPEG, PNG, or WebP. Maximum 10 MiB. Photos remain private while review is pending.",
-    photoPending: "Review pending — not public",
-    photoApproved: "Approved and ready for your published profile",
-    photoRejected: "Rejected: choose a different photo",
-    removeRejected: "Remove rejected photo",
-    remove: "Remove",
-    uploading: "Uploading securely…",
-    pending: "Uploaded. Review is pending; this photo is not public yet.",
-    error: "We could not save that. Check the highlighted fields and try again.",
-    photoError: "We could not upload that photo. Please choose another file and try again.",
-    required: "This field is required.",
-  },
-  zh: {
-    title: "创建真正属于你的个人资料",
-    intro: "分享对你重要的事情。你的准确出生日期和隐私设置绝不会公开展示。",
-    progress: "资料完整度",
-    name: "显示名称",
-    birthDate: "出生日期",
-    gender: "性别认同",
-    genderHint: "请使用适合你的表达，例如 woman、man、nonbinary 或 self_described。",
-    goal: "关系期待",
-    country: "国家代码",
-    city: "城市",
-    bio: "关于你",
-    languages: "语言",
-    interests: "兴趣",
-    listHint: "请使用逗号分隔。",
-    visible: "审核通过后允许我的资料出现在发现页面",
-    save: "保存并继续",
-    saving: "正在保存…",
-    saved: "资料已保存。",
-    photo: "添加个人照片",
-    photoHint: "支持 JPEG、PNG 或 WebP，最大 10 MiB。审核期间照片保持私密。",
-    photoPending: "审核中，暂不公开",
-    photoApproved: "已审核，可用于已发布的个人资料",
-    photoRejected: "未通过审核：请选择其他照片",
-    removeRejected: "移除未通过审核的照片",
-    remove: "移除",
-    uploading: "正在安全上传…",
-    pending: "上传完成，正在审核；这张照片目前不会公开。",
-    error: "暂时无法保存。请检查标出的字段后重试。",
-    photoError: "暂时无法上传这张照片，请选择其他文件后重试。",
-    required: "此字段为必填项。",
-  },
-} as const;
-
 const stringValue = (profile: InitialProfile, key: string) =>
   typeof profile?.[key] === "string" ? profile[key] as string : "";
 const listValue = (profile: InitialProfile, key: string) =>
@@ -87,15 +20,14 @@ const listValue = (profile: InitialProfile, key: string) =>
 const codes = (value: string) => value.split(",").map((entry) => entry.trim()).filter(Boolean);
 
 export default function OnboardingForm({
-  locale,
   initialProfile,
   initialPhotos = [],
 }: {
-  locale: Locale;
   initialProfile: InitialProfile;
   initialPhotos?: SafePhoto[];
 }) {
-  const text = copy[locale];
+  const t = useTranslations("onboarding");
+  const text = new Proxy({} as Record<string, string>, { get: (_target, key) => t(String(key)) });
   const [form, setForm] = useState({
     displayName: stringValue(initialProfile, "displayName"),
     birthDate: stringValue(initialProfile, "birthDate"),

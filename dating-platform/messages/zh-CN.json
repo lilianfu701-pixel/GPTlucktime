@@ -1,0 +1,104 @@
+{
+  "brand": { "name": "Heartline" },
+  "errors": {
+    "methodNotAllowed": "此操作不可用。",
+    "unauthorized": "请登录后继续。",
+    "forbidden": "你无权执行此操作。",
+    "invalidRequest": "请检查请求后重试。",
+    "conflict": "此操作与账号当前状态冲突。",
+    "reauthenticationRequired": "请验证邮箱并重新登录后继续。",
+    "uriTooLong": "请求网址过长。",
+    "invalidIdempotencyKey": "需要有效的请求密钥。",
+    "payloadTooLarge": "请求内容过大。",
+    "unsupportedMediaType": "请使用 JSON 发送请求。",
+    "rateLimited": "尝试次数过多，请稍后重试。",
+    "serviceUnavailable": "服务暂时不可用。",
+    "internal": "出现问题，请稍后重试。"
+  },
+  "privacy": {
+    "exportAccepted": "我们正在准备你的数据导出。",
+    "exportReady": "你的数据导出可下载至 {expiresAt}。",
+    "deletionCoolingOff": "你的账号已隐藏，并计划于 {executeAt} 删除。",
+    "deletionCanceled": "你的账号删除请求已取消。",
+    "deletionCompleted": "你的账号删除已完成。"
+  },
+  "notifications": {
+    "securityNotice": "安全通知",
+    "transactionalNotice": "账号更新",
+    "marketingNotice": "产品最新动态",
+    "newMatch": "你有新的匹配。",
+    "newMessage": "你有新消息。",
+    "passwordReset": "已请求重置密码。",
+    "emailVerification": "已请求验证电子邮件。",
+    "smsOtp": "已请求登录验证码。",
+    "pendingCount": "{count, plural, one {# 条通知} other {# 条通知}}"
+  },
+  "notificationSettings": {
+    "title": "通知设置", "intro": "选择我们联系你的方式和时间。",
+    "locale": "通知语言", "timeZone": "时区", "channels": "渠道与同意选项",
+    "emailEnabled": "电子邮件", "smsEnabled": "短信", "inAppEnabled": "站内通知",
+    "marketingEnabled": "产品动态与优惠", "save": "保存设置", "saving": "正在保存…",
+    "saved": "通知设置已保存。", "error": "无法保存这些设置。",
+    "quietHours": "免打扰时段", "quietHoursEnabled": "在免打扰时段暂停非安全类通知",
+    "quietStartHour": "开始小时", "quietEndHour": "结束小时",
+    "quietHoursHelp": "使用本地时间的 24 小时制。开始时间晚于结束时间时表示跨越午夜。",
+    "languages": { "en": "English", "zh-CN": "简体中文" }
+  },
+  "privacyCredentials": {
+    "cancelTitle": "取消账号删除", "cancelIntro": "请确认你希望保留账号。",
+    "confirm": "保留我的账号", "canceling": "正在取消删除…", "canceled": "账号删除已取消。",
+    "invalid": "此安全链接无效或已过期。", "cancelError": "无法使用此链接取消账号删除。",
+    "exportTitle": "下载你的数据", "exportIntro": "登录后可安全下载已准备好的数据导出。",
+    "download": "下载导出", "downloading": "正在准备下载…", "downloaded": "下载已开始。",
+    "downloadError": "无法下载此数据导出。你可以再次尝试安全链接。",
+    "signInPrompt": "下载前需要验证你的身份。", "signIn": "登录"
+  },
+  "metadata": { "description": "一个欢迎真诚跨国连接的地方。" },
+  "marketing": {
+    "eyebrow": "跨越距离，遇见彼此",
+    "title": "从一次真诚的交流开始，认识值得了解的人。",
+    "description": "为期待认真关系的人提供友好空间，让你按照自己的节奏展示自我、认识新朋友，并建立真实的跨国连接。",
+    "primary": "创建个人资料", "secondary": "了解使用方式", "language": "English",
+    "howTitle": "先了解彼此，再决定下一步",
+    "howDescription": "完善个人资料，发现共同兴趣，并从尊重彼此的交流开始。",
+    "joinTitle": "准备好展示真实的自己了吗？", "joinDescription": "个人资料创建功能将在平台下一阶段开放。"
+  },
+  "signIn": {
+    "title": "欢迎回来", "intro": "登录后继续完善个人资料，认识真诚的人。", "back": "返回首页",
+    "email": "电子邮箱", "password": "密码", "submit": "登录", "submitting": "正在登录…",
+    "error": "暂时无法登录。请检查邮箱和密码后重试。"
+  },
+  "discover": {
+    "title": "发现真诚的连接", "intro": "推荐只会展示符合双方偏好与安全规则的公开资料。",
+    "navigation": "发现模式", "results": "推荐资料", "emptyTitle": "暂时没有合适的推荐",
+    "emptyDescription": "稍后再来看看，或尝试其他发现模式。", "member": "匿名用户",
+    "reasonLabel": "推荐理由：{reasons}",
+    "modes": { "recommended": "为你推荐", "new": "新加入", "nearby": "附近", "online": "在线", "verified": "已认证" },
+    "reasons": { "shared_interests": "共同兴趣", "same_country": "来自同一国家", "recently_active": "最近活跃", "identity_verified": "身份已认证", "other": "偏好相符" }
+  },
+  "messagesPage": {
+    "title": "消息", "empty": "请选择一个会话", "draft": "输入消息", "send": "发送", "read": "已读",
+    "delivered": "已送达", "unavailable": "实时更新暂不可用",
+    "states": { "connecting": "连接中", "online": "在线", "retrying": "正在重连", "failed": "连接失败" }
+  },
+  "onboarding": {
+    "title": "创建真正属于你的个人资料", "intro": "分享对你重要的事情。你的准确出生日期和隐私设置绝不会公开展示。",
+    "progress": "资料完整度", "name": "显示名称", "birthDate": "出生日期", "gender": "性别认同",
+    "genderHint": "请使用适合你的表达，例如 woman、man、nonbinary 或 self_described。", "goal": "关系期待",
+    "country": "国家代码", "city": "城市", "bio": "关于你", "languages": "语言", "interests": "兴趣",
+    "listHint": "请使用逗号分隔。", "visible": "审核通过后允许我的资料出现在发现页面", "save": "保存并继续",
+    "saving": "正在保存…", "saved": "资料已保存。", "photo": "添加个人照片",
+    "photoHint": "支持 JPEG、PNG 或 WebP，最大 10 MiB。审核期间照片保持私密。",
+    "photoPending": "审核中，暂不公开", "photoApproved": "已审核，可用于已发布的个人资料",
+    "photoRejected": "未通过审核：请选择其他照片", "removeRejected": "移除未通过审核的照片", "remove": "移除",
+    "uploading": "正在安全上传…", "pending": "上传完成，正在审核；这张照片目前不会公开。",
+    "error": "暂时无法保存。请检查标出的字段后重试。", "photoError": "暂时无法上传这张照片，请选择其他文件后重试。",
+    "required": "此字段为必填项。"
+  },
+  "admin": {
+    "eyebrow": "运营", "title": "管理控制台", "intro": "按权限划分的运营队列",
+    "navigation": "管理导航", "authorizedQueues": "已授权的管理队列", "empty": "此队列中没有已授权的项目。", "next": "下一页",
+    "queues": { "profile_media": "个人资料媒体", "reports": "举报", "appeals": "申诉", "billing_discrepancies": "账单差异", "verification_failures": "认证失败", "configuration_changes": "配置变更" },
+    "status": { "pending": "待处理", "processing": "处理中", "approved": "已批准", "rejected": "已拒绝", "open": "待解决", "resolved": "已解决", "failed": "失败", "manual_review": "人工审核", "unknown": "运营项目" }
+  }
+}

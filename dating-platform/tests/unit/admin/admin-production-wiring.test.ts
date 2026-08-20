@@ -2,6 +2,8 @@ import { readFile } from "node:fs/promises";
 
 import { describe, expect, it } from "vitest";
 
+import { ADMIN_QUEUE_PERMISSIONS } from "@/modules/admin/admin-service";
+
 describe("admin production wiring", () => {
   it("wires both production routes through the admin-only runtime", async () => {
     const [actions, entitlements, runtime] = await Promise.all([
@@ -38,7 +40,11 @@ describe("admin production wiring", () => {
   });
 
   it("renders an isolated server admin console only after permission and before queue reads", async () => {
-    const page = await readFile("src/app/[locale]/admin/page.tsx", "utf8");
+    const [page, english, chinese] = await Promise.all([
+      readFile("src/app/[locale]/admin/page.tsx", "utf8"),
+      readFile("messages/en.json", "utf8").then(JSON.parse),
+      readFile("messages/zh-CN.json", "utf8").then(JSON.parse),
+    ]);
     expect(page).not.toContain("use client");
     expect(page).toContain("readAdminPageSession");
     expect(page).toContain("requirePermission");
@@ -46,8 +52,10 @@ describe("admin production wiring", () => {
     expect(page).toContain("listQueue");
     expect(page.indexOf("requirePermission")).toBeLessThan(page.indexOf("listQueue"));
     expect(page.indexOf("requireRecentMfa")).toBeLessThan(page.indexOf("listQueue"));
-    for (const queue of ["Profile media", "Reports", "Appeals", "Billing discrepancies",
-      "Verification failures", "Configuration changes"]) expect(page).toContain(queue);
+    expect(page).toContain('getTranslations({ locale: resolvedLocale, namespace: "admin" })');
+    expect(page).toContain("t(`queues.${item}`)");
+    expect(Object.keys(english.admin.queues)).toEqual(Object.keys(chinese.admin.queues));
+    expect(Object.keys(english.admin.queues)).toEqual(Object.keys(ADMIN_QUEUE_PERMISSIONS));
     expect(page).toContain("searchParams");
     expect(page).toContain("queue");
     expect(page).toContain("cursor");

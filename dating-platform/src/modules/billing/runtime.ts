@@ -14,7 +14,7 @@ import { BillingEntitlementRefreshWorker, DrizzleEntitlementRefreshStore } from 
 import { RedisBillingRateLimiter } from "./billing-rate-limiter";
 import { createPayAuthorizer } from "./billing-pay-authorization";
 import { DrizzleBillingRepository } from "./billing-repository";
-import { CheckoutService } from "./checkout-service";
+import { BillingError, CheckoutService } from "./checkout-service";
 import { DrizzleReconciliationStore } from "./reconciliation-repository";
 import { ReconciliationService } from "./reconciliation-service";
 import { createStripeClient, StripeBillingAdapter } from "./stripe-adapter";
@@ -70,6 +70,32 @@ export const subscriptionRouteDependencies = {
   service: subscriptionService,
   limiter,
 };
+
+export async function runDeletionRenewalCancellation(input: { userId: string; deletionRequestId: string;
+  idempotencyKey: string }) {
+  void input.deletionRequestId;
+  try {
+    return await subscriptionService.update(input.userId, { action: "cancel_at_period_end" }, input.idempotencyKey);
+  } catch (error) {
+    if (error instanceof BillingError && error.code === "SUBSCRIPTION_NOT_AVAILABLE") {
+      return { accepted: true, replayed: false, pending: false };
+    }
+    throw error;
+  }
+}
+
+export async function runDeletionRenewalResume(input: { userId: string; deletionRequestId: string;
+  idempotencyKey: string }) {
+  void input.deletionRequestId;
+  try {
+    return await subscriptionService.update(input.userId, { action: "resume" }, input.idempotencyKey);
+  } catch (error) {
+    if (error instanceof BillingError && error.code === "SUBSCRIPTION_NOT_AVAILABLE") {
+      return { accepted: true, replayed: false, pending: false };
+    }
+    throw error;
+  }
+}
 
 export async function runConfiguredBillingWorkers() {
   const entitlement = new BillingEntitlementRefreshWorker({

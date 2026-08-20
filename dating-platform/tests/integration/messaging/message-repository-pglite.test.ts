@@ -207,6 +207,10 @@ describe("message repository", () => {
     expect(Object.keys(event.payload).sort()).toEqual([
       "conversationId", "messageId", "senderUserId", "sequence",
     ]);
+    const [notification] = await database.select().from(schema.notificationOutbox);
+    expect(notification).toMatchObject({ userId: bob.userId, templateKey: "notifications.newMessage",
+      category: "transactional" });
+    expect(JSON.stringify(notification.payload)).not.toContain("Hello");
 
     await expect(repository.sendMessage(alice.userId, conversation.id, { clientId, body: "Changed" }))
       .rejects.toMatchObject({ code: "MESSAGE_IDEMPOTENCY_CONFLICT" });

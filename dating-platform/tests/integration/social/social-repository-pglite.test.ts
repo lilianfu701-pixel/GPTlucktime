@@ -90,6 +90,12 @@ describe("social repository", () => {
     });
     expect(outbox).toHaveLength(1);
     expect(outbox[0]).toMatchObject({ eventType: "match.created", status: "pending" });
+    const notifications = await database.select().from(schema.notificationOutbox);
+    expect(notifications).toHaveLength(2);
+    expect(notifications.map(({ userId, templateKey }) => ({ userId, templateKey }))).toEqual(expect.arrayContaining([
+      { userId: alice.userId, templateKey: "notifications.newMatch" },
+      { userId: bob.userId, templateKey: "notifications.newMatch" },
+    ]));
   });
 
   it("serializes concurrent reciprocal likes without duplicate matches or events", async () => {

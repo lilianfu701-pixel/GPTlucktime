@@ -2,8 +2,9 @@ import { randomUUID } from "node:crypto";
 
 import { and, asc, eq, inArray, lte, or } from "drizzle-orm";
 
-import { authNotificationDeliveries } from "@/db/schema";
+import { authNotificationDeliveries, users } from "@/db/schema";
 import type { db as productionDatabase } from "@/infrastructure/db/client";
+import { enqueueProductionNotification } from "@/modules/notifications/notification-producer";
 
 import { EncryptionKeyRing, StableHmac } from "./auth-crypto";
 import {
@@ -16,11 +17,14 @@ import {
   type MessageSender,
   type PasswordResetMessage,
   type SmsOtpMessage,
+  type TemplateNotificationMessage,
 } from "./message-sender";
 
 type NotificationDatabase = typeof productionDatabase;
+type NotificationTransaction = Parameters<Parameters<NotificationDatabase["transaction"]>[0]>[0];
 type Delivery = typeof authNotificationDeliveries.$inferSelect;
-type DeliveryKind = "email_verification" | "password_reset" | "sms_otp";
+type DeliveryKind = "email_verification" | "password_reset" | "sms_otp"
+  | "deletion_cancellation" | "privacy_export_download";
 
 export class DurableNotificationDispatcher implements MessageDispatcher {
   readonly database: NotificationDatabase;
@@ -63,7 +67,8 @@ export class DurableNotificationDispatcher implements MessageDispatcher {
     await this.enqueue("sms_otp", message.to, message.code, message.validUntil);
   }
 
-  decrypt(delivery: Delivery): EmailVerificationMessage | PasswordResetMessage | SmsOtpMessage {
+  decrypt(delivery: Delivery): EmailVerificationMessage | PasswordResetMessage | SmsOtpMessage
+    | TemplateNotificationMessage {
     if (!delivery.recipientEncrypted || !delivery.payloadEncrypted) {
       throw new Error("AUTH_ENCRYPTED_PAYLOAD_INVALID");
     }
@@ -79,7 +84,31 @@ export class DurableNotificationDispatcher implements MessageDispatcher {
     });
     if (delivery.kind === "email_verification") return { to, verificationUrl: payload };
     if (delivery.kind === "password_reset") return { to, resetUrl: payload };
-    return { to, code: payload };
+    if (delivery.kind === "sms_otp") return { to, code: payload };
+    let parsed: unknown;
+    try { parsed = JSON.parse(payload); } catch { throw new Error("AUTH_ENCRYPTED_PAYLOAD_INVALID"); }
+    if (!parsed || typeof parsed !== "object" || Array.isArray(parsed)) {
+      throw new Error("AUTH_ENCRYPTED_PAYLOAD_INVALID");
+    }
+    const fields = parsed as Record<string, unknown>;
+    if ((fields.locale !== "en" && fields.locale !== "zh-CN") || typeof fields.actionUrl !== "string"
+      || typeof fields.expiresAt !== "string") throw new Error("AUTH_ENCRYPTED_PAYLOAD_INVALID");
+    return { to, locale: fields.locale,
+      templateKey: delivery.kind === "deletion_cancellation"
+        ? "privacy.deletionCancellationCredential" : "privacy.exportDownloadCredential",
+      variables: { actionUrl: fields.actionUrl, expiresAt: fields.expiresAt } };
+  }
+
+  async enqueuePrivacyCredential(transaction: NotificationTransaction, input: {
+    kind: "deletion_cancellation" | "privacy_export_download";
+    recipient: string;
+    locale: "en" | "zh-CN";
+    actionUrl: string;
+    validUntil: Date;
+  }): Promise<void> {
+    await this.insertEncrypted(transaction, input.kind, input.recipient,
+      JSON.stringify({ locale: input.locale, actionUrl: input.actionUrl,
+        expiresAt: input.validUntil.toISOString() }), input.validUntil);
   }
 
   async renewLease(
@@ -110,14 +139,32 @@ export class DurableNotificationDispatcher implements MessageDispatcher {
     if (recipientEncrypted.keyId !== payloadEncrypted.keyId) {
       throw new Error("AUTH_ENCRYPTION_ACTIVE_KEY_CHANGED");
     }
-    await this.database.insert(authNotificationDeliveries).values({
-      kind,
+    const deliveryKey = this.deliveryHmac.digest(kind, recipient, payload);
+    const now = new Date();
+    await this.database.transaction(async (transaction) => {
+      await transaction.insert(authNotificationDeliveries).values({ kind, deliveryKey,
+        recipientEncrypted: recipientEncrypted.ciphertext, payloadEncrypted: payloadEncrypted.ciphertext,
+        encryptionKeyId: recipientEncrypted.keyId, availableAt: now, expiresAt: validUntil,
+      }).onConflictDoNothing({ target: authNotificationDeliveries.deliveryKey });
+      const [owner] = await transaction.select({ id: users.id }).from(users)
+        .where(or(eq(users.email, recipient), eq(users.phoneNumber, recipient))).limit(1);
+      if (owner) await enqueueProductionNotification(transaction, { userId: owner.id,
+        dedupeKey: `auth-security:${deliveryKey}`, category: "security",
+        templateKey: `notifications.${kind === "password_reset" ? "passwordReset"
+          : kind === "email_verification" ? "emailVerification" : "smsOtp"}`,
+        payload: { expiresAt: validUntil.toISOString() }, preferredChannels: ["inApp"], availableAt: now });
+    });
+  }
+
+  private async insertEncrypted(transaction: NotificationTransaction, kind: DeliveryKind,
+    recipient: string, payload: string, validUntil: Date) {
+    const recipientEncrypted = this.encryption.encrypt(recipient);
+    const payloadEncrypted = this.encryption.encrypt(payload);
+    if (recipientEncrypted.keyId !== payloadEncrypted.keyId) throw new Error("AUTH_ENCRYPTION_ACTIVE_KEY_CHANGED");
+    await transaction.insert(authNotificationDeliveries).values({ kind,
       deliveryKey: this.deliveryHmac.digest(kind, recipient, payload),
-      recipientEncrypted: recipientEncrypted.ciphertext,
-      payloadEncrypted: payloadEncrypted.ciphertext,
-      encryptionKeyId: recipientEncrypted.keyId,
-      availableAt: new Date(),
-      expiresAt: validUntil,
+      recipientEncrypted: recipientEncrypted.ciphertext, payloadEncrypted: payloadEncrypted.ciphertext,
+      encryptionKeyId: recipientEncrypted.keyId, availableAt: new Date(), expiresAt: validUntil,
     }).onConflictDoNothing({ target: authNotificationDeliveries.deliveryKey });
   }
 }
@@ -207,8 +254,10 @@ export async function drainNotificationOutbox(input: {
         await input.sender.sendEmailVerification(message as EmailVerificationMessage, context);
       } else if (claimed.kind === "password_reset") {
         await input.sender.sendPasswordReset(message as PasswordResetMessage, context);
-      } else {
+      } else if (claimed.kind === "sms_otp") {
         await input.sender.sendSmsOtp(message as SmsOtpMessage, context);
+      } else {
+        await input.sender.sendTemplateNotification("email", message as TemplateNotificationMessage, context);
       }
       const completedAt = clock();
       await database.update(authNotificationDeliveries).set({

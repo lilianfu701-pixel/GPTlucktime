@@ -1,0 +1,119 @@
+{
+  "brand": { "name": "Heartline" },
+  "errors": {
+    "methodNotAllowed": "This action is not available.",
+    "unauthorized": "Sign in to continue.",
+    "forbidden": "You cannot perform this action.",
+    "invalidRequest": "Check the request and try again.",
+    "conflict": "This action conflicts with the current account state.",
+    "reauthenticationRequired": "Verify your email and sign in again to continue.",
+    "uriTooLong": "The request URL is too long.",
+    "invalidIdempotencyKey": "A valid request key is required.",
+    "payloadTooLarge": "The request is too large.",
+    "unsupportedMediaType": "Send this request as JSON.",
+    "rateLimited": "Too many attempts. Try again later.",
+    "serviceUnavailable": "The service is temporarily unavailable.",
+    "internal": "Something went wrong. Try again later."
+  },
+  "privacy": {
+    "exportAccepted": "We are preparing your data export.",
+    "exportReady": "Your data export is ready until {expiresAt}.",
+    "deletionCoolingOff": "Your account is hidden and scheduled for deletion on {executeAt}.",
+    "deletionCanceled": "Your account deletion request was canceled.",
+    "deletionCompleted": "Your account deletion is complete."
+  },
+  "notifications": {
+    "securityNotice": "Security notice",
+    "transactionalNotice": "Account update",
+    "marketingNotice": "Product news",
+    "newMatch": "You have a new match.",
+    "newMessage": "You have a new message.",
+    "passwordReset": "A password reset was requested.",
+    "emailVerification": "Email verification was requested.",
+    "smsOtp": "A sign-in code was requested.",
+    "pendingCount": "{count, plural, one {# notification} other {# notifications}}"
+  },
+  "notificationSettings": {
+    "title": "Notification settings", "intro": "Choose how and when we may contact you.",
+    "locale": "Notification language", "timeZone": "Time zone", "channels": "Channels and consent",
+    "emailEnabled": "Email", "smsEnabled": "Text messages", "inAppEnabled": "In-app notifications",
+    "marketingEnabled": "Product news and offers", "save": "Save settings", "saving": "Saving…",
+    "saved": "Notification settings saved.", "error": "We could not save these settings.",
+    "quietHours": "Quiet hours", "quietHoursEnabled": "Pause non-security notifications during quiet hours",
+    "quietStartHour": "Start hour", "quietEndHour": "End hour",
+    "quietHoursHelp": "Use local 24-hour time. A start later than the end continues across midnight.",
+    "languages": { "en": "English", "zh-CN": "简体中文" }
+  },
+  "privacyCredentials": {
+    "cancelTitle": "Cancel account deletion", "cancelIntro": "Confirm that you want to keep your account.",
+    "confirm": "Keep my account", "canceling": "Canceling deletion…", "canceled": "Account deletion canceled.",
+    "invalid": "This secure link is invalid or has expired.", "cancelError": "We could not cancel deletion with this link.",
+    "exportTitle": "Download your data", "exportIntro": "Sign in to download your prepared data export securely.",
+    "download": "Download export", "downloading": "Preparing download…", "downloaded": "Your download has started.",
+    "downloadError": "We could not download this export. You can try the secure link again.",
+    "signInPrompt": "Your identity must be verified before download.", "signIn": "Sign in"
+  },
+  "metadata": { "description": "A welcoming place for meaningful international connections." },
+  "marketing": {
+    "eyebrow": "Meet beyond borders",
+    "title": "Start a conversation that could go somewhere meaningful.",
+    "description": "A welcoming place to discover people, share your story, and build genuine international connections at your own pace.",
+    "primary": "Create your profile",
+    "secondary": "Explore how it works",
+    "language": "简体中文",
+    "howTitle": "Get to know each other, one step at a time",
+    "howDescription": "Build a thoughtful profile, discover shared interests, and begin with a respectful conversation.",
+    "joinTitle": "Ready to share the real you?",
+    "joinDescription": "Profile creation will open in the next stage of the platform."
+  },
+  "signIn": {
+    "title": "Welcome back",
+    "intro": "Sign in to continue your profile and meet people with intention.",
+    "back": "Back to home",
+    "email": "Email address",
+    "password": "Password",
+    "submit": "Sign in",
+    "submitting": "Signing in…",
+    "error": "We could not sign you in. Check your email and password and try again."
+  },
+  "discover": {
+    "title": "Discover genuine connections",
+    "intro": "Every result respects mutual preferences, privacy, and safety rules.",
+    "navigation": "Discovery modes",
+    "results": "Recommended profiles",
+    "emptyTitle": "No matches here yet",
+    "emptyDescription": "Check back later or try another discovery mode.",
+    "member": "Member",
+    "reasonLabel": "Why this match: {reasons}",
+    "modes": { "recommended": "Recommended", "new": "New", "nearby": "Nearby", "online": "Online", "verified": "Verified" },
+    "reasons": { "shared_interests": "shared interests", "same_country": "same country", "recently_active": "recently active", "identity_verified": "identity verified", "other": "compatible preferences" }
+  },
+  "messagesPage": {
+    "title": "Messages", "empty": "Choose a conversation", "draft": "Write a message", "send": "Send",
+    "read": "Read", "delivered": "Delivered", "unavailable": "Real-time updates unavailable",
+    "states": { "connecting": "Connecting", "online": "Online", "retrying": "Reconnecting", "failed": "Connection failed" }
+  },
+  "onboarding": {
+    "title": "Create a profile that feels like you",
+    "intro": "Share what matters to you. Your exact birth date and private settings are never shown publicly.",
+    "progress": "Profile completeness", "name": "Display name", "birthDate": "Birth date", "gender": "Gender identity",
+    "genderHint": "Use the words that fit you, such as woman, man, nonbinary, or self_described.",
+    "goal": "Relationship goal", "country": "Country code", "city": "City", "bio": "About you",
+    "languages": "Languages", "interests": "Interests", "listHint": "Separate entries with commas.",
+    "visible": "Let my approved profile appear in discovery", "save": "Save and continue", "saving": "Saving…",
+    "saved": "Profile saved.", "photo": "Add a profile photo",
+    "photoHint": "JPEG, PNG, or WebP. Maximum 10 MiB. Photos remain private while review is pending.",
+    "photoPending": "Review pending — not public", "photoApproved": "Approved and ready for your published profile",
+    "photoRejected": "Rejected: choose a different photo", "removeRejected": "Remove rejected photo", "remove": "Remove",
+    "uploading": "Uploading securely…", "pending": "Uploaded. Review is pending; this photo is not public yet.",
+    "error": "We could not save that. Check the highlighted fields and try again.",
+    "photoError": "We could not upload that photo. Please choose another file and try again.", "required": "This field is required."
+  },
+  "admin": {
+    "eyebrow": "Operations", "title": "Admin console", "intro": "Permission-scoped operational queues",
+    "navigation": "Admin navigation", "authorizedQueues": "Authorized admin queues",
+    "empty": "No authorized items in this queue.", "next": "Next page",
+    "queues": { "profile_media": "Profile media", "reports": "Reports", "appeals": "Appeals", "billing_discrepancies": "Billing discrepancies", "verification_failures": "Verification failures", "configuration_changes": "Configuration changes" },
+    "status": { "pending": "Pending", "processing": "Processing", "approved": "Approved", "rejected": "Rejected", "open": "Open", "resolved": "Resolved", "failed": "Failed", "manual_review": "Manual review", "unknown": "Operational item" }
+  }
+}

@@ -281,6 +281,13 @@
       "when": 1786731050836,
       "tag": "0039_admin_governance",
       "breakpoints": true
+    },
+    {
+      "idx": 40,
+      "version": "7",
+      "when": 1787239962966,
+      "tag": "0040_privacy_workflows",
+      "breakpoints": true
     }
   ]
 }

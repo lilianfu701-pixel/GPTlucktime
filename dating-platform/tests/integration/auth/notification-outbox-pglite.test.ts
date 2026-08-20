@@ -41,6 +41,19 @@ describe("durable auth notification outbox", () => {
     deliveryHmac,
   );
 
+  it("adapts account-bound auth security events into the unified outbox in the same transaction", async () => {
+    const userId = crypto.randomUUID();
+    await database.insert(schema.users).values({ id: userId, name: "Owner", email: "owner@example.test" });
+    await database.insert(schema.profiles).values({ userId, timeZone: "Asia/Shanghai" });
+    await database.insert(schema.profilePreferences).values({ userId, languageCodes: ["zh-CN"] });
+    await outbox().enqueuePasswordReset({ to: "owner@example.test", resetUrl: "https://app.example.test/reset?token=secret",
+      validUntil: new Date("2026-08-21T00:00:00Z") });
+    const [notification] = await database.select().from(schema.notificationOutbox);
+    expect(notification).toMatchObject({ userId, category: "security", templateKey: "notifications.passwordReset",
+      locale: "zh-CN", channels: ["inApp"], payload: { expiresAt: "2026-08-21T00:00:00.000Z" } });
+    expect(JSON.stringify(notification)).not.toContain("secret");
+  });
+
   it("reads old-key work after rotation and writes new work with the active key", async () => {
     const validUntil = new Date(Date.now() + 60_000);
     const old = outbox([key("old", 6)]);
