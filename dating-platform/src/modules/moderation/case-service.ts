@@ -125,6 +125,19 @@ export class DrizzleCaseService {
     expiresAt: Date | null;
     contentTarget?: { type: "profile" | "message" | "photo"; id: string };
   }) {
+    return this.database.transaction((transaction) =>
+      this.recordActionInTransaction(transaction, caseId, actor, input));
+  }
+
+  async recordActionInTransaction(database: unknown, caseId: string, actor: ModerationActor, input: {
+    subjectUserId: string;
+    actionType: "warn" | "temporary_restriction" | "suspend" | "ban" | "quarantine_content" | "restore";
+    reasonCode: string;
+    evidenceSummary: string;
+    expiryPolicy: "fixed" | "indefinite_review";
+    expiresAt: Date | null;
+    contentTarget?: { type: "profile" | "message" | "photo"; id: string };
+  }) {
     const reasonCode = validText(input.reasonCode, 80);
     const evidenceSummary = validText(input.evidenceSummary, 2000);
     const now = this.clock();
@@ -142,8 +155,7 @@ export class DrizzleCaseService {
     if ((input.actionType === "quarantine_content") !== Boolean(input.contentTarget)) {
       throw new ModerationError("INVALID_ACTION");
     }
-    return this.database.transaction(async (transaction) => {
-      const tx = transaction as unknown as ModerationDatabase;
+      const tx = database as ModerationDatabase;
       const current = await this.lockCase(tx, caseId);
       await this.authorizeCaseActor(tx, current, actor);
       if (current.status !== "under_review") throw new ModerationError("INVALID_ACTION");
@@ -263,7 +275,6 @@ export class DrizzleCaseService {
         createdAt: now,
       });
       return created;
-    });
   }
 
   async createAppeal(appellantUserId: string, originalCaseId: string, rawStatement: string) {

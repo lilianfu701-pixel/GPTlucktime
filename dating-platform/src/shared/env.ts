@@ -99,6 +99,14 @@ const schema = z
     PROFILE_MEDIA_STORAGE_BUCKET: optionalValue(z.string().trim().min(3).max(63)),
     PROFILE_MEDIA_STORAGE_ACCESS_KEY: optionalValue(z.string().min(1)),
     PROFILE_MEDIA_STORAGE_SECRET_KEY: optionalValue(z.string().min(1)),
+    ADMIN_EXPORT_S3_ENDPOINT: optionalValue(urlWithProtocols(
+      ["http:", "https:"],
+      "ADMIN_EXPORT_S3_ENDPOINT must use http:// or https://",
+    )),
+    ADMIN_EXPORT_S3_REGION: optionalValue(z.string().trim().min(1).max(100)),
+    ADMIN_EXPORT_S3_BUCKET: optionalValue(z.string().trim().min(3).max(63)),
+    ADMIN_EXPORT_S3_ACCESS_KEY: optionalValue(z.string().min(1)),
+    ADMIN_EXPORT_S3_SECRET_KEY: optionalValue(z.string().min(1)),
     PROFILE_MEDIA_TOKEN_SECRET: optionalValue(z.string().min(32)),
     PROFILE_MEDIA_MAX_BYTES: optionalValue(z.coerce.number().int().positive().max(25 * 1024 * 1024)),
     PROFILE_MEDIA_UPLOAD_EXPIRY_SECONDS: optionalValue(z.coerce.number().int().min(30).max(600)),
@@ -117,6 +125,7 @@ const schema = z
     STRIPE_SECRET_KEY: optionalValue(z.string().min(16).max(256)),
     STRIPE_WEBHOOK_SECRET: optionalValue(z.string().min(32).max(256)),
     BILLING_WORKER_CRON_SECRET: optionalValue(z.string().min(32).max(256)),
+    ADMIN_WORKER_CRON_SECRET: optionalValue(z.string().min(32).max(256)),
     DISCOVERY_DISABLED_COUNTRY_CODES: optionalValue(z.string().regex(/^[A-Z]{2}(,[A-Z]{2})*$/)),
     REALTIME_TICKET_KEYS: optionalValue(realtimeTicketKeyRing),
     REALTIME_HOST: optionalValue(z.enum(["127.0.0.1", "0.0.0.0"])),
@@ -189,6 +198,13 @@ const schema = z
       "PROFILE_MEDIA_STORAGE_SECRET_KEY",
       "PROFILE_MEDIA_TOKEN_SECRET",
     ]);
+    requireCompleteGroup("ADMIN_EXPORT_S3", [
+      "ADMIN_EXPORT_S3_ENDPOINT",
+      "ADMIN_EXPORT_S3_REGION",
+      "ADMIN_EXPORT_S3_BUCKET",
+      "ADMIN_EXPORT_S3_ACCESS_KEY",
+      "ADMIN_EXPORT_S3_SECRET_KEY",
+    ]);
     requireCompleteGroup("MEDIA_REVIEW", [
       "MEDIA_REVIEW_PROVIDER",
       "MEDIA_REVIEW_URL",
@@ -224,6 +240,10 @@ const schema = z
         message: "PROFILE_MEDIA_STORAGE_ENDPOINT must use https:// in production",
         path: ["PROFILE_MEDIA_STORAGE_ENDPOINT"],
       });
+    }
+    if (env.ADMIN_EXPORT_S3_ENDPOINT && new URL(env.ADMIN_EXPORT_S3_ENDPOINT).protocol !== "https:") {
+      context.addIssue({ code: "custom", message: "ADMIN_EXPORT_S3_ENDPOINT must use https:// in production",
+        path: ["ADMIN_EXPORT_S3_ENDPOINT"] });
     }
     if (env.REALTIME_PUBLIC_URL && new URL(env.REALTIME_PUBLIC_URL).protocol !== "https:") {
       context.addIssue({

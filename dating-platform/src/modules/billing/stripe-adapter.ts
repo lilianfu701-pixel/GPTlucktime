@@ -93,6 +93,20 @@ export class StripeBillingAdapter implements CheckoutProvider, BillingEventVerif
       { cancel_at_period_end: input.cancelAtPeriodEnd }, { idempotencyKey: input.idempotencyKey });
   }
 
+  async createRefund(input: { providerPaymentId: string; amount: number; idempotencyKey: string }) {
+    if (!/^pi_[A-Za-z0-9_]{3,250}$/u.test(input.providerPaymentId)
+      || !Number.isSafeInteger(input.amount) || input.amount < 1 || input.amount > 1_000_000_000
+      || !/^[A-Za-z0-9][A-Za-z0-9._:-]{15,127}$/u.test(input.idempotencyKey)) {
+      throw new Error("INVALID_REFUND_INTENT");
+    }
+    const refund = await this.stripe.refunds.create({
+      payment_intent: input.providerPaymentId,
+      amount: input.amount,
+    }, { idempotencyKey: input.idempotencyKey });
+    if (!refund.id) throw new Error("STRIPE_REFUND_ID_MISSING");
+    return { providerRefundId: refund.id };
+  }
+
   async verifyAndNormalize(raw: Uint8Array, signature: string): Promise<NormalizedBillingEvent> {
     const event = this.stripe.webhooks.constructEvent(
       Buffer.from(raw), signature, this.webhookSecret, this.toleranceSeconds, undefined, this.nowSeconds() * 1_000,

@@ -92,6 +92,21 @@ describe("readEnv", () => {
     })).toThrow("PROFILE_MEDIA_STORAGE configuration must be complete");
   });
 
+  it("accepts only a complete dedicated admin export storage group", () => {
+    const exports = readEnv({
+      ...validEnv,
+      ADMIN_EXPORT_S3_ENDPOINT: "https://admin-exports.example.test",
+      ADMIN_EXPORT_S3_REGION: "us-west-2",
+      ADMIN_EXPORT_S3_BUCKET: "private-admin-exports",
+      ADMIN_EXPORT_S3_ACCESS_KEY: "admin-export-access",
+      ADMIN_EXPORT_S3_SECRET_KEY: "admin-export-secret",
+    });
+    expect(exports.ADMIN_EXPORT_S3_BUCKET).toBe("private-admin-exports");
+    expect(() => readEnv({ ...validEnv,
+      ADMIN_EXPORT_S3_ENDPOINT: "https://admin-exports.example.test" }))
+      .toThrow("ADMIN_EXPORT_S3 configuration must be complete");
+  });
+
   it("accepts only a complete allowlisted media review provider group", () => {
     const mediaReview = readEnv({
       ...validEnv,
