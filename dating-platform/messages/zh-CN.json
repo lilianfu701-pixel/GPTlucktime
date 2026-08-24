@@ -129,7 +129,19 @@
     "messages": { "eyebrow": "保持联系", "title": "消息", "conversations": "会话", "back": "返回会话列表", "placeholder": "输入演示消息", "send": "发送", "now": "刚刚", "safety": "演示会话：消息只保留在当前浏览器视图中，不会真实发送。", "about": "关于此匹配" },
     "membership": { "eyebrow": "简单透明的会员", "title": "选择适合你的连接方式", "intro": "无需付款即可查看所有套餐，演示中已禁用付款。", "month": "/ 月", "recommended": "推荐", "choose": "选择{plan}", "notice": "演示模式已禁用付款。" },
     "me": { "eyebrow": "你的 DateCN", "title": "真正属于你的个人资料", "completion": "资料完整度", "preview": "资料预览", "currentPlan": "当前套餐", "edit": "编辑资料", "settings": "设置与隐私", "notifications": "通知", "privacy": "隐私控制", "security": "安全中心", "signinRequired": "实时设置需要登录", "actionNotice": "{action}为本地演示预览，账号设置没有改变。", "membership": "查看会员" },
-    "auth": { "eyebrow": "欢迎来到 DateCN", "title": "下一次有意义的交流，可以从这里开始。", "body": "安全登录，或使用完全虚构的演示数据预览完整体验。", "signInTab": "登录", "registerTab": "创建账号", "registerTitle": "创建你的 DateCN 账号", "registerBody": "此公开演示暂未开放注册。你可以在不创建或保存账号的情况下预览个人资料。", "registerCta": "预览你的资料", "backToSignIn": "已有账号？返回登录", "showPassword": "显示密码", "hidePassword": "隐藏密码", "demo": "先体验演示", "trust": "默认保护隐私 · 仅限 18+ · 尊重优先" }
+    "auth": { "eyebrow": "欢迎来到 DateCN", "title": "下一次有意义的交流，可以从这里开始。", "body": "安全登录，或使用完全虚构的演示数据预览完整体验。", "signInTab": "登录", "registerTab": "创建账号", "registerCta": "创建账号", "registering": "正在创建账号…", "displayName": "显示名称", "birthDate": "出生日期", "birthDateHint": "准确出生日期保持私密，并会在完善资料时再次验证。", "passwordHint": "请使用至少 12 个字符。", "termsAcknowledgement": "我确认已年满 18 岁，并同意服务条款和隐私政策。", "adultError": "你必须年满 18 岁。", "termsError": "请确认成年资格并同意条款后继续。", "registerError": "无法创建账号。请检查字段或稍后重试。", "checkEmailTitle": "验证电子邮箱", "checkEmailBody": "请查收邮件并验证账号。", "resendEmail": "重新发送验证邮件", "verificationError": "暂时无法验证，请稍后重试。", "phoneTitle": "登录后验证手机号", "phoneBody": "完成邮箱验证后，请在此登录并请求一次性短信验证码。DateCN 不会显示服务商生成的验证码。", "phoneNumber": "手机号码", "phoneCode": "短信验证码", "sendPhoneCode": "发送短信验证码", "verifyPhone": "验证手机", "phoneVerified": "手机号已验证。", "backToSignIn": "已有账号？返回登录", "showPassword": "显示密码", "hidePassword": "隐藏密码", "demo": "先体验演示", "trust": "默认保护隐私 · 仅限 18+ · 尊重优先" }
+  },
+  "discoverActions": {
+    "like": "喜欢", "report": "举报", "block": "拉黑", "likeName": "喜欢{name}", "reportName": "举报{name}", "blockName": "拉黑{name}",
+    "liked": "你已喜欢{name}。", "matched": "你和{name}匹配成功！", "reported": "举报已提交审核。", "blocked": "已拉黑{name}，你们无法继续互动。", "denied": "此互动已不可用。", "error": "无法完成操作，请重试。",
+    "reason": "原因", "explanation": "发生了什么？", "submitReport": "提交举报",
+    "reasons": { "HARASSMENT": "骚扰", "HATE_OR_ABUSE": "仇恨或辱骂", "IMPERSONATION": "冒充他人", "MINOR_SAFETY": "未成年人安全", "SCAM_OR_FRAUD": "诈骗", "SEXUAL_CONTENT": "色情内容", "SPAM": "垃圾信息", "THREATS_OR_VIOLENCE": "威胁或暴力", "OTHER_SAFETY": "其他安全问题" }
+  },
+  "membershipSettings": {
+    "back": "返回发现", "title": "会员设置", "intro": "查看当前权益、比较透明套餐并管理续费。结账只会在 Stripe 托管页面打开。", "current": "当前会员", "loading": "正在加载会员信息…", "freeStatus": "你当前使用免费套餐。", "plans": "可选套餐", "noPlans": "当前地区暂时没有可用付费套餐。", "periodEnd": "当前周期于{date}结束。", "renewalCanceled": "续费已取消；权益保留至已确认的周期结束时间。", "cancelRenewal": "取消续费", "cancelRequested": "已请求取消续费，权益保留至已确认的周期结束时间。", "error": "会员信息暂不可用，请稍后重试。", "choose": "选择{plan}", "taxIncluded": "已含税", "taxCalculated": "税费将在结账时计算",
+    "intervals": { "monthly": "/ 月", "quarterly": "/ 季度", "yearly": "/ 年" },
+    "planNames": { "free": "免费", "plus": "Plus", "premium": "Premium" },
+    "statuses": { "trialing": "试用中", "active": "有效", "past_due": "逾期", "grace_period": "宽限期", "disputed": "审核中", "revoked": "已撤销", "canceled": "已取消", "expired": "已过期" }
   },
   "admin": {
     "eyebrow": "运营", "title": "管理控制台", "intro": "按权限划分的运营队列",

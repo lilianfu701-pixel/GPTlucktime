@@ -10,6 +10,8 @@ import { DISCOVERY_MODES, publicDiscoveryFilterSchema, type DiscoveryMode } from
 import { createProductionDiscoveryRepository } from "@/modules/discovery/runtime";
 import { readEnv } from "@/shared/env";
 
+import { DiscoverActions } from "./discover-actions";
+
 const reasonKeys = new Set(["shared_interests", "same_country", "recently_active", "identity_verified"]);
 
 export default async function DiscoverPage({
@@ -87,6 +89,8 @@ export default async function DiscoverPage({
                         {t("reasonLabel", { reasons: reasons.map((reason) => t(`reasons.${reasonKeys.has(reason) ? reason : "other"}`)).join(" · ") })}
                       </p>
                     )}
+                    <DiscoverActions locale={resolvedLocale === "zh-CN" ? "zh" : "en"}
+                      profileId={String(item.id)} displayName={String(item.displayName ?? t("member"))} />
                   </article>
                 </li>
               );
