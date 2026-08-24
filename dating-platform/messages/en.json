@@ -1,5 +1,5 @@
 {
-  "brand": { "name": "Heartline" },
+  "brand": { "name": "DateCN" },
   "errors": {
     "methodNotAllowed": "This action is not available.",
     "unauthorized": "Sign in to continue.",
@@ -108,6 +108,42 @@
     "uploading": "Uploading securely…", "pending": "Uploaded. Review is pending; this photo is not public yet.",
     "error": "We could not save that. Check the highlighted fields and try again.",
     "photoError": "We could not upload that photo. Please choose another file and try again.", "required": "This field is required."
+  },
+  "datecn": {
+    "language": "简体中文",
+    "signIn": "Sign in",
+    "createAccount": "Create account",
+    "demoMode": "Demo mode",
+    "demoNotice": "You are viewing fictional sample profiles. No real messages, likes, or payments are sent.",
+    "verified": "Verified profile",
+    "online": "Online",
+    "compatible": "{value}% compatible",
+    "nav": { "member": "Member navigation", "mobile": "Mobile navigation", "discover": "Discover", "matches": "Matches", "messages": "Messages", "membership": "Membership", "me": "My profile" },
+    "home": {
+      "eyebrow": "Meaningful connections, across cultures",
+      "title": "Meet someone who feels like home, wherever you are.",
+      "description": "DateCN is a warm, respectful space for adults seeking genuine international relationships.",
+      "heroAlt": "Two adults sharing a warm conversation in a sunlit café",
+      "trustLabel": "DateCN trust principles",
+      "explore": "Explore the free demo",
+      "join": "Sign in or join",
+      "trust1": "Adults only", "trust2": "Verified profiles", "trust3": "Privacy by design", "trust4": "Global community",
+      "previewEyebrow": "People worth meeting", "previewTitle": "Start with shared values, not endless swiping.",
+      "howEyebrow": "Simple by design", "howTitle": "Three thoughtful steps to a real connection",
+      "step1Title": "Be yourself", "step1Body": "Create a clear profile around your story, values, and hopes.",
+      "step2Title": "Discover thoughtfully", "step2Body": "Explore compatible people across cultures at your own pace.",
+      "step3Title": "Begin a conversation", "step3Body": "Connect respectfully with tools that support trust and safety.",
+      "membershipTitle": "Start free. Choose more when it feels right.", "membershipBody": "Browse the full demo now. Membership options are transparent and never active in demo mode.", "viewPlans": "View membership",
+      "safetyTitle": "Designed for kind, intentional connection.", "safetyBody": "Clear controls, profile verification, and privacy-first defaults help everyone meet with confidence.",
+      "footer": "DateCN — meaningful connection has no borders.", "legal": "Fictional demonstration for adults 18+"
+    },
+    "discover": { "eyebrow": "Curated for you", "title": "Discover genuine connections", "intro": "Eight fictional members show how DateCN makes global discovery feel personal.", "search": "Search by name or city", "filters": "Filters", "all": "All", "online": "Online now", "verified": "Verified", "showing": "Showing {count} profiles", "noResults": "No demo profiles match those filters." },
+    "matches": { "eyebrow": "Mutual interest", "title": "Your matches", "intro": "A conversation starts when interest goes both ways.", "matched": "Matched {when}", "message": "Start a conversation" },
+    "profile": { "back": "Back to discover", "about": "About", "interests": "Interests", "goal": "Looking for", "work": "Work", "sayHello": "Say hello", "save": "Save profile", "demoAction": "Demo only — no action was sent." },
+    "messages": { "eyebrow": "Stay connected", "title": "Messages", "conversations": "Conversations", "back": "Back to conversations", "placeholder": "Write a demo message", "send": "Send", "now": "Now", "safety": "Demo conversation: messages stay only in this browser view and are never sent.", "about": "About this match" },
+    "membership": { "eyebrow": "Simple, transparent membership", "title": "Choose how you want to connect", "intro": "Explore every plan without a charge. Payments are disabled throughout this demo.", "month": "/ month", "recommended": "Recommended", "choose": "Choose {plan}", "notice": "Payments are disabled in demo mode." },
+    "me": { "eyebrow": "Your DateCN", "title": "A profile that feels like you", "completion": "Profile completion", "preview": "Profile preview", "currentPlan": "Current plan", "edit": "Edit profile", "settings": "Settings & privacy", "notifications": "Notifications", "privacy": "Privacy controls", "security": "Safety center", "signinRequired": "Sign in required for live settings", "actionNotice": "{action} is a local demo preview. No account settings changed.", "membership": "Explore membership" },
+    "auth": { "eyebrow": "Welcome to DateCN", "title": "Your next meaningful conversation can start here.", "body": "Sign in securely or preview the complete experience with fictional demo data.", "signInTab": "Sign in", "registerTab": "Create account", "registerTitle": "Create your DateCN account", "registerBody": "Registration is not enabled in this public demo. Preview how your profile will look without creating or saving an account.", "registerCta": "Preview your profile", "backToSignIn": "Already a member? Sign in", "showPassword": "Show password", "hidePassword": "Hide password", "demo": "Explore the demo instead", "trust": "Private by default · Adults 18+ · Respect first" }
   },
   "admin": {
     "eyebrow": "Operations", "title": "Admin console", "intro": "Permission-scoped operational queues",

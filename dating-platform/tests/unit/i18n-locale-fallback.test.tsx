@@ -9,6 +9,10 @@ vi.mock("next-intl/server", () => ({
     return (key: string) => `${input.namespace}.${key}`;
   },
 }));
+vi.mock("next-intl", () => ({
+  useTranslations: (namespace: string) => (key: string, values?: { value?: number }) =>
+    values?.value === undefined ? `${namespace}.${key}` : `${namespace}.${key}:${values.value}`,
+}));
 vi.mock("next/link", () => ({ default: ({ children, ...props }: React.AnchorHTMLAttributes<HTMLAnchorElement>) =>
   <a {...props}>{children}</a> }));
 
@@ -18,8 +22,9 @@ describe("unsupported locale rendering", () => {
   it("renders /fr with the English server catalog instead of not-found", async () => {
     translationCalls.length = 0;
     const markup = renderToStaticMarkup(await MarketingPage({ params: Promise.resolve({ locale: "fr" }) }));
-    expect(markup).toContain("marketing.title");
-    expect(translationCalls).toEqual([{ locale: "en", namespace: "marketing" },
-      { locale: "en", namespace: "brand" }]);
+    expect(markup).toContain("datecn.home.title");
+    expect(translationCalls).toEqual([{ locale: "en", namespace: "datecn.home" },
+      { locale: "en", namespace: "brand" },
+      { locale: "en", namespace: "datecn" }]);
   });
 });

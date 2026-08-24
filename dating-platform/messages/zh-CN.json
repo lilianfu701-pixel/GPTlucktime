@@ -1,5 +1,5 @@
 {
-  "brand": { "name": "Heartline" },
+  "brand": { "name": "DateCN" },
   "errors": {
     "methodNotAllowed": "此操作不可用。",
     "unauthorized": "请登录后继续。",
@@ -94,6 +94,42 @@
     "uploading": "正在安全上传…", "pending": "上传完成，正在审核；这张照片目前不会公开。",
     "error": "暂时无法保存。请检查标出的字段后重试。", "photoError": "暂时无法上传这张照片，请选择其他文件后重试。",
     "required": "此字段为必填项。"
+  },
+  "datecn": {
+    "language": "English",
+    "signIn": "登录",
+    "createAccount": "创建账号",
+    "demoMode": "演示模式",
+    "demoNotice": "你正在查看虚构示例资料，不会发送真实消息、喜欢或付款。",
+    "verified": "已认证资料",
+    "online": "在线",
+    "compatible": "{value}% 匹配",
+    "nav": { "member": "会员导航", "mobile": "移动端导航", "discover": "发现", "matches": "匹配", "messages": "消息", "membership": "会员", "me": "我的资料" },
+    "home": {
+      "eyebrow": "跨越文化，遇见真诚关系",
+      "title": "无论你在哪里，都能遇见让你安心的人。",
+      "description": "DateCN 为期待真实国际关系的成年人提供温暖、尊重的交流空间。",
+      "heroAlt": "两位成年人在阳光咖啡馆中温暖交谈",
+      "trustLabel": "DateCN 信任原则",
+      "explore": "免费体验演示",
+      "join": "登录或加入",
+      "trust1": "仅限成年人", "trust2": "认证资料", "trust3": "隐私优先", "trust4": "全球社区",
+      "previewEyebrow": "值得认识的人", "previewTitle": "从共同价值开始，而不是无尽滑动。",
+      "howEyebrow": "简单而用心", "howTitle": "三步开启真实连接",
+      "step1Title": "真实表达", "step1Body": "围绕你的故事、价值观与期待，建立清晰资料。",
+      "step2Title": "用心发现", "step2Body": "按照自己的节奏认识来自不同文化的合适对象。",
+      "step3Title": "开始交流", "step3Body": "在重视信任与安全的环境中，尊重地建立连接。",
+      "membershipTitle": "免费开始，需要时再选择更多。", "membershipBody": "现在即可浏览完整演示。演示模式不会启用任何付费功能。", "viewPlans": "查看会员",
+      "safetyTitle": "为善意、认真的连接而设计。", "safetyBody": "清晰控制、资料认证与隐私默认设置，让每个人更安心地认识彼此。",
+      "footer": "DateCN — 真诚连接不受距离限制。", "legal": "仅供 18 岁以上成年人查看的虚构演示"
+    },
+    "discover": { "eyebrow": "为你精选", "title": "发现真诚连接", "intro": "八位虚构会员展示 DateCN 如何让全球发现更有人情味。", "search": "按姓名或城市搜索", "filters": "筛选", "all": "全部", "online": "当前在线", "verified": "已认证", "showing": "显示 {count} 份资料", "noResults": "没有符合筛选条件的演示资料。" },
+    "matches": { "eyebrow": "彼此有意", "title": "你的匹配", "intro": "当双方都有兴趣时，对话便自然开始。", "matched": "匹配于{when}", "message": "开始聊天" },
+    "profile": { "back": "返回发现", "about": "关于", "interests": "兴趣", "goal": "期待关系", "work": "职业", "sayHello": "打招呼", "save": "收藏资料", "demoAction": "仅限演示，未发送任何操作。" },
+    "messages": { "eyebrow": "保持联系", "title": "消息", "conversations": "会话", "back": "返回会话列表", "placeholder": "输入演示消息", "send": "发送", "now": "刚刚", "safety": "演示会话：消息只保留在当前浏览器视图中，不会真实发送。", "about": "关于此匹配" },
+    "membership": { "eyebrow": "简单透明的会员", "title": "选择适合你的连接方式", "intro": "无需付款即可查看所有套餐，演示中已禁用付款。", "month": "/ 月", "recommended": "推荐", "choose": "选择{plan}", "notice": "演示模式已禁用付款。" },
+    "me": { "eyebrow": "你的 DateCN", "title": "真正属于你的个人资料", "completion": "资料完整度", "preview": "资料预览", "currentPlan": "当前套餐", "edit": "编辑资料", "settings": "设置与隐私", "notifications": "通知", "privacy": "隐私控制", "security": "安全中心", "signinRequired": "实时设置需要登录", "actionNotice": "{action}为本地演示预览，账号设置没有改变。", "membership": "查看会员" },
+    "auth": { "eyebrow": "欢迎来到 DateCN", "title": "下一次有意义的交流，可以从这里开始。", "body": "安全登录，或使用完全虚构的演示数据预览完整体验。", "signInTab": "登录", "registerTab": "创建账号", "registerTitle": "创建你的 DateCN 账号", "registerBody": "此公开演示暂未开放注册。你可以在不创建或保存账号的情况下预览个人资料。", "registerCta": "预览你的资料", "backToSignIn": "已有账号？返回登录", "showPassword": "显示密码", "hidePassword": "隐藏密码", "demo": "先体验演示", "trust": "默认保护隐私 · 仅限 18+ · 尊重优先" }
   },
   "admin": {
     "eyebrow": "运营", "title": "管理控制台", "intro": "按权限划分的运营队列",
