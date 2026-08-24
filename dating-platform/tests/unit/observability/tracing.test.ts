@@ -24,22 +24,32 @@ describe("observability tracing", () => {
 
   it("records and closes a span without sensitive attributes", async () => {
     const end = vi.fn();
-    const startSpan = vi.fn(() => ({ end, recordException: vi.fn() }));
+    const recordException = vi.fn();
+    const startSpan = vi.fn(() => ({ end, recordException }));
     configureObservability({ startSpan, recordMetric: vi.fn() });
+
+    const error = new Error("private detail");
+    error.name = "Bearer secret-token private@example.test";
 
     await expect(withSpan("payment", "checkout", {
       route: "/api/v1/checkout-sessions",
+      provider: "stripe",
       email: "private@example.test",
       phone: "+15555550123",
       messageText: "secret message",
       latitude: 37.7749,
       longitude: -122.4194,
-    }, async () => "ok")).resolves.toBe("ok");
+      payload: "Contact private@example.test; Bearer abc.secret; private message",
+      contact: "+15555550123",
+      coordinates: "37.7749,-122.4194",
+    }, async () => { throw error; })).rejects.toBe(error);
 
     expect(startSpan).toHaveBeenCalledWith("payment.operation", {
       operation: "checkout",
       route: "/api/v1/checkout-sessions",
+      provider: "stripe",
     });
+    expect(recordException).toHaveBeenCalledWith({ errorName: "Error" });
     expect(end).toHaveBeenCalledOnce();
   });
 
@@ -55,6 +65,10 @@ describe("observability tracing", () => {
       messageText: "hello",
       exactLocation: "37.7749,-122.4194",
       arbitraryDimension: "could be message text",
+      payload: "private@example.test Bearer abc.secret message body",
+      contact: "+1 (555) 555-0123",
+      coordinates: [37.7749, -122.4194],
+      provider: "private@example.test Bearer abc.secret",
     });
 
     expect(metric).toHaveBeenCalledWith("http.requests", 1, { method: "POST", countryCode: "US" });

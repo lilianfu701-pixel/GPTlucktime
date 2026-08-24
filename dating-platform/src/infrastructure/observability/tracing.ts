@@ -29,9 +29,17 @@ const noopSink: ObservabilitySink = {
 };
 let sink: ObservabilitySink = noopSink;
 
-const PRIVATE_ATTRIBUTE = /^(?:address|authorization|body|content|cookie|email|exactLocation|lat|latitude|lng|location|longitude|message|messageText|password|phone|secret|text|token)$/iu;
-const EMAIL_VALUE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/u;
-const PHONE_VALUE = /^\+?\d[\d\s().-]{7,}$/u;
+const STABLE_VALUE = /^[A-Za-z][A-Za-z0-9._-]{0,63}$/u;
+const TELEMETRY_NAME = /^[a-z][a-z0-9]*(?:[._][a-z][a-z0-9]*)*$/u;
+const ROUTE_SEGMENT = String.raw`(?:[A-Za-z][A-Za-z0-9._~-]*|\[[A-Za-z][A-Za-z0-9]*\])`;
+const ROUTE_TEMPLATE = new RegExp(String.raw`^(?:/|/${ROUTE_SEGMENT}(?:/${ROUTE_SEGMENT})*)$`, "u");
+const HTTP_METHODS = new Set(["DELETE", "GET", "HEAD", "OPTIONS", "PATCH", "POST", "PUT"]);
+const ROUTE_TYPES = new Set(["action", "proxy", "render", "route"]);
+const ROUTER_KINDS = new Set(["App Router", "Pages Router"]);
+const RUNTIMES = new Set(["edge", "nodejs"]);
+const SAFE_ERROR_NAMES = new Set([
+  "AggregateError", "AppError", "Error", "EvalError", "RangeError", "ReferenceError", "SyntaxError", "TypeError", "URIError",
+]);
 const METRIC_ATTRIBUTE_KEYS = new Set([
   "countryCode",
   "event",
@@ -57,13 +65,33 @@ export function sanitizeTelemetryAttributes(
 ): TelemetryAttributes {
   const safe: Record<string, TelemetryAttribute> = {};
   for (const [key, value] of Object.entries(attributes)) {
-    if (PRIVATE_ATTRIBUTE.test(key)) continue;
-    if (typeof value !== "string" && typeof value !== "number" && typeof value !== "boolean") continue;
-    if (typeof value === "number" && !Number.isFinite(value)) continue;
-    if (typeof value === "string" && (EMAIL_VALUE.test(value) || PHONE_VALUE.test(value))) continue;
-    safe[key] = value;
+    if (key === "route" && typeof value === "string" && value.length <= 160 && ROUTE_TEMPLATE.test(value)) {
+      safe[key] = value;
+    } else if (key === "method" && typeof value === "string" && HTTP_METHODS.has(value)) {
+      safe[key] = value;
+    } else if (key === "routeType" && typeof value === "string" && ROUTE_TYPES.has(value)) {
+      safe[key] = value;
+    } else if (key === "routerKind" && typeof value === "string" && ROUTER_KINDS.has(value)) {
+      safe[key] = value;
+    } else if (key === "runtime" && typeof value === "string" && RUNTIMES.has(value)) {
+      safe[key] = value;
+    } else if (key === "countryCode" && typeof value === "string" && /^[A-Z]{2}$/u.test(value)) {
+      safe[key] = value;
+    } else if (key === "statusCode" && typeof value === "number" && Number.isInteger(value)
+      && value >= 100 && value <= 599) {
+      safe[key] = value;
+    } else if (key === "retryable" && typeof value === "boolean") {
+      safe[key] = value;
+    } else if (["event", "mediaType", "moderationType", "operation", "outcome", "provider", "queue", "reason", "region", "service", "status"]
+      .includes(key) && typeof value === "string" && STABLE_VALUE.test(value)) {
+      safe[key] = value;
+    }
   }
   return safe;
+}
+
+function safeErrorName(error: unknown): string {
+  return error instanceof Error && SAFE_ERROR_NAMES.has(error.name) ? error.name : "Error";
 }
 
 export function configureObservability(next?: Partial<ObservabilitySink>): void {
@@ -93,7 +121,7 @@ export async function withSpan<T>(
   try {
     return await task();
   } catch (error) {
-    span.recordException?.({ errorName: error instanceof Error ? error.name : "UnknownError" });
+    span.recordException?.({ errorName: safeErrorName(error) });
     throw error;
   } finally {
     span.end();
@@ -108,7 +136,7 @@ export function captureException(
 ): void {
   const span = startSpan(category, operation, attributes);
   try {
-    span.recordException?.({ errorName: error instanceof Error ? error.name : "UnknownError" });
+    span.recordException?.({ errorName: safeErrorName(error) });
   } finally {
     span.end();
   }
@@ -120,6 +148,7 @@ export function recordMetric(
   attributes: Readonly<Record<string, unknown>> = {},
 ): void {
   if (!Number.isFinite(value)) throw new TypeError("METRIC_VALUE_INVALID");
+  if (!TELEMETRY_NAME.test(name)) throw new TypeError("METRIC_NAME_INVALID");
   const dimensions = Object.fromEntries(
     Object.entries(attributes).filter(([key]) => METRIC_ATTRIBUTE_KEYS.has(key)),
   );

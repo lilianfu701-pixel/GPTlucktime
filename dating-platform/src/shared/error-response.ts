@@ -21,24 +21,40 @@ type ErrorResponseOptions = {
   logger?: StructuredErrorLogger;
 };
 
-const SENSITIVE_KEY = /(?:address|authorization|cookie|email|latitude|lat|longitude|lng|location|message|password|phone|secret|text|token)/iu;
-const EMAIL_VALUE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/u;
-const PHONE_VALUE = /^\+?\d[\d\s().-]{7,}$/u;
+const STABLE_VALUE = /^[A-Za-z][A-Za-z0-9._-]{0,63}$/u;
+const ROUTE_SEGMENT = String.raw`(?:[A-Za-z][A-Za-z0-9._~-]*|\[[A-Za-z][A-Za-z0-9]*\])`;
+const ROUTE_TEMPLATE = new RegExp(String.raw`^(?:/|/${ROUTE_SEGMENT}(?:/${ROUTE_SEGMENT})*)$`, "u");
+const HTTP_METHODS = new Set(["DELETE", "GET", "HEAD", "OPTIONS", "PATCH", "POST", "PUT"]);
+const SAFE_ERROR_NAMES = new Set([
+  "AggregateError", "AppError", "Error", "EvalError", "RangeError", "ReferenceError", "SyntaxError", "TypeError", "URIError",
+]);
 
-function redactValue(value: unknown, seen: WeakSet<object>): unknown {
-  if (Array.isArray(value)) return value.map((entry) => redactValue(entry, seen));
-  if (typeof value === "string" && (EMAIL_VALUE.test(value) || PHONE_VALUE.test(value))) return "[REDACTED]";
-  if (typeof value !== "object" || value === null) return value;
-  if (seen.has(value)) return "[REDACTED]";
-  seen.add(value);
-  return Object.fromEntries(Object.entries(value).map(([key, entry]) => [
-    key,
-    SENSITIVE_KEY.test(key) ? "[REDACTED]" : redactValue(entry, seen),
-  ]));
+function safeContextValue(key: string, value: unknown): string | number | boolean | undefined {
+  if (key === "route") return typeof value === "string" && value.length <= 160 && ROUTE_TEMPLATE.test(value)
+    ? value : undefined;
+  if (key === "method") return typeof value === "string" && HTTP_METHODS.has(value) ? value : undefined;
+  if (key === "countryCode") return typeof value === "string" && /^[A-Z]{2}$/u.test(value) ? value : undefined;
+  if (key === "statusCode") return typeof value === "number" && Number.isInteger(value)
+    && value >= 100 && value <= 599 ? value : undefined;
+  if (key === "retryable") return typeof value === "boolean" ? value : undefined;
+  if (["event", "operation", "outcome", "provider", "queue", "reason", "region", "service", "status"]
+    .includes(key)) {
+    return typeof value === "string" && STABLE_VALUE.test(value) ? value : undefined;
+  }
+  return undefined;
+}
+
+function safeErrorName(error: unknown): string {
+  return error instanceof Error && SAFE_ERROR_NAMES.has(error.name) ? error.name : "Error";
 }
 
 export function redactErrorContext(context: Readonly<Record<string, unknown>>): Readonly<Record<string, unknown>> {
-  return redactValue(context, new WeakSet()) as Readonly<Record<string, unknown>>;
+  const safe: Record<string, string | number | boolean> = {};
+  for (const [key, value] of Object.entries(context)) {
+    const sanitized = safeContextValue(key, value);
+    if (sanitized !== undefined) safe[key] = sanitized;
+  }
+  return safe;
 }
 
 export function toErrorResponse(
@@ -51,7 +67,7 @@ export function toErrorResponse(
   const logger = options.logger ?? console;
   const logContext: Record<string, unknown> = {
     code,
-    errorName: error instanceof Error ? error.name : "UnknownError",
+    errorName: safeErrorName(error),
     traceId,
   };
   if (applicationError?.context) logContext.context = redactErrorContext(applicationError.context);

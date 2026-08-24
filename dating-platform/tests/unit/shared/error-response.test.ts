@@ -36,9 +36,15 @@ describe("toErrorResponse", () => {
       retryable: false,
       context: {
         operation: "profile.update",
+        provider: "identity_vendor",
+        route: "/api/v1/profiles/[profileId]",
         email: "private@example.test",
         actor: "private@example.test",
         nested: { phone: "+15555550123", countryCode: "US" },
+        payload: "Contact private@example.test or +1 (555) 555-0123; Bearer abc.secret; message hello",
+        coordinates: [37.7749, -122.4194],
+        contact: "Authorization: Bearer opaque-private-value",
+        "private@example.test": "field names are attacker controlled too",
       },
     });
 
@@ -58,10 +64,26 @@ describe("toErrorResponse", () => {
       traceId: "trace-2",
       context: {
         operation: "profile.update",
-        email: "[REDACTED]",
-        actor: "[REDACTED]",
-        nested: { phone: "[REDACTED]", countryCode: "US" },
+        provider: "identity_vendor",
+        route: "/api/v1/profiles/[profileId]",
       },
+    });
+    expect(JSON.stringify(logger.error.mock.calls)).not.toMatch(
+      /private@example\.test|555|Bearer|abc\.secret|37\.7749|122\.4194|message hello/u,
+    );
+  });
+
+  it("does not log attacker-controlled error names", () => {
+    const logger = { error: vi.fn() };
+    const error = new Error("internal");
+    error.name = "Bearer private-token private@example.test";
+
+    toErrorResponse(error, "trace-3", { logger });
+
+    expect(logger.error).toHaveBeenCalledWith("application_error", {
+      code: "INTERNAL_ERROR",
+      errorName: "Error",
+      traceId: "trace-3",
     });
   });
 });
