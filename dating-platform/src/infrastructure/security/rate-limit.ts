@@ -47,24 +47,29 @@ export type RateLimitDecision = {
   source: "redis" | "memory" | "fail-closed";
 };
 
-type LocalBucket = { tokens: number; updatedAt: number };
+type LocalBucket = { tokens: number; updatedAt: number; expiresAt: number };
+
+const HARD_MAX_FALLBACK_ENTRIES = 10_000;
+const MAX_IDENTIFIER_LENGTH = 512;
 
 const TOKEN_BUCKET_SCRIPT = `
 local state = redis.call('HMGET', KEYS[1], 'tokens', 'updated')
 local capacity = tonumber(ARGV[1])
 local refill_per_ms = tonumber(ARGV[2])
-local now = tonumber(ARGV[3])
-local cost = tonumber(ARGV[4])
+local redis_time = redis.call('TIME')
+local now = tonumber(redis_time[1]) * 1000 + math.floor(tonumber(redis_time[2]) / 1000)
+local cost = tonumber(ARGV[3])
 local tokens = tonumber(state[1]) or capacity
-local updated = tonumber(state[2]) or now
-tokens = math.min(capacity, tokens + math.max(0, now - updated) * refill_per_ms)
+local stored_updated = tonumber(state[2]) or now
+local updated = math.max(now, stored_updated)
+tokens = math.min(capacity, tokens + (updated - stored_updated) * refill_per_ms)
 local allowed = 0
 if tokens >= cost then
   allowed = 1
   tokens = tokens - cost
 end
-redis.call('HSET', KEYS[1], 'tokens', tokens, 'updated', now)
-redis.call('PEXPIRE', KEYS[1], ARGV[5])
+redis.call('HSET', KEYS[1], 'tokens', tokens, 'updated', updated)
+redis.call('PEXPIRE', KEYS[1], ARGV[4])
 local retry_ms = 0
 if allowed == 0 then retry_ms = math.ceil((cost - tokens) / refill_per_ms) end
 return {allowed, math.floor(tokens), retry_ms}
@@ -74,13 +79,30 @@ export class RedisTokenBucketRateLimiter {
   private readonly client: RedisLike;
   private readonly hmacKey: string;
   private readonly now: () => number;
+  private readonly fallbackMaxEntries: number;
+  private readonly fallbackStateTtlMs: number;
   private readonly fallback = new Map<string, LocalBucket>();
 
-  constructor(client: unknown, options: { hmacKey: string; now?: () => number }) {
+  constructor(client: unknown, options: {
+    hmacKey: string;
+    now?: () => number;
+    fallbackMaxEntries?: number;
+    fallbackStateTtlMs?: number;
+  }) {
     if (options.hmacKey.length < 32) throw new Error("RATE_LIMIT_HMAC_KEY_INVALID");
+    const fallbackMaxEntries = options.fallbackMaxEntries ?? HARD_MAX_FALLBACK_ENTRIES;
+    const fallbackStateTtlMs = options.fallbackStateTtlMs ?? 5 * 60_000;
+    if (!Number.isSafeInteger(fallbackMaxEntries) || fallbackMaxEntries < 1
+      || fallbackMaxEntries > HARD_MAX_FALLBACK_ENTRIES
+      || !Number.isSafeInteger(fallbackStateTtlMs) || fallbackStateTtlMs < 1_000
+      || fallbackStateTtlMs > 60 * 60_000) {
+      throw new Error("RATE_LIMIT_FALLBACK_CONFIGURATION_INVALID");
+    }
     this.client = client as RedisLike;
     this.hmacKey = options.hmacKey;
     this.now = options.now ?? Date.now;
+    this.fallbackMaxEntries = fallbackMaxEntries;
+    this.fallbackStateTtlMs = fallbackStateTtlMs;
   }
 
   async consume(input: {
@@ -90,6 +112,10 @@ export class RedisTokenBucketRateLimiter {
   }): Promise<RateLimitDecision> {
     const policy = RATE_LIMIT_BUCKETS[input.bucket];
     const cost = input.cost ?? 1;
+    if (input.identifier.length === 0 || input.identifier.length > MAX_IDENTIFIER_LENGTH
+      || input.identifier.trim().length === 0) {
+      throw new TypeError("RATE_LIMIT_IDENTIFIER_INVALID");
+    }
     if (!Number.isSafeInteger(cost) || cost < 1 || cost > policy.capacity) {
       throw new TypeError("RATE_LIMIT_COST_INVALID");
     }
@@ -107,12 +133,13 @@ export class RedisTokenBucketRateLimiter {
         arguments: [
           String(policy.capacity),
           String(refillPerMs),
-          String(this.now()),
           String(cost),
           String(expiryMs),
         ],
       });
-      return this.parseRedisDecision(result, policy.capacity);
+      const decision = this.parseRedisDecision(result, policy.capacity);
+      this.fallback.clear();
+      return decision;
     } catch {
       if (policy.outagePolicy === "closed") {
         return { allowed: false, remaining: 0, retryAfterSeconds: 1, source: "fail-closed" };
@@ -140,6 +167,7 @@ export class RedisTokenBucketRateLimiter {
 
   private consumeFallback(key: string, policy: RateLimitPolicy, cost: number): RateLimitDecision {
     const now = this.now();
+    this.pruneFallback(now);
     const existing = this.fallback.get(key);
     const elapsed = Math.max(0, now - (existing?.updatedAt ?? now));
     const refillPerMs = policy.fallbackCapacity / policy.fallbackRefillIntervalMs;
@@ -147,13 +175,26 @@ export class RedisTokenBucketRateLimiter {
       + elapsed * refillPerMs);
     const allowed = tokens >= cost;
     const remainingTokens = allowed ? tokens - cost : tokens;
-    this.fallback.set(key, { tokens: remainingTokens, updatedAt: now });
+    if (existing) this.fallback.delete(key);
+    while (this.fallback.size >= this.fallbackMaxEntries) {
+      const oldest = this.fallback.keys().next().value as string | undefined;
+      if (oldest === undefined) break;
+      this.fallback.delete(oldest);
+    }
+    this.fallback.set(key, { tokens: remainingTokens, updatedAt: now, expiresAt: now + this.fallbackStateTtlMs });
     return {
       allowed,
       remaining: Math.floor(remainingTokens),
       retryAfterSeconds: allowed ? 0 : boundedRetrySeconds((cost - remainingTokens) / refillPerMs),
       source: "memory",
     };
+  }
+
+  private pruneFallback(now: number): void {
+    for (const [key, bucket] of this.fallback) {
+      if (bucket.expiresAt > now) break;
+      this.fallback.delete(key);
+    }
   }
 }
 

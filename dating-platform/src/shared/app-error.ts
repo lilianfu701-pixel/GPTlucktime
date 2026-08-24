@@ -27,12 +27,19 @@ export class AppError extends Error {
       throw new TypeError("APP_ERROR_STATUS_INVALID");
     }
     if (!MESSAGE_KEY.test(options.messageKey)) throw new TypeError("APP_ERROR_MESSAGE_KEY_INVALID");
+    const fieldErrorEntries = options.fieldErrors ? Object.entries(options.fieldErrors) : undefined;
+    if (fieldErrorEntries?.some(([, messageKey]) => !MESSAGE_KEY.test(messageKey))) {
+      throw new TypeError("APP_ERROR_FIELD_MESSAGE_KEY_INVALID");
+    }
+    const fieldErrors = fieldErrorEntries
+      ? Object.freeze(Object.fromEntries(fieldErrorEntries)) as FieldErrors
+      : undefined;
     super(options.code, { cause: options.cause });
     this.name = "AppError";
     this.code = options.code;
     this.status = options.status;
     this.messageKey = options.messageKey;
-    this.fieldErrors = options.fieldErrors;
+    this.fieldErrors = fieldErrors;
     this.retryable = options.retryable ?? options.status >= 500;
     this.context = options.context;
   }

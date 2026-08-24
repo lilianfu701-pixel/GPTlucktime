@@ -108,7 +108,30 @@ export function startSpan(
   operation: string,
   attributes: Readonly<Record<string, unknown>> = {},
 ): SpanHandle {
-  return sink.startSpan(SPAN_NAMES[category], sanitizeTelemetryAttributes({ operation, ...attributes }));
+  try {
+    const externalSpan = sink.startSpan(
+      SPAN_NAMES[category],
+      sanitizeTelemetryAttributes({ operation, ...attributes }),
+    );
+    return {
+      recordException: (error) => {
+        try {
+          externalSpan.recordException?.(error);
+        } catch {
+          return;
+        }
+      },
+      end: () => {
+        try {
+          externalSpan.end();
+        } catch {
+          return;
+        }
+      },
+    };
+  } catch {
+    return noopSpan;
+  }
 }
 
 export async function withSpan<T>(
@@ -152,5 +175,9 @@ export function recordMetric(
   const dimensions = Object.fromEntries(
     Object.entries(attributes).filter(([key]) => METRIC_ATTRIBUTE_KEYS.has(key)),
   );
-  sink.recordMetric(name, value, sanitizeTelemetryAttributes(dimensions));
+  try {
+    sink.recordMetric(name, value, sanitizeTelemetryAttributes(dimensions));
+  } catch {
+    return;
+  }
 }

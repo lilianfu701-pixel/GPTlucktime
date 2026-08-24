@@ -4,6 +4,34 @@ import { AppError } from "@/shared/app-error";
 import { toErrorResponse } from "@/shared/error-response";
 
 describe("toErrorResponse", () => {
+  it("rejects raw field-error details that are not localization keys", () => {
+    expect(() => new AppError({
+      code: "PROFILE_INVALID",
+      status: 422,
+      messageKey: "errors.profile.invalid",
+      fieldErrors: { displayName: "database value private@example.test" },
+    })).toThrow("APP_ERROR_FIELD_MESSAGE_KEY_INVALID");
+  });
+
+  it("copies and freezes validated field errors", () => {
+    const fieldErrors: Record<string, string> = {
+      displayName: "errors.profile.displayName.required",
+    };
+    const error = new AppError({
+      code: "PROFILE_INVALID",
+      status: 422,
+      messageKey: "errors.profile.invalid",
+      fieldErrors,
+    });
+
+    fieldErrors.displayName = "raw private detail";
+    fieldErrors.email = "private@example.test";
+    expect(error.fieldErrors).toEqual({ displayName: "errors.profile.displayName.required" });
+    expect(error.fieldErrors).not.toBe(fieldErrors);
+    expect(Object.isFrozen(error.fieldErrors)).toBe(true);
+    expect(() => Object.assign(error.fieldErrors!, { displayName: "raw mutation" })).toThrow(TypeError);
+  });
+
   it("returns a generic retryable response for unknown errors without leaking details", () => {
     const logger = { error: vi.fn() };
 

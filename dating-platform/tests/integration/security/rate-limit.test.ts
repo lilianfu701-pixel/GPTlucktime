@@ -29,13 +29,19 @@ describe("RedisTokenBucketRateLimiter", () => {
       isOpen: true,
       connect: vi.fn(),
       eval: evalFn,
-    }, { hmacKey: "task-14-rate-limit-secret-at-least-32-characters" });
+    }, {
+      hmacKey: "task-14-rate-limit-secret-at-least-32-characters",
+      now: () => 987_654_321,
+    });
 
     await expect(limiter.consume({ bucket: "login", identifier: "person@example.test" }))
       .resolves.toMatchObject({ allowed: true, remaining: 2, source: "redis" });
 
     const [script, options] = evalFn.mock.calls[0]!;
     expect(script).toContain("HMGET");
+    expect(script).toContain("redis.call('TIME')");
+    expect(options.arguments).toHaveLength(4);
+    expect(options.arguments).not.toContain("987654321");
     expect(JSON.stringify(options)).not.toContain("person@example.test");
     expect(options.keys[0]).toMatch(/^rate:token-bucket:login:/u);
   });
@@ -81,4 +87,65 @@ describe("RedisTokenBucketRateLimiter", () => {
       });
     },
   );
+
+  it("bounds fallback cardinality with LRU eviction and never stores raw identifiers", async () => {
+    const evalFn = vi.fn(async () => { throw new Error("redis unavailable"); });
+    const options = {
+      hmacKey: "task-14-rate-limit-secret-at-least-32-characters",
+      fallbackMaxEntries: 2,
+      now: () => 1_000,
+    };
+    const limiter = new RedisTokenBucketRateLimiter({
+      isOpen: true,
+      connect: vi.fn(),
+      eval: evalFn,
+    }, options);
+
+    await limiter.consume({ bucket: "search", identifier: "raw-actor-1@example.test" });
+    await limiter.consume({ bucket: "search", identifier: "raw-actor-2@example.test" });
+    await limiter.consume({ bucket: "search", identifier: "raw-actor-1@example.test" });
+    await limiter.consume({ bucket: "search", identifier: "raw-actor-3@example.test" });
+    await expect(limiter.consume({ bucket: "search", identifier: "raw-actor-2@example.test" }))
+      .resolves.toMatchObject({ allowed: true, remaining: 4, source: "memory" });
+    expect(JSON.stringify(evalFn.mock.calls)).not.toContain("raw-actor");
+  });
+
+  it("expires fallback state and clears it after Redis recovers", async () => {
+    let now = 1_000;
+    const evalFn = vi.fn()
+      .mockRejectedValueOnce(new Error("redis unavailable"))
+      .mockRejectedValueOnce(new Error("redis unavailable"))
+      .mockRejectedValueOnce(new Error("redis unavailable"))
+      .mockResolvedValueOnce([1, 20, 0])
+      .mockRejectedValue(new Error("redis unavailable"));
+    const options = {
+      hmacKey: "task-14-rate-limit-secret-at-least-32-characters",
+      fallbackStateTtlMs: 1_000,
+      now: () => now,
+    };
+    const limiter = new RedisTokenBucketRateLimiter({ isOpen: true, connect: vi.fn(), eval: evalFn }, options);
+
+    await limiter.consume({ bucket: "search", identifier: "browser-1" });
+    await limiter.consume({ bucket: "search", identifier: "browser-1" });
+    now += 1_001;
+    await expect(limiter.consume({ bucket: "search", identifier: "browser-1" }))
+      .resolves.toMatchObject({ remaining: 4, source: "memory" });
+    await expect(limiter.consume({ bucket: "search", identifier: "browser-1" }))
+      .resolves.toMatchObject({ remaining: 20, source: "redis" });
+    await expect(limiter.consume({ bucket: "search", identifier: "browser-1" }))
+      .resolves.toMatchObject({ remaining: 4, source: "memory" });
+  });
+
+  it("rejects empty and excessively large identifiers before storage access", async () => {
+    const evalFn = vi.fn(async () => [1, 1, 0]);
+    const limiter = new RedisTokenBucketRateLimiter({ isOpen: true, connect: vi.fn(), eval: evalFn }, {
+      hmacKey: "task-14-rate-limit-secret-at-least-32-characters",
+    });
+
+    await expect(limiter.consume({ bucket: "search", identifier: "" }))
+      .rejects.toThrow("RATE_LIMIT_IDENTIFIER_INVALID");
+    await expect(limiter.consume({ bucket: "search", identifier: "x".repeat(513) }))
+      .rejects.toThrow("RATE_LIMIT_IDENTIFIER_INVALID");
+    expect(evalFn).not.toHaveBeenCalled();
+  });
 });

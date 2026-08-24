@@ -73,4 +73,47 @@ describe("observability tracing", () => {
 
     expect(metric).toHaveBeenCalledWith("http.requests", 1, { method: "POST", countryCode: "US" });
   });
+
+  it("runs the application task when starting a span fails", async () => {
+    const task = vi.fn(async () => "result");
+    configureObservability({
+      startSpan: () => { throw new Error("sink start failed"); },
+      recordMetric: vi.fn(),
+    });
+
+    await expect(withSpan("database", "profile.read", {}, task)).resolves.toBe("result");
+    expect(task).toHaveBeenCalledOnce();
+  });
+
+  it("preserves the original task error when exception recording and span closing fail", async () => {
+    const applicationError = new TypeError("application failure");
+    configureObservability({
+      startSpan: () => ({
+        recordException: () => { throw new Error("sink exception failed"); },
+        end: () => { throw new Error("sink end failed"); },
+      }),
+      recordMetric: vi.fn(),
+    });
+
+    await expect(withSpan("queue", "notification.send", {}, async () => { throw applicationError; }))
+      .rejects.toBe(applicationError);
+  });
+
+  it("returns a successful task result when closing a span fails", async () => {
+    configureObservability({
+      startSpan: () => ({ end: () => { throw new Error("sink end failed"); } }),
+      recordMetric: vi.fn(),
+    });
+
+    await expect(withSpan("media", "photo.review", {}, async () => 42)).resolves.toBe(42);
+  });
+
+  it("does not throw when the metric sink fails", () => {
+    configureObservability({
+      startSpan: vi.fn(() => ({ end: vi.fn() })),
+      recordMetric: () => { throw new Error("sink metric failed"); },
+    });
+
+    expect(() => recordMetric("http.requests", 1, { method: "GET" })).not.toThrow();
+  });
 });
