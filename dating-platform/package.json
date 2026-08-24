@@ -12,6 +12,13 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "test:e2e": "playwright test",
+    "test:acceptance:preflight:local": "tsx scripts/acceptance-preflight.ts local",
+    "test:acceptance:preflight:external": "tsx scripts/acceptance-preflight.ts external",
+    "test:acceptance:local": "npm run test:acceptance:preflight:local && playwright test",
+    "test:acceptance:external": "npm run test:acceptance:preflight:external",
+    "test:acceptance": "npm run test:acceptance:local && npm run test:acceptance:external",
+    "db:backup:test": "tsx scripts/verify-backup-restore.ts backup",
+    "db:restore:verify": "tsx scripts/verify-backup-restore.ts restore",
     "db:generate": "drizzle-kit generate",
     "db:migrate": "drizzle-kit migrate",
     "check": "npm run lint && npm run test && npm run build"
