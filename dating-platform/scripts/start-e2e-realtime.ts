@@ -2,7 +2,7 @@ import { createServer } from "node:http";
 
 import { startRealtimeProcess } from "../realtime/server";
 import { authorizeRealtimeControlRequest, inspectRealtimeControlConfig,
-  parseRealtimeControlAction } from "./e2e-realtime-control-lib";
+  enqueueRealtimeLifecycle, parseRealtimeControlAction } from "./e2e-realtime-control-lib";
 
 const failures = inspectRealtimeControlConfig(process.env);
 if (failures.length > 0) throw new Error(`E2E_REALTIME_CONTROL_REJECTED:${failures.join(",")}`);
@@ -25,7 +25,7 @@ const control = createServer((request, response) => {
     response.writeHead(404).end();
     return;
   }
-  lifecycle = lifecycle.then(async () => {
+  lifecycle = enqueueRealtimeLifecycle(lifecycle, async () => {
     if (action === "stop" || action === "restart") await stop();
     if (action === "start" || action === "restart") await start();
   });

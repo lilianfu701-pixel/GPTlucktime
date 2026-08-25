@@ -1,8 +1,10 @@
+import { createHash } from "node:crypto";
+
 import { and, desc, eq } from "drizzle-orm";
 
 import {
-  adminAuditLogs, adminUserActionVersions, appeals, mediaReviewJobs, mediaReviewResults,
-  moderationActions, moderationAuditEvents, moderationCases, profilePhotoUploads, profilePhotos, reports,
+  adminActionIdempotency, adminAuditLogs, adminUserActionVersions, appeals, mediaReviewJobs, mediaReviewResults,
+  moderationActions, moderationAuditEvents, moderationCases, profilePhotoUploads, profilePhotos, reports, users,
 } from "@/db/schema";
 import type { db as productionDatabase } from "@/infrastructure/db/client";
 import { buildAuditRecord, sanitizeAuditReason } from "@/modules/admin/audit-service";
@@ -40,13 +42,36 @@ export class ModerationAcceptanceService {
       context.restrictionExpiresAt ? { restrictionExpiresAt: context.restrictionExpiresAt } : undefined);
   }
 
-  async startAppealReview(actor: AdminActor, appealId: string) {
-    const [appeal] = await this.database.select({ reviewCaseId: appeals.reviewCaseId, status: appeals.status })
-      .from(appeals).where(eq(appeals.id, appealId)).limit(1);
-    if (!appeal || appeal.status !== "submitted") throw new Error("ACTION_NOT_AVAILABLE");
-    const reviewer = caseActor(actor, true);
-    await this.cases.transition(appeal.reviewCaseId, reviewer, "triaged");
-    return this.cases.transition(appeal.reviewCaseId, reviewer, "under_review");
+  async startAppealReview(actor: AdminActor, appealId: string, input: { idempotencyKey: string }) {
+    const action = "appeal_review_start";
+    const payloadHash = createHash("sha256").update(JSON.stringify({ action, appealId })).digest("hex");
+    return this.database.transaction(async (transaction) => {
+      const tx = transaction as unknown as Database;
+      await tx.select({ id: users.id }).from(users).where(eq(users.id, actor.userId)).for("update").limit(1);
+      const [appeal] = await tx.select({ reviewCaseId: appeals.reviewCaseId, status: appeals.status })
+        .from(appeals).where(eq(appeals.id, appealId)).for("update").limit(1);
+      if (!appeal) throw new Error("ACTION_NOT_AVAILABLE");
+      const [existing] = await tx.select().from(adminActionIdempotency).where(and(
+        eq(adminActionIdempotency.actorUserId, actor.userId),
+        eq(adminActionIdempotency.idempotencyKey, input.idempotencyKey),
+      )).for("update").limit(1);
+      if (existing) {
+        if (existing.action !== action || existing.targetType !== "appeal"
+          || existing.targetId !== appealId || existing.payloadHash !== payloadHash) {
+          throw new Error("IDEMPOTENCY_CONFLICT");
+        }
+        return existing.result as { appealId: string; reviewCaseId: string; status: "under_review" };
+      }
+      if (appeal.status !== "submitted") throw new Error("ACTION_NOT_AVAILABLE");
+      const reviewer = caseActor(actor, true);
+      await this.cases.transitionInTransaction(tx, appeal.reviewCaseId, reviewer, "triaged");
+      await this.cases.transitionInTransaction(tx, appeal.reviewCaseId, reviewer, "under_review");
+      const result = { appealId, reviewCaseId: appeal.reviewCaseId, status: "under_review" as const };
+      await tx.insert(adminActionIdempotency).values({ actorUserId: actor.userId,
+        idempotencyKey: input.idempotencyKey, action, targetType: "appeal", targetId: appealId,
+        payloadHash, expectedVersion: 0, result, createdAt: this.clock() });
+      return result;
+    });
   }
 
   async decideMedia(actor: AdminActor, jobId: string, decision: "approved" | "rejected", rawReason: string,

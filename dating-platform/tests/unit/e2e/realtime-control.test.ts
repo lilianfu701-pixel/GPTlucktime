@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 
 import {
   authorizeRealtimeControlRequest,
+  enqueueRealtimeLifecycle,
   inspectRealtimeControlConfig,
   parseRealtimeControlAction,
 } from "../../../scripts/e2e-realtime-control-lib";
@@ -32,5 +33,14 @@ describe("E2E realtime lifecycle guard", () => {
     expect(parseRealtimeControlAction("POST", "/stop?reason=reconnect")).toBe("stop");
     expect(parseRealtimeControlAction("GET", "/stop")).toBeNull();
     expect(parseRealtimeControlAction("POST", "/reset")).toBeNull();
+  });
+
+  it("allows a later lifecycle operation after an earlier operation fails", async () => {
+    const first = enqueueRealtimeLifecycle(Promise.resolve(), async () => { throw new Error("stop failed"); });
+    await expect(first).rejects.toThrow("stop failed");
+    let restarted = false;
+    const second = enqueueRealtimeLifecycle(first, async () => { restarted = true; });
+    await expect(second).resolves.toBeUndefined();
+    expect(restarted).toBe(true);
   });
 });

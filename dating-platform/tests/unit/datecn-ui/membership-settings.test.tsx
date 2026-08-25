@@ -58,4 +58,29 @@ describe("member membership settings", () => {
     fireEvent.click(await screen.findByRole("button", { name: "Choose Plus" }));
     await waitFor(() => expect(assign).toHaveBeenCalledWith(localCheckout));
   });
+
+  it("reuses the purchase intent idempotency key after a transient checkout failure", async () => {
+    const plan = { planRef: "plus", nameKey: "plans.plus.name", descriptionKey: "plans.plus.description",
+      price: { currency: "USD", unitAmount: 1299, interval: "monthly", intervalCount: 1, taxMode: "exclusive" } };
+    const fetchMock = vi.fn()
+      .mockResolvedValueOnce(new Response(JSON.stringify({ plans: [plan] }), { status: 200 }))
+      .mockResolvedValueOnce(new Response(JSON.stringify({ subscription: null }), { status: 200 }))
+      .mockResolvedValueOnce(new Response(JSON.stringify({ code: "SERVICE_UNAVAILABLE" }), { status: 503 }))
+      .mockResolvedValueOnce(new Response(JSON.stringify({ checkoutUrl: "https://checkout.stripe.com/c/pay/cs_test" }), { status: 201 }));
+    vi.stubGlobal("fetch", fetchMock);
+    render(<NextIntlClientProvider locale="en" messages={messages}>
+      <MembershipSettings locale="en" navigate={vi.fn()} />
+    </NextIntlClientProvider>);
+
+    fireEvent.click(await screen.findByRole("button", { name: "Choose Plus" }));
+    await screen.findByRole("alert");
+    fireEvent.click(screen.getByRole("button", { name: "Choose Plus" }));
+    await waitFor(() => expect(fetchMock).toHaveBeenCalledTimes(4));
+    expect((fetchMock.mock.calls[2]?.[1] as RequestInit).headers).toEqual(expect.objectContaining({
+      "idempotency-key": expect.any(String),
+    }));
+    expect((fetchMock.mock.calls[3]?.[1] as RequestInit).headers).toEqual(expect.objectContaining({
+      "idempotency-key": (fetchMock.mock.calls[2]?.[1] as RequestInit & { headers: Record<string, string> }).headers["idempotency-key"],
+    }));
+  });
 });

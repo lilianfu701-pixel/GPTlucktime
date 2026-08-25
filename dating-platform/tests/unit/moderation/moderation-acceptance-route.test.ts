@@ -79,7 +79,8 @@ describe("moderation acceptance route adapters", () => {
     const response = await handler(post(`/api/v1/admin/appeals/${ids.appeal}/review`, {}),
       { params: Promise.resolve({ appealId: ids.appeal }) });
     expect(response.status).toBe(200);
-    expect(startAppealReview).toHaveBeenCalledWith(expect.objectContaining({ role: "moderation" }), ids.appeal);
+    expect(startAppealReview).toHaveBeenCalledWith(expect.objectContaining({ role: "moderation" }), ids.appeal,
+      { idempotencyKey: "moderation-action-123" });
   });
 
   it("lets only the affected authenticated member submit an appeal", async () => {
@@ -91,5 +92,38 @@ describe("moderation acceptance route adapters", () => {
     }));
     expect(response.status).toBe(201);
     expect(createAppeal).toHaveBeenCalledWith(ids.target, ids.case, "Please review the context and duration.");
+  });
+
+  it("stops reading an oversized chunked appeal body and never calls the service", async () => {
+    const createAppeal = vi.fn();
+    const canceled = vi.fn();
+    const stream = new ReadableStream<Uint8Array>({
+      start(controller) {
+        controller.enqueue(new Uint8Array(8192));
+        controller.enqueue(new Uint8Array(1));
+      },
+      cancel: canceled,
+    });
+    const handler = createMemberAppealsHandler({ getSession: vi.fn(async () => ({ user: { id: ids.target } })),
+      service: { listMemberAppeals: vi.fn(), createAppeal } });
+    const response = await handler(new Request("https://app.example/api/v1/me/appeals", {
+      method: "POST", headers: { "content-type": "application/json" }, body: stream, duplex: "half",
+    } as RequestInit & { duplex: "half" }));
+
+    expect(response.status).toBe(413);
+    expect(canceled).toHaveBeenCalledOnce();
+    expect(createAppeal).not.toHaveBeenCalled();
+  });
+
+  it("rejects malformed appeal JSON before calling the service", async () => {
+    const createAppeal = vi.fn();
+    const handler = createMemberAppealsHandler({ getSession: vi.fn(async () => ({ user: { id: ids.target } })),
+      service: { listMemberAppeals: vi.fn(), createAppeal } });
+    const response = await handler(new Request("https://app.example/api/v1/me/appeals", {
+      method: "POST", headers: { "content-type": "application/json" }, body: "{",
+    }));
+
+    expect(response.status).toBe(400);
+    expect(createAppeal).not.toHaveBeenCalled();
   });
 });

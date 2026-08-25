@@ -68,52 +68,61 @@ export class DrizzleCaseService {
     nextStatus: CaseStatus,
     options: { finalDecisionSummary?: string } = {},
   ) {
-    return this.database.transaction(async (transaction) => {
-      const tx = transaction as unknown as ModerationDatabase;
-      const current = await this.lockCase(tx, caseId);
-      await this.authorizeCaseActor(tx, current, actor);
-      if (!transitions[current.status]?.includes(nextStatus)) {
-        throw new ModerationError("INVALID_CASE_TRANSITION");
-      }
-      const isFinal = (["actioned", "dismissed"] as string[]).includes(nextStatus);
-      const finalDecisionSummary = options.finalDecisionSummary
-        ? validText(options.finalDecisionSummary, 2000)
-        : null;
-      if (isFinal !== Boolean(finalDecisionSummary)) {
-        throw new ModerationError("INVALID_CASE_TRANSITION");
-      }
-      const now = this.clock();
-      const [updated] = await tx.update(moderationCases).set({
-        status: nextStatus,
-        assignedWorkerUserId: current.assignedWorkerUserId ?? actor.userId,
-        finalDecisionSummary,
-        finalizedAt: isFinal ? now : null,
-        updatedAt: now,
-      }).where(and(
-        eq(moderationCases.id, current.id),
-        eq(moderationCases.status, current.status),
-      )).returning();
-      if (!updated) throw new ModerationError("INVALID_CASE_TRANSITION");
-      await tx.update(reports).set({
-        publicStatus: isFinal ? "resolved" : "in_review",
-        updatedAt: now,
-      }).where(eq(reports.id, current.reportId));
-      if (current.kind === "appeal" && nextStatus === "under_review") {
-        await tx.update(appeals).set({ status: "under_review" }).where(and(
-          eq(appeals.reviewCaseId, current.id),
-          eq(appeals.status, "submitted"),
-        ));
-      }
-      await tx.insert(moderationAuditEvents).values({
-        caseId,
-        actorUserId: actor.userId,
-        actorRole: actor.role,
-        eventType: "case_status_changed",
-        summary: { from: current.status, to: nextStatus },
-        createdAt: now,
-      });
-      return updated;
+    return this.database.transaction((transaction) =>
+      this.transitionInTransaction(transaction, caseId, actor, nextStatus, options));
+  }
+
+  async transitionInTransaction(
+    database: unknown,
+    caseId: string,
+    actor: ModerationActor,
+    nextStatus: CaseStatus,
+    options: { finalDecisionSummary?: string } = {},
+  ) {
+    const tx = database as ModerationDatabase;
+    const current = await this.lockCase(tx, caseId);
+    await this.authorizeCaseActor(tx, current, actor);
+    if (!transitions[current.status]?.includes(nextStatus)) {
+      throw new ModerationError("INVALID_CASE_TRANSITION");
+    }
+    const isFinal = (["actioned", "dismissed"] as string[]).includes(nextStatus);
+    const finalDecisionSummary = options.finalDecisionSummary
+      ? validText(options.finalDecisionSummary, 2000)
+      : null;
+    if (isFinal !== Boolean(finalDecisionSummary)) {
+      throw new ModerationError("INVALID_CASE_TRANSITION");
+    }
+    const now = this.clock();
+    const [updated] = await tx.update(moderationCases).set({
+      status: nextStatus,
+      assignedWorkerUserId: current.assignedWorkerUserId ?? actor.userId,
+      finalDecisionSummary,
+      finalizedAt: isFinal ? now : null,
+      updatedAt: now,
+    }).where(and(
+      eq(moderationCases.id, current.id),
+      eq(moderationCases.status, current.status),
+    )).returning();
+    if (!updated) throw new ModerationError("INVALID_CASE_TRANSITION");
+    await tx.update(reports).set({
+      publicStatus: isFinal ? "resolved" : "in_review",
+      updatedAt: now,
+    }).where(eq(reports.id, current.reportId));
+    if (current.kind === "appeal" && nextStatus === "under_review") {
+      await tx.update(appeals).set({ status: "under_review" }).where(and(
+        eq(appeals.reviewCaseId, current.id),
+        eq(appeals.status, "submitted"),
+      ));
+    }
+    await tx.insert(moderationAuditEvents).values({
+      caseId,
+      actorUserId: actor.userId,
+      actorRole: actor.role,
+      eventType: "case_status_changed",
+      summary: { from: current.status, to: nextStatus },
+      createdAt: now,
     });
+    return updated;
   }
 
   async recordAction(caseId: string, actor: ModerationActor, input: {

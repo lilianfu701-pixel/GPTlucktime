@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useTranslations } from "next-intl";
 
 type Plan = { planRef: string; nameKey: string; descriptionKey: string; price: {
@@ -25,6 +25,7 @@ export function MembershipSettings({ locale, navigate = (url) => window.location
   const [plans, setPlans] = useState<Plan[]>([]);
   const [subscription, setSubscription] = useState<Subscription | null>(null);
   const [state, setState] = useState<"loading" | "ready" | "working" | "cancel-requested" | "error">("loading");
+  const checkoutIntentKeys = useRef(new Map<string, string>());
   const market = markets[locale];
 
   useEffect(() => {
@@ -49,14 +50,21 @@ export function MembershipSettings({ locale, navigate = (url) => window.location
 
   async function checkout(plan: Plan) {
     setState("working");
+    const intent = `${plan.planRef}:${plan.price.currency}`;
+    const idempotencyKey = checkoutIntentKeys.current.get(intent) ?? `checkout-${crypto.randomUUID()}`;
+    checkoutIntentKeys.current.set(intent, idempotencyKey);
     try {
       const response = await fetch("/api/v1/checkout-sessions", { method: "POST", headers: {
-        "content-type": "application/json", "idempotency-key": `checkout-${crypto.randomUUID()}`,
+        "content-type": "application/json", "idempotency-key": idempotencyKey,
       }, body: JSON.stringify({ planRef: plan.planRef, currency: plan.price.currency }) });
       const result = await response.json() as { checkoutUrl?: string };
-      if (!response.ok || !result.checkoutUrl) throw new Error();
+      if (!response.ok || !result.checkoutUrl) {
+        if (response.status >= 400 && response.status < 500) checkoutIntentKeys.current.delete(intent);
+        throw new Error();
+      }
       const url = new URL(result.checkoutUrl);
       if (!trustedCheckoutUrl(url) || url.username || url.password) throw new Error();
+      checkoutIntentKeys.current.delete(intent);
       navigate(url.toString());
     } catch { setState("error"); }
   }

@@ -2,6 +2,10 @@ import { timingSafeEqual } from "node:crypto";
 
 type RealtimeAction = "start" | "stop" | "restart";
 
+export function enqueueRealtimeLifecycle(previous: Promise<void>, operation: () => Promise<void>) {
+  return previous.catch(() => undefined).then(operation);
+}
+
 export function inspectRealtimeControlConfig(env: Partial<NodeJS.ProcessEnv>) {
   const failures: string[] = [];
   if (env.NODE_ENV !== "test") failures.push("NODE_ENV must be test");

@@ -1,5 +1,7 @@
 import { z } from "zod";
 
+import { BoundedJsonError, readBoundedJson } from "@/shared/http/read-bounded-json";
+
 type SessionReader = (headers: Headers) => Promise<{ user: { id: string } } | null>;
 type AppealService = {
   listMemberAppeals(userId: string): Promise<unknown>;
@@ -18,15 +20,12 @@ export function createMemberAppealsHandler(input: { getSession: SessionReader; s
     try {
       if (request.method === "GET") return Response.json(await input.service.listMemberAppeals(session.user.id),
         { headers: { "cache-control": "private, no-store" } });
-      if (!/^application\/json(?:\s*;\s*charset=utf-8)?$/iu.test(request.headers.get("content-type") ?? "")) {
-        return error("UNSUPPORTED_MEDIA_TYPE", 415);
-      }
-      const length = request.headers.get("content-length");
-      if (length && (!/^\d+$/u.test(length) || Number(length) > 8192)) return error("PAYLOAD_TOO_LARGE", 413);
-      const body = inputSchema.parse(await request.json());
+      const body = inputSchema.parse(await readBoundedJson(request, 8192));
       return Response.json(await input.service.createAppeal(session.user.id, body.originalCaseId, body.statement),
         { status: 201, headers: { "cache-control": "private, no-store" } });
     } catch (caught) {
+      if (caught instanceof BoundedJsonError) return error(caught.code === "INVALID_REQUEST" ? "INVALID_APPEAL" : caught.code,
+        caught.code === "PAYLOAD_TOO_LARGE" ? 413 : caught.code === "UNSUPPORTED_MEDIA_TYPE" ? 415 : 400);
       if (caught instanceof z.ZodError || caught instanceof SyntaxError) return error("INVALID_APPEAL", 400);
       if (caught instanceof Error && caught.message === "FORBIDDEN") return error("FORBIDDEN", 403);
       if (caught instanceof Error && (caught.message === "INVALID_APPEAL" || caught.message === "APPEAL_CONFLICT")) {

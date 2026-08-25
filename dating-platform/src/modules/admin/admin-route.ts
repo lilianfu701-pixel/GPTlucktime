@@ -6,6 +6,7 @@ import type { AdminActor, AdminService } from "./admin-service";
 import { approvalRequestSchema } from "./approval-contract";
 import { sanitizeAuditReason } from "./audit-service";
 import { requirePermission, requireRecentMfa, type AdminPermission } from "./permissions";
+import { BoundedJsonError as BodyError, readBoundedJson as readSharedBoundedJson } from "@/shared/http/read-bounded-json";
 
 type AdminSessionReader = (headers: Headers) => Promise<AdminActor | null>;
 type AdminMutationKey = "admin.user_action" | "admin.entitlement_config" | "admin.approval" | "admin.moderation" | "admin.media_review";
@@ -40,38 +41,8 @@ const errorResponse = (code: string, status: number, trace: string, headers?: He
   traceId: trace,
 }, { status, headers: { ...Object.fromEntries(new Headers(headers)), "x-trace-id": trace, "cache-control": "private, no-store" } });
 
-class BodyError extends Error {
-  constructor(readonly code: "INVALID_REQUEST" | "PAYLOAD_TOO_LARGE" | "UNSUPPORTED_MEDIA_TYPE") { super(code); }
-}
-
 async function readBoundedJson(request: Request) {
-  if (!/^application\/json(?:\s*;\s*charset=utf-8)?$/iu.test(request.headers.get("content-type") ?? "")) {
-    throw new BodyError("UNSUPPORTED_MEDIA_TYPE");
-  }
-  const length = request.headers.get("content-length");
-  if (length !== null && (!/^\d+$/u.test(length) || Number(length) > MAX_ADMIN_JSON_BYTES)) {
-    throw new BodyError("PAYLOAD_TOO_LARGE");
-  }
-  if (!request.body) throw new BodyError("INVALID_REQUEST");
-  const reader = request.body.getReader();
-  const chunks: Uint8Array[] = [];
-  let total = 0;
-  try {
-    while (true) {
-      const { done, value } = await reader.read();
-      if (done) break;
-      total += value.byteLength;
-      if (total > MAX_ADMIN_JSON_BYTES) { await reader.cancel(); throw new BodyError("PAYLOAD_TOO_LARGE"); }
-      chunks.push(value);
-    }
-    const bytes = new Uint8Array(total);
-    let offset = 0;
-    for (const chunk of chunks) { bytes.set(chunk, offset); offset += chunk.byteLength; }
-    return JSON.parse(new TextDecoder("utf-8", { fatal: true }).decode(bytes)) as unknown;
-  } catch (error) {
-    if (error instanceof BodyError) throw error;
-    throw new BodyError("INVALID_REQUEST");
-  }
+  return readSharedBoundedJson(request, MAX_ADMIN_JSON_BYTES);
 }
 
 const mapError = (error: unknown, trace: string) => {
@@ -350,7 +321,7 @@ type ModerationAcceptanceService = {
     context: { requestId: string; ipAddress: string; idempotencyKey: string }): Promise<unknown>;
   finalizeAppeal(actor: AdminActor, appealId: string, decision: "upheld" | "overturned" | "modified", summary: string,
     context: { requestId: string; ipAddress: string; idempotencyKey: string; restrictionExpiresAt?: Date }): Promise<unknown>;
-  startAppealReview(actor: AdminActor, appealId: string): Promise<unknown>;
+  startAppealReview(actor: AdminActor, appealId: string, input: { idempotencyKey: string }): Promise<unknown>;
 };
 
 export function createAdminCaseDetailHandler(deps: CommonDependencies & { service: Pick<ModerationAcceptanceService, "getCaseDetail"> }) {
@@ -459,10 +430,10 @@ export function createAdminAppealReviewHandler(deps: CommonDependencies & { serv
       if (!auth.ok) return auth.response;
       const guarded = await guardMutation(request, deps, auth.session, "admin.moderation", trace);
       if (guarded) return guarded;
-      mutationKey(request);
+      const idempotencyKey = mutationKey(request);
       const { appealId } = await context.params;
       if (!uuidSchema.safeParse(appealId).success) return errorResponse("NOT_FOUND", 404, trace);
-      return Response.json(await deps.service.startAppealReview(auth.session, appealId),
+      return Response.json(await deps.service.startAppealReview(auth.session, appealId, { idempotencyKey }),
         { headers: { "x-trace-id": trace, "cache-control": "private, no-store" } });
     } catch (error) { return mapError(error, trace); }
   };
