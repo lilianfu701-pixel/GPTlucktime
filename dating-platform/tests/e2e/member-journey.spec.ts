@@ -22,6 +22,14 @@ async function control(request: APIRequestContext, body: Record<string, unknown>
   return response.json() as Promise<Record<string, string>>;
 }
 
+async function realtimeControl(request: APIRequestContext, action: "start" | "stop" | "restart") {
+  const port = process.env.E2E_REALTIME_CONTROL_PORT ?? "3101";
+  const response = await request.post(`http://127.0.0.1:${port}/${action}`, {
+    headers: { "x-e2e-token": controlToken },
+  });
+  expect(response.ok(), await response.text()).toBe(true);
+}
+
 async function latestDelivery(request: APIRequestContext, recipient: string, channel: "email" | "sms") {
   let delivery: Record<string, string> | undefined;
   await expect.poll(async () => {
@@ -98,7 +106,7 @@ async function approveNextPhoto(browser: Browser, baseURL: string, adminCookie: 
   await context.close();
 }
 
-test("two verified adults match, recover messaging, and blocking denies interaction", async ({ browser, request, baseURL }) => {
+test("two verified adults match, recover a missed realtime message, and blocking denies interaction", async ({ browser, request, baseURL }) => {
   test.setTimeout(120_000);
   expect(baseURL).toBeTruthy();
   const seeded = await control(request, { action: "reset" });
@@ -128,17 +136,32 @@ test("two verified adults match, recover messaging, and blocking denies interact
   await expect(bailey.page.getByText("It’s a match with Alex!")).toBeVisible();
   await bailey.page.getByRole("button", { name: "Start conversation" }).click();
   await expect(bailey.page).toHaveURL(/\/en\/messages$/u);
+  await expect(bailey.page.getByText("Online", { exact: true })).toBeVisible({ timeout: 15_000 });
   await bailey.page.getByPlaceholder("Write a message").fill("Hello Alex — this survived reconnect.");
   await bailey.page.getByRole("button", { name: "Send" }).click();
   await expect(bailey.page.getByText("Hello Alex — this survived reconnect.")).toBeVisible();
 
   await alex.page.goto("/en/messages");
+  await expect(alex.page.getByText("Online", { exact: true })).toBeVisible({ timeout: 15_000 });
   await expect(alex.page.getByText("Hello Alex — this survived reconnect.")).toBeVisible();
-  const recoveredState = await bailey.context.storageState();
-  const recoveredContext = await browser.newContext({ storageState: recoveredState });
-  const recoveredPage = await recoveredContext.newPage();
-  await recoveredPage.goto("/en/messages");
-  await expect(recoveredPage.getByText("Hello Alex — this survived reconnect.")).toBeVisible();
+
+  await realtimeControl(request, "stop");
+  await expect(alex.page.getByText("Reconnecting", { exact: true })).toBeVisible({ timeout: 10_000 });
+  await expect(bailey.page.getByText("Reconnecting", { exact: true })).toBeVisible({ timeout: 10_000 });
+  const missedMessage = "Persisted while the realtime service was unavailable.";
+  await bailey.page.getByPlaceholder("Write a message").fill(missedMessage);
+  await bailey.page.getByRole("button", { name: "Send" }).click();
+  await expect(bailey.page.getByText(missedMessage)).toBeVisible();
+  await expect(alex.page.getByText(missedMessage)).toHaveCount(0);
+
+  await realtimeControl(request, "restart");
+  await expect(alex.page.getByText("Online", { exact: true })).toBeVisible({ timeout: 20_000 });
+  await expect(bailey.page.getByText("Online", { exact: true })).toBeVisible({ timeout: 20_000 });
+  await expect(alex.page.getByText(missedMessage)).toBeVisible({ timeout: 20_000 });
+  const resumedMessage = "Realtime delivery resumed after recovery.";
+  await alex.page.getByPlaceholder("Write a message").fill(resumedMessage);
+  await alex.page.getByRole("button", { name: "Send" }).click();
+  await expect(bailey.page.getByText(resumedMessage)).toBeVisible({ timeout: 15_000 });
 
   await bailey.page.goto("/en/discover");
   await bailey.page.getByRole("button", { name: "Block Alex" }).click();
@@ -147,7 +170,6 @@ test("two verified adults match, recover messaging, and blocking denies interact
   await alex.page.getByRole("button", { name: "Send" }).click();
   await expect(alex.page.getByText("This conversation is no longer available.", { exact: true })).toBeVisible();
 
-  await recoveredContext.close();
   await alex.context.close();
   await bailey.context.close();
 });
