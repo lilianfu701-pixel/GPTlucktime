@@ -17,7 +17,8 @@ export class E2eStripeProvider implements CheckoutProvider, SubscriptionProvider
     return { id: `cs_e2e_${fixtureSuffix(input.metadata.orderId)}`, url: url.toString() };
   }
 
-  async setCancelAtPeriodEnd(_input: Parameters<SubscriptionProvider["setCancelAtPeriodEnd"]>[0]): Promise<void> {
+  async setCancelAtPeriodEnd(input: Parameters<SubscriptionProvider["setCancelAtPeriodEnd"]>[0]): Promise<void> {
+    void input;
     return undefined;
   }
 }

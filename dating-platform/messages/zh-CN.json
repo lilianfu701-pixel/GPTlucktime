@@ -79,6 +79,7 @@
   "messagesPage": {
     "title": "消息", "empty": "请选择一个会话", "draft": "输入消息", "send": "发送", "read": "已读",
     "delivered": "已送达", "unavailable": "实时更新暂不可用", "sendDenied": "此对话已不可用。",
+    "reportMessage": "举报消息", "reported": "已举报", "reportSuccess": "消息已提交给审核团队。", "reportError": "暂时无法提交举报，请重试。",
     "states": { "connecting": "连接中", "online": "在线", "retrying": "正在重连", "failed": "连接失败" }
   },
   "onboarding": {
@@ -147,8 +148,8 @@
     "back": "返回发现", "title": "申诉", "intro": "申请对已完成的审核决定进行独立复核。处理原案件的审核员不能裁决申诉。", "loading": "正在加载申诉选项…", "empty": "目前没有可申诉的已完成案件。", "caseReference": "案件 {id}", "caseStatus": "决定状态：{status}", "appealStatus": "申诉状态：{status}", "statement": "申诉说明", "statementHint": "请说明相关背景，不要包含密码、访问码或无关个人信息。", "submit": "提交申诉", "submitted": "申诉已提交，将由独立审核员复核。", "error": "暂时无法处理申诉，请稍后重试。"
   },
   "adminModeration": {
-    "openCase": "打开案件", "targetType": "目标类型", "reasonCode": "原因代码", "messageReferenceLabel": "消息引用", "messageReference": "消息引用：{id}", "triage": "分流案件", "beginReview": "开始审核", "restrictionReason": "限制原因", "durationHours": "限制时长（小时）", "restrict": "施加临时限制", "timeline": "审计时间线", "reviewReason": "人工审核原因", "approvePhoto": "批准照片", "rejectPhoto": "拒绝照片", "beginAppealReview": "开始独立复核", "appealDecision": "申诉决定", "decisionSummary": "决定摘要", "modifiedExpiry": "调整后的限制到期时间", "upheld": "维持", "overturned": "撤销", "modified": "修改", "finalizeAppeal": "完成申诉", "saved": "操作已记录到不可变审计时间线。", "error": "无法完成操作，请刷新队列后重试。",
-    "events": { "report_submitted": "举报已提交", "case_status_changed": "案件状态已变更", "action_recorded": "审核操作已记录", "appeal_submitted": "申诉已提交", "appeal_review_created": "申诉复核已创建", "appeal_finalized": "申诉已完成", "other": "审计事件" }
+    "openCase": "打开案件", "targetType": "目标类型", "reasonCode": "原因代码", "messageReferenceLabel": "消息引用", "messageReference": "消息引用：{id}", "triage": "分流案件", "beginReview": "开始审核", "restrictionReason": "限制原因", "durationHours": "限制时长（小时）", "restrict": "施加临时限制", "finalDecisionSummary": "最终决定摘要", "finalizeCase": "完成案件", "timeline": "审计时间线", "reviewReason": "人工审核原因", "approvePhoto": "批准照片", "rejectPhoto": "拒绝照片", "beginAppealReview": "开始独立复核", "appealDecision": "申诉决定", "decisionSummary": "决定摘要", "modifiedExpiry": "调整后的限制到期时间", "upheld": "维持", "overturned": "撤销", "modified": "修改", "finalizeAppeal": "完成申诉", "saved": "操作已记录到不可变审计时间线。", "error": "无法完成操作，请刷新队列后重试。",
+    "events": { "report_submitted": "举报已提交", "case_status_changed": "案件状态已变更", "action_recorded": "审核操作已记录", "appeal_submitted": "申诉已提交", "appeal_review_created": "申诉复核已创建", "appeal_enforcement_revoked": "申诉后已撤销限制", "appeal_enforcement_modified": "申诉后已修改限制", "appeal_finalized": "申诉已完成", "other": "审计事件" }
   },
   "admin": {
     "eyebrow": "运营", "title": "管理控制台", "intro": "按权限划分的运营队列",

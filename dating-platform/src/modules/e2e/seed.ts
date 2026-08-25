@@ -22,6 +22,8 @@ import { readEnv } from "@/shared/env";
 
 const MODERATOR_EMAIL = "moderator.e2e@example.test";
 const MODERATOR_TOKEN = "e2e_moderator_session_token_0000000000000001";
+const SECOND_MODERATOR_EMAIL = "moderator.second.e2e@example.test";
+const SECOND_MODERATOR_TOKEN = "e2e_moderator_session_token_0000000000000002";
 
 export async function resetE2eState() {
   await db.execute(sql`truncate table ${users} cascade`);
@@ -66,26 +68,26 @@ export async function seedE2eBillingIdentity(email: string) {
 
 export async function seedE2eModerator() {
   const env = readEnv(process.env);
-  const [moderator] = await db.insert(users).values({
-    name: "E2E Moderator",
-    email: MODERATOR_EMAIL,
-    emailVerified: true,
-    phoneNumber: "+14155550999",
-    phoneNumberVerified: true,
-  }).onConflictDoUpdate({ target: users.email, set: { name: "E2E Moderator", emailVerified: true } })
-    .returning({ id: users.id });
-  const [assignment] = await db.insert(adminRoleAssignments).values({
-    userId: moderator!.id,
-    role: "moderation",
-  }).returning({ id: adminRoleAssignments.id });
-  await db.insert(adminSessions).values({
-    userId: moderator!.id,
-    roleAssignmentId: assignment!.id,
-    tokenHash: createHmac("sha256", env.BETTER_AUTH_SECRET).update(MODERATOR_TOKEN).digest("hex"),
-    mfaVerifiedAt: new Date(),
-    expiresAt: new Date(Date.now() + 60 * 60_000),
-  });
-  return { moderatorEmail: MODERATOR_EMAIL, adminCookie: MODERATOR_TOKEN };
+  const seed = async (input: { name: string; email: string; phone: string; token: string }) => {
+    const [moderator] = await db.insert(users).values({
+      name: input.name, email: input.email, emailVerified: true,
+      phoneNumber: input.phone, phoneNumberVerified: true,
+    }).onConflictDoUpdate({ target: users.email, set: { name: input.name, emailVerified: true } })
+      .returning({ id: users.id });
+    const [assignment] = await db.insert(adminRoleAssignments).values({
+      userId: moderator!.id, role: "moderation",
+    }).returning({ id: adminRoleAssignments.id });
+    await db.insert(adminSessions).values({
+      userId: moderator!.id, roleAssignmentId: assignment!.id,
+      tokenHash: createHmac("sha256", env.BETTER_AUTH_SECRET).update(input.token).digest("hex"),
+      mfaVerifiedAt: new Date(), expiresAt: new Date(Date.now() + 60 * 60_000),
+    });
+  };
+  await seed({ name: "E2E Moderator", email: MODERATOR_EMAIL, phone: "+14155550999", token: MODERATOR_TOKEN });
+  await seed({ name: "E2E Second Moderator", email: SECOND_MODERATOR_EMAIL,
+    phone: "+14155550998", token: SECOND_MODERATOR_TOKEN });
+  return { moderatorEmail: MODERATOR_EMAIL, adminCookie: MODERATOR_TOKEN,
+    secondModeratorEmail: SECOND_MODERATOR_EMAIL, secondAdminCookie: SECOND_MODERATOR_TOKEN };
 }
 
 export async function seedPendingPhoto(email: string) {

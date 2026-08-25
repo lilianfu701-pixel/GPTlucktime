@@ -12,6 +12,7 @@ export function AdminModerationActions({ queue, itemId, status }: { queue: Queue
   const t = useTranslations("adminModeration");
   const [detail, setDetail] = useState<CaseDetail | null>(null);
   const [currentStatus, setCurrentStatus] = useState(status);
+  const [restrictionApplied, setRestrictionApplied] = useState(false);
   const [feedback, setFeedback] = useState("");
   const [working, setWorking] = useState(false);
   const headers = () => ({ "content-type": "application/json", "idempotency-key": `moderation-${crypto.randomUUID()}` });
@@ -37,8 +38,9 @@ export function AdminModerationActions({ queue, itemId, status }: { queue: Queue
     finally { setWorking(false); }
   }
 
-  async function transition(nextStatus: "triaged" | "under_review") {
-    const result = await send(`/api/v1/admin/cases/${itemId}/actions`, { action: "transition", nextStatus });
+  async function transition(nextStatus: "triaged" | "under_review" | "actioned", finalDecisionSummary?: string) {
+    const result = await send(`/api/v1/admin/cases/${itemId}/actions`, { action: "transition", nextStatus,
+      ...(finalDecisionSummary ? { finalDecisionSummary } : {}) });
     if (result) { setCurrentStatus(nextStatus); setDetail((value) => value ? { ...value,
       case: { ...value.case, status: nextStatus } } : value); }
   }
@@ -47,9 +49,16 @@ export function AdminModerationActions({ queue, itemId, status }: { queue: Queue
     event.preventDefault();
     if (!detail) return;
     const data = new FormData(event.currentTarget);
-    await send(`/api/v1/admin/cases/${itemId}/actions`, { action: "temporary_restriction",
+    const result = await send(`/api/v1/admin/cases/${itemId}/actions`, { action: "temporary_restriction",
       subjectUserId: detail.case.subjectUserId, reason: String(data.get("reason") ?? ""),
       durationHours: Number(data.get("durationHours")), expectedVersion: detail.case.expectedVersion });
+    if (result) setRestrictionApplied(true);
+  }
+
+  async function finalizeCase(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    const summary = String(new FormData(event.currentTarget).get("summary") ?? "").trim();
+    await transition("actioned", summary);
   }
 
   async function mediaDecision(form: HTMLFormElement, decision: "approved" | "rejected") {
@@ -92,6 +101,10 @@ export function AdminModerationActions({ queue, itemId, status }: { queue: Queue
           <label className="block text-sm font-semibold">{t("restrictionReason")}<textarea className="mt-1 w-full rounded-xl border p-2" maxLength={500} minLength={1} name="reason" required /></label>
           <label className="block text-sm font-semibold">{t("durationHours")}<input className="ml-2 w-24 rounded-xl border p-2" defaultValue={24} max={720} min={1} name="durationHours" type="number" required /></label>
           <button className="rounded-full bg-red-800 px-3 py-2 text-sm font-semibold text-white" disabled={working}>{t("restrict")}</button>
+        </form>}
+        {currentStatus === "under_review" && restrictionApplied && <form className="space-y-3" onSubmit={finalizeCase}>
+          <label className="block text-sm font-semibold">{t("finalDecisionSummary")}<textarea className="mt-1 w-full rounded-xl border p-2" maxLength={500} minLength={1} name="summary" required /></label>
+          <button className="rounded-full bg-stone-900 px-3 py-2 text-sm font-semibold text-white" disabled={working}>{t("finalizeCase")}</button>
         </form>}
         <section aria-labelledby={`timeline-${itemId}`}><h3 className="font-semibold" id={`timeline-${itemId}`}>{t("timeline")}</h3>
           <ol className="mt-2 space-y-2">{detail.timeline.map((event) => <li className="border-l-2 border-stone-300 pl-3 text-xs" key={event.id}>

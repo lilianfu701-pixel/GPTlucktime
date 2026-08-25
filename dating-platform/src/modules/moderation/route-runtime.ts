@@ -12,6 +12,7 @@ import { RedisReportRateLimiter } from "./report-rate-limiter";
 import { ReportService, RuleBasedReportRiskAssessor } from "./report-service";
 import { DrizzleMediaLegalHoldPolicy } from "./media-hold-policy";
 import { StorageMediaEvidencePreserver } from "./media-evidence-preserver";
+import { requireE2eRuntime } from "@/modules/e2e/e2e-guard";
 
 const env = readEnv(process.env);
 const repository = new DrizzleReportRepository(db, {
@@ -25,9 +26,10 @@ const repository = new DrizzleReportRepository(db, {
   }),
 });
 const service = new ReportService(repository, new RuleBasedReportRiskAssessor());
-const limiter = new RedisReportRateLimiter(createClient({ url: env.REDIS_URL }), {
-  hmacKey: env.BETTER_AUTH_SECRET,
-});
+const e2e = process.env.E2E_MODE === "1" ? requireE2eRuntime(process.env) : null;
+const limiter = e2e
+  ? { async consume() { return { allowed: true, retryAfterSeconds: 0 }; } }
+  : new RedisReportRateLimiter(createClient({ url: env.REDIS_URL }), { hmacKey: env.BETTER_AUTH_SECRET });
 
 export const reportRouteDependencies = {
   getSession: async (headers: Headers) => {

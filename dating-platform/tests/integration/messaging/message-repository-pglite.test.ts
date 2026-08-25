@@ -199,6 +199,9 @@ describe("message repository", () => {
     const replay = await repository.sendMessage(alice.userId, conversation.id, { clientId, body: "Hello 👋" });
     expect(replay).toEqual(first);
     expect(first).toMatchObject({ sender: "me" });
+    expect((await repository.listMessages(bob.userId, conversation.id, {
+      afterSequence: 0, pageSize: 10,
+    })).messages[0]).toMatchObject({ id: first.id, sender: "them" });
     expect(first).not.toHaveProperty("senderUserId");
     expect(await database.select().from(schema.messages)).toHaveLength(1);
     const [event] = await database.select().from(schema.messageOutboxEvents);

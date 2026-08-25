@@ -13,7 +13,7 @@ import {
   type RecoveredMessage,
 } from "@/modules/messaging/realtime-client";
 
-type Conversation = { id: string; profile?: { displayName?: string } };
+type Conversation = { id: string; profile?: { id?: string; displayName?: string } };
 type Receipt = { messageId: string; sequence: number; deliveredAt: string | null; readAt: string | null };
 export function MessagesClient({ realtimeUrl }: { realtimeUrl: string | null }) {
   const t = useTranslations("messagesPage");
@@ -26,6 +26,9 @@ export function MessagesClient({ realtimeUrl }: { realtimeUrl: string | null }) 
   const [draft, setDraft] = useState("");
   const [sending, setSending] = useState(false);
   const [sendDenied, setSendDenied] = useState(false);
+  const [reportingId, setReportingId] = useState<string | null>(null);
+  const [reportedIds, setReportedIds] = useState<Set<string>>(() => new Set());
+  const [reportError, setReportError] = useState(false);
   const clientRef = useRef<ReturnType<typeof createRealtimeClient> | null>(null);
   const selectedRef = useRef<string | null>(null);
   const draftRef = useRef("");
@@ -219,6 +222,29 @@ export function MessagesClient({ realtimeUrl }: { realtimeUrl: string | null }) 
     }
   };
 
+  const reportMessage = async (message: RecoveredMessage) => {
+    if (!selected || reportingId || reportedIds.has(message.id)) return;
+    const targetProfileId = conversations.find(({ id }) => id === selected)?.profile?.id;
+    if (!targetProfileId) { setReportError(true); return; }
+    setReportingId(message.id);
+    setReportError(false);
+    try {
+      const response = await fetch("/api/v1/reports", {
+        method: "POST",
+        credentials: "same-origin",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({
+          clientId: crypto.randomUUID(), targetProfileId, reason: "HARASSMENT",
+          locale: document.documentElement.lang || "en", explanation: "Reported from member message controls.",
+          messageId: message.id, conversationId: selected, evidenceReferences: [],
+        }),
+      });
+      if (!response.ok) throw new Error("REPORT_FAILED");
+      setReportedIds((current) => new Set(current).add(message.id));
+    } catch { setReportError(true); }
+    finally { setReportingId(null); }
+  };
+
   return (
     <main className="min-h-screen bg-rose-50 px-4 py-8 text-stone-900">
       <div className="mx-auto max-w-6xl">
@@ -235,7 +261,7 @@ export function MessagesClient({ realtimeUrl }: { realtimeUrl: string | null }) 
           <section className="flex min-w-0 flex-col p-5">
             {!selected ? <p className="m-auto text-stone-500">{t("empty")}</p> : <>
               <ol className="flex-1 space-y-3 overflow-y-auto" aria-live="polite">
-                {(messages[selected] ?? []).map((message) => <li key={message.id} className={`max-w-[80%] rounded-2xl px-4 py-3 ${message.sender === "me" ? "ml-auto bg-rose-700 text-white" : "bg-stone-100"}`}><p>{message.body}</p>{message.sender === "me" && receipts[selected]?.[message.id] && <span className="mt-1 block text-right text-xs opacity-75">{receipts[selected]?.[message.id]?.readAt ? t("read") : t("delivered")}</span>}</li>)}
+                {(messages[selected] ?? []).map((message) => <li key={message.id} className={`max-w-[80%] rounded-2xl px-4 py-3 ${message.sender === "me" ? "ml-auto bg-rose-700 text-white" : "bg-stone-100"}`}><p>{message.body}</p>{message.sender === "me" && receipts[selected]?.[message.id] && <span className="mt-1 block text-right text-xs opacity-75">{receipts[selected]?.[message.id]?.readAt ? t("read") : t("delivered")}</span>}{message.sender === "them" && <button type="button" className="mt-2 text-xs font-semibold text-red-800 underline underline-offset-2 disabled:text-stone-500" disabled={reportingId === message.id || reportedIds.has(message.id)} onClick={() => { void reportMessage(message); }}>{reportedIds.has(message.id) ? t("reported") : t("reportMessage")}</button>}</li>)}
               </ol>
               <div className="mt-4 flex gap-3">
                 <textarea value={draft} disabled={sending} onChange={(event) => updateDraft(event.target.value)} placeholder={t("draft")} maxLength={2000} className="min-h-20 flex-1 resize-none rounded-2xl border border-stone-200 p-3" />
@@ -243,6 +269,9 @@ export function MessagesClient({ realtimeUrl }: { realtimeUrl: string | null }) 
               </div>
               <p aria-live="assertive" className="mt-2 min-h-5 text-sm text-red-700" role={sendDenied ? "alert" : undefined}>
                 {sendDenied ? t("sendDenied") : null}
+              </p>
+              <p aria-live="polite" className={`min-h-5 text-sm ${reportError ? "text-red-700" : "text-emerald-800"}`} role={reportError ? "alert" : "status"}>
+                {reportError ? t("reportError") : reportedIds.size > 0 ? t("reportSuccess") : null}
               </p>
             </>}
           </section>

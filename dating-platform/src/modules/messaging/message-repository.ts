@@ -109,7 +109,7 @@ const serializeMessage = (row: typeof messages.$inferSelect, viewerUserId: strin
   id: row.id,
   conversationId: row.conversationId,
   sequence: row.sequence,
-  sender: row.senderUserId === viewerUserId ? "me" as const : "other" as const,
+  sender: row.senderUserId === viewerUserId ? "me" as const : "them" as const,
   body: row.body,
   createdAt: row.createdAt.toISOString(),
 });
