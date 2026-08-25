@@ -12,13 +12,18 @@ import {
   type RealtimeConnectionState,
   type RecoveredMessage,
 } from "@/modules/messaging/realtime-client";
+import { createPollingMessageClient, type PollingMessageClient } from "@/modules/messaging/polling-client";
+import { createHttpReceiptSender } from "@/modules/messaging/http-receipt-client";
 
 type Conversation = { id: string; profile?: { id?: string; displayName?: string } };
 type Receipt = { messageId: string; sequence: number; deliveredAt: string | null; readAt: string | null };
+type MessageTransportClient = Pick<PollingMessageClient,
+  "start" | "join" | "refresh" | "markDelivered" | "markRead" | "stop" | "store">;
+
 export function MessagesClient({ realtimeUrl }: { realtimeUrl: string | null }) {
   const t = useTranslations("messagesPage");
   const brand = useTranslations("brand");
-  const [state, setState] = useState<RealtimeConnectionState>(realtimeUrl ? "connecting" : "failed");
+  const [state, setState] = useState<RealtimeConnectionState>("connecting");
   const [conversations, setConversations] = useState<Conversation[]>([]);
   const [selected, setSelected] = useState<string | null>(null);
   const [messages, setMessages] = useState<Record<string, RecoveredMessage[]>>({});
@@ -29,13 +34,13 @@ export function MessagesClient({ realtimeUrl }: { realtimeUrl: string | null }) 
   const [reportingId, setReportingId] = useState<string | null>(null);
   const [reportedIds, setReportedIds] = useState<Set<string>>(() => new Set());
   const [reportError, setReportError] = useState(false);
-  const clientRef = useRef<ReturnType<typeof createRealtimeClient> | null>(null);
+  const clientRef = useRef<MessageTransportClient | null>(null);
   const selectedRef = useRef<string | null>(null);
   const draftRef = useRef("");
   const ledgerRef = useRef<PendingSendLedger | null>(null);
-  const selectionGenerationRef = useRef(0);
   const receiptGenerationsRef = useRef(new Map<string, number>());
   const receiptRequestsRef = useRef(new CoalescedAbortableRequests());
+  const receiptLastRequestedAtRef = useRef(new Map<string, number>());
 
   useEffect(() => {
     let active = true;
@@ -73,6 +78,9 @@ export function MessagesClient({ realtimeUrl }: { realtimeUrl: string | null }) 
       };
     }, { afterSequence, signal }), []);
 
+  const sendPollingReceipt = useCallback((kind: "delivered" | "read", message: RecoveredMessage, at: string, signal: AbortSignal) =>
+    createHttpReceiptSender()(kind, message, at, signal), []);
+
   const loadReceipts = useCallback((conversationId: string) => receiptRequestsRef.current.run(conversationId, async (signal) => {
     const generation = (receiptGenerationsRef.current.get(conversationId) ?? 0) + 1;
     receiptGenerationsRef.current.set(conversationId, generation);
@@ -101,66 +109,83 @@ export function MessagesClient({ realtimeUrl }: { realtimeUrl: string | null }) 
     }
   }), []);
 
-  const safelyLoadReceipts = useCallback((conversationId: string) => {
-    void loadReceipts(conversationId).catch(() => {
+  const requestActiveReceipts = useCallback(async (conversationId: string) => {
+    if (selectedRef.current !== conversationId || document.visibilityState === "hidden") return;
+    const now = Date.now();
+    const previous = receiptLastRequestedAtRef.current.get(conversationId) ?? -Infinity;
+    if (now - previous < 10_000) return;
+    receiptLastRequestedAtRef.current.set(conversationId, now);
+    try {
+      await loadReceipts(conversationId);
+    } catch {
       setReceipts((current) => current[conversationId]
         ? current
         : { ...current, [conversationId]: {} });
-    });
+    }
   }, [loadReceipts]);
 
   useEffect(() => () => receiptRequestsRef.current.cancelAll(), []);
 
   useEffect(() => {
-    if (!realtimeUrl) return;
-    const client = createRealtimeClient({
-      url: realtimeUrl,
-      fetchTicket: async () => {
-        const response = await fetch("/api/v1/realtime/ticket", {
-          method: "POST",
-          credentials: "same-origin",
-          headers: { "content-type": "application/json" },
-          body: "{}",
-        });
-        if (!response.ok) throw new Error("REALTIME_UNAVAILABLE");
-        return response.json() as Promise<{ ticket: string; expiresAt: string }>;
-      },
-      recover,
-      onState: setState,
-      onMessages: (conversationId, rows) => {
-        setMessages((current) => ({ ...current, [conversationId]: rows }));
-        safelyLoadReceipts(conversationId);
-      },
-    });
+    if (!selected) return;
+    let active = true;
+    let timer: ReturnType<typeof setTimeout> | undefined;
+    const run = async () => {
+      await requestActiveReceipts(selected);
+      if (active) timer = setTimeout(() => { void run(); }, 10_000);
+    };
+    const onVisibilityChange = () => {
+      if (document.visibilityState === "visible") void requestActiveReceipts(selected);
+    };
+    void run();
+    document.addEventListener("visibilitychange", onVisibilityChange);
+    return () => {
+      active = false;
+      if (timer) clearTimeout(timer);
+      document.removeEventListener("visibilitychange", onVisibilityChange);
+    };
+  }, [selected, requestActiveReceipts]);
+
+  useEffect(() => {
+    const onMessages = (conversationId: string, rows: RecoveredMessage[]) => {
+      setMessages((current) => ({ ...current, [conversationId]: rows }));
+      void requestActiveReceipts(conversationId);
+    };
+    const client: MessageTransportClient = realtimeUrl
+      ? createRealtimeClient({
+        url: realtimeUrl,
+        fetchTicket: async () => {
+          const response = await fetch("/api/v1/realtime/ticket", {
+            method: "POST",
+            credentials: "same-origin",
+            headers: { "content-type": "application/json" },
+            body: "{}",
+          });
+          if (!response.ok) throw new Error("REALTIME_UNAVAILABLE");
+          return response.json() as Promise<{ ticket: string; expiresAt: string }>;
+        },
+        recover,
+        onState: setState,
+        onMessages,
+      })
+      : createPollingMessageClient({ recover, sendReceipt: sendPollingReceipt, onState: setState, onMessages });
     clientRef.current = client;
     void client.start();
+    if (selectedRef.current) void client.join(selectedRef.current).catch(() => setState("failed"));
     return () => {
       client.stop();
       if (clientRef.current === client) clientRef.current = null;
     };
-  }, [realtimeUrl, recover, safelyLoadReceipts]);
+  }, [realtimeUrl, recover, requestActiveReceipts, sendPollingReceipt]);
 
   useEffect(() => {
     if (!selected) return;
-    const generation = ++selectionGenerationRef.current;
-    const controller = new AbortController();
     const receiptRequests = receiptRequestsRef.current;
-    if (realtimeUrl) {
-      void clientRef.current?.join(selected).catch(() => setState("failed"));
-    } else {
-      void recover(selected, 0, controller.signal)
-        .then((rows) => {
-          if (selectionGenerationRef.current !== generation || selectedRef.current !== selected) return;
-          setMessages((current) => ({ ...current, [selected]: rows }));
-          safelyLoadReceipts(selected);
-        })
-        .catch(() => undefined);
-    }
+    void clientRef.current?.join(selected).catch(() => setState("failed"));
     return () => {
-      controller.abort();
       receiptRequests.cancel(selected);
     };
-  }, [selected, realtimeUrl, recover, safelyLoadReceipts]);
+  }, [selected]);
 
   const selectConversation = (conversationId: string) => {
     selectedRef.current = conversationId;
@@ -205,15 +230,7 @@ export function MessagesClient({ realtimeUrl }: { realtimeUrl: string | null }) 
       if (!response.ok) throw new Error("SEND_FAILED");
       ledgerRef.current.clear(selected, pending.clientId);
       if (selectedRef.current === selected && draftRef.current === pending.body) updateDraft("");
-      if (clientRef.current) await clientRef.current.refresh(selected);
-      else {
-        const generation = selectionGenerationRef.current;
-        const rows = await recover(selected, 0);
-        if (selectionGenerationRef.current === generation && selectedRef.current === selected) {
-          setMessages((current) => ({ ...current, [selected]: rows }));
-          safelyLoadReceipts(selected);
-        }
-      }
+      if (selectedRef.current === selected) await clientRef.current?.refresh(selected);
     } catch {
       // The local draft intentionally remains available for an explicit retry.
       setSendDenied(true);
@@ -251,7 +268,7 @@ export function MessagesClient({ realtimeUrl }: { realtimeUrl: string | null }) 
         <div className="flex items-end justify-between gap-4">
           <div><p className="text-sm font-semibold uppercase tracking-[0.2em] text-rose-700">{brand("name")}</p><h1 className="mt-2 text-4xl font-semibold">{t("title")}</h1></div>
           <p className="rounded-full bg-white px-4 py-2 text-sm" aria-live="polite">
-            {realtimeUrl ? t(`states.${state}`) : t("unavailable")}
+            {t(`states.${state}`)}
           </p>
         </div>
         <div className="mt-8 grid min-h-[36rem] overflow-hidden rounded-3xl bg-white shadow-sm md:grid-cols-[18rem_1fr]">

@@ -8,7 +8,7 @@ import { MessagesClient } from "@/app/[locale]/(member)/messages/messages-client
 import messages from "../../../messages/en.json";
 
 describe("moderation acceptance surfaces", () => {
-  afterEach(() => { cleanup(); vi.unstubAllGlobals(); });
+  afterEach(() => { cleanup(); vi.unstubAllGlobals(); vi.useRealTimers(); });
 
   it("shows safe case metadata and an immutable audit timeline before triage", async () => {
     const fetchMock = vi.fn()
@@ -60,7 +60,8 @@ describe("moderation acceptance surfaces", () => {
       return new Response(null, { status: 404 });
     });
     vi.stubGlobal("fetch", fetchMock);
-    render(<NextIntlClientProvider locale="en" messages={messages}><MessagesClient realtimeUrl={null} /></NextIntlClientProvider>);
+    const view = render(<NextIntlClientProvider locale="en" messages={messages}><MessagesClient realtimeUrl={null} /></NextIntlClientProvider>);
+    expect(screen.queryByText("Real-time updates unavailable")).toBeNull();
     fireEvent.click(await screen.findByRole("button", { name: "Report message" }));
     expect(await screen.findByText("Message reported for moderator review.")).toBeTruthy();
     const report = fetchMock.mock.calls.find(([input]) => String(input) === "/api/v1/reports");
@@ -70,6 +71,80 @@ describe("moderation acceptance surfaces", () => {
       conversationId: "00000000-0000-4000-8000-000000000010",
       reason: "HARASSMENT",
     });
+    const messageRequestsBeforeReplacement = fetchMock.mock.calls.filter(([input]) => String(input).includes("/messages?")).length;
+    view.rerender(<NextIntlClientProvider locale="en" messages={messages}><MessagesClient realtimeUrl="http://127.0.0.1:1" /></NextIntlClientProvider>);
+    await waitFor(() => expect(fetchMock.mock.calls.filter(([input]) => String(input).includes("/messages?")).length)
+      .toBeGreaterThan(messageRequestsBeforeReplacement));
+  });
+
+  it("refreshes receipts only for the active conversation at a bounded cadence", async () => {
+    vi.useFakeTimers();
+    const first = "00000000-0000-4000-8000-000000000010";
+    const second = "00000000-0000-4000-8000-000000000011";
+    const fetchMock = vi.fn(async (input: RequestInfo | URL) => {
+      const url = String(input);
+      if (url.includes("/api/v1/conversations?pageSize")) return new Response(JSON.stringify({ conversations: [
+        { id: first, profile: { id: "00000000-0000-4000-8000-000000000020", displayName: "Alex" } },
+        { id: second, profile: { id: "00000000-0000-4000-8000-000000000021", displayName: "Blair" } },
+      ] }), { status: 200 });
+      if (url.includes("/messages?")) return new Response(JSON.stringify({ messages: [], nextAfterSequence: null }), { status: 200 });
+      if (url.includes("/receipts?")) return new Response(JSON.stringify({ visible: true, receipts: [], nextAfterSequence: null }), { status: 200 });
+      return new Response(null, { status: 404 });
+    });
+    vi.stubGlobal("fetch", fetchMock);
+    render(<NextIntlClientProvider locale="en" messages={messages}><MessagesClient realtimeUrl={null} /></NextIntlClientProvider>);
+
+    await vi.advanceTimersByTimeAsync(0);
+    expect(screen.getByRole("button", { name: "Alex" })).toBeTruthy();
+    await vi.advanceTimersByTimeAsync(0);
+    const receiptRequests = () => fetchMock.mock.calls.map(([input]) => String(input)).filter((url) => url.includes("/receipts?"));
+    expect(receiptRequests()).toHaveLength(1);
+    expect(receiptRequests()[0]).toContain(first);
+    await vi.advanceTimersByTimeAsync(9_999);
+    expect(receiptRequests()).toHaveLength(1);
+    await vi.advanceTimersByTimeAsync(1);
+    expect(receiptRequests()).toHaveLength(2);
+    fireEvent.click(screen.getByRole("button", { name: "Blair" }));
+    await vi.advanceTimersByTimeAsync(0);
+    expect(receiptRequests().at(-1)).toContain(second);
+  });
+
+  it("keeps the newly selected conversation active when an older send settles", async () => {
+    const first = "00000000-0000-4000-8000-000000000010";
+    const second = "00000000-0000-4000-8000-000000000011";
+    let resolveSend!: (response: Response) => void;
+    const pendingSend = new Promise<Response>((resolve) => { resolveSend = resolve; });
+    let sendResponseSettled = false;
+    const fetchMock = vi.fn(async (input: RequestInfo | URL, init?: RequestInit) => {
+      const url = String(input);
+      if (url.includes("/api/v1/conversations?pageSize")) return new Response(JSON.stringify({ conversations: [
+        { id: first, profile: { id: "00000000-0000-4000-8000-000000000020", displayName: "Alex" } },
+        { id: second, profile: { id: "00000000-0000-4000-8000-000000000021", displayName: "Blair" } },
+      ] }), { status: 200 });
+      if (url.includes("/messages?")) return new Response(JSON.stringify({ messages: [], nextAfterSequence: null }), { status: 200 });
+      if (url.includes("/receipts?")) return new Response(JSON.stringify({ visible: true, receipts: [], nextAfterSequence: null }), { status: 200 });
+      if (url.endsWith(`/conversations/${first}/messages`) && init?.method === "POST") {
+        const response = await pendingSend;
+        sendResponseSettled = true;
+        return response;
+      }
+      return new Response(null, { status: 404 });
+    });
+    vi.stubGlobal("fetch", fetchMock);
+    render(<NextIntlClientProvider locale="en" messages={messages}><MessagesClient realtimeUrl={null} /></NextIntlClientProvider>);
+
+    await screen.findByRole("button", { name: "Alex" });
+    await waitFor(() => expect(fetchMock.mock.calls.some(([input]) => String(input).includes(`${first}/messages?`))).toBe(true));
+    fireEvent.change(screen.getByPlaceholderText("Write a message"), { target: { value: "for Alex" } });
+    fireEvent.click(screen.getByRole("button", { name: "Send" }));
+    await waitFor(() => expect(fetchMock.mock.calls.some(([input, init]) => String(input).endsWith(`/conversations/${first}/messages`) && init?.method === "POST")).toBe(true));
+    fireEvent.click(screen.getByRole("button", { name: "Blair" }));
+    await waitFor(() => expect(fetchMock.mock.calls.some(([input]) => String(input).includes(`${second}/messages?`))).toBe(true));
+    const firstRequestsBeforeSettling = fetchMock.mock.calls.filter(([input]) => String(input).includes(`${first}/messages?`)).length;
+    resolveSend(new Response(JSON.stringify({ id: "00000000-0000-4000-8000-000000000030" }), { status: 201 }));
+    await waitFor(() => expect(sendResponseSettled).toBe(true));
+    await new Promise<void>((resolve) => setTimeout(resolve, 0));
+    expect(fetchMock.mock.calls.filter(([input]) => String(input).includes(`${first}/messages?`))).toHaveLength(firstRequestsBeforeSettling);
   });
 
   it("applies a temporary restriction and finalizes the case through explicit controls", async () => {
