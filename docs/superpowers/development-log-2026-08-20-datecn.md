@@ -103,9 +103,16 @@
 - 最终复核再次取得 focused tests 22/22（1 file，1.05s）、`tsc --noEmit` 0 错误、完整 ESLint 0 错误及 `git diff --check` 0 错误。另用仅含虚构 Neon 目标的临时、gitignored env 文件执行真实 CLI `--check`，其只显示 host/database 并以 0 退出；临时文件随后删除，未进入确认模式、未启动 npm 子进程、未连接数据库。
 - Task 6 第三次质量复核发现 Windows 命令提示符示例会在变量展开阶段重新解释特殊字符，因此先前“安全保留为一个参数”的跨 shell 声明不成立。runbook 已完全删除该变体及相关变量展开/清理命令；Windows 发布者现在必须使用 PowerShell，POSIX 发布者继续使用带引号的变量形式。对含空白、引号、控制字符或 shell 元字符的 dashboard identifier，发布者必须停止并取得经复核的 Neon 名称，不得自行设计转义。
 
+### Task 7 纯合成测试数据工具
+
+- `5978eab`：新增受保护的免费测试 seed。它只创建 `alice@datecn.test` 与 `liam@datecn.test`，使用 Better Auth 原生密码哈希，并以单事务、advisory lock、INSERT-only 和精确回读实现幂等及冲突关闭；数据包括完整资料、兴趣、合成照片占位记录、免费测试权益、双向喜欢、匹配、活跃会话及双方初始消息。
+- 凭据由安全随机数生成，不写终端，只在首次运行时原子写入 gitignored `.artifacts/free-test-credentials.json`；已有文件会被验证和复用，冲突、符号链接或不安全路径会停止。两张照片当前仅为数据库占位记录，不包含 Blob 对象；真实合成图片上传仍属于临时网址 smoke。
+- 初始实现通过 seed 与迁移相关测试 55/55、TypeScript、全量 ESLint 和 diff-check。独立规格复核随后发现 seed 只限制为 TLS Neon、没有独立确认具体 Neon 目标，因此未放行。
+- 后续修复复用迁移门禁的参数解析与精确目标比较：CLI 必须接收人工从 Neon 页面复制的 `--expected-host` 和 `--expected-database`。缺失、重复、未知、大小写/尾点不一致或目标不匹配时，会在凭据 I/O 和数据库工厂调用前以固定脱敏错误停止；不能从 `DATABASE_URL` 自行推导预期值。相关 seed 与迁移测试目前为 64/64，尚待同一规格复核员复验。
+
 ## 7. 归档结论与恢复起点
 
 - 归档结论：15 阶段的本地实现和本地验收已完成。
 - 当前边界：尚未进行生产部署；免费公网测试也因 Vercel Hobby CPU 配额超限而尚未开始。生产发布仍需完成外部数据库恢复、真实供应商和完整生产门禁。
-- 继续工作时以本节对应的 Task 6 最终提交 `docs: record free test deployment controls` 为恢复起点，不需要重做前 15 阶段或免费 Vercel 兼容 Task 1—5。
+- 继续工作时以 Task 7 的受保护纯合成 seed 及精确 Neon 目标确认修复为恢复起点，不需要重做前 15 阶段、免费 Vercel 兼容 Task 1—5 或 Task 6 文档门禁。
 - 下一次先重新读取 Vercel 免费额度；额度未清零则停止。额度清零后按免费测试部署 runbook 从独立资源 provisioning 开始，临时 URL 验收通过前不得修改 DNS。

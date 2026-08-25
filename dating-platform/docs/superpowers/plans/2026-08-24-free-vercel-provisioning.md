@@ -98,15 +98,15 @@ Expected: the file is ignored by git and contains the required server variables.
 - Create: `tests/unit/operations/seed-free-test.test.ts`
 - Modify: `package.json`
 
-- [ ] **Step 1: Write failing seed safety tests**
+- [x] **Step 1: Write failing seed safety tests**
 
-Require `FREE_TEST_MODE=1`, `FREE_TEST_SEED_CONFIRM=datecn-free-test`, HTTPS `APP_URL`, and email suffix `@datecn.test`. Verify refusal when any condition is absent and verify idempotent creation of two verified synthetic users, profiles, match, active conversation, and initial messages.
+Require `FREE_TEST_MODE=1`, `FREE_TEST_SEED_CONFIRM=datecn-free-test`, HTTPS `APP_URL`, exact independently supplied Neon hostname/database arguments, and email suffix `@datecn.test`. Verify refusal before credential or database access when any condition is absent or the target differs. Verify idempotent creation of two verified synthetic users, profiles, match, active conversation, and initial messages.
 
-- [ ] **Step 2: Implement the bounded seed script**
+- [x] **Step 2: Implement the bounded seed script**
 
-Use deterministic synthetic addresses `alice@datecn.test` and `liam@datecn.test`, random passwords printed once to a local gitignored `.artifacts/free-test-credentials.json`, and transactions for profile/match/conversation rows. Never weaken application authentication rules and never enable E2E routes.
+Use deterministic synthetic addresses `alice@datecn.test` and `liam@datecn.test`, random passwords written once (never printed) to a local gitignored `.artifacts/free-test-credentials.json`, and one advisory-locked transaction for profile/match/conversation rows. Never weaken application authentication rules and never enable E2E routes.
 
-- [ ] **Step 3: Run tests and commit the seed tool**
+- [x] **Step 3: Run tests and commit the seed tool**
 
 Run: `npm exec -- vitest run tests/unit/operations/seed-free-test.test.ts`
 
@@ -124,7 +124,7 @@ Expected: migrations `0000` through `0040` apply successfully once and a second 
 
 - [ ] **Step 5: Seed synthetic test data**
 
-Set `FREE_TEST_SEED_CONFIRM=datecn-free-test` only for the seed process and run: `npm run seed:free-test`
+Keep the independently dashboard-confirmed hostname/database variables from the migration preflight. Set `FREE_TEST_SEED_CONFIRM=datecn-free-test` only for the seed process and use the PowerShell or POSIX command in [Synthetic seed target confirmation](../../runbooks/free-test-deployment.md#synthetic-seed-target-confirmation). The npm command requires both `--expected-host` and `--expected-database`; it fails before credential I/O or database construction if either differs from `DATABASE_URL`.
 
 Expected: two synthetic users and one conversation are created; rerunning reports existing records without duplication.
 

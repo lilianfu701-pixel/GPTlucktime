@@ -84,7 +84,7 @@ The following groups must remain absent in free-test mode: `STRIPE_*`, `EMAIL_*`
 2. Run the local release gate from the app directory with npm: the full test suite in a reliable single-worker mode when PGlite concurrency times out, TypeScript, full lint, a production build under safe free-test variables, and `drizzle-kit check`. Attach counts, skips, durations, and exit codes.
 3. Pull Production variables only after verifying the link and team: `npm exec --yes --package=vercel@latest -- vercel env pull .env.vercel.local --environment=production --scope lilianfu701-pixels-projects`. Confirm the file is ignored with `git check-ignore -v .env.vercel.local`; never display its contents.
 4. Run the database target preflight below. Only after it passes with the manually confirmed target may the same fail-closed command start `npm run db:migrate`. Verify migrations `0000` through `0040` apply once, then rerun and require a no-op result. Stop on any unexpected pre-existing table or data.
-5. The guarded seed command is not yet present in this repository; it is created and tested in Task 4 of [the provisioning plan](../superpowers/plans/2026-08-24-free-vercel-provisioning.md). Do not deploy until that reviewed command and its safety test exist. Then run only `npm run seed:free-test` with `FREE_TEST_SEED_CONFIRM` set for that one process, using only `alice@datecn.test` and `liam@datecn.test`. Require two verified synthetic users, profiles, one match, one active conversation, initial messages, and an idempotent second run.
+5. Run the reviewed seed gate in `scripts/seed-free-test.ts` only after migration succeeds. Its npm script loads `.env.vercel.local` into that Node process, requires `FREE_TEST_SEED_CONFIRM=datecn-free-test`, and independently requires the same dashboard-copied Neon hostname and database name used by the migration gate. A missing or mismatched target fails before credentials are read or written and before a database client is created. Follow the shell-specific commands below; do not persist the seed confirmation in Vercel. Require two verified synthetic users, complete profiles, one match, one active conversation, initial messages, and an idempotent second run.
 
 ### Database target preflight and migration
 
@@ -129,6 +129,33 @@ node --env-file=.env.vercel.local scripts/run-free-test-migration.mjs --expected
 Any other confirmation form is rejected. The script then calls `npm.cmd` on Windows or `npm` elsewhere with argument array `run`, `db:migrate`, `shell: false`, and inherited stdio. It never concatenates an environment value into a command.
 
 After the attempt, clear the prompt variables (`Remove-Variable expectedNeonHost,expectedNeonDatabase` in PowerShell or `unset expected_neon_host expected_neon_database` in POSIX). Do not run the confirm command while reviewing or editing this document.
+
+### Synthetic seed target confirmation
+
+Keep the independently copied prompt variables from the migration check. The seed CLI accepts only the exact `--expected-host` and `--expected-database` pair; it never derives the expected values from `DATABASE_URL`. It creates only `alice@datecn.test` and `liam@datecn.test`. Passwords are never printed and are written once to the gitignored `.artifacts/free-test-credentials.json` with restrictive permissions.
+
+On Windows, use PowerShell only:
+
+```powershell
+$env:FREE_TEST_SEED_CONFIRM = 'datecn-free-test'
+try {
+  npm run seed:free-test -- --expected-host "$expectedNeonHost" --expected-database "$expectedNeonDatabase"
+} finally {
+  Remove-Item Env:FREE_TEST_SEED_CONFIRM -ErrorAction SilentlyContinue
+  Remove-Variable expectedNeonHost,expectedNeonDatabase -ErrorAction SilentlyContinue
+}
+```
+
+POSIX shell:
+
+```sh
+FREE_TEST_SEED_CONFIRM=datecn-free-test npm run seed:free-test -- \
+  --expected-host "$expected_neon_host" \
+  --expected-database "$expected_neon_database"
+unset expected_neon_host expected_neon_database
+```
+
+Run the exact command a second time and require an idempotent result without duplicate rows or a rewritten credentials file. Any fixed rejection, target mismatch, credential-file conflict, unexpected existing row, or transaction failure is a hard stop. Do not replace the tool with manual SQL and do not display the credentials file in terminal output, screenshots, logs, or release notes.
 
 ## Deploy and smoke the temporary URL
 

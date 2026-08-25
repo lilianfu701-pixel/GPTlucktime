@@ -35,15 +35,26 @@ export function parseFreeTestDatabaseTarget(env) {
 }
 
 export function parseMigrationArguments(argv) {
-  if (argv.length !== 5 || argv[0] !== "--expected-host"
+  if (argv.length !== 5) throw rejected();
+  const { expectedHost, expectedDatabase } = parseExpectedDatabaseArguments(argv.slice(0, 4));
+  const modeArgument = argv[4];
+  if (modeArgument !== "--check" && modeArgument !== CONFIRMATION) throw rejected();
+  return { expectedHost, expectedDatabase, mode: modeArgument === "--check" ? "check" : "migrate" };
+}
+
+export function parseExpectedDatabaseArguments(argv) {
+  if (argv.length !== 4 || argv[0] !== "--expected-host"
     || argv[2] !== "--expected-database") throw rejected();
   const expectedHost = argv[1];
   const expectedDatabase = argv[3];
-  const modeArgument = argv[4];
   if (!expectedHost || !expectedDatabase
     || /[\u0000-\u001F\u007F]/u.test(expectedHost + expectedDatabase)) throw rejected();
-  if (modeArgument !== "--check" && modeArgument !== CONFIRMATION) throw rejected();
-  return { expectedHost, expectedDatabase, mode: modeArgument === "--check" ? "check" : "migrate" };
+  return { expectedHost, expectedDatabase };
+}
+
+export function requireExactDatabaseTarget(target, expected) {
+  if (expected.expectedHost !== target.host || expected.expectedDatabase !== target.database) throw rejected();
+  return target;
 }
 
 export function selectNpmCommand(platform) {
@@ -59,7 +70,7 @@ export function runFreeTestMigration({
 }) {
   const target = parseFreeTestDatabaseTarget(env);
   const input = parseMigrationArguments(argv);
-  if (input.expectedHost !== target.host || input.expectedDatabase !== target.database) throw rejected();
+  requireExactDatabaseTarget(target, input);
 
   writeStdout(`Database target: host=${target.host}; db=${target.database}\n`);
   if (input.mode === "check") return 0;

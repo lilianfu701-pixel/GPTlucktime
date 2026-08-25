@@ -26,6 +26,7 @@ import {
 
 const HOST = "ep-datecn-123.us-east-2.aws.neon.tech";
 const DATABASE_URL = `postgresql://datecn_user:fictional-password@${HOST}/datecn_free_test?sslmode=require`;
+const expectedArguments = ["--expected-host", HOST, "--expected-database", "datecn_free_test"];
 const validEnv = {
   FREE_TEST_MODE: "1",
   FREE_TEST_SEED_CONFIRM: "datecn-free-test",
@@ -105,7 +106,7 @@ describe("free-test seed environment gate", () => {
     ["non-Neon database", { DATABASE_URL: "postgresql://u:p@db.example.com/datecn?sslmode=require" }],
     ["non-TLS Neon database", { DATABASE_URL: `postgresql://u:p@${HOST}/datecn` }],
   ])("rejects %s with one redacted error", (_label, override) => {
-    expect(() => validateFreeTestSeedEnvironment({ ...validEnv, ...override }))
+    expect(() => validateFreeTestSeedEnvironment({ ...validEnv, ...override }, expectedArguments))
       .toThrow(FREE_TEST_SEED_ERROR);
   });
 
@@ -123,6 +124,7 @@ describe("free-test seed environment gate", () => {
     const path = await tempCredentialsPath();
     await expect(seedFreeTest({
       env: { ...validEnv, [name]: "configured-secret-or-url" },
+      argv: expectedArguments,
       database,
       credentialsPath: path,
     })).rejects.toThrow(FREE_TEST_SEED_ERROR);
@@ -131,7 +133,50 @@ describe("free-test seed environment gate", () => {
   });
 
   it("accepts only an exact HTTPS origin and exact Neon database target", () => {
-    expect(validateFreeTestSeedEnvironment(validEnv)).toEqual({
+    expect(validateFreeTestSeedEnvironment(validEnv, expectedArguments)).toEqual({
+      appOrigin: validEnv.APP_URL,
+      database: { host: HOST, database: "datecn_free_test" },
+    });
+  });
+
+  it.each([
+    ["missing arguments", []],
+    ["missing database", ["--expected-host", HOST]],
+    ["duplicate host", ["--expected-host", HOST, "--expected-host", HOST,
+      "--expected-database", "datecn_free_test"]],
+    ["unknown argument", ["--expected-host", HOST, "--expected-database", "datecn_free_test", "--extra"]],
+    ["host mismatch", ["--expected-host", "ep-other.us-east-2.aws.neon.tech",
+      "--expected-database", "datecn_free_test"]],
+    ["database mismatch", ["--expected-host", HOST, "--expected-database", "other_database"]],
+    ["uppercase expected host", ["--expected-host", HOST.toUpperCase(),
+      "--expected-database", "datecn_free_test"]],
+    ["trailing-dot expected host", ["--expected-host", `${HOST}.`,
+      "--expected-database", "datecn_free_test"]],
+  ])("rejects %s before credentials or database construction", async (_label, argv) => {
+    const database = new MemoryDatabase();
+    const databaseFactory = vi.fn(async () => database);
+    const path = await tempCredentialsPath();
+    const stderr = vi.fn();
+
+    expect(await executeFreeTestSeed({
+      argv,
+      env: validEnv,
+      databaseFactory,
+      credentialsPath: path,
+      writeStdout: vi.fn(),
+      writeStderr: stderr,
+    })).toBe(1);
+    expect(databaseFactory).not.toHaveBeenCalled();
+    expect(database.transactions).toBe(0);
+    await expect(access(path)).rejects.toBeDefined();
+    expect(stderr).toHaveBeenCalledWith(`${FREE_TEST_SEED_ERROR}\n`);
+  });
+
+  it("normalizes the DATABASE_URL hostname but requires the dashboard hostname argument exactly", () => {
+    expect(validateFreeTestSeedEnvironment({
+      ...validEnv,
+      DATABASE_URL: DATABASE_URL.replace(HOST, HOST.toUpperCase()),
+    }, expectedArguments)).toEqual({
       appOrigin: validEnv.APP_URL,
       database: { host: HOST, database: "datecn_free_test" },
     });
@@ -236,8 +281,8 @@ describe("free-test synthetic graph", () => {
     const database = new PgSeedDatabase(pool as never);
     const credentialsPath = await tempCredentialsPath();
     try {
-      await seedFreeTest({ env: validEnv, database, credentialsPath });
-      await seedFreeTest({ env: validEnv, database, credentialsPath });
+      await seedFreeTest({ env: validEnv, argv: expectedArguments, database, credentialsPath });
+      await seedFreeTest({ env: validEnv, argv: expectedArguments, database, credentialsPath });
       const counts = await Promise.all([
         "users", "accounts", "profiles", "profile_preferences", "privacy_settings", "profile_photos",
         "social_likes", "social_matches", "entitlement_user_plan_assignments", "conversations",
@@ -256,6 +301,7 @@ describe("free-test synthetic graph", () => {
     const credentialsPath = await tempCredentialsPath();
     const result = await seedFreeTest({
       env: validEnv,
+      argv: expectedArguments,
       database,
       credentialsPath,
       randomBytes: () => Buffer.alloc(24, 6),
@@ -304,7 +350,7 @@ describe("free-test synthetic graph", () => {
       randomBytes: () => Buffer.alloc(24, 8),
     });
 
-    await seedFreeTest({ env: validEnv, database, credentialsPath });
+    await seedFreeTest({ env: validEnv, argv: expectedArguments, database, credentialsPath });
 
     for (const [index, account] of database.state.graph!.accounts.entries()) {
       expect(account.providerId).toBe("credential");
@@ -321,6 +367,7 @@ describe("free-test synthetic graph", () => {
     const credentialsPath = await tempCredentialsPath();
     const options = {
       env: validEnv,
+      argv: expectedArguments,
       database,
       credentialsPath,
       randomBytes: () => Buffer.alloc(24, 5),
@@ -345,6 +392,7 @@ describe("free-test synthetic graph", () => {
 
     await expect(seedFreeTest({
       env: validEnv,
+      argv: expectedArguments,
       database,
       credentialsPath: await tempCredentialsPath(),
       randomBytes: () => Buffer.alloc(24, 2),
@@ -359,6 +407,7 @@ describe("free-test synthetic graph", () => {
     const credentialsPath = await tempCredentialsPath();
     const options = {
       env: validEnv,
+      argv: expectedArguments,
       database,
       credentialsPath,
       randomBytes: () => Buffer.alloc(24, 1),
@@ -383,6 +432,7 @@ describe("free-test synthetic graph", () => {
 
     expect(await executeFreeTestSeed({
       env: validEnv,
+      argv: expectedArguments,
       databaseFactory: async () => database,
       credentialsPath: await tempCredentialsPath(),
       randomBytes: () => Buffer.from(leakedPassword, "base64url"),

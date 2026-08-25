@@ -8,7 +8,11 @@ import { isDeepStrictEqual } from "node:util";
 import { hashPassword as betterAuthHashPassword, verifyPassword as betterAuthVerifyPassword } from "better-auth/crypto";
 import type { Pool, PoolClient } from "pg";
 
-import { parseFreeTestDatabaseTarget } from "./run-free-test-migration.mjs";
+import {
+  parseExpectedDatabaseArguments,
+  parseFreeTestDatabaseTarget,
+  requireExactDatabaseTarget,
+} from "./run-free-test-migration.mjs";
 
 export const FREE_TEST_SEED_ERROR = "FREE_TEST_SEED_REJECTED";
 const CONFIRMATION = "datecn-free-test";
@@ -247,7 +251,10 @@ export interface SeedDatabase {
 
 const hasValue = (value: unknown) => typeof value === "string" && value.length > 0;
 
-export function validateFreeTestSeedEnvironment(env: Partial<NodeJS.ProcessEnv>) {
+export function validateFreeTestSeedEnvironment(
+  env: Partial<NodeJS.ProcessEnv>,
+  argv: string[],
+) {
   try {
     if (env.FREE_TEST_MODE !== "1" || env.FREE_TEST_SEED_CONFIRM !== CONFIRMATION) throw rejected();
     for (const [name, value] of Object.entries(env)) {
@@ -261,9 +268,11 @@ export function validateFreeTestSeedEnvironment(env: Partial<NodeJS.ProcessEnv>)
       || appUrl.username || appUrl.password || appUrl.pathname !== "/"
       || appUrl.search || appUrl.hash || hostname === "localhost"
       || hostname.endsWith(".localhost") || isIP(hostname) !== 0) throw rejected();
+    const database = parseFreeTestDatabaseTarget(env);
+    requireExactDatabaseTarget(database, parseExpectedDatabaseArguments(argv));
     return {
       appOrigin: appUrl.origin,
-      database: parseFreeTestDatabaseTarget(env),
+      database,
     };
   } catch {
     throw rejected();
@@ -526,6 +535,7 @@ async function validateSnapshot(
 
 export async function seedFreeTest({
   env,
+  argv,
   database,
   credentialsPath,
   randomBytes = nodeRandomBytes,
@@ -533,6 +543,7 @@ export async function seedFreeTest({
   verifyPassword = betterAuthVerifyPassword,
 }: {
   env: Partial<NodeJS.ProcessEnv>;
+  argv: string[];
   database: SeedDatabase;
   credentialsPath: string;
   randomBytes?: RandomBytes;
@@ -540,7 +551,7 @@ export async function seedFreeTest({
   verifyPassword?: PasswordVerifier;
 }) {
   try {
-    validateFreeTestSeedEnvironment(env);
+    validateFreeTestSeedEnvironment(env, argv);
     const credentials = await createCredentialsFile({ path: credentialsPath, randomBytes });
     const hashes = await Promise.all(credentials.users.map(({ password }) => hashPassword(password))) as [string, string];
     const graph = createGraph(hashes);
@@ -755,6 +766,7 @@ async function createPgDatabase(databaseUrl: string): Promise<SeedDatabase> {
 }
 
 export async function executeFreeTestSeed({
+  argv = process.argv.slice(2),
   env = process.env,
   databaseFactory = (databaseUrl: string) => createPgDatabase(databaseUrl),
   credentialsPath = resolve(".artifacts", "free-test-credentials.json"),
@@ -764,6 +776,7 @@ export async function executeFreeTestSeed({
   writeStdout = (message: string) => process.stdout.write(message),
   writeStderr = (message: string) => process.stderr.write(message),
 }: {
+  argv?: string[];
   env?: Partial<NodeJS.ProcessEnv>;
   databaseFactory?: (databaseUrl: string) => Promise<SeedDatabase>;
   credentialsPath?: string;
@@ -775,9 +788,11 @@ export async function executeFreeTestSeed({
 } = {}) {
   let database: SeedDatabase | undefined;
   try {
-    validateFreeTestSeedEnvironment(env);
+    validateFreeTestSeedEnvironment(env, argv);
     database = await databaseFactory(env.DATABASE_URL!);
-    const result = await seedFreeTest({ env, database, credentialsPath, randomBytes, hashPassword, verifyPassword });
+    const result = await seedFreeTest({
+      env, argv, database, credentialsPath, randomBytes, hashPassword, verifyPassword,
+    });
     writeStdout(`Free-test seed ready: users=${result.users}; profiles=${result.profiles}; conversations=${result.conversations}\n`);
     return 0;
   } catch {

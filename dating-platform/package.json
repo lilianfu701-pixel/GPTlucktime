@@ -19,7 +19,7 @@
     "test:acceptance": "npm run test:acceptance:local && npm run test:acceptance:external",
     "db:backup:test": "tsx scripts/verify-backup-restore.ts backup",
     "db:restore:verify": "tsx scripts/verify-backup-restore.ts restore",
-    "seed:free-test": "tsx scripts/seed-free-test.ts",
+    "seed:free-test": "node --env-file=.env.vercel.local --import tsx scripts/seed-free-test.ts",
     "db:generate": "drizzle-kit generate",
     "db:migrate": "drizzle-kit migrate",
     "check": "npm run lint && npm run test && npm run build"
