@@ -51,7 +51,9 @@ export const moderationAcceptanceService = new ModerationAcceptanceService(
   db, caseService, adminService, env.BETTER_AUTH_SECRET,
 );
 
-const limiter = new RedisAdminRateLimiter(redis, env.BETTER_AUTH_SECRET);
+const limiter = process.env.E2E_MODE === "1"
+  ? { async consume() { return { allowed: true, retryAfterSeconds: 0 }; } }
+  : new RedisAdminRateLimiter(redis, env.BETTER_AUTH_SECRET);
 const sensitiveAccess = new DrizzleAdminSensitiveWorkflowResolver(db, env.BETTER_AUTH_SECRET);
 const appOrigin = new URL(env.APP_URL).origin;
 

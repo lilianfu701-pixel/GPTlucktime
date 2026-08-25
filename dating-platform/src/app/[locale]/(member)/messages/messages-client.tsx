@@ -25,6 +25,7 @@ export function MessagesClient({ realtimeUrl }: { realtimeUrl: string | null }) 
   const [receipts, setReceipts] = useState<Record<string, Record<string, Receipt>>>({});
   const [draft, setDraft] = useState("");
   const [sending, setSending] = useState(false);
+  const [sendDenied, setSendDenied] = useState(false);
   const clientRef = useRef<ReturnType<typeof createRealtimeClient> | null>(null);
   const selectedRef = useRef<string | null>(null);
   const draftRef = useRef("");
@@ -190,6 +191,7 @@ export function MessagesClient({ realtimeUrl }: { realtimeUrl: string | null }) 
     ledgerRef.current ??= new PendingSendLedger(localStorage);
     const pending = ledgerRef.current.prepare(selected, draft);
     setSending(true);
+    setSendDenied(false);
     try {
       const response = await fetch(`/api/v1/conversations/${encodeURIComponent(selected)}/messages`, {
         method: "POST",
@@ -211,6 +213,7 @@ export function MessagesClient({ realtimeUrl }: { realtimeUrl: string | null }) 
       }
     } catch {
       // The local draft intentionally remains available for an explicit retry.
+      setSendDenied(true);
     } finally {
       setSending(false);
     }
@@ -238,6 +241,9 @@ export function MessagesClient({ realtimeUrl }: { realtimeUrl: string | null }) 
                 <textarea value={draft} disabled={sending} onChange={(event) => updateDraft(event.target.value)} placeholder={t("draft")} maxLength={2000} className="min-h-20 flex-1 resize-none rounded-2xl border border-stone-200 p-3" />
                 <button type="button" disabled={sending || !draft.trim()} onClick={() => { void send(); }} className="self-end rounded-full bg-rose-700 px-6 py-3 font-semibold text-white disabled:opacity-50">{t("send")}</button>
               </div>
+              <p aria-live="assertive" className="mt-2 min-h-5 text-sm text-red-700" role={sendDenied ? "alert" : undefined}>
+                {sendDenied ? t("sendDenied") : null}
+              </p>
             </>}
           </section>
         </div>

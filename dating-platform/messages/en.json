@@ -90,7 +90,7 @@
   },
   "messagesPage": {
     "title": "Messages", "empty": "Choose a conversation", "draft": "Write a message", "send": "Send",
-    "read": "Read", "delivered": "Delivered", "unavailable": "Real-time updates unavailable",
+    "read": "Read", "delivered": "Delivered", "unavailable": "Real-time updates unavailable", "sendDenied": "This conversation is no longer available.",
     "states": { "connecting": "Connecting", "online": "Online", "retrying": "Reconnecting", "failed": "Connection failed" }
   },
   "onboarding": {
@@ -146,7 +146,7 @@
     "auth": { "eyebrow": "Welcome to DateCN", "title": "Your next meaningful conversation can start here.", "body": "Sign in securely or preview the complete experience with fictional demo data.", "signInTab": "Sign in", "registerTab": "Create account", "registerCta": "Create account", "registering": "Creating account…", "displayName": "Display name", "birthDate": "Date of birth", "birthDateHint": "Your exact birth date stays private and is checked again when you complete your profile.", "passwordHint": "Use at least 12 characters.", "termsAcknowledgement": "I confirm I am at least 18 and agree to the Terms and Privacy Policy.", "adultError": "You must be at least 18 years old.", "termsError": "Confirm adult eligibility and the Terms to continue.", "registerError": "We could not create your account. Check the fields or try again later.", "checkEmailTitle": "Verify your email", "checkEmailBody": "Check your email to verify your account.", "resendEmail": "Resend verification email", "verificationError": "Verification is unavailable right now. Try again later.", "phoneTitle": "Verify a phone after signing in", "phoneBody": "After following the email link, sign in here to request a one-time SMS code. DateCN never displays provider-generated codes.", "phoneNumber": "Phone number", "phoneCode": "SMS verification code", "sendPhoneCode": "Send SMS code", "verifyPhone": "Verify phone", "phoneVerified": "Phone verified.", "backToSignIn": "Already a member? Sign in", "showPassword": "Show password", "hidePassword": "Hide password", "demo": "Explore the demo instead", "trust": "Private by default · Adults 18+ · Respect first" }
   },
   "discoverActions": {
-    "like": "Like", "report": "Report", "block": "Block", "likeName": "Like {name}", "reportName": "Report {name}", "blockName": "Block {name}",
+    "like": "Like", "report": "Report", "block": "Block", "message": "Start conversation", "likeName": "Like {name}", "reportName": "Report {name}", "blockName": "Block {name}",
     "liked": "You liked {name}.", "matched": "It’s a match with {name}!", "reported": "Report submitted for review.", "blocked": "{name} is blocked. You can no longer interact.", "denied": "This interaction is no longer available.", "error": "We could not complete that action. Try again.",
     "reason": "Reason", "explanation": "What happened?", "submitReport": "Submit report",
     "reasons": { "HARASSMENT": "Harassment", "HATE_OR_ABUSE": "Hate or abuse", "IMPERSONATION": "Impersonation", "MINOR_SAFETY": "Minor safety", "SCAM_OR_FRAUD": "Scam or fraud", "SEXUAL_CONTENT": "Sexual content", "SPAM": "Spam", "THREATS_OR_VIOLENCE": "Threats or violence", "OTHER_SAFETY": "Other safety concern" }

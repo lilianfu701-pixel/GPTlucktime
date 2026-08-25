@@ -1,6 +1,7 @@
 "use client";
 
 import { useTranslations } from "next-intl";
+import { useRouter } from "next/navigation";
 import { useRef, useState, type FormEvent } from "react";
 
 type State = "idle" | "working" | "liked" | "matched" | "reported" | "blocked" | "denied" | "error";
@@ -14,6 +15,7 @@ export function DiscoverActions({ locale, profileId, displayName }: {
   displayName: string;
 }) {
   const t = useTranslations("discoverActions");
+  const router = useRouter();
   const [state, setState] = useState<State>("idle");
   const [reportOpen, setReportOpen] = useState(false);
   const keys = useRef({ like: crypto.randomUUID(), block: crypto.randomUUID(), report: crypto.randomUUID() });
@@ -47,6 +49,19 @@ export function DiscoverActions({ locale, profileId, displayName }: {
     } catch (error) { setState(error instanceof Error && error.message === "DENIED" ? "denied" : "error"); }
   }
 
+  async function startConversation() {
+    setState("working");
+    try {
+      const response = await fetch("/api/v1/conversations", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ profileId }),
+      });
+      if (!response.ok) throw new Error("REQUEST_FAILED");
+      router.push(`/${locale}/messages`);
+    } catch { setState("error"); }
+  }
+
   async function report(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -76,6 +91,8 @@ export function DiscoverActions({ locale, profileId, displayName }: {
       <button aria-label={t("likeName", { name: displayName })} className="datecn-primary-button text-sm disabled:opacity-50" disabled={blocked || state === "working"} onClick={like} type="button">{t("like")}</button>
       <button aria-expanded={reportOpen} aria-label={t("reportName", { name: displayName })} className="datecn-ghost-button disabled:opacity-50" disabled={blocked || state === "working"} onClick={() => setReportOpen((value) => !value)} type="button">{t("report")}</button>
       <button aria-label={t("blockName", { name: displayName })} className="datecn-ghost-button text-red-800 disabled:opacity-50" disabled={blocked || state === "working"} onClick={block} type="button">{t("block")}</button>
+      {state === "matched" && <button className="datecn-ghost-button" onClick={startConversation}
+        type="button">{t("message")}</button>}
     </div>
     {reportOpen && <form aria-label={t("reportName", { name: displayName })} className="mt-4 space-y-3 rounded-2xl bg-rose-50 p-4" onSubmit={report}>
       <label className="block text-sm font-semibold">{t("reason")}<select className="mt-1 w-full rounded-xl border border-rose-200 bg-white p-2" name="reason" required>{reportReasons.map((reason) => <option key={reason} value={reason}>{t(`reasons.${reason}`)}</option>)}</select></label>

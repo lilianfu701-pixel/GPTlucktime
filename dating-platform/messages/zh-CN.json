@@ -78,7 +78,7 @@
   },
   "messagesPage": {
     "title": "消息", "empty": "请选择一个会话", "draft": "输入消息", "send": "发送", "read": "已读",
-    "delivered": "已送达", "unavailable": "实时更新暂不可用",
+    "delivered": "已送达", "unavailable": "实时更新暂不可用", "sendDenied": "此对话已不可用。",
     "states": { "connecting": "连接中", "online": "在线", "retrying": "正在重连", "failed": "连接失败" }
   },
   "onboarding": {
@@ -132,7 +132,7 @@
     "auth": { "eyebrow": "欢迎来到 DateCN", "title": "下一次有意义的交流，可以从这里开始。", "body": "安全登录，或使用完全虚构的演示数据预览完整体验。", "signInTab": "登录", "registerTab": "创建账号", "registerCta": "创建账号", "registering": "正在创建账号…", "displayName": "显示名称", "birthDate": "出生日期", "birthDateHint": "准确出生日期保持私密，并会在完善资料时再次验证。", "passwordHint": "请使用至少 12 个字符。", "termsAcknowledgement": "我确认已年满 18 岁，并同意服务条款和隐私政策。", "adultError": "你必须年满 18 岁。", "termsError": "请确认成年资格并同意条款后继续。", "registerError": "无法创建账号。请检查字段或稍后重试。", "checkEmailTitle": "验证电子邮箱", "checkEmailBody": "请查收邮件并验证账号。", "resendEmail": "重新发送验证邮件", "verificationError": "暂时无法验证，请稍后重试。", "phoneTitle": "登录后验证手机号", "phoneBody": "完成邮箱验证后，请在此登录并请求一次性短信验证码。DateCN 不会显示服务商生成的验证码。", "phoneNumber": "手机号码", "phoneCode": "短信验证码", "sendPhoneCode": "发送短信验证码", "verifyPhone": "验证手机", "phoneVerified": "手机号已验证。", "backToSignIn": "已有账号？返回登录", "showPassword": "显示密码", "hidePassword": "隐藏密码", "demo": "先体验演示", "trust": "默认保护隐私 · 仅限 18+ · 尊重优先" }
   },
   "discoverActions": {
-    "like": "喜欢", "report": "举报", "block": "拉黑", "likeName": "喜欢{name}", "reportName": "举报{name}", "blockName": "拉黑{name}",
+    "like": "喜欢", "report": "举报", "block": "拉黑", "message": "开始聊天", "likeName": "喜欢{name}", "reportName": "举报{name}", "blockName": "拉黑{name}",
     "liked": "你已喜欢{name}。", "matched": "你和{name}匹配成功！", "reported": "举报已提交审核。", "blocked": "已拉黑{name}，你们无法继续互动。", "denied": "此互动已不可用。", "error": "无法完成操作，请重试。",
     "reason": "原因", "explanation": "发生了什么？", "submitReport": "提交举报",
     "reasons": { "HARASSMENT": "骚扰", "HATE_OR_ABUSE": "仇恨或辱骂", "IMPERSONATION": "冒充他人", "MINOR_SAFETY": "未成年人安全", "SCAM_OR_FRAUD": "诈骗", "SEXUAL_CONTENT": "色情内容", "SPAM": "垃圾信息", "THREATS_OR_VIOLENCE": "威胁或暴力", "OTHER_SAFETY": "其他安全问题" }

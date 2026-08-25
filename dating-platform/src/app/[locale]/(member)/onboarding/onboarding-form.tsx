@@ -1,7 +1,9 @@
 "use client";
 
-import { useEffect, useMemo, useState, type FormEvent } from "react";
+import { useEffect, useMemo, useState, useSyncExternalStore, type FormEvent } from "react";
 import { useTranslations } from "next-intl";
+
+import { authClient } from "@/modules/auth/client";
 
 type InitialProfile = Record<string, unknown> | null;
 type SafePhoto = {
@@ -18,6 +20,7 @@ const stringValue = (profile: InitialProfile, key: string) =>
 const listValue = (profile: InitialProfile, key: string) =>
   Array.isArray(profile?.[key]) ? (profile[key] as string[]).join(", ") : "";
 const codes = (value: string) => value.split(",").map((entry) => entry.trim()).filter(Boolean);
+const subscribeToHydration = () => () => undefined;
 
 export default function OnboardingForm({
   initialProfile,
@@ -27,6 +30,8 @@ export default function OnboardingForm({
   initialPhotos?: SafePhoto[];
 }) {
   const t = useTranslations("onboarding");
+  const authText = useTranslations("datecn.auth");
+  const hydrated = useSyncExternalStore(subscribeToHydration, () => true, () => false);
   const text = new Proxy({} as Record<string, string>, { get: (_target, key) => t(String(key)) });
   const [form, setForm] = useState({
     displayName: stringValue(initialProfile, "displayName"),
@@ -45,6 +50,9 @@ export default function OnboardingForm({
   const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
   const [saveStatus, setSaveStatus] = useState<"idle" | "saving" | "saved" | "error">("idle");
   const [photoStatus, setPhotoStatus] = useState<"idle" | "uploading" | "pending" | "error">("idle");
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [phoneCode, setPhoneCode] = useState("");
+  const [phoneStatus, setPhoneStatus] = useState<"idle" | "sending" | "sent" | "verifying" | "verified" | "error">("idle");
   const hasPendingPhoto = photos.some((photo) => photo.status === "pending");
 
   useEffect(() => {
@@ -161,6 +169,24 @@ export default function OnboardingForm({
     if (response?.ok) setPhotos((current) => current.filter((photo) => photo.id !== photoId));
   }
 
+  async function submitPhone(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    const data = new FormData(event.currentTarget);
+    const submittedPhone = String(data.get("phoneNumber") ?? "").trim();
+    if (phoneStatus !== "sent") {
+      setPhoneNumber(submittedPhone);
+      setPhoneStatus("sending");
+      const result = await authClient.phoneNumber.sendOtp({ phoneNumber: submittedPhone }).catch(() => null);
+      setPhoneStatus(result && !result.error ? "sent" : "error");
+      return;
+    }
+    setPhoneStatus("verifying");
+    const result = await authClient.phoneNumber.verify({ phoneNumber: submittedPhone,
+      code: String(data.get("phoneCode") ?? "").trim(),
+      updatePhoneNumber: true }).catch(() => null);
+    setPhoneStatus(result && !result.error ? "verified" : "error");
+  }
+
   const fieldClass = "mt-2 w-full rounded-2xl border border-rose-200 bg-white px-4 py-3 text-stone-900 outline-none focus:border-rose-600 focus:ring-2 focus:ring-rose-200";
   const labelClass = "block text-sm font-semibold text-stone-800";
   const errorFor = (field: string) => fieldErrors[field]
@@ -187,6 +213,26 @@ export default function OnboardingForm({
       </form>
 
       <aside className="space-y-6">
+        <section className="rounded-3xl bg-white p-6 shadow-sm ring-1 ring-rose-100">
+          <h2 className="text-lg font-semibold">{authText("phoneTitle")}</h2>
+          <p className="mt-2 text-sm leading-6 text-stone-600">{authText("phoneBody")}</p>
+          <form className="mt-4 space-y-3" onSubmit={submitPhone}>
+            <label className={labelClass}>{authText("phoneNumber")}<input className={fieldClass}
+              name="phoneNumber" value={phoneNumber} onChange={(event) => setPhoneNumber(event.target.value)} type="tel"
+              autoComplete="tel" required /></label>
+            {phoneStatus === "sent" && <label className={labelClass}>{authText("phoneCode")}<input
+              className={fieldClass} name="phoneCode" value={phoneCode} onChange={(event) => setPhoneCode(event.target.value)}
+              inputMode="numeric" autoComplete="one-time-code" required /></label>}
+            <button className="rounded-full border border-rose-300 px-4 py-2 text-sm font-semibold text-rose-800"
+              disabled={!hydrated || phoneStatus === "sending" || phoneStatus === "verifying" || phoneStatus === "verified"}>
+              {phoneStatus === "sent" ? authText("verifyPhone") : authText("sendPhoneCode")}
+            </button>
+            <p aria-live="polite" className={`min-h-5 text-sm ${phoneStatus === "error" ? "text-red-700" : "text-emerald-700"}`}>
+              {phoneStatus === "verified" ? authText("phoneVerified")
+                : phoneStatus === "error" ? authText("verificationError") : null}
+            </p>
+          </form>
+        </section>
         <section className="rounded-3xl bg-rose-900 p-6 text-white">
           <div className="flex items-center justify-between text-sm"><span>{text.progress}</span><strong>{completeness}%</strong></div>
           <div className="mt-3 h-2 overflow-hidden rounded-full bg-white/20" role="progressbar" aria-label={text.progress} aria-valuenow={completeness} aria-valuemin={0} aria-valuemax={100}><div className="h-full rounded-full bg-rose-200 transition-[width]" style={{ width: `${completeness}%` }} /></div>

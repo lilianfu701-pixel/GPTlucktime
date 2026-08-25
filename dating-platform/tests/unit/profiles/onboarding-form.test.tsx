@@ -6,6 +6,11 @@ import OnboardingForm from "@/app/[locale]/(member)/onboarding/onboarding-form";
 import en from "../../../messages/en.json";
 import zh from "../../../messages/zh-CN.json";
 
+const authMocks = vi.hoisted(() => ({ sendPhoneOtp: vi.fn(), verifyPhone: vi.fn() }));
+vi.mock("@/modules/auth/client", () => ({ authClient: {
+  phoneNumber: { sendOtp: authMocks.sendPhoneOtp, verify: authMocks.verifyPhone },
+} }));
+
 const renderOnboarding = (locale: "en" | "zh", props: React.ComponentProps<typeof OnboardingForm>) => render(
   <NextIntlClientProvider locale={locale === "zh" ? "zh-CN" : "en"} messages={locale === "zh" ? zh : en}>
     <OnboardingForm {...props} />
@@ -15,6 +20,7 @@ const renderOnboarding = (locale: "en" | "zh", props: React.ComponentProps<typeo
 describe("onboarding persisted photo state", () => {
   afterEach(() => {
     cleanup();
+    vi.clearAllMocks();
     vi.unstubAllGlobals();
     vi.useRealTimers();
   });
@@ -30,6 +36,37 @@ describe("onboarding persisted photo state", () => {
     expect(screen.getByText("Rejected: choose a different photo")).toBeTruthy();
     expect(screen.getByRole("button", { name: "Remove rejected photo" })).toBeTruthy();
     expect(container.textContent).not.toContain("objectKey");
+  });
+
+  it("submits the phone value present in the form even before a controlled rerender", async () => {
+    authMocks.sendPhoneOtp.mockResolvedValue({ data: { message: "sent" }, error: null });
+    renderOnboarding("en", { initialProfile: null });
+    const input = screen.getByLabelText("Phone number") as HTMLInputElement;
+    const setValue = Object.getOwnPropertyDescriptor(HTMLInputElement.prototype, "value")?.set;
+    setValue?.call(input, "+14155550101");
+    screen.getByRole("button", { name: "Send SMS code" }).click();
+    await waitFor(() => expect(authMocks.sendPhoneOtp).toHaveBeenCalledWith({ phoneNumber: "+14155550101" }));
+  });
+
+  it("preserves the submitted phone through the OTP rerender and verifies the form code", async () => {
+    authMocks.sendPhoneOtp.mockResolvedValue({ data: { message: "sent" }, error: null });
+    authMocks.verifyPhone.mockResolvedValue({ data: { status: true }, error: null });
+    renderOnboarding("en", { initialProfile: null });
+    const phone = screen.getByLabelText("Phone number") as HTMLInputElement;
+    const setValue = Object.getOwnPropertyDescriptor(HTMLInputElement.prototype, "value")?.set;
+    setValue?.call(phone, "+14155550101");
+    screen.getByRole("button", { name: "Send SMS code" }).click();
+    await screen.findByRole("button", { name: "Verify phone" });
+    expect(phone.value).toBe("+14155550101");
+
+    const code = screen.getByLabelText("SMS verification code") as HTMLInputElement;
+    setValue?.call(code, "738132");
+    screen.getByRole("button", { name: "Verify phone" }).click();
+    await waitFor(() => expect(authMocks.verifyPhone).toHaveBeenCalledWith({
+      phoneNumber: "+14155550101",
+      code: "738132",
+      updatePhoneNumber: true,
+    }));
   });
 
   it("saves an incomplete profile as a draft without sending invalid blank fields", async () => {

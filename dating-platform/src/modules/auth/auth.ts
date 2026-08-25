@@ -21,10 +21,14 @@ import {
   type MessageDispatcher,
 } from "./message-sender";
 import { DurableNotificationDispatcher, drainNotificationOutbox } from "./notification-outbox";
-import { RedisSmsAbuseStore, SmsAbuseGuard } from "./sms-abuse-guard";
+import { InMemorySmsAbuseStore, RedisSmsAbuseStore, SmsAbuseGuard } from "./sms-abuse-guard";
+import { E2eNotificationAdapter } from "@/modules/e2e/notification-adapter";
+import { requireE2eRuntime } from "@/modules/e2e/e2e-guard";
 
 const env = readEnv(process.env);
-const sender = new HttpMessageSender({
+const e2e = process.env.E2E_MODE === "1" ? requireE2eRuntime(process.env) : null;
+const e2eAdapter = e2e ? new E2eNotificationAdapter() : null;
+const sender = e2eAdapter ?? new HttpMessageSender({
   email: env.EMAIL_WEBHOOK_URL && env.EMAIL_WEBHOOK_TOKEN
     ? { endpoint: env.EMAIL_WEBHOOK_URL, token: env.EMAIL_WEBHOOK_TOKEN }
     : undefined,
@@ -32,7 +36,7 @@ const sender = new HttpMessageSender({
     ? { endpoint: env.SMS_WEBHOOK_URL, token: env.SMS_WEBHOOK_TOKEN }
     : undefined,
 });
-const dispatcher: MessageDispatcher = env.AUTH_ENCRYPTION_KEYS && env.AUTH_DELIVERY_HMAC_KEY
+const dispatcher: MessageDispatcher = e2eAdapter ?? (env.AUTH_ENCRYPTION_KEYS && env.AUTH_DELIVERY_HMAC_KEY
   ? new DurableNotificationDispatcher(
       db,
       new EncryptionKeyRing(parseEncryptionKeyRing(env.AUTH_ENCRYPTION_KEYS), {
@@ -47,8 +51,14 @@ const dispatcher: MessageDispatcher = env.AUTH_ENCRYPTION_KEYS && env.AUTH_DELIV
       async enqueueEmailVerification() { throw new Error(NOTIFICATION_OUTBOX_UNAVAILABLE); },
       async enqueuePasswordReset() { throw new Error(NOTIFICATION_OUTBOX_UNAVAILABLE); },
       async enqueueSmsOtp() { throw new Error(NOTIFICATION_OUTBOX_UNAVAILABLE); },
-    };
-const smsAbuseGuard = env.SMS_ABUSE_HMAC_KEY && env.SMS_ALLOWED_CALLING_CODES
+    });
+const smsAbuseGuard = e2e
+  ? new SmsAbuseGuard(new InMemorySmsAbuseStore(), {
+      hmacKey: env.BETTER_AUTH_SECRET,
+      allowedCallingCodes: ["1", "86"],
+      cooldownMs: 0,
+    })
+  : env.SMS_ABUSE_HMAC_KEY && env.SMS_ALLOWED_CALLING_CODES
   ? new SmsAbuseGuard(
       new RedisSmsAbuseStore(createClient({ url: env.REDIS_URL })),
       {
