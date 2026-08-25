@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations } from "next-intl/server";
 
+import { FreeTestBanner } from "@/components/datecn/free-test-banner";
 import { resolveLocale } from "@/i18n/request";
+import { readEnv } from "@/shared/env";
 
 import "../globals.css";
 
@@ -25,11 +27,25 @@ type LocaleLayoutProps = {
 export default async function LocaleLayout({ children, params }: LocaleLayoutProps) {
   const { locale } = await params;
   const resolvedLocale = resolveLocale(locale);
-  const messages = await getMessages({ locale: resolvedLocale });
+  const [messages, banner] = await Promise.all([
+    getMessages({ locale: resolvedLocale }),
+    getTranslations({ locale: resolvedLocale, namespace: "freeTestBanner" }),
+  ]);
+  const freeTestMode = readEnv(process.env).FREE_TEST_MODE === "1";
 
   return (
     <html lang={htmlLocales[resolvedLocale]}>
-      <body><NextIntlClientProvider messages={messages}>{children}</NextIntlClientProvider></body>
+      <body>
+        <NextIntlClientProvider messages={messages}>
+          {freeTestMode ? (
+            <FreeTestBanner>
+              <strong className="font-semibold">{banner("title")}</strong>{" "}
+              <span>{banner("body")}</span>
+            </FreeTestBanner>
+          ) : null}
+          {children}
+        </NextIntlClientProvider>
+      </body>
     </html>
   );
 }

@@ -29,4 +29,14 @@ describe("DateCN responsive navigation", () => {
     expect(css).toContain("outline: 3px solid var(--datecn-gold)");
     expect(membership).toContain("bg-[var(--datecn-gold)]");
   });
+
+  it("keeps the free test banner within a 390px viewport without covering content", () => {
+    const banner = read("src/components/datecn/free-test-banner.tsx");
+    expect(banner).toContain("w-full");
+    expect(banner).toContain("max-w-full");
+    expect(banner).toContain("break-words");
+    expect(banner).not.toMatch(/\b(?:fixed|sticky)\b/u);
+    expect(banner).not.toMatch(/\bmin-w-(?:\[|\d)/u);
+    expect(banner).not.toMatch(/\bw-\[(?:39[1-9]|[4-9]\d\d|\d{4,})px\]/u);
+  });
 });

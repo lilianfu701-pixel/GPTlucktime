@@ -1,5 +1,9 @@
 {
   "brand": { "name": "DateCN" },
+  "freeTestBanner": {
+    "title": "免费公开测试环境",
+    "body": "请仅使用虚构/测试数据。不会产生真实付款，也不会发送真实电子邮件或短信。"
+  },
   "errors": {
     "methodNotAllowed": "此操作不可用。",
     "unauthorized": "请登录后继续。",

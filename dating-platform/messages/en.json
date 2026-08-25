@@ -1,5 +1,9 @@
 {
   "brand": { "name": "DateCN" },
+  "freeTestBanner": {
+    "title": "Free public test environment",
+    "body": "Use fictional/test data only. No real payments, emails, or SMS are sent."
+  },
   "errors": {
     "methodNotAllowed": "This action is not available.",
     "unauthorized": "Sign in to continue.",
