@@ -143,6 +143,13 @@
     "planNames": { "free": "免费", "plus": "Plus", "premium": "Premium" },
     "statuses": { "trialing": "试用中", "active": "有效", "past_due": "逾期", "grace_period": "宽限期", "disputed": "审核中", "revoked": "已撤销", "canceled": "已取消", "expired": "已过期" }
   },
+  "appealSettings": {
+    "back": "返回发现", "title": "申诉", "intro": "申请对已完成的审核决定进行独立复核。处理原案件的审核员不能裁决申诉。", "loading": "正在加载申诉选项…", "empty": "目前没有可申诉的已完成案件。", "caseReference": "案件 {id}", "caseStatus": "决定状态：{status}", "appealStatus": "申诉状态：{status}", "statement": "申诉说明", "statementHint": "请说明相关背景，不要包含密码、访问码或无关个人信息。", "submit": "提交申诉", "submitted": "申诉已提交，将由独立审核员复核。", "error": "暂时无法处理申诉，请稍后重试。"
+  },
+  "adminModeration": {
+    "openCase": "打开案件", "targetType": "目标类型", "reasonCode": "原因代码", "messageReferenceLabel": "消息引用", "messageReference": "消息引用：{id}", "triage": "分流案件", "beginReview": "开始审核", "restrictionReason": "限制原因", "durationHours": "限制时长（小时）", "restrict": "施加临时限制", "timeline": "审计时间线", "reviewReason": "人工审核原因", "approvePhoto": "批准照片", "rejectPhoto": "拒绝照片", "beginAppealReview": "开始独立复核", "appealDecision": "申诉决定", "decisionSummary": "决定摘要", "modifiedExpiry": "调整后的限制到期时间", "upheld": "维持", "overturned": "撤销", "modified": "修改", "finalizeAppeal": "完成申诉", "saved": "操作已记录到不可变审计时间线。", "error": "无法完成操作，请刷新队列后重试。",
+    "events": { "report_submitted": "举报已提交", "case_status_changed": "案件状态已变更", "action_recorded": "审核操作已记录", "appeal_submitted": "申诉已提交", "appeal_review_created": "申诉复核已创建", "appeal_finalized": "申诉已完成", "other": "审计事件" }
+  },
   "admin": {
     "eyebrow": "运营", "title": "管理控制台", "intro": "按权限划分的运营队列",
     "navigation": "管理导航", "authorizedQueues": "已授权的管理队列", "empty": "此队列中没有已授权的项目。", "next": "下一页",

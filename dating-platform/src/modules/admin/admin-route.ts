@@ -8,7 +8,7 @@ import { sanitizeAuditReason } from "./audit-service";
 import { requirePermission, requireRecentMfa, type AdminPermission } from "./permissions";
 
 type AdminSessionReader = (headers: Headers) => Promise<AdminActor | null>;
-type AdminMutationKey = "admin.user_action" | "admin.entitlement_config" | "admin.approval";
+type AdminMutationKey = "admin.user_action" | "admin.entitlement_config" | "admin.approval" | "admin.moderation" | "admin.media_review";
 type AdminLimiter = { consume(input: { userId: string; key: AdminMutationKey }): Promise<{
   allowed: boolean; retryAfterSeconds: number;
 }> };
@@ -335,6 +335,135 @@ export function createAdminPrivateMessageReadHandler(deps: CommonDependencies & 
         requestId: trace, ipAddress: deps.resolveClientIp(request),
       });
       return Response.json(result, { headers: { "x-trace-id": trace, "cache-control": "private, no-store" } });
+    } catch (error) { return mapError(error, trace); }
+  };
+}
+
+type ModerationAcceptanceService = {
+  getCaseDetail(caseId: string): Promise<unknown>;
+  transitionCase(actor: AdminActor, caseId: string, nextStatus: "triaged" | "under_review" | "actioned" | "dismissed",
+    context: { requestId: string; ipAddress: string; idempotencyKey: string; finalDecisionSummary?: string }): Promise<unknown>;
+  restrictCase(actor: AdminActor, caseId: string, input: { subjectUserId: string; reason: string;
+    durationHours: number; expectedVersion: number; idempotencyKey: string },
+    context: { requestId: string; ipAddress: string }): Promise<unknown>;
+  decideMedia(actor: AdminActor, jobId: string, decision: "approved" | "rejected", reason: string,
+    context: { requestId: string; ipAddress: string; idempotencyKey: string }): Promise<unknown>;
+  finalizeAppeal(actor: AdminActor, appealId: string, decision: "upheld" | "overturned" | "modified", summary: string,
+    context: { requestId: string; ipAddress: string; idempotencyKey: string; restrictionExpiresAt?: Date }): Promise<unknown>;
+  startAppealReview(actor: AdminActor, appealId: string): Promise<unknown>;
+};
+
+export function createAdminCaseDetailHandler(deps: CommonDependencies & { service: Pick<ModerationAcceptanceService, "getCaseDetail"> }) {
+  return async (request: Request, context: { params: Promise<{ caseId: string }> }): Promise<Response> => {
+    const trace = traceId(request, deps.createTraceId ?? randomUUID);
+    if (request.method !== "GET") return errorResponse("METHOD_NOT_ALLOWED", 405, trace);
+    try {
+      const auth = await authorize(request, deps, "reports.read", trace);
+      if (!auth.ok) return auth.response;
+      const { caseId } = await context.params;
+      if (!uuidSchema.safeParse(caseId).success) return errorResponse("NOT_FOUND", 404, trace);
+      return Response.json(await deps.service.getCaseDetail(caseId),
+        { headers: { "x-trace-id": trace, "cache-control": "private, no-store" } });
+    } catch (error) { return mapError(error, trace); }
+  };
+}
+const caseActionSchema = z.discriminatedUnion("action", [
+  z.object({ action: z.literal("transition"), nextStatus: z.enum(["triaged", "under_review", "actioned", "dismissed"]),
+    finalDecisionSummary: reasonSchema.optional() }).strict(),
+  z.object({ action: z.literal("temporary_restriction"), subjectUserId: uuidSchema, reason: reasonSchema,
+    durationHours: z.number().int().min(1).max(24 * 30), expectedVersion: z.number().int().min(0) }).strict(),
+]);
+const mediaDecisionSchema = z.object({ decision: z.enum(["approved", "rejected"]), reason: reasonSchema }).strict();
+const appealDecisionSchema = z.object({ decision: z.enum(["upheld", "overturned", "modified"]), summary: reasonSchema,
+  restrictionExpiresAt: z.iso.datetime().optional() }).strict().superRefine((value, context) => {
+    if ((value.decision === "modified") !== Boolean(value.restrictionExpiresAt)) {
+      context.addIssue({ code: "custom", message: "modified decisions require an expiry" });
+    }
+  });
+const mutationKey = (request: Request) => {
+  const value = request.headers.get("idempotency-key")?.trim() ?? "";
+  if (!idempotencyPattern.test(value)) throw new BodyError("INVALID_REQUEST");
+  return value;
+};
+
+export function createAdminCaseActionHandler(deps: CommonDependencies & { service: Pick<ModerationAcceptanceService, "transitionCase" | "restrictCase"> }) {
+  return async (request: Request, context: { params: Promise<{ caseId: string }> }): Promise<Response> => {
+    const trace = traceId(request, deps.createTraceId ?? randomUUID);
+    if (request.method !== "POST") return errorResponse("METHOD_NOT_ALLOWED", 405, trace);
+    try {
+      const auth = await authorize(request, deps, "reports.decide", trace);
+      if (!auth.ok) return auth.response;
+      const guarded = await guardMutation(request, deps, auth.session, "admin.moderation", trace);
+      if (guarded) return guarded;
+      const { caseId } = await context.params;
+      if (!uuidSchema.safeParse(caseId).success) return errorResponse("NOT_FOUND", 404, trace);
+      const body = caseActionSchema.parse(await readBoundedJson(request));
+      const idempotencyKey = mutationKey(request);
+      const requestContext = { requestId: trace, ipAddress: deps.resolveClientIp(request) };
+      const result = body.action === "transition"
+        ? await deps.service.transitionCase(auth.session, caseId, body.nextStatus, { ...requestContext, idempotencyKey,
+          ...(body.finalDecisionSummary ? { finalDecisionSummary: body.finalDecisionSummary } : {}) })
+        : await deps.service.restrictCase(auth.session, caseId, { ...body, idempotencyKey }, requestContext);
+      return Response.json(result, { headers: { "x-trace-id": trace, "cache-control": "private, no-store" } });
+    } catch (error) { return mapError(error, trace); }
+  };
+}
+
+export function createAdminMediaDecisionHandler(deps: CommonDependencies & { service: Pick<ModerationAcceptanceService, "decideMedia"> }) {
+  return async (request: Request, context: { params: Promise<{ jobId: string }> }): Promise<Response> => {
+    const trace = traceId(request, deps.createTraceId ?? randomUUID);
+    if (request.method !== "POST") return errorResponse("METHOD_NOT_ALLOWED", 405, trace);
+    try {
+      const auth = await authorize(request, deps, "profile_media.decide", trace);
+      if (!auth.ok) return auth.response;
+      const guarded = await guardMutation(request, deps, auth.session, "admin.media_review", trace);
+      if (guarded) return guarded;
+      const { jobId } = await context.params;
+      if (!uuidSchema.safeParse(jobId).success) return errorResponse("NOT_FOUND", 404, trace);
+      const body = mediaDecisionSchema.parse(await readBoundedJson(request));
+      const result = await deps.service.decideMedia(auth.session, jobId, body.decision, body.reason, {
+        requestId: trace, ipAddress: deps.resolveClientIp(request), idempotencyKey: mutationKey(request),
+      });
+      return Response.json(result, { headers: { "x-trace-id": trace, "cache-control": "private, no-store" } });
+    } catch (error) { return mapError(error, trace); }
+  };
+}
+
+export function createAdminAppealDecisionHandler(deps: CommonDependencies & { service: Pick<ModerationAcceptanceService, "finalizeAppeal"> }) {
+  return async (request: Request, context: { params: Promise<{ appealId: string }> }): Promise<Response> => {
+    const trace = traceId(request, deps.createTraceId ?? randomUUID);
+    if (request.method !== "POST") return errorResponse("METHOD_NOT_ALLOWED", 405, trace);
+    try {
+      const auth = await authorize(request, deps, "appeals.decide", trace);
+      if (!auth.ok) return auth.response;
+      const guarded = await guardMutation(request, deps, auth.session, "admin.moderation", trace);
+      if (guarded) return guarded;
+      const { appealId } = await context.params;
+      if (!uuidSchema.safeParse(appealId).success) return errorResponse("NOT_FOUND", 404, trace);
+      const body = appealDecisionSchema.parse(await readBoundedJson(request));
+      const result = await deps.service.finalizeAppeal(auth.session, appealId, body.decision, body.summary, {
+        requestId: trace, ipAddress: deps.resolveClientIp(request), idempotencyKey: mutationKey(request),
+        ...(body.restrictionExpiresAt ? { restrictionExpiresAt: new Date(body.restrictionExpiresAt) } : {}),
+      });
+      return Response.json(result, { headers: { "x-trace-id": trace, "cache-control": "private, no-store" } });
+    } catch (error) { return mapError(error, trace); }
+  };
+}
+
+export function createAdminAppealReviewHandler(deps: CommonDependencies & { service: Pick<ModerationAcceptanceService, "startAppealReview"> }) {
+  return async (request: Request, context: { params: Promise<{ appealId: string }> }): Promise<Response> => {
+    const trace = traceId(request, deps.createTraceId ?? randomUUID);
+    if (request.method !== "POST") return errorResponse("METHOD_NOT_ALLOWED", 405, trace);
+    try {
+      const auth = await authorize(request, deps, "appeals.decide", trace);
+      if (!auth.ok) return auth.response;
+      const guarded = await guardMutation(request, deps, auth.session, "admin.moderation", trace);
+      if (guarded) return guarded;
+      mutationKey(request);
+      const { appealId } = await context.params;
+      if (!uuidSchema.safeParse(appealId).success) return errorResponse("NOT_FOUND", 404, trace);
+      return Response.json(await deps.service.startAppealReview(auth.session, appealId),
+        { headers: { "x-trace-id": trace, "cache-control": "private, no-store" } });
     } catch (error) { return mapError(error, trace); }
   };
 }

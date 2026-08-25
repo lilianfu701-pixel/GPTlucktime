@@ -289,6 +289,12 @@ export class DrizzleCaseService {
       const [report] = await tx.select({ targetUserId: reports.targetUserId }).from(reports)
         .where(eq(reports.id, original.reportId)).limit(1);
       if (!report || report.targetUserId !== appellantUserId) throw new ModerationError("FORBIDDEN");
+      const [existingAppeal] = await tx.select().from(appeals)
+        .where(eq(appeals.originalCaseId, original.id)).limit(1);
+      if (existingAppeal) {
+        if (existingAppeal.appellantUserId !== appellantUserId) throw new ModerationError("FORBIDDEN");
+        return existingAppeal;
+      }
       const now = this.clock();
       const [reviewCase] = await tx.insert(moderationCases).values({
         reportId: original.reportId,

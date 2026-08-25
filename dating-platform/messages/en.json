@@ -157,6 +157,13 @@
     "planNames": { "free": "Free", "plus": "Plus", "premium": "Premium" },
     "statuses": { "trialing": "Trialing", "active": "Active", "past_due": "Past due", "grace_period": "Grace period", "disputed": "Under review", "revoked": "Revoked", "canceled": "Canceled", "expired": "Expired" }
   },
+  "appealSettings": {
+    "back": "Back to discover", "title": "Appeals", "intro": "Request an independent review of a finalized moderation decision. The moderator who handled the original case cannot decide the appeal.", "loading": "Loading appeal options…", "empty": "There are no finalized cases available for appeal.", "caseReference": "Case {id}", "caseStatus": "Decision status: {status}", "appealStatus": "Appeal status: {status}", "statement": "Appeal statement", "statementHint": "Explain the relevant context without including passwords, access codes, or unrelated personal data.", "submit": "Submit appeal", "submitted": "Appeal submitted for independent review.", "error": "Appeals are unavailable right now. Try again later."
+  },
+  "adminModeration": {
+    "openCase": "Open case", "targetType": "Target type", "reasonCode": "Reason code", "messageReferenceLabel": "Message reference", "messageReference": "Message reference: {id}", "triage": "Triage case", "beginReview": "Begin review", "restrictionReason": "Restriction reason", "durationHours": "Duration in hours", "restrict": "Apply temporary restriction", "timeline": "Audit timeline", "reviewReason": "Manual review reason", "approvePhoto": "Approve photo", "rejectPhoto": "Reject photo", "beginAppealReview": "Begin independent review", "appealDecision": "Appeal decision", "decisionSummary": "Decision summary", "modifiedExpiry": "Modified restriction expiry", "upheld": "Uphold", "overturned": "Overturn", "modified": "Modify", "finalizeAppeal": "Finalize appeal", "saved": "Action recorded in the immutable audit timeline.", "error": "The action could not be completed. Refresh the queue and try again.",
+    "events": { "report_submitted": "Report submitted", "case_status_changed": "Case status changed", "action_recorded": "Moderation action recorded", "appeal_submitted": "Appeal submitted", "appeal_review_created": "Appeal review created", "appeal_finalized": "Appeal finalized", "other": "Audit event" }
+  },
   "admin": {
     "eyebrow": "Operations", "title": "Admin console", "intro": "Permission-scoped operational queues",
     "navigation": "Admin navigation", "authorizedQueues": "Authorized admin queues",

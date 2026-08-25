@@ -359,7 +359,7 @@ export class DrizzleAdminGovernanceProjection implements GovernanceProjection {
         targetType: "user", targetId: input.targetUserId, payloadHash, expectedVersion: input.expectedVersion,
         result, createdAt: now,
       });
-      const auditInput = { actorUserId: input.actorUserId, permission: "users.status.write",
+      const auditInput = { actorUserId: input.actorUserId, permission: input.auditPermission ?? "users.status.write",
         targetType: "user", targetId: input.targetUserId, before: { version: input.expectedVersion },
         after: { version: claimed.version, status: action.actionType }, reason: input.reason,
         requestId: input.context.requestId, createdAt: now };

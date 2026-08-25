@@ -90,6 +90,7 @@ export interface GovernanceProjection {
     idempotencyKey: string;
     expectedVersion: number;
     durationHours?: number;
+    auditPermission?: "users.status.write" | "reports.decide";
     context: AdminRequestContext | StoredAdminRequestContext;
   }): Promise<unknown>;
 }
@@ -260,6 +261,22 @@ export class AdminService {
       targetUserId,
       reason,
       context,
+    });
+  }
+
+  applyModerationRestriction(actor: AdminActor, targetUserId: string, input: {
+    caseId: string; reason: string; idempotencyKey: string; expectedVersion: number; durationHours: number;
+  }, context: AdminRequestContext) {
+    requirePermission(actor.role, "reports.decide");
+    requireRecentMfa(actor, this.clock());
+    const reason = requiredReason(input.reason, "INVALID_ACTION");
+    if (!/^[A-Za-z0-9][A-Za-z0-9._:-]{7,127}$/u.test(input.idempotencyKey)
+      || !Number.isInteger(input.expectedVersion) || input.expectedVersion < 0
+      || !Number.isInteger(input.durationHours) || input.durationHours < 1 || input.durationHours > 24 * 30
+      || !targetUserId || !input.caseId) throw new Error("INVALID_ACTION");
+    return this.dependencies.governance.applyUserAction({
+      ...input, action: "temporary_restriction", actorUserId: actor.userId, actorRole: actor.role,
+      targetUserId, reason, auditPermission: "reports.decide", context,
     });
   }
 

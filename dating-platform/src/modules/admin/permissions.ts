@@ -7,6 +7,7 @@ export type AdminRole = typeof ADMIN_ROLES[number];
 export const ADMIN_PERMISSIONS = [
   "admin.console.read",
   "profile_media.read",
+  "profile_media.decide",
   "reports.read",
   "reports.decide",
   "appeals.read",
@@ -33,9 +34,9 @@ export type AdminPermission = typeof ADMIN_PERMISSIONS[number];
 
 export const ADMIN_ROLE_PERMISSIONS: Readonly<Record<AdminRole, readonly AdminPermission[]>> = {
   support: ["admin.console.read", "profile_media.read", "verification.failures.read"],
-  moderation: ["admin.console.read", "profile_media.read", "reports.read", "reports.decide", "appeals.read", "appeals.decide"],
+  moderation: ["admin.console.read", "profile_media.read", "profile_media.decide", "reports.read", "reports.decide", "appeals.read", "appeals.decide"],
   safety: [
-    "admin.console.read", "profile_media.read", "reports.read", "reports.decide", "appeals.read",
+    "admin.console.read", "profile_media.read", "profile_media.decide", "reports.read", "reports.decide", "appeals.read",
     "appeals.decide", "messages.private.read", "safety.evidence.request", "safety.evidence.approve",
     "users.status.write", "users.bulk_suspend.request", "users.bulk_suspend.approve",
     "exports.sensitive.request", "exports.sensitive.approve",

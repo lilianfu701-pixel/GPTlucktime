@@ -8,6 +8,8 @@ import { adminService, readAdminPageSession } from "@/modules/admin/runtime";
 import { hasPermission, requirePermission, requireRecentMfa } from "@/modules/admin/permissions";
 import { ADMIN_QUEUE_PERMISSIONS, type AdminQueue } from "@/modules/admin/admin-service";
 
+import { AdminModerationActions } from "./admin-moderation-actions";
+
 const statusKeys = new Set(["pending", "processing", "approved", "rejected", "open", "resolved", "failed", "manual_review"]);
 
 export default async function AdminPage({ params, searchParams }: {
@@ -74,6 +76,7 @@ export default async function AdminPage({ params, searchParams }: {
                         <time className="mt-1 block text-xs text-stone-500" dateTime={item.createdAt}>
                           {new Intl.DateTimeFormat(resolvedLocale, { dateStyle: "medium", timeStyle: "short" }).format(new Date(item.createdAt))}
                         </time>
+                        <AdminModerationActions queue={queue} itemId={item.id} status={item.status} />
                       </li>
                     ))}
                   </ul>

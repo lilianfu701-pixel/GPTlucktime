@@ -6,6 +6,7 @@ import { createClient } from "redis";
 import { adminRoleAssignments, adminSessions } from "@/db/schema";
 import { db } from "@/infrastructure/db/client";
 import { DrizzleCaseService } from "@/modules/moderation/case-service";
+import { ModerationAcceptanceService } from "@/modules/moderation/acceptance-service";
 import { resolveTrustedClientBucket } from "@/modules/auth/trusted-ingress";
 import { createStripeClient, StripeBillingAdapter } from "@/modules/billing/stripe-adapter";
 import { readEnv } from "@/shared/env";
@@ -46,6 +47,9 @@ export const adminService = new AdminService({
   entitlementConfig: new DrizzleVersionedEntitlementConfiguration(db, env.BETTER_AUTH_SECRET),
   queues: new DrizzleAdminQueueRepository(db, env.BETTER_AUTH_SECRET),
 });
+export const moderationAcceptanceService = new ModerationAcceptanceService(
+  db, caseService, adminService, env.BETTER_AUTH_SECRET,
+);
 
 const limiter = new RedisAdminRateLimiter(redis, env.BETTER_AUTH_SECRET);
 const sensitiveAccess = new DrizzleAdminSensitiveWorkflowResolver(db, env.BETTER_AUTH_SECRET);
@@ -65,6 +69,11 @@ export const adminRouteDependencies = {
     catch { return false; }
   },
   resolveClientIp: (request: Request) => resolveTrustedClientBucket(request, env.AUTH_TRUSTED_PROXY_TOKEN),
+};
+
+export const moderationAdminRouteDependencies = {
+  ...adminRouteDependencies,
+  service: moderationAcceptanceService,
 };
 
 export async function runConfiguredAdminApprovalWorker() {
