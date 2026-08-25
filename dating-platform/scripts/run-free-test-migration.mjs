@@ -14,13 +14,14 @@ const rejected = () => new Error(MIGRATION_GATE_ERROR);
 export function parseFreeTestDatabaseTarget(env) {
   try {
     for (const [name, value] of Object.entries(env)) {
-      if (AMBIENT_POSTGRES_VARIABLE.test(name)
+      if (AMBIENT_POSTGRES_VARIABLE.test(name.toUpperCase())
         && typeof value === "string" && value.length > 0) throw rejected();
     }
     const raw = env.DATABASE_URL;
     if (typeof raw !== "string" || raw.length === 0) throw rejected();
     const url = new URL(raw);
-    if (url.protocol !== "postgresql:" || !url.username || !url.password || url.hash) throw rejected();
+    if (url.protocol !== "postgresql:" || !url.username || !url.password || url.hash
+      || (url.port !== "" && url.port !== "5432")) throw rejected();
     const username = decodeURIComponent(url.username);
     const password = decodeURIComponent(url.password);
     if (/[\u0000-\u001F\u007F]/u.test(username + password)) throw rejected();
@@ -39,8 +40,8 @@ export function parseFreeTestDatabaseTarget(env) {
     if (channelBindings.length > 1
       || (channelBindings.length === 1 && channelBindings[0] !== "require")) throw rejected();
 
-    const database = decodeURIComponent(url.pathname.replace(/^\/+/u, ""));
-    if (!database || database.includes("/") || /[\u0000-\u001F\u007F]/u.test(database)) throw rejected();
+    if (!/^\/[A-Za-z0-9_-]+$/u.test(url.pathname)) throw rejected();
+    const database = url.pathname.slice(1);
     return { host, database };
   } catch {
     throw rejected();

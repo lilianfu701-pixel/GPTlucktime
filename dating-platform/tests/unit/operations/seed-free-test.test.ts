@@ -181,6 +181,17 @@ describe("free-test seed environment gate", () => {
     }],
     ["ambient PGHOST", { PGHOST: "evil.example.com" }],
     ["ambient PGOPTIONS", { PGOPTIONS: "-c search_path=evil" }],
+    ["lowercase ambient pgoptions", { pgoptions: "-c search_path=evil" }],
+    ["mixed-case ambient PgPort", { PgPort: "5433" }],
+    ["authority port override", {
+      DATABASE_URL: DATABASE_URL.replace(`@${HOST}/`, `@${HOST}:5433/`),
+    }],
+    ["double-slash database path", {
+      DATABASE_URL: DATABASE_URL.replace(`/${"datecn_free_test"}`, "//datecn_free_test"),
+    }],
+    ["encoded reserved database character", {
+      DATABASE_URL: DATABASE_URL.replace("datecn_free_test", "datecn%3Ffree"),
+    }],
   ])("rejects %s before credentials or database construction", async (_label, override) => {
     const databaseFactory = vi.fn(async () => new MemoryDatabase());
     const path = await tempCredentialsPath();

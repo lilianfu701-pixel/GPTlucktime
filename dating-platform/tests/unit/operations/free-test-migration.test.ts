@@ -135,6 +135,32 @@ describe("free-test migration gate", () => {
     },
   );
 
+  it.each(["pgoptions", "PgPort", "pGhOsT"])(
+    "rejects case-insensitive ambient %s overrides",
+    (name) => {
+      expect(() => parseFreeTestDatabaseTarget({
+        DATABASE_URL,
+        [name]: "fictional-override",
+      })).toThrow(MIGRATION_GATE_ERROR);
+    },
+  );
+
+  it.each([
+    `postgresql://user:fictional-secret@${HOST}:5433/${DATABASE}?sslmode=require`,
+    `postgresql://user:fictional-secret@${HOST}//${DATABASE}?sslmode=require`,
+    `postgresql://user:fictional-secret@${HOST}/datecn%3Ffree?sslmode=require`,
+    `postgresql://user:fictional-secret@${HOST}/datecn%23free?sslmode=require`,
+  ])("rejects authority or database-path parser differences", (databaseUrl) => {
+    expect(() => parseFreeTestDatabaseTarget({ DATABASE_URL: databaseUrl }))
+      .toThrow(MIGRATION_GATE_ERROR);
+  });
+
+  it("allows the canonical PostgreSQL port when explicitly supplied", () => {
+    expect(parseFreeTestDatabaseTarget({
+      DATABASE_URL: `postgresql://user:fictional-secret@${HOST}:5432/${DATABASE}?sslmode=require`,
+    })).toEqual({ host: HOST, database: DATABASE });
+  });
+
   it("rejects expected target mismatch before printing or spawning", () => {
     const spawn = vi.fn();
     const stdout = vi.fn();

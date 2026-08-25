@@ -88,7 +88,7 @@ The following groups must remain absent in free-test mode: `STRIPE_*`, `EMAIL_*`
 
 ### Database target preflight and migration
 
-The tested `scripts/run-free-test-migration.mjs` gate loads `DATABASE_URL` from the current process. Node's `--env-file` option limits `.env.vercel.local` to that Node process and its migration child; it does not source values into the parent shell. The gate accepts only `postgresql:` URLs with an explicit secure `sslmode`, optional exact `channel_binding=require`, credentials, one database path, and a non-IP hostname that is a strict subdomain of `.neon.tech`. Every other connection-string query parameter and every non-empty ambient `PG*` variable is rejected, preventing hidden host, identity, port, TLS, service, or `search_path` overrides. It fails closed with one redacted error and prints no URL, username, or password.
+The tested `scripts/run-free-test-migration.mjs` gate loads `DATABASE_URL` from the current process. Node's `--env-file` option limits `.env.vercel.local` to that Node process and its migration child; it does not source values into the parent shell. The gate accepts only `postgresql:` URLs with an explicit secure `sslmode`, optional exact `channel_binding=require`, credentials, no explicit port or exact port `5432`, exactly one database path segment using letters/digits/underscore/hyphen, and a non-IP hostname that is a strict subdomain of `.neon.tech`. Every other connection-string query parameter and every non-empty ambient `PG*` variable (matched case-insensitively) is rejected, preventing hidden host, identity, port, TLS, service, or `search_path` overrides. It fails closed with one redacted error and prints no URL, username, or password.
 
 First copy the expected hostname and database name from the isolated Neon dashboard. These identifiers are not secrets, but they must be copied exactly; never derive them from the connection URL. The commands below read each value and run `--check`. CHECK validates the exact match, prints only the successful host/database pair, and never starts npm or connects to the database. On Windows, publishers must use PowerShell; other Windows command shells are not supported by this runbook.
 
@@ -152,13 +152,15 @@ try {
 POSIX shell:
 
 ```sh
+seed_status=0
 FREE_TEST_SEED_CONFIRM=datecn-free-test npm run seed:free-test -- \
   --expected-host "$expected_neon_host" \
-  --expected-database "$expected_neon_database" &&
-FREE_TEST_SEED_CONFIRM=datecn-free-test npm run seed:free-test -- \
-  --expected-host "$expected_neon_host" \
-  --expected-database "$expected_neon_database"
-seed_status=$?
+  --expected-database "$expected_neon_database" || seed_status=$?
+if [ "$seed_status" -eq 0 ]; then
+  FREE_TEST_SEED_CONFIRM=datecn-free-test npm run seed:free-test -- \
+    --expected-host "$expected_neon_host" \
+    --expected-database "$expected_neon_database" || seed_status=$?
+fi
 unset expected_neon_host expected_neon_database
 [ "$seed_status" -eq 0 ] || exit "$seed_status"
 ```
