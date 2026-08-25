@@ -5,6 +5,8 @@ import { afterEach, describe, expect, it, vi } from "vitest";
 import { DiscoverActions } from "@/app/[locale]/(member)/discover/discover-actions";
 import messages from "../../../messages/en.json";
 
+vi.mock("next/navigation", () => ({ useRouter: () => ({ push: vi.fn() }) }));
+
 describe("member discovery actions", () => {
   afterEach(() => { cleanup(); vi.unstubAllGlobals(); });
 
