@@ -70,6 +70,8 @@ const schema = z
     BETTER_AUTH_SECRET: z.string().trim().min(32),
     BETTER_AUTH_URL: urlWithProtocols(["http:", "https:"], "BETTER_AUTH_URL must use http:// or https://"),
     APP_URL: urlWithProtocols(["http:", "https:"], "APP_URL must use http:// or https://"),
+    FREE_TEST_MODE: optionalValue(z.literal("1")),
+    FREE_TEST_ACCESS_SECRET: optionalValue(z.string().trim().min(32).max(256)),
     AUTH_TRUSTED_PROXY_TOKEN: optionalValue(z.string().min(32)),
     EMAIL_WEBHOOK_URL: optionalValue(urlWithProtocols(["https:"], "EMAIL_WEBHOOK_URL must use https://")),
     EMAIL_WEBHOOK_TOKEN: optionalValue(z.string().min(1)),
@@ -167,6 +169,28 @@ const schema = z
         });
       }
     };
+    if ((env.FREE_TEST_MODE === "1") !== (env.FREE_TEST_ACCESS_SECRET !== undefined)) {
+      context.addIssue({ code: "custom", message: "FREE_TEST configuration must be complete",
+        path: [env.FREE_TEST_MODE ? "FREE_TEST_ACCESS_SECRET" : "FREE_TEST_MODE"] });
+    }
+    if (env.FREE_TEST_MODE === "1") {
+      for (const field of [
+        "STRIPE_SECRET_KEY", "STRIPE_WEBHOOK_SECRET",
+        "EMAIL_WEBHOOK_URL", "EMAIL_WEBHOOK_TOKEN",
+        "EMAIL_FALLBACK_WEBHOOK_URL", "EMAIL_FALLBACK_WEBHOOK_TOKEN",
+        "SMS_WEBHOOK_URL", "SMS_WEBHOOK_TOKEN", "SMS_FALLBACK_WEBHOOK_URL", "SMS_FALLBACK_WEBHOOK_TOKEN",
+        "SMS_ABUSE_HMAC_KEY", "SMS_ALLOWED_CALLING_CODES", "SMS_HIGH_RISK_CALLING_CODES", "SMS_DENIED_PREFIXES",
+        "IDENTITY_VERIFICATION_PROVIDER", "IDENTITY_VERIFICATION_URL", "IDENTITY_VERIFICATION_API_KEY",
+        "IDENTITY_VERIFICATION_WEBHOOK_SECRET", "IDENTITY_REDIRECT_ORIGINS", "IDENTITY_IDEMPOTENCY_HMAC_KEY",
+      ] as const) {
+        if (env[field] !== undefined) context.addIssue({ code: "custom",
+          message: `FREE_TEST_MODE forbids ${field}`, path: [field] });
+      }
+      for (const field of ["BETTER_AUTH_URL", "APP_URL"] as const) {
+        if (new URL(env[field]).protocol !== "https:") context.addIssue({ code: "custom",
+          message: `${field} must use https:// in FREE_TEST_MODE`, path: [field] });
+      }
+    }
     requireCompleteGroup("EMAIL", [
       "EMAIL_WEBHOOK_URL",
       "EMAIL_WEBHOOK_TOKEN",

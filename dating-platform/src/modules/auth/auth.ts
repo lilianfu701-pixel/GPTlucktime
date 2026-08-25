@@ -9,6 +9,7 @@ import { db } from "@/infrastructure/db/client";
 import { readEnv } from "@/shared/env";
 
 import { createAuthConfiguration } from "./auth-config";
+import { createFreeTestRedisClient, FreeTestNotificationAdapter } from "./free-test-notification-adapter";
 import {
   EncryptionKeyRing,
   StableHmac,
@@ -28,7 +29,11 @@ import { requireE2eRuntime } from "@/modules/e2e/e2e-guard";
 const env = readEnv(process.env);
 const e2e = process.env.E2E_MODE === "1" ? requireE2eRuntime(process.env) : null;
 const e2eAdapter = e2e ? new E2eNotificationAdapter() : null;
-const sender = e2eAdapter ?? new HttpMessageSender({
+const freeTestAdapter = env.FREE_TEST_MODE === "1" && env.FREE_TEST_ACCESS_SECRET
+  ? new FreeTestNotificationAdapter({ redis: createFreeTestRedisClient(env.REDIS_URL),
+      accessSecret: env.FREE_TEST_ACCESS_SECRET, appUrl: env.APP_URL })
+  : null;
+const sender = e2eAdapter ?? freeTestAdapter ?? new HttpMessageSender({
   email: env.EMAIL_WEBHOOK_URL && env.EMAIL_WEBHOOK_TOKEN
     ? { endpoint: env.EMAIL_WEBHOOK_URL, token: env.EMAIL_WEBHOOK_TOKEN }
     : undefined,
@@ -36,7 +41,7 @@ const sender = e2eAdapter ?? new HttpMessageSender({
     ? { endpoint: env.SMS_WEBHOOK_URL, token: env.SMS_WEBHOOK_TOKEN }
     : undefined,
 });
-const dispatcher: MessageDispatcher = e2eAdapter ?? (env.AUTH_ENCRYPTION_KEYS && env.AUTH_DELIVERY_HMAC_KEY
+const dispatcher: MessageDispatcher = e2eAdapter ?? freeTestAdapter ?? (env.AUTH_ENCRYPTION_KEYS && env.AUTH_DELIVERY_HMAC_KEY
   ? new DurableNotificationDispatcher(
       db,
       new EncryptionKeyRing(parseEncryptionKeyRing(env.AUTH_ENCRYPTION_KEYS), {
@@ -81,9 +86,10 @@ export const auth = betterAuth(createAuthConfiguration({
   dispatcher,
   secret: env.BETTER_AUTH_SECRET,
   baseURL: env.APP_URL,
-  secureCookies: env.NODE_ENV === "production",
+  secureCookies: env.NODE_ENV === "production" || env.FREE_TEST_MODE === "1",
   smsAbuseGuard,
   trustedProxyToken: env.AUTH_TRUSTED_PROXY_TOKEN,
+  freeTestMode: env.FREE_TEST_MODE === "1",
 }));
 
 export const runAuthNotificationDeliveryWorker = () =>

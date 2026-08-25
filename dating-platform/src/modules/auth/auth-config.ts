@@ -11,8 +11,10 @@ import {
 import { AUTH_CREDENTIAL_TTL_SECONDS, credentialValidUntil } from "./auth-credentials";
 import { SmsAbuseError, type SmsAbuseGuard, validateSmsTarget } from "./sms-abuse-guard";
 import { resolveTrustedClientBucket } from "./trusted-ingress";
+import { canonicalizeFreeTestEmail } from "./free-test-notification-adapter";
 
 export const PHONE_LOGIN_NOT_ENABLED = "PHONE_LOGIN_NOT_ENABLED";
+const FREE_TEST_REDIRECT_MAX_BYTES = 4_096;
 
 type AuthConfigurationInput = {
   database: BetterAuthOptions["database"];
@@ -24,6 +26,7 @@ type AuthConfigurationInput = {
   smsAbuseGuard?: SmsAbuseGuard;
   verifySmsChallenge?: (request: Request) => Promise<boolean>;
   trustedProxyToken?: string;
+  freeTestMode?: boolean;
 };
 
 export function createAuthConfiguration(input: AuthConfigurationInput): BetterAuthOptions {
@@ -74,8 +77,26 @@ export function createAuthConfiguration(input: AuthConfigurationInput): BetterAu
         if (
           context.path === "/sign-up/email" ||
           context.path === "/send-verification-email" ||
-          context.path === "/request-password-reset"
+          context.path === "/request-password-reset" ||
+          (input.freeTestMode && context.path === "/sign-in/email")
         ) {
+          const body = context.body as Record<string, unknown> | undefined;
+          if (input.freeTestMode && (typeof body?.email !== "string"
+            || !canonicalizeFreeTestEmail(body.email))) {
+            throw new APIError("BAD_REQUEST", {
+              code: "FREE_TEST_RECIPIENT_REQUIRED",
+              message: "FREE_TEST_RECIPIENT_REQUIRED",
+            });
+          }
+          const redirectField = context.path === "/request-password-reset" ? "redirectTo" : "callbackURL";
+          const redirect = body?.[redirectField];
+          if (input.freeTestMode && redirect !== undefined && (typeof redirect !== "string"
+            || new TextEncoder().encode(redirect).byteLength > FREE_TEST_REDIRECT_MAX_BYTES)) {
+            throw new APIError("BAD_REQUEST", {
+              code: "FREE_TEST_REDIRECT_INVALID",
+              message: "FREE_TEST_REDIRECT_INVALID",
+            });
+          }
           try {
             input.sender.assertAvailable("email");
           } catch {

@@ -39,6 +39,7 @@ const externalProvider = (channel: "email" | "sms", sender: HttpMessageSender) =
   } });
 
 export async function runConfiguredNotificationWorkers() {
+  if (env.FREE_TEST_MODE === "1") return { authProcessed: 0, notificationsProcessed: 0 };
   const authProcessed = await runAuthNotificationDeliveryWorker();
   const dispatcher = new NotificationDispatcher({
     store: new DrizzleNotificationStore(db, { hmacKey: env.BETTER_AUTH_SECRET }),

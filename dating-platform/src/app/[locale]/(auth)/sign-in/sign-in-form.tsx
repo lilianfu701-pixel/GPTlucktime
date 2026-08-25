@@ -8,6 +8,9 @@ import { authClient } from "@/modules/auth/client";
 
 type AuthTab = "sign-in" | "register";
 type SubmitState = "idle" | "submitting" | "error";
+type MailboxItem = { kind: "email_verification" | "password_reset"; actionUrl: string; expiresAt: string };
+const mailboxMaxFutureMs = 15 * 60_000;
+const mailboxActionUrlMaxBytes = 4_096;
 const inputClass = "mt-2 w-full rounded-2xl border border-rose-200 px-4 py-3 outline-none focus:border-rose-600 focus:ring-2 focus:ring-rose-200";
 
 function isAdult(birthDate: string, now = new Date()) {
@@ -18,7 +21,27 @@ function isAdult(birthDate: string, now = new Date()) {
   return parsed <= new Date(Date.UTC(now.getUTCFullYear() - 18, now.getUTCMonth(), now.getUTCDate()));
 }
 
-export default function SignInForm({ locale }: { locale: "en" | "zh" }) {
+function parseMailboxItem(payload: unknown): MailboxItem | null {
+  if (!payload || typeof payload !== "object" || Array.isArray(payload)) return null;
+  const item = payload as Record<string, unknown>;
+  if (Object.keys(item).sort().join(",") !== "actionUrl,expiresAt,kind"
+    || (item.kind !== "email_verification" && item.kind !== "password_reset")
+    || typeof item.actionUrl !== "string" || typeof item.expiresAt !== "string") return null;
+  if (new TextEncoder().encode(item.actionUrl).byteLength > mailboxActionUrlMaxBytes
+    || item.expiresAt.length !== 24) return null;
+  try {
+    const action = new URL(item.actionUrl);
+    const expiresAt = Date.parse(item.expiresAt);
+    const now = Date.now();
+    if (action.protocol !== "https:" || action.origin !== window.location.origin
+      || action.username !== "" || action.password !== ""
+      || new Date(expiresAt).toISOString() !== item.expiresAt
+      || expiresAt <= now || expiresAt > now + mailboxMaxFutureMs) return null;
+  } catch { return null; }
+  return item as MailboxItem;
+}
+
+export default function SignInForm({ locale, freeTestMode = false }: { locale: "en" | "zh"; freeTestMode?: boolean }) {
   const router = useRouter();
   const t = useTranslations("signIn");
   const auth = useTranslations("datecn.auth");
@@ -26,6 +49,8 @@ export default function SignInForm({ locale }: { locale: "en" | "zh" }) {
   const [registrationStatus, setRegistrationStatus] = useState<SubmitState | "email-sent">("idle");
   const [registrationError, setRegistrationError] = useState<string | null>(null);
   const [registeredEmail, setRegisteredEmail] = useState("");
+  const [mailboxStatus, setMailboxStatus] = useState<SubmitState>("idle");
+  const [mailboxItem, setMailboxItem] = useState<MailboxItem | null>(null);
   const [phoneStatus, setPhoneStatus] = useState<"idle" | "sending" | "sent" | "verifying" | "verified" | "error">("idle");
   const [showPassword, setShowPassword] = useState(false);
   const [tab, setTab] = useState<AuthTab>("sign-in");
@@ -53,6 +78,9 @@ export default function SignInForm({ locale }: { locale: "en" | "zh" }) {
     setRegistrationError(null);
     if (!isAdult(birthDate)) { setRegistrationError(auth("adultError")); return; }
     if (data.get("terms") !== "on") { setRegistrationError(auth("termsError")); return; }
+    if (freeTestMode && !/^[^@\s]+@datecn\.test$/u.test(email)) {
+      setRegistrationError(auth("freeTestEmailError")); return;
+    }
     setRegistrationStatus("submitting");
     const result = await authClient.signUp.email({ name, email, password,
       callbackURL: `/${locale}/onboarding` }).catch(() => null);
@@ -68,6 +96,23 @@ export default function SignInForm({ locale }: { locale: "en" | "zh" }) {
     const result = await authClient.sendVerificationEmail({ email: registeredEmail,
       callbackURL: `/${locale}/onboarding` }).catch(() => null);
     if (!result || result.error) setRegistrationError(auth("verificationError"));
+  }
+
+  async function openTestMailbox(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    setMailboxStatus("submitting");
+    setMailboxItem(null);
+    const accessCode = String(new FormData(event.currentTarget).get("accessCode") ?? "");
+    try {
+      const response = await fetch("/api/free-test/mailbox", { method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ email: registeredEmail, accessCode }) });
+      const payload = await response.json() as unknown;
+      const item = response.ok ? parseMailboxItem(payload) : null;
+      if (!item) throw new Error();
+      setMailboxItem(item);
+      setMailboxStatus("idle");
+    } catch { setMailboxStatus("error"); }
   }
 
   async function sendPhoneCode(event: FormEvent<HTMLFormElement>) {
@@ -108,7 +153,8 @@ export default function SignInForm({ locale }: { locale: "en" | "zh" }) {
     </form> : <section aria-labelledby="datecn-register-tab" className="mt-6" id="datecn-register-panel" role="tabpanel">
       {registrationStatus !== "email-sent" ? <form aria-label={auth("registerTab")} className="space-y-4" onSubmit={register}>
         <label className="block text-sm font-semibold">{auth("displayName")}<input className={inputClass} name="name" autoComplete="name" maxLength={80} required /></label>
-        <label className="block text-sm font-semibold">{t("email")}<input className={inputClass} name="registerEmail" type="email" autoComplete="email" required /></label>
+        <label className="block text-sm font-semibold">{t("email")}<input aria-describedby={freeTestMode ? "free-test-email-hint" : undefined} className={inputClass} name="registerEmail" type="email" autoComplete="email" required /></label>
+        {freeTestMode && <p className="text-xs leading-5 text-[var(--datecn-muted)]" id="free-test-email-hint">{auth("freeTestEmailHint")}</p>}
         <div><label className="block text-sm font-semibold" htmlFor="register-password">{t("password")}</label><input aria-describedby="register-password-hint" className={inputClass} id="register-password" name="registerPassword" type="password" autoComplete="new-password" minLength={12} required /><span className="mt-1 block text-xs text-[var(--datecn-muted)]" id="register-password-hint">{auth("passwordHint")}</span></div>
         <div><label className="block text-sm font-semibold" htmlFor="register-birth-date">{auth("birthDate")}</label><input aria-describedby="register-eligibility register-error" aria-invalid={Boolean(registrationError)} className={inputClass} id="register-birth-date" name="birthDate" type="date" required /><span className="mt-1 block text-xs text-[var(--datecn-muted)]" id="register-eligibility">{auth("birthDateHint")}</span></div>
         <label className="flex items-start gap-3 text-sm leading-6"><input className="mt-1 size-4" name="terms" type="checkbox" required /><span>{auth("termsAcknowledgement")}</span></label>
@@ -116,9 +162,15 @@ export default function SignInForm({ locale }: { locale: "en" | "zh" }) {
         <button className="datecn-primary-button w-full disabled:opacity-60" disabled={registrationStatus === "submitting"}>{registrationStatus === "submitting" ? auth("registering") : auth("registerCta")}</button>
       </form> : <div className="rounded-2xl bg-[var(--datecn-cream)] p-5">
         <h3 className="text-xl font-bold">{auth("checkEmailTitle")}</h3>
-        <p className="mt-2 text-sm leading-6 text-[var(--datecn-muted)]">{auth("checkEmailBody")}</p>
+        <p className="mt-2 text-sm leading-6 text-[var(--datecn-muted)]">{freeTestMode ? auth("freeTestMailboxBody") : auth("checkEmailBody")}</p>
         <button className="mt-3 text-sm font-bold text-[var(--datecn-wine)]" onClick={resendEmail} type="button">{auth("resendEmail")}</button>
-        <details className="mt-5 border-t border-rose-200 pt-4"><summary className="cursor-pointer font-bold">{auth("phoneTitle")}</summary>
+        {freeTestMode && <form className="mt-5 space-y-3 border-t border-rose-200 pt-4" onSubmit={openTestMailbox}>
+          <label className="block text-sm font-semibold">{auth("freeTestAccessCode")}<input className={inputClass} name="accessCode" type="password" autoComplete="off" maxLength={256} required /></label>
+          <button className="datecn-ghost-button" disabled={mailboxStatus === "submitting"}>{auth("freeTestOpenMailbox")}</button>
+          <p aria-live="polite" className="text-sm text-red-700">{mailboxStatus === "error" ? auth("freeTestMailboxError") : null}</p>
+          {mailboxItem && <a className="inline-block font-bold text-[var(--datecn-wine)] underline" href={mailboxItem.actionUrl}>{auth("freeTestContinue")}</a>}
+        </form>}
+        {!freeTestMode && <details className="mt-5 border-t border-rose-200 pt-4"><summary className="cursor-pointer font-bold">{auth("phoneTitle")}</summary>
           <p className="mt-2 text-xs leading-5 text-[var(--datecn-muted)]">{auth("phoneBody")}</p>
           <form className="mt-3 space-y-3" onSubmit={phoneStatus === "sent" ? verifyPhone : sendPhoneCode}>
             <label className="block text-sm font-semibold">{auth("phoneNumber")}<input className={inputClass} name="phoneNumber" type="tel" autoComplete="tel" required /></label>
@@ -126,7 +178,7 @@ export default function SignInForm({ locale }: { locale: "en" | "zh" }) {
             <button className="datecn-ghost-button" disabled={phoneStatus === "sending" || phoneStatus === "verifying"}>{phoneStatus === "sent" ? auth("verifyPhone") : auth("sendPhoneCode")}</button>
             <p aria-live="polite" className={`text-sm ${phoneStatus === "error" ? "text-red-700" : "text-emerald-800"}`}>{phoneStatus === "verified" ? auth("phoneVerified") : phoneStatus === "error" ? auth("verificationError") : null}</p>
           </form>
-        </details>
+        </details>}
       </div>}
       <button className="mt-4 block w-full text-sm font-bold text-[var(--datecn-wine)]" onClick={() => setTab("sign-in")} type="button">{auth("backToSignIn")}</button>
     </section>}

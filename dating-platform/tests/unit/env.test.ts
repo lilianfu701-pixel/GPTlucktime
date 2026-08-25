@@ -18,6 +18,68 @@ describe("readEnv", () => {
     expect(readEnv(validEnv)).toEqual({ ...validEnv, MEDIA_REVIEW_MAX_ATTEMPTS: 5 });
   });
 
+  it("accepts only a paired, trimmed server-only free-test configuration", () => {
+    const parsed = readEnv({
+      ...validEnv,
+      BETTER_AUTH_URL: "https://dating.example.test/api/auth",
+      APP_URL: "https://dating.example.test",
+      FREE_TEST_MODE: "1",
+      FREE_TEST_ACCESS_SECRET: "  free-test-access-secret-at-least-32-characters  ",
+      NEXT_PUBLIC_FREE_TEST_MODE: "1",
+      NEXT_PUBLIC_FREE_TEST_ACCESS_SECRET: "must-never-be-read-by-the-server-schema",
+    });
+
+    expect(parsed.FREE_TEST_MODE).toBe("1");
+    expect(parsed.FREE_TEST_ACCESS_SECRET).toBe("free-test-access-secret-at-least-32-characters");
+    expect(parsed).not.toHaveProperty("NEXT_PUBLIC_FREE_TEST_ACCESS_SECRET");
+    expect(parsed).not.toHaveProperty("NEXT_PUBLIC_FREE_TEST_MODE");
+    expect(() => readEnv({ ...validEnv, FREE_TEST_MODE: "0" })).toThrow("FREE_TEST_MODE");
+    expect(() => readEnv({ ...validEnv, FREE_TEST_MODE: "1" })).toThrow("FREE_TEST");
+    expect(() => readEnv({ ...validEnv,
+      FREE_TEST_ACCESS_SECRET: "free-test-access-secret-at-least-32-characters" })).toThrow("FREE_TEST");
+    expect(() => readEnv({ ...validEnv, FREE_TEST_MODE: "1", FREE_TEST_ACCESS_SECRET: "        " }))
+      .toThrow("FREE_TEST_ACCESS_SECRET");
+    expect(() => readEnv({ ...validEnv, FREE_TEST_MODE: "1", FREE_TEST_ACCESS_SECRET: "x".repeat(257) }))
+      .toThrow("FREE_TEST_ACCESS_SECRET");
+  });
+
+  it.each(["BETTER_AUTH_URL", "APP_URL"] as const)(
+    "requires HTTPS for %s whenever free-test mode is enabled",
+    (field) => expect(() => readEnv({
+      ...validEnv,
+      BETTER_AUTH_URL: "https://dating.example.test/api/auth",
+      APP_URL: "https://dating.example.test",
+      FREE_TEST_MODE: "1",
+      FREE_TEST_ACCESS_SECRET: "free-test-access-secret-at-least-32-characters",
+      [field]: "http://dating.example.test",
+    })).toThrow(field),
+  );
+
+  it.each([
+    ["Stripe", { STRIPE_SECRET_KEY: "sk_test_placeholder_value", STRIPE_WEBHOOK_SECRET: "whsec_placeholder_value_at_least_32" }],
+    ["primary email", { EMAIL_WEBHOOK_URL: "https://notify.example.test/email", EMAIL_WEBHOOK_TOKEN: "token",
+      AUTH_ENCRYPTION_KEYS: `current:${encryptionKey}`, AUTH_DELIVERY_HMAC_KEY: "delivery-hmac-key-at-least-32-characters" }],
+    ["fallback email", { EMAIL_FALLBACK_WEBHOOK_URL: "https://notify.example.test/email", EMAIL_FALLBACK_WEBHOOK_TOKEN: "token" }],
+    ["primary SMS", { SMS_WEBHOOK_URL: "https://notify.example.test/sms", SMS_WEBHOOK_TOKEN: "token",
+      SMS_ABUSE_HMAC_KEY: "sms-abuse-hmac-key-at-least-32-characters", SMS_ALLOWED_CALLING_CODES: "1",
+      AUTH_TRUSTED_PROXY_TOKEN: "trusted-ingress-token-at-least-32-characters",
+      AUTH_ENCRYPTION_KEYS: `current:${encryptionKey}`, AUTH_DELIVERY_HMAC_KEY: "delivery-hmac-key-at-least-32-characters" }],
+    ["fallback SMS", { SMS_FALLBACK_WEBHOOK_URL: "https://notify.example.test/sms", SMS_FALLBACK_WEBHOOK_TOKEN: "token" }],
+    ["identity", { IDENTITY_VERIFICATION_PROVIDER: "vendor", IDENTITY_VERIFICATION_URL: "https://identity.example.test",
+      IDENTITY_VERIFICATION_API_KEY: "identity-key", IDENTITY_VERIFICATION_WEBHOOK_SECRET: "identity-webhook-secret-value-32",
+      IDENTITY_REDIRECT_ORIGINS: "https://identity.example.test", AUTH_ENCRYPTION_KEYS: `current:${encryptionKey}`,
+      IDENTITY_IDEMPOTENCY_HMAC_KEY: "identity-idempotency-hmac-at-least-32-chars" }],
+  ])("rejects %s provider configuration in free-test mode", (_name, provider) => {
+    expect(() => readEnv({
+      ...validEnv,
+      BETTER_AUTH_URL: "https://dating.example.test/api/auth",
+      APP_URL: "https://dating.example.test",
+      FREE_TEST_MODE: "1",
+      FREE_TEST_ACCESS_SECRET: "free-test-access-secret-at-least-32-characters",
+      ...provider,
+    })).toThrow("FREE_TEST_MODE");
+  });
+
   it("accepts only configured ISO-shaped disabled discovery countries", () => {
     expect(readEnv({ ...validEnv, DISCOVERY_DISABLED_COUNTRY_CODES: "US,CA" }).DISCOVERY_DISABLED_COUNTRY_CODES)
       .toBe("US,CA");
