@@ -90,7 +90,7 @@ The following groups must remain absent in free-test mode: `STRIPE_*`, `EMAIL_*`
 
 The tested `scripts/run-free-test-migration.mjs` gate loads `DATABASE_URL` from the current process. Node's `--env-file` option limits `.env.vercel.local` to that Node process and its migration child; it does not source values into the parent shell. The gate accepts only `postgresql:` URLs with an explicit secure `sslmode`, credentials, one database path, and a non-IP hostname that is a strict subdomain of `.neon.tech`. It fails closed with one redacted error and prints no URL, username, or password.
 
-First copy the expected hostname and database name from the isolated Neon dashboard. These identifiers are not secrets, but they must be copied exactly; never derive them from the connection URL. The commands below read each value without executing characters contained in it, preserve it as one argument, and run `--check`. CHECK validates the exact match, prints only the successful host/database pair, and never starts npm or connects to the database.
+First copy the expected hostname and database name from the isolated Neon dashboard. These identifiers are not secrets, but they must be copied exactly; never derive them from the connection URL. The commands below read each value and run `--check`. CHECK validates the exact match, prints only the successful host/database pair, and never starts npm or connects to the database. On Windows, publishers must use PowerShell; other Windows command shells are not supported by this runbook.
 
 PowerShell:
 
@@ -98,14 +98,6 @@ PowerShell:
 $expectedNeonHost = Read-Host 'Expected Neon hostname'
 $expectedNeonDatabase = Read-Host 'Expected Neon database name'
 node --env-file=.env.vercel.local scripts/run-free-test-migration.mjs --expected-host "$expectedNeonHost" --expected-database "$expectedNeonDatabase" --check
-```
-
-Command Prompt (`cmd.exe`):
-
-```bat
-set /p "EXPECTED_NEON_HOST=Expected Neon hostname: "
-set /p "EXPECTED_NEON_DATABASE=Expected Neon database name: "
-node --env-file=.env.vercel.local scripts/run-free-test-migration.mjs --expected-host "%EXPECTED_NEON_HOST%" --expected-database "%EXPECTED_NEON_DATABASE%" --check
 ```
 
 POSIX shell:
@@ -118,7 +110,7 @@ IFS= read -r expected_neon_database
 node --env-file=.env.vercel.local scripts/run-free-test-migration.mjs --expected-host "$expected_neon_host" --expected-database "$expected_neon_database" --check
 ```
 
-If a copied identifier contains spaces or shell metacharacters, do not paste it directly into a command. The prompted-variable forms above keep it as a single argument. Newlines and NUL are always rejected. If a quote or other unusual character cannot be represented safely by the selected shell prompt, stop and obtain a reviewed Neon database name rather than improvising escaping.
+If a copied identifier contains whitespace, quotes, control characters, or shell metacharacters, stop and obtain a reviewed Neon hostname/database name rather than improvising escaping. Newlines and NUL are always rejected.
 
 After CHECK succeeds, independently compare its printed host/database with the Neon dashboard. Only then, in the same shell where the prompted variables still exist, run the corresponding confirmation command:
 
@@ -126,12 +118,6 @@ PowerShell:
 
 ```powershell
 node --env-file=.env.vercel.local scripts/run-free-test-migration.mjs --expected-host "$expectedNeonHost" --expected-database "$expectedNeonDatabase" --confirm=datecn-free-test
-```
-
-Command Prompt (`cmd.exe`):
-
-```bat
-node --env-file=.env.vercel.local scripts/run-free-test-migration.mjs --expected-host "%EXPECTED_NEON_HOST%" --expected-database "%EXPECTED_NEON_DATABASE%" --confirm=datecn-free-test
 ```
 
 POSIX shell:
@@ -142,7 +128,7 @@ node --env-file=.env.vercel.local scripts/run-free-test-migration.mjs --expected
 
 Any other confirmation form is rejected. The script then calls `npm.cmd` on Windows or `npm` elsewhere with argument array `run`, `db:migrate`, `shell: false`, and inherited stdio. It never concatenates an environment value into a command.
 
-After the attempt, clear the prompt variables (`Remove-Variable expectedNeonHost,expectedNeonDatabase` in PowerShell, `set "EXPECTED_NEON_HOST="` and `set "EXPECTED_NEON_DATABASE="` in cmd.exe, or `unset expected_neon_host expected_neon_database` in POSIX). Do not run the confirm command while reviewing or editing this document.
+After the attempt, clear the prompt variables (`Remove-Variable expectedNeonHost,expectedNeonDatabase` in PowerShell or `unset expected_neon_host expected_neon_database` in POSIX). Do not run the confirm command while reviewing or editing this document.
 
 ## Deploy and smoke the temporary URL
 

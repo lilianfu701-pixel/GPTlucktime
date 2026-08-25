@@ -101,6 +101,7 @@
 - `.env.example` 已明确其 localhost、MinIO 和 websocket 非空值仅供独立本机服务使用。当前代码不会在免费模式下自动拒绝 `REALTIME_PUBLIC_URL`，因此发布者必须在 Vercel 删除或留空；非空即门禁失败。
 - 命令语法复核使用本机 `npm exec --help` 和 Vercel 官方 CLI/link/deploy 文档，未执行 Vercel CLI。迁移脚本依照红绿 TDD 新增 focused tests：首次 RED 因实现缺失为 1 file failed/0 tests；最小实现后暴露并修正数据库路径解析错误，达到 20/20；安全边界扩展再次 RED 为 20/22，修正凭据 percent 编码与编码控制字符校验后 GREEN 为 22/22（1 file，966ms）。覆盖合法 Neon/CHECK、凭据脱敏、损坏 URL 与 percent 编码、主机边界、expected mismatch、跨平台 npm 命令选择，以及确认模式 `shell: false` spawn 合同；没有执行真实 spawn、连接或迁移。
 - 最终复核再次取得 focused tests 22/22（1 file，1.05s）、`tsc --noEmit` 0 错误、完整 ESLint 0 错误及 `git diff --check` 0 错误。另用仅含虚构 Neon 目标的临时、gitignored env 文件执行真实 CLI `--check`，其只显示 host/database 并以 0 退出；临时文件随后删除，未进入确认模式、未启动 npm 子进程、未连接数据库。
+- Task 6 第三次质量复核发现 Windows 命令提示符示例会在变量展开阶段重新解释特殊字符，因此先前“安全保留为一个参数”的跨 shell 声明不成立。runbook 已完全删除该变体及相关变量展开/清理命令；Windows 发布者现在必须使用 PowerShell，POSIX 发布者继续使用带引号的变量形式。对含空白、引号、控制字符或 shell 元字符的 dashboard identifier，发布者必须停止并取得经复核的 Neon 名称，不得自行设计转义。
 
 ## 7. 归档结论与恢复起点
 
