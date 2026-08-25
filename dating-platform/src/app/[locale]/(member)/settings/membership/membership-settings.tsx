@@ -13,6 +13,10 @@ const markets = {
   zh: { country: "CN", currency: "CNY", intlLocale: "zh-CN" },
 } as const;
 
+const trustedCheckoutUrl = (url: URL) => (url.protocol === "https:"
+  && (url.hostname === "stripe.com" || url.hostname.endsWith(".stripe.com")))
+  || (url.origin === window.location.origin && url.pathname === "/api/e2e/stripe-checkout");
+
 export function MembershipSettings({ locale, navigate = (url) => window.location.assign(url) }: {
   locale: "en" | "zh";
   navigate?: (url: string) => void;
@@ -52,8 +56,7 @@ export function MembershipSettings({ locale, navigate = (url) => window.location
       const result = await response.json() as { checkoutUrl?: string };
       if (!response.ok || !result.checkoutUrl) throw new Error();
       const url = new URL(result.checkoutUrl);
-      if (url.protocol !== "https:" || !(url.hostname === "stripe.com" || url.hostname.endsWith(".stripe.com"))
-        || url.username || url.password) throw new Error();
+      if (!trustedCheckoutUrl(url) || url.username || url.password) throw new Error();
       navigate(url.toString());
     } catch { setState("error"); }
   }

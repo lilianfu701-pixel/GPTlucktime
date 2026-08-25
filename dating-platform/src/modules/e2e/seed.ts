@@ -5,10 +5,16 @@ import { eq, sql } from "drizzle-orm";
 import {
   adminRoleAssignments,
   adminSessions,
+  billingPlans,
+  billingPrices,
+  entitlementConfigurations,
+  entitlementDefinitions,
+  entitlementPlanBenefits,
   mediaReviewJobs,
   profilePhotos,
   profiles,
   users,
+  verificationAttempts,
 } from "@/db/schema";
 import { db } from "@/infrastructure/db/client";
 import { resetE2eDeliveries } from "@/modules/e2e/notification-adapter";
@@ -20,7 +26,42 @@ const MODERATOR_TOKEN = "e2e_moderator_session_token_0000000000000001";
 export async function resetE2eState() {
   await db.execute(sql`truncate table ${users} cascade`);
   resetE2eDeliveries();
+  await seedE2eBillingCatalog();
   return seedE2eModerator();
+}
+
+export async function seedE2eBillingCatalog() {
+  const effectiveAt = new Date("2026-01-01T00:00:00.000Z");
+  const [plan] = await db.insert(billingPlans).values({ planRef: "plus", version: 1,
+    nameKey: "plans.plus.name", descriptionKey: "plans.plus.description", effectiveAt })
+    .onConflictDoUpdate({ target: [billingPlans.planRef, billingPlans.version], set: { active: true } })
+    .returning({ id: billingPlans.id });
+  await db.insert(billingPrices).values({ planId: plan!.id, version: 1, countryCode: "US", currency: "USD",
+    unitAmount: 1299, interval: "monthly", intervalCount: 1, taxMode: "exclusive",
+    providerPriceId: "price_e2e_plus_usd", effectiveAt })
+    .onConflictDoUpdate({ target: [billingPrices.planId, billingPrices.countryCode, billingPrices.currency,
+      billingPrices.version], set: { active: true } });
+  await db.insert(entitlementDefinitions).values({ key: "message.read_receipt.view", kind: "boolean",
+    resetPeriod: "none", publicVisible: true }).onConflictDoNothing();
+  await db.insert(entitlementConfigurations).values({ entitlementKey: "message.read_receipt.view",
+    scope: "global_flag", version: 1, kind: "boolean", enabled: true, effectiveAt })
+    .onConflictDoNothing();
+  await db.insert(entitlementPlanBenefits).values({ planRef: "plus", entitlementKey: "message.read_receipt.view",
+    version: 1, kind: "boolean", enabled: true, booleanValue: true, effectiveAt })
+    .onConflictDoNothing();
+  await db.insert(entitlementPlanBenefits).values({ planRef: "plus", entitlementKey: "translation.message.use",
+    version: 1, kind: "quota", enabled: true, quotaLimit: 25, effectiveAt })
+    .onConflictDoUpdate({ target: [entitlementPlanBenefits.planRef, entitlementPlanBenefits.entitlementKey,
+      entitlementPlanBenefits.version], set: { active: true, enabled: true, quotaLimit: 25 } });
+}
+
+export async function seedE2eBillingIdentity(email: string) {
+  const [user] = await db.select({ id: users.id }).from(users).where(eq(users.email, email)).limit(1);
+  if (!user) throw new Error("E2E_MEMBER_NOT_FOUND");
+  await db.insert(verificationAttempts).values({ userId: user.id, kind: "identity", provider: "e2e-local-adapter",
+    providerReference: `identity:${user.id}`, status: "approved", expiresAt: new Date("2099-01-01T00:00:00.000Z") })
+    .onConflictDoNothing({ target: [verificationAttempts.provider, verificationAttempts.providerReference] });
+  return { userId: user.id };
 }
 
 export async function seedE2eModerator() {

@@ -86,6 +86,7 @@ export function selectPublicPlans(prices: BillingPrice[], input: {
 export class CheckoutService {
   constructor(private readonly deps: {
     store: CheckoutStore; provider: CheckoutProvider; appUrl: string; clock?: () => Date;
+    checkoutUrlPolicy?: (url: URL) => boolean;
   }) {
     const app = new URL(deps.appUrl);
     if (!(["http:", "https:"] as string[]).includes(app.protocol) || app.origin !== deps.appUrl
@@ -124,7 +125,9 @@ export class CheckoutService {
         idempotencyKey: `checkout:${order.id}`,
       });
       const checkoutUrl = new URL(session.url);
-      if (checkoutUrl.protocol !== "https:" || !(checkoutUrl.hostname === "stripe.com" || checkoutUrl.hostname.endsWith(".stripe.com"))
+      const trustedStripe = checkoutUrl.protocol === "https:"
+        && (checkoutUrl.hostname === "stripe.com" || checkoutUrl.hostname.endsWith(".stripe.com"));
+      if ((!trustedStripe && !this.deps.checkoutUrlPolicy?.(checkoutUrl))
         || checkoutUrl.username || checkoutUrl.password) throw new Error("UNTRUSTED_CHECKOUT_URL");
       await this.deps.store.attachProviderSession(order.id, { id: session.id, url: session.url });
       return { orderId: order.id, checkoutUrl: session.url, replayed: !created };

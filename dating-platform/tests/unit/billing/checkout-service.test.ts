@@ -136,4 +136,15 @@ describe("CheckoutService", () => {
     await expect(service.create("user-1", { planRef: "plus", currency: "USD" }, "idem-evil", "US"))
       .rejects.toEqual(new BillingError("PROVIDER_UNAVAILABLE"));
   });
+
+  it("allows an explicitly injected guarded checkout URL policy", async () => {
+    const { store, provider } = make();
+    const localUrl = "http://127.0.0.1:3200/api/e2e/stripe-checkout?orderId=order-1";
+    provider.createCheckoutSession.mockResolvedValueOnce({ id: "cs_test_local", url: localUrl });
+    const service = new CheckoutService({ store, provider, appUrl: "http://127.0.0.1:3200", clock: () => now,
+      checkoutUrlPolicy: (url: URL) => url.origin === "http://127.0.0.1:3200"
+        && url.pathname === "/api/e2e/stripe-checkout" } as never);
+    await expect(service.create("user-1", { planRef: "plus", currency: "USD" }, "idem-local-1234", "US"))
+      .resolves.toMatchObject({ checkoutUrl: localUrl });
+  });
 });

@@ -41,4 +41,21 @@ describe("member membership settings", () => {
     expect(fetchMock.mock.calls[2]?.[1]).toEqual(expect.objectContaining({ method: "PATCH",
       headers: expect.objectContaining({ "idempotency-key": expect.any(String) }) }));
   });
+
+  it("opens the same-origin guarded local checkout adapter", async () => {
+    const assign = vi.fn();
+    const localCheckout = `${window.location.origin}/api/e2e/stripe-checkout?orderId=order-1&token=test`;
+    const fetchMock = vi.fn()
+      .mockResolvedValueOnce(new Response(JSON.stringify({ plans: [{ planRef: "plus", nameKey: "plans.plus.name",
+        descriptionKey: "plans.plus.description", price: { currency: "USD", unitAmount: 1299,
+          interval: "monthly", intervalCount: 1, taxMode: "exclusive" } }] }), { status: 200 }))
+      .mockResolvedValueOnce(new Response(JSON.stringify({ subscription: null }), { status: 200 }))
+      .mockResolvedValueOnce(new Response(JSON.stringify({ checkoutUrl: localCheckout }), { status: 201 }));
+    vi.stubGlobal("fetch", fetchMock);
+    render(<NextIntlClientProvider locale="en" messages={messages}>
+      <MembershipSettings locale="en" navigate={assign} />
+    </NextIntlClientProvider>);
+    fireEvent.click(await screen.findByRole("button", { name: "Choose Plus" }));
+    await waitFor(() => expect(assign).toHaveBeenCalledWith(localCheckout));
+  });
 });

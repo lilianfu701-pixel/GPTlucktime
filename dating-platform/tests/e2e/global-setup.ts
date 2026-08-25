@@ -21,6 +21,8 @@ function localEnvironment() {
     BETTER_AUTH_SECRET: process.env.BETTER_AUTH_SECRET ?? "e2e-better-auth-secret-at-least-32-characters",
     BETTER_AUTH_URL: baseURL,
     APP_URL: baseURL,
+    STRIPE_SECRET_KEY: process.env.STRIPE_SECRET_KEY ?? "sk_test_local_adapter_no_live_connection",
+    STRIPE_WEBHOOK_SECRET: process.env.STRIPE_WEBHOOK_SECRET ?? "whsec_local_adapter_at_least_32_characters",
   } satisfies NodeJS.ProcessEnv;
 }
 

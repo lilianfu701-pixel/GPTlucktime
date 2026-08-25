@@ -20,8 +20,11 @@ import { ReconciliationService } from "./reconciliation-service";
 import { createStripeClient, StripeBillingAdapter } from "./stripe-adapter";
 import { SubscriptionService } from "./subscription-service";
 import { WebhookService } from "./webhook-service";
+import { E2eStripeProvider } from "@/modules/e2e/stripe-test-adapter";
+import { requireE2eRuntime } from "@/modules/e2e/e2e-guard";
 
 const env = readEnv(process.env);
+const e2e = process.env.E2E_MODE === "1" ? requireE2eRuntime(process.env) : null;
 const repository = new DrizzleBillingRepository(db);
 const redis = createClient({ url: env.REDIS_URL });
 const limiter = new RedisBillingRateLimiter(redis, { hmacKey: env.BETTER_AUTH_SECRET });
@@ -43,10 +46,18 @@ const lazySubscriptionProvider = {
 const lazyVerifier = {
   verifyAndNormalize: (raw: Uint8Array, signature: string) => configuredStripe().verifyAndNormalize(raw, signature),
 };
+const e2eProvider = e2e ? new E2eStripeProvider(env.APP_URL, process.env.E2E_CONTROL_TOKEN!) : null;
+const checkoutProvider = e2eProvider ?? lazyProvider;
+const subscriptionProvider = e2eProvider ?? lazySubscriptionProvider;
+const billingLimiter = e2e
+  ? { async consume() { return { allowed: true, retryAfterSeconds: 0 }; } }
+  : limiter;
 
-const checkoutService = new CheckoutService({ store: repository, provider: lazyProvider, appUrl: env.APP_URL });
+const checkoutService = new CheckoutService({ store: repository, provider: checkoutProvider, appUrl: env.APP_URL,
+  ...(e2e ? { checkoutUrlPolicy: (url: URL) => url.origin === env.APP_URL
+    && url.pathname === "/api/e2e/stripe-checkout" } : {}) });
 const webhookService = new WebhookService({ verifier: lazyVerifier, store: repository });
-const subscriptionService = new SubscriptionService({ store: repository, provider: lazySubscriptionProvider });
+const subscriptionService = new SubscriptionService({ store: repository, provider: subscriptionProvider });
 
 export const plansRouteDependencies = {
   list: async (input: { countryCode: string; currency: string; limit: number; after?: string; now: Date }) =>
@@ -59,7 +70,7 @@ export const checkoutRouteDependencies = {
   },
   authorizePayment,
   service: checkoutService,
-  limiter,
+  limiter: billingLimiter,
 };
 export const stripeWebhookRouteDependencies = { service: webhookService };
 export const subscriptionRouteDependencies = {
@@ -68,7 +79,7 @@ export const subscriptionRouteDependencies = {
     return session ? { user: { id: session.user.id, emailVerified: session.user.emailVerified } } : null;
   },
   service: subscriptionService,
-  limiter,
+  limiter: billingLimiter,
 };
 
 export async function runDeletionRenewalCancellation(input: { userId: string; deletionRequestId: string;
