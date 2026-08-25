@@ -5,11 +5,11 @@ import { z } from "zod";
 
 import { RedisTokenBucketRateLimiter } from "@/infrastructure/security/rate-limit";
 import {
-  canonicalizeFreeTestEmail,
   createFreeTestRedisClient,
   FreeTestNotificationAdapter,
   type FreeTestMailboxItem,
 } from "@/modules/auth/free-test-notification-adapter";
+import { canonicalizeFreeTestEmail } from "@/modules/auth/free-test-recipient";
 import { resolveTrustedClientBucket } from "@/modules/auth/trusted-ingress";
 import { BoundedJsonError, readBoundedJson } from "@/shared/http/read-bounded-json";
 import { readEnv } from "@/shared/env";

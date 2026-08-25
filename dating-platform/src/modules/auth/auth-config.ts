@@ -11,7 +11,7 @@ import {
 import { AUTH_CREDENTIAL_TTL_SECONDS, credentialValidUntil } from "./auth-credentials";
 import { SmsAbuseError, type SmsAbuseGuard, validateSmsTarget } from "./sms-abuse-guard";
 import { resolveTrustedClientBucket } from "./trusted-ingress";
-import { canonicalizeFreeTestEmail } from "./free-test-notification-adapter";
+import { canonicalizeFreeTestEmail } from "./free-test-recipient";
 
 export const PHONE_LOGIN_NOT_ENABLED = "PHONE_LOGIN_NOT_ENABLED";
 const FREE_TEST_REDIRECT_MAX_BYTES = 4_096;

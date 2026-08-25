@@ -104,7 +104,12 @@ describe("free-test notification adapter", () => {
     await adapter.enqueueEmailVerification({ to: "tamper@datecn.test", verificationUrl: `${appUrl}/verify/tamper`,
       validUntil: new Date(now + 60_000) });
     const [tamperKey, tamperEntry] = [...redis.entries.entries()][0]!;
-    redis.entries.set(tamperKey, { ...tamperEntry, value: `${tamperEntry.value.slice(0, -1)}x` });
+    const [iv, tag, encrypted] = tamperEntry.value.split(".");
+    const encryptedBytes = Buffer.from(encrypted!, "base64url");
+    encryptedBytes[0] = encryptedBytes[0]! ^ 1;
+    redis.entries.set(tamperKey, { ...tamperEntry,
+      value: `${iv}.${tag}.${encryptedBytes.toString("base64url")}` });
+    await expect(adapter.consumeLatest("tamper@datecn.test")).resolves.toBeNull();
     await expect(adapter.consumeLatest("tamper@datecn.test")).resolves.toBeNull();
 
     await adapter.enqueueEmailVerification({ to: "first@datecn.test", verificationUrl: `${appUrl}/verify/first`,

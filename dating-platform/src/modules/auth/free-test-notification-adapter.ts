@@ -8,7 +8,6 @@ import {
   randomBytes,
   timingSafeEqual,
 } from "node:crypto";
-import { z } from "zod";
 import { createClient } from "redis";
 
 import {
@@ -25,6 +24,7 @@ import {
   type SmsOtpMessage,
   type TemplateNotificationMessage,
 } from "./message-sender";
+import { canonicalizeFreeTestEmail } from "./free-test-recipient";
 
 export const FREE_TEST_MAILBOX_TTL_SECONDS = 900;
 export const FREE_TEST_ACTION_URL_MAX_BYTES = 4_096;
@@ -39,8 +39,6 @@ const INVALID = "FREE_TEST_NOTIFICATION_INVALID";
 const UNAVAILABLE = "FREE_TEST_NOTIFICATION_UNAVAILABLE";
 const RECIPIENT_REQUIRED = "FREE_TEST_RECIPIENT_REQUIRED";
 const AAD = Buffer.from("datecn/free-test-mailbox/v1", "utf8");
-const emailSchema = z.string().email().max(254);
-
 type RedisMailbox = {
   isOpen?: boolean;
   connect(): Promise<unknown>;
@@ -78,13 +76,6 @@ function deriveKey(secret: string, purpose: "encryption" | "mailbox"): Buffer {
 
 function constantTimeEqual(left: string, right: string): boolean {
   return timingSafeEqual(createHash("sha256").update(left).digest(), createHash("sha256").update(right).digest());
-}
-
-export function canonicalizeFreeTestEmail(value: string): string | null {
-  if (value !== value.trim() || !emailSchema.safeParse(value).success) return null;
-  const canonical = value.toLowerCase();
-  const separator = canonical.lastIndexOf("@");
-  return separator > 0 && canonical.slice(separator + 1) === "datecn.test" ? canonical : null;
 }
 
 export class FreeTestNotificationAdapter implements MessageSender, MessageDispatcher {
