@@ -1,7 +1,8 @@
 import { defineConfig, devices } from "@playwright/test";
+import { buildLocalE2eEnvironment } from "./scripts/local-acceptance-lib";
 
-const port = Number(process.env.E2E_PORT ?? 3200);
-const baseURL = process.env.E2E_BASE_URL ?? `http://127.0.0.1:${port}`;
+const environment = buildLocalE2eEnvironment(process.env);
+const baseURL = environment.E2E_BASE_URL!;
 
 export default defineConfig({
   testDir: "./tests/e2e",

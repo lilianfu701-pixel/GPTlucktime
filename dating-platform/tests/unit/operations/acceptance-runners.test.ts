@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 
 import { buildExternalAcceptanceCommands } from "../../../scripts/external-acceptance-lib";
-import { buildLocalAcceptanceCommands, buildProductionBuildEnvironment,
+import { buildLocalAcceptanceCommands, buildLocalE2eEnvironment, buildProductionBuildEnvironment,
   selectLocalAcceptanceEnvironment } from "../../../scripts/local-acceptance-lib";
 import { assertTestModeResource, inspectStripeTestConfig } from "../../../scripts/stripe-test-verifier-lib";
 
@@ -39,6 +39,29 @@ describe("release acceptance runners", () => {
     expect(selectLocalAcceptanceEnvironment("Playwright", e2e, {})).toBe(e2e);
     expect(selectLocalAcceptanceEnvironment("production build", e2e, {}).APP_URL)
       .toBe("https://acceptance-build.invalid");
+  });
+
+  it("replaces every hostile host endpoint and provider secret in local Playwright", () => {
+    const env = buildLocalE2eEnvironment({
+      APP_URL: "https://production.example", E2E_BASE_URL: "https://production.example",
+      BETTER_AUTH_URL: "https://production.example/api/auth",
+      DATABASE_URL: "postgresql://prod:secret@db.example/prod",
+      REDIS_URL: "rediss://:secret@redis.example:6380",
+      STRIPE_SECRET_KEY: "sk_live_must_not_escape", STRIPE_WEBHOOK_SECRET: "whsec_production",
+      EMAIL_WEBHOOK_URL: "https://provider.example/send", EMAIL_WEBHOOK_TOKEN: "production-token",
+      REALTIME_PUBLIC_URL: "https://realtime.production.example",
+    });
+    expect(env.NODE_ENV).toBe("test");
+    expect(env.E2E_BASE_URL).toBe("http://127.0.0.1:3200");
+    expect(env.APP_URL).toBe("http://127.0.0.1:3200");
+    expect(env.BETTER_AUTH_URL).toBe("http://127.0.0.1:3200/api/auth");
+    expect(env.DATABASE_URL).toBe("postgresql://postgres:postgres@127.0.0.1:55432/postgres?sslmode=disable");
+    expect(env.REDIS_URL).toBe("redis://127.0.0.1:6379/15");
+    expect(env.REALTIME_PUBLIC_URL).toBe("http://127.0.0.1:3100");
+    expect(env.STRIPE_SECRET_KEY).toBe("sk_test_local_adapter_no_live_connection");
+    expect(env.STRIPE_WEBHOOK_SECRET).toBe("whsec_local_adapter_at_least_32_characters");
+    expect(env.EMAIL_WEBHOOK_URL).toBeUndefined();
+    expect(JSON.stringify(env)).not.toContain("production");
   });
 
   it("requires Stripe test mode and an HTTPS webhook", () => {

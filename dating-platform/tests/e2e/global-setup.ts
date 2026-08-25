@@ -1,42 +1,11 @@
 import { spawn, type ChildProcess } from "node:child_process";
 import { resolve } from "node:path";
 
-const port = Number(process.env.E2E_PORT ?? 3200);
-const databasePort = Number(process.env.E2E_DATABASE_PORT ?? 55432);
-const realtimePort = Number(process.env.E2E_REALTIME_PORT ?? 3100);
-const realtimeControlPort = Number(process.env.E2E_REALTIME_CONTROL_PORT ?? 3101);
-const baseURL = process.env.E2E_BASE_URL ?? `http://127.0.0.1:${port}`;
-const token = process.env.E2E_CONTROL_TOKEN ?? "local-acceptance-token-at-least-32-characters";
-const databaseUrl = `postgresql://postgres:postgres@127.0.0.1:${databasePort}/postgres?sslmode=disable`;
+import { buildLocalE2eEnvironment } from "../../scripts/local-acceptance-lib";
 
-function localEnvironment() {
-  return {
-    ...process.env,
-    NODE_ENV: "test",
-    E2E_MODE: "1",
-    E2E_CONTROL_TOKEN: token,
-    E2E_DATABASE_PATH: process.env.E2E_DATABASE_PATH ?? ".artifacts/e2e/member-acceptance-db-socket",
-    E2E_DATABASE_PORT: String(databasePort),
-    E2E_PORT: String(port),
-    DATABASE_URL: databaseUrl,
-    REDIS_URL: process.env.REDIS_URL ?? "redis://127.0.0.1:6379",
-    BETTER_AUTH_SECRET: process.env.BETTER_AUTH_SECRET ?? "e2e-better-auth-secret-at-least-32-characters",
-    BETTER_AUTH_URL: baseURL,
-    APP_URL: baseURL,
-    STRIPE_SECRET_KEY: process.env.STRIPE_SECRET_KEY ?? "sk_test_local_adapter_no_live_connection",
-    STRIPE_WEBHOOK_SECRET: process.env.STRIPE_WEBHOOK_SECRET ?? "whsec_local_adapter_at_least_32_characters",
-    REALTIME_TICKET_KEYS: process.env.REALTIME_TICKET_KEYS
-      ?? `e2e:${Buffer.alloc(32, 7).toString("base64url")}`,
-    REALTIME_HOST: "127.0.0.1",
-    REALTIME_PORT: String(realtimePort),
-    // PGliteSocketServer is a serial local adapter. Keep the real DB-backed
-    // outbox/revocation loops far enough apart from ordinary Next requests.
-    REALTIME_POLL_MS: "5000",
-    REALTIME_PUBLIC_URL: `http://127.0.0.1:${realtimePort}`,
-    REALTIME_CONTROL_HOST: "127.0.0.1",
-    E2E_REALTIME_CONTROL_PORT: String(realtimeControlPort),
-  } satisfies NodeJS.ProcessEnv;
-}
+const configuredEnvironment = buildLocalE2eEnvironment(process.env);
+const port = Number(configuredEnvironment.E2E_PORT);
+const baseURL = configuredEnvironment.E2E_BASE_URL!;
 
 async function terminateTree(child: ChildProcess | null) {
   if (!child?.pid) return;
@@ -95,8 +64,10 @@ async function waitForRealtimeControl(child: ChildProcess) {
 }
 
 export default async function globalSetup() {
-  if (process.env.E2E_BASE_URL) return;
-  const env = localEnvironment();
+  const env = buildLocalE2eEnvironment(process.env);
+  for (const key of Object.keys(process.env)) {
+    if (env[key] === undefined) delete process.env[key];
+  }
   Object.assign(process.env, env);
   const detached = process.platform !== "win32";
   const database = spawn(process.execPath, ["--import", "tsx", resolve("scripts/start-e2e-server.ts")], {
