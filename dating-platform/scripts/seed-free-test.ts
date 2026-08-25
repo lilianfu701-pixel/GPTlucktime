@@ -341,8 +341,13 @@ export async function createCredentialsFile({
   randomBytes?: RandomBytes;
 }): Promise<FreeTestCredentials> {
   try {
+    const directory = dirname(path);
+    await mkdir(directory, { recursive: true });
+    validateCredentialDirectoryType(await lstat(directory));
     try {
-      return await readCredentials(path);
+      const existing = await readCredentials(path);
+      validateCredentialDirectoryType(await lstat(directory));
+      return existing;
     } catch {
       // The exclusive hard-link below distinguishes an absent destination from a conflict.
     }
@@ -353,8 +358,6 @@ export async function createCredentialsFile({
         password: randomBytes(24).toString("base64url"),
       })),
     });
-    const directory = dirname(path);
-    await mkdir(directory, { recursive: true });
     validateCredentialDirectoryType(await lstat(directory));
     const temporaryPath = `${path}.${randomUUID()}.tmp`;
     try {
@@ -364,6 +367,7 @@ export async function createCredentialsFile({
         mode: 0o600,
       });
       await secureCredentialPermissions(temporaryPath);
+      validateCredentialDirectoryType(await lstat(directory));
       try {
         await link(temporaryPath, path);
       } catch (error) {

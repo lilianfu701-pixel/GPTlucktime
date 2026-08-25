@@ -301,6 +301,25 @@ describe("free-test credentials artifact", () => {
     })).rejects.toThrow(FREE_TEST_SEED_ERROR);
     await expect(access(join(outsideRoot, "free-test-credentials.json"))).rejects.toBeDefined();
   });
+
+  it("rejects a linked credential directory even when a valid artifact already exists outside", async () => {
+    const applicationRoot = await mkdtemp(join(tmpdir(), "datecn-seed-app-existing-"));
+    const outsideRoot = await mkdtemp(join(tmpdir(), "datecn-seed-outside-existing-"));
+    tempDirectories.push(applicationRoot, outsideRoot);
+    const outsidePath = join(outsideRoot, "free-test-credentials.json");
+    await createCredentialsFile({
+      path: outsidePath,
+      randomBytes: () => Buffer.alloc(24, 4),
+    });
+    const original = await readFile(outsidePath, "utf8");
+    const linkedDirectory = join(applicationRoot, ".artifacts");
+    await symlink(outsideRoot, linkedDirectory, process.platform === "win32" ? "junction" : "dir");
+
+    await expect(createCredentialsFile({
+      path: join(linkedDirectory, "free-test-credentials.json"),
+    })).rejects.toThrow(FREE_TEST_SEED_ERROR);
+    expect(await readFile(outsidePath, "utf8")).toBe(original);
+  });
 });
 
 describe("free-test synthetic graph", () => {
