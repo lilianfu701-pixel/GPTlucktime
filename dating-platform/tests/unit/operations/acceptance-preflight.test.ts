@@ -26,9 +26,9 @@ describe("acceptance preflight", () => {
       "pg_dump executable was not found on PATH",
       "pg_restore executable was not found on PATH",
       "psql executable was not found on PATH",
-      "STRIPE_SECRET_KEY is required for the external provider gate",
-      "STRIPE_WEBHOOK_SECRET is required for the external provider gate",
-      "STRIPE_TEST_PRICE_ID is required for the external provider gate",
+      "STRIPE_SECRET_KEY must be a Stripe test secret key",
+      "STRIPE_WEBHOOK_SECRET is required",
+      "STRIPE_TEST_PRICE_ID must be a Stripe price id",
       "STRIPE_TEST_WEBHOOK_URL must be an HTTPS acceptance endpoint",
     ]);
   });

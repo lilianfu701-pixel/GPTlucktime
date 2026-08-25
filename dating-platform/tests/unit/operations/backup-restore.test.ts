@@ -2,6 +2,9 @@ import { describe, expect, it } from "vitest";
 
 import {
   assertDisposableDatabaseTarget,
+  buildDropRestoreDatabasePlan,
+  buildForeignKeyMetadataQuery,
+  buildForeignKeyOrphanQuery,
   buildRestoreVerificationQueries,
   inspectBackupPreflight,
   verifyRestoreSnapshot,
@@ -28,7 +31,7 @@ describe("backup restore guard", () => {
   it("checks the release-critical restored records and relations", () => {
     const queries = buildRestoreVerificationQueries();
     expect(Object.keys(queries)).toEqual(expect.arrayContaining([
-      "users", "profiles", "messages", "subscriptions", "entitlements", "auditEvents", "foreignKeys",
+      "users", "profiles", "messages", "subscriptions", "entitlements", "auditEvents",
     ]));
     expect(verifyRestoreSnapshot({
       source: { users: 2, profiles: 2, messages: 1, subscriptions: 1, entitlements: 1, auditEvents: 1, foreignKeys: 0 },
@@ -39,11 +42,36 @@ describe("backup restore guard", () => {
     })).toEqual([]);
   });
 
-  it("fails when the restored schema contains unvalidated foreign keys", () => {
+  it("fails when restored rows violate foreign key relationships", () => {
     const counts = { users: 2, profiles: 2, messages: 1, subscriptions: 1,
       entitlements: 1, auditEvents: 1, foreignKeys: 1 };
     expect(verifyRestoreSnapshot({ source: counts, restored: counts,
       recentMessageFound: true, subscriptionEntitlementFound: true, auditEventFound: true }))
-      .toContain("restored database contains 1 unvalidated foreign key(s)");
+      .toContain("restored database contains 1 foreign key orphan(s)");
+  });
+
+  it("discovers every ordinary foreign key and builds a quoted orphan query", () => {
+    expect(buildForeignKeyMetadataQuery()).toContain("pg_catalog.pg_constraint");
+    expect(buildForeignKeyMetadataQuery()).toContain("con.contype = 'f'");
+    const query = buildForeignKeyOrphanQuery({
+      childSchema: "public", childTable: "message-receipts",
+      parentSchema: "public", parentTable: "users",
+      childColumns: ["user_id", "tenant_id"], parentColumns: ["id", "tenant_id"], matchType: "s",
+    });
+    expect(query).toContain('FROM "public"."message-receipts" child');
+    expect(query).toContain('parent."id" = child."user_id"');
+    expect(query).toContain('child."user_id" IS NOT NULL');
+  });
+
+  it("drops only a separately named disposable restore database through maintenance postgres", () => {
+    const plan = buildDropRestoreDatabasePlan(
+      "postgresql://u:p@db/app_restore_e2e",
+      "postgresql://u:p@db/app_source_e2e",
+    );
+    expect(plan.databaseUrl).toBe("postgresql://u:p@db/postgres");
+    expect(plan.query).toBe('DROP DATABASE "app_restore_e2e" WITH (FORCE)');
+    expect(() => buildDropRestoreDatabasePlan(
+      "postgresql://u:p@db/production", "postgresql://u:p@db/app_source_e2e",
+    )).toThrow("restore database name must include e2e or test");
   });
 });

@@ -3,6 +3,16 @@ export type RestoreCounters = Record<
   number
 >;
 
+export type ForeignKeyMetadata = {
+  childSchema: string;
+  childTable: string;
+  parentSchema: string;
+  parentTable: string;
+  childColumns: string[];
+  parentColumns: string[];
+  matchType: "f" | "p" | "s";
+};
+
 type ExecutableLookup = (name: string) => string | null;
 
 export function assertDisposableDatabaseTarget(value: string, label: "source" | "restore", other?: string) {
@@ -53,8 +63,67 @@ export function buildRestoreVerificationQueries() {
     subscriptions: "SELECT count(*)::int AS count FROM billing_subscriptions",
     entitlements: "SELECT count(*)::int AS count FROM entitlement_user_plan_assignments",
     auditEvents: "SELECT count(*)::int AS count FROM moderation_audit_events",
-    foreignKeys: "SELECT count(*)::int AS count FROM pg_constraint WHERE contype = 'f' AND NOT convalidated",
-  } satisfies Record<keyof RestoreCounters, string>;
+  } satisfies Record<Exclude<keyof RestoreCounters, "foreignKeys">, string>;
+}
+
+export function buildForeignKeyMetadataQuery() {
+  return `SELECT coalesce(json_agg(json_build_object(
+    'childSchema', child_ns.nspname,
+    'childTable', child.relname,
+    'parentSchema', parent_ns.nspname,
+    'parentTable', parent.relname,
+    'childColumns', child_cols.columns,
+    'parentColumns', parent_cols.columns,
+    'matchType', con.confmatchtype
+  )), '[]'::json)::text
+  FROM pg_catalog.pg_constraint con
+  JOIN pg_catalog.pg_class child ON child.oid = con.conrelid
+  JOIN pg_catalog.pg_namespace child_ns ON child_ns.oid = child.relnamespace
+  JOIN pg_catalog.pg_class parent ON parent.oid = con.confrelid
+  JOIN pg_catalog.pg_namespace parent_ns ON parent_ns.oid = parent.relnamespace
+  CROSS JOIN LATERAL (
+    SELECT array_agg(att.attname ORDER BY key.ordinality) AS columns
+    FROM unnest(con.conkey) WITH ORDINALITY key(attnum, ordinality)
+    JOIN pg_catalog.pg_attribute att ON att.attrelid = con.conrelid AND att.attnum = key.attnum
+  ) child_cols
+  CROSS JOIN LATERAL (
+    SELECT array_agg(att.attname ORDER BY key.ordinality) AS columns
+    FROM unnest(con.confkey) WITH ORDINALITY key(attnum, ordinality)
+    JOIN pg_catalog.pg_attribute att ON att.attrelid = con.confrelid AND att.attnum = key.attnum
+  ) parent_cols
+  WHERE con.contype = 'f'`;
+}
+
+function quoteIdentifier(value: string) {
+  if (value.includes("\0")) throw new Error("PostgreSQL identifier contains a null byte");
+  return `"${value.replaceAll('"', '""')}"`;
+}
+
+export function buildForeignKeyOrphanQuery(metadata: ForeignKeyMetadata) {
+  if (metadata.childColumns.length === 0 || metadata.childColumns.length !== metadata.parentColumns.length) {
+    throw new Error("foreign key metadata columns are invalid");
+  }
+  const childTable = `${quoteIdentifier(metadata.childSchema)}.${quoteIdentifier(metadata.childTable)}`;
+  const parentTable = `${quoteIdentifier(metadata.parentSchema)}.${quoteIdentifier(metadata.parentTable)}`;
+  const childNotNull = metadata.childColumns.map((column) => `child.${quoteIdentifier(column)} IS NOT NULL`).join(" AND ");
+  const childNull = metadata.childColumns.map((column) => `child.${quoteIdentifier(column)} IS NULL`).join(" AND ");
+  const join = metadata.childColumns.map((column, index) =>
+    `parent.${quoteIdentifier(metadata.parentColumns[index]!)} = child.${quoteIdentifier(column)}`).join(" AND ");
+  const orphan = `(${childNotNull}) AND NOT EXISTS (SELECT 1 FROM ${parentTable} parent WHERE ${join})`;
+  const violation = metadata.matchType === "f"
+    ? `(NOT (${childNotNull}) AND NOT (${childNull})) OR ${orphan}`
+    : orphan;
+  return `SELECT count(*)::int AS count FROM ${childTable} child WHERE ${violation}`;
+}
+
+export function buildDropRestoreDatabasePlan(restoreUrl: string, sourceUrl: string) {
+  assertDisposableDatabaseTarget(restoreUrl, "restore", sourceUrl);
+  assertDisposableDatabaseTarget(sourceUrl, "source", restoreUrl);
+  const parsed = new URL(restoreUrl);
+  const database = decodeURIComponent(parsed.pathname.replace(/^\//u, ""));
+  const maintenance = new URL(restoreUrl);
+  maintenance.pathname = "/postgres";
+  return { databaseUrl: maintenance.toString(), query: `DROP DATABASE ${quoteIdentifier(database)} WITH (FORCE)` };
 }
 
 export function verifyRestoreSnapshot(input: {
@@ -71,7 +140,7 @@ export function verifyRestoreSnapshot(input: {
     }
   }
   if (input.restored.foreignKeys !== 0) {
-    failures.push(`restored database contains ${input.restored.foreignKeys} unvalidated foreign key(s)`);
+    failures.push(`restored database contains ${input.restored.foreignKeys} foreign key orphan(s)`);
   }
   if (!input.recentMessageFound) failures.push("recent message was not restored");
   if (!input.subscriptionEntitlementFound) failures.push("subscription/entitlement relation was not restored");

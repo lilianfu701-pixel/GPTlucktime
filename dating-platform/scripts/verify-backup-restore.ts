@@ -1,13 +1,17 @@
 import { spawnSync } from "node:child_process";
-import { existsSync, mkdirSync, readFileSync, statSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, readFileSync, statSync, unlinkSync, writeFileSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 
 import {
   assertDisposableDatabaseTarget,
+  buildDropRestoreDatabasePlan,
+  buildForeignKeyMetadataQuery,
+  buildForeignKeyOrphanQuery,
   buildRestoreVerificationQueries,
   inspectBackupPreflight,
   verifyRestoreSnapshot,
   type RestoreCounters,
+  type ForeignKeyMetadata,
 } from "./backup-restore-lib";
 
 const action = process.argv[2];
@@ -61,9 +65,12 @@ function scalar(databaseUrl: string, query: string) {
 }
 
 function counters(databaseUrl: string): RestoreCounters {
-  return Object.fromEntries(Object.entries(buildRestoreVerificationQueries()).map(([key, query]) => [
+  const ordinary = Object.fromEntries(Object.entries(buildRestoreVerificationQueries()).map(([key, query]) => [
     key, Number(scalar(databaseUrl, query)),
-  ])) as RestoreCounters;
+  ]));
+  const metadata = JSON.parse(scalar(databaseUrl, buildForeignKeyMetadataQuery())) as ForeignKeyMetadata[];
+  const foreignKeys = metadata.reduce((sum, item) => sum + Number(scalar(databaseUrl, buildForeignKeyOrphanQuery(item))), 0);
+  return { ...ordinary, foreignKeys } as RestoreCounters;
 }
 
 if (action === "backup") {
@@ -97,7 +104,6 @@ const restoreStarted = Date.now();
 run("pg_restore", ["--clean", "--if-exists", "--no-owner", "--no-privileges", "--exit-on-error",
   "--dbname", decodeURIComponent(new URL(restoreUrl).pathname.replace(/^\//u, "")), artifact],
 connectionEnvironment(restoreUrl));
-scalar(restoreUrl, "BEGIN; SET CONSTRAINTS ALL IMMEDIATE; COMMIT;");
 const restored = counters(restoreUrl);
 const recentMessageFound = metadata.latestMessageCreatedAt.length > 0
   && scalar(restoreUrl, `SELECT EXISTS(SELECT 1 FROM messages WHERE created_at = '${metadata.latestMessageCreatedAt.replaceAll("'", "''")}')::text`) === "true";
@@ -122,6 +128,10 @@ const report = {
   source: metadata.counts,
   restored,
   artifact,
-  note: "The explicitly named disposable restore database is retained; this script never drops databases.",
+  note: "The verified disposable restore database and local backup artifacts were removed after success.",
 };
+const cleanup = buildDropRestoreDatabasePlan(restoreUrl, sourceUrl);
+scalar(cleanup.databaseUrl, cleanup.query);
+unlinkSync(artifact);
+unlinkSync(metadataPath);
 console.log(JSON.stringify(report, null, 2));

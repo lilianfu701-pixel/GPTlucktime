@@ -15,7 +15,7 @@
     "test:acceptance:preflight:local": "tsx scripts/acceptance-preflight.ts local",
     "test:acceptance:preflight:external": "tsx scripts/acceptance-preflight.ts external",
     "test:acceptance:local": "tsx scripts/run-local-acceptance.ts",
-    "test:acceptance:external": "npm run test:acceptance:preflight:external",
+    "test:acceptance:external": "tsx scripts/run-external-acceptance.ts",
     "test:acceptance": "npm run test:acceptance:local && npm run test:acceptance:external",
     "db:backup:test": "tsx scripts/verify-backup-restore.ts backup",
     "db:restore:verify": "tsx scripts/verify-backup-restore.ts restore",

@@ -1,16 +1,5 @@
 import { spawnSync } from "node:child_process";
-import { readdirSync, readFileSync } from "node:fs";
-import { resolve } from "node:path";
-
-const acceptanceFiles = readdirSync(resolve("tests/e2e"), { recursive: true, withFileTypes: true })
-  .filter((entry) => entry.isFile() && /\.(?:ts|tsx)$/u.test(entry.name));
-for (const entry of acceptanceFiles) {
-  const path = resolve(entry.parentPath, entry.name);
-  if (/\b(?:skip|fixme)\b/iu.test(readFileSync(path, "utf8"))) {
-    console.error(`LOCAL_ACCEPTANCE_REJECTED_SKIPPED_TEST:${path}`);
-    process.exit(1);
-  }
-}
+import { buildLocalAcceptanceCommands, buildProductionBuildEnvironment } from "./local-acceptance-lib";
 
 const port = process.env.E2E_PORT ?? "3200";
 const environment: NodeJS.ProcessEnv = {
@@ -24,14 +13,11 @@ const environment: NodeJS.ProcessEnv = {
   APP_URL: process.env.APP_URL ?? `http://127.0.0.1:${port}`,
 };
 
-const preflight = spawnSync(process.execPath, ["--import", "tsx", resolve("scripts/acceptance-preflight.ts"), "local"], {
-  env: environment,
-  stdio: "inherit",
-});
-if (preflight.status !== 0) process.exit(preflight.status ?? 1);
-
-const playwright = spawnSync(process.execPath, [resolve("node_modules/@playwright/test/cli.js"), "test", ...process.argv.slice(2)], {
-  env: environment,
-  stdio: "inherit",
-});
-process.exit(playwright.status ?? 1);
+for (const command of buildLocalAcceptanceCommands(process.argv.slice(2))) {
+  console.log(`LOCAL_ACCEPTANCE_GATE:${command.label}`);
+  const env = command.label === "production build"
+    ? buildProductionBuildEnvironment(process.env)
+    : environment;
+  const result = spawnSync(command.executable, command.args, { env, stdio: "inherit", windowsHide: true });
+  if (result.status !== 0) process.exit(result.status ?? 1);
+}
