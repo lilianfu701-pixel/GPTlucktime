@@ -15,23 +15,44 @@ export type ForeignKeyMetadata = {
 
 type ExecutableLookup = (name: string) => string | null;
 
+function databaseName(value: string) {
+  return decodeURIComponent(new URL(value).pathname.replace(/^\//u, ""));
+}
+
+function isLoopbackHost(hostname: string) {
+  return hostname === "127.0.0.1" || hostname === "localhost" || hostname === "[::1]";
+}
+
 export function assertDisposableDatabaseTarget(value: string, label: "source" | "restore", other?: string) {
   let parsed: URL;
   try { parsed = new URL(value); } catch { throw new Error(`${label} database URL is invalid`); }
   if (parsed.protocol !== "postgres:" && parsed.protocol !== "postgresql:") {
     throw new Error(`${label} database URL must use PostgreSQL`);
   }
-  const database = decodeURIComponent(parsed.pathname.replace(/^\//u, ""));
-  if (!/(?:e2e|test)/iu.test(database)) throw new Error(`${label} database name must include e2e or test`);
+  if (!isLoopbackHost(parsed.hostname.toLowerCase())) throw new Error(`${label} database host must be loopback`);
+  const database = databaseName(value);
+  if (!/^[a-z0-9]+(?:[-_][a-z0-9]+)*$/iu.test(database)
+    || !/(?:^|[-_])(?:e2e|test)(?:[-_]|$)/iu.test(database)) {
+    throw new Error(`${label} database name must contain a separated e2e or test token`);
+  }
   if (/^(?:postgres|template0|template1)$/iu.test(database)) throw new Error(`${label} database is protected`);
   if (other && normalizedDatabaseIdentity(value) === normalizedDatabaseIdentity(other)) {
     throw new Error("source and restore databases must be different");
   }
 }
 
+export function assertDisposableDatabaseConfirmation(restoreUrl: string, confirmation: string | undefined) {
+  let expected: string;
+  try { expected = databaseName(restoreUrl); } catch { throw new Error("restore database URL is invalid"); }
+  if (!confirmation || confirmation !== expected) {
+    throw new Error("disposable confirmation must exactly match restore database name");
+  }
+}
+
 function normalizedDatabaseIdentity(value: string) {
   const parsed = new URL(value);
-  return `${parsed.hostname.toLowerCase()}:${parsed.port || "5432"}${parsed.pathname}`;
+  const host = isLoopbackHost(parsed.hostname.toLowerCase()) ? "loopback" : parsed.hostname.toLowerCase();
+  return `${host}:${parsed.port || "5432"}/${databaseName(value)}`;
 }
 
 export function inspectBackupPreflight(
@@ -43,6 +64,13 @@ export function inspectBackupPreflight(
   if (!env.TEST_RESTORE_DATABASE_URL) missing.push("TEST_RESTORE_DATABASE_URL is required and must name a different disposable E2E restore database");
   for (const executable of ["pg_dump", "pg_restore", "psql"] as const) {
     if (!lookup(executable)) missing.push(`${executable} executable was not found on PATH`);
+  }
+  if (!env.TEST_RESTORE_DATABASE_URL || !env.TEST_RESTORE_DATABASE_DISPOSABLE_CONFIRM) {
+    missing.push("TEST_RESTORE_DATABASE_DISPOSABLE_CONFIRM must exactly match the restore database name");
+  } else {
+    try { assertDisposableDatabaseConfirmation(env.TEST_RESTORE_DATABASE_URL,
+      env.TEST_RESTORE_DATABASE_DISPOSABLE_CONFIRM); }
+    catch { missing.push("TEST_RESTORE_DATABASE_DISPOSABLE_CONFIRM must exactly match the restore database name"); }
   }
   if (env.TEST_DATABASE_URL) {
     try { assertDisposableDatabaseTarget(env.TEST_DATABASE_URL, "source", env.TEST_RESTORE_DATABASE_URL); }
@@ -116,9 +144,10 @@ export function buildForeignKeyOrphanQuery(metadata: ForeignKeyMetadata) {
   return `SELECT count(*)::int AS count FROM ${childTable} child WHERE ${violation}`;
 }
 
-export function buildDropRestoreDatabasePlan(restoreUrl: string, sourceUrl: string) {
+export function buildDropRestoreDatabasePlan(restoreUrl: string, sourceUrl: string, confirmation: string | undefined) {
   assertDisposableDatabaseTarget(restoreUrl, "restore", sourceUrl);
   assertDisposableDatabaseTarget(sourceUrl, "source", restoreUrl);
+  assertDisposableDatabaseConfirmation(restoreUrl, confirmation);
   const parsed = new URL(restoreUrl);
   const database = decodeURIComponent(parsed.pathname.replace(/^\//u, ""));
   const maintenance = new URL(restoreUrl);

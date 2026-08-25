@@ -130,7 +130,11 @@ const report = {
   artifact,
   note: "The verified disposable restore database and local backup artifacts were removed after success.",
 };
-const cleanup = buildDropRestoreDatabasePlan(restoreUrl, sourceUrl);
+const cleanup = buildDropRestoreDatabasePlan(
+  restoreUrl,
+  sourceUrl,
+  process.env.TEST_RESTORE_DATABASE_DISPOSABLE_CONFIRM,
+);
 scalar(cleanup.databaseUrl, cleanup.query);
 unlinkSync(artifact);
 unlinkSync(metadataPath);

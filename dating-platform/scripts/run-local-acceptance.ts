@@ -1,5 +1,5 @@
 import { spawnSync } from "node:child_process";
-import { buildLocalAcceptanceCommands, buildProductionBuildEnvironment } from "./local-acceptance-lib";
+import { buildLocalAcceptanceCommands, selectLocalAcceptanceEnvironment } from "./local-acceptance-lib";
 
 const port = process.env.E2E_PORT ?? "3200";
 const environment: NodeJS.ProcessEnv = {
@@ -15,9 +15,7 @@ const environment: NodeJS.ProcessEnv = {
 
 for (const command of buildLocalAcceptanceCommands(process.argv.slice(2))) {
   console.log(`LOCAL_ACCEPTANCE_GATE:${command.label}`);
-  const env = command.label === "production build"
-    ? buildProductionBuildEnvironment(process.env)
-    : environment;
+  const env = selectLocalAcceptanceEnvironment(command.label, environment, process.env);
   const result = spawnSync(command.executable, command.args, { env, stdio: "inherit", windowsHide: true });
   if (result.status !== 0) process.exit(result.status ?? 1);
 }

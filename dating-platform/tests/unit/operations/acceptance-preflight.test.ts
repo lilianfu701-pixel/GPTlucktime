@@ -26,6 +26,7 @@ describe("acceptance preflight", () => {
       "pg_dump executable was not found on PATH",
       "pg_restore executable was not found on PATH",
       "psql executable was not found on PATH",
+      "TEST_RESTORE_DATABASE_DISPOSABLE_CONFIRM must exactly match the restore database name",
       "STRIPE_SECRET_KEY must be a Stripe test secret key",
       "STRIPE_WEBHOOK_SECRET is required",
       "STRIPE_TEST_PRICE_ID must be a Stripe price id",

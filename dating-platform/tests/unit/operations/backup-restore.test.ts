@@ -18,14 +18,31 @@ describe("backup restore guard", () => {
       "pg_dump executable was not found on PATH",
       "pg_restore executable was not found on PATH",
       "psql executable was not found on PATH",
+      "TEST_RESTORE_DATABASE_DISPOSABLE_CONFIRM must exactly match the restore database name",
     ]);
   });
 
-  it("refuses production-like, shared, or identical database targets", () => {
+  it.each(["app_e2e", "e2e_app_restore", "app-test", "test-app-restore"])(
+    "allows an explicitly delimited disposable name: %s", (database) => {
+      expect(() => assertDisposableDatabaseTarget(`postgresql://u:p@127.0.0.1/${database}`, "source"))
+        .not.toThrow();
+    });
+
+  it.each(["prod", "latest", "contest", "testimony", "e2eproduction", "productione2e"])(
+    "refuses a production-like or substring-only name: %s", (database) => {
+      expect(() => assertDisposableDatabaseTarget(`postgresql://u:p@127.0.0.1/${database}`, "source"))
+        .toThrow("source database name must contain a separated e2e or test token");
+    });
+
+  it("refuses identical or non-loopback targets", () => {
+    expect(() => assertDisposableDatabaseTarget("postgresql://u:p@db.example/app_e2e", "source"))
+      .toThrow("source database host must be loopback");
     expect(() => assertDisposableDatabaseTarget("postgresql://u:p@db/prod", "source"))
-      .toThrow("source database name must include e2e or test");
-    expect(() => assertDisposableDatabaseTarget("postgresql://u:p@db/app_e2e", "source",
-      "postgresql://u:p@db/app_e2e")).toThrow("source and restore databases must be different");
+      .toThrow("source database host must be loopback");
+    expect(() => assertDisposableDatabaseTarget("postgresql://u:p@localhost/app_e2e", "source",
+      "postgresql://u:p@localhost/app_e2e")).toThrow("source and restore databases must be different");
+    expect(() => assertDisposableDatabaseTarget("postgresql://u:p@localhost/app_e2e", "source",
+      "postgresql://u:p@127.0.0.1/app_e2e")).toThrow("source and restore databases must be different");
   });
 
   it("checks the release-critical restored records and relations", () => {
@@ -65,13 +82,19 @@ describe("backup restore guard", () => {
 
   it("drops only a separately named disposable restore database through maintenance postgres", () => {
     const plan = buildDropRestoreDatabasePlan(
-      "postgresql://u:p@db/app_restore_e2e",
-      "postgresql://u:p@db/app_source_e2e",
+      "postgresql://u:p@127.0.0.1/app_restore_e2e",
+      "postgresql://u:p@127.0.0.1/app_source_e2e",
+      "app_restore_e2e",
     );
-    expect(plan.databaseUrl).toBe("postgresql://u:p@db/postgres");
+    expect(plan.databaseUrl).toBe("postgresql://u:p@127.0.0.1/postgres");
     expect(plan.query).toBe('DROP DATABASE "app_restore_e2e" WITH (FORCE)');
     expect(() => buildDropRestoreDatabasePlan(
-      "postgresql://u:p@db/production", "postgresql://u:p@db/app_source_e2e",
-    )).toThrow("restore database name must include e2e or test");
+      "postgresql://u:p@127.0.0.1/app_restore_e2e",
+      "postgresql://u:p@127.0.0.1/app_source_e2e",
+      "app_source_e2e",
+    )).toThrow("disposable confirmation must exactly match restore database name");
+    expect(() => buildDropRestoreDatabasePlan(
+      "postgresql://u:p@127.0.0.1/latest", "postgresql://u:p@127.0.0.1/app_source_e2e", "latest",
+    )).toThrow("restore database name must contain a separated e2e or test token");
   });
 });
