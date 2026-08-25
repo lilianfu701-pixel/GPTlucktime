@@ -4,6 +4,7 @@ import { describe, expect, it, vi } from "vitest";
 
 import {
   createConversationsHandler,
+  createMessageReceiptsHandler,
   createMessagesHandler,
   createRealtimeTicketHandler,
   parseSendMessageInput,
@@ -13,6 +14,7 @@ import { MessagingError } from "@/modules/messaging/message-repository";
 const userId = "00000000-0000-4000-8000-000000000001";
 const sessionId = "00000000-0000-4000-8000-000000000002";
 const conversationId = "00000000-0000-4000-8000-000000000003";
+const messageId = "00000000-0000-4000-8000-000000000006";
 const profileId = "00000000-0000-4000-8000-000000000004";
 const clientId = "00000000-0000-4000-8000-000000000005";
 const authenticated = async () => ({ user: { id: userId }, session: { id: sessionId } });
@@ -214,5 +216,76 @@ describe("messaging routes", () => {
       method: "POST", body: "{}", headers: { "content-type": "application/octet-stream" },
     }))).status).toBe(415);
     expect(issuer.issue).not.toHaveBeenCalled();
+  });
+
+  it("records receipts from the route body while injecting the path conversation", async () => {
+    const receipts = {
+      listVisible: vi.fn(),
+      record: vi.fn().mockResolvedValue({ messageId, conversationId, userId }),
+    };
+    const handler = createMessageReceiptsHandler({ getSession: authenticated, receipts });
+    const response = await handler(new Request(`https://example.test/api/v1/conversations/${conversationId}/receipts`, {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ messageId, kind: "read", at: "2026-08-24T20:00:00.000Z" }),
+    }), context);
+    expect(response.status).toBe(200);
+    expect(receipts.record).toHaveBeenCalledWith(userId, {
+      conversationId, messageId, kind: "read", at: "2026-08-24T20:00:00.000Z",
+    });
+  });
+
+  it("rejects malformed receipt bodies before calling the service", async () => {
+    const receipts = { listVisible: vi.fn(), record: vi.fn() };
+    const handler = createMessageReceiptsHandler({ getSession: authenticated, receipts });
+    const requests = [
+      new Request(`https://example.test/api/v1/conversations/${conversationId}/receipts`, {
+        method: "POST", body: "not-json", headers: { "content-type": "application/json" },
+      }),
+      new Request(`https://example.test/api/v1/conversations/${conversationId}/receipts`, {
+        method: "POST", body: JSON.stringify({ messageId, kind: "read", at: "2026-08-24T20:00:00.000Z", extra: true }),
+        headers: { "content-type": "application/json" },
+      }),
+      new Request(`https://example.test/api/v1/conversations/${conversationId}/receipts`, {
+        method: "POST", body: JSON.stringify({ messageId: "not-a-uuid", kind: "read", at: "2026-08-24T20:00:00.000Z" }),
+        headers: { "content-type": "application/json" },
+      }),
+      new Request(`https://example.test/api/v1/conversations/${conversationId}/receipts`, {
+        method: "POST", body: JSON.stringify({ messageId, kind: "read", at: "2026-08-24T20:00:00.000Z", padding: "x".repeat(2_000) }),
+        headers: { "content-type": "application/json" },
+      }),
+    ];
+    for (const [index, request] of requests.entries()) {
+      expect((await handler(request, context)).status).toBe(index === 3 ? 413 : 400);
+    }
+    expect((await handler(new Request(`https://example.test/api/v1/conversations/${conversationId}/receipts`, {
+      method: "POST", body: "{}", headers: { "content-type": "application/json; charset=iso-8859-1" },
+    }), context)).status).toBe(415);
+    expect(receipts.record).not.toHaveBeenCalled();
+  });
+
+  it("returns safe authorization and repository errors for receipt writes", async () => {
+    const unavailable = { listVisible: vi.fn(), record: vi.fn().mockRejectedValue(new Error("RECEIPT_NOT_AVAILABLE")) };
+    const unavailableHandler = createMessageReceiptsHandler({ getSession: authenticated, receipts: unavailable });
+    const makeReceiptRequest = () => new Request(`https://example.test/api/v1/conversations/${conversationId}/receipts`, {
+      method: "POST", body: JSON.stringify({ messageId, kind: "delivered", at: "2026-08-24T20:00:00.000Z" }),
+      headers: { "content-type": "application/json" },
+    });
+    const unavailableResponse = await unavailableHandler(makeReceiptRequest(), context);
+    expect(unavailableResponse.status).toBe(404);
+    expect(await unavailableResponse.json()).toEqual({
+      code: "CONVERSATION_NOT_AVAILABLE", message: "CONVERSATION_NOT_AVAILABLE",
+    });
+
+    const unexpected = { listVisible: vi.fn(), record: vi.fn().mockRejectedValue(new Error("database offline")) };
+    const unexpectedHandler = createMessageReceiptsHandler({ getSession: authenticated, receipts: unexpected });
+    const unexpectedRequest = new Request(`https://example.test/api/v1/conversations/${conversationId}/receipts`, {
+      method: "POST", body: JSON.stringify({ messageId, kind: "delivered", at: "2026-08-24T20:00:00.000Z" }),
+      headers: { "content-type": "application/json" },
+    });
+    expect((await unexpectedHandler(unexpectedRequest, context)).status).toBe(500);
+
+    const unauthorized = createMessageReceiptsHandler({ getSession: async () => null, receipts: unavailable });
+    expect((await unauthorized(makeReceiptRequest(), context)).status).toBe(401);
   });
 });

@@ -10,6 +10,11 @@ type MessageContext = { params: Promise<{ conversationId: string }> };
 type TicketIssuer = { issue(userId: string, sessionId: string): Promise<{ ticket: string; expiresAt: string }> };
 
 const uuid = z.string().uuid();
+const receiptWrite = z.object({
+  messageId: uuid,
+  kind: z.enum(["delivered", "read"]),
+  at: z.string().datetime({ offset: true }),
+}).strict();
 const cursorPattern = /^[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+$/;
 const CONVERSATION_JSON_MAX_BYTES = 1_024;
 const MESSAGE_JSON_MAX_BYTES = 16_384;
@@ -66,7 +71,7 @@ async function readJson(request: Request, maxBytes: number) {
   }
 }
 
-const bodyErrorResponse = (error: unknown, invalidCode: "INVALID_REQUEST" | "INVALID_MESSAGE") => {
+const bodyErrorResponse = (error: unknown, invalidCode: "INVALID_REQUEST" | "INVALID_MESSAGE" | "INVALID_RECEIPT") => {
   if (error instanceof RequestBodyError && error.code === "PAYLOAD_TOO_LARGE") {
     return errorResponse("PAYLOAD_TOO_LARGE", 413);
   }
@@ -226,7 +231,7 @@ export function createRealtimeTicketHandler(input: {
 
 export function createMessageReceiptsHandler(input: {
   getSession: SessionReader;
-  receipts: Pick<MessageReceiptService, "listVisible">;
+  receipts: Pick<MessageReceiptService, "listVisible" | "record">;
 }) {
   return async (request: Request, context: MessageContext) => {
     let session: Session | null;
@@ -234,10 +239,29 @@ export function createMessageReceiptsHandler(input: {
       return errorResponse("INTERNAL_ERROR", 500);
     }
     if (!session) return errorResponse("UNAUTHORIZED", 401);
-    if (request.method !== "GET") return errorResponse("METHOD_NOT_ALLOWED", 405);
+    if (request.method !== "GET" && request.method !== "POST") return errorResponse("METHOD_NOT_ALLOWED", 405);
     let conversationId: string;
     try { conversationId = uuid.parse((await context.params).conversationId); } catch {
       return errorResponse("CONVERSATION_NOT_AVAILABLE", 404);
+    }
+    if (request.method === "POST") {
+      let payload: unknown;
+      try { payload = await readJson(request, REALTIME_JSON_MAX_BYTES); } catch (error) {
+        return bodyErrorResponse(error, "INVALID_RECEIPT");
+      }
+      const parsed = receiptWrite.safeParse(payload);
+      if (!parsed.success) return errorResponse("INVALID_RECEIPT", 400);
+      try {
+        return Response.json(await input.receipts.record(session.user.id, {
+          conversationId,
+          ...parsed.data,
+        }), { status: 200 });
+      } catch (error) {
+        if (error instanceof Error && ["RECEIPT_NOT_AVAILABLE", "CONVERSATION_NOT_AVAILABLE"].includes(error.message)) {
+          return errorResponse("CONVERSATION_NOT_AVAILABLE", 404);
+        }
+        return errorResponse("INTERNAL_ERROR", 500);
+      }
     }
     const search = new URL(request.url).searchParams;
     for (const key of search.keys()) {

@@ -1,4 +1,7 @@
 import { createMessageReceiptsHandler } from "@/modules/messaging/message-service";
 import { messagingRouteDependencies } from "@/modules/messaging/route-runtime";
 
-export const GET = createMessageReceiptsHandler(messagingRouteDependencies);
+const handler = createMessageReceiptsHandler(messagingRouteDependencies);
+
+export const GET = handler;
+export const POST = handler;
