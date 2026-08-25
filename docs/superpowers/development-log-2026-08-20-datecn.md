@@ -92,6 +92,14 @@
 - 既有只读检查记录：`datecn.org` 与 `www.datecn.org` 当前均为 Cloudflare 代理的 A 记录，值为 `178.128.54.40`。在 Vercel 临时地址完成验收、取得项目专属 DNS 值并获得用户对最终 diff 的明确确认前，不得更改。
 - 云端迁移、合成 seed、临时 URL 桌面/390 像素真实浏览器 smoke、配额复核、回滚演练和域名切换均待后续 provisioning/domain 计划执行。
 
+### Task 6 质量复核修正
+
+- Task 6 首次质量复核结论为 `Ready: No`：被引用的 provisioning 计划仍混用 pnpm/corepack、个人账号与真实 team scope 名称不一致，并硬编码猜测临时 Vercel URL；runbook 的迁移说明也没有把目标数据库确认与执行做成同一 fail-closed 门禁。
+- 修正后，provisioning 计划与 runbook 全部以本项目 npm/package-lock 工作流为准；一次性 Vercel CLI 使用 npm cache，不写项目依赖，并统一 scope 为 `lilianfu701-pixels-projects`。`APP_URL` 与 `BETTER_AUTH_URL` 只能使用项目创建后 Vercel 页面显示的精确 HTTPS origin，禁止从项目名猜测。
+- 新的跨平台迁移门禁只在当前 Node 进程加载 gitignored `.env.vercel.local`，仅显示 host 与 database name，拒绝 `localhost`、`127.*`、`::1`，要求人工复述精确 `host/database`，并只有收到独立 `MIGRATE` 标志后才能启动固定的 `npm run db:migrate`。编写和验证文档期间没有连接数据库或执行迁移。
+- `.env.example` 已明确其 localhost、MinIO 和 websocket 非空值仅供独立本机服务使用。当前代码不会在免费模式下自动拒绝 `REALTIME_PUBLIC_URL`，因此发布者必须在 Vercel 删除或留空；非空即门禁失败。
+- 命令语法复核使用本机 `npm exec --help` 和 Vercel 官方 CLI/link/deploy 文档，未执行 Vercel CLI。迁移门禁以安全占位 `.env` dry-run：非本机占位目标仅输出 host/db、以 0 退出且明确未连接数据库；`127.0.0.1` 目标在启动 npm 前以 1 退出。临时占位文件随后删除，未执行迁移。
+
 ## 7. 归档结论与恢复起点
 
 - 归档结论：15 阶段的本地实现和本地验收已完成。

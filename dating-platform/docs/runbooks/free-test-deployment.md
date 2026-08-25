@@ -23,6 +23,14 @@ Stop without creating or changing anything if a provider asks for a card, paymen
 
 Never use real users, real PII, real email addresses or phone numbers, identity documents, payment details, production images, production database exports, or existing customer data. Never weaken authentication, expose an `E2E_*` route, enable `REALTIME_PUBLIC_URL`, or replace the guarded seed with manual SQL.
 
+The current application environment validator does **not** automatically reject a non-empty `REALTIME_PUBLIC_URL` in free-test mode. This is an operator-enforced hard gate: the value must be deleted or left empty in every free-test Vercel environment so the tested HTTP polling path is selected. The localhost value in `.env.example` is only for an independent local realtime service and must never be copied to Vercel.
+
+## CLI and project identity
+
+Run every repository command from the `dating-platform` directory with npm; do not use pnpm or corepack and do not modify `package-lock.json`. The reviewed one-off Vercel CLI form is `npm exec --yes --package=vercel@latest -- vercel ...`, which uses npm's cache without adding Vercel to this project's dependencies. Before a future state-changing operation, recheck `npm exec --help` plus the official [Vercel CLI](https://vercel.com/docs/cli/), [link](https://vercel.com/docs/cli/link), and [deploy](https://vercel.com/docs/cli/deploy) references.
+
+The only approved Vercel scope for this runbook is `lilianfu701-pixels-projects`. After linking, verify both `.vercel/project.json` and the dashboard show project `datecn-free-test` under that exact team. A personal account or similarly named scope is a failed gate.
+
 ## Environment variable inventory
 
 Record names and whether they are present; never print or paste values into logs, tickets, screenshots, or this repository.
@@ -65,21 +73,34 @@ The following groups must remain absent in free-test mode: `STRIPE_*`, `EMAIL_*`
 ## Provision only after the quota gate clears
 
 1. In Vercel Usage, record owner, PT/UTC timestamp, Fluid Active CPU reading, reset window, screenshot/link, and result. Continue only below the Hobby limit.
-2. Link a new isolated Hobby project named `datecn-free-test`. Confirm no card, Pro trial, spend-on-demand, or automatic overage was enabled.
+2. After the quota clears, authenticate with `npm exec --yes --package=vercel@latest -- vercel login`, then link with `npm exec --yes --package=vercel@latest -- vercel link --yes --project datecn-free-test --scope lilianfu701-pixels-projects`. These commands are instructions for the future operator; they were not run while preparing this runbook. Confirm no card, Pro trial, spend-on-demand, or automatic overage was enabled.
 3. Create the explicitly labeled free resources: Neon `datecn-free-test-db`, Upstash `datecn-free-test-cache`, and private Blob `datecn-free-test-media`. Prefer the deployment region specified by the provisioning plan. Stop if the final action mentions a charge.
 4. Confirm the database URL is pooled PostgreSQL with provider-enforced TLS, Redis uses TLS, Blob is private, and resources are connected only to the intended project environments.
 5. Capture dashboard limits and current usage for Vercel CPU, Neon compute/storage, Upstash commands/storage/bandwidth, and Blob storage/transfer/operations. Use the provider's displayed values; do not rely on remembered quotas.
 
 ## Configure, verify, migrate, and seed
 
-1. Add the required environment names to Production and Preview. `APP_URL` and `BETTER_AUTH_URL` must be the exact HTTPS temporary deployment origin, and `FREE_TEST_MODE` must be paired with its access secret. Keep every forbidden external-service group absent.
+1. After Vercel creates and links the project, copy the exact HTTPS project hostname displayed in its Overview or Settings → Domains. Set `APP_URL` and `BETTER_AUTH_URL` to that one exact origin in Production and Preview. If no hostname is displayed, stop; never infer one from the project name. Pair `FREE_TEST_MODE` with its access secret and keep every forbidden external-service group absent.
 2. Run the local release gate from the app directory with npm: the full test suite in a reliable single-worker mode when PGlite concurrency times out, TypeScript, full lint, a production build under safe free-test variables, and `drizzle-kit check`. Attach counts, skips, durations, and exit codes.
-3. Load the isolated migration environment for one process and run `npm run db:migrate`. Verify migrations `0000` through `0040` apply once, then rerun and require a no-op result. Stop on any unexpected pre-existing table or data.
-4. The guarded seed command is not yet present in this repository; it is created and tested in Task 4 of [the provisioning plan](../superpowers/plans/2026-08-24-free-vercel-provisioning.md). Do not deploy until that reviewed command and its safety test exist. Then run only `npm run seed:free-test` with `FREE_TEST_SEED_CONFIRM` set for that one process, using only `alice@datecn.test` and `liam@datecn.test`. Require two verified synthetic users, profiles, one match, one active conversation, initial messages, and an idempotent second run.
+3. Pull Production variables only after verifying the link and team: `npm exec --yes --package=vercel@latest -- vercel env pull .env.vercel.local --environment=production --scope lilianfu701-pixels-projects`. Confirm the file is ignored with `git check-ignore -v .env.vercel.local`; never display its contents.
+4. Run the database target preflight below. Only after it passes with the manually confirmed target may the same fail-closed command start `npm run db:migrate`. Verify migrations `0000` through `0040` apply once, then rerun and require a no-op result. Stop on any unexpected pre-existing table or data.
+5. The guarded seed command is not yet present in this repository; it is created and tested in Task 4 of [the provisioning plan](../superpowers/plans/2026-08-24-free-vercel-provisioning.md). Do not deploy until that reviewed command and its safety test exist. Then run only `npm run seed:free-test` with `FREE_TEST_SEED_CONFIRM` set for that one process, using only `alice@datecn.test` and `liam@datecn.test`. Require two verified synthetic users, profiles, one match, one active conversation, initial messages, and an idempotent second run.
+
+### Database target preflight and migration
+
+The following command is intentionally cross-platform. Node loads `.env.vercel.local` only for this process; it neither sources the file into the parent shell nor prints `DATABASE_URL`. First copy the expected host and database name from the isolated Neon resource dashboard, then replace `EXPECTED_HOST/EXPECTED_DATABASE`. The command independently parses and prints those same two identifiers before comparing them; they are not credentials.
+
+First run it with `CHECK`. It prints only `host` and `db`, rejects missing/non-PostgreSQL targets plus `localhost`, every `127.*` address, and `::1`, checks the exact confirmation argument, and exits without opening a database connection:
+
+```text
+node --env-file=.env.vercel.local -e 'const {spawnSync}=require("node:child_process"); const raw=process.env.DATABASE_URL; if(!raw) throw new Error("DATABASE_URL is missing"); const url=new URL(raw); if(url.protocol!=="postgres:"&&url.protocol!=="postgresql:") throw new Error("DATABASE_URL is not PostgreSQL"); const host=url.hostname.toLowerCase().replace(/^\[|\]$/gu,""); const db=decodeURIComponent(url.pathname.replace(/^\/+/u,"")); if(!host||!db||db.includes("/")) throw new Error("Database host/name is invalid"); if(host==="localhost"||host.endsWith(".localhost")||host==="::1"||/^127(?:\.\d{1,3}){3}$/u.test(host)) throw new Error("Local database targets are forbidden"); console.log("Database target: host="+host+"; db="+db); if(process.argv[1]!==host+"/"+db) throw new Error("Confirmation must exactly equal host/database"); if(process.argv[2]!=="MIGRATE"){console.log("Preflight PASS; no database connection made"); process.exit(0);} const run=spawnSync("npm run db:migrate",{stdio:"inherit",env:process.env,shell:true}); if(run.error) throw run.error; process.exit(run.status??1);' 'EXPECTED_HOST/EXPECTED_DATABASE' CHECK
+```
+
+After independently comparing the printed host/database with the Neon dashboard and the isolated resource name, rerun the identical command with the exact displayed `host/database` argument and change only the last word from `CHECK` to `MIGRATE`. The literal `MIGRATE` marker is required before the fixed `npm run db:migrate` child can start. Do not run the migration while reviewing or editing this document.
 
 ## Deploy and smoke the temporary URL
 
-1. Deploy the verified immutable commit to the Vercel temporary URL. Record the exact URL returned by Vercel; do not guess it from the project name.
+1. Deploy with `npm exec --yes --package=vercel@latest -- vercel deploy --prod --yes --skip-domain --scope lilianfu701-pixels-projects`. Record the exact URL printed by Vercel and require Ready status; do not guess it from the project name. Confirm the previously recorded dashboard hostname now routes to that deployment.
 2. Before sharing access, open `/zh` and `/en` and confirm the localized global test banner is visible. If any page omits it, disable public access and fail the gate.
 3. At desktop and 390-pixel widths, test registration with an `@datecn.test` address, mailbox retrieval with the private access code, verification, login, onboarding, member center, discovery/match, membership test state, and profile upload/replace/delete using synthetic images only.
 4. With both synthetic accounts, open the same conversation. Confirm messages appear within five seconds while visible, polling pauses while hidden, catch-up occurs after returning, and delivered/read receipts advance at the expected points.

@@ -6,7 +6,9 @@
 
 **Architecture:** Use one independent Vercel Hobby project named `datecn-free-test`, one Neon Free PostgreSQL database, one Upstash Free Redis database, and one private Vercel Blob store. Secrets live only in Vercel environment variables and a gitignored local pull file used for migration.
 
-**Tech Stack:** Vercel CLI/dashboard, Neon PostgreSQL, Upstash Redis, Vercel Blob, Drizzle Kit, Playwright browser verification.
+**Tech Stack:** npm/package-lock, Vercel CLI/dashboard, Neon PostgreSQL, Upstash Redis, Vercel Blob, Drizzle Kit, Playwright browser verification.
+
+All repository commands in this plan run from the `dating-platform` directory with npm. Do not use pnpm or corepack and do not change `package-lock.json`. When the Vercel CLI is needed, use the reviewed one-off form `npm exec --yes --package=vercel@latest -- vercel ...`; npm places that CLI in its cache rather than adding it to this project. The command form is based on [npm exec](https://docs.npmjs.com/cli/npm-exec/) and the [Vercel CLI reference](https://vercel.com/docs/cli/). Recheck `npm exec --help` and the relevant Vercel command's official help before a future state-changing run.
 
 ---
 
@@ -22,10 +24,13 @@ Open Vercel Team → Usage and require `Fluid Active CPU` to be below `4h / 4h`.
 
 - [ ] **Step 2: Authenticate and link an isolated project**
 
-Run: `corepack pnpm dlx vercel@latest login`  
-Expected: browser authentication succeeds for `lilianfu701-pixel`.  
-Run: `corepack pnpm dlx vercel@latest link --yes --project datecn-free-test --scope lilianfu701-pixels-projects`  
-Expected: `.vercel/project.json` names only `datecn-free-test`.
+Run: `npm exec --yes --package=vercel@latest -- vercel login`
+
+Expected: browser authentication succeeds and the authenticated operator can access the real team scope `lilianfu701-pixels-projects`. Do not substitute a similarly named personal account.
+
+Run: `npm exec --yes --package=vercel@latest -- vercel link --yes --project datecn-free-test --scope lilianfu701-pixels-projects`
+
+Expected: `.vercel/project.json` names only `datecn-free-test`, and the Vercel dashboard shows it under `lilianfu701-pixels-projects`.
 
 - [ ] **Step 3: Verify no billing method is requested**
 
@@ -63,11 +68,13 @@ Generate random values with Node `crypto.randomBytes`: 48-byte base64url for `BE
 
 - [ ] **Step 2: Add non-secret test settings**
 
-Set these exact values for Production and Preview:
+After project creation/linking, open the Vercel project Overview and Settings → Domains. Copy the exact Vercel-provided HTTPS project hostname that the dashboard displays and record it as `<VERCEL_TEMP_ORIGIN>`. It must be a single origin with no path, credentials, query, or fragment. If Vercel does not display an assigned hostname, stop and resolve that in the dashboard; never derive or guess one from `datecn-free-test`.
+
+Set the following for Production and Preview, replacing the placeholder with that exact displayed origin:
 
 ```dotenv
-APP_URL=https://datecn-free-test.vercel.app
-BETTER_AUTH_URL=https://datecn-free-test.vercel.app
+APP_URL=<VERCEL_TEMP_ORIGIN>
+BETTER_AUTH_URL=<VERCEL_TEMP_ORIGIN>
 FREE_TEST_MODE=1
 PROFILE_MEDIA_MAX_BYTES=10485760
 PROFILE_MEDIA_UPLOAD_EXPIRY_SECONDS=300
@@ -78,7 +85,8 @@ Do not set `STRIPE_SECRET_KEY`, payment webhooks, real email/SMS webhooks, ident
 
 - [ ] **Step 3: Pull a gitignored migration environment**
 
-Run: `corepack pnpm dlx vercel@latest env pull .env.vercel.local --environment production`  
+Run: `npm exec --yes --package=vercel@latest -- vercel env pull .env.vercel.local --environment=production --scope lilianfu701-pixels-projects`
+
 Expected: the file is ignored by git and contains the required server variables. Confirm with variable names only; never display values.
 
 ### Task 4: Migrate the empty database and create synthetic users
@@ -98,18 +106,22 @@ Use deterministic synthetic addresses `alice@datecn.test` and `liam@datecn.test`
 
 - [ ] **Step 3: Run tests and commit the seed tool**
 
-Run: `corepack pnpm vitest run tests/unit/operations/seed-free-test.test.ts`  
-Expected: PASS.  
+Run: `npm exec -- vitest run tests/unit/operations/seed-free-test.test.ts`
+
+Expected: PASS.
+
 Commit: `git commit -m "test: add guarded free deployment seed"`.
 
 - [ ] **Step 4: Run all migrations against the isolated database**
 
-Load `.env.vercel.local` only for this process and run: `corepack pnpm db:migrate`  
+Use the cross-platform, fail-closed command in [Database target preflight and migration](../../runbooks/free-test-deployment.md#database-target-preflight-and-migration). It loads `.env.vercel.local` only into that Node process, prints only the database host and database name, rejects `localhost`, `127.*`, and `::1`, and requires the operator to repeat the exact `host/database` target before the fixed `npm run db:migrate` command can start. Do not source the file into the shell and do not print the connection URL.
+
 Expected: migrations `0000` through `0040` apply successfully once and a second run is a no-op.
 
 - [ ] **Step 5: Seed synthetic test data**
 
-Set `FREE_TEST_SEED_CONFIRM=datecn-free-test` only for the process and run: `corepack pnpm seed:free-test`  
+Set `FREE_TEST_SEED_CONFIRM=datecn-free-test` only for the seed process and run: `npm run seed:free-test`
+
 Expected: two synthetic users and one conversation are created; rerunning reports existing records without duplication.
 
 ### Task 5: Deploy and verify the temporary Vercel URL
@@ -119,16 +131,25 @@ Expected: two synthetic users and one conversation are created; rerunning report
 
 - [ ] **Step 1: Run the local release gate**
 
-Run: `corepack pnpm test`  
-Run: `corepack pnpm exec tsc --noEmit`  
-Run: `corepack pnpm lint`  
-Run: `corepack pnpm build`  
+Run: `npm test`
+
+Run after a recorded concurrent PGlite timeout: `npm test -- --maxWorkers=1 --no-file-parallelism`
+
+Run: `npm exec -- tsc --noEmit`
+
+Run: `npm run lint`
+
+Run: `npm run build`
+
+Run: `npm exec -- drizzle-kit check`
+
 Expected: every command exits 0.
 
 - [ ] **Step 2: Deploy production to the temporary URL**
 
-Run: `corepack pnpm dlx vercel@latest deploy --prod --yes`  
-Expected: a successful `https://datecn-free-test-*.vercel.app` production deployment.
+Run: `npm exec --yes --package=vercel@latest -- vercel deploy --prod --yes --skip-domain --scope lilianfu701-pixels-projects`
+
+Expected: Vercel prints the exact deployment URL on stdout and reports Ready. Record that value; do not predict a hostname pattern. Confirm the dashboard-displayed `<VERCEL_TEMP_ORIGIN>` now points to this verified deployment before smoke testing. `--skip-domain` prevents an existing custom production domain from being assigned during this temporary-URL stage.
 
 - [ ] **Step 3: Run browser smoke tests**
 
