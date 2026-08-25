@@ -1,6 +1,6 @@
 // @vitest-environment node
 
-import { access, chmod, mkdtemp, readFile, rm, stat, writeFile } from "node:fs/promises";
+import { access, chmod, mkdtemp, readFile, rm, stat, symlink, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 
@@ -172,6 +172,30 @@ describe("free-test seed environment gate", () => {
     expect(stderr).toHaveBeenCalledWith(`${FREE_TEST_SEED_ERROR}\n`);
   });
 
+  it.each([
+    ["query host override", {
+      DATABASE_URL: `${DATABASE_URL}&host=evil.example.com`,
+    }],
+    ["query search_path override", {
+      DATABASE_URL: `${DATABASE_URL}&options=-c%20search_path%3Devil`,
+    }],
+    ["ambient PGHOST", { PGHOST: "evil.example.com" }],
+    ["ambient PGOPTIONS", { PGOPTIONS: "-c search_path=evil" }],
+  ])("rejects %s before credentials or database construction", async (_label, override) => {
+    const databaseFactory = vi.fn(async () => new MemoryDatabase());
+    const path = await tempCredentialsPath();
+    expect(await executeFreeTestSeed({
+      argv: expectedArguments,
+      env: { ...validEnv, ...override },
+      databaseFactory,
+      credentialsPath: path,
+      writeStdout: vi.fn(),
+      writeStderr: vi.fn(),
+    })).toBe(1);
+    expect(databaseFactory).not.toHaveBeenCalled();
+    await expect(access(path)).rejects.toBeDefined();
+  });
+
   it("normalizes the DATABASE_URL hostname but requires the dashboard hostname argument exactly", () => {
     expect(validateFreeTestSeedEnvironment({
       ...validEnv,
@@ -261,6 +285,21 @@ describe("free-test credentials artifact", () => {
       .toThrow(FREE_TEST_SEED_ERROR);
     expect(() => validateCredentialFileType({ isFile: () => true, isSymbolicLink: () => false }))
       .not.toThrow();
+  });
+
+  it("rejects a linked credential directory before writing outside it", async () => {
+    const applicationRoot = await mkdtemp(join(tmpdir(), "datecn-seed-app-"));
+    const outsideRoot = await mkdtemp(join(tmpdir(), "datecn-seed-outside-"));
+    tempDirectories.push(applicationRoot, outsideRoot);
+    const linkedDirectory = join(applicationRoot, ".artifacts");
+    await symlink(outsideRoot, linkedDirectory, process.platform === "win32" ? "junction" : "dir");
+    const path = join(linkedDirectory, "free-test-credentials.json");
+
+    await expect(createCredentialsFile({
+      path,
+      randomBytes: () => Buffer.alloc(24, 9),
+    })).rejects.toThrow(FREE_TEST_SEED_ERROR);
+    await expect(access(join(outsideRoot, "free-test-credentials.json"))).rejects.toBeDefined();
   });
 });
 

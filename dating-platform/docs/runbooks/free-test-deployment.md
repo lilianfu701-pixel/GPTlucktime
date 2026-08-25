@@ -61,7 +61,7 @@ Optional server-only operational names, only when the corresponding reviewed rou
 - `NOTIFICATION_WORKER_CRON_SECRET`
 - `MEDIA_WORKER_CRON_SECRET`
 
-The following groups must remain absent in free-test mode: `STRIPE_*`, `EMAIL_*`, `SMS_*`, `IDENTITY_*`, `E2E_*`, `REALTIME_PUBLIC_URL`, and every `PROFILE_MEDIA_STORAGE_*` S3 name. Blob and S3 are mutually exclusive; configure exactly one profile-media backend, never both. Do not create any `NEXT_PUBLIC_*` copy of a secret or server-only mode flag.
+The following groups must remain absent in free-test mode: `STRIPE_*`, `EMAIL_*`, `SMS_*`, `IDENTITY_*`, `E2E_*`, `REALTIME_PUBLIC_URL`, every `PG*` connection/session override, and every `PROFILE_MEDIA_STORAGE_*` S3 name. Blob and S3 are mutually exclusive; configure exactly one profile-media backend, never both. Do not create any `NEXT_PUBLIC_*` copy of a secret or server-only mode flag.
 
 ## Generate and store secrets
 
@@ -88,7 +88,7 @@ The following groups must remain absent in free-test mode: `STRIPE_*`, `EMAIL_*`
 
 ### Database target preflight and migration
 
-The tested `scripts/run-free-test-migration.mjs` gate loads `DATABASE_URL` from the current process. Node's `--env-file` option limits `.env.vercel.local` to that Node process and its migration child; it does not source values into the parent shell. The gate accepts only `postgresql:` URLs with an explicit secure `sslmode`, credentials, one database path, and a non-IP hostname that is a strict subdomain of `.neon.tech`. It fails closed with one redacted error and prints no URL, username, or password.
+The tested `scripts/run-free-test-migration.mjs` gate loads `DATABASE_URL` from the current process. Node's `--env-file` option limits `.env.vercel.local` to that Node process and its migration child; it does not source values into the parent shell. The gate accepts only `postgresql:` URLs with an explicit secure `sslmode`, optional exact `channel_binding=require`, credentials, one database path, and a non-IP hostname that is a strict subdomain of `.neon.tech`. Every other connection-string query parameter and every non-empty ambient `PG*` variable is rejected, preventing hidden host, identity, port, TLS, service, or `search_path` overrides. It fails closed with one redacted error and prints no URL, username, or password.
 
 First copy the expected hostname and database name from the isolated Neon dashboard. These identifiers are not secrets, but they must be copied exactly; never derive them from the connection URL. The commands below read each value and run `--check`. CHECK validates the exact match, prints only the successful host/database pair, and never starts npm or connects to the database. On Windows, publishers must use PowerShell; other Windows command shells are not supported by this runbook.
 
@@ -128,7 +128,7 @@ node --env-file=.env.vercel.local scripts/run-free-test-migration.mjs --expected
 
 Any other confirmation form is rejected. The script then calls `npm.cmd` on Windows or `npm` elsewhere with argument array `run`, `db:migrate`, `shell: false`, and inherited stdio. It never concatenates an environment value into a command.
 
-After the attempt, clear the prompt variables (`Remove-Variable expectedNeonHost,expectedNeonDatabase` in PowerShell or `unset expected_neon_host expected_neon_database` in POSIX). Do not run the confirm command while reviewing or editing this document.
+After the migration attempt, keep the two prompted expected-target variables for the seed step immediately below. Do not run the confirm command while reviewing or editing this document.
 
 ### Synthetic seed target confirmation
 
@@ -140,6 +140,9 @@ On Windows, use PowerShell only:
 $env:FREE_TEST_SEED_CONFIRM = 'datecn-free-test'
 try {
   npm run seed:free-test -- --expected-host "$expectedNeonHost" --expected-database "$expectedNeonDatabase"
+  if ($LASTEXITCODE -ne 0) { throw 'FREE_TEST_SEED_FAILED' }
+  npm run seed:free-test -- --expected-host "$expectedNeonHost" --expected-database "$expectedNeonDatabase"
+  if ($LASTEXITCODE -ne 0) { throw 'FREE_TEST_SEED_FAILED' }
 } finally {
   Remove-Item Env:FREE_TEST_SEED_CONFIRM -ErrorAction SilentlyContinue
   Remove-Variable expectedNeonHost,expectedNeonDatabase -ErrorAction SilentlyContinue
@@ -151,11 +154,16 @@ POSIX shell:
 ```sh
 FREE_TEST_SEED_CONFIRM=datecn-free-test npm run seed:free-test -- \
   --expected-host "$expected_neon_host" \
+  --expected-database "$expected_neon_database" &&
+FREE_TEST_SEED_CONFIRM=datecn-free-test npm run seed:free-test -- \
+  --expected-host "$expected_neon_host" \
   --expected-database "$expected_neon_database"
+seed_status=$?
 unset expected_neon_host expected_neon_database
+[ "$seed_status" -eq 0 ] || exit "$seed_status"
 ```
 
-Run the exact command a second time and require an idempotent result without duplicate rows or a rewritten credentials file. Any fixed rejection, target mismatch, credential-file conflict, unexpected existing row, or transaction failure is a hard stop. Do not replace the tool with manual SQL and do not display the credentials file in terminal output, screenshots, logs, or release notes.
+The two consecutive calls above must return an idempotent result without duplicate rows or a rewritten credentials file; cleanup happens only afterward. Any fixed rejection, target mismatch, credential-file conflict, unexpected existing row, or transaction failure is a hard stop. Do not replace the tool with manual SQL and do not display the credentials file in terminal output, screenshots, logs, or release notes. POSIX enforces mode `0600`; on Windows, verify the operator account and its local ACL are restricted before use because `chmod(0600)` is not a Windows ACL guarantee.
 
 ## Deploy and smoke the temporary URL
 

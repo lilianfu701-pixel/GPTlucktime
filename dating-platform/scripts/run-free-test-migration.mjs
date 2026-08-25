@@ -6,25 +6,38 @@ import { pathToFileURL } from "node:url";
 export const MIGRATION_GATE_ERROR = "FREE_TEST_MIGRATION_GATE_REJECTED";
 const CONFIRMATION = "--confirm=datecn-free-test";
 const SECURE_SSL_MODES = new Set(["require", "verify-ca", "verify-full"]);
+const ALLOWED_QUERY_PARAMETERS = new Set(["sslmode", "channel_binding"]);
+const AMBIENT_POSTGRES_VARIABLE = /^PG[A-Z0-9_]*$/u;
 
 const rejected = () => new Error(MIGRATION_GATE_ERROR);
 
 export function parseFreeTestDatabaseTarget(env) {
   try {
+    for (const [name, value] of Object.entries(env)) {
+      if (AMBIENT_POSTGRES_VARIABLE.test(name)
+        && typeof value === "string" && value.length > 0) throw rejected();
+    }
     const raw = env.DATABASE_URL;
     if (typeof raw !== "string" || raw.length === 0) throw rejected();
     const url = new URL(raw);
     if (url.protocol !== "postgresql:" || !url.username || !url.password || url.hash) throw rejected();
-    decodeURIComponent(url.username);
-    decodeURIComponent(url.password);
+    const username = decodeURIComponent(url.username);
+    const password = decodeURIComponent(url.password);
+    if (/[\u0000-\u001F\u007F]/u.test(username + password)) throw rejected();
 
     const host = url.hostname.toLowerCase();
     const address = host.replace(/^\[|\]$/gu, "");
     if (host.endsWith(".") || isIP(address) !== 0
       || host === "neon.tech" || !host.endsWith(".neon.tech")) throw rejected();
 
+    if ([...url.searchParams.keys()].some((name) => !ALLOWED_QUERY_PARAMETERS.has(name))) {
+      throw rejected();
+    }
     const sslModes = url.searchParams.getAll("sslmode");
     if (sslModes.length !== 1 || !SECURE_SSL_MODES.has(sslModes[0])) throw rejected();
+    const channelBindings = url.searchParams.getAll("channel_binding");
+    if (channelBindings.length > 1
+      || (channelBindings.length === 1 && channelBindings[0] !== "require")) throw rejected();
 
     const database = decodeURIComponent(url.pathname.replace(/^\/+/u, ""));
     if (!database || database.includes("/") || /[\u0000-\u001F\u007F]/u.test(database)) throw rejected();

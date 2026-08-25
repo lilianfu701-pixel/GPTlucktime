@@ -47,7 +47,7 @@ From Project → Storage, install Neon, choose the explicitly labeled Free plan,
 
 - [ ] **Step 2: Normalize the pooled connection variable**
 
-Verify the integration created a pooled TLS PostgreSQL URL. Map that value to `DATABASE_URL` without printing it. Require a `postgresql://` URL with `sslmode=require` or provider-enforced TLS.
+Verify the integration created a pooled TLS PostgreSQL URL. Map that value to `DATABASE_URL` without printing it. Require a `postgresql://` URL with secure `sslmode`; allow only optional `channel_binding=require`, reject every other URL query parameter, and keep all ambient `PG*` connection/session overrides absent.
 
 - [ ] **Step 3: Create Upstash Free Redis**
 

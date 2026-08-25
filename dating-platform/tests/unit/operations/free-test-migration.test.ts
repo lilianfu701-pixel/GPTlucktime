@@ -100,6 +100,41 @@ describe("free-test migration gate", () => {
       .toThrow(MIGRATION_GATE_ERROR);
   });
 
+  it.each([
+    `postgresql://user:fictional-secret@${HOST}/${DATABASE}?sslmode=require&host=evil.example.com`,
+    `postgresql://user:fictional-secret@${HOST}/${DATABASE}?sslmode=require&port=5433`,
+    `postgresql://user:fictional-secret@${HOST}/${DATABASE}?sslmode=require&user=other-user`,
+    `postgresql://user:fictional-secret@${HOST}/${DATABASE}?sslmode=require&password=other-password`,
+    `postgresql://user:fictional-secret@${HOST}/${DATABASE}?sslmode=require&options=-c%20search_path%3Devil`,
+    `postgresql://user:fictional-secret@${HOST}/${DATABASE}?sslmode=require&sslmode=require`,
+    `postgresql://user:fictional-secret@${HOST}/${DATABASE}?sslmode=require&channel_binding=prefer`,
+  ])("rejects connection query overrides with a redacted error", (databaseUrl) => {
+    expect(() => parseFreeTestDatabaseTarget({ DATABASE_URL: databaseUrl }))
+      .toThrow(MIGRATION_GATE_ERROR);
+  });
+
+  it("allows only one optional strict Neon channel-binding parameter", () => {
+    expect(parseFreeTestDatabaseTarget({
+      DATABASE_URL: `${DATABASE_URL}&channel_binding=require`,
+    })).toEqual({ host: HOST, database: DATABASE });
+  });
+
+  it.each(["PGHOST", "PGPORT", "PGUSER", "PGPASSWORD", "PGDATABASE", "PGOPTIONS", "PGSERVICE"])(
+    "rejects ambient %s before printing or spawning",
+    (name) => {
+      const spawn = vi.fn();
+      const stdout = vi.fn();
+      expect(() => runFreeTestMigration({
+        argv: expectedArguments("--check"),
+        env: { DATABASE_URL, [name]: "fictional-override" },
+        spawn,
+        writeStdout: stdout,
+      })).toThrow(MIGRATION_GATE_ERROR);
+      expect(stdout).not.toHaveBeenCalled();
+      expect(spawn).not.toHaveBeenCalled();
+    },
+  );
+
   it("rejects expected target mismatch before printing or spawning", () => {
     const spawn = vi.fn();
     const stdout = vi.fn();

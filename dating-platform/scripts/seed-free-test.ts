@@ -2,7 +2,7 @@ import { randomBytes as nodeRandomBytes, randomUUID } from "node:crypto";
 import { link, lstat, mkdir, readFile, stat, unlink, writeFile, chmod } from "node:fs/promises";
 import { isIP } from "node:net";
 import { dirname, resolve } from "node:path";
-import { pathToFileURL } from "node:url";
+import { fileURLToPath, pathToFileURL } from "node:url";
 import { isDeepStrictEqual } from "node:util";
 
 import { hashPassword as betterAuthHashPassword, verifyPassword as betterAuthVerifyPassword } from "better-auth/crypto";
@@ -23,6 +23,8 @@ const FORBIDDEN_PREFIXES = ["E2E_", "STRIPE_", "EMAIL_", "SMS_", "IDENTITY_"];
 const CREATED_AT = "2026-08-24T12:00:00.000Z";
 const SECOND_MESSAGE_AT = "2026-08-24T12:01:00.000Z";
 const ADVISORY_LOCK_KEY = "-487642985260015191";
+const APPLICATION_ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..");
+const DEFAULT_CREDENTIALS_PATH = resolve(APPLICATION_ROOT, ".artifacts", "free-test-credentials.json");
 
 const rejected = () => new Error(FREE_TEST_SEED_ERROR);
 
@@ -302,6 +304,13 @@ export function validateCredentialFileType(file: {
   if (!file.isFile() || file.isSymbolicLink()) throw rejected();
 }
 
+export function validateCredentialDirectoryType(directory: {
+  isDirectory(): boolean;
+  isSymbolicLink(): boolean;
+}) {
+  if (!directory.isDirectory() || directory.isSymbolicLink()) throw rejected();
+}
+
 async function secureCredentialPermissions(path: string) {
   try {
     await chmod(path, 0o600);
@@ -346,6 +355,7 @@ export async function createCredentialsFile({
     });
     const directory = dirname(path);
     await mkdir(directory, { recursive: true });
+    validateCredentialDirectoryType(await lstat(directory));
     const temporaryPath = `${path}.${randomUUID()}.tmp`;
     try {
       await writeFile(temporaryPath, `${JSON.stringify(credentials, null, 2)}\n`, {
@@ -744,6 +754,9 @@ export class PgSeedDatabase implements SeedDatabase {
     const client = await this.pool.connect();
     try {
       await client.query("BEGIN");
+      await client.query("SET LOCAL lock_timeout = '10s'");
+      await client.query("SET LOCAL statement_timeout = '30s'");
+      await client.query("SET LOCAL idle_in_transaction_session_timeout = '30s'");
       const result = await work(new PgSeedTransaction(client));
       await client.query("COMMIT");
       return result;
@@ -762,14 +775,18 @@ export class PgSeedDatabase implements SeedDatabase {
 
 async function createPgDatabase(databaseUrl: string): Promise<SeedDatabase> {
   const { Pool: NodePostgresPool } = await import("pg");
-  return new PgSeedDatabase(new NodePostgresPool({ connectionString: databaseUrl, max: 1 }));
+  return new PgSeedDatabase(new NodePostgresPool({
+    connectionString: databaseUrl,
+    max: 1,
+    connectionTimeoutMillis: 10_000,
+  }));
 }
 
 export async function executeFreeTestSeed({
   argv = process.argv.slice(2),
   env = process.env,
   databaseFactory = (databaseUrl: string) => createPgDatabase(databaseUrl),
-  credentialsPath = resolve(".artifacts", "free-test-credentials.json"),
+  credentialsPath = DEFAULT_CREDENTIALS_PATH,
   randomBytes = nodeRandomBytes,
   hashPassword = betterAuthHashPassword,
   verifyPassword = betterAuthVerifyPassword,

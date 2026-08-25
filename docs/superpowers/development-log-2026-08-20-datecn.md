@@ -109,6 +109,8 @@
 - 凭据由安全随机数生成，不写终端，只在首次运行时原子写入 gitignored `.artifacts/free-test-credentials.json`；已有文件会被验证和复用，冲突、符号链接或不安全路径会停止。两张照片当前仅为数据库占位记录，不包含 Blob 对象；真实合成图片上传仍属于临时网址 smoke。
 - 初始实现通过 seed 与迁移相关测试 55/55、TypeScript、全量 ESLint 和 diff-check。独立规格复核随后发现 seed 只限制为 TLS Neon、没有独立确认具体 Neon 目标，因此未放行。
 - 后续修复复用迁移门禁的参数解析与精确目标比较：CLI 必须接收人工从 Neon 页面复制的 `--expected-host` 和 `--expected-database`。缺失、重复、未知、大小写/尾点不一致或目标不匹配时，会在凭据 I/O 和数据库工厂调用前以固定脱敏错误停止；不能从 `DATABASE_URL` 自行推导预期值。相关 seed 与迁移测试目前为 64/64，尚待同一规格复核员复验。
+- 独立质量复核进一步发现 PostgreSQL URL 查询参数及 ambient `PG*` 变量可覆盖实际主机、身份、端口或 `search_path`，也发现 `.artifacts` 目录链接可把凭据写到工作区外。修复后的共享门禁只允许唯一安全 `sslmode` 与可选精确 `channel_binding=require`，拒绝其他查询参数及非空 `PG*`；凭据写入前必须确认直接父目录是普通目录而非 symlink/junction，CLI 默认路径固定到应用根目录下的 `.artifacts/free-test-credentials.json`。runbook 同时改为连续运行两次 seed 后再清理目标变量，并说明 Windows 需独立验证受限 ACL。
+- 真实 seed 数据库客户端增加 10 秒连接上限；事务内设置 10 秒锁等待、30 秒语句和空闲事务上限，避免网络或遗留锁让发布步骤无限等待。PowerShell/POSIX 示例只在第一次 seed 成功后运行第二次，并在成功或失败后清理临时目标变量。
 
 ## 7. 归档结论与恢复起点
 
