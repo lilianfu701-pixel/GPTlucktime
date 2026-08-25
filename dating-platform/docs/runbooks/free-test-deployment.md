@@ -88,15 +88,61 @@ The following groups must remain absent in free-test mode: `STRIPE_*`, `EMAIL_*`
 
 ### Database target preflight and migration
 
-The following command is intentionally cross-platform. Node loads `.env.vercel.local` only for this process; it neither sources the file into the parent shell nor prints `DATABASE_URL`. First copy the expected host and database name from the isolated Neon resource dashboard, then replace `EXPECTED_HOST/EXPECTED_DATABASE`. The command independently parses and prints those same two identifiers before comparing them; they are not credentials.
+The tested `scripts/run-free-test-migration.mjs` gate loads `DATABASE_URL` from the current process. Node's `--env-file` option limits `.env.vercel.local` to that Node process and its migration child; it does not source values into the parent shell. The gate accepts only `postgresql:` URLs with an explicit secure `sslmode`, credentials, one database path, and a non-IP hostname that is a strict subdomain of `.neon.tech`. It fails closed with one redacted error and prints no URL, username, or password.
 
-First run it with `CHECK`. It prints only `host` and `db`, rejects missing/non-PostgreSQL targets plus `localhost`, every `127.*` address, and `::1`, checks the exact confirmation argument, and exits without opening a database connection:
+First copy the expected hostname and database name from the isolated Neon dashboard. These identifiers are not secrets, but they must be copied exactly; never derive them from the connection URL. The commands below read each value without executing characters contained in it, preserve it as one argument, and run `--check`. CHECK validates the exact match, prints only the successful host/database pair, and never starts npm or connects to the database.
 
-```text
-node --env-file=.env.vercel.local -e 'const {spawnSync}=require("node:child_process"); const raw=process.env.DATABASE_URL; if(!raw) throw new Error("DATABASE_URL is missing"); const url=new URL(raw); if(url.protocol!=="postgres:"&&url.protocol!=="postgresql:") throw new Error("DATABASE_URL is not PostgreSQL"); const host=url.hostname.toLowerCase().replace(/^\[|\]$/gu,""); const db=decodeURIComponent(url.pathname.replace(/^\/+/u,"")); if(!host||!db||db.includes("/")) throw new Error("Database host/name is invalid"); if(host==="localhost"||host.endsWith(".localhost")||host==="::1"||/^127(?:\.\d{1,3}){3}$/u.test(host)) throw new Error("Local database targets are forbidden"); console.log("Database target: host="+host+"; db="+db); if(process.argv[1]!==host+"/"+db) throw new Error("Confirmation must exactly equal host/database"); if(process.argv[2]!=="MIGRATE"){console.log("Preflight PASS; no database connection made"); process.exit(0);} const run=spawnSync("npm run db:migrate",{stdio:"inherit",env:process.env,shell:true}); if(run.error) throw run.error; process.exit(run.status??1);' 'EXPECTED_HOST/EXPECTED_DATABASE' CHECK
+PowerShell:
+
+```powershell
+$expectedNeonHost = Read-Host 'Expected Neon hostname'
+$expectedNeonDatabase = Read-Host 'Expected Neon database name'
+node --env-file=.env.vercel.local scripts/run-free-test-migration.mjs --expected-host "$expectedNeonHost" --expected-database "$expectedNeonDatabase" --check
 ```
 
-After independently comparing the printed host/database with the Neon dashboard and the isolated resource name, rerun the identical command with the exact displayed `host/database` argument and change only the last word from `CHECK` to `MIGRATE`. The literal `MIGRATE` marker is required before the fixed `npm run db:migrate` child can start. Do not run the migration while reviewing or editing this document.
+Command Prompt (`cmd.exe`):
+
+```bat
+set /p "EXPECTED_NEON_HOST=Expected Neon hostname: "
+set /p "EXPECTED_NEON_DATABASE=Expected Neon database name: "
+node --env-file=.env.vercel.local scripts/run-free-test-migration.mjs --expected-host "%EXPECTED_NEON_HOST%" --expected-database "%EXPECTED_NEON_DATABASE%" --check
+```
+
+POSIX shell:
+
+```sh
+printf 'Expected Neon hostname: ' >&2
+IFS= read -r expected_neon_host
+printf 'Expected Neon database name: ' >&2
+IFS= read -r expected_neon_database
+node --env-file=.env.vercel.local scripts/run-free-test-migration.mjs --expected-host "$expected_neon_host" --expected-database "$expected_neon_database" --check
+```
+
+If a copied identifier contains spaces or shell metacharacters, do not paste it directly into a command. The prompted-variable forms above keep it as a single argument. Newlines and NUL are always rejected. If a quote or other unusual character cannot be represented safely by the selected shell prompt, stop and obtain a reviewed Neon database name rather than improvising escaping.
+
+After CHECK succeeds, independently compare its printed host/database with the Neon dashboard. Only then, in the same shell where the prompted variables still exist, run the corresponding confirmation command:
+
+PowerShell:
+
+```powershell
+node --env-file=.env.vercel.local scripts/run-free-test-migration.mjs --expected-host "$expectedNeonHost" --expected-database "$expectedNeonDatabase" --confirm=datecn-free-test
+```
+
+Command Prompt (`cmd.exe`):
+
+```bat
+node --env-file=.env.vercel.local scripts/run-free-test-migration.mjs --expected-host "%EXPECTED_NEON_HOST%" --expected-database "%EXPECTED_NEON_DATABASE%" --confirm=datecn-free-test
+```
+
+POSIX shell:
+
+```sh
+node --env-file=.env.vercel.local scripts/run-free-test-migration.mjs --expected-host "$expected_neon_host" --expected-database "$expected_neon_database" --confirm=datecn-free-test
+```
+
+Any other confirmation form is rejected. The script then calls `npm.cmd` on Windows or `npm` elsewhere with argument array `run`, `db:migrate`, `shell: false`, and inherited stdio. It never concatenates an environment value into a command.
+
+After the attempt, clear the prompt variables (`Remove-Variable expectedNeonHost,expectedNeonDatabase` in PowerShell, `set "EXPECTED_NEON_HOST="` and `set "EXPECTED_NEON_DATABASE="` in cmd.exe, or `unset expected_neon_host expected_neon_database` in POSIX). Do not run the confirm command while reviewing or editing this document.
 
 ## Deploy and smoke the temporary URL
 

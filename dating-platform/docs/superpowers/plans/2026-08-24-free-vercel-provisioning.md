@@ -92,6 +92,8 @@ Expected: the file is ignored by git and contains the required server variables.
 ### Task 4: Migrate the empty database and create synthetic users
 
 **Files:**
+- Use: `scripts/run-free-test-migration.mjs`
+- Verify: `tests/unit/operations/free-test-migration.test.ts`
 - Create: `scripts/seed-free-test.ts`
 - Create: `tests/unit/operations/seed-free-test.test.ts`
 - Modify: `package.json`
@@ -114,7 +116,9 @@ Commit: `git commit -m "test: add guarded free deployment seed"`.
 
 - [ ] **Step 4: Run all migrations against the isolated database**
 
-Use the cross-platform, fail-closed command in [Database target preflight and migration](../../runbooks/free-test-deployment.md#database-target-preflight-and-migration). It loads `.env.vercel.local` only into that Node process, prints only the database host and database name, rejects `localhost`, `127.*`, and `::1`, and requires the operator to repeat the exact `host/database` target before the fixed `npm run db:migrate` command can start. Do not source the file into the shell and do not print the connection URL.
+Use the tested script and the shell-specific commands in [Database target preflight and migration](../../runbooks/free-test-deployment.md#database-target-preflight-and-migration). It loads `.env.vercel.local` only into that Node process, prints only a successfully confirmed host/database pair, and accepts only a TLS-required `postgresql:` URL on a strict `.neon.tech` subdomain. Run `--check` first; it cannot spawn. After independent dashboard comparison, change only the mode to exact `--confirm=datecn-free-test`; the script then uses `spawnSync` with `npm.cmd` on Windows or `npm` elsewhere, argument array `run`, `db:migrate`, inherited stdio, and `shell: false`. Never source the file into the shell or print the connection URL.
+
+Run before any real migration: `npm exec -- vitest run tests/unit/operations/free-test-migration.test.ts`
 
 Expected: migrations `0000` through `0040` apply successfully once and a second run is a no-op.
 

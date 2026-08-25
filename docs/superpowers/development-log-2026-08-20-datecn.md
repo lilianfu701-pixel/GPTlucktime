@@ -96,9 +96,11 @@
 
 - Task 6 首次质量复核结论为 `Ready: No`：被引用的 provisioning 计划仍混用 pnpm/corepack、个人账号与真实 team scope 名称不一致，并硬编码猜测临时 Vercel URL；runbook 的迁移说明也没有把目标数据库确认与执行做成同一 fail-closed 门禁。
 - 修正后，provisioning 计划与 runbook 全部以本项目 npm/package-lock 工作流为准；一次性 Vercel CLI 使用 npm cache，不写项目依赖，并统一 scope 为 `lilianfu701-pixels-projects`。`APP_URL` 与 `BETTER_AUTH_URL` 只能使用项目创建后 Vercel 页面显示的精确 HTTPS origin，禁止从项目名猜测。
-- 新的跨平台迁移门禁只在当前 Node 进程加载 gitignored `.env.vercel.local`，仅显示 host 与 database name，拒绝 `localhost`、`127.*`、`::1`，要求人工复述精确 `host/database`，并只有收到独立 `MIGRATE` 标志后才能启动固定的 `npm run db:migrate`。编写和验证文档期间没有连接数据库或执行迁移。
+- 先前内联命令声称已拒绝“全部 `127.*`”，但该说法没有独立实现和自动化边界测试支撑，现予撤回。受测试的 `scripts/run-free-test-migration.mjs` 取代内联代码：仅接受显式安全 `sslmode` 的 `postgresql:` Neon 子域，拒绝 Neon 根域、尾点、任何 IP、`127.1`/完整 `127.*`、`0.0.0.0`、IPv4-mapped IPv6、localhost 和其他域；只在当前 Node 进程加载 gitignored `.env.vercel.local`。
+- 新门禁要求 `--expected-host`、`--expected-database` 与 `--check` 或精确 `--confirm=datecn-free-test` 参数。只有目标精确匹配后才输出 host/database；CHECK 不 spawn，确认模式才以 `shell: false` 和固定参数数组启动 npm。所有 URL/路径解码/字段错误只输出固定脱敏错误，编写和验证期间没有连接数据库或执行迁移。
 - `.env.example` 已明确其 localhost、MinIO 和 websocket 非空值仅供独立本机服务使用。当前代码不会在免费模式下自动拒绝 `REALTIME_PUBLIC_URL`，因此发布者必须在 Vercel 删除或留空；非空即门禁失败。
-- 命令语法复核使用本机 `npm exec --help` 和 Vercel 官方 CLI/link/deploy 文档，未执行 Vercel CLI。迁移门禁以安全占位 `.env` dry-run：非本机占位目标仅输出 host/db、以 0 退出且明确未连接数据库；`127.0.0.1` 目标在启动 npm 前以 1 退出。临时占位文件随后删除，未执行迁移。
+- 命令语法复核使用本机 `npm exec --help` 和 Vercel 官方 CLI/link/deploy 文档，未执行 Vercel CLI。迁移脚本依照红绿 TDD 新增 focused tests：首次 RED 因实现缺失为 1 file failed/0 tests；最小实现后暴露并修正数据库路径解析错误，达到 20/20；安全边界扩展再次 RED 为 20/22，修正凭据 percent 编码与编码控制字符校验后 GREEN 为 22/22（1 file，966ms）。覆盖合法 Neon/CHECK、凭据脱敏、损坏 URL 与 percent 编码、主机边界、expected mismatch、跨平台 npm 命令选择，以及确认模式 `shell: false` spawn 合同；没有执行真实 spawn、连接或迁移。
+- 最终复核再次取得 focused tests 22/22（1 file，1.05s）、`tsc --noEmit` 0 错误、完整 ESLint 0 错误及 `git diff --check` 0 错误。另用仅含虚构 Neon 目标的临时、gitignored env 文件执行真实 CLI `--check`，其只显示 host/database 并以 0 退出；临时文件随后删除，未进入确认模式、未启动 npm 子进程、未连接数据库。
 
 ## 7. 归档结论与恢复起点
 
