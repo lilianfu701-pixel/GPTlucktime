@@ -95,6 +95,7 @@ const schema = z
     AUTH_LEGACY_ENCRYPTION_KEY: optionalValue(legacyEncryptionKey),
     AUTH_DELIVERY_HMAC_KEY: optionalValue(z.string().min(32)),
     IDENTITY_IDEMPOTENCY_HMAC_KEY: optionalValue(z.string().min(32)),
+    BLOB_READ_WRITE_TOKEN: optionalValue(z.string().trim().min(32).max(2_048)),
     PROFILE_MEDIA_STORAGE_ENDPOINT: optionalValue(urlWithProtocols(
       ["http:", "https:"],
       "PROFILE_MEDIA_STORAGE_ENDPOINT must use http:// or https://",
@@ -199,21 +200,38 @@ const schema = z
       "IDENTITY_REDIRECT_ORIGINS",
       "IDENTITY_IDEMPOTENCY_HMAC_KEY",
     ]);
-    requireCompleteGroup("PROFILE_MEDIA_STORAGE", [
+    const profileMediaS3Fields = [
       "PROFILE_MEDIA_STORAGE_ENDPOINT",
       "PROFILE_MEDIA_STORAGE_REGION",
       "PROFILE_MEDIA_STORAGE_BUCKET",
       "PROFILE_MEDIA_STORAGE_ACCESS_KEY",
       "PROFILE_MEDIA_STORAGE_SECRET_KEY",
-      "PROFILE_MEDIA_TOKEN_SECRET",
-    ], [
-      "PROFILE_MEDIA_STORAGE_ENDPOINT",
-      "PROFILE_MEDIA_STORAGE_REGION",
-      "PROFILE_MEDIA_STORAGE_BUCKET",
-      "PROFILE_MEDIA_STORAGE_ACCESS_KEY",
-      "PROFILE_MEDIA_STORAGE_SECRET_KEY",
-      "PROFILE_MEDIA_TOKEN_SECRET",
-    ]);
+    ] as const;
+    requireCompleteGroup("PROFILE_MEDIA_STORAGE", [...profileMediaS3Fields]);
+    const profileMediaS3Active = profileMediaS3Fields.some((field) => env[field] !== undefined);
+    const profileMediaBlobActive = env.BLOB_READ_WRITE_TOKEN !== undefined;
+    if (profileMediaS3Active && profileMediaBlobActive) {
+      context.addIssue({
+        code: "custom",
+        message: "PROFILE_MEDIA_STORAGE must configure exactly one backend",
+        path: ["BLOB_READ_WRITE_TOKEN"],
+      });
+    }
+    if (profileMediaBlobActive && !env.PROFILE_MEDIA_TOKEN_SECRET) {
+      context.addIssue({
+        code: "custom",
+        message: "Blob profile media configuration requires PROFILE_MEDIA_TOKEN_SECRET",
+        path: ["PROFILE_MEDIA_TOKEN_SECRET"],
+      });
+    }
+    if ((profileMediaS3Active && !env.PROFILE_MEDIA_TOKEN_SECRET)
+      || (env.PROFILE_MEDIA_TOKEN_SECRET && !profileMediaS3Active && !profileMediaBlobActive)) {
+      context.addIssue({
+        code: "custom",
+        message: "PROFILE_MEDIA_STORAGE configuration must be complete",
+        path: ["PROFILE_MEDIA_TOKEN_SECRET"],
+      });
+    }
     requireCompleteGroup("ADMIN_EXPORT_S3", [
       "ADMIN_EXPORT_S3_ENDPOINT",
       "ADMIN_EXPORT_S3_REGION",

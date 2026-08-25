@@ -26,6 +26,7 @@
   "dependencies": {
     "@aws-sdk/client-s3": "^3.1104.0",
     "@aws-sdk/s3-request-presigner": "^3.1104.0",
+    "@vercel/blob": "2.6.1",
     "better-auth": "^1.6.26",
     "bullmq": "^6.0.8",
     "drizzle-orm": "^0.45.2",

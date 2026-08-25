@@ -92,6 +92,46 @@ describe("readEnv", () => {
     })).toThrow("PROFILE_MEDIA_STORAGE configuration must be complete");
   });
 
+  it("accepts a server-only Vercel Blob profile media backend with its upload-token secret", () => {
+    const blob = readEnv({
+      ...validEnv,
+      BLOB_READ_WRITE_TOKEN: "  blob-read-write-token-at-least-32-characters  ",
+      PROFILE_MEDIA_TOKEN_SECRET: "profile-media-token-secret-at-least-32-characters",
+    });
+    expect(blob.BLOB_READ_WRITE_TOKEN).toBe("blob-read-write-token-at-least-32-characters");
+    expect(() => readEnv({
+      ...validEnv,
+      BLOB_READ_WRITE_TOKEN: "blob-read-write-token-at-least-32-characters",
+    })).toThrow("Blob profile media configuration requires PROFILE_MEDIA_TOKEN_SECRET");
+    expect(() => readEnv({
+      ...validEnv,
+      BLOB_READ_WRITE_TOKEN: "                                        ",
+      PROFILE_MEDIA_TOKEN_SECRET: "profile-media-token-secret-at-least-32-characters",
+    })).toThrow("BLOB_READ_WRITE_TOKEN");
+  });
+
+  it("rejects configuring Vercel Blob and S3 profile media together", () => {
+    expect(() => readEnv({
+      ...validEnv,
+      BLOB_READ_WRITE_TOKEN: "blob-read-write-token-at-least-32-characters",
+      PROFILE_MEDIA_STORAGE_ENDPOINT: "https://storage.example.test",
+      PROFILE_MEDIA_STORAGE_REGION: "us-west-2",
+      PROFILE_MEDIA_STORAGE_BUCKET: "profile-media",
+      PROFILE_MEDIA_STORAGE_ACCESS_KEY: "storage-access",
+      PROFILE_MEDIA_STORAGE_SECRET_KEY: "storage-secret",
+      PROFILE_MEDIA_TOKEN_SECRET: "profile-media-token-secret-at-least-32-characters",
+    })).toThrow("PROFILE_MEDIA_STORAGE must configure exactly one backend");
+  });
+
+  it("does not recognize a public-prefixed Blob credential as server configuration", () => {
+    const parsed = readEnv({
+      ...validEnv,
+      NEXT_PUBLIC_BLOB_READ_WRITE_TOKEN: "public-blob-token-that-must-never-be-used",
+    });
+    expect(parsed).not.toHaveProperty("NEXT_PUBLIC_BLOB_READ_WRITE_TOKEN");
+    expect(parsed).not.toHaveProperty("BLOB_READ_WRITE_TOKEN");
+  });
+
   it("accepts only a complete dedicated admin export storage group", () => {
     const exports = readEnv({
       ...validEnv,
