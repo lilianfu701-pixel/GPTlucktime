@@ -128,7 +128,7 @@
 ### 已完成的外部配置
 
 - 私有仓库：`lilianfu701-pixel/GPTlucktime`；部署分支：`codex/global-dating-platform`；主分支未修改。
-- Vercel Hobby 项目：`datecn`。生产部署 `dpl_5yjB6EBY5ERc8KWh8Z3CYwgaTJ4R` 状态为 `READY`；稳定临时验收地址为 `https://datecn-lilianfu701-pixels-projects.vercel.app`。
+- Vercel Hobby 项目：`datecn`。最终生产部署 `dpl_6RH7Hzrp3d4dSrLvMNRXAWPemDp9` 状态为 `READY`；稳定临时验收地址为 `https://datecn-lilianfu701-pixels-projects.vercel.app`。
 - 免费资源：Neon 数据库 `datecn-db`、Upstash Redis `datecn-cache`、私有 Vercel Blob `datecn-media`，均连接 Production 与 Preview；未填写银行卡、未开通付费计划。
 - 免费测试环境明确禁止真实 Stripe、邮件、短信和实名认证配置；只使用虚构 `@datecn.test` 会员和合成数据。
 - 数据库 41 个迁移全部执行并核验；迁移记录数为 41。
@@ -142,10 +142,10 @@
 - 本地正式构建在纯占位安全环境下通过；Vercel 云端生产构建完成全部 23 个静态页面生成及所有动态/API 路由编译。
 - 移动端/成员壳/演示交互聚焦回归为 3 个测试文件、14 项全部通过。此前归档所述完整本地回归仍保持有效。
 
-### 域名状态与待确认切换
+### 域名切换完成
 
 - `datecn.org` 与 `www.datecn.org` 已加入 Vercel Production；Vercel 配置为根域名以 308 跳转到 `www.datecn.org`。
 - `APP_URL=https://www.datecn.org`、`BETTER_AUTH_URL=https://www.datecn.org/api/auth` 已写入 Production 与 Preview，并完成最终 READY 部署。
-- Cloudflare 当前记录尚未修改：`@ A 178.128.54.40`（代理开启）、`www A 178.128.54.40`（代理开启）。
-- Vercel 精确要求：`@ CNAME 67f9bcd0961808c5.vercel-dns-017.com.`（代理关闭）、`www CNAME 67f9bcd0961808c5.vercel-dns-017.com.`（代理关闭）。
-- 必须先向用户展示上述旧→新差异并取得当次明确确认，才能在 Cloudflare 保存；保存后还需等待 Vercel 变为 Valid Configuration，并实测根域 308、www 首页、登录、发现、消息及 HTTPS。
+- 用户在看到精确旧→新差异后明确回复“确认修改DNS”。Cloudflare 两条旧 A 记录已替换为：`@ CNAME 67f9bcd0961808c5.vercel-dns-017.com.`（仅 DNS）、`www CNAME 67f9bcd0961808c5.vercel-dns-017.com.`（仅 DNS）。
+- Vercel 对 `datecn.org` 与 `www.datecn.org` 均显示 `Valid Configuration`；`www` 连接 Production，根域名 308 跳转到 `www`。
+- 最终公网实测：`https://www.datecn.org/zh` HTTPS 首页正常；`https://datecn.org/zh` 最终到达 `https://www.datecn.org/zh`；Alice 真实登录成功；真实发现页显示 Liam；消息页显示 Liam 与预置对话；会员中心和个人资料正常，无服务器错误。
