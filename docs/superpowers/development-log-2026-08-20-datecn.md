@@ -1,4 +1,4 @@
-# DateCN 开发记录与归档（更新至 2026-08-25）
+# DateCN 开发记录与归档（更新至 2026-08-26）
 
 ## 1. 项目位置
 
@@ -122,3 +122,30 @@
 - 当前边界：尚未进行生产部署；免费公网测试也因 Vercel Hobby CPU 配额超限而尚未开始。生产发布仍需完成外部数据库恢复、真实供应商和完整生产门禁。
 - 继续工作时以 Task 7 的受保护纯合成 seed 及精确 Neon 目标确认修复为恢复起点，不需要重做前 15 阶段、免费 Vercel 兼容 Task 1—5 或 Task 6 文档门禁。
 - 下一次先重新读取 Vercel 免费额度；额度未清零则停止。额度清零后按免费测试部署 runbook 从独立资源 provisioning 开始，临时 URL 验收通过前不得修改 DNS。
+
+## 8. 免费公网测试部署完成（2026-08-26，取代上方旧外部状态）
+
+### 已完成的外部配置
+
+- 私有仓库：`lilianfu701-pixel/GPTlucktime`；部署分支：`codex/global-dating-platform`；主分支未修改。
+- Vercel Hobby 项目：`datecn`。生产部署 `dpl_5yjB6EBY5ERc8KWh8Z3CYwgaTJ4R` 状态为 `READY`；稳定临时验收地址为 `https://datecn-lilianfu701-pixels-projects.vercel.app`。
+- 免费资源：Neon 数据库 `datecn-db`、Upstash Redis `datecn-cache`、私有 Vercel Blob `datecn-media`，均连接 Production 与 Preview；未填写银行卡、未开通付费计划。
+- 免费测试环境明确禁止真实 Stripe、邮件、短信和实名认证配置；只使用虚构 `@datecn.test` 会员和合成数据。
+- 数据库 41 个迁移全部执行并核验；迁移记录数为 41。
+- 受保护 seed 连续执行两次并通过幂等核验：2 个用户、2 个账户、2 份资料、1 个匹配、1 个会话、2 条消息。随机测试密码仅保存在 gitignored 的 `.artifacts/free-test-credentials.json`，未上传 Vercel、未写入日志或终端。
+- 部署分支新增 `1aad823`（Vercel 根目录与敏感文件排除规则），Git 提交身份改为 GitHub 官方 noreply 地址，从而解除 Vercel 的协作者识别拦截。
+
+### 实际公网验收
+
+- 中文首页、登录、演示发现、演示匹配、演示个人中心、演示会员、演示消息和演示个人资料均实际打开，无 404 或服务器错误。
+- Alice 虚拟会员真实登录成功；真实发现页显示 Liam；真实消息页显示 Liam 和预置双方消息；真实会员设置显示免费测试权益；真实资料页回读 Alice 与 San Francisco。
+- 本地正式构建在纯占位安全环境下通过；Vercel 云端生产构建完成全部 23 个静态页面生成及所有动态/API 路由编译。
+- 移动端/成员壳/演示交互聚焦回归为 3 个测试文件、14 项全部通过。此前归档所述完整本地回归仍保持有效。
+
+### 域名状态与待确认切换
+
+- `datecn.org` 与 `www.datecn.org` 已加入 Vercel Production；Vercel 配置为根域名以 308 跳转到 `www.datecn.org`。
+- `APP_URL=https://www.datecn.org`、`BETTER_AUTH_URL=https://www.datecn.org/api/auth` 已写入 Production 与 Preview，并完成最终 READY 部署。
+- Cloudflare 当前记录尚未修改：`@ A 178.128.54.40`（代理开启）、`www A 178.128.54.40`（代理开启）。
+- Vercel 精确要求：`@ CNAME 67f9bcd0961808c5.vercel-dns-017.com.`（代理关闭）、`www CNAME 67f9bcd0961808c5.vercel-dns-017.com.`（代理关闭）。
+- 必须先向用户展示上述旧→新差异并取得当次明确确认，才能在 Cloudflare 保存；保存后还需等待 Vercel 变为 Valid Configuration，并实测根域 308、www 首页、登录、发现、消息及 HTTPS。
