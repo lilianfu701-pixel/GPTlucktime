@@ -1,0 +1,11 @@
+.git
+.env*
+.vercel
+dating-platform/.artifacts
+dating-platform/.env*
+dating-platform/.next
+dating-platform/.vercel
+dating-platform/coverage
+dating-platform/node_modules
+dating-platform/playwright-report
+dating-platform/test-results
