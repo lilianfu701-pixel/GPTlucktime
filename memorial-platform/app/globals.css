@@ -56,6 +56,7 @@
   --space-2: 0.5rem;
   --space-3: 0.75rem;
   --space-4: 1rem;
+  --space-5: 1.25rem;
   --space-6: 1.5rem;
   --space-8: 2rem;
   --space-12: 3rem;
@@ -275,6 +276,15 @@ img {
   align-items: center;
   justify-content: space-between;
   gap: var(--space-6);
+}
+
+/* The primary footer links (资助平台 · 帮助 · 联系我们) — spaced apart, not run
+   together. JSX collapses the whitespace between them, so the gap is set here. */
+.footerLinks {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-5);
 }
 
 /* Friendly-links row (Simplified-Chinese footer only). One step larger than the
