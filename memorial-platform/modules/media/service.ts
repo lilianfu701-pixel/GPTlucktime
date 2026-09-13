@@ -29,6 +29,16 @@ const UPLOAD_URL_TTL_SECONDS = 15 * 60;
 /** A read URL for private media. Short so a leaked address expires quickly. */
 const READ_URL_TTL_SECONDS = 5 * 60;
 
+/**
+ * Excludes a memorial's final-disposition (身后安置) photo from its general
+ * image pool. That photo is referenced only by `memorials.disposition_media_id`
+ * and shown in the disposition section; without this it would leak into the
+ * gallery and, being the newest upload, hijack the portrait (遗像). Every query
+ * using it joins `memorials`, so the column is in scope. `is distinct from`
+ * keeps assets when the memorial has no disposition photo (NULL).
+ */
+const NOT_DISPOSITION_PHOTO = sql`${mediaAssets.id} is distinct from ${memorials.dispositionMediaId}`;
+
 export type SignUploadError =
   | "AUTH_REQUIRED"
   | "MEMORIAL_NOT_FOUND"
@@ -542,6 +552,7 @@ export async function memorialGallery(
         // Photos attached to a chapter (or other content) belong there, not in
         // the general slideshow.
         sql`not exists (select 1 from ${contentMedia} where ${contentMedia.mediaId} = ${mediaAssets.id})`,
+        NOT_DISPOSITION_PHOTO,
       ),
     )
     .orderBy(asc(mediaAssets.createdAt));
@@ -592,6 +603,7 @@ export async function manageableMedia(
         isNull(mediaAssets.deletedAt),
         // Chapter photos are managed inside the chapter editor, not here.
         sql`not exists (select 1 from ${contentMedia} where ${contentMedia.mediaId} = ${mediaAssets.id})`,
+        NOT_DISPOSITION_PHOTO,
       ),
     )
     // Oldest first so a newly uploaded photo lands at the end, matching the
@@ -655,6 +667,7 @@ export async function portraitsBySlug(
         // The 遗像 only — photos attached to a life chapter (or other content)
         // are not the portrait and must not stand in for it on the chart.
         sql`not exists (select 1 from ${contentMedia} where ${contentMedia.mediaId} = ${mediaAssets.id})`,
+        NOT_DISPOSITION_PHOTO,
       ),
     )
     .orderBy(asc(mediaAssets.createdAt));
@@ -699,6 +712,7 @@ async function newestPublicPortraitKey(slug: string): Promise<string | null> {
         eq(mediaAssets.status, "ready"),
         isNull(mediaAssets.deletedAt),
         sql`not exists (select 1 from ${contentMedia} where ${contentMedia.mediaId} = ${mediaAssets.id})`,
+        NOT_DISPOSITION_PHOTO,
       ),
     )
     .orderBy(asc(mediaAssets.createdAt));
@@ -796,6 +810,7 @@ export async function portraitDataUrlForSlug(
         eq(mediaAssets.status, "ready"),
         isNull(mediaAssets.deletedAt),
         sql`not exists (select 1 from ${contentMedia} where ${contentMedia.mediaId} = ${mediaAssets.id})`,
+        NOT_DISPOSITION_PHOTO,
       ),
     )
     .orderBy(asc(mediaAssets.createdAt));
