@@ -30,6 +30,7 @@ export default async function HelpPage(props: {
   const { locale } = await props.params;
   setRequestLocale(locale);
   const t = await getTranslations("help");
+  const guide = await getTranslations("obituaryGuide");
 
   return (
     <main id="main" className="container section">
@@ -47,6 +48,10 @@ export default async function HelpPage(props: {
             </section>
           ))}
         </div>
+
+        <p className="faqAnswer">
+          <Link href={`/${locale}/obituary/guide`}>{guide("title")} →</Link>
+        </p>
 
         <p>
           <Link

@@ -910,5 +910,23 @@
     "q6": "Apakah halaman gratis selamanya? Bagaimana cara menghapusnya?",
     "a6": "Membuat dan mengunjungi halaman gratis selamanya, tanpa biaya bagi keluarga. Untuk menghapus, buka halaman kelola dan ajukan permintaan penghapusan.",
     "contactCta": "Masih ada pertanyaan? Hubungi kami"
+  },
+  "obituaryGuide": {
+    "title": "Cara menulis obituari: format, unsur, dan contoh",
+    "lead": "Obituari mengumumkan kabar duka kepada keluarga, kerabat, dan masyarakat serta menyampaikan pengaturan pemakaman. Panduan ini menjelaskan format baku dan unsur yang perlu ada, dengan contoh yang bisa Anda sesuaikan dalam hitungan menit.",
+    "whatTitle": "Apa itu obituari?",
+    "whatBody": "Obituari adalah pemberitahuan resmi dari keluarga yang memuat nama dan tanggal wafat serta memberi tahu kerabat dan sahabat kapan dan di mana penghormatan terakhir, upacara, atau pemakaman berlangsung. Nadanya khidmat dan isinya ringkas serta akurat.",
+    "formatTitle": "Format baku dan unsur",
+    "formatIntro": "Obituari yang lengkap biasanya memuat unsur berikut:",
+    "formatItems": "Judul: biasanya “Obituari” atau “Obituari [Nama]”\nAlmarhum/almarhumah: nama lengkap, tanggal lahir dan wafat, usia\nKabar wafat: kapan dan (opsional) bagaimana\nRiwayat singkat: peran atau pencapaian utama (opsional)\nPengaturan: waktu dan tempat penghormatan, upacara, atau pemakaman\nTanda tangan: keluarga atau panitia, dan tanggal pengumuman",
+    "templateTitle": "Contoh obituari",
+    "templateNote": "Ganti bagian dalam kurung dengan informasi sebenarnya:",
+    "template": "DALAM KENANGAN\n[Nama lengkap], usia [usia], dari [kota], telah berpulang dengan tenang pada [tanggal].\nDikenang penuh kasih oleh [keluarga].\nUpacara akan diadakan pada [tanggal] pukul [waktu] di [tempat].\nKeluarga mengucapkan terima kasih atas dukungan semua pihak.\n— Keluarga [nama]",
+    "onlineTitle": "Obituari daring",
+    "onlineBody": "Selain cetak, kini banyak keluarga menerbitkan obituari daring: dapat memuat foto, dibagikan seketika, dan memungkinkan kerabat jauh berbelasungkawa daring. Di missingu.org Anda bisa menerbitkan obituari gratis dan mendapat halaman peringatan permanen serta poster untuk dibagikan.",
+    "tipsTitle": "Tips menulis obituari",
+    "tipsItems": "Pastikan nama, tanggal, waktu, dan tempat tepat\nJaga nada khidmat dan ringkas; hindari bahasa gaul\nGunakan sebutan sesuai penulis (mis. “ayah”, “ibu”)\nSebutkan penghormatan, bunga, atau donasi bila ada\nMinta keluarga memeriksa semuanya sebelum menerbitkan",
+    "ctaTitle": "Terbitkan obituari gratis di missingu.org",
+    "ctaButton": "Terbitkan obituari"
   }
 }

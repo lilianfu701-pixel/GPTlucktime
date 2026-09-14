@@ -24,6 +24,7 @@ export default async function PublishObituaryPage(props: {
 
   const t = await getTranslations("memorial");
   const nav = await getTranslations("nav");
+  const guide = await getTranslations("obituaryGuide");
   const actor = await currentActor();
 
   if (!actor.userId) {
@@ -90,6 +91,9 @@ export default async function PublishObituaryPage(props: {
       <header className="stack measure">
         <h1>{t("obituaryPublishTitle")}</h1>
         <p className="lede">{t("obituaryStandaloneIntro")}</p>
+        <p className="muted" style={{ margin: 0 }}>
+          <Link href={`/${locale}/obituary/guide`}>{guide("title")} →</Link>
+        </p>
       </header>
       <ObituaryNewForm
         locale={locale}

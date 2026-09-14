@@ -65,6 +65,20 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     alternates: { languages: homeLanguages },
   }));
 
+  // Evergreen content pages (help centre, obituary-writing guide) — indexable
+  // and worth crawling, so list them with hreflang like the home page.
+  for (const path of ["help", "obituary/guide"]) {
+    const languages = languagesFor((locale) => `${base}/${locale}/${path}`);
+    for (const locale of LAUNCH_LOCALES) {
+      entries.push({
+        url: `${base}/${locale}/${path}`,
+        changeFrequency: "monthly",
+        priority: 0.6,
+        alternates: { languages },
+      });
+    }
+  }
+
   for (const row of rows) {
     const languages = languagesFor((locale) =>
       memorialUrl({ appUrl, locale, slug: row.slug }),

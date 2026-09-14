@@ -910,5 +910,23 @@
     "q6": "La page est-elle gratuite pour toujours ? Comment la supprimer ?",
     "a6": "Créer et visiter une page est gratuit pour toujours, sans frais pour les familles. Pour la supprimer, ouvrez la page de gestion et demandez la suppression.",
     "contactCta": "D'autres questions ? Contactez-nous"
+  },
+  "obituaryGuide": {
+    "title": "Comment rédiger un avis de décès : format, éléments et modèle",
+    "lead": "Un avis de décès annonce un décès aux proches et à la communauté et indique les obsèques. Ce guide présente le format habituel et les éléments à inclure, avec un modèle à adapter en quelques minutes.",
+    "whatTitle": "Qu'est-ce qu'un avis de décès ?",
+    "whatBody": "L'avis de décès est une annonce officielle publiée par la famille : il donne le nom et la date du décès et indique aux proches quand et où auront lieu la veillée, la cérémonie ou l'inhumation. Le ton est sobre, le contenu bref et exact.",
+    "formatTitle": "Format habituel et éléments",
+    "formatIntro": "Un avis de décès complet comprend généralement ces éléments :",
+    "formatItems": "Titre : le plus souvent « Avis de décès » ou « Avis de décès de [Nom] »\nLa personne : nom complet, dates de naissance et de décès, âge\nLe décès : quand et (facultatif) dans quelles circonstances\nBref parcours : rôle ou principales réalisations (facultatif)\nObsèques : date et lieu de la veillée, de la cérémonie ou de l'inhumation\nSignature : la famille ou le comité d'organisation, et la date de l'avis",
+    "templateTitle": "Modèle d'avis de décès",
+    "templateNote": "Remplacez les éléments entre crochets par les informations réelles :",
+    "template": "EN MÉMOIRE\n[Nom complet], âgé(e) de [âge] ans, de [ville], s'est éteint(e) paisiblement le [date].\nIl/Elle laisse dans la peine [proches].\nLa cérémonie aura lieu le [date] à [heure] à [lieu].\nLa famille remercie chacun de son soutien.\n— La famille [nom]",
+    "onlineTitle": "Avis de décès en ligne",
+    "onlineBody": "Au-delà du papier, beaucoup de familles publient désormais un avis en ligne : il peut porter un portrait, se partager aussitôt et permettre aux proches éloignés de rendre hommage en ligne. Sur missingu.org, vous pouvez publier un avis gratuitement et obtenir une page mémorielle permanente et une affiche à partager.",
+    "tipsTitle": "Conseils de rédaction",
+    "tipsItems": "Vérifiez noms, dates, heures et lieux\nGardez un ton sobre et bref ; évitez le familier\nEmployez un terme cohérent avec le signataire (« père », « mère »)\nSignalez veillée, fleurs ou dons le cas échéant\nFaites relire par la famille avant de publier",
+    "ctaTitle": "Publiez un avis de décès gratuitement sur missingu.org",
+    "ctaButton": "Publier un avis de décès"
   }
 }

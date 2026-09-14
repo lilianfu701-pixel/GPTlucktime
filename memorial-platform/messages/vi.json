@@ -910,5 +910,23 @@
     "q6": "Trang tưởng nhớ có miễn phí mãi mãi không? Làm sao để xóa?",
     "a6": "Việc tạo và viếng thăm trang là miễn phí mãi mãi, không thu phí gia đình. Để xóa, hãy mở trang quản lý và gửi yêu cầu xóa.",
     "contactCta": "Vẫn còn thắc mắc? Liên hệ với chúng tôi"
+  },
+  "obituaryGuide": {
+    "title": "Cách viết cáo phó: bố cục, yếu tố và mẫu",
+    "lead": "Cáo phó thông báo việc qua đời tới người thân, bạn bè và cộng đồng, đồng thời cho biết việc tang lễ. Hướng dẫn này trình bày bố cục chuẩn và các yếu tố cần có, kèm một mẫu bạn có thể chỉnh trong vài phút.",
+    "whatTitle": "Cáo phó là gì?",
+    "whatBody": "Cáo phó là thông báo trang trọng do gia đình phát đi, nêu tên và ngày mất, cho người thân và bạn bè biết thời gian, địa điểm lễ viếng, lễ tang hoặc an táng. Giọng văn trang nghiêm, nội dung ngắn gọn và chính xác.",
+    "formatTitle": "Bố cục chuẩn và các yếu tố",
+    "formatIntro": "Một bản cáo phó đầy đủ thường gồm các yếu tố sau:",
+    "formatItems": "Tiêu đề: thường là “Cáo phó” hoặc “Cáo phó [Tên]”\nNgười mất: họ tên, ngày sinh và ngày mất, hưởng thọ\nViệc qua đời: khi nào và (tùy chọn) như thế nào\nTiểu sử ngắn: vai trò hoặc điểm chính (tùy chọn)\nSắp xếp: thời gian và địa điểm lễ viếng, lễ tang hoặc an táng\nKý tên: gia đình hoặc ban tang lễ, và ngày ra cáo phó",
+    "templateTitle": "Mẫu cáo phó",
+    "templateNote": "Thay phần trong ngoặc bằng thông tin thực tế:",
+    "template": "VÔ CÙNG THƯƠNG TIẾC\n[Họ tên], [tuổi] tuổi, ở [thành phố], đã an nghỉ ngày [ngày].\nĐược [người thân] yêu thương tưởng nhớ.\nLễ tang được cử hành lúc [giờ] ngày [ngày] tại [địa điểm].\nGia đình xin cảm ơn sự chia buồn của mọi người.\n— Gia đình [họ]",
+    "onlineTitle": "Cáo phó trực tuyến",
+    "onlineBody": "Ngoài bản in, ngày nay nhiều gia đình đăng cáo phó trực tuyến: có thể kèm ảnh chân dung, chia sẻ tức thì và để người thân ở xa viếng trực tuyến. Trên missingu.org, bạn có thể đăng cáo phó miễn phí và nhận một trang tưởng nhớ vĩnh viễn cùng tấm áp phích để chia sẻ.",
+    "tipsTitle": "Lưu ý khi viết cáo phó",
+    "tipsItems": "Bảo đảm tên, ngày, giờ, địa điểm chính xác\nGiữ giọng trang nghiêm, ngắn gọn; tránh khẩu ngữ\nDùng cách xưng phù hợp với người đứng tên (vd. “cha”, “mẹ”)\nGhi rõ lễ viếng, vòng hoa hoặc việc miễn phúng nếu có\nNhờ gia đình rà soát mọi chi tiết trước khi đăng",
+    "ctaTitle": "Đăng cáo phó miễn phí trên missingu.org",
+    "ctaButton": "Đăng cáo phó"
   }
 }

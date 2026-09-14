@@ -910,5 +910,23 @@
     "q6": "A página é gratuita para sempre? Como excluí-la?",
     "a6": "Criar e visitar uma página é gratuito para sempre, sem custo para as famílias. Para remover, abra a página de gerenciamento e solicite a exclusão.",
     "contactCta": "Ainda tem dúvidas? Fale conosco"
+  },
+  "obituaryGuide": {
+    "title": "Como escrever um obituário: formato, elementos e modelo",
+    "lead": "Um obituário anuncia um falecimento a familiares, amigos e à comunidade e informa os ritos fúnebres. Este guia mostra o formato padrão e os elementos a incluir, com um modelo que você adapta em minutos.",
+    "whatTitle": "O que é um obituário?",
+    "whatBody": "Um obituário é um aviso formal publicado pela família com o nome e a data do falecimento, informando a familiares e amigos quando e onde ocorrerão o velório, o funeral ou o sepultamento. O tom é sóbrio e o conteúdo breve e exato.",
+    "formatTitle": "Formato padrão e elementos",
+    "formatIntro": "Um obituário completo costuma incluir estes elementos:",
+    "formatItems": "Título: geralmente “Obituário” ou “Obituário de [Nome]”\nA pessoa: nome completo, datas de nascimento e falecimento, idade\nO falecimento: quando e (opcional) como ocorreu\nBreve relato: papel ou principais realizações (opcional)\nRitos: data e local do velório, cerimônia ou sepultamento\nAssinatura: a família ou a comissão fúnebre, e a data do aviso",
+    "templateTitle": "Modelo de obituário",
+    "templateNote": "Substitua os dados entre colchetes pelas informações reais:",
+    "template": "EM MEMÓRIA\n[Nome completo], aos [idade] anos, de [cidade], faleceu em paz em [data].\nÉ lembrado(a) com carinho por [familiares].\nA cerimônia será realizada em [data], às [hora], em [local].\nA família agradece o carinho e o apoio de todos.\n— Família [sobrenome]",
+    "onlineTitle": "Obituários on-line",
+    "onlineBody": "Além do impresso, muitas famílias hoje publicam um obituário on-line: pode ter retrato, ser compartilhado na hora e permitir que parentes distantes prestem homenagem on-line. No missingu.org você publica um obituário de graça e ganha uma página memorial permanente e um cartaz para compartilhar.",
+    "tipsTitle": "Dicas para escrever o obituário",
+    "tipsItems": "Confira nomes, datas, horários e locais\nMantenha o tom sóbrio e breve; evite gírias\nUse um termo coerente com quem assina (ex.: “pai”, “mãe”)\nIndique velório, flores ou doações, se for o caso\nPeça à família para conferir tudo antes de publicar",
+    "ctaTitle": "Publique um obituário grátis no missingu.org",
+    "ctaButton": "Publicar obituário"
   }
 }

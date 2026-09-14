@@ -910,5 +910,23 @@
     "q6": "¿La página es gratis para siempre? ¿Cómo la elimino?",
     "a6": "Crear y visitar una página es gratis para siempre, sin coste para las familias. Para eliminarla, abre la página de gestión y solicita la eliminación.",
     "contactCta": "¿Aún tienes preguntas? Contáctanos"
+  },
+  "obituaryGuide": {
+    "title": "Cómo escribir una esquela: formato, elementos y plantilla",
+    "lead": "Una esquela anuncia un fallecimiento a familiares, amigos y la comunidad y comunica los actos fúnebres. Esta guía explica el formato estándar y los elementos a incluir, con una plantilla que puedes adaptar en minutos.",
+    "whatTitle": "¿Qué es una esquela?",
+    "whatBody": "Una esquela es un aviso formal publicado por la familia que da el nombre y la fecha de fallecimiento e informa a familiares y amigos cuándo y dónde se celebrarán el velatorio, el funeral o el entierro. El tono es sobrio y el contenido breve y exacto.",
+    "formatTitle": "Formato estándar y elementos",
+    "formatIntro": "Una esquela completa suele incluir estos elementos:",
+    "formatItems": "Título: normalmente «Esquela» o «Esquela de [Nombre]»\nLa persona: nombre completo, fechas de nacimiento y fallecimiento, edad\nEl fallecimiento: cuándo y (opcional) cómo ocurrió\nBreve reseña: papel o logros principales (opcional)\nActos: fecha y lugar del velatorio, funeral o entierro\nFirma: la familia o la comisión de exequias, y la fecha del aviso",
+    "templateTitle": "Plantilla de esquela",
+    "templateNote": "Sustituye los datos entre corchetes por la información real:",
+    "template": "EN MEMORIA\n[Nombre completo], de [edad] años, de [ciudad], falleció en paz el [fecha].\nLo/La recuerdan con cariño [familiares].\nEl funeral se celebrará el [fecha] a las [hora] en [lugar].\nLa familia agradece las muestras de cariño y apoyo.\n— La familia [apellido]",
+    "onlineTitle": "Esquelas en línea",
+    "onlineBody": "Además del papel, muchas familias publican hoy una esquela en línea: puede llevar retrato, compartirse al instante y permitir que familiares lejanos den el pésame en línea. En missingu.org puedes publicar una esquela gratis y obtener una página conmemorativa permanente y un cartel para compartir.",
+    "tipsTitle": "Consejos para redactar la esquela",
+    "tipsItems": "Comprueba nombres, fechas, horas y lugares\nMantén un tono sobrio y breve; evita coloquialismos\nUsa un título acorde con quien firma (p. ej. «padre», «madre»)\nIndica velatorio, flores o donativos si procede\nQue la familia revise todo antes de publicar",
+    "ctaTitle": "Publica una esquela gratis en missingu.org",
+    "ctaButton": "Publicar una esquela"
   }
 }

@@ -910,5 +910,23 @@
     "q6": "Ist eine Gedenkseite für immer kostenlos? Wie lösche ich sie?",
     "a6": "Das Erstellen und Besuchen einer Gedenkseite ist für immer kostenlos, ohne Gebühren für Familien. Zum Entfernen öffnen Sie die Verwaltungsseite und beantragen die Löschung.",
     "contactCta": "Noch Fragen? Kontaktieren Sie uns"
+  },
+  "obituaryGuide": {
+    "title": "Eine Traueranzeige schreiben: Aufbau, Elemente und Vorlage",
+    "lead": "Eine Traueranzeige teilt Angehörigen, Freunden und der Gemeinschaft einen Todesfall mit und nennt die Trauerfeier. Dieser Leitfaden zeigt den üblichen Aufbau und die Bestandteile – mit einer Vorlage, die Sie in Minuten anpassen.",
+    "whatTitle": "Was ist eine Traueranzeige?",
+    "whatBody": "Eine Traueranzeige ist eine formelle Mitteilung der Familie mit Namen und Sterbedatum, die Angehörigen und Freunden Zeit und Ort von Aufbahrung, Trauerfeier oder Beisetzung nennt. Der Ton ist würdevoll, der Inhalt knapp und genau.",
+    "formatTitle": "Aufbau und Bestandteile",
+    "formatIntro": "Eine vollständige Traueranzeige enthält meist diese Bestandteile:",
+    "formatItems": "Überschrift: meist „Traueranzeige“ oder „Traueranzeige für [Name]“\nDie Person: vollständiger Name, Geburts- und Sterbedatum, Alter\nDer Todesfall: wann und (optional) wie\nKurzer Lebenslauf: Rolle oder wichtigste Stationen (optional)\nAblauf: Datum und Ort von Aufbahrung, Trauerfeier oder Beisetzung\nUnterschrift: Familie oder Trauerkomitee und Datum der Anzeige",
+    "templateTitle": "Vorlage für die Traueranzeige",
+    "templateNote": "Ersetzen Sie die Angaben in Klammern durch die echten Daten:",
+    "template": "IN LIEBEVOLLER ERINNERUNG\n[Vollständiger Name], [Alter] Jahre, aus [Ort], ist am [Datum] friedlich verstorben.\nIn Liebe erinnern sich [Angehörige].\nDie Trauerfeier findet am [Datum] um [Uhrzeit] in [Ort] statt.\nDie Familie dankt für alle Anteilnahme.\n— Familie [Nachname]",
+    "onlineTitle": "Online-Traueranzeigen",
+    "onlineBody": "Neben dem Druck veröffentlichen viele Familien heute eine Online-Traueranzeige: mit Porträt, sofort teilbar und für entfernte Angehörige online zugänglich. Auf missingu.org können Sie eine Traueranzeige kostenlos veröffentlichen und erhalten eine dauerhafte Gedenkseite und ein teilbares Plakat.",
+    "tipsTitle": "Tipps zum Schreiben",
+    "tipsItems": "Namen, Daten, Zeiten und Orte genau prüfen\nWürdevoll und knapp bleiben; keine Umgangssprache\nBezeichnung passend zum Verfasser (z. B. „Vater“, „Mutter“)\nAufbahrung, Blumen oder Spendenwünsche angeben\nVor der Veröffentlichung alles von der Familie prüfen lassen",
+    "ctaTitle": "Traueranzeige kostenlos auf missingu.org veröffentlichen",
+    "ctaButton": "Traueranzeige veröffentlichen"
   }
 }

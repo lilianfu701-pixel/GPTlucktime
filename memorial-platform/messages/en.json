@@ -910,5 +910,23 @@
     "q6": "Is a memorial free forever? How do I delete it?",
     "a6": "Creating and visiting a memorial is free forever, with no charge to families. To remove one, open the manage page and request deletion.",
     "contactCta": "Still have questions? Contact us"
+  },
+  "obituaryGuide": {
+    "title": "How to write an obituary: format, elements and a template",
+    "lead": "An obituary announces a death to family, friends and community and shares the funeral or memorial arrangements. This guide covers the standard format and the elements to include, with a template you can adapt in minutes.",
+    "whatTitle": "What is an obituary?",
+    "whatBody": "An obituary is a formal notice published by the family that gives the person's name and date of death and tells relatives and friends when and where the farewell, memorial service or burial will take place. The tone is dignified and the content concise and accurate.",
+    "formatTitle": "The standard format and elements",
+    "formatIntro": "A complete obituary usually includes these elements:",
+    "formatItems": "Heading: usually the word “Obituary”, or “Obituary of [Name]”\nThe deceased: full name, dates of birth and death, age\nThe passing: when and (optionally) how they died\nA brief life note: role or main achievements (optional)\nArrangements: date and place of the farewell, service or burial\nSignature: the family or funeral committee, and the date of notice",
+    "templateTitle": "Obituary template",
+    "templateNote": "Replace the bracketed details with the real information:",
+    "template": "IN LOVING MEMORY\n[Full name], aged [age], of [city], passed away peacefully on [date].\nHe/She is lovingly remembered by [family members].\nA memorial service will be held at [time] on [date] at [place].\nThe family thanks everyone for their kindness and support.\n— The [surname] family",
+    "onlineTitle": "Online obituaries",
+    "onlineBody": "Beyond print, many families now publish an online obituary: it can carry a portrait, be shared instantly, and let distant relatives pay their respects online. On missingu.org you can publish an obituary for free and get a permanent memorial page and a shareable poster.",
+    "tipsTitle": "Tips for writing an obituary",
+    "tipsItems": "Get names, dates, times and places exactly right\nKeep the tone dignified and concise; avoid slang\nUse a title that matches the writer (e.g. “father”, “mother”)\nNote any wake, flowers or donation wishes\nHave the family check every detail before publishing",
+    "ctaTitle": "Publish an obituary free on missingu.org",
+    "ctaButton": "Publish an obituary"
   }
 }

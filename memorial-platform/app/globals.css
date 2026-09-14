@@ -1366,6 +1366,26 @@ img {
   line-height: 1.75;
 }
 
+/* Obituary guide: element list + the copy-and-adapt template box. */
+.guideList {
+  margin: 0;
+  padding-inline-start: 1.25rem;
+  color: var(--ink-soft, var(--ink));
+  line-height: 1.9;
+}
+
+.obituaryTemplate {
+  white-space: pre-wrap;
+  background: var(--paper-raised);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: var(--space-5) var(--space-6);
+  line-height: 1.9;
+  color: var(--ink);
+  font-family: var(--font-serif, Georgia, "Songti SC", serif);
+  overflow-x: auto;
+}
+
 .textCenter {
   text-align: center;
 }
