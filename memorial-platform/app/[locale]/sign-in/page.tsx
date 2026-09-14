@@ -39,6 +39,9 @@ export default async function SignInPage(props: {
 
   const t = await getTranslations("auth");
   const { phoneAuthEnabled, oauthGoogleEnabled, oauthAppleEnabled } = flags();
+  // Google is unreachable in mainland China — hide it on the Simplified-Chinese
+  // sign-in page.
+  const showGoogle = oauthGoogleEnabled && locale !== "zh-CN";
 
   return (
     <main id="main" className="container section stack-lg">
@@ -52,11 +55,11 @@ export default async function SignInPage(props: {
         <SignInForm locale={locale} phoneAuthEnabled={phoneAuthEnabled} />
       </Suspense>
 
-      {oauthGoogleEnabled || oauthAppleEnabled ? (
+      {showGoogle || oauthAppleEnabled ? (
         <div className="stack measure">
           <p className="muted">{t("alternativeDivider")}</p>
           <div className="ritualChoices">
-            {oauthGoogleEnabled ? (
+            {showGoogle ? (
               <a
                 className="button buttonQuiet"
                 href={`/api/auth/oauth/google?locale=${locale}${safeNextParam}`}
