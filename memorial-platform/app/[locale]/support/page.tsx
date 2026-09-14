@@ -41,10 +41,6 @@ export default async function SupportPage(props: {
       <div className="supportLayout stack-lg measure">
         <header className="stack">
           <h1>{t("title")}</h1>
-          <p className="lede">{t("lede")}</p>
-          <p className="muted" style={{ margin: 0 }}>
-            {t("note")}
-          </p>
         </header>
 
         {thanked ? (

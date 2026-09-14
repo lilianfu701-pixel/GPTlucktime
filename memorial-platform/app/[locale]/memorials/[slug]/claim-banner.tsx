@@ -86,17 +86,21 @@ export function ClaimBanner(props: {
               : t("takeoverPending")}
         </p>
       ) : !props.signedIn ? (
-        <Link className="button buttonPrimary" href={props.signInHref}>
-          {t("stewardClaimSignIn")}
-        </Link>
+        <p className="claimBannerAction">
+          <Link className="claimBannerLink" href={props.signInHref}>
+            {t("stewardClaimSignIn")}
+          </Link>
+        </p>
       ) : !open ? (
-        <button
-          type="button"
-          className="button buttonPrimary"
-          onClick={() => setOpen(true)}
-        >
-          {t("stewardClaimCta")}
-        </button>
+        <p className="claimBannerAction">
+          <button
+            type="button"
+            className="claimBannerLink"
+            onClick={() => setOpen(true)}
+          >
+            {t("stewardClaimCta")}
+          </button>
+        </p>
       ) : (
         <div className="claimBannerForm stack">
           <label className="field">

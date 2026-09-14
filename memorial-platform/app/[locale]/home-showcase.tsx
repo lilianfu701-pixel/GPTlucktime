@@ -1,6 +1,5 @@
 "use client";
 
-import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
@@ -25,7 +24,6 @@ type ShowcaseItem = {
 };
 
 export function HomeShowcase({ locale }: { locale: string }) {
-  const t = useTranslations("home");
   const [items, setItems] = useState<ShowcaseItem[] | null>(null);
 
   useEffect(() => {
@@ -65,7 +63,6 @@ export function HomeShowcase({ locale }: { locale: string }) {
   return (
     <section className="section">
       <div className="container stack-lg">
-        <h2 className="textCenter">{t("latestTitle")}</h2>
         <div className="showcaseGrid">
           {items.map((m) => {
             const dates = yearRange(m.birthYear, m.deathYear);
