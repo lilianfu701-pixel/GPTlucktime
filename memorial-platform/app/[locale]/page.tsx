@@ -217,7 +217,12 @@ export default async function HomePage(props: {
           </div>
 
           <Suspense>
-            <HomeSignIn locale={locale} googleEnabled={oauthGoogleEnabled} />
+            {/* Google is unreachable in mainland China — no Google sign-in on
+                the Simplified-Chinese homepage. */}
+            <HomeSignIn
+              locale={locale}
+              googleEnabled={oauthGoogleEnabled && locale !== "zh-CN"}
+            />
           </Suspense>
         </div>
       </section>
