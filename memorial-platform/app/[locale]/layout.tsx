@@ -46,6 +46,14 @@ const CN_AGENCIES: readonly { name: string; url: string }[] = [
 /** The site's ICP filing, shown only in the Simplified-Chinese footer. */
 const CN_ICP = "京ICP备150395100号";
 
+/**
+ * SEO keywords for the Simplified-Chinese site. Led by 讣告 / 讣告格式 (obituary
+ * and obituary format) alongside the core memorial terms. Applied site-wide via
+ * the layout; other locales carry no keywords.
+ */
+const CN_KEYWORDS =
+  "讣告, 讣告格式, 讣告范文, 网上追思, 网上纪念, 纪念网站, 追思网";
+
 /*
  * Two families, both subset by next/font and self-hosted at build time. No
  * request leaves for a font provider: doc 06 keeps a visitor's presence on a
@@ -78,6 +86,9 @@ export async function generateMetadata(props: {
     // URL, which Google requires.
     metadataBase: new URL(siteUrl()),
     title: t("appName"),
+    // Keywords only for the Simplified-Chinese site; inherited by every zh-CN
+    // page that doesn't set its own.
+    ...(locale === "zh-CN" ? { keywords: CN_KEYWORDS } : {}),
   };
 }
 
