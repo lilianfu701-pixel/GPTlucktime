@@ -1,6 +1,7 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import Link from "next/link";
 import type { Metadata } from "next";
+import { GUIDES, RELATED_LABEL, guideTitle } from "@/content/guides";
 
 export const dynamic = "force-dynamic";
 
@@ -89,6 +90,22 @@ export default async function ObituaryGuidePage(props: {
             </Link>
           </p>
         </section>
+
+        <nav
+          className="stack"
+          aria-label={RELATED_LABEL[locale] ?? RELATED_LABEL.en}
+        >
+          <h2>{RELATED_LABEL[locale] ?? RELATED_LABEL.en}</h2>
+          <ul className="guideList">
+            {GUIDES.map((g) => (
+              <li key={g.slug}>
+                <Link href={`/${locale}/guide/${g.slug}`}>
+                  {guideTitle(g, locale)}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
       </article>
     </main>
   );

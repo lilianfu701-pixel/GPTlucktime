@@ -5,6 +5,7 @@ import { memorials } from "@/db/schema";
 import { siteUrl } from "@/lib/env";
 import { DEFAULT_LOCALE, LAUNCH_LOCALES } from "@/lib/locale";
 import { memorialUrl } from "@/modules/memorials/seo";
+import { GUIDES } from "@/content/guides";
 
 /**
  * The hreflang map for one logical page: every launch-locale variant plus an
@@ -65,9 +66,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     alternates: { languages: homeLanguages },
   }));
 
-  // Evergreen content pages (help centre, obituary-writing guide) — indexable
-  // and worth crawling, so list them with hreflang like the home page.
-  for (const path of ["help", "obituary/guide"]) {
+  // Evergreen content pages (help centre, obituary-writing guide, long-tail
+  // guides) — indexable and worth crawling, so list them with hreflang.
+  const contentPaths = [
+    "help",
+    "obituary/guide",
+    ...GUIDES.map((g) => `guide/${g.slug}`),
+  ];
+  for (const path of contentPaths) {
     const languages = languagesFor((locale) => `${base}/${locale}/${path}`);
     for (const locale of LAUNCH_LOCALES) {
       entries.push({
