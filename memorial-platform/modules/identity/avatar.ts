@@ -10,10 +10,10 @@ import {
   safeDisplayFileName,
   validateDeclaredUpload,
 } from "@/modules/media/policy";
+import { sniffImageMime } from "@/modules/media/service";
 import { mediaStorage } from "@/modules/media/storage";
 
 const UPLOAD_URL_TTL_SECONDS = 15 * 60;
-const READ_URL_TTL_SECONDS = 5 * 60;
 
 export type AvatarError =
   | "AUTH_REQUIRED"
@@ -169,10 +169,11 @@ export async function loadAvatar(userId: string): Promise<AvatarView> {
     return { mediaId: null, url: null, status: null, showInTree: false };
   }
 
-  let url: string | null = null;
-  if (row.status === "ready" && row.readyObjectKey) {
-    url = await avatarUrl(row.readyObjectKey);
-  }
+  // Served through this origin (see `avatarSrc`), not the object store: the
+  // storage host is unreachable from some regions (e.g. mainland China) and a
+  // signed URL expires, so the picture would silently fail to load there.
+  const url =
+    row.status === "ready" && row.readyObjectKey ? avatarSrc(userId) : null;
 
   return {
     mediaId: row.avatarMediaId,
@@ -183,17 +184,47 @@ export async function loadAvatar(userId: string): Promise<AvatarView> {
 }
 
 /**
- * An address for an avatar object.
+ * A stable, same-origin address for an account's avatar.
  *
- * An avatar is shown wherever the person chose to appear, so it is treated as
- * public when the storage has a public base, and signed otherwise.
+ * The `/api/avatar/[id]` route streams the bytes through this origin — the same
+ * reason a memorial 遗像 is served from `/api/portrait/[slug]`. A direct object
+ * store URL is signed (and short-lived) or on a host that some regions cannot
+ * reach; routing through the app's own domain fixes both.
  */
-async function avatarUrl(readyObjectKey: string): Promise<string> {
-  const storage = mediaStorage();
-  return (
-    storage.publicUrl(readyObjectKey) ??
-    (await storage.createReadUrl(readyObjectKey, READ_URL_TTL_SECONDS))
-  );
+export function avatarSrc(userId: string): string {
+  return `/api/avatar/${userId}`;
+}
+
+export type AvatarImage = { bytes: Uint8Array; contentType: string };
+
+/**
+ * The raw bytes of an account's avatar, for the `/api/avatar/[id]` route.
+ *
+ * Released only to the account holder themselves, or — for an avatar the person
+ * chose to show on a family chart (`showAvatarInTree`) — to anyone, since that
+ * flag is the person's own consent to appear on someone else's memorial.
+ */
+export async function avatarBytesForUser(
+  targetUserId: string,
+  requesterUserId: string | null,
+): Promise<AvatarImage | null> {
+  const [row] = await db()
+    .select({
+      showInTree: users.showAvatarInTree,
+      status: mediaAssets.status,
+      readyObjectKey: mediaAssets.readyObjectKey,
+    })
+    .from(users)
+    .innerJoin(mediaAssets, eq(mediaAssets.id, users.avatarMediaId))
+    .where(and(eq(users.id, targetUserId), isNull(mediaAssets.deletedAt)));
+
+  if (!row || row.status !== "ready" || !row.readyObjectKey) return null;
+  if (requesterUserId !== targetUserId && !row.showInTree) return null;
+
+  const bytes = await mediaStorage().getObject(row.readyObjectKey);
+  if (!bytes) return null;
+
+  return { bytes, contentType: sniffImageMime(bytes) };
 }
 
 /**
@@ -218,6 +249,7 @@ export async function avatarsForRelativeNames(
   const rows = await db()
     .select({
       claimedName: recognitionClaims.claimedName,
+      userId: users.id,
       status: mediaAssets.status,
       readyObjectKey: mediaAssets.readyObjectKey,
     })
@@ -236,7 +268,7 @@ export async function avatarsForRelativeNames(
 
   for (const row of rows) {
     if (row.readyObjectKey) {
-      found.set(row.claimedName.trim(), await avatarUrl(row.readyObjectKey));
+      found.set(row.claimedName.trim(), avatarSrc(row.userId));
     }
   }
 
@@ -268,7 +300,7 @@ export async function avatarsForUsers(
 
   for (const row of rows) {
     if (row.readyObjectKey) {
-      found.set(row.userId, await avatarUrl(row.readyObjectKey));
+      found.set(row.userId, avatarSrc(row.userId));
     }
   }
 
