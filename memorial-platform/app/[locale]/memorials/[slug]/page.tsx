@@ -425,9 +425,13 @@ export default async function MemorialPage(props: {
     detail.status === "draft" ||
     (detail.status === "published" && detail.visibility === "unlisted");
 
-  // A platform super admin can reclaim management of any page they don't own.
+  // A platform super admin can reclaim management of any page they don't own —
+  // but not a platform-stewarded seed, which the platform already holds on a
+  // family's behalf and which shows its own "awaiting a claim" banner instead.
   const showAdminReclaim =
-    viewer.platformRole === "super_admin" && detail.viewerRole !== "owner";
+    viewer.platformRole === "super_admin" &&
+    detail.viewerRole !== "owner" &&
+    !awaitingClaim;
 
   // Structured data only for a page Google may index.
   const indexable =
@@ -728,7 +732,10 @@ export default async function MemorialPage(props: {
         {/* Who manages the page, the owner's manage link, and — for a signed-in
          * visitor who does not manage it — the takeover request affordance. */}
         <div className="memorialManageFoot">
-          {adminName ? (
+          {/* A platform-stewarded seed awaiting a claim has no family manager to
+              name — showing the import steward as "本页管理员" only confuses. The
+              steward banner already says the page is platform-built. */}
+          {adminName && !awaitingClaim ? (
             <span className="muted memorialAdminLine">
               {t("currentAdminLabel")}
               {adminName}
