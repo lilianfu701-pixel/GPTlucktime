@@ -10,6 +10,7 @@ import { err, ok } from "@/lib/result";
 import type { Result } from "@/lib/result";
 import { resolveAccessById } from "@/modules/memorials/access";
 import type { Actor } from "@/modules/permissions/types";
+import { maskName } from "./mask";
 
 export type TreeError = "PERSON_NOT_FOUND" | "DEPTH_TOO_LARGE";
 
@@ -81,6 +82,7 @@ type RawPerson = {
   deathYear: number | null;
   createdByUserId: string;
   selfUserId: string | null;
+  publicMasked: boolean;
 };
 
 async function loadPeople(ids: string[]): Promise<Map<string, RawPerson>> {
@@ -96,6 +98,7 @@ async function loadPeople(ids: string[]): Promise<Map<string, RawPerson>> {
       deathYear: familyPeople.deathYear,
       createdByUserId: familyPeople.createdByUserId,
       selfUserId: familyPeople.selfUserId,
+      publicMasked: familyPeople.publicMasked,
     })
     .from(familyPeople)
     .where(inArray(familyPeople.id, ids));
@@ -271,6 +274,23 @@ export async function readTree(
     }
 
     if (!(await mayName(actor, person, neighbourStewardIds))) {
+      // A living person seeded from a published 族谱 is shown masked (surname
+      // only) rather than fully withheld, so a descendant can recognise and
+      // claim themselves. The exact year is dropped with the given name — the
+      // node keeps its id so it can be claimed, but reveals nothing more.
+      if (person.publicMasked && person.lifeStatus === "living" && person.displayName) {
+        nodes.push({
+          visible: true,
+          ref,
+          personId: person.id,
+          name: maskName(person.displayName),
+          lifeStatus: "living",
+          birthYear: null,
+          deathYear: null,
+          memorialSlug: null,
+        });
+        continue;
+      }
       nodes.push({ visible: false, ref });
       continue;
     }

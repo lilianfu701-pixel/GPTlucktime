@@ -1,4 +1,5 @@
 import {
+  boolean,
   check,
   index,
   integer,
@@ -96,6 +97,33 @@ export const familyPeople = pgTable(
      * since corrected or made unsearchable.
      */
     displayName: text("display_name"),
+    /**
+     * The generation character (字辈/派语) from a lineage's generation poem, e.g.
+     * "德" for the 77th Kong generation. A uniquely Chinese matching signal: same
+     * surname + same ancestral seat + the same 字辈 ordering strongly implies one
+     * clan, which is how a living descendant places themselves against a seeded
+     * lineage. Optional — most nodes outside a formal 族谱 have none.
+     */
+    generationName: text("generation_name"),
+    /**
+     * Whether this node's name may be shown to the public masked (surname + ·),
+     * rather than fully withheld.
+     *
+     * Off by default, which keeps the strict rule: a living person someone else
+     * recorded is not named to strangers at all. It is turned on only for a
+     * living person seeded from a published 族谱, where a masked name is what lets
+     * a descendant recognise and claim themselves — a deliberate, narrow
+     * relaxation, never applied to privately recorded relatives.
+     */
+    publicMasked: boolean("public_masked").default(false).notNull(),
+    /**
+     * Provenance + idempotency key for a node seeded by an import, e.g.
+     * "import:fixture:kong-lineage:kong-chuichang". A memorial-backed node dedups
+     * through the memorial's own idempotency key; a living node has no memorial,
+     * so it dedups here — re-running an import reuses the same node instead of
+     * planting a second one. Null for anything a person entered by hand.
+     */
+    importKey: text("import_key"),
     lifeStatus: lifeStatus("life_status").default("unknown").notNull(),
     /**
      * Years only, never full dates, for a living person recorded by someone
@@ -126,6 +154,8 @@ export const familyPeople = pgTable(
     // and the graph quietly splits in half.
     uniqueIndex("family_people_deceased_key").on(table.deceasedPersonId),
     uniqueIndex("family_people_self_key").on(table.selfUserId),
+    // One seeded node per import key (nulls, i.e. hand-entered nodes, don't collide).
+    uniqueIndex("family_people_import_key").on(table.importKey),
     index("family_people_creator_idx").on(table.createdByUserId),
     index("family_people_name_idx").on(table.displayName),
     check(

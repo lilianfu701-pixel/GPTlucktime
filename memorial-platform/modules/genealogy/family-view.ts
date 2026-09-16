@@ -1,4 +1,4 @@
-import { and, asc, eq, isNull } from "drizzle-orm";
+import { and, asc, eq, inArray, isNull } from "drizzle-orm";
 import { db } from "@/db/client";
 import {
   deceasedPeople,
@@ -13,6 +13,7 @@ import type { Tree, TreeEdge, TreeNode } from "./tree";
 import type { Gender, Kinship } from "./kinship";
 import { buildGraph, classifyKinship } from "./kinship";
 import { immediateLinks } from "./links";
+import { maskName } from "./mask";
 
 /**
  * The family tree a memorial shows, assembled at read time from two sources
@@ -58,7 +59,8 @@ export type RelativeRow = {
 export type LinkedMemorial = {
   personId: string;
   name: string;
-  slug: string;
+  /** Null for a living graph node, which has no page to link to. */
+  slug: string | null;
   role: "parent" | "child" | "partner";
   gender: Gender;
   birthYear: number | null;
@@ -652,6 +654,68 @@ function yearOf(dateString: string | null): number | null {
 }
 
 /**
+ * Living relatives seeded from a 族谱, directly linked to this memorial's
+ * subject and shown masked (surname only). These have no page, so they surface
+ * only through the graph — not through the memorial's own relatives list — and
+ * only the strong-privacy, publicly-maskable ones (`public_masked`) are shown;
+ * a living person someone recorded by hand stays off a stranger's tree entirely.
+ * The full name never leaves the server; only the mask is returned.
+ */
+async function linkedLivingNodesOf(
+  memorialId: string,
+): Promise<LinkedMemorial[]> {
+  const [memorial] = await db()
+    .select({ deceasedPersonId: memorials.deceasedPersonId })
+    .from(memorials)
+    .where(eq(memorials.id, memorialId));
+  if (!memorial) return [];
+
+  const [node] = await db()
+    .select({ id: familyPeople.id })
+    .from(familyPeople)
+    .where(eq(familyPeople.deceasedPersonId, memorial.deceasedPersonId));
+  if (!node) return [];
+
+  const links = await immediateLinks(node.id);
+  if (links.length === 0) return [];
+
+  const rows = await db()
+    .select({
+      id: familyPeople.id,
+      displayName: familyPeople.displayName,
+    })
+    .from(familyPeople)
+    .where(
+      and(
+        inArray(
+          familyPeople.id,
+          links.map((link) => link.otherPersonId),
+        ),
+        eq(familyPeople.lifeStatus, "living"),
+        eq(familyPeople.publicMasked, true),
+        isNull(familyPeople.deceasedPersonId),
+      ),
+    );
+  const roleByPerson = new Map(links.map((link) => [link.otherPersonId, link.role]));
+
+  const result: LinkedMemorial[] = [];
+  for (const row of rows) {
+    if (!row.displayName) continue;
+    result.push({
+      personId: row.id,
+      name: maskName(row.displayName),
+      slug: null,
+      role: roleByPerson.get(row.id) ?? "child",
+      gender: "unknown",
+      birthYear: null,
+      deathYear: null,
+      lifeStatus: "living",
+    });
+  }
+  return result;
+}
+
+/**
  * A living person's own name-visibility choice, keyed by the name a memorial
  * recorded for them. Only a confirmed recognition claim ties an account to a
  * listed name, and only a set (non-null) preference counts — so this is exactly
@@ -698,14 +762,15 @@ export async function familyViewForMemorial(
     hiddenLabel?: string;
   },
 ): Promise<{ tree: Tree; kinship: Map<string, Kinship> } | null> {
-  const [linked, nameOverrides] = await Promise.all([
+  const [linked, livingLinked, nameOverrides] = await Promise.all([
     linkedMemorialsOf(memorialId, options?.recurse ?? false),
+    linkedLivingNodesOf(memorialId),
     nameOverridesForMemorial(memorialId),
   ]);
   return assembleFamilyView({
     root,
     relatives,
-    linked,
+    linked: [...linked, ...livingLinked],
     nameOverrides,
     ...(options?.viewerLoggedIn !== undefined
       ? { viewerLoggedIn: options.viewerLoggedIn }

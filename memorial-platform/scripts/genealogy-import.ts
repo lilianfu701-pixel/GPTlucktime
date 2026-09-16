@@ -120,6 +120,7 @@ async function main(): Promise<void> {
     `relations:         ${report.relationsTotal}`,
     `memorials created: ${report.memorialsCreated}`,
     `memorials existing:${report.memorialsExisting}`,
+    `living (masked):   ${report.livingCreated} created, ${report.livingExisting} existing`,
     `links created:     ${report.linksCreated}`,
     `links existing:    ${report.linksExisting}`,
     `issues:            ${report.issues.length}`,

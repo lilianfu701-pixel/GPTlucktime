@@ -1,10 +1,11 @@
 import { eq } from "drizzle-orm";
 import { db } from "@/db/client";
-import { memorials } from "@/db/schema";
+import { familyPeople, memorials } from "@/db/schema";
 import { createMemorial } from "@/modules/memorials/service";
 import type { CreateMemorialInput, PartialDate } from "@/modules/memorials/service";
 import type { Actor } from "@/modules/permissions/types";
-import { linkMemorials } from "../memorial-graph";
+import { addLivingRelative, addMemorialSubject } from "../people";
+import { proposeLink } from "../links";
 import type {
   GenealogyDataset,
   SourceDate,
@@ -26,7 +27,7 @@ export type ImportOptions = {
 
 export type ImportIssue = {
   externalId?: string;
-  stage: "validate" | "memorial" | "link";
+  stage: "validate" | "memorial" | "living" | "link";
   error: string;
 };
 
@@ -45,6 +46,9 @@ export type ImportReport = {
   relationsTotal: number;
   memorialsCreated: number;
   memorialsExisting: number;
+  /** Living people seeded as masked graph nodes (no page). */
+  livingCreated: number;
+  livingExisting: number;
   linksCreated: number;
   linksExisting: number;
   issues: ImportIssue[];
@@ -145,6 +149,8 @@ export async function importGenealogy(
     relationsTotal: dataset.relations.length,
     memorialsCreated: 0,
     memorialsExisting: 0,
+    livingCreated: 0,
+    livingExisting: 0,
     linksCreated: 0,
     linksExisting: 0,
     issues: [],
@@ -193,79 +199,180 @@ export async function importGenealogy(
     return report;
   }
 
-  // Pass one: a page per person, collecting external id → memorial id.
-  const memorialByExternalId = new Map<string, string>();
+  // Pass one: a graph node per person, collecting external id → node id. A
+  // deceased person gets a claimable memorial behind their node; a living person
+  // gets a masked node with no page. Both carry their 字辈 for later matching.
+  const nodeByExternalId = new Map<string, string>();
   for (const person of dataset.people) {
-    const result = await createMemorial(
-      actor,
-      buildInput(person, regions),
-      idempotencyKey(dataset.key, person.externalId),
-      correlationId,
-    );
-    if (!result.ok) {
-      report.issues.push({
-        externalId: person.externalId,
-        stage: "memorial",
-        error: result.error,
-      });
-      continue;
-    }
-
-    // A stewarded seed is created as a draft; publish it so the public page and
-    // its family section render for a searcher or a would-be claimant.
-    if (result.value.created) {
-      await db()
-        .update(memorials)
-        .set({ status: "published", publishedAt: new Date() })
-        .where(eq(memorials.id, result.value.memorialId));
-      report.memorialsCreated += 1;
-    } else {
-      report.memorialsExisting += 1;
-    }
-
-    memorialByExternalId.set(person.externalId, result.value.memorialId);
-    report.memorials.push({
-      externalId: person.externalId,
-      memorialId: result.value.memorialId,
-      slug: result.value.slug,
-      name: person.name,
-      created: result.value.created,
-    });
+    const nodeId = person.living
+      ? await seedLivingNode(actor, dataset, person, correlationId, report)
+      : await seedMemorialNode(actor, dataset, person, regions, correlationId, report);
+    if (nodeId) nodeByExternalId.set(person.externalId, nodeId);
   }
 
-  // Pass two: the edges. Both endpoints are stewarded by this actor, so each
-  // link confirms immediately and becomes traversable.
+  // Pass two: the edges, between graph nodes directly. Every node is this
+  // actor's to speak for, so each proposed link confirms at once and is
+  // traversable — a connected 族谱, not a pile of proposals.
   for (const rel of dataset.relations) {
-    await applyRelation(actor, rel, memorialByExternalId, correlationId, report);
+    await applyRelation(actor, rel, nodeByExternalId, correlationId, report);
   }
 
   return report;
 }
 
+/** Sets a graph node's 字辈, once, after it is created. */
+async function setGenerationName(
+  personId: string,
+  generationName: string | undefined,
+): Promise<void> {
+  if (!generationName) return;
+  await db()
+    .update(familyPeople)
+    .set({ generationName })
+    .where(eq(familyPeople.id, personId));
+}
+
+/** A deceased person: a claimable seed memorial, placed in the graph. */
+async function seedMemorialNode(
+  actor: Actor,
+  dataset: GenealogyDataset,
+  person: SourcePerson,
+  regions: readonly string[],
+  correlationId: string,
+  report: ImportReport,
+): Promise<string | null> {
+  const result = await createMemorial(
+    actor,
+    buildInput(person, regions),
+    idempotencyKey(dataset.key, person.externalId),
+    correlationId,
+  );
+  if (!result.ok) {
+    report.issues.push({
+      externalId: person.externalId,
+      stage: "memorial",
+      error: result.error,
+    });
+    return null;
+  }
+
+  // A stewarded seed is created as a draft; publish it so the public page and
+  // its family section render for a searcher or a would-be claimant.
+  if (result.value.created) {
+    await db()
+      .update(memorials)
+      .set({ status: "published", publishedAt: new Date() })
+      .where(eq(memorials.id, result.value.memorialId));
+    report.memorialsCreated += 1;
+  } else {
+    report.memorialsExisting += 1;
+  }
+
+  report.memorials.push({
+    externalId: person.externalId,
+    memorialId: result.value.memorialId,
+    slug: result.value.slug,
+    name: person.name,
+    created: result.value.created,
+  });
+
+  // Placing the subject in the graph returns its node id (idempotent).
+  const placed = await addMemorialSubject(actor, result.value.memorialId, correlationId);
+  if (!placed.ok) {
+    report.issues.push({
+      externalId: person.externalId,
+      stage: "memorial",
+      error: placed.error,
+    });
+    return null;
+  }
+  await setGenerationName(placed.value.personId, person.generationName);
+  return placed.value.personId;
+}
+
+/**
+ * A living person: a masked graph node, never a page.
+ *
+ * Only a name and a birth year are recorded — enough to place them in the tree
+ * and to match a descendant who registers, and no more, since this person has
+ * not consented to anything. `publicMasked` lets the tree show a surname-only
+ * name rather than a blank; the full name stays for matching, never displayed.
+ */
+async function seedLivingNode(
+  actor: Actor,
+  dataset: GenealogyDataset,
+  person: SourcePerson,
+  correlationId: string,
+  report: ImportReport,
+): Promise<string | null> {
+  // Idempotent by (source, externalId): reuse an existing seeded node.
+  const externalKey = idempotencyKey(dataset.key, person.externalId);
+  const [existing] = await db()
+    .select({ id: familyPeople.id })
+    .from(familyPeople)
+    .where(eq(familyPeople.importKey, externalKey));
+  if (existing) {
+    report.livingExisting += 1;
+    return existing.id;
+  }
+
+  const placed = await addLivingRelative(
+    actor,
+    {
+      displayName: person.name,
+      ...(person.birth ? { birthYear: person.birth.year } : {}),
+    },
+    correlationId,
+  );
+  if (!placed.ok) {
+    report.issues.push({
+      externalId: person.externalId,
+      stage: "living",
+      error: placed.error,
+    });
+    return null;
+  }
+
+  await db()
+    .update(familyPeople)
+    .set({
+      publicMasked: true,
+      importKey: externalKey,
+      ...(person.generationName ? { generationName: person.generationName } : {}),
+    })
+    .where(eq(familyPeople.id, placed.value.personId));
+
+  report.livingCreated += 1;
+  return placed.value.personId;
+}
+
 async function applyRelation(
   actor: Actor,
   rel: SourceRelation,
-  memorialByExternalId: Map<string, string>,
+  nodeByExternalId: Map<string, string>,
   correlationId: string,
   report: ImportReport,
 ): Promise<void> {
   const [fromExternal, toExternal] =
-    rel.kind === "parent" ? [rel.child, rel.parent] : [rel.a, rel.b];
+    rel.kind === "parent" ? [rel.parent, rel.child] : [rel.a, rel.b];
 
-  const fromId = memorialByExternalId.get(fromExternal);
-  const toId = memorialByExternalId.get(toExternal);
+  const fromId = nodeByExternalId.get(fromExternal);
+  const toId = nodeByExternalId.get(toExternal);
   if (!fromId || !toId) {
     report.issues.push({
       stage: "link",
-      error: `relation skipped, missing memorial for ${!fromId ? fromExternal : toExternal}`,
+      error: `relation skipped, missing node for ${!fromId ? fromExternal : toExternal}`,
     });
     return;
   }
 
-  // From the child's perspective the other side is a parent; a spouse edge is
-  // symmetric, so either direction reads the same.
-  const relation = rel.kind === "parent" ? "parent" : "spouse";
-  const result = await linkMemorials(actor, fromId, toId, relation, correlationId);
+  const result = await proposeLink(
+    actor,
+    rel.kind === "parent"
+      ? { kind: "parent", parentId: fromId, childId: toId }
+      : { kind: "partner", personId: fromId, partnerId: toId },
+    correlationId,
+  );
 
   if (result.ok) {
     report.linksCreated += 1;

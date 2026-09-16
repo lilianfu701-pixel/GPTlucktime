@@ -48,6 +48,18 @@ export type SourcePerson = {
   birthPlace?: SourcePlace;
   deathPlace?: SourcePlace;
   /**
+   * The generation character (字辈/派语), e.g. "德". A clan matching signal;
+   * carried onto the graph node so a registering descendant can be matched by it.
+   */
+  generationName?: string;
+  /**
+   * Whether this person is living. A living person is seeded as a masked graph
+   * node (surname only, no page), never a public memorial — importing 近现代
+   * generations must not publish a living individual's full record. Default is
+   * deceased: a source of historical ancestors is treated as historical.
+   */
+  living?: boolean;
+  /**
    * A human-readable citation for this record — where the fact came from. Kept
    * so an imported page can always answer "who says so", which is what keeps a
    * seeded graph trustworthy rather than a rumour at scale.

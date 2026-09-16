@@ -28,6 +28,7 @@ const DATASET: GenealogyDataset = {
       birth: { year: 1806 },
       death: { year: 1862 },
       ancestralHometown: "山东曲阜",
+      generationName: "繁",
       citation: "《孔子世家谱》/维基百科（示例数据，第74代衍圣公，繁字辈）",
     },
     {
@@ -37,6 +38,7 @@ const DATASET: GenealogyDataset = {
       birth: { year: 1848 },
       death: { year: 1876 },
       ancestralHometown: "山东曲阜",
+      generationName: "祥",
       citation: "《孔子世家谱》/维基百科（示例数据，第75代衍圣公，祥字辈）",
     },
     {
@@ -47,6 +49,7 @@ const DATASET: GenealogyDataset = {
       birth: { year: 1872 },
       death: { year: 1919, month: 11, day: 8 },
       ancestralHometown: "山东曲阜",
+      generationName: "令",
       citation: "《孔子世家谱》/维基百科（示例数据，第76代衍圣公，令字辈）",
     },
     {
@@ -57,6 +60,7 @@ const DATASET: GenealogyDataset = {
       birth: { year: 1920, month: 2, day: 23 },
       death: { year: 2008, month: 10, day: 28 },
       ancestralHometown: "山东曲阜",
+      generationName: "德",
       citation:
         "《孔子世家谱》/维基百科（示例数据，第77代衍圣公·末代，首任大成至圣先师奉祀官，德字辈）",
     },
@@ -67,7 +71,21 @@ const DATASET: GenealogyDataset = {
       birth: { year: 1939 },
       death: { year: 1989 },
       ancestralHometown: "山东曲阜",
+      generationName: "维",
       citation: "《孔子世家谱》/维基百科（示例数据，第78代，维字辈）",
+    },
+    {
+      // Living — seeded as a masked node (孔**), not a page. The demo of both
+      // "在世脱敏" and the register→claim flow: a real 孔-surname user of the 垂
+      // generation could recognise and claim this spot.
+      externalId: "kong-chuichang",
+      name: "孔垂长",
+      gender: "male",
+      birth: { year: 1975 },
+      ancestralHometown: "山东曲阜",
+      generationName: "垂",
+      living: true,
+      citation: "维基百科（示例数据，第79代嫡长孙·大成至圣先师奉祀官，垂字辈，在世）",
     },
   ],
   relations: [
@@ -75,6 +93,7 @@ const DATASET: GenealogyDataset = {
     { kind: "parent", parent: "kong-xiangke", child: "kong-lingyi" },
     { kind: "parent", parent: "kong-lingyi", child: "kong-decheng" },
     { kind: "parent", parent: "kong-decheng", child: "kong-weiyi" },
+    { kind: "parent", parent: "kong-weiyi", child: "kong-chuichang" },
   ],
 };
 
