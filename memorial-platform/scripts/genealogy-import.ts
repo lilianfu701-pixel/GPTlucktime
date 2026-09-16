@@ -125,6 +125,7 @@ async function main(): Promise<void> {
     `memorials created: ${report.memorialsCreated}`,
     `memorials existing:${report.memorialsExisting}`,
     `living (masked):   ${report.livingCreated} created, ${report.livingExisting} existing`,
+    `portraits (遗照):  ${report.portraitsAdded}`,
     `links created:     ${report.linksCreated}`,
     `links existing:    ${report.linksExisting}`,
     `issues:            ${report.issues.length}`,

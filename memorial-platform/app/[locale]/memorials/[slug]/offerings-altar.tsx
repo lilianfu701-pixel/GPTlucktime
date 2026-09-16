@@ -430,6 +430,8 @@ export function OfferingsAltar(props: {
   viewerName?: string | null;
   /** The person's portrait, shown small at the centre of the altar tableau. */
   portrait?: string | null;
+  /** A photo credit (author · licence · source), shown under an imported portrait. */
+  portraitCredit?: string | null;
   /** The person's name, for the portrait's alt text. */
   personName: string;
   /** The details unit (name, dates, creator…), shown under the portrait. */
@@ -663,6 +665,9 @@ export function OfferingsAltar(props: {
               />
             )}
           </div>
+          {props.portrait && props.portraitCredit ? (
+            <p className="altarPortraitCredit">{props.portraitCredit}</p>
+          ) : null}
           {props.details ? (
             <div className="altarDetails">{props.details}</div>
           ) : null}

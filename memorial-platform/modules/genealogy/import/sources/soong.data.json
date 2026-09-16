@@ -29,7 +29,8 @@
         "year": 1992
       },
       "bio": "孔祥熙长子",
-      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/1936%E5%B9%B4%20%E5%AD%94%E4%BB%A4%E4%BE%83.jpg"
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/1936%E5%B9%B4%20%E5%AD%94%E4%BB%A4%E4%BE%83.jpg",
+      "photoCredit": "作者：《约翰年刊》 1936 · 公有领域 · 来源：Wikimedia Commons"
     },
     {
       "externalId": "Q10944213",
@@ -126,7 +127,8 @@
         "year": 1937
       },
       "bio": "中国医学家",
-      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Niu%20Huisheng.jpg"
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Niu%20Huisheng.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
     },
     {
       "externalId": "Q16574",
@@ -143,8 +145,7 @@
       "death": {
         "year": 1975
       },
-      "bio": "中華民國軍事及政治人物",
-      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/%E8%94%A3%E4%B8%AD%E6%AD%A3%E7%B8%BD%E7%B5%B1%E7%8E%89%E7%85%A7.png"
+      "bio": "中華民國軍事及政治人物"
     },
     {
       "externalId": "Q17132",
@@ -162,7 +163,8 @@
         "year": 1981
       },
       "bio": "孫中山夫人，中華人民共和國名譽主席 (1893–1981)",
-      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Soong%20Ching-ling.jpg"
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Soong%20Ching-ling.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
     },
     {
       "externalId": "Q17135",
@@ -180,7 +182,8 @@
         "year": 2003
       },
       "bio": "蔣介石之妻・前中華民國第一夫人",
-      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Madame%20Chiang%20Kai-shek%2C%20seated%20portrait%20%28cropped%29.jpg"
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Madame%20Chiang%20Kai-shek%2C%20seated%20portrait%20%28cropped%29.jpg",
+      "photoCredit": "作者：Los Angeles Times · CC BY 4.0 · 来源：Wikimedia Commons"
     },
     {
       "externalId": "Q239854",
@@ -195,7 +198,8 @@
       },
       "living": true,
       "bio": "美国女演员",
-      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Debra%20Paget.jpg"
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Debra%20Paget.jpg",
+      "photoCredit": "作者：20th Century Fox · 公有领域 · 来源：Wikimedia Commons"
     },
     {
       "externalId": "Q256411",
@@ -213,7 +217,8 @@
         "year": 1973
       },
       "bio": "孔祥熙之妻 (1889-1973)",
-      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Soong%20Ai-ling.jpg"
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Soong%20Ai-ling.jpg",
+      "photoCredit": "作者：WikiLaurent · 公有领域 · 来源：Wikimedia Commons"
     },
     {
       "externalId": "Q28409908",
@@ -261,7 +266,8 @@
         "year": 1987
       },
       "bio": "中国企业家，宋嘉澍之子",
-      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Song%20Ziliang.jpg"
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Song%20Ziliang.jpg",
+      "photoCredit": "作者：Unknown; scanned by 天竺鼠 (talk) 12:16, 23 December 2010 (UTC) · 公有领域 · 来源：Wikimedia Commons"
     },
     {
       "externalId": "Q4195955",
@@ -310,7 +316,8 @@
         "year": 1937
       },
       "bio": "中国外科医师",
-      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/%E7%89%9B%E6%83%A0%E9%9C%96.jpg"
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/%E7%89%9B%E6%83%A0%E9%9C%96.jpg",
+      "photoCredit": "作者：《中華醫學雜誌(上海)》 1934 年 [ 第20卷 第1期 ] · 公有领域 · 来源：Wikimedia Commons"
     },
     {
       "externalId": "Q45648668",
@@ -382,7 +389,8 @@
         "year": 1967
       },
       "bio": "中華民國政治人物",
-      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/HHKung.jpg"
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/HHKung.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
     },
     {
       "externalId": "Q63251500",
@@ -431,7 +439,8 @@
         "year": 1918
       },
       "bio": "中国传教士 (1863-1918)",
-      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Charles%20soong.jpg"
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Charles%20soong.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
     },
     {
       "externalId": "Q716051",
@@ -448,7 +457,8 @@
         "year": 1971
       },
       "bio": "中華民國政治人物",
-      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/T.%20V.%20Soong.jpg"
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/T.%20V.%20Soong.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
     },
     {
       "externalId": "Q8573",
@@ -466,75 +476,11 @@
         "year": 1925
       },
       "bio": "近代中國政治人物、革命家，中國國民黨總理，中華民國國父（1866—）",
-      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/%E5%AD%99%E4%B8%AD%E5%B1%B1%E8%82%96%E5%83%8F.jpg"
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/%E5%AD%99%E4%B8%AD%E5%B1%B1%E8%82%96%E5%83%8F.jpg",
+      "photoCredit": "作者：上海波尔照相馆 · 公有领域 · 来源：Wikimedia Commons"
     }
   ],
   "relations": [
-    {
-      "kind": "parent",
-      "parent": "Q4195655",
-      "child": "Q17132"
-    },
-    {
-      "kind": "parent",
-      "parent": "Q4195655",
-      "child": "Q17135"
-    },
-    {
-      "kind": "parent",
-      "parent": "Q4195655",
-      "child": "Q256411"
-    },
-    {
-      "kind": "parent",
-      "parent": "Q4195655",
-      "child": "Q716051"
-    },
-    {
-      "kind": "parent",
-      "parent": "Q4195655",
-      "child": "Q4195778"
-    },
-    {
-      "kind": "parent",
-      "parent": "Q4195655",
-      "child": "Q4195955"
-    },
-    {
-      "kind": "parent",
-      "parent": "Q256411",
-      "child": "Q10944212"
-    },
-    {
-      "kind": "parent",
-      "parent": "Q256411",
-      "child": "Q10944213"
-    },
-    {
-      "kind": "parent",
-      "parent": "Q256411",
-      "child": "Q10944214"
-    },
-    {
-      "kind": "parent",
-      "parent": "Q256411",
-      "child": "Q10944216"
-    },
-    {
-      "kind": "parent",
-      "parent": "Q46239115",
-      "child": "Q15941492"
-    },
-    {
-      "kind": "parent",
-      "parent": "Q46239115",
-      "child": "Q45632019"
-    },
-    {
-      "kind": "parent",
-      "parent": "Q46239115",
-      "child": "Q111962567"
-    },
     {
       "kind": "parent",
       "parent": "Q702111",
@@ -628,6 +574,71 @@
     {
       "kind": "parent",
       "parent": "Q45631555",
+      "child": "Q111962567"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q4195655",
+      "child": "Q17132"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q4195655",
+      "child": "Q17135"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q4195655",
+      "child": "Q256411"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q4195655",
+      "child": "Q716051"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q4195655",
+      "child": "Q4195778"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q4195655",
+      "child": "Q4195955"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q256411",
+      "child": "Q10944212"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q256411",
+      "child": "Q10944213"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q256411",
+      "child": "Q10944214"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q256411",
+      "child": "Q10944216"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q46239115",
+      "child": "Q15941492"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q46239115",
+      "child": "Q45632019"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q46239115",
       "child": "Q111962567"
     },
     {

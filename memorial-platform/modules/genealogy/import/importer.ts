@@ -1,6 +1,7 @@
-import { eq } from "drizzle-orm";
+import { randomUUID } from "node:crypto";
+import { and, eq, isNull } from "drizzle-orm";
 import { db } from "@/db/client";
-import { familyPeople, memorials } from "@/db/schema";
+import { familyPeople, mediaAssets, memorials } from "@/db/schema";
 import { createMemorial } from "@/modules/memorials/service";
 import type { CreateMemorialInput, PartialDate } from "@/modules/memorials/service";
 import {
@@ -8,6 +9,17 @@ import {
   publishedBiography,
   saveBiography,
 } from "@/modules/memorials/content-service";
+import { processUploadedAsset } from "@/modules/media/service";
+import {
+  buildObjectKey,
+  safeDisplayFileName,
+  validateDeclaredUpload,
+} from "@/modules/media/policy";
+import {
+  AlwaysCleanScanner,
+  mediaImageProcessor,
+  mediaStorage,
+} from "@/modules/media/storage";
 import type { Actor } from "@/modules/permissions/types";
 import { indexMemorial } from "@/modules/search/indexer";
 import { toSimplified } from "@/modules/search/hanzi";
@@ -41,7 +53,7 @@ export type ImportOptions = {
 
 export type ImportIssue = {
   externalId?: string;
-  stage: "validate" | "memorial" | "living" | "link";
+  stage: "validate" | "memorial" | "living" | "link" | "photo";
   error: string;
 };
 
@@ -63,6 +75,8 @@ export type ImportReport = {
   /** Living people seeded as masked graph nodes (no page). */
   livingCreated: number;
   livingExisting: number;
+  /** Portraits fetched from the source and set as the 遗照. */
+  portraitsAdded: number;
   linksCreated: number;
   linksExisting: number;
   issues: ImportIssue[];
@@ -165,6 +179,7 @@ export async function importGenealogy(
     memorialsExisting: 0,
     livingCreated: 0,
     livingExisting: 0,
+    portraitsAdded: 0,
     linksCreated: 0,
     linksExisting: 0,
     issues: [],
@@ -270,6 +285,109 @@ async function seedBiography(
   }
 }
 
+/**
+ * Fetches a source photograph and sets it as the memorial's 遗照.
+ *
+ * The bytes go through the same pipeline as any upload — declared type checked,
+ * then decoded and re-encoded by sharp, which strips metadata and neutralises
+ * anything hidden in the file. Skipped when the page already has a ready image,
+ * so a re-run adds no duplicate. A photo that fails to fetch is logged and the
+ * rest of the import carries on — a missing portrait is not a failed import.
+ */
+async function seedPortrait(
+  actor: Actor,
+  memorialId: string,
+  person: SourcePerson,
+  correlationId: string,
+  report: ImportReport,
+): Promise<void> {
+  const src = person.photoUrl;
+  if (!src || !actor.userId) return;
+
+  const [existing] = await db()
+    .select({ id: mediaAssets.id })
+    .from(mediaAssets)
+    .where(
+      and(
+        eq(mediaAssets.memorialId, memorialId),
+        eq(mediaAssets.kind, "image"),
+        eq(mediaAssets.status, "ready"),
+        isNull(mediaAssets.deletedAt),
+      ),
+    );
+  if (existing) return;
+
+  try {
+    // A scaled version, not the multi-megabyte original.
+    const url = src.includes("?") ? src : `${src}?width=800`;
+    const res = await fetch(url, {
+      headers: { "User-Agent": "missingu-genealogy/1.0 (https://missingu.org)" },
+      redirect: "follow",
+    });
+    if (!res.ok) throw new Error(`fetch ${res.status}`);
+    const contentType =
+      res.headers.get("content-type")?.split(";")[0]?.trim() ?? "image/jpeg";
+    const bytes = new Uint8Array(await res.arrayBuffer());
+
+    const policy = validateDeclaredUpload({ contentType, size: bytes.byteLength });
+    if (!policy.ok || policy.value.kind !== "image") {
+      throw new Error(`unsupported ${contentType}`);
+    }
+
+    const assetId = randomUUID();
+    const quarantineObjectKey = buildObjectKey({
+      memorialId,
+      assetId,
+      stage: "quarantine",
+      extension: policy.value.extension,
+    });
+    await db()
+      .insert(mediaAssets)
+      .values({
+        id: assetId,
+        memorialId,
+        uploadedByUserId: actor.userId,
+        kind: "image",
+        declaredContentType: policy.value.contentType,
+        declaredBytes: bytes.byteLength,
+        displayFileName: safeDisplayFileName(`${person.name}.${policy.value.extension}`),
+        status: "pending_upload",
+        quarantineObjectKey,
+        altText: person.name,
+        ...(person.photoCredit ? { captionText: person.photoCredit } : {}),
+      });
+
+    await mediaStorage().putObject(
+      quarantineObjectKey,
+      bytes,
+      policy.value.contentType,
+    );
+
+    // The processor only touches an asset that has been handed off for scanning
+    // (the state `markUploadComplete` sets); move it there directly, since the
+    // bytes are already in place and there is no client upload to wait on.
+    await db()
+      .update(mediaAssets)
+      .set({ status: "scanning" })
+      .where(eq(mediaAssets.id, assetId));
+
+    const processed = await processUploadedAsset(
+      assetId,
+      new AlwaysCleanScanner(),
+      correlationId,
+      mediaImageProcessor(),
+    );
+    if (!processed.ok) throw new Error(`process ${processed.error}`);
+    report.portraitsAdded += 1;
+  } catch (error) {
+    report.issues.push({
+      externalId: person.externalId,
+      stage: "photo",
+      error: String(error),
+    });
+  }
+}
+
 /** Sets a graph node's 字辈, once, after it is created. */
 async function setGenerationName(
   personId: string,
@@ -335,6 +453,9 @@ async function seedMemorialNode(
   // dates. Only when the page has none yet, so a re-run neither piles up versions
   // nor overwrites a life a claiming family has since written.
   await seedBiography(actor, result.value.memorialId, person.bio, correlationId);
+
+  // The 遗照, fetched from the source and run through the media pipeline.
+  await seedPortrait(actor, result.value.memorialId, person, correlationId, report);
 
   report.memorials.push({
     externalId: person.externalId,

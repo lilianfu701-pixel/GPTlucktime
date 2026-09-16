@@ -9,6 +9,7 @@ type Report = {
   memorialsExisting: number;
   livingCreated: number;
   livingExisting: number;
+  portraitsAdded: number;
   linksCreated: number;
   linksExisting: number;
   issues: { stage: string; externalId?: string; error: string }[];
@@ -130,6 +131,7 @@ export function GenealogySeed(props: { locale: string }) {
               在世脱敏节点：新建 {report.livingCreated} · 已存在{" "}
               {report.livingExisting}
             </li>
+            <li>遗照：{report.portraitsAdded} 张</li>
             <li>
               族谱连线：新建 {report.linksCreated} · 已存在 {report.linksExisting}
             </li>

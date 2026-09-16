@@ -20,7 +20,7 @@ import {
   publishedBiography,
 } from "@/modules/memorials/content-service";
 import { lifeSpan, loadMemorialDetail } from "@/modules/memorials/detail";
-import { portraitsBySlug } from "@/modules/media/service";
+import { portraitCreditForMemorial, portraitsBySlug } from "@/modules/media/service";
 import { avatarsForRelativeNames } from "@/modules/identity/avatar";
 import { memorialUrl, robotsFor } from "@/modules/memorials/seo";
 import {
@@ -353,6 +353,11 @@ export default async function MemorialPage(props: {
     treePortraits.get(detail.slug) ??
     (await portraitsBySlug([detail.slug])).get(detail.slug) ??
     null;
+  // A photo credit for an imported 遗照 (author · licence · Commons); null for a
+  // family's own upload.
+  const portraitCredit = rootPortrait
+    ? await portraitCreditForMemorial(detail.memorialId)
+    : null;
 
   // A living relative who claimed their place and chose to appear shows their
   // own photograph, keyed by the name the memorial lists them under.
@@ -539,6 +544,7 @@ export default async function MemorialPage(props: {
           locale={locale}
           viewerName={viewerDisplayName}
           portrait={rootPortrait}
+          portraitCredit={portraitCredit}
           personName={detail.primaryName}
           paymentEnabled={Boolean(
             process.env.PAYPAL_CLIENT_ID && process.env.PAYPAL_CLIENT_SECRET,

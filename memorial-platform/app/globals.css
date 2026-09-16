@@ -4121,6 +4121,15 @@ a.famCard:focus-visible {
 }
 
 /* Details under the portrait — sized to sit in the centre column. */
+.altarPortraitCredit {
+  margin: var(--space-1) 0 0;
+  max-width: 22rem;
+  text-align: center;
+  font-size: var(--text-xs, 0.75rem);
+  line-height: 1.4;
+  color: var(--muted, #8a8175);
+}
+
 .altarDetails {
   width: 100%;
 }

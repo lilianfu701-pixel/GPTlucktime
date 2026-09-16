@@ -47,6 +47,81 @@ const yearOf = (iso: string | undefined): number | undefined => {
   return m ? Number(m[1]) : undefined;
 };
 
+const COMMONS_API = "https://commons.wikimedia.org/w/api.php";
+
+/** The Commons file title from a P18 Special:FilePath URL. */
+function commonsTitle(photoUrl: string): string | null {
+  const m = /Special:FilePath\/(.+)$/.exec(photoUrl);
+  if (!m) return null;
+  return `File:${decodeURIComponent(m[1]!.split("?")[0]!)}`;
+}
+
+const stripHtml = (raw: string): string => {
+  const s = raw
+    .replace(/<[^>]+>/g, "")
+    .replace(/&amp;/g, "&")
+    .replace(/&#160;|&nbsp;/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+  // Commons often nests the artist twice ("Unknown authorUnknown author").
+  if (s.length % 2 === 0 && s.slice(0, s.length / 2) === s.slice(s.length / 2)) {
+    return s.slice(0, s.length / 2);
+  }
+  return s;
+};
+
+/**
+ * Looks each image up on Commons, keeps only free licences (public domain or
+ * Creative Commons), and writes a credit; a non-free image loses its photo.
+ */
+async function attachPhotoCredits(people: SourcePerson[]): Promise<void> {
+  const titled = people
+    .filter((p) => p.photoUrl)
+    .map((p) => ({ p, title: commonsTitle(p.photoUrl!) }))
+    .filter((x): x is { p: SourcePerson; title: string } => Boolean(x.title));
+  if (titled.length === 0) return;
+
+  const meta = new Map<string, Row>();
+  // Commons takes up to 50 titles per request.
+  for (let i = 0; i < titled.length; i += 40) {
+    const batch = titled.slice(i, i + 40);
+    const url = `${COMMONS_API}?action=query&format=json&prop=imageinfo&iiprop=extmetadata&titles=${encodeURIComponent(
+      batch.map((b) => b.title).join("|"),
+    )}`;
+    const res = await fetch(url, { headers: { "User-Agent": UA } });
+    if (!res.ok) continue;
+    const json = (await res.json()) as {
+      query?: { pages?: Record<string, { title: string; imageinfo?: { extmetadata?: Row }[] }> };
+    };
+    for (const page of Object.values(json.query?.pages ?? {})) {
+      const ex = page.imageinfo?.[0]?.extmetadata;
+      if (ex) meta.set(page.title, ex);
+    }
+  }
+
+  for (const { p, title } of titled) {
+    const ex = meta.get(title);
+    const license = ex?.License?.value?.toLowerCase() ?? "";
+    const shortName = ex?.LicenseShortName?.value ?? "";
+    const free =
+      /^(cc0|cc-|pd|public)/.test(license) ||
+      /public domain|CC0|CC BY/i.test(shortName);
+    if (!free) {
+      // Not safe to use — drop the photo entirely.
+      delete p.photoUrl;
+      continue;
+    }
+    const artist = ex?.Artist?.value ? stripHtml(ex.Artist.value) : "";
+    const isPd = /^(pd|public)/.test(license) || /public domain/i.test(shortName);
+    const parts = [
+      artist ? `作者：${artist}` : "",
+      isPd ? "公有领域" : shortName || "自由许可",
+      "来源：Wikimedia Commons",
+    ].filter(Boolean);
+    p.photoCredit = parts.join(" · ");
+  }
+}
+
 async function main(): Promise<void> {
   const root = process.argv[2];
   const key = process.argv[3];
@@ -155,6 +230,11 @@ async function main(): Promise<void> {
     seen.add(k);
     relations.push({ kind: "spouse", a: x, b: y });
   }
+
+  // 4) Photo licences from Wikimedia Commons. Keep only freely-licensed images
+  // and attach a credit; drop the rest (and their photo) rather than risk using
+  // a non-free image.
+  await attachPhotoCredits([...byId.values()]);
 
   const dataset: GenealogyDataset = {
     key: `wikidata:${key}`,

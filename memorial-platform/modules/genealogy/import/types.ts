@@ -70,6 +70,12 @@ export type SourcePerson = {
    */
   photoUrl?: string;
   /**
+   * The photo's attribution — author and licence — shown as a credit under the
+   * portrait, so a freely-licensed image is used on the licence's terms. Only a
+   * photo with a free licence carries one; the fetch drops the rest.
+   */
+  photoCredit?: string;
+  /**
    * A human-readable citation for this record — where the fact came from. Kept
    * so an imported page can always answer "who says so", which is what keeps a
    * seeded graph trustworthy rather than a rumour at scale.

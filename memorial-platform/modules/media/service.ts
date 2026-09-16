@@ -694,6 +694,34 @@ export async function portraitsBySlug(
  * URL; the route redirects to whichever, resolved per request so a cached page
  * never holds an expired signature.
  */
+/**
+ * The photo credit stored on a memorial's 遗照, if it carries one.
+ *
+ * Selected exactly like the portrait itself — newest ready image, never the
+ * disposition photo or a gallery image — so the credit belongs to the picture
+ * actually shown. Set on imported portraits; null for a family's own upload.
+ */
+export async function portraitCreditForMemorial(
+  memorialId: string,
+): Promise<string | null> {
+  const rows = await db()
+    .select({ caption: mediaAssets.captionText })
+    .from(mediaAssets)
+    .innerJoin(memorials, eq(memorials.id, mediaAssets.memorialId))
+    .where(
+      and(
+        eq(mediaAssets.memorialId, memorialId),
+        eq(mediaAssets.kind, "image"),
+        eq(mediaAssets.status, "ready"),
+        isNull(mediaAssets.deletedAt),
+        sql`not exists (select 1 from ${contentMedia} where ${contentMedia.mediaId} = ${mediaAssets.id})`,
+        NOT_DISPOSITION_PHOTO,
+      ),
+    )
+    .orderBy(asc(mediaAssets.createdAt));
+  return rows.at(-1)?.caption ?? null;
+}
+
 async function newestPublicPortraitKey(slug: string): Promise<string | null> {
   const rows = await db()
     .select({
