@@ -332,7 +332,10 @@ export async function respondToTakeover(
 
   const owner = await memorialOwner(req.memorialId);
   if (owner === null) return err("MEMORIAL_NOT_FOUND");
-  if (owner !== actor.userId) return err("NOT_OWNER");
+  // The owner answers their own requests; a super-admin also answers any, so a
+  // claim on a platform-stewarded seed page (owned by a bot) can be approved.
+  const isSuperAdmin = actor.platformRole === "super_admin";
+  if (owner !== actor.userId && !isSuperAdmin) return err("NOT_OWNER");
   if (req.status !== "pending") return err("NOT_PENDING");
 
   const memName = await memorialPrimaryName(req.memorialId);
@@ -343,7 +346,9 @@ export async function respondToTakeover(
     if (isJoin) {
       await addAsEditor(req.memorialId, req.requester);
     } else {
-      await applyTransfer(req.memorialId, actor.userId, req.requester);
+      // Ownership passes from the current owner (the steward on a seed page), not
+      // from whoever approved it.
+      await applyTransfer(req.memorialId, owner, req.requester);
     }
     await db()
       .update(memorialTakeoverRequests)
@@ -363,7 +368,7 @@ export async function respondToTakeover(
         templateParams: { name: memName },
       });
     } else {
-      await notifyTransfer(req.memorialId, actor.userId, req.requester);
+      await notifyTransfer(req.memorialId, owner, req.requester);
     }
     await db().insert(auditLogs).values({
       actorUserId: actor.userId,
@@ -542,6 +547,59 @@ export async function listPendingTakeovers(
 
   return rows.map((r) => ({
     id: r.id,
+    kind: r.kind,
+    requesterName: r.displayName ?? r.fullName ?? "",
+    relationship: r.relationship,
+    reason: r.reason,
+    createdAt: r.createdAt,
+  }));
+}
+
+export type PendingClaim = PendingTakeover & {
+  memorialId: string;
+  slug: string;
+  memorialName: string;
+};
+
+/**
+ * Every pending takeover/join request across all memorials, newest first.
+ *
+ * The platform's claims queue: seed pages are owned by a bot steward that never
+ * signs in, so their claims would sit unanswered without a place for staff to
+ * see and act on them. Caller checks the actor is staff.
+ */
+export async function listAllPendingClaims(): Promise<PendingClaim[]> {
+  const rows = await db()
+    .select({
+      id: memorialTakeoverRequests.id,
+      memorialId: memorialTakeoverRequests.memorialId,
+      slug: memorials.slug,
+      memorialName: memorialNames.value,
+      kind: memorialTakeoverRequests.kind,
+      relationship: memorialTakeoverRequests.relationship,
+      reason: memorialTakeoverRequests.reason,
+      createdAt: memorialTakeoverRequests.createdAt,
+      displayName: users.displayName,
+      fullName: users.fullName,
+    })
+    .from(memorialTakeoverRequests)
+    .innerJoin(memorials, eq(memorials.id, memorialTakeoverRequests.memorialId))
+    .leftJoin(
+      memorialNames,
+      and(
+        eq(memorialNames.memorialId, memorials.id),
+        eq(memorialNames.type, "primary"),
+      ),
+    )
+    .leftJoin(users, eq(users.id, memorialTakeoverRequests.requesterUserId))
+    .where(eq(memorialTakeoverRequests.status, "pending"))
+    .orderBy(desc(memorialTakeoverRequests.createdAt));
+
+  return rows.map((r) => ({
+    id: r.id,
+    memorialId: r.memorialId,
+    slug: r.slug,
+    memorialName: r.memorialName ?? "—",
     kind: r.kind,
     requesterName: r.displayName ?? r.fullName ?? "",
     relationship: r.relationship,

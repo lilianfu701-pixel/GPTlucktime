@@ -87,18 +87,49 @@ const GOVERNANCE_PERMISSIONS: Record<
 };
 
 /**
+ * A super-admin's content backstop on any memorial.
+ *
+ * The operator can keep a page maintainable — fix a life story, a portrait, a
+ * family link — even one a family has claimed and now owns, without having to
+ * seize ownership first. Deliberately not the owner-only powers: handing the
+ * page to someone else, changing who may see it, or deleting it stay with the
+ * family. Every use is still audited.
+ */
+const SUPER_ADMIN_MEMORIAL_ACTIONS: readonly MemorialAction[] = [
+  "edit_profile",
+  "publish_content",
+  "moderate_submission",
+  "configure_rituals",
+  "manage_family_links",
+  "manage_members",
+  "request_export",
+];
+
+/**
  * Whether an actor may perform a family action on one memorial.
  *
- * Platform staff get nothing here. Their powers are governance actions, and
- * being a reviewer never adds to what someone can do as a family member.
+ * A family member acts through their role. A platform super-admin also gets a
+ * fixed content-management backstop on every page (see
+ * {@link SUPER_ADMIN_MEMORIAL_ACTIONS}); a reviewer never gains family powers.
  */
 export function canOnMemorial(input: {
   actor: Actor;
   role: MemorialRole | null;
   action: MemorialAction;
 }): boolean {
+  if (!input.actor.userId) {
+    return false;
+  }
+
+  if (
+    input.actor.platformRole === "super_admin" &&
+    SUPER_ADMIN_MEMORIAL_ACTIONS.includes(input.action)
+  ) {
+    return true;
+  }
+
   // A role only means something attached to an account.
-  if (!input.actor.userId || !input.role) {
+  if (!input.role) {
     return false;
   }
 

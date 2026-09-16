@@ -166,9 +166,14 @@ export default async function ManageMemorialPage(props: {
   // Offerings income, payouts and the donation ledger now live in the owner's
   // account finances (账户 → 财务), not on each memorial's manage page.
   const isOwner = detail.viewerRole === "owner";
-  const takeovers = isOwner
-    ? await listPendingTakeovers(detail.memorialId)
-    : [];
+  // A super-admin approves claims the platform's own steward account can't — a
+  // seeded page's owner is a bot no one signs in as, so its takeover requests
+  // would otherwise never be answered.
+  const isSuperAdmin = actor.platformRole === "super_admin";
+  const takeovers =
+    isOwner || isSuperAdmin
+      ? await listPendingTakeovers(detail.memorialId)
+      : [];
 
   // The structured life story, broken into chapters. Editing is the same
   // capability as editing the biography.
@@ -359,7 +364,7 @@ export default async function ManageMemorialPage(props: {
                 />
               </div>
             ) : null}
-            {isOwner ? (
+            {isOwner || isSuperAdmin ? (
               <div className="manageCard">
                 <TakeoverRequests
                   memorialId={detail.memorialId}

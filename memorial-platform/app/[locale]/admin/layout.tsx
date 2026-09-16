@@ -96,6 +96,11 @@ export default async function AdminLayout(props: {
                 </Link>
               </li>
               <li>
+                <Link href={`/${locale}/admin/claims`} className="adminNavLink">
+                  认领申请
+                </Link>
+              </li>
+              <li>
                 <Link
                   href={`/${locale}/admin/genealogy`}
                   className="adminNavLink"
