@@ -3,8 +3,9 @@
  * the chain: pages created, edges confirmed, and — the point of it — kinship the
  * source never stated derived by the engine from the graph alone.
  *
- *   npx tsx scripts/genealogy-import.ts --dry-run   # plan only, no writes
- *   npx tsx scripts/genealogy-import.ts             # import + verify
+ *   npx tsx scripts/genealogy-import.ts --dry-run          # plan only, no writes
+ *   npx tsx scripts/genealogy-import.ts                    # 三苏 (default)
+ *   npx tsx scripts/genealogy-import.ts --source=kong      # 孔子世系 first batch
  *
  * The import runs as one staff steward who ends up owning every seed page, so
  * the parent and spouse edges confirm on creation and the graph is traversable
@@ -23,15 +24,21 @@ import {
 } from "@/db/schema";
 import type { Actor } from "@/modules/permissions/types";
 import { importGenealogy } from "@/modules/genealogy/import/importer";
+import type { GenealogySource } from "@/modules/genealogy/import/types";
 import { songSuFamilySource } from "@/modules/genealogy/import/sources/song-su-family";
+import { kongLineageSource } from "@/modules/genealogy/import/sources/kong-lineage";
 import { kinshipFromMemorial } from "@/modules/genealogy/kinship";
 import { kinshipLabel } from "@/modules/genealogy/kinship-terms";
 
 loadEnvFileIfPresent();
 
 const STEWARD_EMAIL = "genealogy-import@missingu.org";
-/** The person we read the family from, to show derived kinship. */
-const ROOT_EXTERNAL_ID = "su-mai";
+
+/** Sources by `--source=` name, each with the person to read kinship from. */
+const SOURCES: Record<string, { source: GenealogySource; root: string }> = {
+  song: { source: songSuFamilySource, root: "su-mai" },
+  kong: { source: kongLineageSource, root: "kong-weiyi" },
+};
 
 async function ensureStewardUser(): Promise<string> {
   const existing = await db()
@@ -88,10 +95,22 @@ async function namesByFamilyPersonId(
 
 async function main(): Promise<void> {
   const dryRun = process.argv.includes("--dry-run");
+  const sourceArg =
+    process.argv.find((a) => a.startsWith("--source="))?.split("=")[1] ?? "song";
+  const chosen = SOURCES[sourceArg];
+  if (!chosen) {
+    process.stderr.write(
+      `unknown --source=${sourceArg}; known: ${Object.keys(SOURCES).join(", ")}\n`,
+    );
+    process.exitCode = 1;
+    return;
+  }
+  const ROOT_EXTERNAL_ID = chosen.root;
+
   const userId = await ensureStewardUser();
   const actor: Actor = { userId, platformRole: "super_admin" };
 
-  const dataset = await songSuFamilySource.load();
+  const dataset = await chosen.source.load();
   const report = await importGenealogy(actor, dataset, { dryRun });
 
   const lines: string[] = [
