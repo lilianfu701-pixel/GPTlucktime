@@ -50,7 +50,7 @@ export async function POST(request: Request): Promise<Response> {
   const dataset = await SOURCES[body.value.source].load();
 
   if (body.value.action === "rollback") {
-    const report = await unimportGenealogy(dataset.key);
+    const report = await unimportGenealogy(dataset);
     return jsonSuccess(report, correlationId, 200);
   }
 

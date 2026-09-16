@@ -96,12 +96,16 @@ export type SourceRelation =
   | { kind: "spouse"; a: string; b: string };
 
 export type GenealogyDataset = {
-  /**
-   * Stable key identifying the source, e.g. "wikidata" or
-   * "fixture:song-su-family". Namespaces the idempotency keys so two sources
-   * that happen to share an external id do not collide.
-   */
+  /** Stable key identifying this batch/snapshot, e.g. "wikidata:soong". */
   key: string;
+  /**
+   * The identity namespace for de-duplication. A person is one page per
+   * `import:{namespace}:{externalId}`, so several families sharing a namespace
+   * and a stable external id (a Wikidata QID) resolve to a single page even when
+   * they overlap — 蒋中正 imported with both the Soong and Chiang families is not
+   * duplicated. Defaults to `key` (a self-contained fixture is its own namespace).
+   */
+  namespace?: string;
   people: SourcePerson[];
   relations: SourceRelation[];
 };

@@ -1,5 +1,6 @@
 {
   "key": "wikidata:soong",
+  "namespace": "wikidata",
   "people": [
     {
       "externalId": "Q10888399",
@@ -483,6 +484,71 @@
   "relations": [
     {
       "kind": "parent",
+      "parent": "Q4195655",
+      "child": "Q17132"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q4195655",
+      "child": "Q17135"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q4195655",
+      "child": "Q256411"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q4195655",
+      "child": "Q716051"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q4195655",
+      "child": "Q4195778"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q4195655",
+      "child": "Q4195955"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q256411",
+      "child": "Q10944212"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q256411",
+      "child": "Q10944213"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q256411",
+      "child": "Q10944214"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q256411",
+      "child": "Q10944216"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q46239115",
+      "child": "Q15941492"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q46239115",
+      "child": "Q45632019"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q46239115",
+      "child": "Q111962567"
+    },
+    {
+      "kind": "parent",
       "parent": "Q702111",
       "child": "Q17132"
     },
@@ -574,71 +640,6 @@
     {
       "kind": "parent",
       "parent": "Q45631555",
-      "child": "Q111962567"
-    },
-    {
-      "kind": "parent",
-      "parent": "Q4195655",
-      "child": "Q17132"
-    },
-    {
-      "kind": "parent",
-      "parent": "Q4195655",
-      "child": "Q17135"
-    },
-    {
-      "kind": "parent",
-      "parent": "Q4195655",
-      "child": "Q256411"
-    },
-    {
-      "kind": "parent",
-      "parent": "Q4195655",
-      "child": "Q716051"
-    },
-    {
-      "kind": "parent",
-      "parent": "Q4195655",
-      "child": "Q4195778"
-    },
-    {
-      "kind": "parent",
-      "parent": "Q4195655",
-      "child": "Q4195955"
-    },
-    {
-      "kind": "parent",
-      "parent": "Q256411",
-      "child": "Q10944212"
-    },
-    {
-      "kind": "parent",
-      "parent": "Q256411",
-      "child": "Q10944213"
-    },
-    {
-      "kind": "parent",
-      "parent": "Q256411",
-      "child": "Q10944214"
-    },
-    {
-      "kind": "parent",
-      "parent": "Q256411",
-      "child": "Q10944216"
-    },
-    {
-      "kind": "parent",
-      "parent": "Q46239115",
-      "child": "Q15941492"
-    },
-    {
-      "kind": "parent",
-      "parent": "Q46239115",
-      "child": "Q45632019"
-    },
-    {
-      "kind": "parent",
-      "parent": "Q46239115",
       "child": "Q111962567"
     },
     {

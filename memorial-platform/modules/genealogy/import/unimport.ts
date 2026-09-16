@@ -1,7 +1,9 @@
-import { and, inArray, isNull, like } from "drizzle-orm";
+import { and, inArray, isNull } from "drizzle-orm";
 import { db } from "@/db/client";
 import { deceasedPeople, familyPeople, memorials } from "@/db/schema";
+import { identityKey } from "./importer";
 import { ensureImportStewardActor } from "./steward";
+import type { GenealogyDataset } from "./types";
 
 export type UnimportReport = {
   source: string;
@@ -17,13 +19,14 @@ export type UnimportReport = {
 };
 
 /**
- * Removes exactly one import batch, and nothing else.
+ * Removes exactly the people in one dataset, and nothing else.
  *
- * The safety net for a bad seed. Every seeded row is tagged with the batch's
- * import prefix, so this deletes precisely that batch — never a page a real
- * family created. It is also claim-aware: a seed a descendant has already taken
- * over (ownership transferred, or a self-node claimed) is left untouched, so an
- * undo can never wipe out someone's own record.
+ * The safety net for a bad seed: it deletes the pages and nodes whose identity
+ * keys are in this dataset — never a page a real family created. Claim-aware: a
+ * seed a descendant has taken over (ownership transferred, or a self-node
+ * claimed) is left untouched. With a shared namespace a person may belong to
+ * several families, so removing this dataset removes them from the others too —
+ * re-import the other family to restore them.
  *
  * Order follows the keys: a memorial holds a `restrict` reference to its deceased
  * person, so the memorial goes first; deleting the deceased person then cascades
@@ -31,20 +34,22 @@ export type UnimportReport = {
  * deleted directly (their links cascade). All in one transaction.
  */
 export async function unimportGenealogy(
-  datasetKey: string,
+  dataset: GenealogyDataset,
 ): Promise<UnimportReport> {
-  const prefix = `import:${datasetKey}:`;
+  const keys = dataset.people.map((p) => identityKey(dataset, p.externalId));
   const steward = await ensureImportStewardActor();
 
   return db().transaction(async (tx) => {
     const report: UnimportReport = {
-      source: datasetKey,
+      source: dataset.key,
       memorialsDeleted: 0,
       livingDeleted: 0,
       skippedClaimed: 0,
     };
 
-    // Seed pages of this batch, split into still-stewarded (ours to remove) and
+    if (keys.length === 0) return report;
+
+    // Seed pages of this dataset, split into still-stewarded (ours to remove) and
     // since-claimed (left alone).
     const seededMemorials = await tx
       .select({
@@ -53,7 +58,7 @@ export async function unimportGenealogy(
         ownerUserId: memorials.ownerUserId,
       })
       .from(memorials)
-      .where(like(memorials.creationIdempotencyKey, `${prefix}%`));
+      .where(inArray(memorials.creationIdempotencyKey, keys));
 
     const removableMemorialIds: string[] = [];
     const removableDeceasedIds: string[] = [];
@@ -82,7 +87,7 @@ export async function unimportGenealogy(
       .from(familyPeople)
       .where(
         and(
-          like(familyPeople.importKey, `${prefix}%`),
+          inArray(familyPeople.importKey, keys),
           isNull(familyPeople.deceasedPersonId),
         ),
       );

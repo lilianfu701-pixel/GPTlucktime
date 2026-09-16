@@ -1,5 +1,5 @@
 import { randomUUID } from "node:crypto";
-import { and, eq, isNull } from "drizzle-orm";
+import { and, eq, isNull, like, or } from "drizzle-orm";
 import { db } from "@/db/client";
 import { familyPeople, mediaAssets, memorials } from "@/db/schema";
 import { createMemorial } from "@/modules/memorials/service";
@@ -83,16 +83,35 @@ export type ImportReport = {
   memorials: ImportedMemorial[];
 };
 
+/** The namespace a dataset de-duplicates people within. */
+function namespaceOf(dataset: GenealogyDataset): string {
+  return dataset.namespace ?? dataset.key;
+}
+
 /**
- * The per-person idempotency key.
+ * A person's stable identity key: `import:{namespace}:{externalId}`.
  *
- * Deterministic in (source, externalId), so re-running an import returns the
- * page made last time instead of a second one — `createMemorial` looks the key
- * up and replays. This is also how a later run resolves an external id back to
- * its memorial to wire the relations, without a separate mapping table.
+ * One page per identity, so re-running returns the same page and two families
+ * sharing a namespace + external id (a QID) resolve to one page rather than a
+ * duplicate.
  */
-function idempotencyKey(sourceKey: string, externalId: string): string {
-  return `import:${sourceKey}:${externalId}`;
+export function identityKey(
+  dataset: GenealogyDataset,
+  externalId: string,
+): string {
+  return `import:${namespaceOf(dataset)}:${externalId}`;
+}
+
+/**
+ * A LIKE pattern that also catches this identity under an older per-family key
+ * (`import:{namespace}:{family}:{externalId}`), so a page seeded before the
+ * switch to a global namespace is reused and migrated, not duplicated.
+ */
+function legacyIdentityPattern(
+  dataset: GenealogyDataset,
+  externalId: string,
+): string {
+  return `import:${namespaceOf(dataset)}:%:${externalId}`;
 }
 
 /** A source date to the memorial's partial-date shape, at the precision known. */
@@ -409,64 +428,100 @@ async function seedMemorialNode(
   correlationId: string,
   report: ImportReport,
 ): Promise<string | null> {
-  const result = await createMemorial(
-    actor,
-    buildInput(person, regions),
-    idempotencyKey(dataset.key, person.externalId),
-    correlationId,
-  );
-  if (!result.ok) {
-    report.issues.push({
-      externalId: person.externalId,
-      stage: "memorial",
-      error: result.error,
-    });
-    return null;
-  }
+  const key = identityKey(dataset, person.externalId);
 
-  // A stewarded seed is created as a draft; publish it so the public page and
-  // its family section render for a searcher or a would-be claimant. But keep it
-  // off the homepage "最新追思" stream: these are historical ancestors, not a
-  // recent bereavement, and a bulk import must not flood that feed. The page
-  // stays public, searchable and indexable — just not "latest".
-  if (result.value.created) {
-    await db()
-      .update(memorials)
-      .set({
-        status: "published",
-        publishedAt: new Date(),
-        homepageDisplay: false,
-      })
-      .where(eq(memorials.id, result.value.memorialId));
-    report.memorialsCreated += 1;
-  } else {
+  // De-dup by identity: reuse any existing page for this person — the same
+  // identity key, or an older per-family key — so overlapping families don't
+  // create a second page. Otherwise, create it.
+  const [found] = await db()
+    .select({
+      id: memorials.id,
+      slug: memorials.slug,
+      key: memorials.creationIdempotencyKey,
+    })
+    .from(memorials)
+    .where(
+      and(
+        isNull(memorials.deletionRequestedAt),
+        or(
+          eq(memorials.creationIdempotencyKey, key),
+          like(memorials.creationIdempotencyKey, legacyIdentityPattern(dataset, person.externalId)),
+        ),
+      ),
+    )
+    .limit(1);
+
+  let memorialId: string;
+  let slug: string;
+  let created: boolean;
+  if (found) {
+    memorialId = found.id;
+    slug = found.slug;
+    created = false;
+    // Migrate an older per-family key to the global identity key.
+    if (found.key !== key) {
+      await db()
+        .update(memorials)
+        .set({ creationIdempotencyKey: key })
+        .where(eq(memorials.id, memorialId));
+    }
     report.memorialsExisting += 1;
+  } else {
+    const result = await createMemorial(
+      actor,
+      buildInput(person, regions),
+      key,
+      correlationId,
+    );
+    if (!result.ok) {
+      report.issues.push({
+        externalId: person.externalId,
+        stage: "memorial",
+        error: result.error,
+      });
+      return null;
+    }
+    memorialId = result.value.memorialId;
+    slug = result.value.slug;
+    created = result.value.created;
+    // A stewarded seed is created as a draft; publish it so the public page and
+    // its family section render, but keep it off the homepage "最新追思" stream —
+    // these are historical ancestors, not a recent bereavement. Still public,
+    // searchable and indexable, just not "latest".
+    if (created) {
+      await db()
+        .update(memorials)
+        .set({ status: "published", publishedAt: new Date(), homepageDisplay: false })
+        .where(eq(memorials.id, memorialId));
+      report.memorialsCreated += 1;
+    } else {
+      report.memorialsExisting += 1;
+    }
   }
 
   // The import publishes with a direct UPDATE, bypassing the publish flow that
   // normally emits the search-index event — so index the page here, or a seeded
-  // 先人 could never be found by name. Idempotent (upsert), and run on the
-  // existing path too so a re-run repairs pages seeded before this fix.
-  await indexMemorial(result.value.memorialId);
+  // 先人 could never be found by name. Idempotent (upsert).
+  await indexMemorial(memorialId);
 
   // A short biography from the source, so the page is more than a name and two
   // dates. Only when the page has none yet, so a re-run neither piles up versions
   // nor overwrites a life a claiming family has since written.
-  await seedBiography(actor, result.value.memorialId, person.bio, correlationId);
+  await seedBiography(actor, memorialId, person.bio, correlationId);
 
   // The 遗照, fetched from the source and run through the media pipeline.
-  await seedPortrait(actor, result.value.memorialId, person, correlationId, report);
+  await seedPortrait(actor, memorialId, person, correlationId, report);
 
   report.memorials.push({
     externalId: person.externalId,
-    memorialId: result.value.memorialId,
-    slug: result.value.slug,
+    memorialId,
+    slug,
     name: person.name,
-    created: result.value.created,
+    created,
   });
 
   // Placing the subject in the graph returns its node id (idempotent).
-  const placed = await addMemorialSubject(actor, result.value.memorialId, correlationId);
+  const placed = await addMemorialSubject(actor, memorialId, correlationId);
   if (!placed.ok) {
     report.issues.push({
       externalId: person.externalId,
@@ -494,16 +549,29 @@ async function seedLivingNode(
   correlationId: string,
   report: ImportReport,
 ): Promise<string | null> {
-  // Idempotent by (source, externalId): reuse an existing seeded node.
-  const externalKey = idempotencyKey(dataset.key, person.externalId);
+  // De-dup by identity, across families and the older per-family key scheme.
+  const key = identityKey(dataset, person.externalId);
   const [existing] = await db()
-    .select({ id: familyPeople.id })
+    .select({ id: familyPeople.id, key: familyPeople.importKey })
     .from(familyPeople)
-    .where(eq(familyPeople.importKey, externalKey));
+    .where(
+      or(
+        eq(familyPeople.importKey, key),
+        like(familyPeople.importKey, legacyIdentityPattern(dataset, person.externalId)),
+      ),
+    )
+    .limit(1);
   if (existing) {
+    if (existing.key !== key) {
+      await db()
+        .update(familyPeople)
+        .set({ importKey: key })
+        .where(eq(familyPeople.id, existing.id));
+    }
     report.livingExisting += 1;
     return existing.id;
   }
+  const externalKey = key;
 
   const placed = await addLivingRelative(
     actor,

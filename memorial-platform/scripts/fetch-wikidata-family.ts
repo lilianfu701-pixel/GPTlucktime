@@ -238,6 +238,9 @@ async function main(): Promise<void> {
 
   const dataset: GenealogyDataset = {
     key: `wikidata:${key}`,
+    // All Wikidata families share one identity namespace, so a person in two
+    // families (a QID) is one page, not a duplicate.
+    namespace: "wikidata",
     people: [...byId.values()].sort((a, b) => a.externalId.localeCompare(b.externalId)),
     relations,
   };

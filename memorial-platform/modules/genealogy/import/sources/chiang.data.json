@@ -1,0 +1,1098 @@
+{
+  "key": "wikidata:chiang",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q100998732",
+      "name": "蒋瑞莲",
+      "citation": "维基百科 / Wikidata Q100998732",
+      "aliases": [
+        "蔣瑞蓮",
+        "Chiang Jui-lien"
+      ],
+      "gender": "female"
+    },
+    {
+      "externalId": "Q100998861",
+      "name": "杨郁文",
+      "citation": "维基百科 / Wikidata Q100998861",
+      "aliases": [
+        "Yang Yuwen"
+      ],
+      "gender": "female"
+    },
+    {
+      "externalId": "Q10513842",
+      "name": "蒋徐乃锦",
+      "citation": "维基百科 / Wikidata Q10513842",
+      "aliases": [
+        "蔣徐乃錦",
+        "Syu Nai-jin"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1937
+      },
+      "death": {
+        "year": 2005
+      },
+      "bio": "蒋经国长媳"
+    },
+    {
+      "externalId": "Q10887828",
+      "name": "俞扬和",
+      "citation": "维基百科 / Wikidata Q10887828",
+      "aliases": [
+        "俞揚和",
+        "Yu Yang-ho"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1924
+      },
+      "death": {
+        "year": 2010
+      },
+      "bio": "中华民国空军飞行员"
+    },
+    {
+      "externalId": "Q11127070",
+      "name": "毛懋卿",
+      "citation": "维基百科 / Wikidata Q11127070",
+      "aliases": [
+        "Mao Maoqing"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1876
+      },
+      "death": {
+        "year": 1969
+      },
+      "bio": "中国政治人物"
+    },
+    {
+      "externalId": "Q133455570",
+      "name": "徐学文",
+      "citation": "维基百科 / Wikidata Q133455570",
+      "aliases": [
+        "徐學文"
+      ],
+      "gender": "male"
+    },
+    {
+      "externalId": "Q1395874",
+      "name": "徐锡麟",
+      "citation": "维基百科 / Wikidata Q1395874",
+      "aliases": [
+        "徐錫麟",
+        "Xu Xilin"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1873
+      },
+      "death": {
+        "year": 1907
+      },
+      "bio": "清末革命家",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Xu%20Xilin.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q14368694",
+      "name": "蒋肇聪",
+      "citation": "维基百科 / Wikidata Q14368694",
+      "aliases": [
+        "蔣肇聰",
+        "Chiang Chao-tsung"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1842
+      },
+      "death": {
+        "year": 1895
+      },
+      "bio": "蒋中正之父"
+    },
+    {
+      "externalId": "Q14368700",
+      "name": "王采玉",
+      "citation": "维基百科 / Wikidata Q14368700",
+      "aliases": [
+        "Wang Caiyu"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1863
+      },
+      "death": {
+        "year": 1921
+      },
+      "bio": "蒋介石生母",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Wang%20Cai-yu.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q15904537",
+      "name": "蒋孝刚",
+      "citation": "维基百科 / Wikidata Q15904537",
+      "aliases": [
+        "蔣孝剛",
+        "Chiang Hsiao-kang"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1963
+      },
+      "living": true,
+      "bio": "美國律師"
+    },
+    {
+      "externalId": "Q15909741",
+      "name": "蒋友梅",
+      "citation": "维基百科 / Wikidata Q15909741",
+      "aliases": [
+        "蔣友梅",
+        "Chiang Yu-mei"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1961
+      },
+      "living": true,
+      "bio": "台湾历史学者"
+    },
+    {
+      "externalId": "Q15910283",
+      "name": "竺培风",
+      "citation": "维基百科 / Wikidata Q15910283",
+      "aliases": [
+        "Zhu Peifeng"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1916
+      },
+      "death": {
+        "year": 1947
+      },
+      "bio": "蒋介石外甥，空军飞行员",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Chu-Peifeng.jpg",
+      "photoCredit": "作者：Paul · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q15911874",
+      "name": "石静宜",
+      "citation": "维基百科 / Wikidata Q15911874",
+      "aliases": [
+        "石靜宜",
+        "Shi Jingyi"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1918
+      },
+      "death": {
+        "year": 1953
+      },
+      "bio": "Taiwanese politician"
+    },
+    {
+      "externalId": "Q15912560",
+      "name": "蒋友松",
+      "citation": "维基百科 / Wikidata Q15912560",
+      "aliases": [
+        "蔣友松",
+        "Chiang Yo-sung"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1973
+      },
+      "living": true,
+      "bio": "蔣經國之孫、蔣孝武之子"
+    },
+    {
+      "externalId": "Q15912667",
+      "name": "蒋友青",
+      "citation": "维基百科 / Wikidata Q15912667",
+      "aliases": [
+        "蔣友青",
+        "Andrew Chiang"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1990
+      },
+      "living": true,
+      "bio": "蔣孝勇之子"
+    },
+    {
+      "externalId": "Q15914514",
+      "name": "蒋孝玉",
+      "citation": "维基百科 / Wikidata Q15914514",
+      "aliases": [
+        "Chiang Hsiao-yu"
+      ],
+      "gender": "female",
+      "bio": "台湾企业家"
+    },
+    {
+      "externalId": "Q15914742",
+      "name": "蒋介卿",
+      "citation": "维基百科 / Wikidata Q15914742",
+      "aliases": [
+        "Chiang Kai-ching"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1875
+      },
+      "death": {
+        "year": 1936
+      },
+      "bio": "蒋介石之兄",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/%E8%94%A3%E4%BB%8B%E5%8D%BF%20%28cropped%29.jpg",
+      "photoCredit": "作者：Unknown photographer · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q15915513",
+      "name": "蒋蕙兰",
+      "citation": "维基百科 / Wikidata Q15915513",
+      "aliases": [
+        "蔣蕙蘭",
+        "Vivian Chang"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1971
+      },
+      "living": true,
+      "bio": "台灣導演、編劇。蔣孝嚴女兒"
+    },
+    {
+      "externalId": "Q15920021",
+      "name": "蒋万安",
+      "citation": "维基百科 / Wikidata Q15920021",
+      "aliases": [
+        "蔣萬安",
+        "Chiang Wan-an"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1978
+      },
+      "living": true,
+      "bio": "臺北市市長",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Wan-An%20Jiang%20Portrait%2020150613.jpg",
+      "photoCredit": "作者：玄史生 · CC0 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q15926867",
+      "name": "竺芝珊",
+      "citation": "维基百科 / Wikidata Q15926867",
+      "gender": "male",
+      "birth": {
+        "year": 1850
+      },
+      "death": {
+        "year": 1971
+      },
+      "bio": "蒋介石妹夫"
+    },
+    {
+      "externalId": "Q16574",
+      "name": "蒋中正",
+      "citation": "维基百科 / Wikidata Q16574",
+      "aliases": [
+        "蔣中正",
+        "Chiang Kai-shek"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1887
+      },
+      "death": {
+        "year": 1975
+      },
+      "bio": "中華民國軍事及政治人物"
+    },
+    {
+      "externalId": "Q16978501",
+      "name": "戴安国",
+      "citation": "维基百科 / Wikidata Q16978501",
+      "aliases": [
+        "戴安國",
+        "Ango Tai"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1913
+      },
+      "death": {
+        "year": 1984
+      }
+    },
+    {
+      "externalId": "Q17135",
+      "name": "宋美龄",
+      "citation": "维基百科 / Wikidata Q17135",
+      "aliases": [
+        "宋美齡",
+        "Soong May-ling"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1898
+      },
+      "death": {
+        "year": 2003
+      },
+      "bio": "蔣介石之妻・前中華民國第一夫人",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Madame%20Chiang%20Kai-shek%2C%20seated%20portrait%20%28cropped%29.jpg",
+      "photoCredit": "作者：Los Angeles Times · CC BY 4.0 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q18228415",
+      "name": "王有则",
+      "citation": "维基百科 / Wikidata Q18228415",
+      "aliases": [
+        "王有則",
+        "Wang Youze"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1820
+      },
+      "death": {
+        "year": 1882
+      },
+      "bio": "蒋介石外祖父"
+    },
+    {
+      "externalId": "Q19825202",
+      "name": "章劲松",
+      "citation": "维基百科 / Wikidata Q19825202",
+      "aliases": [
+        "章勁松",
+        "Chang Chin-sung"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1972
+      },
+      "living": true,
+      "bio": "台湾法律界人士"
+    },
+    {
+      "externalId": "Q274363",
+      "name": "蒋方良",
+      "citation": "维基百科 / Wikidata Q274363",
+      "aliases": [
+        "Chiang Fang-liang"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1916
+      },
+      "death": {
+        "year": 2004
+      },
+      "bio": "蔣經國之妻・前中華民國第一夫人",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Faina%20Chiang.jpg",
+      "photoCredit": "作者：The original uploader was Jiang at English Wikipedia. · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q28412043",
+      "name": "蒋丘如雪",
+      "citation": "维基百科 / Wikidata Q28412043",
+      "aliases": [
+        "Jiang Churuxue"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1934
+      },
+      "living": true
+    },
+    {
+      "externalId": "Q313598",
+      "name": "蒋经国",
+      "citation": "维基百科 / Wikidata Q313598",
+      "aliases": [
+        "蔣經國",
+        "Chiang Ching-kuo"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1910
+      },
+      "death": {
+        "year": 1988
+      },
+      "bio": "前任中華民國總統"
+    },
+    {
+      "externalId": "Q5071688",
+      "name": "章亚若",
+      "citation": "维基百科 / Wikidata Q5071688",
+      "aliases": [
+        "章亞若",
+        "Chang Ya-juo"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1913
+      },
+      "death": {
+        "year": 1942
+      },
+      "bio": "蒋经国情人",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Chang%20Ya-juo%201942.jpg",
+      "photoCredit": "作者：不詳 · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q5095183",
+      "name": "蒋孝章",
+      "citation": "维基百科 / Wikidata Q5095183",
+      "aliases": [
+        "蔣孝章",
+        "Chiang Hsiao-chang"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1936
+      },
+      "living": true,
+      "bio": "蒋经国之女",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Chiang%20Ching-kuo%20family%20%28%E8%92%8B%E5%AD%9D%E7%AB%A0%29.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q5095185",
+      "name": "蒋孝文",
+      "citation": "维基百科 / Wikidata Q5095185",
+      "aliases": [
+        "蔣孝文",
+        "Chiang Hsiao-wen"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1935
+      },
+      "death": {
+        "year": 1989
+      },
+      "bio": "蒋经国长子",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Chiang%20Ching-kuo%20family%20%28%E8%92%8B%E5%AD%9D%E6%96%87%29.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q5095186",
+      "name": "蒋孝武",
+      "citation": "维基百科 / Wikidata Q5095186",
+      "aliases": [
+        "Chiang Hsiao-wu"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1945
+      },
+      "death": {
+        "year": 1991
+      },
+      "bio": "蔣經國次子",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Chiang%20Ching-kuo%20family%20%28%E8%92%8B%E5%AD%9D%E6%AD%A6%29.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q5095188",
+      "name": "蒋孝勇",
+      "citation": "维基百科 / Wikidata Q5095188",
+      "aliases": [
+        "蔣孝勇",
+        "Chiang Hsiao-yung"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1948
+      },
+      "death": {
+        "year": 1996
+      },
+      "bio": "蒋经国之子",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Chiang%20Ching-kuo%20family%20%28%E8%92%8B%E5%AD%9D%E5%8B%87%29.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q5095210",
+      "name": "蒋斯千",
+      "citation": "维基百科 / Wikidata Q5095210",
+      "aliases": [
+        "蔣斯千",
+        "Chiang Si-qian"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1814
+      },
+      "death": {
+        "year": 1894
+      },
+      "bio": "蒋中正祖父"
+    },
+    {
+      "externalId": "Q5371883",
+      "name": "蒋孝严",
+      "citation": "维基百科 / Wikidata Q5371883",
+      "aliases": [
+        "蔣孝嚴",
+        "Chiang Hsiao-yen"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1942
+      },
+      "living": true,
+      "bio": "前任中華民國行政院副院長",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/2006KwangHwaComputerMarketRelaunch%20JohnHYChiang.jpg",
+      "photoCredit": "作者：Rico Shen · CC BY-SA 3.0 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q56260442",
+      "name": "毛鼎和",
+      "citation": "维基百科 / Wikidata Q56260442",
+      "aliases": [
+        "Mao Dinghe"
+      ],
+      "gender": "male",
+      "bio": "蒋介石原配夫人之父"
+    },
+    {
+      "externalId": "Q699378",
+      "name": "陈洁如",
+      "citation": "维基百科 / Wikidata Q699378",
+      "aliases": [
+        "陳潔如",
+        "Chen Jieru"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1906
+      },
+      "death": {
+        "year": 1971
+      },
+      "bio": "蒋介石侧室夫人",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Chen%20Jieru.jpg",
+      "photoCredit": "作者：The original uploader was Snowdog at Italian Wikipedia. · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q701020",
+      "name": "蒋纬国",
+      "citation": "维基百科 / Wikidata Q701020",
+      "aliases": [
+        "蔣緯國",
+        "Chiang Wei-kuo"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1916
+      },
+      "death": {
+        "year": 1997
+      },
+      "bio": "中华民国将领（1916—1997）",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Chiang%20Weikuo%20in%20Wehrmachtsuniform.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q704286",
+      "name": "戴季陶",
+      "citation": "维基百科 / Wikidata Q704286",
+      "aliases": [
+        "Tai Chi-tao"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1891
+      },
+      "death": {
+        "year": 1949
+      },
+      "bio": "中華民國國民政府第1任考試院院長・中國政治人物",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/%E6%88%B4%E5%AD%A3%E9%99%B6Tai%20Chi-tao.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q707363",
+      "name": "蒋友柏",
+      "citation": "维基百科 / Wikidata Q707363",
+      "aliases": [
+        "Demos Chiang"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1976
+      },
+      "living": true,
+      "bio": "台湾企业家"
+    },
+    {
+      "externalId": "Q710811",
+      "name": "毛福梅",
+      "citation": "维基百科 / Wikidata Q710811",
+      "aliases": [
+        "Máo Fúméi"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1882
+      },
+      "death": {
+        "year": 1939
+      },
+      "bio": "蒋介石原配夫人",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Mao%20Fumei.jpg",
+      "photoCredit": "公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q75641513",
+      "name": "Ian Maclellan",
+      "citation": "维基百科 / Wikidata Q75641513",
+      "gender": "male",
+      "birth": {
+        "year": 1960
+      },
+      "living": true,
+      "bio": "(born 1960)"
+    },
+    {
+      "externalId": "Q8026049",
+      "name": "章孝慈",
+      "citation": "维基百科 / Wikidata Q8026049",
+      "aliases": [
+        "Winston Chang"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1941
+      },
+      "death": {
+        "year": 1996
+      },
+      "bio": "台湾法律学者"
+    },
+    {
+      "externalId": "Q8049047",
+      "name": "姚冶诚",
+      "citation": "维基百科 / Wikidata Q8049047",
+      "aliases": [
+        "Yao Yecheng"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1887
+      },
+      "death": {
+        "year": 1966
+      },
+      "bio": "蒋介石侧室夫人",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Yao%20Yecheng.jpg",
+      "photoCredit": "作者：Uploaded in 2004 to en.wikipedia by Mababa. Uploaded in 2005 to it.wikipedia by Snowdog. Transferred to Commons by User:Fale using CommonsHelper. · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q8274122",
+      "name": "蒋方智怡",
+      "citation": "维基百科 / Wikidata Q8274122",
+      "aliases": [
+        "蔣方智怡",
+        "Chiang Fang Chih-yi"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1949
+      },
+      "living": true,
+      "bio": "蒋孝勇之妻",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/%E8%94%A3%E6%96%B9%E6%99%BA%E6%80%A1.jpg",
+      "photoCredit": "作者：Voice of America · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q8274140",
+      "name": "蒋国秉",
+      "citation": "维基百科 / Wikidata Q8274140",
+      "aliases": [
+        "Chiang Kuo-ping"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1904
+      },
+      "death": {
+        "year": 1982
+      },
+      "bio": "蒋介卿子、蒋介石侄儿"
+    },
+    {
+      "externalId": "Q85884061",
+      "name": "蒋瑞青",
+      "citation": "维基百科 / Wikidata Q85884061",
+      "aliases": [
+        "蔣瑞青",
+        "Jiang Ruiqing"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1894
+      },
+      "death": {
+        "year": 1897
+      },
+      "bio": "蒋介石幼弟"
+    },
+    {
+      "externalId": "Q8976004",
+      "name": "蒋友常",
+      "citation": "维基百科 / Wikidata Q8976004",
+      "aliases": [
+        "蔣友常",
+        "Edward Chiang"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1978
+      },
+      "living": true,
+      "bio": "台湾设计师"
+    },
+    {
+      "externalId": "Q9337279",
+      "name": "蔡惠媚",
+      "citation": "维基百科 / Wikidata Q9337279",
+      "aliases": [
+        "Tsai Hui-mei"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1959
+      },
+      "living": true,
+      "bio": "蔣孝武第二任妻子"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q14368700",
+      "child": "Q16574"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q710811",
+      "child": "Q313598"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q8274122",
+      "child": "Q707363"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q274363",
+      "child": "Q5095183"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q274363",
+      "child": "Q5095185"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q274363",
+      "child": "Q5095186"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q274363",
+      "child": "Q5095188"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q5071688",
+      "child": "Q5371883"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q5071688",
+      "child": "Q8026049"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q8274122",
+      "child": "Q8976004"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q28412043",
+      "child": "Q15904537"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q10513842",
+      "child": "Q15909741"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q100998732",
+      "child": "Q15910283"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q8274122",
+      "child": "Q15912667"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q14368700",
+      "child": "Q85884061"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q14368700",
+      "child": "Q100998732"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q14368694",
+      "child": "Q16574"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q16574",
+      "child": "Q313598"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q704286",
+      "child": "Q701020"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q5095188",
+      "child": "Q707363"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q56260442",
+      "child": "Q710811"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q313598",
+      "child": "Q5095183"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q313598",
+      "child": "Q5095185"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q313598",
+      "child": "Q5095186"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q313598",
+      "child": "Q5095188"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q313598",
+      "child": "Q5371883"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q313598",
+      "child": "Q8026049"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q15914742",
+      "child": "Q8274140"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q5095188",
+      "child": "Q8976004"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q133455570",
+      "child": "Q10513842"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q56260442",
+      "child": "Q11127070"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q5095210",
+      "child": "Q14368694"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q18228415",
+      "child": "Q14368700"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q701020",
+      "child": "Q15904537"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q5095185",
+      "child": "Q15909741"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q15926867",
+      "child": "Q15910283"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q5095186",
+      "child": "Q15912560"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q5095188",
+      "child": "Q15912667"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q8274140",
+      "child": "Q15914514"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q14368694",
+      "child": "Q15914742"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q5371883",
+      "child": "Q15915513"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q5371883",
+      "child": "Q15920021"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q704286",
+      "child": "Q16978501"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q8026049",
+      "child": "Q19825202"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q14368694",
+      "child": "Q85884061"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q14368694",
+      "child": "Q100998732"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q1395874",
+      "child": "Q133455570"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q16574",
+      "b": "Q17135"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q16574",
+      "b": "Q699378"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q16574",
+      "b": "Q710811"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q16574",
+      "b": "Q8049047"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q274363",
+      "b": "Q313598"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q15911874",
+      "b": "Q701020"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q28412043",
+      "b": "Q701020"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q10887828",
+      "b": "Q5095183"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q10513842",
+      "b": "Q5095185"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q5095186",
+      "b": "Q9337279"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q5095188",
+      "b": "Q8274122"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q14368694",
+      "b": "Q14368700"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q15909741",
+      "b": "Q75641513"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q100998861",
+      "b": "Q15910283"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q100998732",
+      "b": "Q15926867"
+    }
+  ]
+}
