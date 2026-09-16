@@ -8,6 +8,8 @@ import { memorialRelatives } from "@/db/schema";
 import { currentActor } from "@/modules/auth/current-user";
 import { loadMemorialDetail } from "@/modules/memorials/detail";
 import { familyViewForMemorial } from "@/modules/genealogy/family-view";
+import { MAX_DEPTH, readTreeForMemorial } from "@/modules/genealogy/tree";
+import { kinshipFromMemorial } from "@/modules/genealogy/kinship";
 import { FamilyTree } from "../family-tree";
 
 export const dynamic = "force-dynamic";
@@ -54,24 +56,39 @@ export default async function FamilyTreePage(props: {
   ): number | null =>
     date && precision !== "unknown" ? Number.parseInt(date.slice(0, 4), 10) : null;
 
-  const familyView = await familyViewForMemorial(
-    detail.memorialId,
-    {
-      name: detail.primaryName,
-      birthYear: year(detail.birthDate, detail.birthDatePrecision),
-      deathYear: year(detail.deathDate, detail.deathDatePrecision),
-    },
-    relatives,
-    {
-      // Recursion (pulling a linked grandparent's own free-text relatives) can
-      // re-list the root and their siblings under the grandparent, which the
-      // chart cannot merge — it duplicated the root and left stray anchor boxes.
-      // Off until the layout can fold those units together.
-      recurse: false,
-      viewerLoggedIn: actor.userId !== null,
-      hiddenLabel: t("nameHiddenPlaceholder"),
-    },
-  );
+  // Two ways a memorial's family can be recorded: free-text relatives on the
+  // page (`memorial_relatives`, what a family types) and the confirmed family
+  // graph (`family_links`, what an imported 族谱 uses). The full-tree page shows
+  // whichever is richer — a family's own relatives view, or the deep graph walk
+  // (up to five generations, with the collateral branches, spouses and children
+  // the relatives view only reaches one step of). Graph nodes carry their own
+  // kinship, derived over the whole graph.
+  const [relativeView, graphResult] = await Promise.all([
+    familyViewForMemorial(
+      detail.memorialId,
+      {
+        name: detail.primaryName,
+        birthYear: year(detail.birthDate, detail.birthDatePrecision),
+        deathYear: year(detail.deathDate, detail.deathDatePrecision),
+      },
+      relatives,
+      {
+        recurse: false,
+        viewerLoggedIn: actor.userId !== null,
+        hiddenLabel: t("nameHiddenPlaceholder"),
+      },
+    ),
+    readTreeForMemorial(actor, detail.memorialId, { depth: MAX_DEPTH }),
+  ]);
+
+  const graphTree = graphResult.ok ? graphResult.value : null;
+  const visible = (tree: { nodes: { visible: boolean }[] } | null): number =>
+    tree ? tree.nodes.filter((node) => node.visible).length : 0;
+
+  const familyView =
+    graphTree && visible(graphTree) > visible(relativeView?.tree ?? null)
+      ? { tree: graphTree, kinship: await kinshipFromMemorial(detail.memorialId) }
+      : relativeView;
 
   return (
     <main id="main" className="section familyPage">

@@ -1,6 +1,7 @@
 import { and, eq, inArray, isNull, or } from "drizzle-orm";
 import { db } from "@/db/client";
 import {
+  deceasedPeople,
   familyLinks,
   familyPeople,
   memorialNames,
@@ -173,16 +174,26 @@ async function mayName(
   return neighbourStewardIds.has(person.id);
 }
 
+type NodeGender = "male" | "female" | "unknown";
+
 async function displayFor(
   person: RawPerson,
-): Promise<{ name: string; slug: string | null }> {
+): Promise<{ name: string; slug: string | null; gender: NodeGender }> {
   if (!person.deceasedPersonId) {
-    return { name: person.displayName ?? "", slug: null };
+    return { name: person.displayName ?? "", slug: null, gender: "unknown" };
   }
 
   const [row] = await db()
-    .select({ name: memorialNames.value, slug: memorials.slug })
+    .select({
+      name: memorialNames.value,
+      slug: memorials.slug,
+      gender: deceasedPeople.gender,
+    })
     .from(memorials)
+    .innerJoin(
+      deceasedPeople,
+      eq(deceasedPeople.id, memorials.deceasedPersonId),
+    )
     .innerJoin(
       memorialNames,
       and(
@@ -192,7 +203,9 @@ async function displayFor(
     )
     .where(eq(memorials.deceasedPersonId, person.deceasedPersonId));
 
-  return { name: row?.name ?? "", slug: row?.slug ?? null };
+  const gender =
+    row?.gender === "male" || row?.gender === "female" ? row.gender : "unknown";
+  return { name: row?.name ?? "", slug: row?.slug ?? null, gender };
 }
 
 /**
@@ -305,6 +318,7 @@ export async function readTree(
       birthYear: person.birthYear,
       deathYear: person.deathYear,
       memorialSlug: display.slug,
+      gender: display.gender,
     });
   }
 
