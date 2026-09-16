@@ -613,6 +613,11 @@
     "nameOrNumberPlaceholder": "輸入姓名，或 8 位追思編號"
   },
   "profile": {
+    "kinPromptLead": "族譜裡可能有你。",
+    "kinPromptClaim": "這是我，認領",
+    "kinPromptHint": "認領後你將接管族譜中的這個位置，並可完善家族信息。",
+    "kinPromptGeneration": "字輩：{generation}",
+    "kinPromptClaimed": "認領成功。",
     "title": "我的資料",
     "intro": "你的個人資訊，會用於你管理的追思主頁。",
     "gateBody": "為家人建立追思主頁前，請先完善你的本人資訊：姓名、性別和出生日期。",

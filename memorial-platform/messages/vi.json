@@ -613,6 +613,11 @@
     "nameOrNumberPlaceholder": "e.g. a name, or an 8-digit number"
   },
   "profile": {
+    "kinPromptLead": "You may already be in a family tree.",
+    "kinPromptClaim": "This is me — claim",
+    "kinPromptHint": "Claiming takes over this place in the tree, so you can complete your family's record.",
+    "kinPromptGeneration": "Generation: {generation}",
+    "kinPromptClaimed": "Claimed.",
     "title": "Hồ sơ của tôi",
     "intro": "Thông tin của bạn, dùng trên các trang tưởng niệm của bạn.",
     "gateBody": "Trước khi tạo trang tưởng niệm cho người thân, hãy hoàn thiện hồ sơ: tên, giới tính và ngày sinh.",

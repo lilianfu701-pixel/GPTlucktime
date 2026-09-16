@@ -613,6 +613,11 @@
     "nameOrNumberPlaceholder": "e.g. a name, or an 8-digit number"
   },
   "profile": {
+    "kinPromptLead": "You may already be in a family tree.",
+    "kinPromptClaim": "This is me — claim",
+    "kinPromptHint": "Claiming takes over this place in the tree, so you can complete your family's record.",
+    "kinPromptGeneration": "Generation: {generation}",
+    "kinPromptClaimed": "Claimed.",
     "title": "My profile",
     "intro": "Your details, used across your memorials.",
     "gateBody": "Before creating a memorial for a family member, please complete your own profile: name, gender and birth date.",

@@ -613,6 +613,11 @@
     "nameOrNumberPlaceholder": "e.g. a name, or an 8-digit number"
   },
   "profile": {
+    "kinPromptLead": "You may already be in a family tree.",
+    "kinPromptClaim": "This is me — claim",
+    "kinPromptHint": "Claiming takes over this place in the tree, so you can complete your family's record.",
+    "kinPromptGeneration": "Generation: {generation}",
+    "kinPromptClaimed": "Claimed.",
     "title": "내 프로필",
     "intro": "추모 페이지에서 사용되는 내 정보입니다.",
     "gateBody": "가족의 추모 페이지를 만들기 전에 이름, 성별, 생년월일을 포함한 프로필을 완성해 주세요.",

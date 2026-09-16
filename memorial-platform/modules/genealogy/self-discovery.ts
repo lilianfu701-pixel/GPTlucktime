@@ -1,7 +1,13 @@
-import { and, eq, isNull, isNotNull } from "drizzle-orm";
+import { and, eq, inArray, isNull, isNotNull } from "drizzle-orm";
 import { db } from "@/db/client";
 import { familyPeople } from "@/db/schema";
+import { toSimplified, toTraditional } from "@/modules/search/hanzi";
 import { maskName } from "./mask";
+
+/** Compares Chinese names/字辈 across scripts: 孔垂長 and 孔垂长 are the same. */
+function sameHan(a: string, b: string): boolean {
+  return toSimplified(a).trim() === toSimplified(b).trim();
+}
 
 /**
  * Register → recognise yourself in a seeded 族谱.
@@ -43,11 +49,13 @@ export function isKinCandidate(
 ): boolean {
   const name = query.fullName.trim();
   if (!name || !node.displayName) return false;
-  // Exact name is required. A stated 字辈, when given, must not contradict the
-  // node's — a same-named person of a different generation is not this person.
-  if (node.displayName.trim() !== name) return false;
+  // The name must match — but across scripts, so a Traditional-typing viewer
+  // (孔垂長) still recognises a Simplified-seeded node (孔垂长), and vice versa.
+  if (!sameHan(node.displayName, name)) return false;
+  // A stated 字辈, when given, must not contradict the node's — a same-named
+  // person of a different generation is not this person.
   const wanted = query.generationName?.trim();
-  if (wanted && node.generationName && node.generationName.trim() !== wanted) {
+  if (wanted && node.generationName && !sameHan(node.generationName, wanted)) {
     return false;
   }
   return true;
@@ -66,6 +74,10 @@ export async function discoverClaimableKin(
   const name = query.fullName.trim();
   if (!name) return [];
 
+  // A node may be stored in either script, so match against both forms of the
+  // typed name. `isKinCandidate` then confirms across scripts too.
+  const nameVariants = [...new Set([name, toSimplified(name), toTraditional(name)])];
+
   const rows = await db()
     .select({
       id: familyPeople.id,
@@ -75,7 +87,7 @@ export async function discoverClaimableKin(
     .from(familyPeople)
     .where(
       and(
-        eq(familyPeople.displayName, name),
+        inArray(familyPeople.displayName, nameVariants),
         eq(familyPeople.lifeStatus, "living"),
         eq(familyPeople.publicMasked, true),
         isNotNull(familyPeople.importKey),
@@ -93,7 +105,7 @@ export async function discoverClaimableKin(
       maskedName: maskName(row.displayName ?? ""),
       generationName: row.generationName,
       generationMatches: Boolean(
-        wanted && row.generationName && row.generationName.trim() === wanted,
+        wanted && row.generationName && sameHan(row.generationName, wanted),
       ),
     });
   }

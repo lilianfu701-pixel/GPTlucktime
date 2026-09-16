@@ -16,6 +16,17 @@ describe("isKinCandidate", () => {
     expect(isKinCandidate({ fullName: "孔德成" }, node)).toBe(false);
   });
 
+  it("matches a Traditional-typed name against a Simplified node", () => {
+    // A 台湾/香港 viewer types 孔垂長; the seeded node is 孔垂长.
+    expect(isKinCandidate({ fullName: "孔垂長" }, node)).toBe(true);
+  });
+
+  it("matches a Simplified name against a Traditional node", () => {
+    expect(
+      isKinCandidate({ fullName: "萧敬腾" }, { displayName: "蕭敬騰", generationName: null }),
+    ).toBe(true);
+  });
+
   it("requires a name", () => {
     expect(isKinCandidate({ fullName: "" }, node)).toBe(false);
     expect(isKinCandidate({ fullName: "孔垂长" }, { displayName: null, generationName: null })).toBe(

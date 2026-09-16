@@ -613,6 +613,11 @@
     "nameOrNumberPlaceholder": "e.g. a name, or an 8-digit number"
   },
   "profile": {
+    "kinPromptLead": "You may already be in a family tree.",
+    "kinPromptClaim": "This is me — claim",
+    "kinPromptHint": "Claiming takes over this place in the tree, so you can complete your family's record.",
+    "kinPromptGeneration": "Generation: {generation}",
+    "kinPromptClaimed": "Claimed.",
     "title": "Мой профиль",
     "intro": "Ваши данные, используемые на ваших страницах памяти.",
     "gateBody": "Прежде чем создать страницу памяти для родственника, заполните свой профиль: имя, пол и дату рождения.",

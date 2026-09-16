@@ -7,6 +7,7 @@ import { loadAccountInfo } from "@/modules/identity/account";
 import { AccountPage } from "./account-page";
 import { AccountFinance } from "./account-finance";
 import { MentionPrompt } from "../mention-prompt";
+import { KinClaimPrompt } from "../kin-claim-prompt";
 import { AvatarEditor } from "./avatar-editor";
 import { loadAvatar } from "@/modules/identity/avatar";
 
@@ -64,6 +65,7 @@ export default async function AccountRoute(props: {
         fullName={safeProfile.fullName}
         locale={locale}
       />
+      <KinClaimPrompt fullName={safeProfile.fullName} locale={locale} />
       <AvatarEditor initial={avatar} />
       <AccountPage
         profile={safeProfile}
