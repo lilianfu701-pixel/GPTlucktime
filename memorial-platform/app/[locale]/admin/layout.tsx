@@ -95,6 +95,14 @@ export default async function AdminLayout(props: {
                   {t("settings")}
                 </Link>
               </li>
+              <li>
+                <Link
+                  href={`/${locale}/admin/genealogy`}
+                  className="adminNavLink"
+                >
+                  族谱导入
+                </Link>
+              </li>
             </>
           ) : null}
         </ul>

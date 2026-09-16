@@ -272,11 +272,18 @@ async function seedMemorialNode(
   }
 
   // A stewarded seed is created as a draft; publish it so the public page and
-  // its family section render for a searcher or a would-be claimant.
+  // its family section render for a searcher or a would-be claimant. But keep it
+  // off the homepage "最新追思" stream: these are historical ancestors, not a
+  // recent bereavement, and a bulk import must not flood that feed. The page
+  // stays public, searchable and indexable — just not "latest".
   if (result.value.created) {
     await db()
       .update(memorials)
-      .set({ status: "published", publishedAt: new Date() })
+      .set({
+        status: "published",
+        publishedAt: new Date(),
+        homepageDisplay: false,
+      })
       .where(eq(memorials.id, result.value.memorialId));
     report.memorialsCreated += 1;
   } else {
