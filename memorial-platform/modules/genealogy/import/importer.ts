@@ -4,6 +4,7 @@ import { familyPeople, memorials } from "@/db/schema";
 import { createMemorial } from "@/modules/memorials/service";
 import type { CreateMemorialInput, PartialDate } from "@/modules/memorials/service";
 import type { Actor } from "@/modules/permissions/types";
+import { indexMemorial } from "@/modules/search/indexer";
 import { addLivingRelative, addMemorialSubject } from "../people";
 import { proposeLink } from "../links";
 import type {
@@ -289,6 +290,12 @@ async function seedMemorialNode(
   } else {
     report.memorialsExisting += 1;
   }
+
+  // The import publishes with a direct UPDATE, bypassing the publish flow that
+  // normally emits the search-index event — so index the page here, or a seeded
+  // 先人 could never be found by name. Idempotent (upsert), and run on the
+  // existing path too so a re-run repairs pages seeded before this fix.
+  await indexMemorial(result.value.memorialId);
 
   report.memorials.push({
     externalId: person.externalId,
