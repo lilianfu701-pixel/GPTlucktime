@@ -3,8 +3,14 @@ import { db } from "@/db/client";
 import { familyPeople, memorials } from "@/db/schema";
 import { createMemorial } from "@/modules/memorials/service";
 import type { CreateMemorialInput, PartialDate } from "@/modules/memorials/service";
+import {
+  publishBiography,
+  publishedBiography,
+  saveBiography,
+} from "@/modules/memorials/content-service";
 import type { Actor } from "@/modules/permissions/types";
 import { indexMemorial } from "@/modules/search/indexer";
+import { toSimplified } from "@/modules/search/hanzi";
 import { addLivingRelative, addMemorialSubject } from "../people";
 import { proposeLink } from "../links";
 import type {
@@ -236,6 +242,34 @@ export async function importGenealogy(
   return report;
 }
 
+/**
+ * Writes a source biography onto a seed page, once.
+ *
+ * Skips a page that already has a published life story — a re-run must not
+ * append a duplicate version, and it must never overwrite what a family who
+ * claimed the page has written since. Converted to 简体 to match the page's name.
+ */
+async function seedBiography(
+  actor: Actor,
+  memorialId: string,
+  bio: string | undefined,
+  correlationId: string,
+): Promise<void> {
+  const body = bio?.trim();
+  if (!body) return;
+  if (await publishedBiography(memorialId)) return;
+
+  const saved = await saveBiography(
+    actor,
+    memorialId,
+    { body: toSimplified(body), sourceLocale: "zh-CN" },
+    correlationId,
+  );
+  if (saved.ok) {
+    await publishBiography(actor, memorialId, correlationId);
+  }
+}
+
 /** Sets a graph node's 字辈, once, after it is created. */
 async function setGenerationName(
   personId: string,
@@ -296,6 +330,11 @@ async function seedMemorialNode(
   // 先人 could never be found by name. Idempotent (upsert), and run on the
   // existing path too so a re-run repairs pages seeded before this fix.
   await indexMemorial(result.value.memorialId);
+
+  // A short biography from the source, so the page is more than a name and two
+  // dates. Only when the page has none yet, so a re-run neither piles up versions
+  // nor overwrites a life a claiming family has since written.
+  await seedBiography(actor, result.value.memorialId, person.bio, correlationId);
 
   report.memorials.push({
     externalId: person.externalId,
