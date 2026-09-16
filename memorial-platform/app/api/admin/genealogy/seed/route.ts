@@ -6,6 +6,7 @@ import { unimportGenealogy } from "@/modules/genealogy/import/unimport";
 import { ensureImportStewardActor } from "@/modules/genealogy/import/steward";
 import { kongLineageSource } from "@/modules/genealogy/import/sources/kong-lineage";
 import { songSuFamilySource } from "@/modules/genealogy/import/sources/song-su-family";
+import { soongFamilySource } from "@/modules/genealogy/import/sources/wikidata-soong";
 
 export const dynamic = "force-dynamic";
 export const maxDuration = 60;
@@ -13,10 +14,11 @@ export const maxDuration = 60;
 const SOURCES = {
   kong: kongLineageSource,
   song: songSuFamilySource,
+  soong: soongFamilySource,
 };
 
 const schema = z.object({
-  source: z.enum(["kong", "song"]),
+  source: z.enum(["kong", "song", "soong"]),
   /** "seed" plants the batch; "rollback" removes exactly that batch. */
   action: z.enum(["seed", "rollback"]).default("seed"),
   /** Seed only deceased generations — the safe default for a first run. */

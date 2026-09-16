@@ -60,6 +60,16 @@ export type SourcePerson = {
    */
   living?: boolean;
   /**
+   * A short biography, e.g. a source's one-line description. Shown on the page
+   * so an imported ancestor is more than a name and two dates.
+   */
+  bio?: string;
+  /**
+   * A URL to the person's photograph at the source (e.g. Wikimedia Commons).
+   * Carried for the media step to fetch and set as the 遗照; not a stored field.
+   */
+  photoUrl?: string;
+  /**
    * A human-readable citation for this record — where the fact came from. Kept
    * so an imported page can always answer "who says so", which is what keeps a
    * seeded graph trustworthy rather than a rumour at scale.

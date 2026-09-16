@@ -28,6 +28,7 @@ import { importGenealogy } from "@/modules/genealogy/import/importer";
 import type { GenealogySource } from "@/modules/genealogy/import/types";
 import { songSuFamilySource } from "@/modules/genealogy/import/sources/song-su-family";
 import { kongLineageSource } from "@/modules/genealogy/import/sources/kong-lineage";
+import { soongFamilySource } from "@/modules/genealogy/import/sources/wikidata-soong";
 import { kinshipFromMemorial } from "@/modules/genealogy/kinship";
 import { kinshipLabel } from "@/modules/genealogy/kinship-terms";
 
@@ -39,6 +40,7 @@ const STEWARD_EMAIL = "genealogy-import@missingu.org";
 const SOURCES: Record<string, { source: GenealogySource; root: string }> = {
   song: { source: songSuFamilySource, root: "su-mai" },
   kong: { source: kongLineageSource, root: "kong-weiyi" },
+  soong: { source: soongFamilySource, root: "Q17132" },
 };
 
 async function ensureStewardUser(): Promise<string> {

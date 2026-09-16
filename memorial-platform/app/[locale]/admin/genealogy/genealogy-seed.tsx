@@ -29,7 +29,7 @@ type RollbackReport = {
  * choice.
  */
 export function GenealogySeed(props: { locale: string }) {
-  const [source, setSource] = useState<"kong" | "song">("kong");
+  const [source, setSource] = useState<"kong" | "song" | "soong">("soong");
   const [skipLiving, setSkipLiving] = useState(true);
   const [busy, setBusy] = useState(false);
   const [report, setReport] = useState<Report | null>(null);
@@ -78,8 +78,9 @@ export function GenealogySeed(props: { locale: string }) {
           <select
             className="input"
             value={source}
-            onChange={(e) => setSource(e.target.value as "kong" | "song")}
+            onChange={(e) => setSource(e.target.value as "kong" | "song" | "soong")}
           >
+            <option value="soong">宋氏家族（Wikidata，含照片/生平/旁系/配偶）</option>
             <option value="kong">孔子世系（衍圣公直系，公有领域）</option>
             <option value="song">三苏世家（示例）</option>
           </select>

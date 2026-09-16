@@ -1,0 +1,679 @@
+{
+  "key": "wikidata:soong",
+  "people": [
+    {
+      "externalId": "Q10888399",
+      "name": "倪韫山",
+      "citation": "维基百科 / Wikidata Q10888399",
+      "aliases": [
+        "Ni Yunshan"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1846
+      },
+      "bio": "清朝传教士"
+    },
+    {
+      "externalId": "Q10944212",
+      "name": "孔令侃",
+      "citation": "维基百科 / Wikidata Q10944212",
+      "aliases": [
+        "Kung Ling-kan"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1916
+      },
+      "death": {
+        "year": 1992
+      },
+      "bio": "孔祥熙长子",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/1936%E5%B9%B4%20%E5%AD%94%E4%BB%A4%E4%BE%83.jpg"
+    },
+    {
+      "externalId": "Q10944213",
+      "name": "孔令俊",
+      "citation": "维基百科 / Wikidata Q10944213",
+      "aliases": [
+        "Kung Ling-chun"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1919
+      },
+      "death": {
+        "year": 1994
+      },
+      "bio": "维基媒体消歧义页"
+    },
+    {
+      "externalId": "Q10944214",
+      "name": "孔令杰",
+      "citation": "维基百科 / Wikidata Q10944214",
+      "aliases": [
+        "孔令傑",
+        "Kung Ling-chie"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1921
+      },
+      "death": {
+        "year": 1996
+      },
+      "bio": "孔祥熙之子"
+    },
+    {
+      "externalId": "Q10944216",
+      "name": "孔令仪",
+      "citation": "维基百科 / Wikidata Q10944216",
+      "aliases": [
+        "孔令儀",
+        "Kung Ling-i"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1915
+      },
+      "death": {
+        "year": 2008
+      },
+      "bio": "孔祥熙长女"
+    },
+    {
+      "externalId": "Q111962567",
+      "name": "牛惠珠",
+      "citation": "维基百科 / Wikidata Q111962567",
+      "aliases": [
+        "Wai-Tsu New"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1897
+      },
+      "death": {
+        "year": 1936
+      }
+    },
+    {
+      "externalId": "Q111962614",
+      "name": "过养默",
+      "citation": "维基百科 / Wikidata Q111962614",
+      "aliases": [
+        "Yang-Mo Kuo"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1895
+      },
+      "death": {
+        "year": 1975
+      }
+    },
+    {
+      "externalId": "Q15941492",
+      "name": "牛惠生",
+      "citation": "维基百科 / Wikidata Q15941492",
+      "aliases": [
+        "Way-Sung New"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1892
+      },
+      "death": {
+        "year": 1937
+      },
+      "bio": "中国医学家",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Niu%20Huisheng.jpg"
+    },
+    {
+      "externalId": "Q16574",
+      "name": "蒋中正",
+      "citation": "维基百科 / Wikidata Q16574",
+      "aliases": [
+        "蔣中正",
+        "Chiang Kai-shek"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1887
+      },
+      "death": {
+        "year": 1975
+      },
+      "bio": "中華民國軍事及政治人物",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/%E8%94%A3%E4%B8%AD%E6%AD%A3%E7%B8%BD%E7%B5%B1%E7%8E%89%E7%85%A7.png"
+    },
+    {
+      "externalId": "Q17132",
+      "name": "宋庆龄",
+      "citation": "维基百科 / Wikidata Q17132",
+      "aliases": [
+        "宋慶齡",
+        "Soong Ching-ling"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1893
+      },
+      "death": {
+        "year": 1981
+      },
+      "bio": "孫中山夫人，中華人民共和國名譽主席 (1893–1981)",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Soong%20Ching-ling.jpg"
+    },
+    {
+      "externalId": "Q17135",
+      "name": "宋美龄",
+      "citation": "维基百科 / Wikidata Q17135",
+      "aliases": [
+        "宋美齡",
+        "Soong May-ling"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1898
+      },
+      "death": {
+        "year": 2003
+      },
+      "bio": "蔣介石之妻・前中華民國第一夫人",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Madame%20Chiang%20Kai-shek%2C%20seated%20portrait%20%28cropped%29.jpg"
+    },
+    {
+      "externalId": "Q239854",
+      "name": "黛布拉·佩吉特",
+      "citation": "维基百科 / Wikidata Q239854",
+      "aliases": [
+        "Debra Paget"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1933
+      },
+      "living": true,
+      "bio": "美国女演员",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Debra%20Paget.jpg"
+    },
+    {
+      "externalId": "Q256411",
+      "name": "宋霭龄",
+      "citation": "维基百科 / Wikidata Q256411",
+      "aliases": [
+        "宋靄齡",
+        "Soong Ai-ling"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1889
+      },
+      "death": {
+        "year": 1973
+      },
+      "bio": "孔祥熙之妻 (1889-1973)",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Soong%20Ai-ling.jpg"
+    },
+    {
+      "externalId": "Q28409908",
+      "name": "倪锡纯",
+      "citation": "维基百科 / Wikidata Q28409908",
+      "aliases": [
+        "Nie Sih-zung"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1881
+      },
+      "death": {
+        "year": 1932
+      }
+    },
+    {
+      "externalId": "Q4195655",
+      "name": "倪桂珍",
+      "citation": "维基百科 / Wikidata Q4195655",
+      "aliases": [
+        "Ni Kwei-tseng"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1869
+      },
+      "death": {
+        "year": 1931
+      },
+      "bio": "宋嘉澍之妻"
+    },
+    {
+      "externalId": "Q4195778",
+      "name": "宋子良",
+      "citation": "维基百科 / Wikidata Q4195778",
+      "aliases": [
+        "T. L. Soong"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1903
+      },
+      "death": {
+        "year": 1987
+      },
+      "bio": "中国企业家，宋嘉澍之子",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Song%20Ziliang.jpg"
+    },
+    {
+      "externalId": "Q4195955",
+      "name": "宋子安",
+      "citation": "维基百科 / Wikidata Q4195955",
+      "aliases": [
+        "Soong Tse-an"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1906
+      },
+      "death": {
+        "year": 1969
+      },
+      "bio": "中国企业家，宋嘉澍之子"
+    },
+    {
+      "externalId": "Q45631555",
+      "name": "牛尚周",
+      "citation": "维基百科 / Wikidata Q45631555",
+      "aliases": [
+        "New Shan Chow"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1862
+      },
+      "death": {
+        "year": 1917
+      },
+      "bio": "清朝留美学生"
+    },
+    {
+      "externalId": "Q45632019",
+      "name": "牛惠霖",
+      "citation": "维基百科 / Wikidata Q45632019",
+      "aliases": [
+        "Way-Ling New"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1889
+      },
+      "death": {
+        "year": 1937
+      },
+      "bio": "中国外科医师",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/%E7%89%9B%E6%83%A0%E9%9C%96.jpg"
+    },
+    {
+      "externalId": "Q45648668",
+      "name": "牛恩德",
+      "citation": "维基百科 / Wikidata Q45648668",
+      "aliases": [
+        "Lily En-Teh New"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1934
+      },
+      "death": {
+        "year": 2012
+      },
+      "bio": "美籍华裔钢琴家"
+    },
+    {
+      "externalId": "Q45672213",
+      "name": "牛恩美",
+      "citation": "维基百科 / Wikidata Q45672213",
+      "aliases": [
+        "Mary New"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1933
+      },
+      "living": true,
+      "bio": "中国医生"
+    },
+    {
+      "externalId": "Q46239115",
+      "name": "倪桂金",
+      "citation": "维基百科 / Wikidata Q46239115",
+      "aliases": [
+        "Ni Guijin"
+      ],
+      "gender": "female"
+    },
+    {
+      "externalId": "Q60440188",
+      "name": "徐亦蓁",
+      "citation": "维基百科 / Wikidata Q60440188",
+      "aliases": [
+        "Mrs. Way Sung New"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1894
+      },
+      "death": {
+        "year": 1981
+      },
+      "bio": "Chinese educator (1894-1981)"
+    },
+    {
+      "externalId": "Q631416",
+      "name": "孔祥熙",
+      "citation": "维基百科 / Wikidata Q631416",
+      "aliases": [
+        "H. H. Kung"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1881
+      },
+      "death": {
+        "year": 1967
+      },
+      "bio": "中華民國政治人物",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/HHKung.jpg"
+    },
+    {
+      "externalId": "Q63251500",
+      "name": "温秉忠",
+      "citation": "维基百科 / Wikidata Q63251500",
+      "aliases": [
+        "Won Bing Chung"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1862
+      },
+      "death": {
+        "year": 1938
+      },
+      "bio": "(1862-1938)"
+    },
+    {
+      "externalId": "Q63251744",
+      "name": "倪桂姝",
+      "citation": "维基百科 / Wikidata Q63251744",
+      "aliases": [
+        "Ni Guishu"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1882
+      },
+      "death": {
+        "year": 1960
+      },
+      "bio": "1882"
+    },
+    {
+      "externalId": "Q702111",
+      "name": "宋嘉澍",
+      "citation": "维基百科 / Wikidata Q702111",
+      "aliases": [
+        "Charlie Soong"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1863
+      },
+      "death": {
+        "year": 1918
+      },
+      "bio": "中国传教士 (1863-1918)",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Charles%20soong.jpg"
+    },
+    {
+      "externalId": "Q716051",
+      "name": "宋子文",
+      "citation": "维基百科 / Wikidata Q716051",
+      "aliases": [
+        "T. V. Soong"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1893
+      },
+      "death": {
+        "year": 1971
+      },
+      "bio": "中華民國政治人物",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/T.%20V.%20Soong.jpg"
+    },
+    {
+      "externalId": "Q8573",
+      "name": "孙中山",
+      "citation": "维基百科 / Wikidata Q8573",
+      "aliases": [
+        "孫中山",
+        "Sun Yat-sen"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1866
+      },
+      "death": {
+        "year": 1925
+      },
+      "bio": "近代中國政治人物、革命家，中國國民黨總理，中華民國國父（1866—）",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/%E5%AD%99%E4%B8%AD%E5%B1%B1%E8%82%96%E5%83%8F.jpg"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q4195655",
+      "child": "Q17132"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q4195655",
+      "child": "Q17135"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q4195655",
+      "child": "Q256411"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q4195655",
+      "child": "Q716051"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q4195655",
+      "child": "Q4195778"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q4195655",
+      "child": "Q4195955"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q256411",
+      "child": "Q10944212"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q256411",
+      "child": "Q10944213"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q256411",
+      "child": "Q10944214"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q256411",
+      "child": "Q10944216"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q46239115",
+      "child": "Q15941492"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q46239115",
+      "child": "Q45632019"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q46239115",
+      "child": "Q111962567"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q702111",
+      "child": "Q17132"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q702111",
+      "child": "Q17135"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q702111",
+      "child": "Q256411"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q702111",
+      "child": "Q716051"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q10888399",
+      "child": "Q4195655"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q702111",
+      "child": "Q4195778"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q702111",
+      "child": "Q4195955"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q631416",
+      "child": "Q10944212"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q631416",
+      "child": "Q10944213"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q631416",
+      "child": "Q10944214"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q631416",
+      "child": "Q10944216"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45631555",
+      "child": "Q15941492"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q10888399",
+      "child": "Q28409908"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45631555",
+      "child": "Q45632019"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45632019",
+      "child": "Q45648668"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45632019",
+      "child": "Q45672213"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q10888399",
+      "child": "Q46239115"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q10888399",
+      "child": "Q63251744"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45631555",
+      "child": "Q111962567"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q17132",
+      "b": "Q8573"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q16574",
+      "b": "Q17135"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q10944214",
+      "b": "Q239854"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q256411",
+      "b": "Q631416"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q4195655",
+      "b": "Q702111"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q15941492",
+      "b": "Q60440188"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45631555",
+      "b": "Q46239115"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q63251500",
+      "b": "Q63251744"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q111962567",
+      "b": "Q111962614"
+    }
+  ]
+}
