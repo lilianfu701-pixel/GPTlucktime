@@ -2,6 +2,7 @@ import { z } from "zod";
 import { correlationIdFrom, jsonError, jsonSuccess, readJson } from "@/lib/api";
 import { currentActor } from "@/modules/auth/current-user";
 import { importGenealogy } from "@/modules/genealogy/import/importer";
+import { unimportGenealogy } from "@/modules/genealogy/import/unimport";
 import { ensureImportStewardActor } from "@/modules/genealogy/import/steward";
 import { kongLineageSource } from "@/modules/genealogy/import/sources/kong-lineage";
 import { songSuFamilySource } from "@/modules/genealogy/import/sources/song-su-family";
@@ -16,6 +17,8 @@ const SOURCES = {
 
 const schema = z.object({
   source: z.enum(["kong", "song"]),
+  /** "seed" plants the batch; "rollback" removes exactly that batch. */
+  action: z.enum(["seed", "rollback"]).default("seed"),
   /** Seed only deceased generations — the safe default for a first run. */
   skipLiving: z.boolean().optional(),
 });
@@ -42,8 +45,14 @@ export async function POST(request: Request): Promise<Response> {
     return body.response;
   }
 
-  const steward = await ensureImportStewardActor();
   const dataset = await SOURCES[body.value.source].load();
+
+  if (body.value.action === "rollback") {
+    const report = await unimportGenealogy(dataset.key);
+    return jsonSuccess(report, correlationId, 200);
+  }
+
+  const steward = await ensureImportStewardActor();
   const report = await importGenealogy(steward, dataset, {
     correlationId,
     ...(body.value.skipLiving !== undefined
