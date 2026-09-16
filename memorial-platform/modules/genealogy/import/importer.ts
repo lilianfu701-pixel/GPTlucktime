@@ -23,6 +23,13 @@ export type ImportOptions = {
   regions?: readonly string[];
   /** Correlation id threaded through the audit trail for one import run. */
   correlationId?: string;
+  /**
+   * Skip living people entirely — seed only the deceased generations. The safe
+   * default for a first production seed: no living individual's node is planted
+   * until that is a deliberate choice, and relations that touch a skipped living
+   * person are dropped quietly rather than logged as missing.
+   */
+  skipLiving?: boolean;
 };
 
 export type ImportIssue = {
@@ -203,7 +210,12 @@ export async function importGenealogy(
   // deceased person gets a claimable memorial behind their node; a living person
   // gets a masked node with no page. Both carry their 字辈 for later matching.
   const nodeByExternalId = new Map<string, string>();
+  const skipped = new Set<string>();
   for (const person of dataset.people) {
+    if (person.living && options.skipLiving) {
+      skipped.add(person.externalId);
+      continue;
+    }
     const nodeId = person.living
       ? await seedLivingNode(actor, dataset, person, correlationId, report)
       : await seedMemorialNode(actor, dataset, person, regions, correlationId, report);
@@ -212,8 +224,11 @@ export async function importGenealogy(
 
   // Pass two: the edges, between graph nodes directly. Every node is this
   // actor's to speak for, so each proposed link confirms at once and is
-  // traversable — a connected 族谱, not a pile of proposals.
+  // traversable — a connected 族谱, not a pile of proposals. An edge to a
+  // deliberately skipped living person is dropped quietly.
   for (const rel of dataset.relations) {
+    const refs = rel.kind === "parent" ? [rel.parent, rel.child] : [rel.a, rel.b];
+    if (refs.some((ref) => skipped.has(ref))) continue;
     await applyRelation(actor, rel, nodeByExternalId, correlationId, report);
   }
 

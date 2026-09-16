@@ -3,9 +3,10 @@
  * the chain: pages created, edges confirmed, and — the point of it — kinship the
  * source never stated derived by the engine from the graph alone.
  *
- *   npx tsx scripts/genealogy-import.ts --dry-run          # plan only, no writes
- *   npx tsx scripts/genealogy-import.ts                    # 三苏 (default)
- *   npx tsx scripts/genealogy-import.ts --source=kong      # 孔子世系 first batch
+ *   npx tsx scripts/genealogy-import.ts --dry-run              # plan only, no writes
+ *   npx tsx scripts/genealogy-import.ts                        # 三苏 (default)
+ *   npx tsx scripts/genealogy-import.ts --source=kong          # 孔子世系 first batch
+ *   npx tsx scripts/genealogy-import.ts --source=kong --skip-living  # deceased only
  *
  * The import runs as one staff steward who ends up owning every seed page, so
  * the parent and spouse edges confirm on creation and the graph is traversable
@@ -95,6 +96,7 @@ async function namesByFamilyPersonId(
 
 async function main(): Promise<void> {
   const dryRun = process.argv.includes("--dry-run");
+  const skipLiving = process.argv.includes("--skip-living");
   const sourceArg =
     process.argv.find((a) => a.startsWith("--source="))?.split("=")[1] ?? "song";
   const chosen = SOURCES[sourceArg];
@@ -111,7 +113,7 @@ async function main(): Promise<void> {
   const actor: Actor = { userId, platformRole: "super_admin" };
 
   const dataset = await chosen.source.load();
-  const report = await importGenealogy(actor, dataset, { dryRun });
+  const report = await importGenealogy(actor, dataset, { dryRun, skipLiving });
 
   const lines: string[] = [
     `source:            ${report.source}`,
