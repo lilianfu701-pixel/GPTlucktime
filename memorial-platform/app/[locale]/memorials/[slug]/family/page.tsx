@@ -8,6 +8,7 @@ import { memorialRelatives } from "@/db/schema";
 import { currentActor } from "@/modules/auth/current-user";
 import { loadMemorialDetail } from "@/modules/memorials/detail";
 import { familyViewForMemorial } from "@/modules/genealogy/family-view";
+import { portraitsBySlug } from "@/modules/media/service";
 import { MAX_DEPTH, readTreeForMemorial } from "@/modules/genealogy/tree";
 import { kinshipFromMemorial } from "@/modules/genealogy/kinship";
 import { FamilyTree } from "../family-tree";
@@ -90,6 +91,21 @@ export default async function FamilyTreePage(props: {
       ? { tree: graphTree, kinship: await kinshipFromMemorial(detail.memorialId) }
       : relativeView;
 
+  // Faces on the chart. Look up which linked people actually have a portrait,
+  // then point the card at the stable same-origin `/api/portrait/[slug]` route
+  // (reachable and cacheable where a signed object-store URL is not) rather than
+  // the signed URL itself.
+  const slugs = familyView
+    ? familyView.tree.nodes.flatMap((node) =>
+        node.visible && node.memorialSlug ? [node.memorialSlug] : [],
+      )
+    : [];
+  const withPortrait = slugs.length > 0 ? await portraitsBySlug(slugs) : new Map();
+  const portraits = new Map<string, string>(
+    [...withPortrait.keys()].map((slug) => [slug, `/api/portrait/${slug}`]),
+  );
+  const rootPortrait = portraits.get(detail.slug) ?? null;
+
   return (
     <main id="main" className="section familyPage">
       <div className="container">
@@ -115,6 +131,8 @@ export default async function FamilyTreePage(props: {
           kinship={familyView.kinship}
           statusLiving={t("statusLiving")}
           statusDeceased={t("statusDeceased")}
+          portraits={portraits}
+          rootPortrait={rootPortrait}
         />
       ) : (
         <div className="container">
