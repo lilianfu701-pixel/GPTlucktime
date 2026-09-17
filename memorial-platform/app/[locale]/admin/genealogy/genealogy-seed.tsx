@@ -28,10 +28,18 @@ type FamilyMeta = { key: string; label: string; people: number; photos: number }
 /** Per-family state as a batch runs, so the operator sees progress live. */
 type RowState =
   | { status: "idle" }
-  | { status: "running" }
+  | { status: "running"; pass?: number }
   | { status: "done"; report: Report }
+  | { status: "partial"; report: Report }
   | { status: "rolledBack"; report: RollbackReport }
   | { status: "error"; message: string };
+
+/**
+ * A big family (溥仪, 187 人 + 数十张照片) can exceed the serverless time limit
+ * in a single request. The import is idempotent and each pass gets further, so
+ * the batch re-runs a family until a pass finishes with nothing left to create.
+ */
+const MAX_SEED_PASSES = 10;
 
 async function callSeed(
   source: string,
@@ -97,15 +105,39 @@ export function GenealogySeed(props: { locale: string; families: FamilyMeta[] })
     setBusy(true);
     setRows(Object.fromEntries(keys.map((k) => [k, { status: "idle" as const }])));
     for (const key of keys) {
-      setRows((prev) => ({ ...prev, [key]: { status: "running" } }));
-      const result = await callSeed(key, action, skipLiving);
+      if (action === "rollback") {
+        setRows((prev) => ({ ...prev, [key]: { status: "running" } }));
+        const result = await callSeed(key, "rollback", skipLiving);
+        setRows((prev) => ({
+          ...prev,
+          [key]: result.ok
+            ? { status: "rolledBack", report: result.data }
+            : { status: "error", message: "失败，请查看日志或重试。" },
+        }));
+        continue;
+      }
+      // Seed: re-run the family until a pass creates nothing new. A pass that
+      // times out mid-way still saved its progress, so the next one continues.
+      let last: Report | null = null;
+      let converged = false;
+      for (let pass = 1; pass <= MAX_SEED_PASSES; pass += 1) {
+        setRows((prev) => ({ ...prev, [key]: { status: "running", pass } }));
+        const result = await callSeed(key, "seed", skipLiving);
+        if (result.ok) {
+          last = result.data;
+          if (result.data.memorialsCreated === 0 && result.data.portraitsAdded === 0) {
+            converged = true;
+            break;
+          }
+        }
+      }
       setRows((prev) => ({
         ...prev,
-        [key]: result.ok
-          ? action === "rollback"
-            ? { status: "rolledBack", report: result.data }
-            : { status: "done", report: result.data }
-          : { status: "error", message: "失败，请查看日志或重试。" },
+        [key]: last
+          ? converged
+            ? { status: "done", report: last }
+            : { status: "partial", report: last }
+          : { status: "error", message: "超时或失败，请再点一次续灌。" },
       }));
     }
     setBusy(false);
@@ -261,7 +293,12 @@ export function GenealogySeed(props: { locale: string; families: FamilyMeta[] })
 function RowStatus(props: { state: RowState | undefined; locale: string }) {
   const state = props.state;
   if (!state || state.status === "idle") return <span className="muted">待导入</span>;
-  if (state.status === "running") return <span className="muted">导入中…</span>;
+  if (state.status === "running")
+    return (
+      <span className="muted">
+        导入中…{state.pass && state.pass > 1 ? `（第 ${state.pass} 轮续灌）` : ""}
+      </span>
+    );
   if (state.status === "error")
     return (
       <span className="fieldError" role="alert">
@@ -276,10 +313,18 @@ function RowStatus(props: { state: RowState | undefined; locale: string }) {
       </span>
     );
   }
+  if (state.status === "partial") {
+    const r = state.report;
+    return (
+      <span className="fieldError">
+        未灌完（＝{r.memorialsExisting}），请再点一次「批量导入所选」续灌
+      </span>
+    );
+  }
   const r = state.report;
   return (
     <span className="muted">
-      ＋{r.memorialsCreated} ／ ＝{r.memorialsExisting} · 遗照 {r.portraitsAdded}
+      ✓ ＋{r.memorialsCreated} ／ ＝{r.memorialsExisting} · 遗照 {r.portraitsAdded}
       {r.issues.length > 0 ? ` · 问题 ${r.issues.length}` : ""}
     </span>
   );
