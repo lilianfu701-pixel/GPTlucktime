@@ -28,8 +28,10 @@ import { importGenealogy } from "@/modules/genealogy/import/importer";
 import type { GenealogySource } from "@/modules/genealogy/import/types";
 import { songSuFamilySource } from "@/modules/genealogy/import/sources/song-su-family";
 import { kongLineageSource } from "@/modules/genealogy/import/sources/kong-lineage";
-import { soongFamilySource } from "@/modules/genealogy/import/sources/wikidata-soong";
-import { chiangFamilySource } from "@/modules/genealogy/import/sources/wikidata-chiang";
+import {
+  wikidataFamilyKeys,
+  wikidataFamilySource,
+} from "@/modules/genealogy/import/sources/wikidata-families";
 import { kinshipFromMemorial } from "@/modules/genealogy/kinship";
 import { kinshipLabel } from "@/modules/genealogy/kinship-terms";
 
@@ -41,8 +43,6 @@ const STEWARD_EMAIL = "genealogy-import@missingu.org";
 const SOURCES: Record<string, { source: GenealogySource; root: string }> = {
   song: { source: songSuFamilySource, root: "su-mai" },
   kong: { source: kongLineageSource, root: "kong-weiyi" },
-  soong: { source: soongFamilySource, root: "Q17132" },
-  chiang: { source: chiangFamilySource, root: "Q16574" },
 };
 
 async function ensureStewardUser(): Promise<string> {
@@ -98,9 +98,47 @@ async function namesByFamilyPersonId(
   return map;
 }
 
+/**
+ * Imports every Wikidata family in sequence, the way the admin panel's batch
+ * does, then re-imports the whole set to prove idempotency and cross-family QID
+ * dedup (shared people create nothing the second time). Local sanity check for
+ * the full batch before it is seeded in production.
+ */
+async function runAll(skipLiving: boolean): Promise<void> {
+  const userId = await ensureStewardUser();
+  const actor: Actor = { userId, platformRole: "super_admin" };
+  for (const pass of [1, 2] as const) {
+    process.stdout.write(`\n===== PASS ${pass} (${pass === 2 ? "expect all existing" : "first import"}) =====\n`);
+    let created = 0;
+    let existing = 0;
+    let issues = 0;
+    for (const key of wikidataFamilyKeys) {
+      const source = wikidataFamilySource(key);
+      if (!source) continue;
+      const dataset = await source.load();
+      const r = await importGenealogy(actor, dataset, { skipLiving });
+      created += r.memorialsCreated;
+      existing += r.memorialsExisting;
+      issues += r.issues.length;
+      process.stdout.write(
+        `  ${key.padEnd(12)} +${r.memorialsCreated} =${r.memorialsExisting} 遗照${r.portraitsAdded} 边+${r.linksCreated}=${r.linksExisting} 问题${r.issues.length}\n`,
+      );
+      for (const issue of r.issues) {
+        process.stdout.write(`      ! [${issue.stage}] ${issue.externalId ?? ""} ${issue.error}\n`);
+      }
+    }
+    process.stdout.write(`  TOTAL created=${created} existing=${existing} issues=${issues}\n`);
+  }
+  await closeDb();
+}
+
 async function main(): Promise<void> {
   const dryRun = process.argv.includes("--dry-run");
   const skipLiving = process.argv.includes("--skip-living");
+  if (process.argv.includes("--all")) {
+    await runAll(skipLiving);
+    return;
+  }
   const sourceArg =
     process.argv.find((a) => a.startsWith("--source="))?.split("=")[1] ?? "song";
   const chosen = SOURCES[sourceArg];

@@ -1,0 +1,134 @@
+{
+  "key": "wikidata:mei",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q10357834",
+      "name": "梅绍武",
+      "citation": "维基百科 / Wikidata Q10357834",
+      "aliases": [
+        "Mei Shaowu"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1928
+      },
+      "death": {
+        "year": 2005
+      },
+      "bio": "翻译家，梅兰芳之子"
+    },
+    {
+      "externalId": "Q11115326",
+      "name": "梅葆玥",
+      "citation": "维基百科 / Wikidata Q11115326",
+      "aliases": [
+        "Mei Baoyue"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1930
+      },
+      "death": {
+        "year": 2000
+      },
+      "bio": "中国京剧演员"
+    },
+    {
+      "externalId": "Q11115330",
+      "name": "梅葆琛",
+      "citation": "维基百科 / Wikidata Q11115330",
+      "aliases": [
+        "Mei Baochen"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1925
+      },
+      "death": {
+        "year": 2008
+      },
+      "bio": "梅兰芳之子"
+    },
+    {
+      "externalId": "Q15926822",
+      "name": "屠珍",
+      "citation": "维基百科 / Wikidata Q15926822",
+      "aliases": [
+        "Tu Zhen"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1934
+      },
+      "death": {
+        "year": 2022
+      },
+      "bio": "Chinese translator"
+    },
+    {
+      "externalId": "Q526989",
+      "name": "梅兰芳",
+      "citation": "维基百科 / Wikidata Q526989",
+      "aliases": [
+        "梅蘭芳",
+        "Mei Lanfang"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1894
+      },
+      "death": {
+        "year": 1961
+      },
+      "bio": "中國京劇藝術家",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Mei%20Lanfang.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q6809920",
+      "name": "梅葆玖",
+      "citation": "维基百科 / Wikidata Q6809920",
+      "aliases": [
+        "Mei Baojiu"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1934
+      },
+      "death": {
+        "year": 2016
+      },
+      "bio": "中国京剧演员 (1934-2016)",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Mr.%20Mei%20with%20Honolulu%20musicians%20%28320262097%29%20%28cropped%29.jpg",
+      "photoCredit": "作者：Eric Golub from Foster City, California · CC BY 2.0 · 来源：Wikimedia Commons"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q526989",
+      "child": "Q6809920"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q526989",
+      "child": "Q10357834"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q526989",
+      "child": "Q11115326"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q526989",
+      "child": "Q11115330"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q10357834",
+      "b": "Q15926822"
+    }
+  ]
+}

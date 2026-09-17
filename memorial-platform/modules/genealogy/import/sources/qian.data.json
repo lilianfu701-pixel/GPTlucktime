@@ -1,0 +1,117 @@
+{
+  "key": "wikidata:qian",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q15904774",
+      "name": "钱孙卿",
+      "citation": "维基百科 / Wikidata Q15904774",
+      "aliases": [
+        "Qian Sunqing"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1887
+      },
+      "death": {
+        "year": 1975
+      },
+      "bio": "中国商人",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/%E8%8F%AF%E6%9D%B1%E8%BB%8D%E6%94%BF%E5%A7%94%E5%93%A1%E6%9C%83%E8%B2%A1%E6%94%BF%E7%B6%93%E6%BF%9F%E5%A7%94%E5%93%A1%E6%9C%83%E7%AC%AC%E4%B8%80%E6%AC%A1%E5%85%A8%E9%AB%94%E6%9C%83%E8%AD%B0%E6%94%9D%E5%BD%B1.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q15927708",
+      "name": "钱瑗",
+      "citation": "维基百科 / Wikidata Q15927708",
+      "aliases": [
+        "Qian Yuan"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1937
+      },
+      "death": {
+        "year": 1997
+      },
+      "bio": "钱钟书之女"
+    },
+    {
+      "externalId": "Q15935072",
+      "name": "钱基博",
+      "citation": "维基百科 / Wikidata Q15935072",
+      "aliases": [
+        "Qian Jibo"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1887
+      },
+      "death": {
+        "year": 1957
+      },
+      "bio": "中國古文學家、教育家",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/%E9%8C%A2%E5%9F%BA%E5%8D%9A%E5%92%8C%E9%8C%A2%E9%8D%BE%E6%9B%B8.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q559750",
+      "name": "钱锺书",
+      "citation": "维基百科 / Wikidata Q559750",
+      "aliases": [
+        "錢鍾書",
+        "Qian Zhongshu"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1910
+      },
+      "death": {
+        "year": 1998
+      },
+      "bio": "中國作家、文學研究家（1910－1998）",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Qian%20Zhongshu%201940s.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q715121",
+      "name": "杨绛",
+      "citation": "维基百科 / Wikidata Q715121",
+      "aliases": [
+        "Yang Jiang"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1911
+      },
+      "death": {
+        "year": 2016
+      },
+      "bio": "中国作家（1911—2016）",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Yang%20Jiang%201941.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q15935072",
+      "child": "Q559750"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q559750",
+      "child": "Q15927708"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q715121",
+      "child": "Q15927708"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q559750",
+      "b": "Q715121"
+    }
+  ]
+}

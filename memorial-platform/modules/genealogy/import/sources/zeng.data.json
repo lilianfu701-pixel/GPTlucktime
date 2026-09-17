@@ -1,0 +1,941 @@
+{
+  "key": "wikidata:zeng",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q107004133",
+      "name": "聂其璧",
+      "citation": "维基百科 / Wikidata Q107004133",
+      "aliases": [
+        "聶其璧",
+        "Nie Qibi"
+      ],
+      "gender": "female",
+      "bio": "(1901-1990)"
+    },
+    {
+      "externalId": "Q107004272",
+      "name": "聂其璞",
+      "citation": "维基百科 / Wikidata Q107004272",
+      "aliases": [
+        "聶其璞",
+        "Nie Qipu"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1894
+      },
+      "death": {
+        "year": 1957
+      }
+    },
+    {
+      "externalId": "Q107004440",
+      "name": "聂其煐",
+      "citation": "维基百科 / Wikidata Q107004440",
+      "aliases": [
+        "聶其煐",
+        "Nie Qiying"
+      ],
+      "gender": "male"
+    },
+    {
+      "externalId": "Q107004504",
+      "name": "李敬萱",
+      "citation": "维基百科 / Wikidata Q107004504",
+      "aliases": [
+        "Li Jingxuan"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1897
+      },
+      "death": {
+        "year": 1992
+      }
+    },
+    {
+      "externalId": "Q10887787",
+      "name": "俞大维",
+      "citation": "维基百科 / Wikidata Q10887787",
+      "aliases": [
+        "俞大維",
+        "Yu Dawei"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1897
+      },
+      "death": {
+        "year": 1993
+      },
+      "bio": "中华民国政治人物",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/%E4%BA%A4%E9%80%9A%E9%83%A8%E9%95%B7%E4%BF%9E%E5%A4%A7%E7%B6%AD%E5%A0%B1%E5%91%8A.jpg",
+      "photoCredit": "作者：民國37年11月，何漢章編輯，東方出版社 · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q10887788",
+      "name": "俞大纲",
+      "citation": "维基百科 / Wikidata Q10887788",
+      "aliases": [
+        "俞大綱",
+        "Yu Dagang"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1908
+      },
+      "death": {
+        "year": 1977
+      },
+      "bio": "中国戏曲专家"
+    },
+    {
+      "externalId": "Q10887789",
+      "name": "俞大绂",
+      "citation": "维基百科 / Wikidata Q10887789",
+      "aliases": [
+        "Ta-Fuh Yu"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1901
+      },
+      "death": {
+        "year": 1993
+      },
+      "bio": "中国植物病理学家和微生物学家（1901～1993）",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/%E4%BF%9E%E5%A4%A7%E7%BB%82%E9%99%A2%E5%A3%AB.jpg",
+      "photoCredit": "作者：不詳 · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q10887828",
+      "name": "俞扬和",
+      "citation": "维基百科 / Wikidata Q10887828",
+      "aliases": [
+        "俞揚和",
+        "Yu Yang-ho"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1924
+      },
+      "death": {
+        "year": 2010
+      },
+      "bio": "中华民国空军飞行员"
+    },
+    {
+      "externalId": "Q109173958",
+      "name": "俞大𬘡",
+      "citation": "维基百科 / Wikidata Q109173958",
+      "aliases": [
+        "俞大絪",
+        "Yu Dayin"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1905
+      },
+      "death": {
+        "year": 1966
+      }
+    },
+    {
+      "externalId": "Q10920123",
+      "name": "周仁",
+      "citation": "维基百科 / Wikidata Q10920123",
+      "aliases": [
+        "Zhou Ren"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1892
+      },
+      "death": {
+        "year": 1973
+      },
+      "bio": "Material scientist (1892-1973)",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/%E5%91%A8%E4%BB%81.jpg",
+      "photoCredit": "作者：不詳 · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q11068410",
+      "name": "张心漪",
+      "citation": "维基百科 / Wikidata Q11068410",
+      "aliases": [
+        "張心漪"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1916
+      }
+    },
+    {
+      "externalId": "Q11091434",
+      "name": "曾国潢",
+      "citation": "维基百科 / Wikidata Q11091434",
+      "aliases": [
+        "Zeng Guohuang"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1820
+      },
+      "bio": "Qing dynasty politician",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Zeng%20Guohuang1.jpg",
+      "photoCredit": "作者：承程 · CC BY-SA 3.0 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q11091436",
+      "name": "曾国葆",
+      "citation": "维基百科 / Wikidata Q11091436",
+      "aliases": [
+        "Zeng Guobao"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1828
+      },
+      "death": {
+        "year": 1862
+      },
+      "bio": "清朝将领",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/%E5%B9%B3%E5%AE%9A%E7%B2%B5%E5%8C%AA%E5%8A%9F%E8%87%A3%E5%83%8F%E2%94%80%E6%9B%BE%E8%B2%9E%E5%B9%B9%E5%83%8F.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q11091484",
+      "name": "曾宝荪",
+      "citation": "维基百科 / Wikidata Q11091484",
+      "aliases": [
+        "曾寶蓀",
+        "Zeng Baosun"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1893
+      },
+      "death": {
+        "year": 1978
+      },
+      "bio": "曾国藩曾孙女",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Zeng%20Baosun.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q11091493",
+      "name": "曾广銮",
+      "citation": "维基百科 / Wikidata Q11091493",
+      "gender": "male",
+      "birth": {
+        "year": 1873
+      },
+      "bio": "(1873-1920)",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Zeng%20Guangluan.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q11091495",
+      "name": "曾广铨",
+      "citation": "维基百科 / Wikidata Q11091495",
+      "gender": "male",
+      "birth": {
+        "year": 1871
+      },
+      "bio": "(1871-1940)"
+    },
+    {
+      "externalId": "Q11091540",
+      "name": "曾昭抡",
+      "citation": "维基百科 / Wikidata Q11091540",
+      "aliases": [
+        "Zeng Zhaolun"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1899
+      },
+      "death": {
+        "year": 1967
+      },
+      "bio": "中国化学家（1899—1967）",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/%E6%9B%BE%E6%98%AD%E6%8E%84.jpg",
+      "photoCredit": "作者：不詳 · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q11091615",
+      "name": "曾约农",
+      "citation": "维基百科 / Wikidata Q11091615",
+      "aliases": [
+        "曾約農",
+        "Beauson Tseng"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1893
+      },
+      "death": {
+        "year": 1986
+      },
+      "bio": "中國教育家、東海大學首任校長"
+    },
+    {
+      "externalId": "Q112683695",
+      "name": "周映霞",
+      "citation": "维基百科 / Wikidata Q112683695",
+      "aliases": [
+        "Zhou Yingxia"
+      ],
+      "gender": "female"
+    },
+    {
+      "externalId": "Q112683713",
+      "name": "卓牟来",
+      "citation": "维基百科 / Wikidata Q112683713",
+      "aliases": [
+        "卓牟來",
+        "Morley Cho"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1911
+      }
+    },
+    {
+      "externalId": "Q112683740",
+      "name": "卓宣谋",
+      "citation": "维基百科 / Wikidata Q112683740",
+      "aliases": [
+        "卓宣謀",
+        "Zhuo Xuanmou"
+      ],
+      "gender": "male"
+    },
+    {
+      "externalId": "Q112683787",
+      "name": "聂其纯",
+      "citation": "维基百科 / Wikidata Q112683787",
+      "aliases": [
+        "聶其純",
+        "Nie Qichun"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1891
+      }
+    },
+    {
+      "externalId": "Q11515259",
+      "name": "曾国华",
+      "citation": "维基百科 / Wikidata Q11515259",
+      "aliases": [
+        "Zeng Guohua"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1822
+      },
+      "death": {
+        "year": 1858
+      },
+      "bio": "清朝政治人物",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Zeng%20Guohua1.jpg",
+      "photoCredit": "作者：承程 · CC BY-SA 3.0 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q11611223",
+      "name": "聂其杰",
+      "citation": "维基百科 / Wikidata Q11611223",
+      "aliases": [
+        "Nie Qijie"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1880
+      },
+      "death": {
+        "year": 1953
+      },
+      "bio": "中国企业家",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Nie%20Qijie2.jpg",
+      "photoCredit": "作者：Unknown; scanned by Internet Archive (https://archive.org/) · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q133272317",
+      "name": "聂其德",
+      "citation": "维基百科 / Wikidata Q133272317",
+      "aliases": [
+        "聶其德"
+      ],
+      "gender": "female"
+    },
+    {
+      "externalId": "Q133281702",
+      "name": "朱泽农",
+      "citation": "维基百科 / Wikidata Q133281702",
+      "gender": "male"
+    },
+    {
+      "externalId": "Q133281707",
+      "name": "陈光矶",
+      "citation": "维基百科 / Wikidata Q133281707",
+      "aliases": [
+        "陳光磯"
+      ],
+      "gender": "female"
+    },
+    {
+      "externalId": "Q133281715",
+      "name": "曾纪耀",
+      "citation": "维基百科 / Wikidata Q133281715",
+      "aliases": [
+        "曾紀耀"
+      ],
+      "gender": "female"
+    },
+    {
+      "externalId": "Q15925658",
+      "name": "瞿兑之",
+      "citation": "维基百科 / Wikidata Q15925658",
+      "aliases": [
+        "瞿兌之",
+        "Tuiyuan Qu"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1894
+      },
+      "death": {
+        "year": 1973
+      },
+      "bio": "中國史學家、文學家、書畫家。"
+    },
+    {
+      "externalId": "Q15934408",
+      "name": "聂缉椝",
+      "citation": "维基百科 / Wikidata Q15934408",
+      "aliases": [
+        "聶緝槼",
+        "Nie Jigui"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1855
+      },
+      "death": {
+        "year": 1911
+      },
+      "bio": "清朝政治人物"
+    },
+    {
+      "externalId": "Q189512",
+      "name": "曾国藩",
+      "citation": "维基百科 / Wikidata Q189512",
+      "aliases": [
+        "Zeng Guofan"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1811
+      },
+      "death": {
+        "year": 1872
+      },
+      "bio": "清朝政治家"
+    },
+    {
+      "externalId": "Q30610932",
+      "name": "曾纪芬",
+      "citation": "维基百科 / Wikidata Q30610932",
+      "aliases": [
+        "曾紀芬",
+        "Zeng Jifen"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1852
+      },
+      "death": {
+        "year": 1942
+      },
+      "bio": "曾国藩之女",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/%E8%81%B6%E6%9B%BE%E7%B4%80%E8%8A%AC%E4%BA%8C%E5%8D%81%E4%BA%8C%E6%AD%B2%E5%83%8F.jpg",
+      "photoCredit": "作者：聶曾紀芬 · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q45424722",
+      "name": "曾麟书",
+      "citation": "维基百科 / Wikidata Q45424722",
+      "aliases": [
+        "曾麟書",
+        "Zeng Linshu"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1790
+      },
+      "death": {
+        "year": 1857
+      },
+      "bio": "曾国藩之父"
+    },
+    {
+      "externalId": "Q48928019",
+      "name": "张心洽",
+      "citation": "维基百科 / Wikidata Q48928019",
+      "aliases": [
+        "張心洽",
+        "Felix Chang"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1920
+      },
+      "death": {
+        "year": 1972
+      }
+    },
+    {
+      "externalId": "Q5095183",
+      "name": "蒋孝章",
+      "citation": "维基百科 / Wikidata Q5095183",
+      "aliases": [
+        "蔣孝章",
+        "Chiang Hsiao-chang"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1936
+      },
+      "living": true,
+      "bio": "蒋经国之女",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Chiang%20Ching-kuo%20family%20%28%E8%92%8B%E5%AD%9D%E7%AB%A0%29.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q56260426",
+      "name": "曾国蕙",
+      "citation": "维基百科 / Wikidata Q56260426",
+      "aliases": [
+        "Zeng Guohui"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1814
+      },
+      "death": {
+        "year": 1864
+      },
+      "bio": "曾国藩之妹"
+    },
+    {
+      "externalId": "Q56283509",
+      "name": "张孝威",
+      "citation": "维基百科 / Wikidata Q56283509",
+      "aliases": [
+        "張孝威",
+        "Harvey Chang"
+      ],
+      "gender": "male",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Harvey%20Chang.jpg",
+      "photoCredit": "作者：Jerrymonkey · CC BY-SA 4.0 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q61305492",
+      "name": "俞明颐",
+      "citation": "维基百科 / Wikidata Q61305492",
+      "aliases": [
+        "Yu Mingyi"
+      ],
+      "gender": "male",
+      "bio": "(est. 1871 - )"
+    },
+    {
+      "externalId": "Q61305502",
+      "name": "曾广珊",
+      "citation": "维基百科 / Wikidata Q61305502",
+      "aliases": [
+        "Zeng Guangshan"
+      ],
+      "gender": "female"
+    },
+    {
+      "externalId": "Q61305648",
+      "name": "郭筠",
+      "citation": "维基百科 / Wikidata Q61305648",
+      "gender": "female"
+    },
+    {
+      "externalId": "Q6143342",
+      "name": "曾国荃",
+      "citation": "维基百科 / Wikidata Q6143342",
+      "aliases": [
+        "Zeng Guoquan"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1824
+      },
+      "death": {
+        "year": 1890
+      },
+      "bio": "中国清代将领",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/%E5%B9%B3%E5%AE%9A%E7%B2%B5%E5%8C%AA%E5%8A%9F%E8%87%A3%E5%83%8F%E2%94%80%E6%9B%BE%E5%9C%8B%E8%8D%83%E5%83%8F.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q65056230",
+      "name": "卓还来",
+      "citation": "维基百科 / Wikidata Q65056230",
+      "aliases": [
+        "卓還來"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1912
+      },
+      "death": {
+        "year": 1945
+      },
+      "bio": "中華民國外交官，「抗日外交九烈士」之一",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Zhuo%20Hai-lai.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q7482540",
+      "name": "曾纪鸿",
+      "citation": "维基百科 / Wikidata Q7482540",
+      "aliases": [
+        "曾紀鴻",
+        "Zeng Jihong"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1848
+      },
+      "death": {
+        "year": 1881
+      },
+      "bio": "晚清数学家"
+    },
+    {
+      "externalId": "Q7482632",
+      "name": "曾广钧",
+      "citation": "维基百科 / Wikidata Q7482632",
+      "aliases": [
+        "曾廣鈞",
+        "Zeng Guangjun"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1866
+      },
+      "death": {
+        "year": 1929
+      },
+      "bio": "1866-"
+    },
+    {
+      "externalId": "Q971925",
+      "name": "曾纪泽",
+      "citation": "维基百科 / Wikidata Q971925",
+      "aliases": [
+        "曾紀澤",
+        "Zeng Jize"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1839
+      },
+      "death": {
+        "year": 1890
+      },
+      "bio": "清朝外交官",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/ZengJiZe.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q61305648",
+      "child": "Q7482632"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q61305502",
+      "child": "Q10887787"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q61305502",
+      "child": "Q10887788"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q61305502",
+      "child": "Q10887789"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q133272317",
+      "child": "Q11068410"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q30610932",
+      "child": "Q11611223"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q133272317",
+      "child": "Q48928019"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q61305648",
+      "child": "Q61305502"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q112683787",
+      "child": "Q65056230"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q30610932",
+      "child": "Q107004272"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q61305502",
+      "child": "Q109173958"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q112683787",
+      "child": "Q112683713"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q30610932",
+      "child": "Q112683787"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q30610932",
+      "child": "Q133272317"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q133281707",
+      "child": "Q133281702"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q133281715",
+      "child": "Q133281707"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45424722",
+      "child": "Q189512"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q189512",
+      "child": "Q971925"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45424722",
+      "child": "Q6143342"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q189512",
+      "child": "Q7482540"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q7482540",
+      "child": "Q7482632"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q61305492",
+      "child": "Q10887787"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q61305492",
+      "child": "Q10887788"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q61305492",
+      "child": "Q10887789"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q10887787",
+      "child": "Q10887828"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45424722",
+      "child": "Q11091434"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45424722",
+      "child": "Q11091436"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q7482632",
+      "child": "Q11091484"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q971925",
+      "child": "Q11091493"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q7482540",
+      "child": "Q11091495"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q11091495",
+      "child": "Q11091615"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45424722",
+      "child": "Q11515259"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q15934408",
+      "child": "Q11611223"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q189512",
+      "child": "Q30610932"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45424722",
+      "child": "Q56260426"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q48928019",
+      "child": "Q56283509"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q7482540",
+      "child": "Q61305502"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q112683740",
+      "child": "Q65056230"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q15934408",
+      "child": "Q107004133"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q15934408",
+      "child": "Q107004272"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q15934408",
+      "child": "Q107004440"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q61305492",
+      "child": "Q109173958"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q112683740",
+      "child": "Q112683713"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q15934408",
+      "child": "Q112683787"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q15934408",
+      "child": "Q133272317"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q189512",
+      "child": "Q133281715"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q10887828",
+      "b": "Q5095183"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q61305648",
+      "b": "Q7482540"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q107004133",
+      "b": "Q10920123"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q109173958",
+      "b": "Q11091540"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q107004272",
+      "b": "Q15925658"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q15934408",
+      "b": "Q30610932"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q61305492",
+      "b": "Q61305502"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q107004440",
+      "b": "Q107004504"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q112683695",
+      "b": "Q112683713"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q112683740",
+      "b": "Q112683787"
+    }
+  ]
+}

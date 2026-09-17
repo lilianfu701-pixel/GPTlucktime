@@ -1,6 +1,7 @@
 import { setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { currentActor } from "@/modules/auth/current-user";
+import { wikidataFamilyList } from "@/modules/genealogy/import/sources/wikidata-families";
 import { GenealogySeed } from "./genealogy-seed";
 
 export const dynamic = "force-dynamic";
@@ -28,7 +29,7 @@ export default async function AdminGenealogyPage(props: {
         从公有领域的族谱世系批量建立可认领的追思页，并连成族谱图。导入的页面公开、可搜索、可被搜索引擎收录，但
         <strong>不进入首页「最新追思」</strong>。幂等：重复导入不会重复建立。在世者默认跳过。
       </p>
-      <GenealogySeed locale={locale} />
+      <GenealogySeed locale={locale} families={wikidataFamilyList} />
     </div>
   );
 }

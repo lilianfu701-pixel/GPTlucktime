@@ -23,21 +23,95 @@ type RollbackReport = {
   skippedClaimed: number;
 };
 
+type FamilyMeta = { key: string; label: string; people: number; photos: number };
+
+/** Per-family state as a batch runs, so the operator sees progress live. */
+type RowState =
+  | { status: "idle" }
+  | { status: "running" }
+  | { status: "done"; report: Report }
+  | { status: "rolledBack"; report: RollbackReport }
+  | { status: "error"; message: string };
+
+async function callSeed(
+  source: string,
+  action: "seed" | "rollback",
+  skipLiving: boolean,
+): Promise<{ ok: true; data: Report & RollbackReport } | { ok: false }> {
+  try {
+    const res = await fetch("/api/admin/genealogy/seed", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ source, action, skipLiving }),
+    });
+    const data = (await res.json().catch(() => null)) as
+      | { data?: Report & RollbackReport }
+      | null;
+    if (res.ok && data?.data) return { ok: true, data: data.data };
+    return { ok: false };
+  } catch {
+    return { ok: false };
+  }
+}
+
 /**
- * Runs a 族谱 seed from the admin panel. Idempotent, so the operator can run it
- * again safely; the result shows exactly what was created versus already there.
- * "只灌已故世代" is on by default — living people are seeded only on a deliberate
- * choice.
+ * Runs 族谱 seeds from the admin panel. Idempotent, so the operator can run it
+ * again safely; each row shows what was created versus already there. The batch
+ * imports one family per request (staying inside the serverless time limit) and
+ * loops, so a large family that times out can just be re-run to continue.
+ * "只灌已故世代" is on by default — living people are seeded only on a
+ * deliberate choice.
  */
-export function GenealogySeed(props: { locale: string }) {
-  const [source, setSource] = useState<"kong" | "song" | "soong">("soong");
+export function GenealogySeed(props: { locale: string; families: FamilyMeta[] }) {
+  const [selected, setSelected] = useState<Set<string>>(
+    () => new Set(props.families.map((f) => f.key)),
+  );
   const [skipLiving, setSkipLiving] = useState(true);
   const [busy, setBusy] = useState(false);
-  const [report, setReport] = useState<Report | null>(null);
-  const [rollback, setRollback] = useState<RollbackReport | null>(null);
-  const [error, setError] = useState<string | null>(null);
+  const [rows, setRows] = useState<Record<string, RowState>>({});
+  const [legacy, setLegacy] = useState<"kong" | "song">("kong");
+  const [legacyReport, setLegacyReport] = useState<Report | null>(null);
+  const [legacyError, setLegacyError] = useState<string | null>(null);
 
-  async function run(action: "seed" | "rollback"): Promise<void> {
+  function toggle(key: string): void {
+    setSelected((prev) => {
+      const next = new Set(prev);
+      if (next.has(key)) next.delete(key);
+      else next.add(key);
+      return next;
+    });
+  }
+
+  async function runBatch(action: "seed" | "rollback"): Promise<void> {
+    if (busy) return;
+    const keys = props.families.map((f) => f.key).filter((k) => selected.has(k));
+    if (keys.length === 0) return;
+    if (
+      action === "rollback" &&
+      !window.confirm(
+        `将回滚所选 ${keys.length} 支家族本批导入的页面与节点（已被家属认领的会保留）。确定？`,
+      )
+    ) {
+      return;
+    }
+    setBusy(true);
+    setRows(Object.fromEntries(keys.map((k) => [k, { status: "idle" as const }])));
+    for (const key of keys) {
+      setRows((prev) => ({ ...prev, [key]: { status: "running" } }));
+      const result = await callSeed(key, action, skipLiving);
+      setRows((prev) => ({
+        ...prev,
+        [key]: result.ok
+          ? action === "rollback"
+            ? { status: "rolledBack", report: result.data }
+            : { status: "done", report: result.data }
+          : { status: "error", message: "失败，请查看日志或重试。" },
+      }));
+    }
+    setBusy(false);
+  }
+
+  async function runLegacy(action: "seed" | "rollback"): Promise<void> {
     if (busy) return;
     if (
       action === "rollback" &&
@@ -46,46 +120,61 @@ export function GenealogySeed(props: { locale: string }) {
       return;
     }
     setBusy(true);
-    setError(null);
-    setReport(null);
-    setRollback(null);
-    try {
-      const res = await fetch("/api/admin/genealogy/seed", {
-        method: "POST",
-        headers: { "content-type": "application/json" },
-        body: JSON.stringify({ source, action, skipLiving }),
-      });
-      const data = (await res.json().catch(() => null)) as
-        | { data?: Report & RollbackReport }
-        | null;
-      if (res.ok && data?.data) {
-        if (action === "rollback") setRollback(data.data as RollbackReport);
-        else setReport(data.data as Report);
-      } else {
-        setError(action === "rollback" ? "回滚失败，请查看日志。" : "导入失败，请查看日志。");
-      }
-    } catch {
-      setError(action === "rollback" ? "回滚失败，请查看日志。" : "导入失败，请查看日志。");
-    } finally {
-      setBusy(false);
-    }
+    setLegacyError(null);
+    setLegacyReport(null);
+    const result = await callSeed(legacy, action, skipLiving);
+    if (result.ok && action === "seed") setLegacyReport(result.data);
+    else if (!result.ok) setLegacyError("操作失败，请查看日志。");
+    setBusy(false);
   }
 
+  const allSelected = selected.size === props.families.length;
+
   return (
-    <div className="stack">
-      <div className="stack">
-        <label className="field">
-          <span className="fieldLabel">数据源</span>
-          <select
-            className="input"
-            value={source}
-            onChange={(e) => setSource(e.target.value as "kong" | "song" | "soong")}
-          >
-            <option value="soong">宋氏家族（Wikidata，含照片/生平/旁系/配偶）</option>
-            <option value="kong">孔子世系（衍圣公直系，公有领域）</option>
-            <option value="song">三苏世家（示例）</option>
-          </select>
+    <div className="stack-lg">
+      <section className="stack">
+        <h2>名人家族批量导入（Wikidata）</h2>
+        <p className="muted measure">
+          含照片、生平、上下数代与旁系配偶。跨家族按 QID 全局去重，同一人只建一页。
+        </p>
+
+        <label className="avatarTreeToggle">
+          <input
+            type="checkbox"
+            checked={allSelected}
+            onChange={() =>
+              setSelected(allSelected ? new Set() : new Set(props.families.map((f) => f.key)))
+            }
+          />
+          <span>{allSelected ? "全不选" : "全选"}</span>
         </label>
+
+        <ul className="stack">
+          {props.families.map((f) => {
+            const state = rows[f.key];
+            return (
+              <li key={f.key} className="adminHeadRow" style={{ alignItems: "center", gap: "0.75rem" }}>
+                <label className="avatarTreeToggle" style={{ flex: "1 1 auto" }}>
+                  <input
+                    type="checkbox"
+                    checked={selected.has(f.key)}
+                    disabled={busy}
+                    onChange={() => toggle(f.key)}
+                  />
+                  <span>
+                    {f.label}
+                    <span className="muted">
+                      {" "}
+                      · {f.people} 人 · {f.photos} 照片
+                    </span>
+                  </span>
+                </label>
+                <RowStatus state={state} locale={props.locale} />
+              </li>
+            );
+          })}
+        </ul>
+
         <label className="avatarTreeToggle">
           <input
             type="checkbox"
@@ -94,72 +183,104 @@ export function GenealogySeed(props: { locale: string }) {
           />
           <span>只灌已故世代（跳过在世者，推荐首次勾选）</span>
         </label>
+
         <div className="adminHeadRow">
           <button
             type="button"
             className="button buttonPrimary"
-            disabled={busy}
-            onClick={() => run("seed")}
+            disabled={busy || selected.size === 0}
+            onClick={() => runBatch("seed")}
           >
-            {busy ? "处理中…" : "开始导入"}
+            {busy ? "处理中…" : `批量导入所选（${selected.size} 支）`}
+          </button>
+          <button
+            type="button"
+            className="button buttonQuiet"
+            disabled={busy || selected.size === 0}
+            onClick={() => runBatch("rollback")}
+          >
+            回滚所选
+          </button>
+        </div>
+      </section>
+
+      <section className="stack">
+        <h2>单批导入（示例 / 公有领域）</h2>
+        <label className="field">
+          <span className="fieldLabel">数据源</span>
+          <select
+            className="input"
+            value={legacy}
+            onChange={(e) => setLegacy(e.target.value as "kong" | "song")}
+          >
+            <option value="kong">孔子世系（衍圣公直系，公有领域）</option>
+            <option value="song">三苏世家（示例）</option>
+          </select>
+        </label>
+        <div className="adminHeadRow">
+          <button
+            type="button"
+            className="button"
+            disabled={busy}
+            onClick={() => runLegacy("seed")}
+          >
+            开始导入
           </button>
           <button
             type="button"
             className="button buttonQuiet"
             disabled={busy}
-            onClick={() => run("rollback")}
+            onClick={() => runLegacy("rollback")}
           >
             回滚本批
           </button>
         </div>
-        {error ? (
+        {legacyError ? (
           <p className="fieldError" role="alert">
-            {error}
+            {legacyError}
           </p>
         ) : null}
-      </div>
-
-      {report ? (
-        <div className="notice stack" role="status">
-          <strong>导入完成（{report.source}）</strong>
-          <ul className="stack">
-            <li>
-              追思页：新建 {report.memorialsCreated} · 已存在{" "}
-              {report.memorialsExisting}
-            </li>
-            <li>
-              在世脱敏节点：新建 {report.livingCreated} · 已存在{" "}
-              {report.livingExisting}
-            </li>
-            <li>遗照：{report.portraitsAdded} 张</li>
-            <li>
-              族谱连线：新建 {report.linksCreated} · 已存在 {report.linksExisting}
-            </li>
-            <li>问题：{report.issues.length}</li>
-          </ul>
-          {report.memorials.length > 0 ? (
+        {legacyReport ? (
+          <div className="notice stack" role="status">
+            <strong>导入完成（{legacyReport.source}）</strong>
             <ul className="stack">
-              {report.memorials.map((m) => (
-                <li key={m.slug}>
-                  {m.created ? "＋" : "＝"}{" "}
-                  <a href={`/${props.locale}/memorials/${m.slug}`}>{m.name}</a>
-                </li>
-              ))}
+              <li>
+                追思页：新建 {legacyReport.memorialsCreated} · 已存在{" "}
+                {legacyReport.memorialsExisting}
+              </li>
+              <li>遗照：{legacyReport.portraitsAdded} 张</li>
+              <li>问题：{legacyReport.issues.length}</li>
             </ul>
-          ) : null}
-        </div>
-      ) : null}
-
-      {rollback ? (
-        <div className="notice stack" role="status">
-          <strong>回滚完成（{rollback.source}）</strong>
-          <ul className="stack">
-            <li>删除追思页：{rollback.memorialsDeleted}</li>
-            <li>删除在世脱敏节点：{rollback.livingDeleted}</li>
-            <li>已被认领而保留：{rollback.skippedClaimed}</li>
-          </ul>
-        </div>
-      ) : null}
+          </div>
+        ) : null}
+      </section>
     </div>
+  );
+}
+
+function RowStatus(props: { state: RowState | undefined; locale: string }) {
+  const state = props.state;
+  if (!state || state.status === "idle") return <span className="muted">待导入</span>;
+  if (state.status === "running") return <span className="muted">导入中…</span>;
+  if (state.status === "error")
+    return (
+      <span className="fieldError" role="alert">
+        {state.message}
+      </span>
+    );
+  if (state.status === "rolledBack") {
+    const r = state.report;
+    return (
+      <span className="muted">
+        已回滚 {r.memorialsDeleted} 页 · 保留认领 {r.skippedClaimed}
+      </span>
+    );
+  }
+  const r = state.report;
+  return (
+    <span className="muted">
+      ＋{r.memorialsCreated} ／ ＝{r.memorialsExisting} · 遗照 {r.portraitsAdded}
+      {r.issues.length > 0 ? ` · 问题 ${r.issues.length}` : ""}
+    </span>
   );
 }

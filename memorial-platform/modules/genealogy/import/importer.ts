@@ -313,6 +313,28 @@ async function seedBiography(
  * so a re-run adds no duplicate. A photo that fails to fetch is logged and the
  * rest of the import carries on — a missing portrait is not a failed import.
  */
+const sleep = (ms: number): Promise<void> => new Promise((r) => setTimeout(r, ms));
+
+/**
+ * Fetches an image, retrying on the rate-limit / gateway statuses Wikimedia
+ * returns when a photo-heavy family is seeded in a burst. Bounded so a genuinely
+ * dead URL still fails fast and the person just goes without a portrait.
+ */
+async function fetchPhoto(url: string, attempt = 0): Promise<Response> {
+  const res = await fetch(url, {
+    headers: { "User-Agent": "missingu-genealogy/1.0 (https://missingu.org)" },
+    redirect: "follow",
+  });
+  if ((res.status === 429 || res.status >= 500) && attempt < 4) {
+    const retryAfter = Number(res.headers.get("retry-after"));
+    const backoff =
+      Number.isFinite(retryAfter) && retryAfter > 0 ? retryAfter * 1000 : 500 * 2 ** attempt;
+    await sleep(backoff);
+    return fetchPhoto(url, attempt + 1);
+  }
+  return res;
+}
+
 async function seedPortrait(
   actor: Actor,
   memorialId: string,
@@ -339,10 +361,7 @@ async function seedPortrait(
   try {
     // A scaled version, not the multi-megabyte original.
     const url = src.includes("?") ? src : `${src}?width=800`;
-    const res = await fetch(url, {
-      headers: { "User-Agent": "missingu-genealogy/1.0 (https://missingu.org)" },
-      redirect: "follow",
-    });
+    const res = await fetchPhoto(url);
     if (!res.ok) throw new Error(`fetch ${res.status}`);
     const contentType =
       res.headers.get("content-type")?.split(";")[0]?.trim() ?? "image/jpeg";

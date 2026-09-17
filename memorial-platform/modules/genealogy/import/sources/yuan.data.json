@@ -1,0 +1,490 @@
+{
+  "key": "wikidata:yuan",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q105718289",
+      "name": "袁家菽",
+      "citation": "维基百科 / Wikidata Q105718289"
+    },
+    {
+      "externalId": "Q11118596",
+      "name": "杨毓珣",
+      "citation": "维基百科 / Wikidata Q11118596",
+      "aliases": [
+        "楊毓珣",
+        "Yang Yuxun"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1895
+      },
+      "death": {
+        "year": 1947
+      }
+    },
+    {
+      "externalId": "Q114239458",
+      "name": "Jada Yuan",
+      "citation": "维基百科 / Wikidata Q114239458",
+      "gender": "female",
+      "bio": "American journalist and author",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Jada%20Yuan%202025%2003%20%28cropped%29.jpg",
+      "photoCredit": "作者：Claire Fridkin · CC BY-SA 4.0 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q11626510",
+      "name": "袁甲三",
+      "citation": "维基百科 / Wikidata Q11626510",
+      "aliases": [
+        "Yuan Jiasan"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1806
+      },
+      "death": {
+        "year": 1863
+      },
+      "bio": "Qing dynasty politician"
+    },
+    {
+      "externalId": "Q131690087",
+      "name": "袁世辅",
+      "citation": "维基百科 / Wikidata Q131690087",
+      "aliases": [
+        "袁世輔",
+        "Yuan Shifu"
+      ],
+      "gender": "male"
+    },
+    {
+      "externalId": "Q14481223",
+      "name": "袁克文",
+      "citation": "维基百科 / Wikidata Q14481223",
+      "aliases": [
+        "Yuan Ko-wen"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1890
+      },
+      "death": {
+        "year": 1931
+      },
+      "bio": "袁世凯之子",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/%E6%B0%91%E5%9B%BD%E5%9B%9B%E5%85%AC%E5%AD%90%E4%B9%8B%E4%B8%80%E8%A2%81%E5%85%8B%E6%96%87%E7%AD%BE%E5%90%8D%E7%85%A7%E7%89%87%E4%B8%80%E5%BC%A0%20%28cropped%29.jpg",
+      "photoCredit": "作者：Unknown photographer · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q15912634",
+      "name": "费巩",
+      "citation": "维基百科 / Wikidata Q15912634",
+      "aliases": [
+        "Fei Gong"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1905
+      },
+      "death": {
+        "year": 1945
+      },
+      "bio": "中华民国政治学家, 革命烈士",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Fei%20Gong.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q16260274",
+      "name": "袁保中",
+      "citation": "维基百科 / Wikidata Q16260274",
+      "aliases": [
+        "Yuan Baozhong"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1823
+      }
+    },
+    {
+      "externalId": "Q16260275",
+      "name": "袁保庆",
+      "citation": "维基百科 / Wikidata Q16260275",
+      "aliases": [
+        "袁保慶",
+        "Yuan Baoqing"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1825
+      },
+      "death": {
+        "year": 1873
+      },
+      "bio": "Chinese politician"
+    },
+    {
+      "externalId": "Q16260383",
+      "name": "袁克权",
+      "citation": "维基百科 / Wikidata Q16260383",
+      "aliases": [
+        "袁克權",
+        "Yuan Kequan"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1898
+      },
+      "death": {
+        "year": 1941
+      },
+      "bio": "袁世凯之子"
+    },
+    {
+      "externalId": "Q16260698",
+      "name": "袁树三",
+      "citation": "维基百科 / Wikidata Q16260698",
+      "aliases": [
+        "袁樹三",
+        "Yuan Shusan"
+      ],
+      "gender": "male",
+      "bio": "袁世凱祖父"
+    },
+    {
+      "externalId": "Q210329",
+      "name": "袁世凯",
+      "citation": "维基百科 / Wikidata Q210329",
+      "aliases": [
+        "袁世凱",
+        "Yuan Shikai"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1859
+      },
+      "death": {
+        "year": 1916
+      },
+      "bio": "第一任中华民国大总统",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/YuanShikaiPresidente1915.jpg",
+      "photoCredit": "作者：Photo by Rio V. De Sieux [1] · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q450317",
+      "name": "吴健雄",
+      "citation": "维基百科 / Wikidata Q450317",
+      "aliases": [
+        "吳健雄",
+        "Chien-Shiung Wu"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1912
+      },
+      "death": {
+        "year": 1997
+      },
+      "bio": "美籍華人物理學家"
+    },
+    {
+      "externalId": "Q59822263",
+      "name": "Vincent Yuan",
+      "citation": "维基百科 / Wikidata Q59822263",
+      "gender": "male",
+      "birth": {
+        "year": 1947
+      },
+      "living": true,
+      "bio": "研究者"
+    },
+    {
+      "externalId": "Q61305172",
+      "name": "袁克桓",
+      "citation": "维基百科 / Wikidata Q61305172",
+      "aliases": [
+        "Yuan Kehuan"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1898
+      },
+      "death": {
+        "year": 1956
+      },
+      "bio": "the sixth son of Yuan Shikai",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Kehuan%20Yuan.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q61305194",
+      "name": "袁家英",
+      "citation": "维基百科 / Wikidata Q61305194",
+      "gender": "female"
+    },
+    {
+      "externalId": "Q61305217",
+      "name": "陈征",
+      "citation": "维基百科 / Wikidata Q61305217",
+      "gender": "female"
+    },
+    {
+      "externalId": "Q63254343",
+      "name": "吴本娴",
+      "citation": "维基百科 / Wikidata Q63254343",
+      "aliases": [
+        "吳本嫻",
+        "Wu Benxian"
+      ],
+      "gender": "female"
+    },
+    {
+      "externalId": "Q63254355",
+      "name": "袁家第",
+      "citation": "维基百科 / Wikidata Q63254355",
+      "gender": "female"
+    },
+    {
+      "externalId": "Q6538613",
+      "name": "李立扬",
+      "citation": "维基百科 / Wikidata Q6538613",
+      "aliases": [
+        "李立揚",
+        "Li-Young Lee"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1957
+      },
+      "living": true,
+      "bio": "American writer"
+    },
+    {
+      "externalId": "Q6701881",
+      "name": "袁家骝",
+      "citation": "维基百科 / Wikidata Q6701881",
+      "aliases": [
+        "Luke Chia-Liu Yuan"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1912
+      },
+      "death": {
+        "year": 2003
+      },
+      "bio": "中国物理学家",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Ysk2.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q8060028",
+      "name": "袁克定",
+      "citation": "维基百科 / Wikidata Q8060028",
+      "aliases": [
+        "Yuan Keding"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1878
+      },
+      "death": {
+        "year": 1958
+      },
+      "bio": "中华民国首任正式大总统袁世凯长子",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Yuan%20Keding.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q97976723",
+      "name": "周瑞珠",
+      "citation": "维基百科 / Wikidata Q97976723",
+      "aliases": [
+        "Zhou Ruizhu"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1902
+      },
+      "death": {
+        "year": 1923
+      }
+    },
+    {
+      "externalId": "Q97976951",
+      "name": "袁克轸",
+      "citation": "维基百科 / Wikidata Q97976951",
+      "aliases": [
+        "袁克軫",
+        "Yuan Kezhen"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1902
+      },
+      "death": {
+        "year": 1942
+      }
+    },
+    {
+      "externalId": "Q97994540",
+      "name": "陶雍",
+      "citation": "维基百科 / Wikidata Q97994540",
+      "aliases": [
+        "Tao Yong"
+      ],
+      "gender": "female"
+    },
+    {
+      "externalId": "Q99769708",
+      "name": "袁静雪",
+      "citation": "维基百科 / Wikidata Q99769708",
+      "aliases": [
+        "Yuan Jingxue"
+      ],
+      "gender": "female"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q61305194",
+      "child": "Q6538613"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q450317",
+      "child": "Q59822263"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q61305217",
+      "child": "Q61305194"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q63254343",
+      "child": "Q63254355"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q61305217",
+      "child": "Q105718289"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q16260274",
+      "child": "Q210329"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q14481223",
+      "child": "Q6701881"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q210329",
+      "child": "Q8060028"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q210329",
+      "child": "Q14481223"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q16260698",
+      "child": "Q16260274"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q16260698",
+      "child": "Q16260275"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q210329",
+      "child": "Q16260383"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q6701881",
+      "child": "Q59822263"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q210329",
+      "child": "Q61305172"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q61305172",
+      "child": "Q61305194"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q8060028",
+      "child": "Q63254355"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q210329",
+      "child": "Q97976951"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q210329",
+      "child": "Q99769708"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q61305172",
+      "child": "Q105718289"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q59822263",
+      "child": "Q114239458"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q16260274",
+      "child": "Q131690087"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q450317",
+      "b": "Q6701881"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q63254343",
+      "b": "Q8060028"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q11118596",
+      "b": "Q99769708"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q15912634",
+      "b": "Q63254355"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q16260383",
+      "b": "Q97994540"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q61305172",
+      "b": "Q61305217"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q97976723",
+      "b": "Q97976951"
+    }
+  ]
+}

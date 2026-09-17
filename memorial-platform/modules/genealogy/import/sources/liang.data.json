@@ -1,0 +1,382 @@
+{
+  "key": "wikidata:liang",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q109174986",
+      "name": "梁思懿",
+      "citation": "维基百科 / Wikidata Q109174986",
+      "aliases": [
+        "Liang Siyi"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1914
+      },
+      "death": {
+        "year": 1988
+      }
+    },
+    {
+      "externalId": "Q11114018",
+      "name": "梁思庄",
+      "citation": "维基百科 / Wikidata Q11114018",
+      "aliases": [
+        "Liang Sizhuang"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1908
+      },
+      "death": {
+        "year": 1986
+      },
+      "bio": "中国图书馆学家，梁启超次女"
+    },
+    {
+      "externalId": "Q11114023",
+      "name": "梁思永",
+      "citation": "维基百科 / Wikidata Q11114023",
+      "aliases": [
+        "Liang Siyong"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1904
+      },
+      "death": {
+        "year": 1954
+      },
+      "bio": "中国考古学家"
+    },
+    {
+      "externalId": "Q28355212",
+      "name": "梁思达",
+      "citation": "维基百科 / Wikidata Q28355212",
+      "aliases": [
+        "Liang Sida"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1912
+      },
+      "death": {
+        "year": 2001
+      },
+      "bio": "中国经济学家（1912—2001）"
+    },
+    {
+      "externalId": "Q379836",
+      "name": "梁启超",
+      "citation": "维基百科 / Wikidata Q379836",
+      "aliases": [
+        "Liang Chi-chao"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1873
+      },
+      "death": {
+        "year": 1929
+      },
+      "bio": "中國清末民初思想、政治、改革家",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/%E6%A2%81%E5%90%AF%E8%B6%85%E5%9C%A8%E6%97%A5%E6%9C%AC%E6%9C%9F%E9%97%B4.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q45619181",
+      "name": "梁令娴",
+      "citation": "维基百科 / Wikidata Q45619181",
+      "aliases": [
+        "梁令嫻",
+        "Liang Lingxian"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1893
+      },
+      "death": {
+        "year": 1966
+      },
+      "bio": "person, CBDB = 122143"
+    },
+    {
+      "externalId": "Q45619495",
+      "name": "周希哲",
+      "citation": "维基百科 / Wikidata Q45619495",
+      "aliases": [
+        "Zhou Xizhe"
+      ],
+      "gender": "male",
+      "bio": "Republic of China person CBDB = 122150"
+    },
+    {
+      "externalId": "Q467140",
+      "name": "林徽因",
+      "citation": "维基百科 / Wikidata Q467140",
+      "aliases": [
+        "Lin Huiyin"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1904
+      },
+      "death": {
+        "year": 1955
+      },
+      "bio": "中国建筑学家、女作家（1904～1955）",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Lin%20Huiyin%2010.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q63965196",
+      "name": "吴荔明",
+      "citation": "维基百科 / Wikidata Q63965196",
+      "aliases": [
+        "Wu Liming"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1934
+      },
+      "living": true
+    },
+    {
+      "externalId": "Q63965208",
+      "name": "杨友麒",
+      "citation": "维基百科 / Wikidata Q63965208",
+      "aliases": [
+        "Yang Youqi"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1935
+      },
+      "living": true,
+      "bio": "engineer"
+    },
+    {
+      "externalId": "Q6539969",
+      "name": "梁从诫",
+      "citation": "维基百科 / Wikidata Q6539969",
+      "aliases": [
+        "Liang Congjie"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1932
+      },
+      "death": {
+        "year": 2010
+      },
+      "bio": "中国环保人士"
+    },
+    {
+      "externalId": "Q7185711",
+      "name": "黎大刚",
+      "citation": "维基百科 / Wikidata Q7185711",
+      "aliases": [
+        "黎大剛",
+        "Li Dagang"
+      ],
+      "gender": "male",
+      "bio": "Qing dynasty person CBDB = 62750"
+    },
+    {
+      "externalId": "Q71874",
+      "name": "梁思成",
+      "citation": "维基百科 / Wikidata Q71874",
+      "aliases": [
+        "Liang Sicheng"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1901
+      },
+      "death": {
+        "year": 1972
+      },
+      "bio": "中国建筑学家（1901－1972）",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Liang%20Sicheng1.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q72359335",
+      "name": "黎氏",
+      "citation": "维基百科 / Wikidata Q72359335",
+      "gender": "female"
+    },
+    {
+      "externalId": "Q72359360",
+      "name": "梁宝瑛",
+      "citation": "维基百科 / Wikidata Q72359360",
+      "aliases": [
+        "梁寶瑛",
+        "Liang Baoying"
+      ],
+      "gender": "male"
+    },
+    {
+      "externalId": "Q8999015",
+      "name": "梁再冰",
+      "citation": "维基百科 / Wikidata Q8999015",
+      "aliases": [
+        "Liang Zaibing"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1929
+      },
+      "living": true,
+      "bio": "中国记者"
+    },
+    {
+      "externalId": "Q8999147",
+      "name": "梁思礼",
+      "citation": "维基百科 / Wikidata Q8999147",
+      "aliases": [
+        "Liang Sili"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1924
+      },
+      "death": {
+        "year": 2016
+      },
+      "bio": "中国导弹控制专家（1924－2016）",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Liang%20Sili%20%28cropped%29.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q9213914",
+      "name": "杨念群",
+      "citation": "维基百科 / Wikidata Q9213914",
+      "aliases": [
+        "Yang Nianqun"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1964
+      },
+      "living": true,
+      "bio": "中国历史学家"
+    },
+    {
+      "externalId": "Q98034072",
+      "name": "周如枚",
+      "citation": "维基百科 / Wikidata Q98034072",
+      "aliases": [
+        "Zhou Rumei"
+      ],
+      "gender": "female"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q467140",
+      "child": "Q6539969"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q467140",
+      "child": "Q8999015"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q63965196",
+      "child": "Q9213914"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q11114018",
+      "child": "Q63965196"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q72359335",
+      "child": "Q72359360"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q379836",
+      "child": "Q71874"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q72359360",
+      "child": "Q379836"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q71874",
+      "child": "Q6539969"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q71874",
+      "child": "Q8999015"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q379836",
+      "child": "Q8999147"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q63965208",
+      "child": "Q9213914"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q379836",
+      "child": "Q11114018"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q379836",
+      "child": "Q11114023"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q379836",
+      "child": "Q28355212"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q379836",
+      "child": "Q45619181"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q7185711",
+      "child": "Q72359335"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q379836",
+      "child": "Q109174986"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q467140",
+      "b": "Q71874"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q6539969",
+      "b": "Q98034072"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45619181",
+      "b": "Q45619495"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q63965196",
+      "b": "Q63965208"
+    }
+  ]
+}

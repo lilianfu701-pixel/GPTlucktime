@@ -4,21 +4,27 @@ import { currentActor } from "@/modules/auth/current-user";
 import { importGenealogy } from "@/modules/genealogy/import/importer";
 import { unimportGenealogy } from "@/modules/genealogy/import/unimport";
 import { ensureImportStewardActor } from "@/modules/genealogy/import/steward";
+import type { GenealogySource } from "@/modules/genealogy/import/types";
 import { kongLineageSource } from "@/modules/genealogy/import/sources/kong-lineage";
 import { songSuFamilySource } from "@/modules/genealogy/import/sources/song-su-family";
-import { soongFamilySource } from "@/modules/genealogy/import/sources/wikidata-soong";
+import { wikidataFamilySource } from "@/modules/genealogy/import/sources/wikidata-families";
 
 export const dynamic = "force-dynamic";
 export const maxDuration = 60;
 
-const SOURCES = {
-  kong: kongLineageSource,
-  song: songSuFamilySource,
-  soong: soongFamilySource,
-};
+/**
+ * Resolves a source key to its loader: the two hand-built lineages (孔子世系,
+ * 三苏) plus every Wikidata family in the registry. One family per request keeps
+ * a seed inside `maxDuration`; the admin panel imports several by looping.
+ */
+function resolveSource(key: string): GenealogySource | undefined {
+  if (key === "kong") return kongLineageSource;
+  if (key === "song") return songSuFamilySource;
+  return wikidataFamilySource(key);
+}
 
 const schema = z.object({
-  source: z.enum(["kong", "song", "soong"]),
+  source: z.string().min(1),
   /** "seed" plants the batch; "rollback" removes exactly that batch. */
   action: z.enum(["seed", "rollback"]).default("seed"),
   /** Seed only deceased generations — the safe default for a first run. */
@@ -47,7 +53,11 @@ export async function POST(request: Request): Promise<Response> {
     return body.response;
   }
 
-  const dataset = await SOURCES[body.value.source].load();
+  const source = resolveSource(body.value.source);
+  if (!source) {
+    return jsonError("MEMORIAL_NOT_FOUND", correlationId);
+  }
+  const dataset = await source.load();
 
   if (body.value.action === "rollback") {
     const report = await unimportGenealogy(dataset);

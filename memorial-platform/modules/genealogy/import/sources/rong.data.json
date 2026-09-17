@@ -1,0 +1,250 @@
+{
+  "key": "wikidata:rong",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q109174976",
+      "name": "荣漱仁",
+      "citation": "维基百科 / Wikidata Q109174976",
+      "aliases": [
+        "Rong Shuren"
+      ],
+      "gender": "female",
+      "death": {
+        "year": 1987
+      }
+    },
+    {
+      "externalId": "Q11102224",
+      "name": "杨鉴清",
+      "citation": "维基百科 / Wikidata Q11102224",
+      "aliases": [
+        "Yang Jianqing"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1917
+      },
+      "death": {
+        "year": 2014
+      },
+      "bio": "荣毅仁之妻",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/%E6%9D%A8%E9%89%B4%E6%B8%85.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q111680262",
+      "name": "孙熙仁",
+      "citation": "维基百科 / Wikidata Q111680262",
+      "aliases": [
+        "Sun Xiren"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1907
+      }
+    },
+    {
+      "externalId": "Q111680265",
+      "name": "荣伟仁",
+      "citation": "维基百科 / Wikidata Q111680265",
+      "aliases": [
+        "Rong Weiren"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1906
+      },
+      "death": {
+        "year": 1939
+      }
+    },
+    {
+      "externalId": "Q111680369",
+      "name": "荣辑芙",
+      "citation": "维基百科 / Wikidata Q111680369",
+      "aliases": [
+        "榮輯芙",
+        "Rong Jifu"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1917
+      }
+    },
+    {
+      "externalId": "Q13406319",
+      "name": "荣德生",
+      "citation": "维基百科 / Wikidata Q13406319",
+      "aliases": [
+        "Rong Desheng"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1875
+      },
+      "death": {
+        "year": 1952
+      },
+      "bio": "中国商人",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/%E6%A6%AE%E5%BE%B7%E7%94%9F.jpg",
+      "photoCredit": "作者：政協秘書處 · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q1396175",
+      "name": "荣毅仁",
+      "citation": "维基百科 / Wikidata Q1396175",
+      "aliases": [
+        "Rong Yiren"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1916
+      },
+      "death": {
+        "year": 2005
+      },
+      "bio": "前中华人民共和国副主席",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Rong%20Yiren%20graduation.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q15939733",
+      "name": "荣宗敬",
+      "citation": "维基百科 / Wikidata Q15939733",
+      "aliases": [
+        "Rong Zongjing"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1873
+      },
+      "death": {
+        "year": 1938
+      },
+      "bio": "中国商人",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Rong%20Zongjing.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q5479030",
+      "name": "荣明方",
+      "citation": "维基百科 / Wikidata Q5479030",
+      "aliases": [
+        "榮明方",
+        "Frances Yung"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1972
+      },
+      "living": true,
+      "bio": "中国女企业家"
+    },
+    {
+      "externalId": "Q6491333",
+      "name": "荣智健",
+      "citation": "维基百科 / Wikidata Q6491333",
+      "aliases": [
+        "榮智健",
+        "Larry Yung"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1942
+      },
+      "living": true,
+      "bio": "中国商人、香港賽馬會資深馬主，第七至十一屆全國政協香港委員"
+    },
+    {
+      "externalId": "Q701051",
+      "name": "魏道明",
+      "citation": "维基百科 / Wikidata Q701051",
+      "aliases": [
+        "Wei Tao-ming"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1899
+      },
+      "death": {
+        "year": 1978
+      },
+      "bio": "中華民國首任官派台灣省政府主席",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Wei%20Daoming1.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q85852295",
+      "name": "荣鸿仁",
+      "citation": "维基百科 / Wikidata Q85852295",
+      "aliases": [
+        "Rong Hongren"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1926
+      },
+      "death": {
+        "year": 2013
+      }
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q11102224",
+      "child": "Q6491333"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q13406319",
+      "child": "Q1396175"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q6491333",
+      "child": "Q5479030"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q1396175",
+      "child": "Q6491333"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q13406319",
+      "child": "Q85852295"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q13406319",
+      "child": "Q109174976"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q13406319",
+      "child": "Q111680265"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q13406319",
+      "child": "Q111680369"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q111680369",
+      "b": "Q701051"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q11102224",
+      "b": "Q1396175"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q111680262",
+      "b": "Q111680265"
+    }
+  ]
+}

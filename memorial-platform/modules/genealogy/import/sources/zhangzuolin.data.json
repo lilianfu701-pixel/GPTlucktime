@@ -1,0 +1,247 @@
+{
+  "key": "wikidata:zhangzuolin",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q106978491",
+      "name": "朱洛筠",
+      "citation": "维基百科 / Wikidata Q106978491",
+      "aliases": [
+        "Zhu Luojun"
+      ],
+      "gender": "female"
+    },
+    {
+      "externalId": "Q11066788",
+      "name": "张学森",
+      "citation": "维基百科 / Wikidata Q11066788",
+      "aliases": [
+        "張學森",
+        "Zhang Xuesen"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1920
+      },
+      "death": {
+        "year": 1995
+      },
+      "bio": "Chinese military personnel"
+    },
+    {
+      "externalId": "Q11067742",
+      "name": "张闾蘅",
+      "citation": "维基百科 / Wikidata Q11067742",
+      "aliases": [
+        "Zhang Luxuan"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1940
+      },
+      "living": true,
+      "bio": "Chinese politician"
+    },
+    {
+      "externalId": "Q197358",
+      "name": "张作霖",
+      "citation": "维基百科 / Wikidata Q197358",
+      "aliases": [
+        "張作霖",
+        "Zhang Zuolin"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1875
+      },
+      "death": {
+        "year": 1928
+      },
+      "bio": "中華民國陸海軍大元帥、北洋政府末任統治者、奉系軍閥首領 （1875-1928)",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Zhang%20Zuolin3.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q20148",
+      "name": "张学良",
+      "citation": "维基百科 / Wikidata Q20148",
+      "aliases": [
+        "張學良",
+        "Zhang Xueliang"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1901
+      },
+      "death": {
+        "year": 2001
+      },
+      "bio": "中華民國軍事將領（1901—2001）",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Chang%20Shueliang.jpg",
+      "photoCredit": "作者：Central Archive Press · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q6695321",
+      "name": "赵一荻",
+      "citation": "维基百科 / Wikidata Q6695321",
+      "aliases": [
+        "趙一荻",
+        "Zhao Yidi"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1912
+      },
+      "death": {
+        "year": 2000
+      },
+      "bio": "趙四小姐，張學良第二任妻子"
+    },
+    {
+      "externalId": "Q6855775",
+      "name": "于凤至",
+      "citation": "维基百科 / Wikidata Q6855775",
+      "aliases": [
+        "Yu Fengzhi"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1897
+      },
+      "death": {
+        "year": 1990
+      },
+      "bio": "張學良元配夫人",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/%E4%BA%8E%E5%87%A4%E8%87%B3.jpg",
+      "photoCredit": "公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q8231513",
+      "name": "黄大炜",
+      "citation": "维基百科 / Wikidata Q8231513",
+      "aliases": [
+        "黃大煒",
+        "David Wong"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1964
+      },
+      "death": {
+        "year": 2026
+      },
+      "bio": "生於香港，發跡於台灣的流行歌曲作曲家、歌手（1964-2026）"
+    },
+    {
+      "externalId": "Q8278925",
+      "name": "张学铭",
+      "citation": "维基百科 / Wikidata Q8278925",
+      "aliases": [
+        "張學銘",
+        "Zhang Xueming"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1908
+      },
+      "death": {
+        "year": 1983
+      },
+      "bio": "中国政治人物",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Zhang%20Xueming.jpg",
+      "photoCredit": "作者：Unknown; scanned by 天竺鼠 (talk) 15:35, 17 November 2012 (UTC) · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q8290653",
+      "name": "张学思",
+      "citation": "维基百科 / Wikidata Q8290653",
+      "aliases": [
+        "張學思",
+        "Zhang Xuesi"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1916
+      },
+      "death": {
+        "year": 1970
+      },
+      "bio": "politician",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/%E5%BC%B5%E5%AD%B8%E6%80%9D.jpg",
+      "photoCredit": "作者：政協秘書處 · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q87227864",
+      "name": "寿懿",
+      "citation": "维基百科 / Wikidata Q87227864",
+      "aliases": [
+        "Shouyi"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1898
+      },
+      "death": {
+        "year": 1966
+      },
+      "bio": "(1898-1966)"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q11067742",
+      "child": "Q8231513"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q87227864",
+      "child": "Q11066788"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q197358",
+      "child": "Q20148"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q197358",
+      "child": "Q8278925"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q197358",
+      "child": "Q8290653"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q197358",
+      "child": "Q11066788"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q11066788",
+      "child": "Q11067742"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q20148",
+      "b": "Q6695321"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q20148",
+      "b": "Q6855775"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q197358",
+      "b": "Q87227864"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q106978491",
+      "b": "Q8278925"
+    }
+  ]
+}

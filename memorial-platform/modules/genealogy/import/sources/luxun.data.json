@@ -1,0 +1,222 @@
+{
+  "key": "wikidata:luxun",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q10920911",
+      "name": "周福清",
+      "citation": "维基百科 / Wikidata Q10920911",
+      "aliases": [
+        "Zhou Fuqing"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1838
+      },
+      "death": {
+        "year": 1904
+      },
+      "bio": "Qing dynasty politician"
+    },
+    {
+      "externalId": "Q11093843",
+      "name": "朱安",
+      "citation": "维基百科 / Wikidata Q11093843",
+      "aliases": [
+        "Zhu An"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1878
+      },
+      "death": {
+        "year": 1947
+      },
+      "bio": "鲁迅夫人",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Zhu%20An.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q118867469",
+      "name": "羽太信子",
+      "citation": "维基百科 / Wikidata Q118867469",
+      "aliases": [
+        "Nobuko Habuto"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1888
+      },
+      "death": {
+        "year": 1962
+      },
+      "bio": "作家周作人之妻"
+    },
+    {
+      "externalId": "Q1706256",
+      "name": "周建人",
+      "citation": "维基百科 / Wikidata Q1706256",
+      "aliases": [
+        "Zhou Jianren"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1888
+      },
+      "death": {
+        "year": 1984
+      },
+      "bio": "中国生物学家",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/%E5%91%A8%E5%BB%BA%E4%BA%BA.jpg",
+      "photoCredit": "作者：政協秘書處 · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q1706269",
+      "name": "周海婴",
+      "citation": "维基百科 / Wikidata Q1706269",
+      "aliases": [
+        "Zhou Haiying"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1929
+      },
+      "death": {
+        "year": 2011
+      },
+      "bio": "中国作家、摄影师、无线电专家，鲁迅之子"
+    },
+    {
+      "externalId": "Q198051",
+      "name": "周作人",
+      "citation": "维基百科 / Wikidata Q198051",
+      "aliases": [
+        "Zhou Zuoren"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1885
+      },
+      "death": {
+        "year": 1967
+      },
+      "bio": "中国作家（1885—1967）",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Zhou%20Zuoren.jpg",
+      "photoCredit": "作者：Unknown photographer, scanned by Mountain · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q23114",
+      "name": "鲁迅",
+      "citation": "维基百科 / Wikidata Q23114",
+      "aliases": [
+        "魯迅",
+        "Lu Xun"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1881
+      },
+      "death": {
+        "year": 1936
+      },
+      "bio": "中國近代文学家（1881—1936）",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/LuXun1930.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q6701484",
+      "name": "许广平",
+      "citation": "维基百科 / Wikidata Q6701484",
+      "aliases": [
+        "Xu Guangping"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1898
+      },
+      "death": {
+        "year": 1968
+      },
+      "bio": "鲁迅伴侣",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Xu%20Guangping.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q72378877",
+      "name": "周伯宜",
+      "citation": "维基百科 / Wikidata Q72378877",
+      "aliases": [
+        "Zhou Boyi"
+      ],
+      "gender": "male",
+      "bio": "1861～1896"
+    },
+    {
+      "externalId": "Q9088880",
+      "name": "周令飞",
+      "citation": "维基百科 / Wikidata Q9088880",
+      "aliases": [
+        "周令飛",
+        "Zhou Lingfei"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1953
+      },
+      "living": true,
+      "bio": "鲁迅的孙子"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q6701484",
+      "child": "Q1706269"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q72378877",
+      "child": "Q23114"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q72378877",
+      "child": "Q198051"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q72378877",
+      "child": "Q1706256"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q23114",
+      "child": "Q1706269"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q1706269",
+      "child": "Q9088880"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q10920911",
+      "child": "Q72378877"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q23114",
+      "b": "Q6701484"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q11093843",
+      "b": "Q23114"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q118867469",
+      "b": "Q198051"
+    }
+  ]
+}

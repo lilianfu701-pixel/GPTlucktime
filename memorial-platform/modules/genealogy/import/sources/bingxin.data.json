@@ -1,0 +1,142 @@
+{
+  "key": "wikidata:bingxin",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q10919536",
+      "name": "吴文藻",
+      "citation": "维基百科 / Wikidata Q10919536",
+      "aliases": [
+        "Wu Wenzao"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1901
+      },
+      "death": {
+        "year": 1985
+      },
+      "bio": "Chinese academic",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Bing%20Xin%201926.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q11073321",
+      "name": "谢葆璋",
+      "citation": "维基百科 / Wikidata Q11073321",
+      "aliases": [
+        "Xie Baozhang"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1865
+      },
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Xie%20Baozhang.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q11416818",
+      "name": "吴青",
+      "citation": "维基百科 / Wikidata Q11416818",
+      "aliases": [
+        "Wu Qing"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1937
+      },
+      "living": true,
+      "bio": "Chinese politician"
+    },
+    {
+      "externalId": "Q115562855",
+      "name": "吴平",
+      "citation": "维基百科 / Wikidata Q115562855",
+      "aliases": [
+        "Wu Ping"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1931
+      },
+      "living": true,
+      "bio": "中国建筑师"
+    },
+    {
+      "externalId": "Q115563519",
+      "name": "吴冰",
+      "citation": "维基百科 / Wikidata Q115563519",
+      "aliases": [
+        "Wu Bing"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1935
+      },
+      "death": {
+        "year": 2012
+      },
+      "bio": "大学教授"
+    },
+    {
+      "externalId": "Q374757",
+      "name": "冰心",
+      "citation": "维基百科 / Wikidata Q374757",
+      "aliases": [
+        "Bing Xin"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1900
+      },
+      "death": {
+        "year": 1999
+      },
+      "bio": "中国女作家、诗人（1900～1999）",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Bing%20Xin%201920s.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q11073321",
+      "child": "Q374757"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q10919536",
+      "child": "Q11416818"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q10919536",
+      "child": "Q115562855"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q10919536",
+      "child": "Q115563519"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q374757",
+      "child": "Q11416818"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q374757",
+      "child": "Q115562855"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q374757",
+      "child": "Q115563519"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q10919536",
+      "b": "Q374757"
+    }
+  ]
+}
