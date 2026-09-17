@@ -117,6 +117,10 @@ function legacyIdentityPattern(
 /** A source date to the memorial's partial-date shape, at the precision known. */
 function toPartialDate(d: SourceDate | undefined): PartialDate | undefined {
   if (!d) return undefined;
+  // The platform stores dates as `YYYY-MM-DD`, so a BCE (or year 0) date can't
+  // be represented — 孔子 (551 BCE) and other pre-CE figures keep their page but
+  // go without a structured birth/death rather than failing to create.
+  if (d.year < 1) return undefined;
   const year = String(d.year).padStart(4, "0");
   const month = d.month ? String(d.month).padStart(2, "0") : "01";
   const day = d.day ? String(d.day).padStart(2, "0") : "01";
@@ -486,12 +490,24 @@ async function seedMemorialNode(
     }
     report.memorialsExisting += 1;
   } else {
-    const result = await createMemorial(
+    let result = await createMemorial(
       actor,
       buildInput(person, regions),
       key,
       correlationId,
     );
+    // Some records carry unusable dates (e.g. a death recorded before a birth).
+    // Rather than lose the page, retry once without any dates — the person is
+    // still worth a searchable, claimable memorial.
+    if (!result.ok && result.error === "INVALID_DATES") {
+      const { birth: _b, death: _d, ...datelessPerson } = person;
+      result = await createMemorial(
+        actor,
+        buildInput(datelessPerson, regions),
+        key,
+        correlationId,
+      );
+    }
     if (!result.ok) {
       report.issues.push({
         externalId: person.externalId,
