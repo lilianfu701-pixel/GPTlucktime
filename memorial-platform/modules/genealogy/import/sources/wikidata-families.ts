@@ -11,6 +11,7 @@ import zhangzuolin from "./zhangzuolin.data.json";
 import liang from "./liang.data.json";
 import lihongzhang from "./lihongzhang.data.json";
 import zeng from "./zeng.data.json";
+import puyi from "./puyi.data.json";
 
 /**
  * Every Wikidata-sourced family in one registry, so wiring a new one is a single
@@ -36,8 +37,8 @@ const FAMILIES: { key: string; label: string; dataset: GenealogyDataset }[] = [
   { key: "qian", label: "钱氏（钱锺书）家族", dataset: qian as GenealogyDataset },
   { key: "mei", label: "梅兰芳家族", dataset: mei as GenealogyDataset },
   { key: "bingxin", label: "冰心（谢氏）家族", dataset: bingxin as GenealogyDataset },
-  // 清皇室（溥仪, puyi.data.json）刻意不纳入：多为封号名而非人名、绝嗣线活人无法认领，
-  // 与「帮活人找先人」目标不符。快照仍在仓库，需要时加回一行即可。
+  // 清皇室（溥仪）：完整世系，多为封号名，绝嗣线，人数最大——放在末尾。
+  { key: "puyi", label: "清皇室（溥仪）", dataset: puyi as GenealogyDataset },
 ];
 
 export type WikidataFamilyMeta = {
