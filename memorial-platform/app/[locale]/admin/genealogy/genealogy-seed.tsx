@@ -23,7 +23,13 @@ type RollbackReport = {
   skippedClaimed: number;
 };
 
-type FamilyMeta = { key: string; label: string; people: number; photos: number };
+type FamilyMeta = {
+  key: string;
+  label: string;
+  people: number;
+  deceased: number;
+  photos: number;
+};
 
 /** Per-family state as a batch runs, so the operator sees progress live. */
 type RowState =
@@ -70,7 +76,12 @@ async function callSeed(
  * "只灌已故世代" is on by default — living people are seeded only on a
  * deliberate choice.
  */
-export function GenealogySeed(props: { locale: string; families: FamilyMeta[] }) {
+export function GenealogySeed(props: {
+  locale: string;
+  families: FamilyMeta[];
+  /** Deceased pages already seeded per family key, read from the DB on load. */
+  imported: Record<string, number>;
+}) {
   const [selected, setSelected] = useState<Set<string>>(
     () => new Set(props.families.map((f) => f.key)),
   );
@@ -201,7 +212,11 @@ export function GenealogySeed(props: { locale: string; families: FamilyMeta[] })
                     </span>
                   </span>
                 </label>
-                <RowStatus state={state} locale={props.locale} />
+                <RowStatus
+                  state={state}
+                  importedCount={props.imported[f.key] ?? 0}
+                  deceased={f.deceased}
+                />
               </li>
             );
           })}
@@ -290,9 +305,28 @@ export function GenealogySeed(props: { locale: string; families: FamilyMeta[] })
   );
 }
 
-function RowStatus(props: { state: RowState | undefined; locale: string }) {
+function RowStatus(props: {
+  state: RowState | undefined;
+  importedCount: number;
+  deceased: number;
+}) {
   const state = props.state;
-  if (!state || state.status === "idle") return <span className="muted">待导入</span>;
+  // No live run this session: fall back to the real DB baseline, so a reloaded
+  // page shows what is already seeded instead of a blank 待导入.
+  if (!state || state.status === "idle") {
+    if (props.importedCount === 0) return <span className="muted">待导入</span>;
+    if (props.importedCount >= props.deceased)
+      return (
+        <span className="muted">
+          ✓ 已导入 {props.importedCount}/{props.deceased}
+        </span>
+      );
+    return (
+      <span className="fieldError">
+        部分导入 {props.importedCount}/{props.deceased}，请再点一次续灌
+      </span>
+    );
+  }
   if (state.status === "running")
     return (
       <span className="muted">

@@ -45,6 +45,9 @@ export type WikidataFamilyMeta = {
   key: string;
   label: string;
   people: number;
+  /** Deceased people — the ones that become seeded pages (living are masked
+   * graph nodes, not memorials), so "已导入 N/deceased" can reach its total. */
+  deceased: number;
   photos: number;
 };
 
@@ -53,8 +56,26 @@ export const wikidataFamilyList: WikidataFamilyMeta[] = FAMILIES.map((f) => ({
   key: f.key,
   label: f.label,
   people: f.dataset.people.length,
+  deceased: f.dataset.people.filter((p) => !p.living).length,
   photos: f.dataset.people.filter((p) => p.photoUrl).length,
 }));
+
+/**
+ * How many deceased people of each family already have a seeded memorial, given
+ * the set of imported external ids (from `importedWikidataExternalIds`). Lets
+ * the admin panel show real progress per family on load.
+ */
+export function wikidataImportedCounts(
+  importedIds: Set<string>,
+): Record<string, number> {
+  const out: Record<string, number> = {};
+  for (const f of FAMILIES) {
+    out[f.key] = f.dataset.people.filter(
+      (p) => !p.living && importedIds.has(p.externalId),
+    ).length;
+  }
+  return out;
+}
 
 const byKey = new Map(FAMILIES.map((f) => [f.key, f.dataset]));
 
