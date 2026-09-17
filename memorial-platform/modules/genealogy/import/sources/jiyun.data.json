@@ -1,0 +1,446 @@
+{
+  "key": "wikidata:jiyun",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q13669627",
+      "name": "纪天申",
+      "citation": "维基百科 / Wikidata Q13669627",
+      "aliases": [
+        "紀天申",
+        "Ji Tianshen"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1665
+      },
+      "death": {
+        "year": 1732
+      },
+      "bio": "Qing dynasty person CBDB = 30082"
+    },
+    {
+      "externalId": "Q13669663",
+      "name": "纪容舒",
+      "citation": "维基百科 / Wikidata Q13669663",
+      "aliases": [
+        "紀容舒",
+        "Ji Rongshu"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1685
+      },
+      "death": {
+        "year": 1764
+      },
+      "bio": "Qing dynasty person CBDB = 30081"
+    },
+    {
+      "externalId": "Q13669751",
+      "name": "纪容雅",
+      "citation": "维基百科 / Wikidata Q13669751",
+      "aliases": [
+        "Ji Rongya"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1698
+      },
+      "death": {
+        "year": 1758
+      },
+      "bio": "Qing dynasty person CBDB = 126209"
+    },
+    {
+      "externalId": "Q13669870",
+      "name": "纪汝佶",
+      "citation": "维基百科 / Wikidata Q13669870",
+      "aliases": [
+        "紀汝佶",
+        "Ji Ruji"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1744
+      },
+      "death": {
+        "year": 1786
+      },
+      "bio": "Qing dynasty person CBDB = 30085"
+    },
+    {
+      "externalId": "Q13670767",
+      "name": "纪晫",
+      "citation": "维基百科 / Wikidata Q13670767",
+      "aliases": [
+        "紀晫",
+        "Ji Zhuo"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1706
+      },
+      "death": {
+        "year": 1777
+      },
+      "bio": "Qing dynasty person CBDB = 75880"
+    },
+    {
+      "externalId": "Q13672684",
+      "name": "卢荫文",
+      "citation": "维基百科 / Wikidata Q13672684",
+      "aliases": [
+        "盧蔭文",
+        "Lu Yinwen"
+      ],
+      "gender": "male",
+      "bio": "Qing dynasty person CBDB = 126238"
+    },
+    {
+      "externalId": "Q13672708",
+      "name": "Ji Shi",
+      "citation": "维基百科 / Wikidata Q13672708",
+      "gender": "female"
+    },
+    {
+      "externalId": "Q13672927",
+      "name": "Yuan Xu",
+      "citation": "维基百科 / Wikidata Q13672927",
+      "gender": "male"
+    },
+    {
+      "externalId": "Q13673003",
+      "name": "纪氏",
+      "citation": "维基百科 / Wikidata Q13673003",
+      "aliases": [
+        "紀氏",
+        "Ji Shi"
+      ],
+      "gender": "female"
+    },
+    {
+      "externalId": "Q45417182",
+      "name": "纪汝传",
+      "citation": "维基百科 / Wikidata Q45417182",
+      "aliases": [
+        "紀汝傳",
+        "Ji Ruzhuan"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1747
+      },
+      "bio": "Qing dynasty person CBDB = 30083"
+    },
+    {
+      "externalId": "Q45558101",
+      "name": "纪天澄",
+      "citation": "维基百科 / Wikidata Q45558101",
+      "aliases": [
+        "紀天澄",
+        "Ji Tiancheng"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1658
+      },
+      "death": {
+        "year": 1720
+      },
+      "bio": "Qing dynasty person CBDB = 126181"
+    },
+    {
+      "externalId": "Q45559050",
+      "name": "郭彩符",
+      "citation": "维基百科 / Wikidata Q45559050",
+      "aliases": [
+        "Guo Caifu"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1731
+      },
+      "death": {
+        "year": 1771
+      },
+      "bio": "Qing dynasty person CBDB = 126198"
+    },
+    {
+      "externalId": "Q45559493",
+      "name": "纪灏",
+      "citation": "维基百科 / Wikidata Q45559493",
+      "aliases": [
+        "紀灝",
+        "Ji Hao"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1629
+      },
+      "death": {
+        "year": 1699
+      },
+      "bio": "Qing dynasty person CBDB = 126205"
+    },
+    {
+      "externalId": "Q45559621",
+      "name": "纪坤",
+      "citation": "维基百科 / Wikidata Q45559621",
+      "aliases": [
+        "紀坤",
+        "Ji  Kun"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1570
+      },
+      "death": {
+        "year": 1642
+      },
+      "bio": "Ming dynasty person CBDB = 126207"
+    },
+    {
+      "externalId": "Q45559687",
+      "name": "纪容恂",
+      "citation": "维基百科 / Wikidata Q45559687",
+      "aliases": [
+        "紀容恂",
+        "Ji Rongxun"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1706
+      },
+      "death": {
+        "year": 1752
+      },
+      "bio": "Qing dynasty person CBDB = 126208"
+    },
+    {
+      "externalId": "Q45560317",
+      "name": "纪汝似",
+      "citation": "维基百科 / Wikidata Q45560317",
+      "aliases": [
+        "紀汝似",
+        "Ji Rusi"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1766
+      },
+      "bio": "Qing dynasty person CBDB = 126218"
+    },
+    {
+      "externalId": "Q45560506",
+      "name": "纪汝亿",
+      "citation": "维基百科 / Wikidata Q45560506",
+      "aliases": [
+        "紀汝億",
+        "Ji Ruyi"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1784
+      },
+      "bio": "Qing dynasty person CBDB = 126221"
+    },
+    {
+      "externalId": "Q45561059",
+      "name": "纪尧卿",
+      "citation": "维基百科 / Wikidata Q45561059",
+      "aliases": [
+        "紀堯卿",
+        "Ji Yaoqing"
+      ],
+      "gender": "male",
+      "bio": "Ming dynasty person CBDB = 126230"
+    },
+    {
+      "externalId": "Q45561312",
+      "name": "纪钰",
+      "citation": "维基百科 / Wikidata Q45561312",
+      "aliases": [
+        "紀鈺",
+        "Ji Yu"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1632
+      },
+      "death": {
+        "year": 1716
+      },
+      "bio": "Qing dynasty person CBDB = 126235"
+    },
+    {
+      "externalId": "Q45676020",
+      "name": "沈明玕",
+      "citation": "维基百科 / Wikidata Q45676020",
+      "aliases": [
+        "Shen Minggan"
+      ],
+      "gender": "female",
+      "bio": "Qing dynasty person CBDB = 69604"
+    },
+    {
+      "externalId": "Q45707585",
+      "name": "纪树馨",
+      "citation": "维基百科 / Wikidata Q45707585",
+      "aliases": [
+        "紀樹馨",
+        "Ji Shuxin"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1771
+      },
+      "bio": "Qing dynasty person CBDB = 75889"
+    },
+    {
+      "externalId": "Q65816499",
+      "name": "纪景星",
+      "citation": "维基百科 / Wikidata Q65816499",
+      "aliases": [
+        "紀景星",
+        "Ji Jingxing"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 1642
+      },
+      "bio": "person, CBDB ID = 385229"
+    },
+    {
+      "externalId": "Q711989",
+      "name": "纪昀",
+      "citation": "维基百科 / Wikidata Q711989",
+      "aliases": [
+        "紀昀",
+        "Ji Yun"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1724
+      },
+      "death": {
+        "year": 1805
+      },
+      "bio": "中国清朝政治人物、学者",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Ji%20Yun.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q13669663",
+      "child": "Q711989"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45561312",
+      "child": "Q13669627"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q13669627",
+      "child": "Q13669663"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q13669627",
+      "child": "Q13669751"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q711989",
+      "child": "Q13669870"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q13669663",
+      "child": "Q13670767"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q711989",
+      "child": "Q13672708"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q711989",
+      "child": "Q13673003"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q711989",
+      "child": "Q45417182"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45561312",
+      "child": "Q45558101"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45559621",
+      "child": "Q45559493"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45561059",
+      "child": "Q45559621"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q13669627",
+      "child": "Q45559687"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q711989",
+      "child": "Q45560317"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q711989",
+      "child": "Q45560506"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45559621",
+      "child": "Q45561312"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45417182",
+      "child": "Q45707585"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45559621",
+      "child": "Q65816499"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45559050",
+      "b": "Q711989"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45676020",
+      "b": "Q711989"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q13672684",
+      "b": "Q13672708"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q13672927",
+      "b": "Q13673003"
+    }
+  ]
+}

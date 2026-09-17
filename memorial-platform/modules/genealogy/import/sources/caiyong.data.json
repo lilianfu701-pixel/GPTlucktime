@@ -1,0 +1,224 @@
+{
+  "key": "wikidata:caiyong",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q10479481",
+      "name": "羊衜",
+      "citation": "维基百科 / Wikidata Q10479481",
+      "aliases": [
+        "Yang Dao"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 150
+      },
+      "bio": "Cao Wei official"
+    },
+    {
+      "externalId": "Q1144801",
+      "name": "刘豹",
+      "citation": "维基百科 / Wikidata Q1144801",
+      "aliases": [
+        "劉豹",
+        "Liu Bao"
+      ],
+      "gender": "male",
+      "bio": "3rd century Xiongnu chanyu"
+    },
+    {
+      "externalId": "Q123179347",
+      "name": "蔡棱",
+      "citation": "维基百科 / Wikidata Q123179347",
+      "gender": "male"
+    },
+    {
+      "externalId": "Q18638219",
+      "name": "卫仲道",
+      "citation": "维基百科 / Wikidata Q18638219",
+      "aliases": [
+        "Wei Zhongdao"
+      ],
+      "gender": "male",
+      "bio": "person, CBDB = 135024"
+    },
+    {
+      "externalId": "Q18638220",
+      "name": "董祀",
+      "citation": "维基百科 / Wikidata Q18638220",
+      "aliases": [
+        "Dong Si"
+      ],
+      "gender": "male",
+      "bio": "蔡文姬的第三任丈夫"
+    },
+    {
+      "externalId": "Q298052",
+      "name": "蔡琰",
+      "citation": "维基百科 / Wikidata Q298052",
+      "aliases": [
+        "Cai Yan"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 177
+      },
+      "death": {
+        "year": 249
+      },
+      "bio": "东汉和三国时期诗人",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/%E7%95%AB%E9%BA%97%E7%8F%A0%E8%90%83%E7%A7%80%20Gathering%20Gems%20of%20Beauty%20%28%E6%BC%A2%E8%94%A1%E6%96%87%E5%A7%AC%29%202.jpg",
+      "photoCredit": "作者：Identified as He Dazi (赫達資) · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q469713",
+      "name": "羊徽瑜",
+      "citation": "维基百科 / Wikidata Q469713",
+      "aliases": [
+        "Yang Huiyu"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 214
+      },
+      "death": {
+        "year": 278
+      },
+      "bio": "Jin Dynasty Empress Dowager (214–278)"
+    },
+    {
+      "externalId": "Q56598065",
+      "name": "羊发",
+      "citation": "维基百科 / Wikidata Q56598065",
+      "gender": "male"
+    },
+    {
+      "externalId": "Q642820",
+      "name": "羊祜",
+      "citation": "维基百科 / Wikidata Q642820",
+      "aliases": [
+        "Yang Hu"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 221
+      },
+      "death": {
+        "year": 278
+      },
+      "bio": "Chinese Jin dynasty general (221-278)",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Yang%20Hu%20illustration%20Qing.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q707702",
+      "name": "蔡邕",
+      "citation": "维基百科 / Wikidata Q707702",
+      "aliases": [
+        "Cai Yong"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 133
+      },
+      "death": {
+        "year": 192
+      },
+      "bio": "中国东汉末期辞赋家、散文家（132-192）",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Cai%20yong.jpg",
+      "photoCredit": "作者：Wang Qi · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q707808",
+      "name": "司马师",
+      "citation": "维基百科 / Wikidata Q707808",
+      "aliases": [
+        "司馬師",
+        "Sima Shi"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 208
+      },
+      "death": {
+        "year": 255
+      },
+      "bio": "中國三國時期曹魏權臣",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Sima%20Shi%20Qing%20dynasty%20portrait.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q76825195",
+      "name": "蔡氏",
+      "citation": "维基百科 / Wikidata Q76825195",
+      "gender": "female"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q76825195",
+      "child": "Q469713"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q76825195",
+      "child": "Q642820"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q707702",
+      "child": "Q298052"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q10479481",
+      "child": "Q469713"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q10479481",
+      "child": "Q642820"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q123179347",
+      "child": "Q707702"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q10479481",
+      "child": "Q56598065"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q707702",
+      "child": "Q76825195"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q1144801",
+      "b": "Q298052"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q18638219",
+      "b": "Q298052"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q18638220",
+      "b": "Q298052"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q469713",
+      "b": "Q707808"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q10479481",
+      "b": "Q76825195"
+    }
+  ]
+}

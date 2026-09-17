@@ -1,0 +1,307 @@
+{
+  "key": "wikidata:taoyuanming",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q10945095",
+      "name": "孟宗",
+      "citation": "维基百科 / Wikidata Q10945095",
+      "aliases": [
+        "Meng Zong"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 271
+      },
+      "bio": "三國時期孫吳後期重臣",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/%E5%93%AD%E7%AB%B9%E5%BE%97%E7%AC%8B.JPG",
+      "photoCredit": "作者：Dingar · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q110106034",
+      "name": "孟陋",
+      "citation": "维基百科 / Wikidata Q110106034",
+      "aliases": [
+        "Meng Lou"
+      ],
+      "bio": "person from Yangxin, Eastern Jin Dynasty"
+    },
+    {
+      "externalId": "Q110109499",
+      "name": "陶夏",
+      "citation": "维基百科 / Wikidata Q110109499",
+      "gender": "male"
+    },
+    {
+      "externalId": "Q110109500",
+      "name": "陶斌",
+      "citation": "维基百科 / Wikidata Q110109500",
+      "gender": "male"
+    },
+    {
+      "externalId": "Q110109502",
+      "name": "陶旗",
+      "citation": "维基百科 / Wikidata Q110109502",
+      "gender": "male"
+    },
+    {
+      "externalId": "Q120698724",
+      "name": "陶瞻",
+      "citation": "维基百科 / Wikidata Q120698724",
+      "gender": "male"
+    },
+    {
+      "externalId": "Q120698732",
+      "name": "陶洪",
+      "citation": "维基百科 / Wikidata Q120698732",
+      "gender": "male"
+    },
+    {
+      "externalId": "Q120698734",
+      "name": "陶范",
+      "citation": "维基百科 / Wikidata Q120698734",
+      "aliases": [
+        "陶範"
+      ],
+      "gender": "male"
+    },
+    {
+      "externalId": "Q1290835",
+      "name": "陶侃",
+      "citation": "维基百科 / Wikidata Q1290835",
+      "aliases": [
+        "Tao Kan"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 259
+      },
+      "death": {
+        "year": 334
+      },
+      "bio": "Jin Dynasty general (259-334)",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/%E4%BB%BB%E7%86%8A%20%E4%BA%BA%E7%89%A9%E5%B1%B1%E6%B0%B4%E5%86%8C%206.jpg",
+      "photoCredit": "作者：Ren Xiong · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q134082162",
+      "name": "陶逸",
+      "citation": "维基百科 / Wikidata Q134082162",
+      "aliases": [
+        "Tao Yi"
+      ],
+      "gender": "male"
+    },
+    {
+      "externalId": "Q134082164",
+      "name": "陶茂",
+      "citation": "维基百科 / Wikidata Q134082164",
+      "gender": "male"
+    },
+    {
+      "externalId": "Q134082168",
+      "name": "孟氏",
+      "citation": "维基百科 / Wikidata Q134082168",
+      "aliases": [
+        "Meng Shi"
+      ],
+      "gender": "female"
+    },
+    {
+      "externalId": "Q134082169",
+      "name": "孟嘉",
+      "citation": "维基百科 / Wikidata Q134082169",
+      "gender": "male"
+    },
+    {
+      "externalId": "Q134082170",
+      "name": "陶氏",
+      "citation": "维基百科 / Wikidata Q134082170",
+      "gender": "female"
+    },
+    {
+      "externalId": "Q134082179",
+      "name": "孟观",
+      "citation": "维基百科 / Wikidata Q134082179",
+      "aliases": [
+        "孟觀"
+      ],
+      "gender": "male"
+    },
+    {
+      "externalId": "Q134082180",
+      "name": "孟揖",
+      "citation": "维基百科 / Wikidata Q134082180",
+      "gender": "male"
+    },
+    {
+      "externalId": "Q28418214",
+      "name": "陶称",
+      "citation": "维基百科 / Wikidata Q28418214",
+      "aliases": [
+        "陶稱"
+      ],
+      "gender": "male"
+    },
+    {
+      "externalId": "Q314210",
+      "name": "陶渊明",
+      "citation": "维基百科 / Wikidata Q314210",
+      "aliases": [
+        "Tao Yuanming"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 365
+      },
+      "death": {
+        "year": 427
+      },
+      "bio": "東晉末年至劉宋時期隱逸詩人",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Taoqian1.jpg",
+      "photoCredit": "作者：Chen Hongshou (1599-1652) · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q45454150",
+      "name": "陶丹",
+      "citation": "维基百科 / Wikidata Q45454150",
+      "aliases": [
+        "Tao Dan"
+      ],
+      "gender": "male",
+      "bio": "Western Jin dynasty person CBDB = 134933"
+    },
+    {
+      "externalId": "Q65800966",
+      "name": "翟氏",
+      "citation": "维基百科 / Wikidata Q65800966",
+      "aliases": [
+        "Zhai Shi"
+      ],
+      "gender": "female",
+      "bio": "陶潛妻"
+    },
+    {
+      "externalId": "Q65801115",
+      "name": "湛氏",
+      "citation": "维基百科 / Wikidata Q65801115",
+      "aliases": [
+        "Zhan Shi"
+      ],
+      "gender": "female",
+      "bio": "陶丹妾; 湛氏(陶侃母)﹐晉人﹐女﹐新淦人(今江西樟樹)。古今女史﹐蘭閨寶錄﹐宮閨文選有著錄。"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q134082168",
+      "child": "Q314210"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q65801115",
+      "child": "Q1290835"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q134082170",
+      "child": "Q134082168"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q134082162",
+      "child": "Q314210"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45454150",
+      "child": "Q1290835"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q1290835",
+      "child": "Q28418214"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q134082179",
+      "child": "Q110106034"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q1290835",
+      "child": "Q110109499"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q1290835",
+      "child": "Q110109500"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q1290835",
+      "child": "Q110109502"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q1290835",
+      "child": "Q120698724"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q1290835",
+      "child": "Q120698732"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q1290835",
+      "child": "Q120698734"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q134082164",
+      "child": "Q134082162"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q1290835",
+      "child": "Q134082164"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q134082169",
+      "child": "Q134082168"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q134082179",
+      "child": "Q134082169"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q1290835",
+      "child": "Q134082170"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q134082180",
+      "child": "Q134082179"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q10945095",
+      "child": "Q134082180"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q314210",
+      "b": "Q65800966"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45454150",
+      "b": "Q65801115"
+    }
+  ]
+}

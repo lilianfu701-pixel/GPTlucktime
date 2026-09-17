@@ -1,0 +1,556 @@
+{
+  "key": "wikidata:wanganshi",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q141259120",
+      "name": "王氏 (福国夫人)",
+      "citation": "维基百科 / Wikidata Q141259120",
+      "aliases": [
+        "王氏 (福國夫人)",
+        "Lady Wang (wife of Cai Bian)"
+      ],
+      "gender": "female",
+      "bio": "北宋王安石次女，封福國夫人，嫁蔡卞"
+    },
+    {
+      "externalId": "Q15936430",
+      "name": "王雱",
+      "citation": "维基百科 / Wikidata Q15936430",
+      "aliases": [
+        "Wang Pang"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1044
+      },
+      "death": {
+        "year": 1076
+      },
+      "bio": "Song dynasty person (CBDB = 3968)"
+    },
+    {
+      "externalId": "Q16077282",
+      "name": "王安国",
+      "citation": "维基百科 / Wikidata Q16077282",
+      "aliases": [
+        "王安國",
+        "Wang Anguo"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1028
+      },
+      "death": {
+        "year": 1074
+      },
+      "bio": "Song dynasty person (CBDB = 7076)"
+    },
+    {
+      "externalId": "Q18905331",
+      "name": "王安礼",
+      "citation": "维基百科 / Wikidata Q18905331",
+      "aliases": [
+        "王安禮",
+        "Wang Anli"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1034
+      },
+      "death": {
+        "year": 1095
+      },
+      "bio": "Song dynasty politician, 1034-1095"
+    },
+    {
+      "externalId": "Q319618",
+      "name": "王安石",
+      "citation": "维基百科 / Wikidata Q319618",
+      "aliases": [
+        "Wang Anshi"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1021
+      },
+      "death": {
+        "year": 1086
+      },
+      "bio": "中国宋朝的政治家、文学家、思想家（1021-1086）",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/%E6%AD%B7%E4%BB%A3%E8%81%96%E8%B3%A2%E5%90%8D%E4%BA%BA%E5%83%8F-29-%E5%AE%8B%E4%B8%9E%E7%9B%B8%E7%8E%8B%E8%8D%86%E5%85%AC%E5%AE%89%E7%9F%B3.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q4391249",
+      "name": "蔡卞",
+      "citation": "维基百科 / Wikidata Q4391249",
+      "aliases": [
+        "Cai Bian"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1058
+      },
+      "death": {
+        "year": 1117
+      },
+      "bio": "Song dynasty person (CBDB = 8131)"
+    },
+    {
+      "externalId": "Q45359357",
+      "name": "王安上",
+      "citation": "维基百科 / Wikidata Q45359357",
+      "aliases": [
+        "Wang Anshang"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 1761"
+    },
+    {
+      "externalId": "Q45359441",
+      "name": "王珏",
+      "citation": "维基百科 / Wikidata Q45359441",
+      "aliases": [
+        "Wang Jue"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1112
+      },
+      "death": {
+        "year": 1164
+      },
+      "bio": "Song dynasty person CBDB = 1796"
+    },
+    {
+      "externalId": "Q45359877",
+      "name": "吴安持",
+      "citation": "维基百科 / Wikidata Q45359877",
+      "aliases": [
+        "吳安持",
+        "Wu Anchi"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person (CBDB = 1957)"
+    },
+    {
+      "externalId": "Q45360777",
+      "name": "张奎",
+      "citation": "维基百科 / Wikidata Q45360777",
+      "aliases": [
+        "張奎",
+        "Zhang Kui"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 3150"
+    },
+    {
+      "externalId": "Q45362986",
+      "name": "王贯之",
+      "citation": "维基百科 / Wikidata Q45362986",
+      "aliases": [
+        "王貫之",
+        "Wang Guanzhi"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 967
+      },
+      "death": {
+        "year": 1028
+      },
+      "bio": "Song dynasty person (CBDB = 3965)"
+    },
+    {
+      "externalId": "Q45363115",
+      "name": "吴敏",
+      "citation": "维基百科 / Wikidata Q45363115",
+      "aliases": [
+        "吳敏",
+        "Wu Min"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person (CBDB = 4017)"
+    },
+    {
+      "externalId": "Q45363736",
+      "name": "王文淑",
+      "citation": "维基百科 / Wikidata Q45363736",
+      "aliases": [
+        "Wang Wenshu"
+      ],
+      "gender": "female",
+      "bio": "Song dynasty person (CBDB = 5011)"
+    },
+    {
+      "externalId": "Q45364102",
+      "name": "吴氏",
+      "citation": "维基百科 / Wikidata Q45364102",
+      "aliases": [
+        "吳氏",
+        "Wu Shi"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 998
+      },
+      "death": {
+        "year": 1063
+      },
+      "bio": "王益妻"
+    },
+    {
+      "externalId": "Q45364634",
+      "name": "谢氏",
+      "citation": "维基百科 / Wikidata Q45364634",
+      "aliases": [
+        "謝氏",
+        "Xie Shi"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 964
+      },
+      "death": {
+        "year": 1053
+      },
+      "bio": "王用之妻"
+    },
+    {
+      "externalId": "Q45365249",
+      "name": "王益",
+      "citation": "维基百科 / Wikidata Q45365249",
+      "aliases": [
+        "Wang Yi"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 993
+      },
+      "death": {
+        "year": 1038
+      },
+      "bio": "Song dynasty person (CBDB = 7082)"
+    },
+    {
+      "externalId": "Q45366130",
+      "name": "吴畋",
+      "citation": "维基百科 / Wikidata Q45366130",
+      "aliases": [
+        "吳畋",
+        "Wu Tian"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person (CBDB = 7396)"
+    },
+    {
+      "externalId": "Q45389716",
+      "name": "王明",
+      "citation": "维基百科 / Wikidata Q45389716",
+      "aliases": [
+        "Wang Ming"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 18552"
+    },
+    {
+      "externalId": "Q45389721",
+      "name": "王用之",
+      "citation": "维基百科 / Wikidata Q45389721",
+      "aliases": [
+        "Wang Yongzhi"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person (CBDB = 18553)"
+    },
+    {
+      "externalId": "Q45389725",
+      "name": "王孟",
+      "citation": "维基百科 / Wikidata Q45389725",
+      "aliases": [
+        "Wang Meng"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person (CBDB = 18554)"
+    },
+    {
+      "externalId": "Q45390710",
+      "name": "吴德筠",
+      "citation": "维基百科 / Wikidata Q45390710",
+      "aliases": [
+        "吳德筠",
+        "Wu Deyun"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 18872"
+    },
+    {
+      "externalId": "Q45401557",
+      "name": "王安仁",
+      "citation": "维基百科 / Wikidata Q45401557",
+      "aliases": [
+        "Wang Anren"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1015
+      },
+      "death": {
+        "year": 1051
+      },
+      "bio": "Song dynasty person CBDB = 21944"
+    },
+    {
+      "externalId": "Q45401605",
+      "name": "王滂",
+      "citation": "维基百科 / Wikidata Q45401605",
+      "aliases": [
+        "Wang Pang"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person (CBDB = 21968)"
+    },
+    {
+      "externalId": "Q45401607",
+      "name": "王桐",
+      "citation": "维基百科 / Wikidata Q45401607",
+      "aliases": [
+        "Wang Tong"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person (CBDB = 21969)"
+    },
+    {
+      "externalId": "Q45402041",
+      "name": "王棣",
+      "citation": "维基百科 / Wikidata Q45402041",
+      "aliases": [
+        "Wang Di"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 1109
+      },
+      "bio": "Song dynasty person CBDB = 22210"
+    },
+    {
+      "externalId": "Q45411362",
+      "name": "王II",
+      "citation": "维基百科 / Wikidata Q45411362",
+      "aliases": [
+        "Wang II"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB=27111"
+    },
+    {
+      "externalId": "Q45427782",
+      "name": "王宜之",
+      "citation": "维基百科 / Wikidata Q45427782",
+      "aliases": [
+        "Wang Yizhi"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB=36517"
+    },
+    {
+      "externalId": "Q45429732",
+      "name": "吴氏",
+      "citation": "维基百科 / Wikidata Q45429732",
+      "aliases": [
+        "吳氏",
+        "Wu Shi"
+      ],
+      "gender": "female",
+      "bio": "王安石妻"
+    },
+    {
+      "externalId": "Q45431126",
+      "name": "王氏",
+      "citation": "维基百科 / Wikidata Q45431126",
+      "aliases": [
+        "Wang Shi"
+      ],
+      "gender": "female",
+      "bio": "吳安持妻"
+    },
+    {
+      "externalId": "Q45431694",
+      "name": "某氏",
+      "citation": "维基百科 / Wikidata Q45431694",
+      "aliases": [
+        "Mou Shi"
+      ],
+      "gender": "female",
+      "bio": "王安禮妻"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q45365249",
+      "child": "Q319618"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q319618",
+      "child": "Q15936430"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45365249",
+      "child": "Q16077282"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45365249",
+      "child": "Q18905331"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45365249",
+      "child": "Q45359357"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45401607",
+      "child": "Q45359441"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45389716",
+      "child": "Q45362986"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45390710",
+      "child": "Q45363115"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45365249",
+      "child": "Q45363736"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45366130",
+      "child": "Q45364102"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45389721",
+      "child": "Q45365249"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45390710",
+      "child": "Q45366130"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45389716",
+      "child": "Q45389721"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45389721",
+      "child": "Q45389725"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45365249",
+      "child": "Q45401557"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q319618",
+      "child": "Q45401605"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45401605",
+      "child": "Q45401607"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q15936430",
+      "child": "Q45402041"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45389721",
+      "child": "Q45411362"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45359441",
+      "child": "Q45427782"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q319618",
+      "child": "Q45431126"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q319618",
+      "child": "Q141259120"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45364102",
+      "child": "Q319618"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45429732",
+      "child": "Q15936430"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45364634",
+      "child": "Q45365249"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45429732",
+      "child": "Q45401605"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q319618",
+      "b": "Q45429732"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q141259120",
+      "b": "Q4391249"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q18905331",
+      "b": "Q45431694"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45359877",
+      "b": "Q45431126"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45360777",
+      "b": "Q45363736"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45364102",
+      "b": "Q45365249"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45364634",
+      "b": "Q45389721"
+    }
+  ]
+}

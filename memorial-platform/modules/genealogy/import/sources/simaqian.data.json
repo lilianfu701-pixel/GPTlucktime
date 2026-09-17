@@ -1,0 +1,174 @@
+{
+  "key": "wikidata:simaqian",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q107639199",
+      "name": "Sima Qian's daughter (Yang Bis wife)",
+      "citation": "维基百科 / Wikidata Q107639199",
+      "gender": "female"
+    },
+    {
+      "externalId": "Q10916681",
+      "name": "司马喜",
+      "citation": "维基百科 / Wikidata Q10916681",
+      "aliases": [
+        "司馬喜",
+        "Sima Xi"
+      ],
+      "gender": "male"
+    },
+    {
+      "externalId": "Q10966064",
+      "name": "杨敞",
+      "citation": "维基百科 / Wikidata Q10966064",
+      "aliases": [
+        "楊敞",
+        "Yang Bi"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 73
+      },
+      "bio": "Western Han Dynasty person CBDB = 12359"
+    },
+    {
+      "externalId": "Q2401828",
+      "name": "司马谈",
+      "citation": "维基百科 / Wikidata Q2401828",
+      "aliases": [
+        "司馬談",
+        "Sima Tan"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 164
+      },
+      "death": {
+        "year": 109
+      },
+      "bio": "Chinese astrologer and historian (c. 165–110 BCE)"
+    },
+    {
+      "externalId": "Q45440057",
+      "name": "司马道",
+      "citation": "维基百科 / Wikidata Q45440057",
+      "aliases": [
+        "司馬道",
+        "Sima Dao"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 621
+      },
+      "death": {
+        "year": 678
+      },
+      "bio": "Tang dynasty person CBDB = 139713"
+    },
+    {
+      "externalId": "Q45623460",
+      "name": "司马林",
+      "citation": "维基百科 / Wikidata Q45623460",
+      "aliases": [
+        "司馬林",
+        "Sima Lin"
+      ],
+      "gender": "male",
+      "bio": "Tang dynasty person CBDB = 148845"
+    },
+    {
+      "externalId": "Q45623522",
+      "name": "司马𧬨",
+      "citation": "维基百科 / Wikidata Q45623522",
+      "aliases": [
+        "司馬𧬨",
+        "Sima Hui"
+      ],
+      "gender": "male",
+      "bio": "Tang dynasty person CBDB = 148846"
+    },
+    {
+      "externalId": "Q604426",
+      "name": "杨恽",
+      "citation": "维基百科 / Wikidata Q604426",
+      "aliases": [
+        "Yang Yun"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 50
+      },
+      "death": {
+        "year": 53
+      },
+      "bio": "Western Han politician and poet"
+    },
+    {
+      "externalId": "Q9372",
+      "name": "司马迁",
+      "citation": "维基百科 / Wikidata Q9372",
+      "aliases": [
+        "司馬遷",
+        "Sima Qian"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 144
+      },
+      "death": {
+        "year": 85
+      },
+      "bio": "西漢史學家、文學家",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Si%20maqian.jpg",
+      "photoCredit": "公有领域 · 来源：Wikimedia Commons"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q2401828",
+      "child": "Q9372"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q10966064",
+      "child": "Q604426"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q10916681",
+      "child": "Q2401828"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45623460",
+      "child": "Q45440057"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q9372",
+      "child": "Q45623460"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45440057",
+      "child": "Q45623522"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q9372",
+      "child": "Q107639199"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q107639199",
+      "child": "Q604426"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q107639199",
+      "b": "Q10966064"
+    }
+  ]
+}

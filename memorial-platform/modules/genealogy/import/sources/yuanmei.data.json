@@ -1,0 +1,327 @@
+{
+  "key": "wikidata:yuanmei",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q147220",
+      "name": "袁枚",
+      "citation": "维基百科 / Wikidata Q147220",
+      "aliases": [
+        "Yuan Mei"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1716
+      },
+      "death": {
+        "year": 1797
+      },
+      "bio": "中国清代诗人、诗论家（1716-1797）",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/YuanMeiLuoPingI%20%28cropped%29.jpg",
+      "photoCredit": "作者：Luo Ping · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q15931221",
+      "name": "袁机",
+      "citation": "维基百科 / Wikidata Q15931221",
+      "aliases": [
+        "袁機",
+        "Yuan Ji"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1720
+      },
+      "death": {
+        "year": 1759
+      },
+      "bio": "Qing dynasty poet"
+    },
+    {
+      "externalId": "Q45548187",
+      "name": "崇云埜",
+      "citation": "维基百科 / Wikidata Q45548187",
+      "aliases": [
+        "崇雲埜",
+        "Chong Yunye"
+      ],
+      "gender": "male",
+      "bio": "person (CBDB = 338235)"
+    },
+    {
+      "externalId": "Q45688276",
+      "name": "袁杼",
+      "citation": "维基百科 / Wikidata Q45688276",
+      "aliases": [
+        "Yuan Zhu"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1726
+      },
+      "death": {
+        "year": 1776
+      },
+      "bio": "Qing dynasty person (CBDB = 54116)"
+    },
+    {
+      "externalId": "Q45688305",
+      "name": "韩思永",
+      "citation": "维基百科 / Wikidata Q45688305",
+      "aliases": [
+        "韓思永",
+        "Han Siyong"
+      ],
+      "gender": "male",
+      "bio": "Qing dynasty person CBDB = 54117"
+    },
+    {
+      "externalId": "Q45688376",
+      "name": "高绎祖",
+      "citation": "维基百科 / Wikidata Q45688376",
+      "aliases": [
+        "高繹祖",
+        "Gao Yizu"
+      ],
+      "gender": "male",
+      "bio": "Qing dynasty person CBDB = 54121"
+    },
+    {
+      "externalId": "Q45691271",
+      "name": "袁迟",
+      "citation": "维基百科 / Wikidata Q45691271",
+      "aliases": [
+        "袁遲",
+        "Yuan Chi"
+      ],
+      "gender": "male",
+      "bio": "Qing dynasty person (CBDB = 54233)"
+    },
+    {
+      "externalId": "Q45691601",
+      "name": "袁嘉",
+      "citation": "维基百科 / Wikidata Q45691601",
+      "aliases": [
+        "Yuan Jia"
+      ],
+      "gender": "female",
+      "death": {
+        "year": 1853
+      },
+      "bio": "Qing dynasty person CBDB = 85810"
+    },
+    {
+      "externalId": "Q45693747",
+      "name": "袁绶",
+      "citation": "维基百科 / Wikidata Q45693747",
+      "aliases": [
+        "袁綬",
+        "Yuan Shou"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1795
+      },
+      "death": {
+        "year": 1867
+      },
+      "bio": "Qing dynasty person CBDB = 54329"
+    },
+    {
+      "externalId": "Q45693914",
+      "name": "袁通",
+      "citation": "维基百科 / Wikidata Q45693914",
+      "aliases": [
+        "Yuan Tong"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1775
+      },
+      "bio": "Qing dynasty person CBDB = 54335"
+    },
+    {
+      "externalId": "Q45693996",
+      "name": "吴国俊",
+      "citation": "维基百科 / Wikidata Q45693996",
+      "aliases": [
+        "吳國俊",
+        "Wu Guojun"
+      ],
+      "gender": "male",
+      "bio": "Qing dynasty person (CBDB = 54338)"
+    },
+    {
+      "externalId": "Q45694051",
+      "name": "吴师祁",
+      "citation": "维基百科 / Wikidata Q45694051",
+      "aliases": [
+        "吳師祁",
+        "Wu Shiqi"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1822
+      },
+      "death": {
+        "year": 1874
+      },
+      "bio": "Qing dynasty person CBDB=54340"
+    },
+    {
+      "externalId": "Q45694973",
+      "name": "吴师郊",
+      "citation": "维基百科 / Wikidata Q45694973",
+      "aliases": [
+        "吳師郊",
+        "Wu Shijiao"
+      ],
+      "gender": "male",
+      "bio": "Qing dynasty person CBDB = 54375"
+    },
+    {
+      "externalId": "Q45695000",
+      "name": "吴师曾",
+      "citation": "维基百科 / Wikidata Q45695000",
+      "aliases": [
+        "吳師曾",
+        "Wu Shizeng"
+      ],
+      "gender": "male",
+      "bio": "Qing dynasty person CBDB = 54376"
+    },
+    {
+      "externalId": "Q45695027",
+      "name": "吴谨仪",
+      "citation": "维基百科 / Wikidata Q45695027",
+      "aliases": [
+        "吳謹儀",
+        "Wu Jinyi"
+      ],
+      "gender": "female",
+      "bio": "Qing dynasty person (CBDB = 54377)"
+    },
+    {
+      "externalId": "Q65799352",
+      "name": "王氏",
+      "citation": "维基百科 / Wikidata Q65799352",
+      "aliases": [
+        "Wang Shi"
+      ],
+      "gender": "female",
+      "bio": "袁枚妻"
+    },
+    {
+      "externalId": "Q65799354",
+      "name": "章氏",
+      "citation": "维基百科 / Wikidata Q65799354",
+      "aliases": [
+        "Zhang Shi"
+      ],
+      "gender": "female",
+      "bio": "袁枚母"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q65799354",
+      "child": "Q147220"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q65799354",
+      "child": "Q15931221"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q65799354",
+      "child": "Q45688276"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45693747",
+      "child": "Q45694051"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45693747",
+      "child": "Q45694973"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45693747",
+      "child": "Q45695000"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45693747",
+      "child": "Q45695027"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q147220",
+      "child": "Q45691271"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45691271",
+      "child": "Q45691601"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45693914",
+      "child": "Q45693747"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q147220",
+      "child": "Q45693914"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45693996",
+      "child": "Q45694051"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45693996",
+      "child": "Q45694973"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45693996",
+      "child": "Q45695000"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45693996",
+      "child": "Q45695027"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q147220",
+      "b": "Q65799352"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q15931221",
+      "b": "Q45688376"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45548187",
+      "b": "Q45691601"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45688276",
+      "b": "Q45688305"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45693747",
+      "b": "Q45693996"
+    }
+  ]
+}

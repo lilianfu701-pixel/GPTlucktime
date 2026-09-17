@@ -1,0 +1,306 @@
+{
+  "key": "wikidata:huangxing",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q104782874",
+      "name": "黄乃",
+      "citation": "维基百科 / Wikidata Q104782874",
+      "aliases": [
+        "Huang Nai"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1917
+      },
+      "death": {
+        "year": 2004
+      }
+    },
+    {
+      "externalId": "Q131873368",
+      "name": "廖淡如",
+      "citation": "维基百科 / Wikidata Q131873368",
+      "aliases": [
+        "Liao Danru"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1873
+      },
+      "death": {
+        "year": 1939
+      }
+    },
+    {
+      "externalId": "Q131877782",
+      "name": "黄一美",
+      "citation": "维基百科 / Wikidata Q131877782",
+      "aliases": [
+        "黃一美",
+        "Huang Yimei"
+      ],
+      "gender": "male"
+    },
+    {
+      "externalId": "Q131878016",
+      "name": "张瑛",
+      "citation": "维基百科 / Wikidata Q131878016",
+      "aliases": [
+        "Zhang Ying"
+      ],
+      "gender": "female",
+      "bio": "wife of Huang Yimei"
+    },
+    {
+      "externalId": "Q131879667",
+      "name": "黄一球",
+      "citation": "维基百科 / Wikidata Q131879667",
+      "aliases": [
+        "黃一球",
+        "Huang Yiqiu"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 1964
+      }
+    },
+    {
+      "externalId": "Q131879924",
+      "name": "程博德",
+      "citation": "维基百科 / Wikidata Q131879924",
+      "aliases": [
+        "Cheng Bode"
+      ],
+      "gender": "female"
+    },
+    {
+      "externalId": "Q131888031",
+      "name": "黄文华",
+      "citation": "维基百科 / Wikidata Q131888031",
+      "aliases": [
+        "Huang Wenhua"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1910
+      },
+      "death": {
+        "year": 1977
+      }
+    },
+    {
+      "externalId": "Q131889534",
+      "name": "黄德华",
+      "citation": "维基百科 / Wikidata Q131889534",
+      "aliases": [
+        "Huang Dehua"
+      ],
+      "gender": "female"
+    },
+    {
+      "externalId": "Q15909138",
+      "name": "黄文山",
+      "citation": "维基百科 / Wikidata Q15909138",
+      "aliases": [
+        "黃文山",
+        "Huang Wenshan"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1898
+      },
+      "death": {
+        "year": 1988
+      },
+      "bio": "Chinese scholar and activist",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/%E9%BB%83%E6%96%87%E5%B1%B1.jpg",
+      "photoCredit": "作者：國民大會秘書處編 · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q15910286",
+      "name": "黄一欧",
+      "citation": "维基百科 / Wikidata Q15910286",
+      "aliases": [
+        "黃一歐",
+        "Huang Yiou"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1892
+      },
+      "death": {
+        "year": 1981
+      },
+      "bio": "Chinese politician (1892-1981)"
+    },
+    {
+      "externalId": "Q59524929",
+      "name": "薛君度",
+      "citation": "维基百科 / Wikidata Q59524929",
+      "aliases": [
+        "Jundu Xue"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1922
+      },
+      "death": {
+        "year": 2016
+      },
+      "bio": "Chinese-born political scientist"
+    },
+    {
+      "externalId": "Q706842",
+      "name": "黄兴",
+      "citation": "维基百科 / Wikidata Q706842",
+      "aliases": [
+        "黃興",
+        "Huang Xing"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1874
+      },
+      "death": {
+        "year": 1916
+      },
+      "bio": "中國近代民主革命家（1874—1916）",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Huang%20Xing.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q794895",
+      "name": "黄伟民",
+      "citation": "维基百科 / Wikidata Q794895",
+      "aliases": [
+        "黃偉民",
+        "Huang Weimin"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1937
+      },
+      "death": {
+        "year": 2025
+      },
+      "bio": "politician"
+    },
+    {
+      "externalId": "Q8045171",
+      "name": "徐宗汉",
+      "citation": "维基百科 / Wikidata Q8045171",
+      "aliases": [
+        "徐宗漢",
+        "Xu Zonghan"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1876
+      },
+      "death": {
+        "year": 1944
+      },
+      "bio": "中国女性革命家",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Xu%20Zonghan.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q15910286",
+      "child": "Q794895"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q706842",
+      "child": "Q15910286"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q706842",
+      "child": "Q104782874"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q706842",
+      "child": "Q131877782"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q706842",
+      "child": "Q131879667"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q706842",
+      "child": "Q131888031"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q706842",
+      "child": "Q131889534"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q131873368",
+      "child": "Q15910286"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q131873368",
+      "child": "Q104782874"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q8045171",
+      "child": "Q131877782"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q8045171",
+      "child": "Q131879667"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q131873368",
+      "child": "Q131888031"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q131873368",
+      "child": "Q131889534"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q706842",
+      "b": "Q8045171"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q131873368",
+      "b": "Q706842"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q131888031",
+      "b": "Q15909138"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q131889534",
+      "b": "Q59524929"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q131877782",
+      "b": "Q131878016"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q131879667",
+      "b": "Q131879924"
+    }
+  ]
+}

@@ -1,0 +1,221 @@
+{
+  "key": "wikidata:huangzongxi",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q11176240",
+      "name": "黄尊素",
+      "citation": "维基百科 / Wikidata Q11176240",
+      "aliases": [
+        "黃尊素",
+        "Huang Zunsu"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1584
+      },
+      "death": {
+        "year": 1626
+      },
+      "bio": "Ming dynasty politician, 1584-1626",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Huang%20Zunsu%28%E9%BB%83%E5%B0%8A%E7%B4%A0%29.jpg",
+      "photoCredit": "作者：1928修《浙江余姚黄氏宗谱》照旧图临摹 · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q11177321",
+      "name": "黄宗会",
+      "citation": "维基百科 / Wikidata Q11177321",
+      "aliases": [
+        "Huang Zonghui"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1618
+      },
+      "death": {
+        "year": 1663
+      },
+      "bio": "Qing dynasty person CBDB = 30715"
+    },
+    {
+      "externalId": "Q11178061",
+      "name": "黄百家",
+      "citation": "维基百科 / Wikidata Q11178061",
+      "aliases": [
+        "Huang Baijia"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1643
+      },
+      "bio": "明末清初術數家、曆法學家、經學家、武術家"
+    },
+    {
+      "externalId": "Q31754",
+      "name": "黄宗羲",
+      "citation": "维基百科 / Wikidata Q31754",
+      "aliases": [
+        "Huang Zongxi"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1610
+      },
+      "death": {
+        "year": 1695
+      },
+      "bio": "明末清初學者、思想家 (1610-1695)",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Huang%20Zong-Xi.jpg",
+      "photoCredit": "作者：Drag the cane to sing the immortal (曳杖行歌意欲仙) · CC BY-SA 3.0 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q45418411",
+      "name": "黄曰中",
+      "citation": "维基百科 / Wikidata Q45418411",
+      "aliases": [
+        "黃曰中",
+        "Huang Yuezhong"
+      ],
+      "gender": "male",
+      "bio": "Ming dynasty person CBDB = 30709"
+    },
+    {
+      "externalId": "Q45418413",
+      "name": "黄大绶",
+      "citation": "维基百科 / Wikidata Q45418413",
+      "aliases": [
+        "黃大綬",
+        "Huang Dashou"
+      ],
+      "gender": "male",
+      "bio": "Ming dynasty person CBDB = 30710"
+    },
+    {
+      "externalId": "Q45418414",
+      "name": "姚氏",
+      "citation": "维基百科 / Wikidata Q45418414",
+      "aliases": [
+        "Yao Shi"
+      ],
+      "gender": "female",
+      "bio": "黃尊素妻"
+    },
+    {
+      "externalId": "Q45418416",
+      "name": "姚克俊",
+      "citation": "维基百科 / Wikidata Q45418416",
+      "aliases": [
+        "Yao Kejun"
+      ],
+      "gender": "male",
+      "bio": "Ming dynasty person CBDB = 30712"
+    },
+    {
+      "externalId": "Q45418419",
+      "name": "黄宗炎",
+      "citation": "维基百科 / Wikidata Q45418419",
+      "aliases": [
+        "黃宗炎",
+        "Huang Zongyan"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1616
+      },
+      "death": {
+        "year": 1686
+      },
+      "bio": "Qing dynasty person CBDB = 30714"
+    },
+    {
+      "externalId": "Q45418424",
+      "name": "黄宗辕",
+      "citation": "维基百科 / Wikidata Q45418424",
+      "aliases": [
+        "黃宗轅",
+        "Huang Zongyuan"
+      ],
+      "gender": "male",
+      "bio": "Qing dynasty person CBDB = 30717"
+    },
+    {
+      "externalId": "Q45418425",
+      "name": "黄宗彝",
+      "citation": "维基百科 / Wikidata Q45418425",
+      "aliases": [
+        "黃宗彝",
+        "Huang Zongyi"
+      ],
+      "gender": "male",
+      "bio": "Qing dynasty person CBDB = 30718"
+    },
+    {
+      "externalId": "Q45538222",
+      "name": "叶宝林",
+      "citation": "维基百科 / Wikidata Q45538222",
+      "aliases": [
+        "葉寶林",
+        "Ye Baolin"
+      ],
+      "gender": "female",
+      "bio": "Qing dynasty person CBDB = 56616"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q45418414",
+      "child": "Q31754"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q11176240",
+      "child": "Q31754"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45418411",
+      "child": "Q11176240"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q11176240",
+      "child": "Q11177321"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q31754",
+      "child": "Q11178061"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45418413",
+      "child": "Q45418411"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45418416",
+      "child": "Q45418414"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q11176240",
+      "child": "Q45418419"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q11176240",
+      "child": "Q45418424"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q11176240",
+      "child": "Q45418425"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q31754",
+      "b": "Q45538222"
+    }
+  ]
+}

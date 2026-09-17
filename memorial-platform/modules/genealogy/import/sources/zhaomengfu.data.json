@@ -1,0 +1,717 @@
+{
+  "key": "wikidata:zhaomengfu",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q134082113",
+      "name": "赵氏",
+      "citation": "维基百科 / Wikidata Q134082113",
+      "aliases": [
+        "趙氏",
+        "Zhao Shi"
+      ],
+      "gender": "female"
+    },
+    {
+      "externalId": "Q16603294",
+      "name": "秀安僖王夫人",
+      "citation": "维基百科 / Wikidata Q16603294",
+      "aliases": [
+        "Lady, of the Zhang clan"
+      ],
+      "gender": "female",
+      "death": {
+        "year": 1167
+      }
+    },
+    {
+      "externalId": "Q197461",
+      "name": "赵孟𫖯",
+      "citation": "维基百科 / Wikidata Q197461",
+      "aliases": [
+        "趙孟頫"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1254
+      },
+      "death": {
+        "year": 1322
+      },
+      "bio": "中国宋末元初著名书画家",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/%E8%B6%99%E9%AD%8F%E5%85%AC%E5%B0%8F%E5%83%8F.jpg",
+      "photoCredit": "作者：楊叔謙繪 (Yang Shuqian) · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q22829149",
+      "name": "赵师垂",
+      "citation": "维基百科 / Wikidata Q22829149",
+      "aliases": [
+        "趙師垂",
+        "Zhao Shichui"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 17679"
+    },
+    {
+      "externalId": "Q22829150",
+      "name": "赵希戭",
+      "citation": "维基百科 / Wikidata Q22829150",
+      "aliases": [
+        "趙希戭",
+        "Zhao Xiyan"
+      ],
+      "gender": "male"
+    },
+    {
+      "externalId": "Q22829152",
+      "name": "赵与訔",
+      "citation": "维基百科 / Wikidata Q22829152",
+      "aliases": [
+        "趙與訔",
+        "Zhao Yuyin"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1213
+      },
+      "death": {
+        "year": 1265
+      },
+      "bio": "Song dynasty person (CBDB = 17688)"
+    },
+    {
+      "externalId": "Q270130",
+      "name": "管道升",
+      "citation": "维基百科 / Wikidata Q270130",
+      "aliases": [
+        "管道昇",
+        "Guan Daosheng"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1262
+      },
+      "death": {
+        "year": 1319
+      },
+      "bio": "中國畫家"
+    },
+    {
+      "externalId": "Q30947672",
+      "name": "赵师揆",
+      "citation": "维基百科 / Wikidata Q30947672",
+      "aliases": [
+        "趙師揆",
+        "Zhao Shikui"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 1214
+      },
+      "bio": "Song dynasty person CBDB = 17678"
+    },
+    {
+      "externalId": "Q30947716",
+      "name": "赵师禹",
+      "citation": "维基百科 / Wikidata Q30947716",
+      "aliases": [
+        "趙師禹",
+        "Zhao Shiyu"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 1223
+      },
+      "bio": "Song dynasty person CBDB = 17681"
+    },
+    {
+      "externalId": "Q30949159",
+      "name": "赵师弥",
+      "citation": "维基百科 / Wikidata Q30949159",
+      "aliases": [
+        "趙師彌",
+        "Zhao Shimi"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 1258
+      },
+      "bio": "Song dynasty person (CBDB = 17683)"
+    },
+    {
+      "externalId": "Q30950895",
+      "name": "李贤妃",
+      "citation": "维基百科 / Wikidata Q30950895",
+      "aliases": [
+        "李賢妃",
+        "Li Shi"
+      ],
+      "gender": "female",
+      "death": {
+        "year": 1183
+      },
+      "bio": "Song dynasty person (CBDB = 41729)"
+    },
+    {
+      "externalId": "Q4391055",
+      "name": "赵伯圭",
+      "citation": "维基百科 / Wikidata Q4391055",
+      "aliases": [
+        "Zhao Bogui"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1150
+      },
+      "death": {
+        "year": 1196
+      },
+      "bio": "Song dynasty person (CBDB = 17676)"
+    },
+    {
+      "externalId": "Q45364572",
+      "name": "赵淑端",
+      "citation": "维基百科 / Wikidata Q45364572",
+      "aliases": [
+        "趙淑端",
+        "Zhao Shuduan"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1318
+      },
+      "death": {
+        "year": 1373
+      },
+      "bio": "Yuan dynasty person CBDB = 5283"
+    },
+    {
+      "externalId": "Q45386873",
+      "name": "赵师夔",
+      "citation": "维基百科 / Wikidata Q45386873",
+      "aliases": [
+        "趙師夔",
+        "Zhao Shikui"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1136
+      },
+      "death": {
+        "year": 1196
+      },
+      "bio": "Song dynasty person (CBDB = 17677)"
+    },
+    {
+      "externalId": "Q45386884",
+      "name": "赵师卨",
+      "citation": "维基百科 / Wikidata Q45386884",
+      "aliases": [
+        "趙師卨",
+        "Zhao Shixie"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 1197
+      },
+      "bio": "Song dynasty person CBDB = 17680"
+    },
+    {
+      "externalId": "Q45386888",
+      "name": "赵师嵒",
+      "citation": "维基百科 / Wikidata Q45386888",
+      "aliases": [
+        "趙師嵒",
+        "Zhao Shiyan"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 17682"
+    },
+    {
+      "externalId": "Q45386893",
+      "name": "赵师贡",
+      "citation": "维基百科 / Wikidata Q45386893",
+      "aliases": [
+        "趙師貢",
+        "Zhao Shigong"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 17684"
+    },
+    {
+      "externalId": "Q45386900",
+      "name": "赵希永",
+      "citation": "维基百科 / Wikidata Q45386900",
+      "aliases": [
+        "趙希永",
+        "Zhao Xiyong"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person (CBDB = 17686)"
+    },
+    {
+      "externalId": "Q45386907",
+      "name": "赵与譍",
+      "citation": "维基百科 / Wikidata Q45386907",
+      "aliases": [
+        "趙與譍",
+        "Zhao Yuying"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 17687"
+    },
+    {
+      "externalId": "Q45386912",
+      "name": "赵孟頖",
+      "citation": "维基百科 / Wikidata Q45386912",
+      "aliases": [
+        "趙孟頖",
+        "Zhao Mengpan"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1251
+      },
+      "death": {
+        "year": 1305
+      },
+      "bio": "Yuan dynasty person CBDB = 17689"
+    },
+    {
+      "externalId": "Q45386916",
+      "name": "赵孟吁",
+      "citation": "维基百科 / Wikidata Q45386916",
+      "aliases": [
+        "趙孟籲",
+        "Zhao Mengyue"
+      ],
+      "gender": "male",
+      "bio": "Yuan dynasty person CBDB = 17691"
+    },
+    {
+      "externalId": "Q45386920",
+      "name": "赵奕",
+      "citation": "维基百科 / Wikidata Q45386920",
+      "aliases": [
+        "趙奕",
+        "Zhao Yi"
+      ],
+      "gender": "male",
+      "bio": "Yuan dynasty person CBDB = 17692"
+    },
+    {
+      "externalId": "Q45386927",
+      "name": "赵麟",
+      "citation": "维基百科 / Wikidata Q45386927",
+      "aliases": [
+        "趙麟",
+        "Zhao Lin"
+      ],
+      "gender": "male",
+      "bio": "Ming dynasty person CBDB = 17694"
+    },
+    {
+      "externalId": "Q45386931",
+      "name": "崔复",
+      "citation": "维基百科 / Wikidata Q45386931",
+      "aliases": [
+        "崔復",
+        "Cui Fu"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1318
+      },
+      "death": {
+        "year": 1356
+      },
+      "bio": "Yuan dynasty person CBDB = 17695 (1318–1356)"
+    },
+    {
+      "externalId": "Q45426072",
+      "name": "赵师稷",
+      "citation": "维基百科 / Wikidata Q45426072",
+      "aliases": [
+        "趙師稷",
+        "Zhao Shiji"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 35573"
+    },
+    {
+      "externalId": "Q45426113",
+      "name": "赵师皋",
+      "citation": "维基百科 / Wikidata Q45426113",
+      "aliases": [
+        "趙師皋",
+        "Zhao Shigao"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB=35574"
+    },
+    {
+      "externalId": "Q45598322",
+      "name": "赵凤",
+      "citation": "维基百科 / Wikidata Q45598322",
+      "aliases": [
+        "趙鳳",
+        "Zhao Feng"
+      ],
+      "gender": "male",
+      "bio": "Yuan dynasty person CBDB = 110447"
+    },
+    {
+      "externalId": "Q45706807",
+      "name": "赵凤",
+      "citation": "维基百科 / Wikidata Q45706807",
+      "aliases": [
+        "趙鳳",
+        "Zhao Feng"
+      ],
+      "gender": "male",
+      "bio": "Yuan dynasty person CBDB = 118247"
+    },
+    {
+      "externalId": "Q5374463",
+      "name": "成恭皇后",
+      "citation": "维基百科 / Wikidata Q5374463",
+      "aliases": [
+        "Empress Chenggong"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1136
+      },
+      "death": {
+        "year": 1167
+      },
+      "bio": "South Song dynasty Chinese empress"
+    },
+    {
+      "externalId": "Q5374464",
+      "name": "成肃皇后",
+      "citation": "维基百科 / Wikidata Q5374464",
+      "aliases": [
+        "成肅皇后",
+        "Empress Chengsui"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1135
+      },
+      "death": {
+        "year": 1207
+      },
+      "bio": "Southern Song dynasty Chinese empress",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/B%20Song%20Dynasty%20Empress%20of%20Xiaozong.JPG",
+      "photoCredit": "作者：AnonymousUnknown author · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q65798590",
+      "name": "夏氏",
+      "citation": "维基百科 / Wikidata Q65798590",
+      "aliases": [
+        "Xia Shi"
+      ],
+      "gender": "female",
+      "death": {
+        "year": 1167
+      },
+      "bio": "趙眘妻"
+    },
+    {
+      "externalId": "Q65799092",
+      "name": "宋氏",
+      "citation": "维基百科 / Wikidata Q65799092",
+      "aliases": [
+        "Song Shi"
+      ],
+      "gender": "female",
+      "bio": "趙伯圭妻"
+    },
+    {
+      "externalId": "Q700903",
+      "name": "王蒙",
+      "citation": "维基百科 / Wikidata Q700903",
+      "aliases": [
+        "Wang Meng"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1308
+      },
+      "death": {
+        "year": 1385
+      },
+      "bio": "元末明初画家 (1308-1385)"
+    },
+    {
+      "externalId": "Q7218748",
+      "name": "赵子偁",
+      "citation": "维基百科 / Wikidata Q7218748",
+      "aliases": [
+        "趙子偁",
+        "Zhao Zicheng"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 1143
+      },
+      "bio": "Prince Xi of Xiu'an; Song dynasty"
+    },
+    {
+      "externalId": "Q7492",
+      "name": "宋孝宗",
+      "citation": "维基百科 / Wikidata Q7492",
+      "aliases": [
+        "Emperor Xiaozong of Song"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1127
+      },
+      "death": {
+        "year": 1194
+      },
+      "bio": "宋朝第11位皇帝、宋太祖7世孙",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/%E5%AE%8B%E5%AD%9D%E5%AE%97%E7%9A%87%E5%B8%9D.jpg",
+      "photoCredit": "作者：AnonymousUnknown author · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q773258",
+      "name": "赵雍",
+      "citation": "维基百科 / Wikidata Q773258",
+      "aliases": [
+        "趙雍",
+        "Zhao Yong"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1289
+      },
+      "death": {
+        "year": 1360
+      },
+      "bio": "元代画家"
+    },
+    {
+      "externalId": "Q8258183",
+      "name": "成穆皇后",
+      "citation": "维基百科 / Wikidata Q8258183",
+      "aliases": [
+        "Chengmu Impress"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1125
+      },
+      "death": {
+        "year": 1156
+      },
+      "bio": "Southern Song Dynasty Chinese empress"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q16603294",
+      "child": "Q7492"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q134082113",
+      "child": "Q700903"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q270130",
+      "child": "Q773258"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q16603294",
+      "child": "Q4391055"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q7218748",
+      "child": "Q7492"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q22829152",
+      "child": "Q197461"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q197461",
+      "child": "Q773258"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q7218748",
+      "child": "Q4391055"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q4391055",
+      "child": "Q22829149"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q22829149",
+      "child": "Q22829150"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q22829150",
+      "child": "Q22829152"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45386900",
+      "child": "Q22829152"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q4391055",
+      "child": "Q30947672"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q4391055",
+      "child": "Q30947716"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q4391055",
+      "child": "Q30949159"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q773258",
+      "child": "Q45364572"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q4391055",
+      "child": "Q45386873"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q4391055",
+      "child": "Q45386884"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q4391055",
+      "child": "Q45386888"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q4391055",
+      "child": "Q45386893"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q22829149",
+      "child": "Q45386900"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45386900",
+      "child": "Q45386907"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q22829152",
+      "child": "Q45386912"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q22829152",
+      "child": "Q45386916"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q197461",
+      "child": "Q45386920"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q773258",
+      "child": "Q45386927"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q4391055",
+      "child": "Q45426072"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q4391055",
+      "child": "Q45426113"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q773258",
+      "child": "Q45598322"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q773258",
+      "child": "Q45706807"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q197461",
+      "child": "Q134082113"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q5374463",
+      "b": "Q7492"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q5374464",
+      "b": "Q7492"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q7492",
+      "b": "Q8258183"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q30950895",
+      "b": "Q7492"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q65798590",
+      "b": "Q7492"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q197461",
+      "b": "Q270130"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q4391055",
+      "b": "Q65799092"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q16603294",
+      "b": "Q7218748"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45364572",
+      "b": "Q45386931"
+    }
+  ]
+}

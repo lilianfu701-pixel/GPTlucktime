@@ -1,0 +1,876 @@
+{
+  "key": "wikidata:yanzhenqing",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q10566119",
+      "name": "颜元孙",
+      "citation": "维基百科 / Wikidata Q10566119",
+      "aliases": [
+        "顏元孫",
+        "Yuansun Yan"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 714
+      },
+      "bio": "Tang dynasty person CBDB = 32433"
+    },
+    {
+      "externalId": "Q10566122",
+      "name": "颜思鲁",
+      "citation": "维基百科 / Wikidata Q10566122",
+      "aliases": [
+        "顏思魯",
+        "Yan Silu"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 618
+      },
+      "bio": "Sui dynasty person CBDB = 32427"
+    },
+    {
+      "externalId": "Q10566202",
+      "name": "颜之仪",
+      "citation": "维基百科 / Wikidata Q10566202",
+      "aliases": [
+        "Yan Zhiyi"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 523
+      },
+      "death": {
+        "year": 591
+      },
+      "bio": "Northern Zhou Dynasty minister and Sui Dynasty governor (523–591)"
+    },
+    {
+      "externalId": "Q11665096",
+      "name": "颜相时",
+      "citation": "维基百科 / Wikidata Q11665096",
+      "aliases": [
+        "顏相時",
+        "Yan Xiangshi"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 645
+      },
+      "bio": "Tang dynasty person CBDB = 32431"
+    },
+    {
+      "externalId": "Q1271901",
+      "name": "颜师古",
+      "citation": "维基百科 / Wikidata Q1271901",
+      "aliases": [
+        "顏師古",
+        "Yan Shigu"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 581
+      },
+      "death": {
+        "year": 645
+      },
+      "bio": "Chinese linguist"
+    },
+    {
+      "externalId": "Q1285773",
+      "name": "颜之推",
+      "citation": "维基百科 / Wikidata Q1285773",
+      "aliases": [
+        "Yan Zhitui"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 531
+      },
+      "death": {
+        "year": 591
+      },
+      "bio": "Chinese artist-scholar (531–591)"
+    },
+    {
+      "externalId": "Q133448022",
+      "name": "殷氏",
+      "citation": "维基百科 / Wikidata Q133448022",
+      "gender": "female"
+    },
+    {
+      "externalId": "Q133448049",
+      "name": "殷懿姬",
+      "citation": "维基百科 / Wikidata Q133448049",
+      "gender": "female"
+    },
+    {
+      "externalId": "Q133448053",
+      "name": "殷知乐",
+      "citation": "维基百科 / Wikidata Q133448053",
+      "aliases": [
+        "殷知樂"
+      ],
+      "gender": "male"
+    },
+    {
+      "externalId": "Q133448059",
+      "name": "殷氏",
+      "citation": "维基百科 / Wikidata Q133448059",
+      "gender": "female"
+    },
+    {
+      "externalId": "Q133448066",
+      "name": "殷令名",
+      "citation": "维基百科 / Wikidata Q133448066",
+      "aliases": [
+        "Yin Lingming"
+      ],
+      "gender": "male"
+    },
+    {
+      "externalId": "Q133448081",
+      "name": "殷氏",
+      "citation": "维基百科 / Wikidata Q133448081",
+      "gender": "female"
+    },
+    {
+      "externalId": "Q133582702",
+      "name": "颜氏",
+      "citation": "维基百科 / Wikidata Q133582702",
+      "aliases": [
+        "顏氏"
+      ],
+      "gender": "female"
+    },
+    {
+      "externalId": "Q15892829",
+      "name": "颜勤礼",
+      "citation": "维基百科 / Wikidata Q15892829",
+      "aliases": [
+        "Yan Qinli"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 653
+      },
+      "bio": "Tang dynasty person CBDB = 191917"
+    },
+    {
+      "externalId": "Q15897936",
+      "name": "颜游秦",
+      "citation": "维基百科 / Wikidata Q15897936",
+      "aliases": [
+        "Yan Youqin"
+      ],
+      "gender": "male",
+      "bio": "Sui dynasty person CBDB = 95030"
+    },
+    {
+      "externalId": "Q18909081",
+      "name": "颜惟贞",
+      "citation": "维基百科 / Wikidata Q18909081",
+      "aliases": [
+        "顏惟貞",
+        "Yan Weizhen"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 669
+      },
+      "death": {
+        "year": 712
+      },
+      "bio": "Tang dynasty person CBDB = 191913"
+    },
+    {
+      "externalId": "Q22814233",
+      "name": "颜昭甫",
+      "citation": "维基百科 / Wikidata Q22814233",
+      "aliases": [
+        "Yan Zhaofu"
+      ],
+      "gender": "male",
+      "bio": "Tang dynasty person CBDB = 32435"
+    },
+    {
+      "externalId": "Q45420103",
+      "name": "殷英童",
+      "citation": "维基百科 / Wikidata Q45420103",
+      "aliases": [
+        "Yin Yingtong"
+      ],
+      "gender": "male",
+      "bio": "Sui dynasty person CBDB = 31660"
+    },
+    {
+      "externalId": "Q45420105",
+      "name": "殷闻礼",
+      "citation": "维基百科 / Wikidata Q45420105",
+      "aliases": [
+        "殷聞禮",
+        "Yin Wenli"
+      ],
+      "gender": "male",
+      "bio": "Tang dynasty person CBDB=31661"
+    },
+    {
+      "externalId": "Q45420107",
+      "name": "殷践猷",
+      "citation": "维基百科 / Wikidata Q45420107",
+      "aliases": [
+        "殷踐猷",
+        "Yin Jianyou"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 674
+      },
+      "death": {
+        "year": 721
+      },
+      "bio": "Tang dynasty person CBDB = 31662"
+    },
+    {
+      "externalId": "Q45420108",
+      "name": "殷令言",
+      "citation": "维基百科 / Wikidata Q45420108",
+      "aliases": [
+        "Yin Lingyan"
+      ],
+      "gender": "male",
+      "bio": "Tang dynasty person CBDB=31663"
+    },
+    {
+      "externalId": "Q45420110",
+      "name": "殷子敬",
+      "citation": "维基百科 / Wikidata Q45420110",
+      "aliases": [
+        "Yin Zijing"
+      ],
+      "gender": "male",
+      "bio": "Tang dynasty person CBDB = 31664"
+    },
+    {
+      "externalId": "Q45420111",
+      "name": "殷仲容",
+      "citation": "维基百科 / Wikidata Q45420111",
+      "aliases": [
+        "Yin Zhongrong"
+      ],
+      "gender": "male",
+      "bio": "Tang dynasty person CBDB = 31665"
+    },
+    {
+      "externalId": "Q45420113",
+      "name": "殷季友",
+      "citation": "维基百科 / Wikidata Q45420113",
+      "aliases": [
+        "Yin Jiyou"
+      ],
+      "gender": "male",
+      "bio": "Tang dynasty person CBDB = 31666"
+    },
+    {
+      "externalId": "Q45420130",
+      "name": "萧氏",
+      "citation": "维基百科 / Wikidata Q45420130",
+      "aliases": [
+        "蕭氏",
+        "Xiao Shi"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 678
+      },
+      "death": {
+        "year": 758
+      },
+      "bio": "殷踐猷妻"
+    },
+    {
+      "externalId": "Q45421544",
+      "name": "颜愍楚",
+      "citation": "维基百科 / Wikidata Q45421544",
+      "aliases": [
+        "顏愍楚",
+        "Yan Minchu"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 558
+      },
+      "death": {
+        "year": 619
+      },
+      "bio": "Tang dynasty person CBDB = 32428"
+    },
+    {
+      "externalId": "Q45421546",
+      "name": "颜游素",
+      "citation": "维基百科 / Wikidata Q45421546",
+      "aliases": [
+        "顏遊素",
+        "Yan Yousu"
+      ],
+      "gender": "male",
+      "bio": "Tang dynasty person CBDB = 32429"
+    },
+    {
+      "externalId": "Q45421569",
+      "name": "韦氏",
+      "citation": "维基百科 / Wikidata Q45421569",
+      "aliases": [
+        "韋氏",
+        "Wei Shi"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 709
+      },
+      "bio": "Tang dynasty person CBDB = 32440"
+    },
+    {
+      "externalId": "Q45421584",
+      "name": "殷履直",
+      "citation": "维基百科 / Wikidata Q45421584",
+      "aliases": [
+        "Yin Luzhi"
+      ],
+      "gender": "male",
+      "bio": "Tang dynasty person CBDB = 32449"
+    },
+    {
+      "externalId": "Q45421586",
+      "name": "颜氏",
+      "citation": "维基百科 / Wikidata Q45421586",
+      "aliases": [
+        "顏氏",
+        "Yan Shi"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 654
+      },
+      "death": {
+        "year": 737
+      },
+      "bio": "殷履直妻"
+    },
+    {
+      "externalId": "Q45421609",
+      "name": "颜阙疑",
+      "citation": "维基百科 / Wikidata Q45421609",
+      "aliases": [
+        "顏闕疑",
+        "Yan Queyi"
+      ],
+      "gender": "male",
+      "bio": "Tang dynasty person CBDB = 32463"
+    },
+    {
+      "externalId": "Q45421610",
+      "name": "颜允南",
+      "citation": "维基百科 / Wikidata Q45421610",
+      "aliases": [
+        "顏允南",
+        "Yan Yunnan"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 694
+      },
+      "death": {
+        "year": 762
+      },
+      "bio": "Tang dynasty person CBDB = 32464"
+    },
+    {
+      "externalId": "Q45421611",
+      "name": "颜乔卿",
+      "citation": "维基百科 / Wikidata Q45421611",
+      "aliases": [
+        "顏喬卿",
+        "Yan Qiaoqing"
+      ],
+      "gender": "male",
+      "bio": "Tang dynasty person CBDB=32465"
+    },
+    {
+      "externalId": "Q45421613",
+      "name": "颜真长",
+      "citation": "维基百科 / Wikidata Q45421613",
+      "aliases": [
+        "顏真長",
+        "Yan Zhenchang"
+      ],
+      "gender": "male",
+      "bio": "Tang dynasty person CBDB = 32466"
+    },
+    {
+      "externalId": "Q45421616",
+      "name": "颜幼舆",
+      "citation": "维基百科 / Wikidata Q45421616",
+      "aliases": [
+        "顏幼輿",
+        "Yan Youyu"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 703
+      },
+      "death": {
+        "year": 750
+      },
+      "bio": "Tang dynasty person CBDB = 32467"
+    },
+    {
+      "externalId": "Q45421617",
+      "name": "颜允藏",
+      "citation": "维基百科 / Wikidata Q45421617",
+      "aliases": [
+        "顏允藏",
+        "Yan Yunzang"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 707
+      },
+      "death": {
+        "year": 765
+      },
+      "bio": "Tang dynasty person CBDB = 32468"
+    },
+    {
+      "externalId": "Q45421676",
+      "name": "殷德",
+      "citation": "维基百科 / Wikidata Q45421676",
+      "aliases": [
+        "Yin De"
+      ],
+      "gender": "male",
+      "bio": "Tang dynasty person CBDB = 32506"
+    },
+    {
+      "externalId": "Q45452351",
+      "name": "颜颀",
+      "citation": "维基百科 / Wikidata Q45452351",
+      "aliases": [
+        "顏頎",
+        "Yan Qi"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 631
+      },
+      "death": {
+        "year": 677
+      },
+      "bio": "Tang dynasty person CBDB = 145261"
+    },
+    {
+      "externalId": "Q45489411",
+      "name": "于汝锡",
+      "citation": "维基百科 / Wikidata Q45489411",
+      "aliases": [
+        "于汝錫",
+        "Yu Ruxi"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 791
+      },
+      "death": {
+        "year": 847
+      },
+      "bio": "Tang dynasty person CBDB = 146007"
+    },
+    {
+      "externalId": "Q45664172",
+      "name": "颜𫖳",
+      "citation": "维基百科 / Wikidata Q45664172",
+      "aliases": [
+        "顏頵",
+        "Yan Yun"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 804
+      },
+      "bio": "Tang dynasty person CBDB = 191674"
+    },
+    {
+      "externalId": "Q45664228",
+      "name": "颜硕",
+      "citation": "维基百科 / Wikidata Q45664228",
+      "aliases": [
+        "顏碩",
+        "Yan Shuo"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 805
+      },
+      "bio": "Tang dynasty person CBDB = 191675"
+    },
+    {
+      "externalId": "Q45675266",
+      "name": "颜允臧",
+      "citation": "维基百科 / Wikidata Q45675266",
+      "aliases": [
+        "顏允臧",
+        "Yan Yunzang"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 753
+      },
+      "bio": "Tang dynasty person CBDB = 191914"
+    },
+    {
+      "externalId": "Q45676192",
+      "name": "颜淙",
+      "citation": "维基百科 / Wikidata Q45676192",
+      "aliases": [
+        "顏淙",
+        "Yan Cong"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 842
+      },
+      "bio": "Tang dynasty person CBDB = 191943"
+    },
+    {
+      "externalId": "Q45676230",
+      "name": "颜知权",
+      "citation": "维基百科 / Wikidata Q45676230",
+      "aliases": [
+        "顏知權",
+        "Yan Zhiquan"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 842
+      },
+      "bio": "Tang dynasty person CBDB = 191944"
+    },
+    {
+      "externalId": "Q45676267",
+      "name": "颜逷",
+      "citation": "维基百科 / Wikidata Q45676267",
+      "aliases": [
+        "顏逷",
+        "Yan Ti"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 842
+      },
+      "bio": "Tang dynasty person CBDB = 191945"
+    },
+    {
+      "externalId": "Q65800032",
+      "name": "殷氏",
+      "citation": "维基百科 / Wikidata Q65800032",
+      "aliases": [
+        "Yin Shi"
+      ],
+      "gender": "female",
+      "bio": "顏真卿母"
+    },
+    {
+      "externalId": "Q65803706",
+      "name": "颜氏",
+      "citation": "维基百科 / Wikidata Q65803706",
+      "aliases": [
+        "顏氏",
+        "Yan Shi"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 799
+      },
+      "death": {
+        "year": 839
+      },
+      "bio": "顏碩女"
+    },
+    {
+      "externalId": "Q758566",
+      "name": "颜真卿",
+      "citation": "维基百科 / Wikidata Q758566",
+      "aliases": [
+        "Yan Zhenqing"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 709
+      },
+      "death": {
+        "year": 785
+      },
+      "bio": "唐代政治家、書法家",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/%E5%94%90%E5%90%8D%E8%87%A3%E5%83%8F-13-%E9%A1%94%E9%AD%AF%E5%85%AC.png",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q133448022",
+      "child": "Q758566"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q133448081",
+      "child": "Q15892829"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q133448059",
+      "child": "Q18909081"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q133448049",
+      "child": "Q22814233"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q133448022",
+      "child": "Q133582702"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q18909081",
+      "child": "Q758566"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q10566122",
+      "child": "Q1271901"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q22814233",
+      "child": "Q10566119"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q1285773",
+      "child": "Q10566122"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q10566122",
+      "child": "Q11665096"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q10566122",
+      "child": "Q15892829"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q1285773",
+      "child": "Q15897936"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q22814233",
+      "child": "Q18909081"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q15892829",
+      "child": "Q22814233"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45420103",
+      "child": "Q45420105"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45420110",
+      "child": "Q45420107"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45420105",
+      "child": "Q45420108"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45420108",
+      "child": "Q45420110"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45420105",
+      "child": "Q45420111"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45420110",
+      "child": "Q45420113"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q1285773",
+      "child": "Q45421544"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q1285773",
+      "child": "Q45421546"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q22814233",
+      "child": "Q45421586"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q18909081",
+      "child": "Q45421609"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q18909081",
+      "child": "Q45421610"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q18909081",
+      "child": "Q45421611"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q18909081",
+      "child": "Q45421613"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q18909081",
+      "child": "Q45421616"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q18909081",
+      "child": "Q45421617"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45420105",
+      "child": "Q45421676"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q1271901",
+      "child": "Q45452351"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q758566",
+      "child": "Q45664172"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q758566",
+      "child": "Q45664228"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q18909081",
+      "child": "Q45675266"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45664228",
+      "child": "Q45676192"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45664228",
+      "child": "Q45676230"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45664228",
+      "child": "Q45676267"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45664228",
+      "child": "Q65803706"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45420110",
+      "child": "Q133448022"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q133448053",
+      "child": "Q133448049"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45420103",
+      "child": "Q133448053"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q133448066",
+      "child": "Q133448059"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45420105",
+      "child": "Q133448066"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45420103",
+      "child": "Q133448081"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q18909081",
+      "child": "Q133582702"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45421569",
+      "b": "Q758566"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q18909081",
+      "b": "Q65800032"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45420107",
+      "b": "Q45420130"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45420111",
+      "b": "Q45452351"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45421584",
+      "b": "Q45421586"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45489411",
+      "b": "Q65803706"
+    }
+  ]
+}

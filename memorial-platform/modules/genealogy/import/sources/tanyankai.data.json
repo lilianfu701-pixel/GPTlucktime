@@ -1,0 +1,253 @@
+{
+  "key": "wikidata:tanyankai",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q10528502",
+      "name": "谭祥",
+      "citation": "维基百科 / Wikidata Q10528502",
+      "aliases": [
+        "譚祥",
+        "Tan Xiang"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1906
+      },
+      "death": {
+        "year": 1989
+      },
+      "bio": "前任中華民國第二夫人",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/%E8%B0%AD%E7%A5%A5.jpg",
+      "photoCredit": "作者：Robert LeRoy Knudsen · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q10930625",
+      "name": "堪布罗卓丹杰",
+      "citation": "维基百科 / Wikidata Q10930625",
+      "aliases": [
+        "堪布羅卓丹傑",
+        "Khenpo Lodro Tengye"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1978
+      },
+      "living": true,
+      "bio": "藏传佛教僧侣"
+    },
+    {
+      "externalId": "Q11632273",
+      "name": "谭钟麟",
+      "citation": "维基百科 / Wikidata Q11632273",
+      "aliases": [
+        "Tan Zhonglin"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1822
+      },
+      "death": {
+        "year": 1905
+      },
+      "bio": "清朝政治人物",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Tan%20Zhonglin.jpg",
+      "photoCredit": "作者：Qi Baishi · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q45694204",
+      "name": "谭泽闿",
+      "citation": "维基百科 / Wikidata Q45694204",
+      "aliases": [
+        "譚澤闓",
+        "Tan Zekai"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1889
+      },
+      "death": {
+        "year": 1947
+      },
+      "bio": "Chinese calligrapher, 1889-1947"
+    },
+    {
+      "externalId": "Q45694336",
+      "name": "谭恩闿",
+      "citation": "维基百科 / Wikidata Q45694336",
+      "aliases": [
+        "譚恩闓",
+        "Tan Enkai"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1882
+      },
+      "death": {
+        "year": 1910
+      },
+      "bio": "Qing dynasty person CBDB = 91190"
+    },
+    {
+      "externalId": "Q5090840",
+      "name": "陈履安",
+      "citation": "维基百科 / Wikidata Q5090840",
+      "aliases": [
+        "陳履安",
+        "Chen Li-an"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1937
+      },
+      "living": true,
+      "bio": "中華民國第5任監察院院長・陳誠長子",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/%E5%89%8D%E7%9B%A3%E5%AF%9F%E9%99%A2%E9%95%B7%E9%99%B3%E5%B1%A5%E5%AE%89.jpg",
+      "photoCredit": "作者：中華民國總統府/cropped:adece033090 · CC BY 2.0 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q5090979",
+      "name": "陈宇慧",
+      "citation": "维基百科 / Wikidata Q5090979",
+      "aliases": [
+        "陳宇慧",
+        "Chen Yu-hui"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1973
+      },
+      "living": true,
+      "bio": "台湾作家",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/2008TIBE%20Day5%20Hall1%20ActivityCenter2%20Yu-huei%20Jenfeng%20Chen.jpg",
+      "photoCredit": "作者：Rico Shen · CC BY-SA 4.0 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q60992432",
+      "name": "陈宇廷",
+      "citation": "维基百科 / Wikidata Q60992432",
+      "aliases": [
+        "陳宇廷",
+        "Mark Chen"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1964
+      },
+      "living": true,
+      "bio": "台湾作家",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Mark%20Yuting%20Chen.jpg",
+      "photoCredit": "作者：Yuwenyuan · CC BY-SA 4.0 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q6204015",
+      "name": "谭伯羽",
+      "citation": "维基百科 / Wikidata Q6204015",
+      "aliases": [
+        "Beue Tann"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1900
+      },
+      "death": {
+        "year": 1982
+      },
+      "bio": "中国政治人物"
+    },
+    {
+      "externalId": "Q701313",
+      "name": "陈诚",
+      "citation": "维基百科 / Wikidata Q701313",
+      "aliases": [
+        "陳誠",
+        "Chen Cheng"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1897
+      },
+      "death": {
+        "year": 1965
+      },
+      "bio": "中華民國第2、3任副總統，第5、7任行政院院長，陸軍上將 (1897–1965)",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Chen%20Cheng%20in%201940%27s.jpg",
+      "photoCredit": "作者：Chan Cheng · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q708781",
+      "name": "谭延闿",
+      "citation": "维基百科 / Wikidata Q708781",
+      "aliases": [
+        "Tan Yankai"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1880
+      },
+      "death": {
+        "year": 1930
+      },
+      "bio": "中国政治人物",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Tan%20Yankai.jpg",
+      "photoCredit": "作者：Unknown; scanned by 天竺鼠 · 公有领域 · 来源：Wikimedia Commons"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q10528502",
+      "child": "Q5090840"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q11632273",
+      "child": "Q708781"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q701313",
+      "child": "Q5090840"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q5090840",
+      "child": "Q5090979"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q708781",
+      "child": "Q6204015"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q708781",
+      "child": "Q10528502"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q5090840",
+      "child": "Q10930625"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q11632273",
+      "child": "Q45694204"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q11632273",
+      "child": "Q45694336"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q5090840",
+      "child": "Q60992432"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q10528502",
+      "b": "Q701313"
+    }
+  ]
+}

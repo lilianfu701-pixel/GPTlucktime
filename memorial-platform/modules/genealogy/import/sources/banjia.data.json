@@ -1,0 +1,244 @@
+{
+  "key": "wikidata:banjia",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q177081",
+      "name": "班昭",
+      "citation": "维基百科 / Wikidata Q177081",
+      "aliases": [
+        "Ban Zhao"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 45
+      },
+      "death": {
+        "year": 116
+      },
+      "bio": "东汉女性历史学家",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Banzhao.jpg",
+      "photoCredit": "公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q21709742",
+      "name": "班伯",
+      "citation": "维基百科 / Wikidata Q21709742",
+      "aliases": [
+        "Ban Bo"
+      ],
+      "gender": "male"
+    },
+    {
+      "externalId": "Q298064",
+      "name": "班婕妤",
+      "citation": "维基百科 / Wikidata Q298064",
+      "aliases": [
+        "Consort Ban"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 47
+      },
+      "death": {
+        "year": 5
+      },
+      "bio": "Chinese scholar, poet and writer",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Concubine%20Ban%27s%20Rounded%20Fan.jpg",
+      "photoCredit": "作者：Tang Yin · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q366132",
+      "name": "班超",
+      "citation": "维基百科 / Wikidata Q366132",
+      "aliases": [
+        "Ban Chao"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 32
+      },
+      "death": {
+        "year": 102
+      },
+      "bio": "Chinese military general, explorer and diplomat (32–102 CE)",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Statue%20commemorating%20Ban%20Chao%2C%20Kashgar.jpg",
+      "photoCredit": "作者：John Hill · CC BY-SA 3.0 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q439681",
+      "name": "班固",
+      "citation": "维基百科 / Wikidata Q439681",
+      "aliases": [
+        "Ban Gu"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 32
+      },
+      "death": {
+        "year": 92
+      },
+      "bio": "Chinese historian, politician and poet (AD 32–92)",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Ban%20Gu.jpg",
+      "photoCredit": "公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q45459624",
+      "name": "曹世叔",
+      "citation": "维基百科 / Wikidata Q45459624",
+      "aliases": [
+        "Cao  Shishu"
+      ],
+      "gender": "male",
+      "bio": "Eastern Han Dynasty person CBDB = 135110"
+    },
+    {
+      "externalId": "Q48935558",
+      "name": "班况",
+      "citation": "维基百科 / Wikidata Q48935558",
+      "aliases": [
+        "Bān Kuàng"
+      ],
+      "gender": "male"
+    },
+    {
+      "externalId": "Q48935592",
+      "name": "班稚",
+      "citation": "维基百科 / Wikidata Q48935592",
+      "aliases": [
+        "Ban Zhi"
+      ],
+      "gender": "male"
+    },
+    {
+      "externalId": "Q48935603",
+      "name": "班斿",
+      "citation": "维基百科 / Wikidata Q48935603",
+      "aliases": [
+        "Ban You"
+      ],
+      "gender": "male"
+    },
+    {
+      "externalId": "Q537727",
+      "name": "班彪",
+      "citation": "维基百科 / Wikidata Q537727",
+      "aliases": [
+        "Ban Biao"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 3
+      },
+      "death": {
+        "year": 54
+      },
+      "bio": "Chinese historian (3-54)"
+    },
+    {
+      "externalId": "Q66776182",
+      "name": "班孺",
+      "citation": "维基百科 / Wikidata Q66776182",
+      "gender": "male"
+    },
+    {
+      "externalId": "Q66776193",
+      "name": "班长",
+      "citation": "维基百科 / Wikidata Q66776193",
+      "gender": "male"
+    },
+    {
+      "externalId": "Q66776203",
+      "name": "班回",
+      "citation": "维基百科 / Wikidata Q66776203",
+      "gender": "male"
+    },
+    {
+      "externalId": "Q7234",
+      "name": "汉成帝",
+      "citation": "维基百科 / Wikidata Q7234",
+      "aliases": [
+        "漢成帝",
+        "Emperor Chengdy of Han"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 50
+      },
+      "death": {
+        "year": 6
+      },
+      "bio": "中国汉朝（西汉）皇帝",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/%E6%8A%98%E6%AA%BB%E5%9C%96%20%28%E6%BC%A2%E6%88%90%E5%B8%9Dcropped%29.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q537727",
+      "child": "Q177081"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q48935558",
+      "child": "Q298064"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q537727",
+      "child": "Q366132"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q537727",
+      "child": "Q439681"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q48935558",
+      "child": "Q537727"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q48935558",
+      "child": "Q21709742"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q66776203",
+      "child": "Q48935558"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q48935558",
+      "child": "Q48935592"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q48935558",
+      "child": "Q48935603"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q66776182",
+      "child": "Q66776193"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q66776193",
+      "child": "Q66776203"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q298064",
+      "b": "Q7234"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q177081",
+      "b": "Q45459624"
+    }
+  ]
+}

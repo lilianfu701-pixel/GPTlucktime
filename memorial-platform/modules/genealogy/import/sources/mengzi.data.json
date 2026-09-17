@@ -1,0 +1,110 @@
+{
+  "key": "wikidata:mengzi",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q10945059",
+      "name": "孟公期",
+      "citation": "维基百科 / Wikidata Q10945059",
+      "gender": "male"
+    },
+    {
+      "externalId": "Q10945168",
+      "name": "孟敬子",
+      "citation": "维基百科 / Wikidata Q10945168",
+      "gender": "male"
+    },
+    {
+      "externalId": "Q10945190",
+      "name": "孟武伯",
+      "citation": "维基百科 / Wikidata Q10945190",
+      "gender": "male"
+    },
+    {
+      "externalId": "Q188903",
+      "name": "孟子",
+      "citation": "维基百科 / Wikidata Q188903",
+      "aliases": [
+        "Mencius"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 371
+      },
+      "death": {
+        "year": 288
+      },
+      "bio": "鄒國哲學家",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Half%20Portraits%20of%20the%20Great%20Sage%20and%20Virtuous%20Men%20of%20Old%20-%20Meng%20Ke%20%28%E5%AD%9F%E8%BB%BB%29.jpg",
+      "photoCredit": "作者：anonymous · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q22813311",
+      "name": "孟墓",
+      "citation": "维基百科 / Wikidata Q22813311",
+      "gender": "male"
+    },
+    {
+      "externalId": "Q22813312",
+      "name": "孟敏",
+      "citation": "维基百科 / Wikidata Q22813312",
+      "gender": "male"
+    },
+    {
+      "externalId": "Q22813313",
+      "name": "孟激",
+      "citation": "维基百科 / Wikidata Q22813313",
+      "aliases": [
+        "Meng Ji"
+      ],
+      "gender": "male"
+    },
+    {
+      "externalId": "Q8249129",
+      "name": "孟母",
+      "citation": "维基百科 / Wikidata Q8249129",
+      "aliases": [
+        "Meng Mu"
+      ],
+      "gender": "female",
+      "bio": "mother of Meng Ke"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q8249129",
+      "child": "Q188903"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q22813313",
+      "child": "Q188903"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q10945190",
+      "child": "Q10945168"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q10945168",
+      "child": "Q22813311"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q22813311",
+      "child": "Q22813312"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q22813312",
+      "child": "Q22813313"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q22813313",
+      "b": "Q8249129"
+    }
+  ]
+}

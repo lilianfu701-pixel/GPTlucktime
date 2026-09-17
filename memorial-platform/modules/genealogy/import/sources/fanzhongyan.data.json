@@ -1,0 +1,516 @@
+{
+  "key": "wikidata:fanzhongyan",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q15926068",
+      "name": "范纯仁",
+      "citation": "维基百科 / Wikidata Q15926068",
+      "aliases": [
+        "范純仁",
+        "Fan Chunren"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1027
+      },
+      "death": {
+        "year": 1101
+      },
+      "bio": "北宋官员"
+    },
+    {
+      "externalId": "Q15935788",
+      "name": "范梦龄",
+      "citation": "维基百科 / Wikidata Q15935788",
+      "aliases": [
+        "范夢齡",
+        "Fan Mengling"
+      ],
+      "gender": "male",
+      "bio": "Wuyue person CBDB = 16742"
+    },
+    {
+      "externalId": "Q15940412",
+      "name": "范墉",
+      "citation": "维基百科 / Wikidata Q15940412",
+      "aliases": [
+        "Fan Yong"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 990
+      },
+      "bio": "吴越和北宋政治人物"
+    },
+    {
+      "externalId": "Q15955816",
+      "name": "范赞时",
+      "citation": "维基百科 / Wikidata Q15955816",
+      "aliases": [
+        "范贊時",
+        "Fan Zanshi"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person (CBDB = 16743)"
+    },
+    {
+      "externalId": "Q16075961",
+      "name": "范纯佑",
+      "citation": "维基百科 / Wikidata Q16075961",
+      "aliases": [
+        "Fan Chunyou"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1024
+      },
+      "death": {
+        "year": 1063
+      },
+      "bio": "北宋官员"
+    },
+    {
+      "externalId": "Q16075968",
+      "name": "范纯礼",
+      "citation": "维基百科 / Wikidata Q16075968",
+      "aliases": [
+        "范純禮",
+        "Fan Chunli"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1031
+      },
+      "death": {
+        "year": 1106
+      },
+      "bio": "Song dynasty person (CBDB = 560)"
+    },
+    {
+      "externalId": "Q16260679",
+      "name": "范正臣",
+      "citation": "维基百科 / Wikidata Q16260679",
+      "aliases": [
+        "Fan Zhengchen"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 16746"
+    },
+    {
+      "externalId": "Q19653769",
+      "name": "范正国",
+      "citation": "维基百科 / Wikidata Q19653769",
+      "aliases": [
+        "范正國",
+        "Fan Zhengguo"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person (CBDB = 565)"
+    },
+    {
+      "externalId": "Q19653770",
+      "name": "范正平",
+      "citation": "维基百科 / Wikidata Q19653770",
+      "aliases": [
+        "Fan Zhengping"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person (CBDB = 7212)"
+    },
+    {
+      "externalId": "Q19653772",
+      "name": "范正思",
+      "citation": "维基百科 / Wikidata Q19653772",
+      "aliases": [
+        "Fan Zhengsi"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person (CBDB = 16751)"
+    },
+    {
+      "externalId": "Q19653773",
+      "name": "范正民",
+      "citation": "维基百科 / Wikidata Q19653773",
+      "aliases": [
+        "Fan Zhengmin"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person (CBDB = 16750)"
+    },
+    {
+      "externalId": "Q19825224",
+      "name": "范直彦",
+      "citation": "维基百科 / Wikidata Q19825224",
+      "aliases": [
+        "Fan Zhiyan"
+      ],
+      "gender": "male"
+    },
+    {
+      "externalId": "Q19825225",
+      "name": "范直筠",
+      "citation": "维基百科 / Wikidata Q19825225",
+      "aliases": [
+        "Fan Zhiyun"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person (CBDB = 3276)"
+    },
+    {
+      "externalId": "Q19825226",
+      "name": "范纯粹",
+      "citation": "维基百科 / Wikidata Q19825226",
+      "aliases": [
+        "范純粹",
+        "Fan Chuncui"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1046
+      },
+      "death": {
+        "year": 1117
+      },
+      "bio": "Song dynasty person (CBDB = 561)"
+    },
+    {
+      "externalId": "Q381822",
+      "name": "范仲淹",
+      "citation": "维基百科 / Wikidata Q381822",
+      "aliases": [
+        "Fan Zhongyan"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 989
+      },
+      "death": {
+        "year": 1052
+      },
+      "bio": "北宋政治人物",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Fan%20Zhongyan.jpg",
+      "photoCredit": "公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q45355500",
+      "name": "张琬",
+      "citation": "维基百科 / Wikidata Q45355500",
+      "aliases": [
+        "張琬",
+        "Zhang Wan"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person (CBDB = 315)"
+    },
+    {
+      "externalId": "Q45361133",
+      "name": "范郁",
+      "citation": "维基百科 / Wikidata Q45361133",
+      "aliases": [
+        "Fan Yu"
+      ],
+      "gender": "male",
+      "bio": "Tang dynasty person CBDB=3290"
+    },
+    {
+      "externalId": "Q45363791",
+      "name": "王氏",
+      "citation": "维基百科 / Wikidata Q45363791",
+      "aliases": [
+        "Wang Shi"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1031
+      },
+      "death": {
+        "year": 1098
+      },
+      "bio": "范純仁妻"
+    },
+    {
+      "externalId": "Q45365607",
+      "name": "范之柔",
+      "citation": "维基百科 / Wikidata Q45365607",
+      "aliases": [
+        "Fan Zhirou"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB=7213"
+    },
+    {
+      "externalId": "Q45365611",
+      "name": "范仲温",
+      "citation": "维基百科 / Wikidata Q45365611",
+      "aliases": [
+        "范仲溫",
+        "Fan Zhongwen"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 985
+      },
+      "death": {
+        "year": 1050
+      },
+      "bio": "Song dynasty person (CBDB = 7214)"
+    },
+    {
+      "externalId": "Q45383914",
+      "name": "范钧",
+      "citation": "维基百科 / Wikidata Q45383914",
+      "aliases": [
+        "范鈞",
+        "Fan Jun"
+      ],
+      "gender": "male",
+      "bio": "Wuyue person CBDB = 16735"
+    },
+    {
+      "externalId": "Q45383958",
+      "name": "范武",
+      "citation": "维基百科 / Wikidata Q45383958",
+      "aliases": [
+        "Fan Wu"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person (CBDB = 16747)"
+    },
+    {
+      "externalId": "Q45383961",
+      "name": "范光谟",
+      "citation": "维基百科 / Wikidata Q45383961",
+      "aliases": [
+        "范光謨",
+        "Fan Guangmo"
+      ],
+      "gender": "male",
+      "bio": "Wuyue person CBDB = 16748"
+    },
+    {
+      "externalId": "Q45383978",
+      "name": "范正己",
+      "citation": "维基百科 / Wikidata Q45383978",
+      "aliases": [
+        "Fan Zhengji"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB=16752"
+    },
+    {
+      "externalId": "Q45383980",
+      "name": "范正夫",
+      "citation": "维基百科 / Wikidata Q45383980",
+      "aliases": [
+        "Fan Zhengfu"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB=16753"
+    },
+    {
+      "externalId": "Q45383995",
+      "name": "范良遂",
+      "citation": "维基百科 / Wikidata Q45383995",
+      "aliases": [
+        "Fan Liangsui"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 16757"
+    },
+    {
+      "externalId": "Q45384001",
+      "name": "范庆家",
+      "citation": "维基百科 / Wikidata Q45384001",
+      "aliases": [
+        "范慶家",
+        "Fan Qingjia"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 16758"
+    },
+    {
+      "externalId": "Q45384004",
+      "name": "范直方",
+      "citation": "维基百科 / Wikidata Q45384004",
+      "aliases": [
+        "Fan Zhifang"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 16759"
+    },
+    {
+      "externalId": "Q45426590",
+      "name": "范正路",
+      "citation": "维基百科 / Wikidata Q45426590",
+      "aliases": [
+        "Fan Zhenglu"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 34085"
+    },
+    {
+      "externalId": "Q45426617",
+      "name": "范氏",
+      "citation": "维基百科 / Wikidata Q45426617",
+      "aliases": [
+        "Fan Shi"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1042
+      },
+      "death": {
+        "year": 1118
+      },
+      "bio": "張琬妻"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q15940412",
+      "child": "Q381822"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q381822",
+      "child": "Q15926068"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45361133",
+      "child": "Q15935788"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q15955816",
+      "child": "Q15940412"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q15935788",
+      "child": "Q15955816"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q381822",
+      "child": "Q16075961"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q381822",
+      "child": "Q16075968"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q16075961",
+      "child": "Q16260679"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q15926068",
+      "child": "Q19653769"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q15926068",
+      "child": "Q19653770"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q15926068",
+      "child": "Q19653772"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q15926068",
+      "child": "Q19653773"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q19653773",
+      "child": "Q19825224"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q19653769",
+      "child": "Q19825225"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q381822",
+      "child": "Q19825226"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45383958",
+      "child": "Q45365607"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q15940412",
+      "child": "Q45365611"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45361133",
+      "child": "Q45383914"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q16260679",
+      "child": "Q45383958"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q15935788",
+      "child": "Q45383961"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q16075968",
+      "child": "Q45383978"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q19825226",
+      "child": "Q45383980"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45383958",
+      "child": "Q45383995"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45383995",
+      "child": "Q45384001"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q19653772",
+      "child": "Q45384004"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q15926068",
+      "child": "Q45426590"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q381822",
+      "child": "Q45426617"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q15926068",
+      "b": "Q45363791"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45355500",
+      "b": "Q45426617"
+    }
+  ]
+}

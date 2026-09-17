@@ -1,0 +1,210 @@
+{
+  "key": "wikidata:zhangjuzheng",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q11068188",
+      "name": "张嗣修",
+      "citation": "维基百科 / Wikidata Q11068188",
+      "aliases": [
+        "張嗣修",
+        "Zhang Sixiu"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1553
+      },
+      "bio": "politician"
+    },
+    {
+      "externalId": "Q11068467",
+      "name": "张懋修",
+      "citation": "维基百科 / Wikidata Q11068467",
+      "aliases": [
+        "張懋修",
+        "Zhang Maoxiu"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1558
+      },
+      "bio": "Ming dynasty politician (1558-1639)"
+    },
+    {
+      "externalId": "Q197234",
+      "name": "张居正",
+      "citation": "维基百科 / Wikidata Q197234",
+      "aliases": [
+        "張居正",
+        "Zhang Juzheng"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1525
+      },
+      "death": {
+        "year": 1582
+      },
+      "bio": "中國明朝政治家（1525－1582）",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Zhangjuzheng.jpg",
+      "photoCredit": "作者：Original uploader was 蒼穹之丘 at zh.wikipedia · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q45508709",
+      "name": "张镇",
+      "citation": "维基百科 / Wikidata Q45508709",
+      "aliases": [
+        "張鎮",
+        "Zhang Zhen"
+      ],
+      "gender": "male",
+      "bio": "Ming dynasty person CBDB = 215458"
+    },
+    {
+      "externalId": "Q45508836",
+      "name": "张文明",
+      "citation": "维基百科 / Wikidata Q45508836",
+      "aliases": [
+        "張文明",
+        "Zhang Wenming"
+      ],
+      "gender": "male",
+      "bio": "Ming dynasty person CBDB = 215460"
+    },
+    {
+      "externalId": "Q45640350",
+      "name": "张诚",
+      "citation": "维基百科 / Wikidata Q45640350",
+      "aliases": [
+        "張誠",
+        "Zhang Cheng"
+      ],
+      "gender": "male",
+      "bio": "Ming dynasty person CBDB = 308572"
+    },
+    {
+      "externalId": "Q45640852",
+      "name": "张敬修",
+      "citation": "维基百科 / Wikidata Q45640852",
+      "aliases": [
+        "張敬修",
+        "Zhang Jingxiu"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1552
+      },
+      "bio": "Ming dynasty person CBDB = 206487"
+    },
+    {
+      "externalId": "Q65817961",
+      "name": "贺氏",
+      "citation": "维基百科 / Wikidata Q65817961",
+      "aliases": [
+        "賀氏",
+        "He Shi"
+      ],
+      "gender": "female",
+      "bio": "張嗣修妻"
+    },
+    {
+      "externalId": "Q65821483",
+      "name": "高氏",
+      "citation": "维基百科 / Wikidata Q65821483",
+      "aliases": [
+        "Gao Shi"
+      ],
+      "gender": "female",
+      "bio": "張懋修妻"
+    },
+    {
+      "externalId": "Q65821654",
+      "name": "高氏",
+      "citation": "维基百科 / Wikidata Q65821654",
+      "aliases": [
+        "Gao Shi"
+      ],
+      "gender": "female",
+      "bio": "張敬修妻"
+    },
+    {
+      "externalId": "Q65833006",
+      "name": "赵氏",
+      "citation": "维基百科 / Wikidata Q65833006",
+      "aliases": [
+        "趙氏",
+        "Zhao Shi"
+      ],
+      "gender": "female",
+      "bio": "張居正母"
+    },
+    {
+      "externalId": "Q65833010",
+      "name": "顾氏",
+      "citation": "维基百科 / Wikidata Q65833010",
+      "aliases": [
+        "顧氏",
+        "Gu Shi"
+      ],
+      "gender": "female",
+      "bio": "張居正妻"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q65833006",
+      "child": "Q197234"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45508836",
+      "child": "Q197234"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q197234",
+      "child": "Q11068188"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q197234",
+      "child": "Q11068467"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45640350",
+      "child": "Q45508709"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45508709",
+      "child": "Q45508836"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q197234",
+      "child": "Q45640852"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q197234",
+      "b": "Q65833010"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q11068188",
+      "b": "Q65817961"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q11068467",
+      "b": "Q65821483"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45640852",
+      "b": "Q65821654"
+    }
+  ]
+}

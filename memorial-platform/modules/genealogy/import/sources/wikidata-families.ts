@@ -33,6 +33,32 @@ import chenbaozhen from "./chenbaozhen.data.json";
 import chenjiageng from "./chenjiageng.data.json";
 import guomoruo from "./guomoruo.data.json";
 import zhaoyuanren from "./zhaoyuanren.data.json";
+// Wave 3 — more clans across the eras.
+import mengzi from "./mengzi.data.json";
+import simaqian from "./simaqian.data.json";
+import banjia from "./banjia.data.json";
+import caiyong from "./caiyong.data.json";
+import xiean from "./xiean.data.json";
+import taoyuanming from "./taoyuanming.data.json";
+import yanzhenqing from "./yanzhenqing.data.json";
+import liuzongyuan from "./liuzongyuan.data.json";
+import hanyu from "./hanyu.data.json";
+import fanzhongyan from "./fanzhongyan.data.json";
+import wanganshi from "./wanganshi.data.json";
+import yuefei from "./yuefei.data.json";
+import wentianxiang from "./wentianxiang.data.json";
+import luyou from "./luyou.data.json";
+import zhaomengfu from "./zhaomengfu.data.json";
+import zhangjuzheng from "./zhangjuzheng.data.json";
+import huangzongxi from "./huangzongxi.data.json";
+import guyanwu from "./guyanwu.data.json";
+import zhengchenggong from "./zhengchenggong.data.json";
+import jiyun from "./jiyun.data.json";
+import yuanmei from "./yuanmei.data.json";
+import tanyankai from "./tanyankai.data.json";
+import huangxing from "./huangxing.data.json";
+import liaozhongkai from "./liaozhongkai.data.json";
+import xubeihong from "./xubeihong.data.json";
 
 /**
  * Every Wikidata-sourced family in one registry, so wiring a new one is a single
@@ -79,6 +105,32 @@ const FAMILIES: { key: string; label: string; dataset: GenealogyDataset }[] = [
   { key: "chenjiageng", label: "陈嘉庚家族", dataset: chenjiageng as GenealogyDataset },
   { key: "guomoruo", label: "郭沫若家族", dataset: guomoruo as GenealogyDataset },
   { key: "zhaoyuanren", label: "赵元任家族（常州赵氏）", dataset: zhaoyuanren as GenealogyDataset },
+  // 第三批：更多姓氏、更多年代的名门（先秦 → 现代）。
+  { key: "mengzi", label: "孟子家族（孟氏）", dataset: mengzi as GenealogyDataset },
+  { key: "simaqian", label: "司马迁家族", dataset: simaqian as GenealogyDataset },
+  { key: "banjia", label: "班固家族（班氏）", dataset: banjia as GenealogyDataset },
+  { key: "caiyong", label: "蔡邕家族（蔡文姬）", dataset: caiyong as GenealogyDataset },
+  { key: "xiean", label: "谢安家族（陈郡谢氏）", dataset: xiean as GenealogyDataset },
+  { key: "taoyuanming", label: "陶渊明家族（浔阳陶氏）", dataset: taoyuanming as GenealogyDataset },
+  { key: "yanzhenqing", label: "颜真卿家族（琅琊颜氏）", dataset: yanzhenqing as GenealogyDataset },
+  { key: "liuzongyuan", label: "柳宗元家族（河东柳氏）", dataset: liuzongyuan as GenealogyDataset },
+  { key: "hanyu", label: "韩愈家族", dataset: hanyu as GenealogyDataset },
+  { key: "fanzhongyan", label: "范仲淹家族", dataset: fanzhongyan as GenealogyDataset },
+  { key: "wanganshi", label: "王安石家族（临川王氏）", dataset: wanganshi as GenealogyDataset },
+  { key: "yuefei", label: "岳飞家族", dataset: yuefei as GenealogyDataset },
+  { key: "wentianxiang", label: "文天祥家族", dataset: wentianxiang as GenealogyDataset },
+  { key: "luyou", label: "陆游家族（山阴陆氏）", dataset: luyou as GenealogyDataset },
+  { key: "zhaomengfu", label: "赵孟頫家族", dataset: zhaomengfu as GenealogyDataset },
+  { key: "zhangjuzheng", label: "张居正家族", dataset: zhangjuzheng as GenealogyDataset },
+  { key: "huangzongxi", label: "黄宗羲家族（余姚黄氏）", dataset: huangzongxi as GenealogyDataset },
+  { key: "guyanwu", label: "顾炎武家族", dataset: guyanwu as GenealogyDataset },
+  { key: "zhengchenggong", label: "郑成功家族（郑氏）", dataset: zhengchenggong as GenealogyDataset },
+  { key: "jiyun", label: "纪昀家族（纪晓岚）", dataset: jiyun as GenealogyDataset },
+  { key: "yuanmei", label: "袁枚家族", dataset: yuanmei as GenealogyDataset },
+  { key: "tanyankai", label: "谭延闿家族", dataset: tanyankai as GenealogyDataset },
+  { key: "huangxing", label: "黄兴家族", dataset: huangxing as GenealogyDataset },
+  { key: "liaozhongkai", label: "廖仲恺家族（何香凝）", dataset: liaozhongkai as GenealogyDataset },
+  { key: "xubeihong", label: "徐悲鸿家族", dataset: xubeihong as GenealogyDataset },
   // 清皇室（溥仪）：完整世系，多为封号名，绝嗣线，人数最大——放在末尾。
   { key: "puyi", label: "清皇室（溥仪）", dataset: puyi as GenealogyDataset },
 ];

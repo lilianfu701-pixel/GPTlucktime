@@ -1,0 +1,207 @@
+{
+  "key": "wikidata:yuefei",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q10269567",
+      "name": "岳珂",
+      "citation": "维基百科 / Wikidata Q10269567",
+      "aliases": [
+        "Yue Ke"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1183
+      },
+      "death": {
+        "year": 1234
+      },
+      "bio": "grandson of Yue Fei"
+    },
+    {
+      "externalId": "Q10269596",
+      "name": "岳银瓶",
+      "citation": "维基百科 / Wikidata Q10269596",
+      "aliases": [
+        "岳銀瓶",
+        "Yue Yinping"
+      ],
+      "gender": "female",
+      "bio": "daughter of Yue Fei"
+    },
+    {
+      "externalId": "Q11050431",
+      "name": "岳云",
+      "citation": "维基百科 / Wikidata Q11050431",
+      "aliases": [
+        "Yue Yun"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1119
+      },
+      "death": {
+        "year": 1141
+      },
+      "bio": "岳飞之子",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Yue%20Yun%20%E5%B2%B3%E9%9B%B2.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q334398",
+      "name": "岳飞",
+      "citation": "维基百科 / Wikidata Q334398",
+      "aliases": [
+        "Yue Fei"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1103
+      },
+      "death": {
+        "year": 1142
+      },
+      "bio": "北宋、南宋將領",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/%E5%B2%B3%E9%A3%9B.jpg",
+      "photoCredit": "作者：劉松年繪 · CC BY-SA 4.0 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q45363483",
+      "name": "岳霖",
+      "citation": "维基百科 / Wikidata Q45363483",
+      "aliases": [
+        "Yue Lin"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person (CBDB = 4143)"
+    },
+    {
+      "externalId": "Q45403232",
+      "name": "岳雷",
+      "citation": "维基百科 / Wikidata Q45403232",
+      "aliases": [
+        "Yue Lei"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 22854"
+    },
+    {
+      "externalId": "Q45403234",
+      "name": "岳震",
+      "citation": "维基百科 / Wikidata Q45403234",
+      "aliases": [
+        "Yue Zhen"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 22855"
+    },
+    {
+      "externalId": "Q45403235",
+      "name": "岳霆",
+      "citation": "维基百科 / Wikidata Q45403235",
+      "aliases": [
+        "Yue Ting"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 22856"
+    },
+    {
+      "externalId": "Q45507437",
+      "name": "岳和",
+      "citation": "维基百科 / Wikidata Q45507437",
+      "aliases": [
+        "Yue He"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 119981"
+    },
+    {
+      "externalId": "Q65798755",
+      "name": "李氏",
+      "citation": "维基百科 / Wikidata Q65798755",
+      "aliases": [
+        "Li Shi"
+      ],
+      "gender": "female",
+      "bio": "岳飛妻"
+    },
+    {
+      "externalId": "Q65798756",
+      "name": "巩氏",
+      "citation": "维基百科 / Wikidata Q65798756",
+      "aliases": [
+        "鞏氏",
+        "Gong Shi"
+      ],
+      "gender": "female",
+      "bio": "岳雲妻"
+    },
+    {
+      "externalId": "Q65800232",
+      "name": "姚氏",
+      "citation": "维基百科 / Wikidata Q65800232",
+      "aliases": [
+        "Yao Shi"
+      ],
+      "gender": "female",
+      "bio": "岳飛母"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q65800232",
+      "child": "Q334398"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45507437",
+      "child": "Q334398"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45363483",
+      "child": "Q10269567"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q334398",
+      "child": "Q10269596"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q334398",
+      "child": "Q11050431"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q334398",
+      "child": "Q45363483"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q334398",
+      "child": "Q45403232"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q334398",
+      "child": "Q45403234"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q334398",
+      "child": "Q45403235"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q334398",
+      "b": "Q65798755"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q11050431",
+      "b": "Q65798756"
+    }
+  ]
+}

@@ -1,0 +1,371 @@
+{
+  "key": "wikidata:hanyu",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q10566086",
+      "name": "韩衮",
+      "citation": "维基百科 / Wikidata Q10566086",
+      "aliases": [
+        "Han Gun"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 895
+      },
+      "bio": "Tang dynasty person CBDB = 178390"
+    },
+    {
+      "externalId": "Q16076101",
+      "name": "韩昶",
+      "citation": "维基百科 / Wikidata Q16076101",
+      "aliases": [
+        "韓昶",
+        "Han Chang"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 799
+      },
+      "bio": "Tang dynasty person CBDB = 22459"
+    },
+    {
+      "externalId": "Q16076141",
+      "name": "韩会",
+      "citation": "维基百科 / Wikidata Q16076141",
+      "aliases": [
+        "Han Hui"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 738
+      },
+      "death": {
+        "year": 779
+      },
+      "bio": "韓會（738年－779年）唐朝政治人物"
+    },
+    {
+      "externalId": "Q318998",
+      "name": "韩愈",
+      "citation": "维基百科 / Wikidata Q318998",
+      "aliases": [
+        "Han Yu"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 768
+      },
+      "death": {
+        "year": 824
+      },
+      "bio": "唐朝官员、文学家（768年—824年），“唐宋八大家”之首",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Han%20Yu.jpg",
+      "photoCredit": "公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q45402496",
+      "name": "韩仁泰",
+      "citation": "维基百科 / Wikidata Q45402496",
+      "aliases": [
+        "韓仁泰",
+        "Han Rentai"
+      ],
+      "gender": "male",
+      "bio": "Tang dynasty person CBDB = 22447"
+    },
+    {
+      "externalId": "Q45402512",
+      "name": "韩叡素",
+      "citation": "维基百科 / Wikidata Q45402512",
+      "aliases": [
+        "韓叡素",
+        "Han Ruisu"
+      ],
+      "gender": "male",
+      "bio": "Tang dynasty person CBDB = 22455"
+    },
+    {
+      "externalId": "Q45402513",
+      "name": "韩仲卿",
+      "citation": "维基百科 / Wikidata Q45402513",
+      "aliases": [
+        "韓仲卿",
+        "Han Zhongqing"
+      ],
+      "gender": "male",
+      "bio": "Tang dynasty person CBDB = 22456"
+    },
+    {
+      "externalId": "Q45402518",
+      "name": "韩介",
+      "citation": "维基百科 / Wikidata Q45402518",
+      "aliases": [
+        "韓介",
+        "Han Jie"
+      ],
+      "gender": "male",
+      "bio": "Tang dynasty person CBDB = 22458"
+    },
+    {
+      "externalId": "Q45463835",
+      "name": "韩挐",
+      "citation": "维基百科 / Wikidata Q45463835",
+      "aliases": [
+        "韓挐",
+        "Han Ru"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 808
+      },
+      "death": {
+        "year": 819
+      },
+      "bio": "Tang dynasty person CBDB = 145497"
+    },
+    {
+      "externalId": "Q45522070",
+      "name": "韩州仇",
+      "citation": "维基百科 / Wikidata Q45522070",
+      "aliases": [
+        "韓州仇",
+        "Han Zhouchou"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 864
+      },
+      "bio": "Tang dynasty person CBDB = 178391"
+    },
+    {
+      "externalId": "Q45573506",
+      "name": "韩晙",
+      "citation": "维基百科 / Wikidata Q45573506",
+      "aliases": [
+        "韓晙",
+        "Han Jun"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 661
+      },
+      "bio": "Tang dynasty person CBDB = 195186"
+    },
+    {
+      "externalId": "Q45573570",
+      "name": "韩均",
+      "citation": "维基百科 / Wikidata Q45573570",
+      "aliases": [
+        "韓均",
+        "Han Jun"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 624
+      },
+      "bio": "Tang dynasty person CBDB = 195187"
+    },
+    {
+      "externalId": "Q45612785",
+      "name": "韩当",
+      "citation": "维基百科 / Wikidata Q45612785",
+      "aliases": [
+        "韓當",
+        "Han Dang"
+      ],
+      "gender": "female",
+      "bio": "Tang dynasty person CBDB=159580"
+    },
+    {
+      "externalId": "Q45612845",
+      "name": "韩茱",
+      "citation": "维基百科 / Wikidata Q45612845",
+      "aliases": [
+        "韓茱",
+        "Han Zhu"
+      ],
+      "gender": "female",
+      "bio": "Tang dynasty person CBDB = 159581"
+    },
+    {
+      "externalId": "Q45612910",
+      "name": "韩着",
+      "citation": "维基百科 / Wikidata Q45612910",
+      "aliases": [
+        "韓著",
+        "Han Zhe"
+      ],
+      "gender": "female",
+      "bio": "Tang dynasty person CBDB = 159582"
+    },
+    {
+      "externalId": "Q45612972",
+      "name": "韩绾",
+      "citation": "维基百科 / Wikidata Q45612972",
+      "aliases": [
+        "韓綰",
+        "Han Wan"
+      ],
+      "gender": "male",
+      "bio": "Tang dynasty person CBDB = 159583"
+    },
+    {
+      "externalId": "Q45613035",
+      "name": "韩绮",
+      "citation": "维基百科 / Wikidata Q45613035",
+      "aliases": [
+        "韓綺",
+        "Han Qi"
+      ],
+      "gender": "male",
+      "bio": "Tang dynasty person CBDB = 159584"
+    },
+    {
+      "externalId": "Q45613097",
+      "name": "韩绲",
+      "citation": "维基百科 / Wikidata Q45613097",
+      "aliases": [
+        "韓緄",
+        "Han Gun"
+      ],
+      "gender": "male",
+      "bio": "Tang dynasty person CBDB = 159585"
+    },
+    {
+      "externalId": "Q45613158",
+      "name": "韩纬",
+      "citation": "维基百科 / Wikidata Q45613158",
+      "aliases": [
+        "韓緯",
+        "Han Wei"
+      ],
+      "gender": "male",
+      "bio": "Tang dynasty person CBDB = 159586"
+    },
+    {
+      "externalId": "Q45613221",
+      "name": "韩𬘘",
+      "citation": "维基百科 / Wikidata Q45613221",
+      "aliases": [
+        "韓紞",
+        "Han Dan"
+      ],
+      "gender": "male",
+      "bio": "Tang dynasty person CBDB = 159587"
+    },
+    {
+      "externalId": "Q45613286",
+      "name": "韩溪",
+      "citation": "维基百科 / Wikidata Q45613286",
+      "aliases": [
+        "韓谿",
+        "Han Xi"
+      ],
+      "gender": "female",
+      "bio": "Tang dynasty person CBDB = 159589"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q45402513",
+      "child": "Q318998"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q16076101",
+      "child": "Q10566086"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q318998",
+      "child": "Q16076101"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45402513",
+      "child": "Q16076141"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45573506",
+      "child": "Q45402496"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45402496",
+      "child": "Q45402512"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45402512",
+      "child": "Q45402513"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45402513",
+      "child": "Q45402518"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q318998",
+      "child": "Q45463835"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q318998",
+      "child": "Q45522070"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45573570",
+      "child": "Q45573506"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q16076101",
+      "child": "Q45612785"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q16076101",
+      "child": "Q45612845"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q16076101",
+      "child": "Q45612910"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q16076101",
+      "child": "Q45612972"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q16076101",
+      "child": "Q45613035"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q16076101",
+      "child": "Q45613097"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q16076101",
+      "child": "Q45613158"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q16076101",
+      "child": "Q45613221"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q16076101",
+      "child": "Q45613286"
+    }
+  ]
+}

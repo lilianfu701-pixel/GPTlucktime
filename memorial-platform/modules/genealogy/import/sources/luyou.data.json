@@ -1,0 +1,1188 @@
+{
+  "key": "wikidata:luyou",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q10317793",
+      "name": "晁逈",
+      "citation": "维基百科 / Wikidata Q10317793",
+      "aliases": [
+        "Chao Jiong"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 951
+      },
+      "death": {
+        "year": 1034
+      },
+      "bio": "Song dynasty person CBDB = 3012"
+    },
+    {
+      "externalId": "Q1069914",
+      "name": "陆游",
+      "citation": "维基百科 / Wikidata Q1069914",
+      "aliases": [
+        "Lu You"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1125
+      },
+      "death": {
+        "year": 1210
+      },
+      "bio": "南宋詞人、詩人（1125-1210）",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/%E9%99%B8%E6%B8%B8%20%E8%82%96%E5%83%8F.jpg",
+      "photoCredit": "作者：UnknownUnknown ,清人 繪 · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q10922516",
+      "name": "唐介",
+      "citation": "维基百科 / Wikidata Q10922516",
+      "aliases": [
+        "Tang Jie"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1010
+      },
+      "death": {
+        "year": 1069
+      },
+      "bio": "Song dynasty person (CBDB = 1593)"
+    },
+    {
+      "externalId": "Q10922787",
+      "name": "唐拱",
+      "citation": "维基百科 / Wikidata Q10922787",
+      "aliases": [
+        "Tang Gong"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 976
+      },
+      "death": {
+        "year": 1022
+      },
+      "bio": "Song dynasty person (CBDB = 3829)"
+    },
+    {
+      "externalId": "Q10922933",
+      "name": "唐琬",
+      "citation": "维基百科 / Wikidata Q10922933",
+      "aliases": [
+        "Tang Wan"
+      ],
+      "gender": "female",
+      "bio": "Song dynasty poet, wife of Lu You"
+    },
+    {
+      "externalId": "Q10945582",
+      "name": "孙沔",
+      "citation": "维基百科 / Wikidata Q10945582",
+      "aliases": [
+        "孫沔",
+        "Sun Mian"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 996
+      },
+      "bio": "Song dynasty person (CBDB = 8118)"
+    },
+    {
+      "externalId": "Q134082096",
+      "name": "唐氏",
+      "citation": "维基百科 / Wikidata Q134082096",
+      "aliases": [
+        "Tang Shi"
+      ],
+      "gender": "female"
+    },
+    {
+      "externalId": "Q134082099",
+      "name": "晁氏",
+      "citation": "维基百科 / Wikidata Q134082099",
+      "gender": "female"
+    },
+    {
+      "externalId": "Q134082102",
+      "name": "郑氏",
+      "citation": "维基百科 / Wikidata Q134082102",
+      "aliases": [
+        "鄭氏"
+      ],
+      "gender": "female"
+    },
+    {
+      "externalId": "Q135273749",
+      "name": "唐氏",
+      "citation": "维基百科 / Wikidata Q135273749",
+      "gender": "female"
+    },
+    {
+      "externalId": "Q135273838",
+      "name": "郑氏",
+      "citation": "维基百科 / Wikidata Q135273838",
+      "aliases": [
+        "鄭氏"
+      ],
+      "gender": "female"
+    },
+    {
+      "externalId": "Q15955419",
+      "name": "陆佃",
+      "citation": "维基百科 / Wikidata Q15955419",
+      "aliases": [
+        "Lu Dian"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1042
+      },
+      "death": {
+        "year": 1102
+      },
+      "bio": "Song dynasty person (CBDB = 8098)"
+    },
+    {
+      "externalId": "Q45354631",
+      "name": "晁端彦",
+      "citation": "维基百科 / Wikidata Q45354631",
+      "aliases": [
+        "晁端彥",
+        "Chao Duanyan"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1035
+      },
+      "bio": "Song dynasty person (CBDB = 14)"
+    },
+    {
+      "externalId": "Q45358101",
+      "name": "陆寘",
+      "citation": "维基百科 / Wikidata Q45358101",
+      "aliases": [
+        "陸寘",
+        "Lu Zhi"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person (CBDB = 1284)"
+    },
+    {
+      "externalId": "Q45358111",
+      "name": "陆宰",
+      "citation": "维基百科 / Wikidata Q45358111",
+      "aliases": [
+        "陸宰",
+        "Lu Zai"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1088
+      },
+      "death": {
+        "year": 1148
+      },
+      "bio": "Song dynasty person (CBDB = 1288)"
+    },
+    {
+      "externalId": "Q45358919",
+      "name": "唐义问",
+      "citation": "维基百科 / Wikidata Q45358919",
+      "aliases": [
+        "唐義問",
+        "Tang Yiwen"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 1596"
+    },
+    {
+      "externalId": "Q45360422",
+      "name": "晁仲蔚",
+      "citation": "维基百科 / Wikidata Q45360422",
+      "aliases": [
+        "Chao Zhongwei"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person (CBDB = 3014)"
+    },
+    {
+      "externalId": "Q45360443",
+      "name": "晁宗简",
+      "citation": "维基百科 / Wikidata Q45360443",
+      "aliases": [
+        "晁宗簡",
+        "Chao Zongjian"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 1044
+      },
+      "bio": "Song dynasty person (CBDB = 3021)"
+    },
+    {
+      "externalId": "Q45362058",
+      "name": "陆轸",
+      "citation": "维基百科 / Wikidata Q45362058",
+      "aliases": [
+        "陸軫",
+        "Lu Zhen"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person (CBDB = 3634)"
+    },
+    {
+      "externalId": "Q45362065",
+      "name": "陆宲",
+      "citation": "维基百科 / Wikidata Q45362065",
+      "aliases": [
+        "陸宲",
+        "Lu Bao"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1088
+      },
+      "death": {
+        "year": 1148
+      },
+      "bio": "Song dynasty person CBDB = 3637"
+    },
+    {
+      "externalId": "Q45362593",
+      "name": "唐嘉问",
+      "citation": "维基百科 / Wikidata Q45362593",
+      "aliases": [
+        "唐嘉問",
+        "Tang Jiawen"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 3826"
+    },
+    {
+      "externalId": "Q45362597",
+      "name": "唐之问",
+      "citation": "维基百科 / Wikidata Q45362597",
+      "aliases": [
+        "唐之問",
+        "Tang Zhiwen"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 3827"
+    },
+    {
+      "externalId": "Q45362607",
+      "name": "唐淑问",
+      "citation": "维基百科 / Wikidata Q45362607",
+      "aliases": [
+        "唐淑問",
+        "Tang Shuwen"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 3830"
+    },
+    {
+      "externalId": "Q45362611",
+      "name": "唐待问",
+      "citation": "维基百科 / Wikidata Q45362611",
+      "aliases": [
+        "唐待問",
+        "Tang Daiwen"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB=3831"
+    },
+    {
+      "externalId": "Q45362613",
+      "name": "唐谓",
+      "citation": "维基百科 / Wikidata Q45362613",
+      "aliases": [
+        "唐謂",
+        "Tang Wei"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person (CBDB = 3832)"
+    },
+    {
+      "externalId": "Q45363086",
+      "name": "吴植",
+      "citation": "维基百科 / Wikidata Q45363086",
+      "aliases": [
+        "吳植",
+        "Wu Zhi"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 4007"
+    },
+    {
+      "externalId": "Q45363190",
+      "name": "杨沆",
+      "citation": "维基百科 / Wikidata Q45363190",
+      "aliases": [
+        "楊沆",
+        "Yang Hang"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1026
+      },
+      "death": {
+        "year": 1076
+      },
+      "bio": "Song dynasty person (CBDB = 4042)"
+    },
+    {
+      "externalId": "Q45363610",
+      "name": "边调",
+      "citation": "维基百科 / Wikidata Q45363610",
+      "aliases": [
+        "邊調",
+        "Bian Tiao"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person (CBDB = 4192)"
+    },
+    {
+      "externalId": "Q45363929",
+      "name": "王氏",
+      "citation": "维基百科 / Wikidata Q45363929",
+      "aliases": [
+        "Wang Shi"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1017
+      },
+      "death": {
+        "year": 1088
+      },
+      "bio": "陸琪妻"
+    },
+    {
+      "externalId": "Q45363933",
+      "name": "吴氏",
+      "citation": "维基百科 / Wikidata Q45363933",
+      "aliases": [
+        "吳氏",
+        "Wu Shi"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1006
+      },
+      "death": {
+        "year": 1091
+      },
+      "bio": "陸軫妻"
+    },
+    {
+      "externalId": "Q45363935",
+      "name": "边氏",
+      "citation": "维基百科 / Wikidata Q45363935",
+      "aliases": [
+        "邊氏",
+        "Bian Shi"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1025
+      },
+      "death": {
+        "year": 1093
+      },
+      "bio": "陸珪妻"
+    },
+    {
+      "externalId": "Q45363939",
+      "name": "虞丽华",
+      "citation": "维基百科 / Wikidata Q45363939",
+      "aliases": [
+        "虞麗華",
+        "Yu Lihua"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1044
+      },
+      "death": {
+        "year": 1070
+      },
+      "bio": "Song dynasty person (CBDB = 5081)"
+    },
+    {
+      "externalId": "Q45363940",
+      "name": "吴氏",
+      "citation": "维基百科 / Wikidata Q45363940",
+      "aliases": [
+        "吳氏",
+        "Wu Shi"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1038
+      },
+      "death": {
+        "year": 1101
+      },
+      "bio": "陸佖妻"
+    },
+    {
+      "externalId": "Q45364039",
+      "name": "边氏",
+      "citation": "维基百科 / Wikidata Q45364039",
+      "aliases": [
+        "邊氏",
+        "Bian Shi"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1017
+      },
+      "death": {
+        "year": 1081
+      },
+      "bio": "孫沔妻"
+    },
+    {
+      "externalId": "Q45364124",
+      "name": "晁氏",
+      "citation": "维基百科 / Wikidata Q45364124",
+      "aliases": [
+        "Chao Shi"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1041
+      },
+      "death": {
+        "year": 1093
+      },
+      "bio": "王元妻"
+    },
+    {
+      "externalId": "Q45364147",
+      "name": "陆氏",
+      "citation": "维基百科 / Wikidata Q45364147",
+      "aliases": [
+        "陸氏",
+        "Lu Shi"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1026
+      },
+      "death": {
+        "year": 1076
+      },
+      "bio": "楊沆妻"
+    },
+    {
+      "externalId": "Q45365152",
+      "name": "陆琪",
+      "citation": "维基百科 / Wikidata Q45365152",
+      "aliases": [
+        "陸琪",
+        "Lu Qi"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1017
+      },
+      "death": {
+        "year": 1088
+      },
+      "bio": "Song dynasty person (CBDB = 7048)"
+    },
+    {
+      "externalId": "Q45365154",
+      "name": "陆珪",
+      "citation": "维基百科 / Wikidata Q45365154",
+      "aliases": [
+        "陸珪",
+        "Lu Gui"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1022
+      },
+      "death": {
+        "year": 1076
+      },
+      "bio": "Song dynasty person (CBDB = 7049)"
+    },
+    {
+      "externalId": "Q45365161",
+      "name": "陆佖",
+      "citation": "维基百科 / Wikidata Q45365161",
+      "aliases": [
+        "陸佖",
+        "Lu Bi"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1044
+      },
+      "death": {
+        "year": 1070
+      },
+      "bio": "Song dynasty person (CBDB = 7051)"
+    },
+    {
+      "externalId": "Q45365188",
+      "name": "边珣",
+      "citation": "维基百科 / Wikidata Q45365188",
+      "aliases": [
+        "邊珣",
+        "Bian Xun"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1024
+      },
+      "death": {
+        "year": 1095
+      },
+      "bio": "Song dynasty person (CBDB = 7061)"
+    },
+    {
+      "externalId": "Q45365351",
+      "name": "晁仲衍",
+      "citation": "维基百科 / Wikidata Q45365351",
+      "aliases": [
+        "Chao Zhongyan"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1012
+      },
+      "death": {
+        "year": 1053
+      },
+      "bio": "Song dynasty person (CBDB = 7119)"
+    },
+    {
+      "externalId": "Q45365847",
+      "name": "陆传",
+      "citation": "维基百科 / Wikidata Q45365847",
+      "aliases": [
+        "陸傳",
+        "Lu Zhuan"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 7297"
+    },
+    {
+      "externalId": "Q45365900",
+      "name": "边肃",
+      "citation": "维基百科 / Wikidata Q45365900",
+      "aliases": [
+        "邊肅",
+        "Bian Su"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 7317"
+    },
+    {
+      "externalId": "Q45366098",
+      "name": "王元",
+      "citation": "维基百科 / Wikidata Q45366098",
+      "aliases": [
+        "Wang Yuan"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1029
+      },
+      "death": {
+        "year": 1097
+      },
+      "bio": "Song dynasty person (CBDB = 7385)"
+    },
+    {
+      "externalId": "Q45366180",
+      "name": "晁宗悫",
+      "citation": "维基百科 / Wikidata Q45366180",
+      "aliases": [
+        "晁宗愨",
+        "Chao Zongque"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 985
+      },
+      "death": {
+        "year": 1042
+      },
+      "bio": "Song dynasty person (CBDB = 8001)"
+    },
+    {
+      "externalId": "Q45378008",
+      "name": "晁端禀",
+      "citation": "维基百科 / Wikidata Q45378008",
+      "aliases": [
+        "晁端稟",
+        "Chao Duanlin"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1045
+      },
+      "death": {
+        "year": 1090
+      },
+      "bio": "Song dynasty person (CBDB = 13533)"
+    },
+    {
+      "externalId": "Q45378085",
+      "name": "晁仲渊",
+      "citation": "维基百科 / Wikidata Q45378085",
+      "aliases": [
+        "晁仲淵",
+        "Chao Zhongyuan"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 13558"
+    },
+    {
+      "externalId": "Q45380617",
+      "name": "郑向",
+      "citation": "维基百科 / Wikidata Q45380617",
+      "aliases": [
+        "鄭向",
+        "Zheng Xiang"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 1036
+      },
+      "bio": "Song dynasty person CBDB = 15288"
+    },
+    {
+      "externalId": "Q45380618",
+      "name": "郑惇忠",
+      "citation": "维基百科 / Wikidata Q45380618",
+      "aliases": [
+        "鄭惇忠",
+        "Zheng Dunzhong"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1027
+      },
+      "death": {
+        "year": 1087
+      },
+      "bio": "Song dynasty person (CBDB = 15289)"
+    },
+    {
+      "externalId": "Q45380619",
+      "name": "郑惇儒",
+      "citation": "维基百科 / Wikidata Q45380619",
+      "aliases": [
+        "鄭惇儒",
+        "Zheng Dunru"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1019
+      },
+      "death": {
+        "year": 1084
+      },
+      "bio": "Song dynasty person (CBDB = 15290)"
+    },
+    {
+      "externalId": "Q45382801",
+      "name": "郑灿",
+      "citation": "维基百科 / Wikidata Q45382801",
+      "aliases": [
+        "鄭燦",
+        "Zheng Can"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB=16408"
+    },
+    {
+      "externalId": "Q45388428",
+      "name": "陆昭",
+      "citation": "维基百科 / Wikidata Q45388428",
+      "aliases": [
+        "陸昭",
+        "Lu Zhao"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person (CBDB = 18163)"
+    },
+    {
+      "externalId": "Q45388520",
+      "name": "陆子遹",
+      "citation": "维基百科 / Wikidata Q45388520",
+      "aliases": [
+        "陸子遹",
+        "Lu Ziyu"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1178
+      },
+      "death": {
+        "year": 1250
+      },
+      "bio": "Song dynasty person CBDB = 18188"
+    },
+    {
+      "externalId": "Q45401067",
+      "name": "唐极",
+      "citation": "维基百科 / Wikidata Q45401067",
+      "aliases": [
+        "唐極",
+        "Tang Ji"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person (CBDB = 21813)"
+    },
+    {
+      "externalId": "Q45405872",
+      "name": "晁宗藻",
+      "citation": "维基百科 / Wikidata Q45405872",
+      "aliases": [
+        "Chao Zongzao"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person (CBDB = 24278)"
+    },
+    {
+      "externalId": "Q45426249",
+      "name": "赵氏",
+      "citation": "维基百科 / Wikidata Q45426249",
+      "aliases": [
+        "趙氏",
+        "Zhao Shi"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1019
+      },
+      "death": {
+        "year": 1084
+      },
+      "bio": "鄭惇儒妻"
+    },
+    {
+      "externalId": "Q45427508",
+      "name": "郑夷逸",
+      "citation": "维基百科 / Wikidata Q45427508",
+      "aliases": [
+        "鄭夷逸",
+        "Zheng Yiyi"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 36110"
+    },
+    {
+      "externalId": "Q45427554",
+      "name": "郑夷道",
+      "citation": "维基百科 / Wikidata Q45427554",
+      "aliases": [
+        "鄭夷道",
+        "Zheng Yidao"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 36111"
+    },
+    {
+      "externalId": "Q45427681",
+      "name": "陆倚",
+      "citation": "维基百科 / Wikidata Q45427681",
+      "aliases": [
+        "陸倚",
+        "Lu Yi"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 36114"
+    },
+    {
+      "externalId": "Q45429705",
+      "name": "王氏",
+      "citation": "维基百科 / Wikidata Q45429705",
+      "aliases": [
+        "Wang Shi"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1127
+      },
+      "death": {
+        "year": 1197
+      },
+      "bio": "陸游妻"
+    },
+    {
+      "externalId": "Q45503108",
+      "name": "晁宗操",
+      "citation": "维基百科 / Wikidata Q45503108",
+      "aliases": [
+        "Chao Zongcao"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 119906"
+    },
+    {
+      "externalId": "Q65798617",
+      "name": "王氏",
+      "citation": "维基百科 / Wikidata Q65798617",
+      "aliases": [
+        "Wang Shi"
+      ],
+      "gender": "female",
+      "bio": "晁宗愨妻"
+    },
+    {
+      "externalId": "Q65798888",
+      "name": "郑氏",
+      "citation": "维基百科 / Wikidata Q65798888",
+      "aliases": [
+        "鄭氏",
+        "Zheng Shi"
+      ],
+      "gender": "female",
+      "bio": "陸佃妻"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q134082096",
+      "child": "Q1069914"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45363935",
+      "child": "Q15955419"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q134082102",
+      "child": "Q45358111"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q65798617",
+      "child": "Q45360422"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45363933",
+      "child": "Q45365154"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q134082099",
+      "child": "Q134082096"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q134082099",
+      "child": "Q135273749"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45358111",
+      "child": "Q1069914"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q10922787",
+      "child": "Q10922516"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45362613",
+      "child": "Q10922787"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45365154",
+      "child": "Q15955419"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45365351",
+      "child": "Q45354631"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q15955419",
+      "child": "Q45358101"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q15955419",
+      "child": "Q45358111"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q10922516",
+      "child": "Q45358919"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45366180",
+      "child": "Q45360422"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q10317793",
+      "child": "Q45360443"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45388428",
+      "child": "Q45362058"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q15955419",
+      "child": "Q45362065"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q10922516",
+      "child": "Q45362593"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q10922516",
+      "child": "Q45362597"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q10922516",
+      "child": "Q45362607"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q10922516",
+      "child": "Q45362611"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45365900",
+      "child": "Q45363610"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45363086",
+      "child": "Q45363933"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45363610",
+      "child": "Q45363935"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45363610",
+      "child": "Q45364039"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45365351",
+      "child": "Q45364124"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45362058",
+      "child": "Q45364147"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45362058",
+      "child": "Q45365152"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45362058",
+      "child": "Q45365154"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45365154",
+      "child": "Q45365161"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45363610",
+      "child": "Q45365188"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45366180",
+      "child": "Q45365351"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45365154",
+      "child": "Q45365847"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q10317793",
+      "child": "Q45366180"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45365351",
+      "child": "Q45378008"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45366180",
+      "child": "Q45378085"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45382801",
+      "child": "Q45380617"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45380617",
+      "child": "Q45380618"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45380617",
+      "child": "Q45380619"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q1069914",
+      "child": "Q45388520"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45362613",
+      "child": "Q45401067"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q10317793",
+      "child": "Q45405872"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45380618",
+      "child": "Q45427508"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45380618",
+      "child": "Q45427554"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45365154",
+      "child": "Q45427681"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q10317793",
+      "child": "Q45503108"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45362597",
+      "child": "Q134082096"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45365351",
+      "child": "Q134082099"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45380618",
+      "child": "Q134082102"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45362597",
+      "child": "Q135273749"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45382801",
+      "child": "Q135273838"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q1069914",
+      "b": "Q10922933"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q1069914",
+      "b": "Q45429705"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q10945582",
+      "b": "Q45364039"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q15955419",
+      "b": "Q65798888"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45362058",
+      "b": "Q45363933"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45363190",
+      "b": "Q45364147"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45363929",
+      "b": "Q45365152"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45363935",
+      "b": "Q45365154"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45363939",
+      "b": "Q45365161"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45363940",
+      "b": "Q45365161"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45364124",
+      "b": "Q45366098"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45366180",
+      "b": "Q65798617"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45380619",
+      "b": "Q45426249"
+    }
+  ]
+}

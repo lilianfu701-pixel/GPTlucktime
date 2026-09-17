@@ -1,0 +1,117 @@
+{
+  "key": "wikidata:xubeihong",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q20751479",
+      "name": "徐达章",
+      "citation": "维基百科 / Wikidata Q20751479",
+      "aliases": [
+        "Xu Dazhang"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1867
+      },
+      "death": {
+        "year": 1914
+      },
+      "bio": "徐悲鸿之父"
+    },
+    {
+      "externalId": "Q714152",
+      "name": "徐悲鸿",
+      "citation": "维基百科 / Wikidata Q714152",
+      "aliases": [
+        "Xu Beihong"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1895
+      },
+      "death": {
+        "year": 1953
+      },
+      "bio": "中国近现代画家、美术教育家（1895-1953）",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/XuBeihong.jpg",
+      "photoCredit": "公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q83630301",
+      "name": "徐静斐",
+      "citation": "维基百科 / Wikidata Q83630301",
+      "aliases": [
+        "Xu Jingfei"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1929
+      },
+      "death": {
+        "year": 2019
+      },
+      "bio": "中国遗传育种学家"
+    },
+    {
+      "externalId": "Q8461079",
+      "name": "廖静文",
+      "citation": "维基百科 / Wikidata Q8461079",
+      "aliases": [
+        "廖靜文",
+        "Liao Jingwen"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1923
+      },
+      "death": {
+        "year": 2015
+      },
+      "bio": "徐悲鸿夫人",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Liao%20Jingwen.jpg",
+      "photoCredit": "作者：Xu Beihong · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q9185933",
+      "name": "徐庆平",
+      "citation": "维基百科 / Wikidata Q9185933",
+      "aliases": [
+        "徐慶平",
+        "Xu Qingping"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1946
+      },
+      "living": true,
+      "bio": "中国画家"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q20751479",
+      "child": "Q714152"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q714152",
+      "child": "Q9185933"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q714152",
+      "child": "Q83630301"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q8461079",
+      "child": "Q9185933"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q714152",
+      "b": "Q8461079"
+    }
+  ]
+}

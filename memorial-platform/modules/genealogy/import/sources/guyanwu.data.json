@@ -1,0 +1,361 @@
+{
+  "key": "wikidata:guyanwu",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q1195906",
+      "name": "顾炎武",
+      "citation": "维基百科 / Wikidata Q1195906",
+      "aliases": [
+        "顧炎武",
+        "Gu Yanwu"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1613
+      },
+      "death": {
+        "year": 1682
+      },
+      "bio": "明末清初學者、思想家",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Gu%20yanwu.jpg",
+      "photoCredit": "作者：葉衍蘭輯，黃小泉摹繪， · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q15934560",
+      "name": "顾济",
+      "citation": "维基百科 / Wikidata Q15934560",
+      "aliases": [
+        "顧濟",
+        "Gu Ji"
+      ],
+      "gender": "male",
+      "bio": "politician"
+    },
+    {
+      "externalId": "Q16076061",
+      "name": "顾章志",
+      "citation": "维基百科 / Wikidata Q16076061",
+      "aliases": [
+        "顧章志",
+        "Gu Zhangzhi"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1523
+      },
+      "death": {
+        "year": 1586
+      },
+      "bio": "politician"
+    },
+    {
+      "externalId": "Q45424990",
+      "name": "顾鉴",
+      "citation": "维基百科 / Wikidata Q45424990",
+      "aliases": [
+        "顧鑑",
+        "Gu Jian"
+      ],
+      "gender": "male",
+      "bio": "Ming dynasty person CBDB = 34257"
+    },
+    {
+      "externalId": "Q45425116",
+      "name": "顾绍芳",
+      "citation": "维基百科 / Wikidata Q45425116",
+      "aliases": [
+        "顧紹芳",
+        "Gu Shaofang"
+      ],
+      "gender": "male",
+      "bio": "Ming dynasty person CBDB = 34260"
+    },
+    {
+      "externalId": "Q45425161",
+      "name": "顾绍芾",
+      "citation": "维基百科 / Wikidata Q45425161",
+      "aliases": [
+        "顧紹芾",
+        "Gu Shaofu"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1563
+      },
+      "death": {
+        "year": 1641
+      },
+      "bio": "Ming dynasty person CBDB = 34261"
+    },
+    {
+      "externalId": "Q45425203",
+      "name": "顾同德",
+      "citation": "维基百科 / Wikidata Q45425203",
+      "aliases": [
+        "顧同德",
+        "Gu Tongde"
+      ],
+      "gender": "male",
+      "bio": "Ming dynasty person CBDB = 34262"
+    },
+    {
+      "externalId": "Q45425246",
+      "name": "顾同应",
+      "citation": "维基百科 / Wikidata Q45425246",
+      "aliases": [
+        "顧同應",
+        "Gu Tongying"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1585
+      },
+      "death": {
+        "year": 1626
+      },
+      "bio": "Ming dynasty person CBDB = 34263"
+    },
+    {
+      "externalId": "Q45425287",
+      "name": "顾缃",
+      "citation": "维基百科 / Wikidata Q45425287",
+      "aliases": [
+        "顧緗",
+        "Gu Xiang"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 1642
+      },
+      "bio": "Qing dynasty person CBDB = 34264"
+    },
+    {
+      "externalId": "Q45425373",
+      "name": "顾纡",
+      "citation": "维基百科 / Wikidata Q45425373",
+      "aliases": [
+        "顧紆",
+        "Gu Xu"
+      ],
+      "gender": "male",
+      "bio": "Qing dynasty person CBDB = 34266"
+    },
+    {
+      "externalId": "Q45425416",
+      "name": "顾缵",
+      "citation": "维基百科 / Wikidata Q45425416",
+      "aliases": [
+        "顧纘",
+        "Gu Zuan"
+      ],
+      "gender": "male",
+      "bio": "Qing dynasty person CBDB = 34267"
+    },
+    {
+      "externalId": "Q45425458",
+      "name": "顾子武",
+      "citation": "维基百科 / Wikidata Q45425458",
+      "aliases": [
+        "顧子武",
+        "Gu Ziwu"
+      ],
+      "gender": "male",
+      "bio": "Qing dynasty person CBDB = 34268"
+    },
+    {
+      "externalId": "Q45447313",
+      "name": "徐开法",
+      "citation": "维基百科 / Wikidata Q45447313",
+      "aliases": [
+        "徐開法",
+        "Xu Kaifa"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1614
+      },
+      "death": {
+        "year": 1666
+      },
+      "bio": "Qing dynasty person CBDB = 86817"
+    },
+    {
+      "externalId": "Q51955247",
+      "name": "顾氏",
+      "citation": "维基百科 / Wikidata Q51955247",
+      "gender": "female",
+      "bio": "顾炎武之妹，徐开法之妻"
+    },
+    {
+      "externalId": "Q65818828",
+      "name": "王氏",
+      "citation": "维基百科 / Wikidata Q65818828",
+      "aliases": [
+        "Wang Shi"
+      ],
+      "gender": "female",
+      "bio": "顧紹芳母"
+    },
+    {
+      "externalId": "Q65818836",
+      "name": "周氏",
+      "citation": "维基百科 / Wikidata Q65818836",
+      "aliases": [
+        "Zhou Shi"
+      ],
+      "gender": "female",
+      "bio": "顧紹芳妻"
+    },
+    {
+      "externalId": "Q65818842",
+      "name": "陆氏",
+      "citation": "维基百科 / Wikidata Q65818842",
+      "aliases": [
+        "陸氏",
+        "Lu Shi"
+      ],
+      "gender": "female",
+      "bio": "顧紹芳繼妻"
+    },
+    {
+      "externalId": "Q65841247",
+      "name": "陆氏",
+      "citation": "维基百科 / Wikidata Q65841247",
+      "aliases": [
+        "陸氏",
+        "Lu Shi"
+      ],
+      "gender": "female",
+      "bio": "顧章志母"
+    },
+    {
+      "externalId": "Q65841251",
+      "name": "王氏",
+      "citation": "维基百科 / Wikidata Q65841251",
+      "aliases": [
+        "Wang Shi"
+      ],
+      "gender": "female",
+      "bio": "顧章志妻"
+    },
+    {
+      "externalId": "Q65889948",
+      "name": "王氏",
+      "citation": "维基百科 / Wikidata Q65889948",
+      "aliases": [
+        "Wang Shi"
+      ],
+      "gender": "female",
+      "bio": "顧濟母"
+    },
+    {
+      "externalId": "Q65889951",
+      "name": "陆氏",
+      "citation": "维基百科 / Wikidata Q65889951",
+      "aliases": [
+        "陸氏",
+        "Lu Shi"
+      ],
+      "gender": "female",
+      "bio": "顧濟妻"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q65889948",
+      "child": "Q15934560"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q65841247",
+      "child": "Q16076061"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q65818828",
+      "child": "Q45425116"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45425246",
+      "child": "Q1195906"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45424990",
+      "child": "Q15934560"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q15934560",
+      "child": "Q16076061"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q16076061",
+      "child": "Q45425116"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q16076061",
+      "child": "Q45425161"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45425116",
+      "child": "Q45425203"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45425116",
+      "child": "Q45425246"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45425246",
+      "child": "Q45425287"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45425246",
+      "child": "Q45425373"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45425246",
+      "child": "Q45425416"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45425246",
+      "child": "Q45425458"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q15934560",
+      "b": "Q65889951"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q16076061",
+      "b": "Q65841251"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45425116",
+      "b": "Q65818836"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45425116",
+      "b": "Q65818842"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45447313",
+      "b": "Q51955247"
+    }
+  ]
+}

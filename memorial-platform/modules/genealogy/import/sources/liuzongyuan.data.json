@@ -1,0 +1,369 @@
+{
+  "key": "wikidata:liuzongyuan",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q11109368",
+      "name": "柳亨",
+      "citation": "维基百科 / Wikidata Q11109368",
+      "aliases": [
+        "Liu Heng"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 550
+      },
+      "death": {
+        "year": 631
+      },
+      "bio": "Tang dynasty person CBDB = 31789"
+    },
+    {
+      "externalId": "Q11110062",
+      "name": "柳镇",
+      "citation": "维基百科 / Wikidata Q11110062",
+      "aliases": [
+        "柳鎮",
+        "Liu Zhen"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 750
+      },
+      "death": {
+        "year": 793
+      },
+      "bio": "Tang dynasty person CBDB = 18328"
+    },
+    {
+      "externalId": "Q28481660",
+      "name": "柳则",
+      "citation": "维基百科 / Wikidata Q28481660",
+      "aliases": [
+        "Liu Ze"
+      ],
+      "gender": "male",
+      "bio": "Sui dynasty person CBDB = 31785"
+    },
+    {
+      "externalId": "Q28481672",
+      "name": "柳楷",
+      "citation": "维基百科 / Wikidata Q28481672",
+      "aliases": [
+        "Liu Kai"
+      ],
+      "gender": "male",
+      "bio": "Tang dynasty person CBDB = 31787"
+    },
+    {
+      "externalId": "Q28481676",
+      "name": "柳子夏",
+      "citation": "维基百科 / Wikidata Q28481676",
+      "aliases": [
+        "Liu Zixia"
+      ],
+      "gender": "male",
+      "bio": "Tang dynasty person CBDB = 31788"
+    },
+    {
+      "externalId": "Q28481678",
+      "name": "柳从俗",
+      "citation": "维基百科 / Wikidata Q28481678",
+      "aliases": [
+        "Liu Congyu"
+      ],
+      "gender": "male",
+      "bio": "Tang dynasty person CBDB = 18326"
+    },
+    {
+      "externalId": "Q28481680",
+      "name": "柳察躬",
+      "citation": "维基百科 / Wikidata Q28481680",
+      "aliases": [
+        "Liu Chagong"
+      ],
+      "gender": "male",
+      "bio": "Tang dynasty person CBDB=18327"
+    },
+    {
+      "externalId": "Q337773",
+      "name": "柳宗元",
+      "citation": "维基百科 / Wikidata Q337773",
+      "aliases": [
+        "Liu Zongyuan"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 773
+      },
+      "death": {
+        "year": 819
+      },
+      "bio": "唐宋八大家之一，唐朝文學家",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Liu%20Zongyuan.jpg",
+      "photoCredit": "公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q45422173",
+      "name": "李氏",
+      "citation": "维基百科 / Wikidata Q45422173",
+      "aliases": [
+        "Li Shi"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 720
+      },
+      "death": {
+        "year": 800
+      },
+      "bio": "柳臨邛妻"
+    },
+    {
+      "externalId": "Q45422177",
+      "name": "柳临邛",
+      "citation": "维基百科 / Wikidata Q45422177",
+      "aliases": [
+        "柳臨邛",
+        "Liu Linqiong"
+      ],
+      "gender": "male",
+      "bio": "Tang dynasty person CBDB = 32781"
+    },
+    {
+      "externalId": "Q45422198",
+      "name": "柳氏",
+      "citation": "维基百科 / Wikidata Q45422198",
+      "aliases": [
+        "Liu Shi"
+      ],
+      "gender": "female",
+      "death": {
+        "year": 800
+      },
+      "bio": "Tang dynasty person CBDB = 32791"
+    },
+    {
+      "externalId": "Q45422208",
+      "name": "裴墐",
+      "citation": "维基百科 / Wikidata Q45422208",
+      "aliases": [
+        "Pei Jin"
+      ],
+      "gender": "male",
+      "bio": "Tang dynasty person CBDB = 32797"
+    },
+    {
+      "externalId": "Q45422214",
+      "name": "杨氏",
+      "citation": "维基百科 / Wikidata Q45422214",
+      "aliases": [
+        "楊氏",
+        "Yang Shi"
+      ],
+      "gender": "female",
+      "death": {
+        "year": 799
+      },
+      "bio": "柳宗元妻"
+    },
+    {
+      "externalId": "Q45422221",
+      "name": "柳女",
+      "citation": "维基百科 / Wikidata Q45422221",
+      "aliases": [
+        "Liu Nu"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 801
+      },
+      "death": {
+        "year": 810
+      },
+      "bio": "Tang dynasty person CBDB = 32804"
+    },
+    {
+      "externalId": "Q45422231",
+      "name": "柳御史",
+      "citation": "维基百科 / Wikidata Q45422231",
+      "aliases": [
+        "Liu Yushi"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 747
+      },
+      "death": {
+        "year": 796
+      },
+      "bio": "Tang dynasty person CBDB=32811"
+    },
+    {
+      "externalId": "Q45422232",
+      "name": "陆则",
+      "citation": "维基百科 / Wikidata Q45422232",
+      "aliases": [
+        "陸則",
+        "Lu Ze"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 761
+      },
+      "death": {
+        "year": 796
+      },
+      "bio": "Tang dynasty person CBDB = 32812"
+    },
+    {
+      "externalId": "Q45487874",
+      "name": "柳佛婢",
+      "citation": "维基百科 / Wikidata Q45487874",
+      "aliases": [
+        "Liu Fobi"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 801
+      },
+      "death": {
+        "year": 810
+      },
+      "bio": "Tang dynasty person CBDB = 145980"
+    },
+    {
+      "externalId": "Q45509814",
+      "name": "柳告",
+      "citation": "维基百科 / Wikidata Q45509814",
+      "aliases": [
+        "Liu Gao"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 869
+      },
+      "bio": "Tang dynasty person CBDB = 178150"
+    },
+    {
+      "externalId": "Q65803848",
+      "name": "柳氏",
+      "citation": "维基百科 / Wikidata Q65803848",
+      "aliases": [
+        "Liu Shi"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 771
+      },
+      "death": {
+        "year": 800
+      },
+      "bio": "柳鎮女"
+    },
+    {
+      "externalId": "Q65803886",
+      "name": "卢氏",
+      "citation": "维基百科 / Wikidata Q65803886",
+      "aliases": [
+        "盧氏",
+        "Lu Shi"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 739
+      },
+      "death": {
+        "year": 806
+      },
+      "bio": "柳鎮妻"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q11110062",
+      "child": "Q337773"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q28481680",
+      "child": "Q11110062"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q28481672",
+      "child": "Q28481676"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q28481676",
+      "child": "Q28481678"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q28481678",
+      "child": "Q28481680"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q28481678",
+      "child": "Q45422177"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q11110062",
+      "child": "Q45422198"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q337773",
+      "child": "Q45422221"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q28481680",
+      "child": "Q45422231"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q337773",
+      "child": "Q45487874"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q337773",
+      "child": "Q45509814"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q11110062",
+      "child": "Q65803848"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q337773",
+      "b": "Q45422214"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q11110062",
+      "b": "Q65803886"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45422173",
+      "b": "Q45422177"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45422208",
+      "b": "Q65803848"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45422231",
+      "b": "Q45422232"
+    }
+  ]
+}

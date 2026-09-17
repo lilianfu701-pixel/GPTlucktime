@@ -1,0 +1,233 @@
+{
+  "key": "wikidata:wentianxiang",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q45364669",
+      "name": "曾德慈",
+      "citation": "维基百科 / Wikidata Q45364669",
+      "aliases": [
+        "Zeng Deci"
+      ],
+      "gender": "female",
+      "death": {
+        "year": 1278
+      },
+      "bio": "Song dynasty person (CBDB = 5316)"
+    },
+    {
+      "externalId": "Q45391140",
+      "name": "文正中",
+      "citation": "维基百科 / Wikidata Q45391140",
+      "aliases": [
+        "Wen Zhengzhong"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 19110"
+    },
+    {
+      "externalId": "Q45391148",
+      "name": "文利民",
+      "citation": "维基百科 / Wikidata Q45391148",
+      "aliases": [
+        "Wen Limin"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person (CBDB = 19112)"
+    },
+    {
+      "externalId": "Q45391155",
+      "name": "文安世",
+      "citation": "维基百科 / Wikidata Q45391155",
+      "aliases": [
+        "Wen Anshi"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person (CBDB = 19114)"
+    },
+    {
+      "externalId": "Q45391158",
+      "name": "文时用",
+      "citation": "维基百科 / Wikidata Q45391158",
+      "aliases": [
+        "文時用",
+        "Wen Shiyong"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 19115"
+    },
+    {
+      "externalId": "Q45391160",
+      "name": "曾知和",
+      "citation": "维基百科 / Wikidata Q45391160",
+      "aliases": [
+        "Zeng Zhihe"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 19116"
+    },
+    {
+      "externalId": "Q45391162",
+      "name": "曾昌权",
+      "citation": "维基百科 / Wikidata Q45391162",
+      "aliases": [
+        "曾昌權",
+        "Zeng Changquan"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person (CBDB = 19117)"
+    },
+    {
+      "externalId": "Q45391166",
+      "name": "曾玨",
+      "citation": "维基百科 / Wikidata Q45391166",
+      "aliases": [
+        "Zeng Jue"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1190
+      },
+      "death": {
+        "year": 1261
+      },
+      "bio": "Song dynasty person CBDB = 19118"
+    },
+    {
+      "externalId": "Q45391171",
+      "name": "文仪",
+      "citation": "维基百科 / Wikidata Q45391171",
+      "aliases": [
+        "文儀",
+        "Wen Yi"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person (CBDB = 19119)"
+    },
+    {
+      "externalId": "Q45391175",
+      "name": "文璧",
+      "citation": "维基百科 / Wikidata Q45391175",
+      "aliases": [
+        "Wen Bi"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1237
+      },
+      "death": {
+        "year": 1298
+      },
+      "bio": "Yuan dynasty person CBDB = 19121"
+    },
+    {
+      "externalId": "Q45391176",
+      "name": "文璋",
+      "citation": "维基百科 / Wikidata Q45391176",
+      "aliases": [
+        "Wen Zhang"
+      ],
+      "gender": "male",
+      "bio": "Yuan dynasty person CBDB = 19122"
+    },
+    {
+      "externalId": "Q575900",
+      "name": "文天祥",
+      "citation": "维基百科 / Wikidata Q575900",
+      "aliases": [
+        "Wen Tianxiang"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1236
+      },
+      "death": {
+        "year": 1283
+      },
+      "bio": "中国南宋政治人物",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Wentianxiang%20touxiang.JPG",
+      "photoCredit": "作者：The original uploader was 用心阁 at Chinese Wikipedia. · CC BY-SA 3.0 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q65799844",
+      "name": "欧阳氏",
+      "citation": "维基百科 / Wikidata Q65799844",
+      "aliases": [
+        "歐陽氏",
+        "Ouyang Shi"
+      ],
+      "gender": "female",
+      "death": {
+        "year": 1305
+      },
+      "bio": "天祥妻"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q45364669",
+      "child": "Q575900"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45391171",
+      "child": "Q575900"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45391166",
+      "child": "Q45364669"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45391140",
+      "child": "Q45391148"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45391148",
+      "child": "Q45391155"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45391155",
+      "child": "Q45391158"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45391160",
+      "child": "Q45391162"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45391162",
+      "child": "Q45391166"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45391158",
+      "child": "Q45391171"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45391171",
+      "child": "Q45391175"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45391171",
+      "child": "Q45391176"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q575900",
+      "b": "Q65799844"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45364669",
+      "b": "Q45391171"
+    }
+  ]
+}
