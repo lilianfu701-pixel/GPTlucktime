@@ -39,7 +39,7 @@ type RowState =
  * in a single request. The import is idempotent and each pass gets further, so
  * the batch re-runs a family until a pass finishes with nothing left to create.
  */
-const MAX_SEED_PASSES = 10;
+const MAX_SEED_PASSES = 30;
 
 async function callSeed(
   source: string,
