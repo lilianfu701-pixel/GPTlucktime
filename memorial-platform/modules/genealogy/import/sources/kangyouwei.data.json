@@ -1,0 +1,141 @@
+{
+  "key": "wikidata:kangyouwei",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q11063885",
+      "name": "康有溥",
+      "citation": "维基百科 / Wikidata Q11063885",
+      "aliases": [
+        "Kang Youpu"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1867
+      },
+      "death": {
+        "year": 1898
+      },
+      "bio": "「戊戌六君子」之一"
+    },
+    {
+      "externalId": "Q14504648",
+      "name": "罗昌",
+      "citation": "维基百科 / Wikidata Q14504648",
+      "aliases": [
+        "Luo Chang"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1883
+      },
+      "death": {
+        "year": 1956
+      },
+      "bio": "Hawaiian-Chinese academic",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Luo%20Chang.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q15630961",
+      "name": "罗荣邦",
+      "citation": "维基百科 / Wikidata Q15630961",
+      "aliases": [
+        "Jung-pang Lo"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1912
+      },
+      "death": {
+        "year": 1981
+      },
+      "bio": "American scientist"
+    },
+    {
+      "externalId": "Q16076381",
+      "name": "罗仪凤",
+      "citation": "维基百科 / Wikidata Q16076381",
+      "aliases": [
+        "羅儀鳳",
+        "Luo Yifeng"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1914
+      },
+      "death": {
+        "year": 1974
+      }
+    },
+    {
+      "externalId": "Q360135",
+      "name": "康有为",
+      "citation": "维基百科 / Wikidata Q360135",
+      "aliases": [
+        "康有為",
+        "Kang Youwei"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1858
+      },
+      "death": {
+        "year": 1927
+      },
+      "bio": "中國學者、政治家",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Kang-youwei2-large.jpg",
+      "photoCredit": "公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q6362326",
+      "name": "康同璧",
+      "citation": "维基百科 / Wikidata Q6362326",
+      "aliases": [
+        "Kang Tongbi"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1881
+      },
+      "death": {
+        "year": 1969
+      },
+      "bio": "中国记者、作家和女权主义者（1887－1969）",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Kang%20junior%20portrait.jpg",
+      "photoCredit": "作者：Kang Tung-pih · 公有领域 · 来源：Wikimedia Commons"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q6362326",
+      "child": "Q15630961"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q6362326",
+      "child": "Q16076381"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q360135",
+      "child": "Q6362326"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q14504648",
+      "child": "Q15630961"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q14504648",
+      "child": "Q16076381"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q14504648",
+      "b": "Q6362326"
+    }
+  ]
+}

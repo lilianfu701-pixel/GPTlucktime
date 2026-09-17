@@ -1,0 +1,183 @@
+{
+  "key": "wikidata:chenjiageng",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q134080969",
+      "name": "陈爱礼",
+      "citation": "维基百科 / Wikidata Q134080969",
+      "aliases": [
+        "陳愛禮",
+        "Tan Ai-lay"
+      ],
+      "gender": "female"
+    },
+    {
+      "externalId": "Q134080979",
+      "name": "陈来旺",
+      "citation": "维基百科 / Wikidata Q134080979",
+      "aliases": [
+        "Chen Laiwang"
+      ],
+      "gender": "female"
+    },
+    {
+      "externalId": "Q435599",
+      "name": "蓝丽蓉",
+      "citation": "维基百科 / Wikidata Q435599",
+      "aliases": [
+        "Lam Lay Yong"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1936
+      },
+      "living": true,
+      "bio": "mathematician and historian of mathematics",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Lam%2C%20Lay%20Yong%2C%20Oberwolfach%201978.jpg",
+      "photoCredit": "作者：Grattan-Guinness, Enid · CC BY-SA 2.0 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q63244167",
+      "name": "陈厥祥",
+      "citation": "维基百科 / Wikidata Q63244167",
+      "aliases": [
+        "Tan Khuat Siong"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1900
+      },
+      "death": {
+        "year": 1965
+      }
+    },
+    {
+      "externalId": "Q63244183",
+      "name": "陈佩贞",
+      "citation": "维基百科 / Wikidata Q63244183",
+      "aliases": [
+        "陳佩貞",
+        "Tan Poey Cheng"
+      ],
+      "gender": "female"
+    },
+    {
+      "externalId": "Q63244189",
+      "name": "胡赐明",
+      "citation": "维基百科 / Wikidata Q63244189",
+      "aliases": [
+        "Hu Tsu Ming"
+      ],
+      "gender": "male"
+    },
+    {
+      "externalId": "Q6514984",
+      "name": "李成智",
+      "citation": "维基百科 / Wikidata Q6514984",
+      "aliases": [
+        "Lee Seng Tee"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1923
+      },
+      "death": {
+        "year": 2022
+      },
+      "bio": "Singaporean businessman",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Lee%20Seng%20Tee%20Library%2C%20Wolfson%20College%2C%20Cambridge.jpg",
+      "photoCredit": "作者：Sebastian Stammler · CC BY-SA 3.0 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q709049",
+      "name": "陈嘉庚",
+      "citation": "维基百科 / Wikidata Q709049",
+      "aliases": [
+        "Tan Kah Kee"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1874
+      },
+      "death": {
+        "year": 1961
+      },
+      "bio": "企业家、慈善家（1874—1961）",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Chenjiageng.JPG",
+      "photoCredit": "作者：Yaoleilei · CC BY-SA 3.0 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q8994986",
+      "name": "李成伟",
+      "citation": "维基百科 / Wikidata Q8994986",
+      "aliases": [
+        "Lee Seng Wee"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1930
+      },
+      "death": {
+        "year": 2015
+      },
+      "bio": "Singaporean billionaire"
+    },
+    {
+      "externalId": "Q97818516",
+      "name": "陈国庆",
+      "citation": "维基百科 / Wikidata Q97818516",
+      "aliases": [
+        "陳國慶",
+        "Tan Kok Kheng"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1912
+      },
+      "bio": "Son of Tan Kah Kee (1874-1961), a prominent overseas Chinese philanthropist who contributed to education and society"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q134080979",
+      "child": "Q435599"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q134080969",
+      "child": "Q8994986"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q709049",
+      "child": "Q63244167"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q63244167",
+      "child": "Q63244183"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q709049",
+      "child": "Q97818516"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q709049",
+      "child": "Q134080969"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q709049",
+      "child": "Q134080979"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q63244183",
+      "b": "Q63244189"
+    }
+  ]
+}

@@ -1,0 +1,552 @@
+{
+  "key": "wikidata:ouyangxiu",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q10366772",
+      "name": "欧阳观",
+      "citation": "维基百科 / Wikidata Q10366772",
+      "aliases": [
+        "歐陽觀",
+        "Ouyang Guan"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 952
+      },
+      "death": {
+        "year": 1010
+      },
+      "bio": "Song dynasty person (CBDB = 4183)"
+    },
+    {
+      "externalId": "Q28408985",
+      "name": "欧阳发",
+      "citation": "维基百科 / Wikidata Q28408985",
+      "aliases": [
+        "歐陽發",
+        "Ouyang Fa"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1040
+      },
+      "death": {
+        "year": 1085
+      },
+      "bio": "Song dynasty person CBDB=7308"
+    },
+    {
+      "externalId": "Q28408993",
+      "name": "欧阳棐",
+      "citation": "维基百科 / Wikidata Q28408993",
+      "aliases": [
+        "歐陽棐",
+        "Ouyang Fei"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1047
+      },
+      "death": {
+        "year": 1113
+      },
+      "bio": "Song dynasty politician"
+    },
+    {
+      "externalId": "Q334323",
+      "name": "欧阳修",
+      "citation": "维基百科 / Wikidata Q334323",
+      "aliases": [
+        "歐陽修",
+        "Ouyang Xiu"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1007
+      },
+      "death": {
+        "year": 1072
+      },
+      "bio": "北宋官員、文學家",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/%E5%AE%8B%E5%8F%82%E6%94%BF%E6%AC%A7%E9%98%B3%E6%96%87%E5%BF%A0%E5%85%AC%E4%BF%AE.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q45358364",
+      "name": "欧阳逢世",
+      "citation": "维基百科 / Wikidata Q45358364",
+      "aliases": [
+        "歐陽逢世",
+        "Ouyang Fengshi"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 1382"
+    },
+    {
+      "externalId": "Q45362199",
+      "name": "欧阳懋",
+      "citation": "维基百科 / Wikidata Q45362199",
+      "aliases": [
+        "歐陽懋",
+        "Ouyang Mao"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person (CBDB = 3686)"
+    },
+    {
+      "externalId": "Q45362202",
+      "name": "欧阳郴",
+      "citation": "维基百科 / Wikidata Q45362202",
+      "aliases": [
+        "歐陽郴",
+        "Ouyang Chen"
+      ],
+      "gender": "male",
+      "bio": "Southern Tang person CBDB=3687"
+    },
+    {
+      "externalId": "Q45362208",
+      "name": "欧阳晔",
+      "citation": "维基百科 / Wikidata Q45362208",
+      "aliases": [
+        "歐陽曄",
+        "Ouyang Ye"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 959
+      },
+      "death": {
+        "year": 1037
+      },
+      "bio": "Song dynasty person CBDB = 3689"
+    },
+    {
+      "externalId": "Q45363588",
+      "name": "欧阳偃",
+      "citation": "维基百科 / Wikidata Q45363588",
+      "aliases": [
+        "歐陽偃",
+        "Ouyang Yan"
+      ],
+      "gender": "male",
+      "bio": "Southern Tang person CBDB = 4184"
+    },
+    {
+      "externalId": "Q45363969",
+      "name": "胥氏",
+      "citation": "维基百科 / Wikidata Q45363969",
+      "aliases": [
+        "Xu Shi"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1017
+      },
+      "death": {
+        "year": 1033
+      },
+      "bio": "歐陽修妻"
+    },
+    {
+      "externalId": "Q45363972",
+      "name": "杨氏",
+      "citation": "维基百科 / Wikidata Q45363972",
+      "aliases": [
+        "楊氏",
+        "Yang Shi"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1017
+      },
+      "death": {
+        "year": 1034
+      },
+      "bio": "歐陽修妻"
+    },
+    {
+      "externalId": "Q45363976",
+      "name": "薛氏",
+      "citation": "维基百科 / Wikidata Q45363976",
+      "aliases": [
+        "Xue Shi"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1017
+      },
+      "death": {
+        "year": 1089
+      },
+      "bio": "歐陽修妻"
+    },
+    {
+      "externalId": "Q45363980",
+      "name": "郑氏",
+      "citation": "维基百科 / Wikidata Q45363980",
+      "aliases": [
+        "鄭氏",
+        "Zheng Shi"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 981
+      },
+      "death": {
+        "year": 1052
+      },
+      "bio": "歐陽觀妻"
+    },
+    {
+      "externalId": "Q45369455",
+      "name": "欧阳奕",
+      "citation": "维基百科 / Wikidata Q45369455",
+      "aliases": [
+        "歐陽奕",
+        "Ouyang Yi"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB=10809"
+    },
+    {
+      "externalId": "Q45369460",
+      "name": "欧阳辨",
+      "citation": "维基百科 / Wikidata Q45369460",
+      "aliases": [
+        "歐陽辨",
+        "Ouyang Bian"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 10810"
+    },
+    {
+      "externalId": "Q45373780",
+      "name": "欧阳效",
+      "citation": "维基百科 / Wikidata Q45373780",
+      "aliases": [
+        "歐陽效",
+        "Ouyang Xiao"
+      ],
+      "gender": "male",
+      "bio": "Southern Tang person CBDB = 12206"
+    },
+    {
+      "externalId": "Q45373782",
+      "name": "欧阳托",
+      "citation": "维基百科 / Wikidata Q45373782",
+      "aliases": [
+        "歐陽託",
+        "Ouyang Tuo"
+      ],
+      "gender": "male",
+      "bio": "Southern Tang person CBDB = 12207"
+    },
+    {
+      "externalId": "Q45373787",
+      "name": "欧阳仪",
+      "citation": "维基百科 / Wikidata Q45373787",
+      "aliases": [
+        "歐陽儀",
+        "Ouyang Yi"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person (CBDB = 12208)"
+    },
+    {
+      "externalId": "Q45373790",
+      "name": "欧阳俊",
+      "citation": "维基百科 / Wikidata Q45373790",
+      "aliases": [
+        "歐陽俊",
+        "Ouyang Jun"
+      ],
+      "gender": "male",
+      "bio": "Southern Tang person CBDB = 12209"
+    },
+    {
+      "externalId": "Q45373791",
+      "name": "欧阳伸",
+      "citation": "维基百科 / Wikidata Q45373791",
+      "aliases": [
+        "歐陽伸",
+        "Ouyang Shen"
+      ],
+      "gender": "male",
+      "bio": "Southern Tang person CBDB = 12210"
+    },
+    {
+      "externalId": "Q45373794",
+      "name": "欧阳伾",
+      "citation": "维基百科 / Wikidata Q45373794",
+      "aliases": [
+        "歐陽伾",
+        "Ouyang Pei"
+      ],
+      "gender": "male",
+      "bio": "Southern Tang person CBDB = 12211"
+    },
+    {
+      "externalId": "Q45373798",
+      "name": "欧阳信",
+      "citation": "维基百科 / Wikidata Q45373798",
+      "aliases": [
+        "歐陽信",
+        "Ouyang Xin"
+      ],
+      "gender": "male",
+      "bio": "Southern Tang person CBDB = 12212"
+    },
+    {
+      "externalId": "Q45373801",
+      "name": "欧阳佺",
+      "citation": "维基百科 / Wikidata Q45373801",
+      "aliases": [
+        "歐陽佺",
+        "Ouyang Quan"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 12213"
+    },
+    {
+      "externalId": "Q45373802",
+      "name": "欧阳倣",
+      "citation": "维基百科 / Wikidata Q45373802",
+      "aliases": [
+        "歐陽倣",
+        "Ouyang Fang"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person (CBDB = 12214)"
+    },
+    {
+      "externalId": "Q45373807",
+      "name": "欧阳昞",
+      "citation": "维基百科 / Wikidata Q45373807",
+      "aliases": [
+        "歐陽昞",
+        "Ouyang Bing"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 12216"
+    },
+    {
+      "externalId": "Q45686590",
+      "name": "欧阳谟",
+      "citation": "维基百科 / Wikidata Q45686590",
+      "aliases": [
+        "歐陽謨",
+        "Ouyang Mo"
+      ],
+      "gender": "male",
+      "bio": "person, CBDB = 181677"
+    },
+    {
+      "externalId": "Q45686651",
+      "name": "欧阳鄠",
+      "citation": "维基百科 / Wikidata Q45686651",
+      "aliases": [
+        "歐陽鄠",
+        "Ouyang Hu"
+      ],
+      "gender": "male",
+      "bio": "person, CBDB = 181680"
+    },
+    {
+      "externalId": "Q45686712",
+      "name": "欧阳邦",
+      "citation": "维基百科 / Wikidata Q45686712",
+      "aliases": [
+        "歐陽邦",
+        "Ouyang Bang"
+      ],
+      "gender": "male",
+      "bio": "person, CBDB = 181682"
+    },
+    {
+      "externalId": "Q65799160",
+      "name": "刘氏",
+      "citation": "维基百科 / Wikidata Q65799160",
+      "aliases": [
+        "劉氏",
+        "Liu Shi"
+      ],
+      "gender": "female",
+      "bio": "歐陽郴妻"
+    },
+    {
+      "externalId": "Q65799161",
+      "name": "李氏",
+      "citation": "维基百科 / Wikidata Q65799161",
+      "aliases": [
+        "Li Shi"
+      ],
+      "gender": "female",
+      "bio": "歐陽偃妻"
+    },
+    {
+      "externalId": "Q65800040",
+      "name": "郑氏",
+      "citation": "维基百科 / Wikidata Q65800040",
+      "aliases": [
+        "鄭氏",
+        "Zheng Shi"
+      ],
+      "gender": "female",
+      "bio": "歐陽修母"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q10366772",
+      "child": "Q334323"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45363588",
+      "child": "Q10366772"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q334323",
+      "child": "Q28408985"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q334323",
+      "child": "Q28408993"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45362199",
+      "child": "Q45358364"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45369460",
+      "child": "Q45362199"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45373782",
+      "child": "Q45362202"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45363588",
+      "child": "Q45362208"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45362202",
+      "child": "Q45363588"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q334323",
+      "child": "Q45369455"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q334323",
+      "child": "Q45369460"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45373780",
+      "child": "Q45373782"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45362202",
+      "child": "Q45373787"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45362202",
+      "child": "Q45373790"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45362202",
+      "child": "Q45373791"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45362202",
+      "child": "Q45373794"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45362202",
+      "child": "Q45373798"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45362202",
+      "child": "Q45373801"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45362202",
+      "child": "Q45373802"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q10366772",
+      "child": "Q45373807"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45373780",
+      "child": "Q45686590"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45373782",
+      "child": "Q45686651"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45373782",
+      "child": "Q45686712"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q65800040",
+      "child": "Q334323"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q334323",
+      "b": "Q45363969"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q334323",
+      "b": "Q45363972"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q334323",
+      "b": "Q45363976"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q10366772",
+      "b": "Q45363980"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45362202",
+      "b": "Q65799160"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45363588",
+      "b": "Q65799161"
+    }
+  ]
+}

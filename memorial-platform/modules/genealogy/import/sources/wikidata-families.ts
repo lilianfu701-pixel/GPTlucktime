@@ -12,6 +12,27 @@ import liang from "./liang.data.json";
 import lihongzhang from "./lihongzhang.data.json";
 import zeng from "./zeng.data.json";
 import puyi from "./puyi.data.json";
+// Wave 2 — clans across more surnames and eras (ancient → modern).
+import caocao from "./caocao.data.json";
+import simaguang from "./simaguang.data.json";
+import wangxizhi from "./wangxizhi.data.json";
+import sushi from "./sushi.data.json";
+import ouyangxiu from "./ouyangxiu.data.json";
+import zhuxi from "./zhuxi.data.json";
+import wangyangming from "./wangyangming.data.json";
+import zhugeliang from "./zhugeliang.data.json";
+import kongzi from "./kongzi.data.json";
+import linzexu from "./linzexu.data.json";
+import zuozongtang from "./zuozongtang.data.json";
+import zhangzhidong from "./zhangzhidong.data.json";
+import wengtonghe from "./wengtonghe.data.json";
+import kangyouwei from "./kangyouwei.data.json";
+import yanfu from "./yanfu.data.json";
+import zhangtaiyan from "./zhangtaiyan.data.json";
+import chenbaozhen from "./chenbaozhen.data.json";
+import chenjiageng from "./chenjiageng.data.json";
+import guomoruo from "./guomoruo.data.json";
+import zhaoyuanren from "./zhaoyuanren.data.json";
 
 /**
  * Every Wikidata-sourced family in one registry, so wiring a new one is a single
@@ -37,6 +58,27 @@ const FAMILIES: { key: string; label: string; dataset: GenealogyDataset }[] = [
   { key: "qian", label: "钱氏（钱锺书）家族", dataset: qian as GenealogyDataset },
   { key: "mei", label: "梅兰芳家族", dataset: mei as GenealogyDataset },
   { key: "bingxin", label: "冰心（谢氏）家族", dataset: bingxin as GenealogyDataset },
+  // 第二批：跨姓氏、跨年代的名门望族（古代 → 近现代）。
+  { key: "kongzi", label: "孔子家族（直系）", dataset: kongzi as GenealogyDataset },
+  { key: "zhugeliang", label: "诸葛亮家族", dataset: zhugeliang as GenealogyDataset },
+  { key: "caocao", label: "曹操家族（曹魏宗室）", dataset: caocao as GenealogyDataset },
+  { key: "wangxizhi", label: "王羲之家族（琅琊王氏）", dataset: wangxizhi as GenealogyDataset },
+  { key: "ouyangxiu", label: "欧阳修家族", dataset: ouyangxiu as GenealogyDataset },
+  { key: "simaguang", label: "司马光家族", dataset: simaguang as GenealogyDataset },
+  { key: "sushi", label: "苏轼家族（眉山苏氏）", dataset: sushi as GenealogyDataset },
+  { key: "zhuxi", label: "朱熹家族", dataset: zhuxi as GenealogyDataset },
+  { key: "wangyangming", label: "王阳明家族（余姚王氏）", dataset: wangyangming as GenealogyDataset },
+  { key: "linzexu", label: "林则徐家族", dataset: linzexu as GenealogyDataset },
+  { key: "zuozongtang", label: "左宗棠家族", dataset: zuozongtang as GenealogyDataset },
+  { key: "zhangzhidong", label: "张之洞家族", dataset: zhangzhidong as GenealogyDataset },
+  { key: "wengtonghe", label: "翁同龢家族（常熟翁氏）", dataset: wengtonghe as GenealogyDataset },
+  { key: "kangyouwei", label: "康有为家族", dataset: kangyouwei as GenealogyDataset },
+  { key: "yanfu", label: "严复家族", dataset: yanfu as GenealogyDataset },
+  { key: "zhangtaiyan", label: "章太炎家族", dataset: zhangtaiyan as GenealogyDataset },
+  { key: "chenbaozhen", label: "陈宝箴家族（义宁陈氏）", dataset: chenbaozhen as GenealogyDataset },
+  { key: "chenjiageng", label: "陈嘉庚家族", dataset: chenjiageng as GenealogyDataset },
+  { key: "guomoruo", label: "郭沫若家族", dataset: guomoruo as GenealogyDataset },
+  { key: "zhaoyuanren", label: "赵元任家族（常州赵氏）", dataset: zhaoyuanren as GenealogyDataset },
   // 清皇室（溥仪）：完整世系，多为封号名，绝嗣线，人数最大——放在末尾。
   { key: "puyi", label: "清皇室（溥仪）", dataset: puyi as GenealogyDataset },
 ];

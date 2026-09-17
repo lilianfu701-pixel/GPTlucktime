@@ -1,0 +1,324 @@
+{
+  "key": "wikidata:zhangzhidong",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q11066645",
+      "name": "张厚琬",
+      "citation": "维基百科 / Wikidata Q11066645",
+      "gender": "male",
+      "birth": {
+        "year": 1886
+      }
+    },
+    {
+      "externalId": "Q11068639",
+      "name": "张权",
+      "citation": "维基百科 / Wikidata Q11068639",
+      "aliases": [
+        "張權",
+        "Zhang Quan"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1859
+      },
+      "death": {
+        "year": 1930
+      },
+      "bio": "Qing dynasty person CBDB = 346454"
+    },
+    {
+      "externalId": "Q133824545",
+      "name": "朱氏",
+      "citation": "维基百科 / Wikidata Q133824545",
+      "gender": "female"
+    },
+    {
+      "externalId": "Q133824638",
+      "name": "张之㵲",
+      "citation": "维基百科 / Wikidata Q133824638",
+      "aliases": [
+        "張之㵲"
+      ],
+      "gender": "male"
+    },
+    {
+      "externalId": "Q134726960",
+      "name": "张锳",
+      "citation": "维基百科 / Wikidata Q134726960",
+      "aliases": [
+        "張鍈"
+      ],
+      "gender": "male"
+    },
+    {
+      "externalId": "Q134726962",
+      "name": "张廷琛",
+      "citation": "维基百科 / Wikidata Q134726962",
+      "aliases": [
+        "張廷琛"
+      ],
+      "gender": "male"
+    },
+    {
+      "externalId": "Q134726963",
+      "name": "张怡熊",
+      "citation": "维基百科 / Wikidata Q134726963",
+      "aliases": [
+        "張怡熊"
+      ],
+      "gender": "male"
+    },
+    {
+      "externalId": "Q134726964",
+      "name": "张乃曾",
+      "citation": "维基百科 / Wikidata Q134726964",
+      "aliases": [
+        "張乃曾"
+      ],
+      "gender": "male"
+    },
+    {
+      "externalId": "Q197344",
+      "name": "张之洞",
+      "citation": "维基百科 / Wikidata Q197344",
+      "aliases": [
+        "Zhang Zhidong"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1837
+      },
+      "death": {
+        "year": 1909
+      },
+      "bio": "晚清四大名臣之一",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/%E5%BC%B5%E4%B9%8B%E6%B4%9E%E6%9C%9D%E6%9C%8D%E7%85%A7.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q45652720",
+      "name": "朱绍恩",
+      "citation": "维基百科 / Wikidata Q45652720",
+      "aliases": [
+        "朱紹恩",
+        "Zhu Shaoen"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1784
+      },
+      "bio": "Qing dynasty person CBDB = 74223"
+    },
+    {
+      "externalId": "Q5970037",
+      "name": "张燕卿",
+      "citation": "维基百科 / Wikidata Q5970037",
+      "aliases": [
+        "張燕卿",
+        "Zhang Yanqing"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1898
+      },
+      "death": {
+        "year": 1951
+      },
+      "bio": "Chinese politician (1898–1951)",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Zhang%20Yangqing.JPG",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q63254320",
+      "name": "张仁颋",
+      "citation": "维基百科 / Wikidata Q63254320",
+      "aliases": [
+        "張仁頲"
+      ],
+      "gender": "male"
+    },
+    {
+      "externalId": "Q63254325",
+      "name": "吴氏",
+      "citation": "维基百科 / Wikidata Q63254325",
+      "gender": "female"
+    },
+    {
+      "externalId": "Q63258121",
+      "name": "唐氏",
+      "citation": "维基百科 / Wikidata Q63258121",
+      "gender": "female"
+    },
+    {
+      "externalId": "Q63258146",
+      "name": "王懿娴",
+      "citation": "维基百科 / Wikidata Q63258146",
+      "aliases": [
+        "王懿嫻",
+        "Wang Yixian"
+      ],
+      "gender": "female"
+    },
+    {
+      "externalId": "Q63258237",
+      "name": "曾氏",
+      "citation": "维基百科 / Wikidata Q63258237",
+      "gender": "female",
+      "birth": {
+        "year": 1890
+      }
+    },
+    {
+      "externalId": "Q82897284",
+      "name": "张厚粲",
+      "citation": "维基百科 / Wikidata Q82897284",
+      "aliases": [
+        "Zhang Houcan"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1927
+      },
+      "death": {
+        "year": 2022
+      },
+      "bio": "中国心理学家（1927－2022）"
+    },
+    {
+      "externalId": "Q8463075",
+      "name": "张仁蠡",
+      "citation": "维基百科 / Wikidata Q8463075",
+      "aliases": [
+        "Zhang Renli"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1900
+      },
+      "death": {
+        "year": 1951
+      },
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Zhang%20Renli.jpg",
+      "photoCredit": "作者：Unknown; scanned by 天竺鼠 · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q98068287",
+      "name": "张之渊",
+      "citation": "维基百科 / Wikidata Q98068287",
+      "aliases": [
+        "張之淵",
+        "Zhang Zhiyuan"
+      ],
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q133824545",
+      "child": "Q197344"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q63258121",
+      "child": "Q63254320"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q133824545",
+      "child": "Q98068287"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q133824545",
+      "child": "Q133824638"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q134726960",
+      "child": "Q197344"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q197344",
+      "child": "Q5970037"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q197344",
+      "child": "Q8463075"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q11068639",
+      "child": "Q11066645"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q197344",
+      "child": "Q11068639"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q197344",
+      "child": "Q63254320"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q8463075",
+      "child": "Q82897284"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q134726960",
+      "child": "Q98068287"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45652720",
+      "child": "Q133824545"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q134726960",
+      "child": "Q133824638"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q134726962",
+      "child": "Q134726960"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q134726963",
+      "child": "Q134726962"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q134726964",
+      "child": "Q134726963"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q197344",
+      "b": "Q63258121"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q197344",
+      "b": "Q63258146"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q11066645",
+      "b": "Q63258237"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q63254320",
+      "b": "Q63254325"
+    }
+  ]
+}

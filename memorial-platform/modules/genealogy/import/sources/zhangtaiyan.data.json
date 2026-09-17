@@ -1,0 +1,157 @@
+{
+  "key": "wikidata:zhangtaiyan",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q11094718",
+      "name": "朱兰馨",
+      "citation": "维基百科 / Wikidata Q11094718",
+      "aliases": [
+        "朱蘭馨",
+        "Zhu Lanxin"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1759
+      },
+      "bio": "Qing dynasty politician"
+    },
+    {
+      "externalId": "Q111753068",
+      "name": "章导",
+      "citation": "维基百科 / Wikidata Q111753068",
+      "aliases": [
+        "Zhang Dao"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1917
+      },
+      "death": {
+        "year": 1990
+      }
+    },
+    {
+      "externalId": "Q134053458",
+      "name": "朱氏",
+      "citation": "维基百科 / Wikidata Q134053458",
+      "gender": "female"
+    },
+    {
+      "externalId": "Q15951244",
+      "name": "章念驰",
+      "citation": "维基百科 / Wikidata Q15951244",
+      "aliases": [
+        "Zhang Nianchi"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1942
+      },
+      "living": true,
+      "bio": "中国台湾问题专家"
+    },
+    {
+      "externalId": "Q197162",
+      "name": "章太炎",
+      "citation": "维基百科 / Wikidata Q197162",
+      "aliases": [
+        "Chang Ping-lin"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1868
+      },
+      "death": {
+        "year": 1936
+      },
+      "bio": "清末民初思想家 (1868-1936)",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Zhangtaiyan1899.jpg",
+      "photoCredit": "作者：​照片攝影者未知;redbrow製作 · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q45645574",
+      "name": "朱有虔",
+      "citation": "维基百科 / Wikidata Q45645574",
+      "aliases": [
+        "Zhu Youqian"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1815
+      },
+      "bio": "Qing dynasty person CBDB = 74097"
+    },
+    {
+      "externalId": "Q45658059",
+      "name": "朱锦琮",
+      "citation": "维基百科 / Wikidata Q45658059",
+      "aliases": [
+        "朱錦琮",
+        "Zhu Jincong"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1780
+      },
+      "bio": "Qing dynasty person CBDB = 74314"
+    },
+    {
+      "externalId": "Q99143181",
+      "name": "汤国梨",
+      "citation": "维基百科 / Wikidata Q99143181",
+      "aliases": [
+        "Tang Guoli"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1883
+      },
+      "death": {
+        "year": 1980
+      }
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q134053458",
+      "child": "Q197162"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q99143181",
+      "child": "Q111753068"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q111753068",
+      "child": "Q15951244"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45658059",
+      "child": "Q45645574"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q11094718",
+      "child": "Q45658059"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q197162",
+      "child": "Q111753068"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45645574",
+      "child": "Q134053458"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q197162",
+      "b": "Q99143181"
+    }
+  ]
+}

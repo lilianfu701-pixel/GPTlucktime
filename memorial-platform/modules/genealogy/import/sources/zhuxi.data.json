@@ -1,0 +1,294 @@
+{
+  "key": "wikidata:zhuxi",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q10330338",
+      "name": "朱弁",
+      "citation": "维基百科 / Wikidata Q10330338",
+      "aliases": [
+        "Zhu Bian"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1085
+      },
+      "death": {
+        "year": 1144
+      },
+      "bio": "Song dynasty person (CBDB = 16681)"
+    },
+    {
+      "externalId": "Q11093751",
+      "name": "朱在",
+      "citation": "维基百科 / Wikidata Q11093751",
+      "aliases": [
+        "Zhu Zai"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1169
+      },
+      "death": {
+        "year": 1239
+      },
+      "bio": "南宋理學家"
+    },
+    {
+      "externalId": "Q11094247",
+      "name": "朱松",
+      "citation": "维基百科 / Wikidata Q11094247",
+      "aliases": [
+        "Zhu Song"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1097
+      },
+      "death": {
+        "year": 1143
+      },
+      "bio": "宋朝政治人物，朱熹之父",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/%E6%9C%B1%E6%9D%BE%20%E4%B8%89%E6%89%8D%E5%9C%96%E6%9C%83.jpg",
+      "photoCredit": "作者：Wang Qi · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q45361057",
+      "name": "朱塾",
+      "citation": "维基百科 / Wikidata Q45361057",
+      "aliases": [
+        "Zhu Shu"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1153
+      },
+      "death": {
+        "year": 1191
+      },
+      "bio": "Song dynasty person CBDB = 3263"
+    },
+    {
+      "externalId": "Q45364956",
+      "name": "祝氏",
+      "citation": "维基百科 / Wikidata Q45364956",
+      "aliases": [
+        "Zhu Shi"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1097
+      },
+      "death": {
+        "year": 1169
+      },
+      "bio": "朱熹母"
+    },
+    {
+      "externalId": "Q45372868",
+      "name": "祝景先",
+      "citation": "维基百科 / Wikidata Q45372868",
+      "aliases": [
+        "Zhu Jingxian"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 11895"
+    },
+    {
+      "externalId": "Q45372872",
+      "name": "祝确",
+      "citation": "维基百科 / Wikidata Q45372872",
+      "aliases": [
+        "祝確",
+        "Zhu Que"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 11896"
+    },
+    {
+      "externalId": "Q45372888",
+      "name": "朱森",
+      "citation": "维基百科 / Wikidata Q45372888",
+      "aliases": [
+        "Zhu Sen"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person (CBDB = 11902)"
+    },
+    {
+      "externalId": "Q45372900",
+      "name": "朱槔",
+      "citation": "维基百科 / Wikidata Q45372900",
+      "aliases": [
+        "Zhu Gao"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 11905"
+    },
+    {
+      "externalId": "Q45372903",
+      "name": "朱埜",
+      "citation": "维基百科 / Wikidata Q45372903",
+      "aliases": [
+        "Zhu Ye"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 1211
+      },
+      "bio": "Song dynasty person CBDB = 11906"
+    },
+    {
+      "externalId": "Q45372906",
+      "name": "朱鉴",
+      "citation": "维基百科 / Wikidata Q45372906",
+      "aliases": [
+        "朱鑑",
+        "Zhu Jian"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 11907"
+    },
+    {
+      "externalId": "Q45383715",
+      "name": "朱甫",
+      "citation": "维基百科 / Wikidata Q45383715",
+      "aliases": [
+        "Zhu Fu"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 16678"
+    },
+    {
+      "externalId": "Q45383722",
+      "name": "朱振",
+      "citation": "维基百科 / Wikidata Q45383722",
+      "aliases": [
+        "Zhu Zhen"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person (CBDB = 16679)"
+    },
+    {
+      "externalId": "Q45383724",
+      "name": "朱恂",
+      "citation": "维基百科 / Wikidata Q45383724",
+      "aliases": [
+        "Zhu Xun"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person (CBDB = 16680)"
+    },
+    {
+      "externalId": "Q65801332",
+      "name": "刘氏",
+      "citation": "维基百科 / Wikidata Q65801332",
+      "aliases": [
+        "劉氏",
+        "Liu Shi"
+      ],
+      "gender": "female",
+      "bio": "朱熹妻"
+    },
+    {
+      "externalId": "Q9397",
+      "name": "朱熹",
+      "citation": "维基百科 / Wikidata Q9397",
+      "aliases": [
+        "Zhu Xi"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1130
+      },
+      "death": {
+        "year": 1200
+      },
+      "bio": "中國南宋理學家 (1130–1200)",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/%E5%94%AF%E4%B8%80%E5%8F%AF%E9%9D%A0%E7%9A%84%E6%9C%B1%E7%86%B9%E7%94%BB%E5%83%8F.jpg",
+      "photoCredit": "作者：向史公哲曰 · CC BY-SA 4.0 · 来源：Wikimedia Commons"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q45364956",
+      "child": "Q9397"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q11094247",
+      "child": "Q9397"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45383724",
+      "child": "Q10330338"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q9397",
+      "child": "Q11093751"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45372888",
+      "child": "Q11094247"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q9397",
+      "child": "Q45361057"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45372872",
+      "child": "Q45364956"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45372868",
+      "child": "Q45372872"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45383724",
+      "child": "Q45372888"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45372888",
+      "child": "Q45372900"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q9397",
+      "child": "Q45372903"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45361057",
+      "child": "Q45372906"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45383715",
+      "child": "Q45383722"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45383722",
+      "child": "Q45383724"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q65801332",
+      "b": "Q9397"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q11094247",
+      "b": "Q45364956"
+    }
+  ]
+}

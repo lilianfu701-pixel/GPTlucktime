@@ -1,0 +1,1931 @@
+{
+  "key": "wikidata:linzexu",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q10895999",
+      "name": "凌青",
+      "citation": "维基百科 / Wikidata Q10895999",
+      "aliases": [
+        "Ling Qing"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1923
+      },
+      "death": {
+        "year": 2010
+      },
+      "bio": "中国外交官（1923-2010）"
+    },
+    {
+      "externalId": "Q10897432",
+      "name": "刘崇乐",
+      "citation": "维基百科 / Wikidata Q10897432",
+      "aliases": [
+        "Chung-Lo Liu"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1901
+      },
+      "death": {
+        "year": 1969
+      },
+      "bio": "中国昆虫学家（1901～1969）"
+    },
+    {
+      "externalId": "Q10897433",
+      "name": "刘崇佑",
+      "citation": "维基百科 / Wikidata Q10897433",
+      "gender": "male",
+      "birth": {
+        "year": 1877
+      },
+      "death": {
+        "year": 1942
+      }
+    },
+    {
+      "externalId": "Q10899694",
+      "name": "刘崇伦",
+      "citation": "维基百科 / Wikidata Q10899694",
+      "aliases": [
+        "劉崇倫",
+        "Liu Chonglun"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1885
+      }
+    },
+    {
+      "externalId": "Q10899696",
+      "name": "刘崇𬭎",
+      "citation": "维基百科 / Wikidata Q10899696",
+      "aliases": [
+        "劉崇鋐",
+        "Liu Chonghong"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1897
+      },
+      "death": {
+        "year": 1990
+      },
+      "bio": "Historian"
+    },
+    {
+      "externalId": "Q10899711",
+      "name": "刘广京",
+      "citation": "维基百科 / Wikidata Q10899711",
+      "aliases": [
+        "劉廣京",
+        "Kwang Ching Liu"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1921
+      },
+      "death": {
+        "year": 2006
+      },
+      "bio": "American historian (1921–2006)"
+    },
+    {
+      "externalId": "Q109348678",
+      "name": "周前",
+      "citation": "维基百科 / Wikidata Q109348678",
+      "aliases": [
+        "Zhou Qian"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1926
+      },
+      "death": {
+        "year": 2024
+      },
+      "bio": "中国核医学家"
+    },
+    {
+      "externalId": "Q110407659",
+      "name": "李良",
+      "citation": "维基百科 / Wikidata Q110407659",
+      "aliases": [
+        "Li Liang"
+      ],
+      "birth": {
+        "year": 1918
+      },
+      "death": {
+        "year": 1969
+      }
+    },
+    {
+      "externalId": "Q11067582",
+      "name": "张联",
+      "citation": "维基百科 / Wikidata Q11067582",
+      "aliases": [
+        "Zhang Lian"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1930
+      },
+      "living": true
+    },
+    {
+      "externalId": "Q11106052",
+      "name": "林崇墉",
+      "citation": "维基百科 / Wikidata Q11106052",
+      "aliases": [
+        "Lin Chongyong"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1907
+      },
+      "death": {
+        "year": 1983
+      },
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/%E6%9E%97%E5%B4%87%E5%A2%89.jpg",
+      "photoCredit": "作者：中國金融年鑑社 · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q11106442",
+      "name": "林步随",
+      "citation": "维基百科 / Wikidata Q11106442",
+      "aliases": [
+        "Lin Busui"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1881
+      },
+      "bio": "清朝及中華民國官員",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Lin%20Busui.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q11106498",
+      "name": "林汝舟",
+      "citation": "维基百科 / Wikidata Q11106498",
+      "aliases": [
+        "Lin Ruzhou"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1814
+      },
+      "bio": "Qing dynasty person CBDB = 364038"
+    },
+    {
+      "externalId": "Q11106615",
+      "name": "林炳章",
+      "citation": "维基百科 / Wikidata Q11106615",
+      "aliases": [
+        "Lin Bingzhang"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1875
+      },
+      "death": {
+        "year": 1923
+      },
+      "bio": "Republic of China person CBDB = 59253"
+    },
+    {
+      "externalId": "Q11106823",
+      "name": "林翔",
+      "citation": "维基百科 / Wikidata Q11106823",
+      "aliases": [
+        "Lin Xiang"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1882
+      },
+      "bio": "judge"
+    },
+    {
+      "externalId": "Q11107114",
+      "name": "林钧泽",
+      "citation": "维基百科 / Wikidata Q11107114",
+      "aliases": [
+        "Lin Junze"
+      ],
+      "gender": "male",
+      "bio": "politician"
+    },
+    {
+      "externalId": "Q11138566",
+      "name": "沈瑜庆",
+      "citation": "维基百科 / Wikidata Q11138566",
+      "aliases": [
+        "沈瑜慶",
+        "Yuqing Shen"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1858
+      },
+      "death": {
+        "year": 1918
+      },
+      "bio": "Qing dynasty politician (1858-1918)",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/%E6%B2%88%E7%91%9C%E6%85%B6.PNG",
+      "photoCredit": "作者：不詳 · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q11138610",
+      "name": "沈祖海",
+      "citation": "维基百科 / Wikidata Q11138610",
+      "aliases": [
+        "Haigo T. H. Shen"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1926
+      },
+      "death": {
+        "year": 2005
+      }
+    },
+    {
+      "externalId": "Q11138734",
+      "name": "沈觐扆",
+      "citation": "维基百科 / Wikidata Q11138734",
+      "aliases": [
+        "沈覲扆",
+        "Shen Jinyi"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1885
+      }
+    },
+    {
+      "externalId": "Q11138737",
+      "name": "沈觐宸",
+      "citation": "维基百科 / Wikidata Q11138737",
+      "aliases": [
+        "Shen Jinchen"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1881
+      },
+      "death": {
+        "year": 1962
+      }
+    },
+    {
+      "externalId": "Q11138742",
+      "name": "沈觐鼎",
+      "citation": "维基百科 / Wikidata Q11138742",
+      "aliases": [
+        "Yorkson C. T. Shen"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1894
+      },
+      "death": {
+        "year": 2000
+      },
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Shen%20Jinding.jpg",
+      "photoCredit": "作者：Unknown; scanned by 天竺鼠 (talk) 16:26, 26 December 2010 (UTC) · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q11398321",
+      "name": "刘攻芸",
+      "citation": "维基百科 / Wikidata Q11398321",
+      "aliases": [
+        "Liu Gongyun"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1900
+      },
+      "death": {
+        "year": 1973
+      },
+      "bio": "Taiwanese politician"
+    },
+    {
+      "externalId": "Q131690272",
+      "name": "李国珍",
+      "citation": "维基百科 / Wikidata Q131690272",
+      "aliases": [
+        "Li Guozhen"
+      ],
+      "gender": "female"
+    },
+    {
+      "externalId": "Q131781482",
+      "name": "王继曾",
+      "citation": "维基百科 / Wikidata Q131781482",
+      "aliases": [
+        "王繼曾",
+        "Wang Chi-tseng"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1881
+      },
+      "death": {
+        "year": 1955
+      },
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Wang%20Jizeng%20cropped.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q131781513",
+      "name": "王季淑",
+      "citation": "维基百科 / Wikidata Q131781513",
+      "aliases": [
+        "Wang Jishu"
+      ],
+      "gender": "female"
+    },
+    {
+      "externalId": "Q132061063",
+      "name": "林洄淑",
+      "citation": "维基百科 / Wikidata Q132061063",
+      "aliases": [
+        "Lin Huishu"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1850
+      },
+      "death": {
+        "year": 1887
+      }
+    },
+    {
+      "externalId": "Q132061237",
+      "name": "陈谦淑",
+      "citation": "维基百科 / Wikidata Q132061237",
+      "aliases": [
+        "陳謙淑",
+        "Chen Qianshu"
+      ],
+      "gender": "female"
+    },
+    {
+      "externalId": "Q133278411",
+      "name": "林毓良",
+      "citation": "维基百科 / Wikidata Q133278411",
+      "gender": "male"
+    },
+    {
+      "externalId": "Q133278504",
+      "name": "刘忻",
+      "citation": "维基百科 / Wikidata Q133278504",
+      "aliases": [
+        "劉忻"
+      ],
+      "gender": "male"
+    },
+    {
+      "externalId": "Q133321587",
+      "name": "刘学恂",
+      "citation": "维基百科 / Wikidata Q133321587",
+      "aliases": [
+        "劉學恂"
+      ],
+      "gender": "male"
+    },
+    {
+      "externalId": "Q133805204",
+      "name": "刘广琴",
+      "citation": "维基百科 / Wikidata Q133805204",
+      "gender": "female"
+    },
+    {
+      "externalId": "Q134153208",
+      "name": "郑氏",
+      "citation": "维基百科 / Wikidata Q134153208",
+      "aliases": [
+        "鄭氏"
+      ],
+      "gender": "female"
+    },
+    {
+      "externalId": "Q134153215",
+      "name": "林氏",
+      "citation": "维基百科 / Wikidata Q134153215",
+      "aliases": [
+        "Lin Shi"
+      ],
+      "gender": "female"
+    },
+    {
+      "externalId": "Q134705825",
+      "name": "林蕙芳",
+      "citation": "维基百科 / Wikidata Q134705825",
+      "gender": "female"
+    },
+    {
+      "externalId": "Q134705872",
+      "name": "刘学熹",
+      "citation": "维基百科 / Wikidata Q134705872",
+      "aliases": [
+        "劉學熹"
+      ],
+      "gender": "female"
+    },
+    {
+      "externalId": "Q134959189",
+      "name": "刘崇伟",
+      "citation": "维基百科 / Wikidata Q134959189",
+      "gender": "male"
+    },
+    {
+      "externalId": "Q134959192",
+      "name": "刘崇洁",
+      "citation": "维基百科 / Wikidata Q134959192",
+      "gender": "male"
+    },
+    {
+      "externalId": "Q134959261",
+      "name": "林氏",
+      "citation": "维基百科 / Wikidata Q134959261",
+      "gender": "female"
+    },
+    {
+      "externalId": "Q134959290",
+      "name": "林洛仙",
+      "citation": "维基百科 / Wikidata Q134959290",
+      "gender": "female"
+    },
+    {
+      "externalId": "Q134959295",
+      "name": "林燕愉",
+      "citation": "维基百科 / Wikidata Q134959295",
+      "gender": "male"
+    },
+    {
+      "externalId": "Q15927950",
+      "name": "刘崇侃",
+      "citation": "维基百科 / Wikidata Q15927950",
+      "aliases": [
+        "劉崇侃"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1888
+      },
+      "death": {
+        "year": 1944
+      }
+    },
+    {
+      "externalId": "Q16904590",
+      "name": "何孝元",
+      "citation": "维基百科 / Wikidata Q16904590",
+      "aliases": [
+        "He Xiaoyuan"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1896
+      },
+      "death": {
+        "year": 1975
+      },
+      "bio": "Chinese jurist (1896–1975)",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/%E4%BD%95%E5%AD%9D%E5%85%83.jpg",
+      "photoCredit": "作者：《國防部公報》（1946-1948） · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q18110133",
+      "name": "沈成栻",
+      "citation": "维基百科 / Wikidata Q18110133",
+      "aliases": [
+        "Shen Cheng-shih"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1889
+      },
+      "death": {
+        "year": 1955
+      },
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/%E6%B2%88%E6%88%90%E6%A0%BB.jpg",
+      "photoCredit": "作者：不詳 · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q184999",
+      "name": "林则徐",
+      "citation": "维基百科 / Wikidata Q184999",
+      "aliases": [
+        "Lin Tse-hsu"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1785
+      },
+      "death": {
+        "year": 1850
+      },
+      "bio": "晚清政治家、思想家、詩人",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Portrait%20of%20Lin%20Zexu.jpeg",
+      "photoCredit": "作者：Lam Qua · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q197478",
+      "name": "赵尊岳",
+      "citation": "维基百科 / Wikidata Q197478",
+      "aliases": [
+        "Zhao Zunyue"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1898
+      },
+      "death": {
+        "year": 1965
+      },
+      "bio": "Chinese linguist (1898-1965)",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Zhao%20Zunyue.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q2105071",
+      "name": "王世襄",
+      "citation": "维基百科 / Wikidata Q2105071",
+      "aliases": [
+        "Wang Shixiang"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1914
+      },
+      "death": {
+        "year": 2009
+      },
+      "bio": "Chinese scientist, poet and art collector (1914–2009)"
+    },
+    {
+      "externalId": "Q2378184",
+      "name": "刘崇杰",
+      "citation": "维基百科 / Wikidata Q2378184",
+      "aliases": [
+        "劉崇傑",
+        "Liu Chongjie"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1880
+      },
+      "death": {
+        "year": 2000
+      },
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Liu%20Chongjie.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q28418446",
+      "name": "沈祖湜",
+      "citation": "维基百科 / Wikidata Q28418446",
+      "aliases": [
+        "Shen Zushi"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1925
+      },
+      "death": {
+        "year": 2015
+      }
+    },
+    {
+      "externalId": "Q30610922",
+      "name": "沈莹庆",
+      "citation": "维基百科 / Wikidata Q30610922",
+      "aliases": [
+        "沈瑩慶",
+        "Shen Yingqing"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1851
+      },
+      "bio": "Qing dynasty person CBDB = 125706"
+    },
+    {
+      "externalId": "Q30610925",
+      "name": "沈璘庆",
+      "citation": "维基百科 / Wikidata Q30610925",
+      "aliases": [
+        "沈璘慶",
+        "Shen Linqing"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1858
+      },
+      "death": {
+        "year": 1954
+      }
+    },
+    {
+      "externalId": "Q30610958",
+      "name": "沈璇庆",
+      "citation": "维基百科 / Wikidata Q30610958",
+      "aliases": [
+        "沈璿慶",
+        "Shen Ruiqing"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1861
+      },
+      "death": {
+        "year": 1932
+      }
+    },
+    {
+      "externalId": "Q30942644",
+      "name": "沈成鹄",
+      "citation": "维基百科 / Wikidata Q30942644",
+      "aliases": [
+        "沈成鵠",
+        "Shen Chenghu"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1878
+      }
+    },
+    {
+      "externalId": "Q30942645",
+      "name": "沈永清",
+      "citation": "维基百科 / Wikidata Q30942645",
+      "aliases": [
+        "Shen Yongqing"
+      ],
+      "gender": "male",
+      "bio": "politician"
+    },
+    {
+      "externalId": "Q45476999",
+      "name": "林普晴",
+      "citation": "维基百科 / Wikidata Q45476999",
+      "aliases": [
+        "Lin Puqing"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1821
+      },
+      "death": {
+        "year": 1873
+      },
+      "bio": "Qing dynasty person"
+    },
+    {
+      "externalId": "Q45489473",
+      "name": "刘齐衔",
+      "citation": "维基百科 / Wikidata Q45489473",
+      "aliases": [
+        "劉齊銜",
+        "Liu Qixian"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1815
+      },
+      "death": {
+        "year": 1878
+      },
+      "bio": "Qing dynasty person CBDB = 61023"
+    },
+    {
+      "externalId": "Q45519034",
+      "name": "林宾日",
+      "citation": "维基百科 / Wikidata Q45519034",
+      "aliases": [
+        "林賓日",
+        "Lin Binri"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1749
+      },
+      "death": {
+        "year": 1827
+      },
+      "bio": "Qing dynasty person CBDB = 82669"
+    },
+    {
+      "externalId": "Q45665488",
+      "name": "沈翊清",
+      "citation": "维基百科 / Wikidata Q45665488",
+      "aliases": [
+        "Shen Yiqing"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1861
+      },
+      "death": {
+        "year": 1908
+      },
+      "bio": "Qing dynasty person CBDB = 79739"
+    },
+    {
+      "externalId": "Q45690538",
+      "name": "沈鹊应",
+      "citation": "维基百科 / Wikidata Q45690538",
+      "aliases": [
+        "沈鵲應",
+        "Shen Queying"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1874
+      },
+      "death": {
+        "year": 1898
+      },
+      "bio": "Chinese writing woman, wife of Lin Xu. Qing dynasty person CBDB = 54203"
+    },
+    {
+      "externalId": "Q6143494",
+      "name": "林旭",
+      "citation": "维基百科 / Wikidata Q6143494",
+      "aliases": [
+        "Lin Xu"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1875
+      },
+      "death": {
+        "year": 1898
+      },
+      "bio": "Chinese politician of Qing Dynasty (1875–1898)",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Ling%20Heuk.JPG",
+      "photoCredit": "作者：林旭 · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q657787",
+      "name": "沈葆桢",
+      "citation": "维基百科 / Wikidata Q657787",
+      "aliases": [
+        "沈葆楨",
+        "Pao-chen Shen"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1820
+      },
+      "death": {
+        "year": 1879
+      },
+      "bio": "中國清朝官員",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Sing%20Bo-ting2.jpg",
+      "photoCredit": "作者：Sing Bo-ting (Shen Baozhen) · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q65800144",
+      "name": "郑氏",
+      "citation": "维基百科 / Wikidata Q65800144",
+      "aliases": [
+        "鄭氏",
+        "Zheng Shi"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1789
+      },
+      "death": {
+        "year": 1848
+      },
+      "bio": "林則徐妻"
+    },
+    {
+      "externalId": "Q9185449",
+      "name": "王世真",
+      "citation": "维基百科 / Wikidata Q9185449",
+      "aliases": [
+        "Wang Shizhen"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1916
+      },
+      "death": {
+        "year": 2016
+      },
+      "bio": "(1916-2016)"
+    },
+    {
+      "externalId": "Q98061023",
+      "name": "陈褧贞",
+      "citation": "维基百科 / Wikidata Q98061023",
+      "aliases": [
+        "陳褧貞",
+        "Chen Jiongzhen"
+      ],
+      "gender": "female"
+    },
+    {
+      "externalId": "Q98061077",
+      "name": "刘骏业",
+      "citation": "维基百科 / Wikidata Q98061077",
+      "aliases": [
+        "劉駿業",
+        "Liu Junye"
+      ],
+      "gender": "male"
+    },
+    {
+      "externalId": "Q98061103",
+      "name": "刘鸿寿",
+      "citation": "维基百科 / Wikidata Q98061103",
+      "aliases": [
+        "劉鴻壽",
+        "Liu Hongshou"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1861
+      },
+      "death": {
+        "year": 1916
+      }
+    },
+    {
+      "externalId": "Q98061107",
+      "name": "陈伯芬",
+      "citation": "维基百科 / Wikidata Q98061107",
+      "aliases": [
+        "陳伯芬",
+        "Chen Bofen"
+      ],
+      "gender": "female"
+    },
+    {
+      "externalId": "Q98066110",
+      "name": "陈婉贞",
+      "citation": "维基百科 / Wikidata Q98066110",
+      "aliases": [
+        "陳婉貞",
+        "Chen Wanzhen"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1877
+      }
+    },
+    {
+      "externalId": "Q98066134",
+      "name": "陈勤贞",
+      "citation": "维基百科 / Wikidata Q98066134",
+      "aliases": [
+        "陳勤貞",
+        "Chen Qinzhen"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1904
+      }
+    },
+    {
+      "externalId": "Q98066148",
+      "name": "林聪彝",
+      "citation": "维基百科 / Wikidata Q98066148",
+      "aliases": [
+        "林聰彝",
+        "Lin Congyi"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1824
+      },
+      "death": {
+        "year": 1878
+      }
+    },
+    {
+      "externalId": "Q98066569",
+      "name": "王孝缃",
+      "citation": "维基百科 / Wikidata Q98066569",
+      "aliases": [
+        "王孝緗",
+        "Wang Xiaoxiang"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1890
+      },
+      "death": {
+        "year": 1988
+      }
+    },
+    {
+      "externalId": "Q98066599",
+      "name": "林剑言",
+      "citation": "维基百科 / Wikidata Q98066599",
+      "aliases": [
+        "林劍言",
+        "Lin Jianyan"
+      ],
+      "gender": "female"
+    },
+    {
+      "externalId": "Q98066669",
+      "name": "林庆祺",
+      "citation": "维基百科 / Wikidata Q98066669",
+      "aliases": [
+        "林慶祺",
+        "Lin Qingqi"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1853
+      },
+      "death": {
+        "year": 1907
+      }
+    },
+    {
+      "externalId": "Q98067763",
+      "name": "沈成栋",
+      "citation": "维基百科 / Wikidata Q98067763",
+      "aliases": [
+        "Shen Chengdong"
+      ],
+      "gender": "male"
+    },
+    {
+      "externalId": "Q98067790",
+      "name": "林慕安",
+      "citation": "维基百科 / Wikidata Q98067790",
+      "aliases": [
+        "Lin Mu'an"
+      ],
+      "gender": "female"
+    },
+    {
+      "externalId": "Q98067888",
+      "name": "林拱枢",
+      "citation": "维基百科 / Wikidata Q98067888",
+      "aliases": [
+        "林拱樞",
+        "Lin Gongshu"
+      ],
+      "gender": "male"
+    },
+    {
+      "externalId": "Q98067925",
+      "name": "林寿鼎",
+      "citation": "维基百科 / Wikidata Q98067925",
+      "aliases": [
+        "林壽鼎",
+        "Lin Shouding"
+      ],
+      "gender": "male"
+    },
+    {
+      "externalId": "Q98067948",
+      "name": "林锦嘉",
+      "citation": "维基百科 / Wikidata Q98067948",
+      "aliases": [
+        "Lin Jinjia"
+      ],
+      "gender": "female"
+    },
+    {
+      "externalId": "Q98068063",
+      "name": "沈蘩应",
+      "citation": "维基百科 / Wikidata Q98068063",
+      "aliases": [
+        "沈蘩應",
+        "Shen Fanying"
+      ],
+      "gender": "female"
+    },
+    {
+      "externalId": "Q98068112",
+      "name": "王孝缙",
+      "citation": "维基百科 / Wikidata Q98068112",
+      "aliases": [
+        "王孝縉",
+        "Wang Xiaojin"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1882
+      }
+    },
+    {
+      "externalId": "Q98068162",
+      "name": "沈钟应",
+      "citation": "维基百科 / Wikidata Q98068162",
+      "aliases": [
+        "沈鍾應",
+        "Shen Zhongying"
+      ],
+      "gender": "female"
+    },
+    {
+      "externalId": "Q98068242",
+      "name": "刘逊补",
+      "citation": "维基百科 / Wikidata Q98068242",
+      "aliases": [
+        "劉逊補",
+        "Liu Xunbu"
+      ],
+      "gender": "male"
+    },
+    {
+      "externalId": "Q98068260",
+      "name": "张氏",
+      "citation": "维基百科 / Wikidata Q98068260",
+      "aliases": [
+        "Zhang Shi"
+      ],
+      "gender": "female"
+    },
+    {
+      "externalId": "Q98068337",
+      "name": "林尘谭",
+      "citation": "维基百科 / Wikidata Q98068337",
+      "aliases": [
+        "林塵譚",
+        "Lin Chentan"
+      ],
+      "gender": "female"
+    },
+    {
+      "externalId": "Q98068417",
+      "name": "沈通应",
+      "citation": "维基百科 / Wikidata Q98068417",
+      "aliases": [
+        "沈通應",
+        "Shen Tongying"
+      ],
+      "gender": "female"
+    },
+    {
+      "externalId": "Q98074738",
+      "name": "李蘩祉",
+      "citation": "维基百科 / Wikidata Q98074738",
+      "aliases": [
+        "Li Fanzhi"
+      ],
+      "gender": "female"
+    },
+    {
+      "externalId": "Q98074934",
+      "name": "吴氏",
+      "citation": "维基百科 / Wikidata Q98074934",
+      "aliases": [
+        "Wu Shi"
+      ],
+      "gender": "female"
+    },
+    {
+      "externalId": "Q98075079",
+      "name": "林菊吟",
+      "citation": "维基百科 / Wikidata Q98075079",
+      "aliases": [
+        "Lin Juyin"
+      ],
+      "gender": "female"
+    },
+    {
+      "externalId": "Q98075120",
+      "name": "沈玮庆",
+      "citation": "维基百科 / Wikidata Q98075120",
+      "aliases": [
+        "沈瑋慶",
+        "Shen Weiqing"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1842
+      },
+      "death": {
+        "year": 1880
+      }
+    },
+    {
+      "externalId": "Q98075180",
+      "name": "陈芷洲",
+      "citation": "维基百科 / Wikidata Q98075180",
+      "aliases": [
+        "陳芷洲",
+        "Chen Zhizhou"
+      ],
+      "gender": "female"
+    },
+    {
+      "externalId": "Q98075345",
+      "name": "沈赞清",
+      "citation": "维基百科 / Wikidata Q98075345",
+      "aliases": [
+        "沈贊清",
+        "Shen Zanqing"
+      ],
+      "gender": "male"
+    },
+    {
+      "externalId": "Q98075441",
+      "name": "廖承芝",
+      "citation": "维基百科 / Wikidata Q98075441",
+      "aliases": [
+        "Liao Chengzhi"
+      ],
+      "gender": "female",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/%E9%A7%90%E5%8F%A4%E5%B7%B4%E5%9C%8B%E5%85%AC%E4%BD%BF%E5%BB%96%E6%81%A9%E7%87%BE%E5%90%9B%E4%B9%8B%E7%AC%AC%E5%8D%81%E5%A5%B3%E5%85%AC%E5%AD%90%EF%BC%88%E5%BB%96%E6%89%BF%E8%8A%9D%EF%BC%89.png",
+      "photoCredit": "作者：武越 藏 · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q98075650",
+      "name": "郭葆萍",
+      "citation": "维基百科 / Wikidata Q98075650",
+      "aliases": [
+        "Guo Baoping"
+      ],
+      "gender": "female"
+    },
+    {
+      "externalId": "Q98076247",
+      "name": "郭长芦",
+      "citation": "维基百科 / Wikidata Q98076247",
+      "aliases": [
+        "Guo Changlu"
+      ],
+      "gender": "female"
+    },
+    {
+      "externalId": "Q98076288",
+      "name": "沈觐冕",
+      "citation": "维基百科 / Wikidata Q98076288",
+      "aliases": [
+        "沈覲冕",
+        "Shen Jinmian"
+      ],
+      "gender": "male"
+    },
+    {
+      "externalId": "Q98076356",
+      "name": "陈秀贞",
+      "citation": "维基百科 / Wikidata Q98076356",
+      "aliases": [
+        "陳秀貞",
+        "Chen Xiuzhen"
+      ],
+      "gender": "female"
+    },
+    {
+      "externalId": "Q98076438",
+      "name": "沈觐恩",
+      "citation": "维基百科 / Wikidata Q98076438",
+      "aliases": [
+        "Shen Jin'en"
+      ],
+      "gender": "male"
+    },
+    {
+      "externalId": "Q98076976",
+      "name": "陈璱如",
+      "citation": "维基百科 / Wikidata Q98076976",
+      "aliases": [
+        "Chen Seru"
+      ],
+      "gender": "female"
+    },
+    {
+      "externalId": "Q98077005",
+      "name": "沈觐平",
+      "citation": "维基百科 / Wikidata Q98077005",
+      "aliases": [
+        "沈覲平",
+        "Shen Jinping"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1879
+      },
+      "death": {
+        "year": 1925
+      }
+    },
+    {
+      "externalId": "Q98077302",
+      "name": "陈叔常",
+      "citation": "维基百科 / Wikidata Q98077302",
+      "aliases": [
+        "陳叔常",
+        "Chen Shuchang"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1910
+      },
+      "death": {
+        "year": 1976
+      }
+    },
+    {
+      "externalId": "Q98077332",
+      "name": "沈师箴",
+      "citation": "维基百科 / Wikidata Q98077332",
+      "aliases": [
+        "Shen Shizhen"
+      ],
+      "gender": "female"
+    },
+    {
+      "externalId": "Q98077517",
+      "name": "陈庚",
+      "citation": "维基百科 / Wikidata Q98077517",
+      "aliases": [
+        "Chen Geng"
+      ],
+      "gender": "female"
+    },
+    {
+      "externalId": "Q98077551",
+      "name": "沈祖筹",
+      "citation": "维基百科 / Wikidata Q98077551",
+      "aliases": [
+        "沈祖籌",
+        "Shen Zuchou"
+      ],
+      "gender": "male"
+    },
+    {
+      "externalId": "Q98136627",
+      "name": "刘永业",
+      "citation": "维基百科 / Wikidata Q98136627",
+      "birth": {
+        "year": 1909
+      },
+      "death": {
+        "year": 1997
+      }
+    },
+    {
+      "externalId": "Q98915428",
+      "name": "施慧元",
+      "citation": "维基百科 / Wikidata Q98915428",
+      "aliases": [
+        "Shi Huiyuan"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1910
+      }
+    },
+    {
+      "externalId": "Q99630150",
+      "name": "刘栋业",
+      "citation": "维基百科 / Wikidata Q99630150",
+      "gender": "male",
+      "birth": {
+        "year": 1897
+      },
+      "death": {
+        "year": 1967
+      }
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q134705825",
+      "child": "Q657787"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q98066599",
+      "child": "Q9185449"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q98068260",
+      "child": "Q10897432"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q98068260",
+      "child": "Q10899696"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q98061023",
+      "child": "Q10899711"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45476999",
+      "child": "Q11138566"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q98076356",
+      "child": "Q11138610"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q98061107",
+      "child": "Q11398321"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45476999",
+      "child": "Q30610922"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45476999",
+      "child": "Q30610958"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q98075180",
+      "child": "Q30942645"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q65800144",
+      "child": "Q45476999"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q134153208",
+      "child": "Q45690538"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q98061107",
+      "child": "Q98061077"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q98068337",
+      "child": "Q98068242"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45476999",
+      "child": "Q98075120"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q134959290",
+      "child": "Q98136627"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q134705872",
+      "child": "Q131781482"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q98068337",
+      "child": "Q133278504"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q98068337",
+      "child": "Q133321587"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q131690272",
+      "child": "Q133805204"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q134153215",
+      "child": "Q134153208"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q98068337",
+      "child": "Q134705872"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q134959261",
+      "child": "Q134959192"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45519034",
+      "child": "Q184999"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q131781482",
+      "child": "Q2105071"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q133321587",
+      "child": "Q2378184"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q98066569",
+      "child": "Q9185449"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q11106442",
+      "child": "Q10895999"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q98068242",
+      "child": "Q10897432"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q133321587",
+      "child": "Q10897433"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q133321587",
+      "child": "Q10899694"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q98068242",
+      "child": "Q10899696"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q98061077",
+      "child": "Q10899711"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q11106615",
+      "child": "Q11106052"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q133278411",
+      "child": "Q11106442"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q184999",
+      "child": "Q11106498"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q11107114",
+      "child": "Q11106615"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q98066669",
+      "child": "Q11106823"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q98066148",
+      "child": "Q11107114"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q657787",
+      "child": "Q11138566"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q98076288",
+      "child": "Q11138610"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45665488",
+      "child": "Q11138734"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45665488",
+      "child": "Q11138737"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q98075345",
+      "child": "Q11138742"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q98061103",
+      "child": "Q11398321"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q133321587",
+      "child": "Q15927950"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q11138566",
+      "child": "Q18110133"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q98076438",
+      "child": "Q28418446"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q657787",
+      "child": "Q30610922"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q657787",
+      "child": "Q30610925"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q657787",
+      "child": "Q30610958"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q11138566",
+      "child": "Q30942644"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q98075120",
+      "child": "Q30942645"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q184999",
+      "child": "Q45476999"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q98075120",
+      "child": "Q45665488"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q11138566",
+      "child": "Q45690538"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q98061103",
+      "child": "Q98061077"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q133278504",
+      "child": "Q98061103"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q184999",
+      "child": "Q98066148"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q11106823",
+      "child": "Q98066599"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q98066148",
+      "child": "Q98066669"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q11138566",
+      "child": "Q98067763"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q184999",
+      "child": "Q98067888"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q98067888",
+      "child": "Q98067925"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q98067925",
+      "child": "Q98067948"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q11138566",
+      "child": "Q98068063"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q11138566",
+      "child": "Q98068162"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45489473",
+      "child": "Q98068242"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q184999",
+      "child": "Q98068337"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q11138566",
+      "child": "Q98068417"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q657787",
+      "child": "Q98075120"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q98075120",
+      "child": "Q98075345"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45665488",
+      "child": "Q98076288"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45665488",
+      "child": "Q98076438"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45665488",
+      "child": "Q98077005"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q98076438",
+      "child": "Q98077332"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q11138737",
+      "child": "Q98077551"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q134959189",
+      "child": "Q98136627"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q134959192",
+      "child": "Q99630150"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q11106442",
+      "child": "Q110407659"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q11106498",
+      "child": "Q132061063"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q98067888",
+      "child": "Q133278411"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45489473",
+      "child": "Q133278504"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45489473",
+      "child": "Q133321587"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q11398321",
+      "child": "Q133805204"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q184999",
+      "child": "Q134153215"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45519034",
+      "child": "Q134705825"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45489473",
+      "child": "Q134705872"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q133321587",
+      "child": "Q134959189"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q98066148",
+      "child": "Q134959261"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q134959295",
+      "child": "Q134959290"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q98066148",
+      "child": "Q134959295"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q184999",
+      "b": "Q65800144"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q131781513",
+      "b": "Q197478"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45476999",
+      "b": "Q657787"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45690538",
+      "b": "Q6143494"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q109348678",
+      "b": "Q9185449"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q10895999",
+      "b": "Q11067582"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q10897432",
+      "b": "Q98915428"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q10899696",
+      "b": "Q98068162"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q11106052",
+      "b": "Q98066134"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q11106615",
+      "b": "Q98066110"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q11138734",
+      "b": "Q98075650"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q11138734",
+      "b": "Q98076247"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q11138742",
+      "b": "Q98075441"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q11398321",
+      "b": "Q131690272"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q16904590",
+      "b": "Q98068417"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q18110133",
+      "b": "Q98075079"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q30610922",
+      "b": "Q98074738"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q30610958",
+      "b": "Q98074934"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q30942644",
+      "b": "Q98067948"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45489473",
+      "b": "Q98068337"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q98061023",
+      "b": "Q98061077"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q98061103",
+      "b": "Q98061107"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q98066569",
+      "b": "Q98066599"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q98067763",
+      "b": "Q98067790"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q98068063",
+      "b": "Q98068112"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q98068242",
+      "b": "Q98068260"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q98075120",
+      "b": "Q98075180"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q98076288",
+      "b": "Q98076356"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q98076976",
+      "b": "Q98077005"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q98077302",
+      "b": "Q98077332"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q98077517",
+      "b": "Q98077551"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q132061063",
+      "b": "Q132061237"
+    }
+  ]
+}

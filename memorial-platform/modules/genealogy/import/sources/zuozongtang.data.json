@@ -1,0 +1,208 @@
+{
+  "key": "wikidata:zuozongtang",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q230200",
+      "name": "左宗棠",
+      "citation": "维基百科 / Wikidata Q230200",
+      "aliases": [
+        "Zuo Zongtang"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1812
+      },
+      "death": {
+        "year": 1885
+      },
+      "bio": "中国晚清重臣（1812～1885），军事家、政治家、湘军重要统帅，洋务派重要首领之一",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Zuo%20Zongtang%201875.jpg",
+      "photoCredit": "作者：Boiarskii, Adolf-Nikolay Erazmovich · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q45443099",
+      "name": "周诒端",
+      "citation": "维基百科 / Wikidata Q45443099",
+      "aliases": [
+        "周詒端",
+        "Zhou Yiduan"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1812
+      },
+      "death": {
+        "year": 1870
+      },
+      "bio": "Qing dynasty person CBDB = 54960"
+    },
+    {
+      "externalId": "Q45444571",
+      "name": "左孝瑜",
+      "citation": "维基百科 / Wikidata Q45444571",
+      "aliases": [
+        "Zuo Xiaoyu"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1833
+      },
+      "death": {
+        "year": 1894
+      },
+      "bio": "Qing dynasty person CBDB = 54986"
+    },
+    {
+      "externalId": "Q45444763",
+      "name": "陶桄",
+      "citation": "维基百科 / Wikidata Q45444763",
+      "aliases": [
+        "Tao Guang"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1832
+      },
+      "death": {
+        "year": 1908
+      },
+      "bio": "Qing dynasty person CBDB = 54989"
+    },
+    {
+      "externalId": "Q45444946",
+      "name": "左孝琪",
+      "citation": "维基百科 / Wikidata Q45444946",
+      "aliases": [
+        "Zuo Xiaoqi"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1834
+      },
+      "death": {
+        "year": 1873
+      },
+      "bio": "Qing dynasty person CBDB = 54992"
+    },
+    {
+      "externalId": "Q45445079",
+      "name": "左孝琳",
+      "citation": "维基百科 / Wikidata Q45445079",
+      "aliases": [
+        "Zuo Xiaolin"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1837
+      },
+      "bio": "Qing dynasty person CBDB = 54994"
+    },
+    {
+      "externalId": "Q45445231",
+      "name": "黎福昌",
+      "citation": "维基百科 / Wikidata Q45445231",
+      "aliases": [
+        "Li Fuchang"
+      ],
+      "gender": "male",
+      "bio": "Qing dynasty person CBDB = 54997"
+    },
+    {
+      "externalId": "Q45445294",
+      "name": "左孝瑸",
+      "citation": "维基百科 / Wikidata Q45445294",
+      "aliases": [
+        "左孝璸",
+        "Zuo Xiaopian"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1837
+      },
+      "death": {
+        "year": 1870
+      },
+      "bio": "Qing dynasty person CBDB = 54998"
+    },
+    {
+      "externalId": "Q45445482",
+      "name": "周翼标",
+      "citation": "维基百科 / Wikidata Q45445482",
+      "aliases": [
+        "周翼標",
+        "Zhou Yibiao"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1837
+      },
+      "death": {
+        "year": 1869
+      },
+      "bio": "Qing dynasty person CBDB = 55001"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q230200",
+      "child": "Q45444571"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q230200",
+      "child": "Q45444946"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q230200",
+      "child": "Q45445079"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q230200",
+      "child": "Q45445294"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45443099",
+      "child": "Q45444571"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45443099",
+      "child": "Q45444946"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45443099",
+      "child": "Q45445079"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45443099",
+      "child": "Q45445294"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q230200",
+      "b": "Q45443099"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45444571",
+      "b": "Q45444763"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45445079",
+      "b": "Q45445231"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45445294",
+      "b": "Q45445482"
+    }
+  ]
+}

@@ -1,0 +1,239 @@
+{
+  "key": "wikidata:wangyangming",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q15924849",
+      "name": "王华",
+      "citation": "维基百科 / Wikidata Q15924849",
+      "aliases": [
+        "Wang Hua"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1446
+      },
+      "death": {
+        "year": 1522
+      },
+      "bio": "politician"
+    },
+    {
+      "externalId": "Q15933146",
+      "name": "王承勋",
+      "citation": "维基百科 / Wikidata Q15933146",
+      "aliases": [
+        "Wang Chengxun"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1560
+      },
+      "death": {
+        "year": 1620
+      },
+      "bio": "Ming dynasty person CBDB = 30377"
+    },
+    {
+      "externalId": "Q15944660",
+      "name": "王正亿",
+      "citation": "维基百科 / Wikidata Q15944660",
+      "aliases": [
+        "Wang Zhengyi"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1526
+      },
+      "death": {
+        "year": 1577
+      },
+      "bio": "Ming dynasty person CBDB = 30375"
+    },
+    {
+      "externalId": "Q378462",
+      "name": "王阳明",
+      "citation": "维基百科 / Wikidata Q378462",
+      "aliases": [
+        "王陽明",
+        "Wang Yangming"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1472
+      },
+      "death": {
+        "year": 1529
+      },
+      "bio": "中國明代哲学家、軍事家 (1472–1529)",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/%E8%94%A1%E4%B8%96%E6%96%B0%20%E7%8E%8B%E9%98%B3%E6%98%8E%E8%82%96%E5%83%8F%E8%BD%B4%20%28cropped%29.jpg",
+      "photoCredit": "作者：Cai Shixin · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q45417765",
+      "name": "王先达",
+      "citation": "维基百科 / Wikidata Q45417765",
+      "aliases": [
+        "王先達",
+        "Wang Xianda"
+      ],
+      "gender": "male",
+      "bio": "Qing dynasty person CBDB = 30376"
+    },
+    {
+      "externalId": "Q45417769",
+      "name": "王先进",
+      "citation": "维基百科 / Wikidata Q45417769",
+      "aliases": [
+        "王先進",
+        "Wang Xianjin"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1590
+      },
+      "death": {
+        "year": 1640
+      },
+      "bio": "Qing dynasty person CBDB = 30378"
+    },
+    {
+      "externalId": "Q45417772",
+      "name": "王业弘",
+      "citation": "维基百科 / Wikidata Q45417772",
+      "aliases": [
+        "王業弘",
+        "Wang Yehong"
+      ],
+      "gender": "male",
+      "bio": "Qing dynasty person CBDB = 30380"
+    },
+    {
+      "externalId": "Q45444805",
+      "name": "王天叙",
+      "citation": "维基百科 / Wikidata Q45444805",
+      "aliases": [
+        "王天敘",
+        "Wang Tianxu"
+      ],
+      "gender": "male",
+      "bio": "Ming dynasty person CBDB=288231"
+    },
+    {
+      "externalId": "Q45444868",
+      "name": "王衮",
+      "citation": "维基百科 / Wikidata Q45444868",
+      "aliases": [
+        "王袞",
+        "Wang Gun"
+      ],
+      "gender": "male",
+      "bio": "Ming dynasty person CBDB = 288232"
+    },
+    {
+      "externalId": "Q45601206",
+      "name": "王与准",
+      "citation": "维基百科 / Wikidata Q45601206",
+      "aliases": [
+        "王與準",
+        "Wang Yuzhun"
+      ],
+      "gender": "male",
+      "bio": "Ming dynasty person CBDB = 254712"
+    },
+    {
+      "externalId": "Q45601328",
+      "name": "王杰",
+      "citation": "维基百科 / Wikidata Q45601328",
+      "aliases": [
+        "王傑",
+        "Wang Jie"
+      ],
+      "gender": "male",
+      "bio": "Ming dynasty person CBDB = 254714"
+    },
+    {
+      "externalId": "Q65859928",
+      "name": "岑氏",
+      "citation": "维基百科 / Wikidata Q65859928",
+      "aliases": [
+        "Cen Shi"
+      ],
+      "gender": "female",
+      "bio": "王華母"
+    },
+    {
+      "externalId": "Q65859933",
+      "name": "郑氏",
+      "citation": "维基百科 / Wikidata Q65859933",
+      "aliases": [
+        "鄭氏",
+        "Zheng Shi"
+      ],
+      "gender": "female",
+      "bio": "王華妻"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q65859928",
+      "child": "Q15924849"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q15924849",
+      "child": "Q378462"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45444805",
+      "child": "Q15924849"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q15944660",
+      "child": "Q15933146"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q378462",
+      "child": "Q15944660"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q15933146",
+      "child": "Q45417765"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q15933146",
+      "child": "Q45417769"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45417765",
+      "child": "Q45417772"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45601328",
+      "child": "Q45444805"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45444805",
+      "child": "Q45444868"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45601206",
+      "child": "Q45601328"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q15924849",
+      "b": "Q65859933"
+    }
+  ]
+}

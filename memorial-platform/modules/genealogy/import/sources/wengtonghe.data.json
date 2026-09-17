@@ -1,0 +1,151 @@
+{
+  "key": "wikidata:wengtonghe",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q11610443",
+      "name": "翁同书",
+      "citation": "维基百科 / Wikidata Q11610443",
+      "aliases": [
+        "Weng Tung-shu"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1810
+      },
+      "death": {
+        "year": 1865
+      },
+      "bio": "晚晴大臣"
+    },
+    {
+      "externalId": "Q15925719",
+      "name": "翁心存",
+      "citation": "维基百科 / Wikidata Q15925719",
+      "aliases": [
+        "Weng Xincun"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1791
+      },
+      "death": {
+        "year": 1862
+      },
+      "bio": "清朝政治人物",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/%E7%BF%81%E5%BF%83%E5%AD%98.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q15944956",
+      "name": "翁同爵",
+      "citation": "维基百科 / Wikidata Q15944956",
+      "aliases": [
+        "Weng Tongjue"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1814
+      },
+      "death": {
+        "year": 1877
+      },
+      "bio": "晚晴大臣",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/%E7%BF%81%E5%90%8C%E7%88%B5.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q16922009",
+      "name": "钱振伦",
+      "citation": "维基百科 / Wikidata Q16922009",
+      "aliases": [
+        "錢振倫",
+        "Qian Zhenlun"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1816
+      },
+      "death": {
+        "year": 1879
+      },
+      "bio": "清朝官员"
+    },
+    {
+      "externalId": "Q45445797",
+      "name": "翁端恩",
+      "citation": "维基百科 / Wikidata Q45445797",
+      "aliases": [
+        "Weng Duan'en"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1826
+      },
+      "death": {
+        "year": 1892
+      },
+      "bio": "Qing dynasty person CBDB = 55006"
+    },
+    {
+      "externalId": "Q45446056",
+      "name": "翁咸封",
+      "citation": "维基百科 / Wikidata Q45446056",
+      "aliases": [
+        "Weng Xianfeng"
+      ],
+      "gender": "male",
+      "bio": "Qing dynasty person CBDB = 55014"
+    },
+    {
+      "externalId": "Q985522",
+      "name": "翁同龢",
+      "citation": "维基百科 / Wikidata Q985522",
+      "aliases": [
+        "Weng Tung-ho"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1830
+      },
+      "death": {
+        "year": 1904
+      },
+      "bio": "晚清政治人物，帝师",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Weng%20Tonghe2.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q15925719",
+      "child": "Q985522"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q15925719",
+      "child": "Q11610443"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45446056",
+      "child": "Q15925719"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q15925719",
+      "child": "Q15944956"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q15925719",
+      "child": "Q45445797"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q16922009",
+      "b": "Q45445797"
+    }
+  ]
+}

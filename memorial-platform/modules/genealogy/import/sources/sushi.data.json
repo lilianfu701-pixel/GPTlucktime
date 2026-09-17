@@ -1,0 +1,654 @@
+{
+  "key": "wikidata:sushi",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q10415082",
+      "name": "王朝云",
+      "citation": "维基百科 / Wikidata Q10415082",
+      "aliases": [
+        "王朝雲",
+        "Wang Zhaoyun"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1062
+      },
+      "death": {
+        "year": 1095
+      },
+      "bio": "Wife of Su Shi",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Liuruting.jpg",
+      "photoCredit": "作者：Mengyeyue · CC BY-SA 3.0 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q10514231",
+      "name": "苏过",
+      "citation": "维基百科 / Wikidata Q10514231",
+      "aliases": [
+        "蘇過",
+        "Su Guo"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1072
+      },
+      "death": {
+        "year": 1123
+      },
+      "bio": "Song dynasty person (CBDB = 19168)"
+    },
+    {
+      "externalId": "Q1155951",
+      "name": "苏辙",
+      "citation": "维基百科 / Wikidata Q1155951",
+      "aliases": [
+        "Su Zhe"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1039
+      },
+      "death": {
+        "year": 1112
+      },
+      "bio": "唐宋八大家",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/%E5%AE%8B%E9%97%A8%E4%B8%8B%E4%BE%8D%E9%83%8E%E8%8B%8F%E6%96%87%E5%AE%9A%E5%85%AC%E8%BE%99.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q15927844",
+      "name": "苏小妹",
+      "citation": "维基百科 / Wikidata Q15927844",
+      "aliases": [
+        "Su Xiaomei"
+      ],
+      "gender": "female",
+      "bio": "younger sister of Su Shi",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/%E9%99%88%E6%92%B0%20%E8%8B%8F%E5%B0%8F%E5%A6%B9%E5%83%8F%E8%BD%B4.jpg",
+      "photoCredit": "作者：Chen Zhuan · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q16260880",
+      "name": "王弗",
+      "citation": "维基百科 / Wikidata Q16260880",
+      "aliases": [
+        "Wang Fu"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1039
+      },
+      "death": {
+        "year": 1065
+      },
+      "bio": "wife of Su Shi"
+    },
+    {
+      "externalId": "Q18654093",
+      "name": "武阳君",
+      "citation": "维基百科 / Wikidata Q18654093",
+      "aliases": [
+        "武陽君",
+        "Cheng（Wife of Su xun）"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1010
+      },
+      "death": {
+        "year": 1057
+      },
+      "bio": "程氏(蘇軾母)﹐北宋人﹐女﹐眉州人(今四川眉山)。蘭閨寶錄有著錄。"
+    },
+    {
+      "externalId": "Q36020",
+      "name": "苏轼",
+      "citation": "维基百科 / Wikidata Q36020",
+      "aliases": [
+        "蘇軾",
+        "Su Shi"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1037
+      },
+      "death": {
+        "year": 1101
+      },
+      "bio": "中國宋朝文學家、政治家、藝術家",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Su%20shi.jpg",
+      "photoCredit": "作者：Zhao Mengfu · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q45358677",
+      "name": "苏符",
+      "citation": "维基百科 / Wikidata Q45358677",
+      "aliases": [
+        "蘇符",
+        "Su Fu"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 1499"
+    },
+    {
+      "externalId": "Q45360637",
+      "name": "程濬",
+      "citation": "维基百科 / Wikidata Q45360637",
+      "aliases": [
+        "Cheng Jun"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1001
+      },
+      "death": {
+        "year": 1082
+      },
+      "bio": "Song dynasty person (CBDB = 3100)"
+    },
+    {
+      "externalId": "Q45360669",
+      "name": "程文应",
+      "citation": "维基百科 / Wikidata Q45360669",
+      "aliases": [
+        "程文應",
+        "Cheng Wenying"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 3113"
+    },
+    {
+      "externalId": "Q45362415",
+      "name": "苏岘",
+      "citation": "维基百科 / Wikidata Q45362415",
+      "aliases": [
+        "蘇峴",
+        "Su Xian"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1118
+      },
+      "death": {
+        "year": 1183
+      },
+      "bio": "Song dynasty person (CBDB = 3759)"
+    },
+    {
+      "externalId": "Q45362419",
+      "name": "苏序",
+      "citation": "维基百科 / Wikidata Q45362419",
+      "aliases": [
+        "蘇序",
+        "Su Xu"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 973
+      },
+      "death": {
+        "year": 1047
+      },
+      "bio": "Song dynasty person (CBDB = 3761)"
+    },
+    {
+      "externalId": "Q45362424",
+      "name": "苏涣",
+      "citation": "维基百科 / Wikidata Q45362424",
+      "aliases": [
+        "蘇渙",
+        "Su Huan"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1001
+      },
+      "death": {
+        "year": 1062
+      },
+      "bio": "Song dynasty person (CBDB = 3763)"
+    },
+    {
+      "externalId": "Q45362452",
+      "name": "苏迨",
+      "citation": "维基百科 / Wikidata Q45362452",
+      "aliases": [
+        "蘇迨",
+        "Su Dai"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 3771"
+    },
+    {
+      "externalId": "Q45364023",
+      "name": "王闰之",
+      "citation": "维基百科 / Wikidata Q45364023",
+      "aliases": [
+        "王閏之",
+        "Wang Runzhi"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1048
+      },
+      "death": {
+        "year": 1093
+      },
+      "bio": "Song dynasty person CBDB=5109"
+    },
+    {
+      "externalId": "Q45378732",
+      "name": "程沼",
+      "citation": "维基百科 / Wikidata Q45378732",
+      "aliases": [
+        "Cheng Zhao"
+      ],
+      "gender": "male",
+      "bio": "Later Shu person CBDB=13801"
+    },
+    {
+      "externalId": "Q45378733",
+      "name": "程仁霸",
+      "citation": "维基百科 / Wikidata Q45378733",
+      "aliases": [
+        "Cheng Renba"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 13802"
+    },
+    {
+      "externalId": "Q45391332",
+      "name": "苏迈",
+      "citation": "维基百科 / Wikidata Q45391332",
+      "aliases": [
+        "蘇邁",
+        "Su Mai"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 19167"
+    },
+    {
+      "externalId": "Q45391338",
+      "name": "苏篑",
+      "citation": "维基百科 / Wikidata Q45391338",
+      "aliases": [
+        "蘇簣",
+        "Su Kui"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person (CBDB = 19169)"
+    },
+    {
+      "externalId": "Q45391342",
+      "name": "苏峤",
+      "citation": "维基百科 / Wikidata Q45391342",
+      "aliases": [
+        "蘇嶠",
+        "Su Jiao"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 19170"
+    },
+    {
+      "externalId": "Q45391345",
+      "name": "苏格",
+      "citation": "维基百科 / Wikidata Q45391345",
+      "aliases": [
+        "蘇格",
+        "Su Ge"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 19171"
+    },
+    {
+      "externalId": "Q45391396",
+      "name": "苏籍",
+      "citation": "维基百科 / Wikidata Q45391396",
+      "aliases": [
+        "蘇籍",
+        "Su Ji"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 19185"
+    },
+    {
+      "externalId": "Q45391511",
+      "name": "苏澹",
+      "citation": "维基百科 / Wikidata Q45391511",
+      "aliases": [
+        "蘇澹",
+        "Su Dan"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 19215"
+    },
+    {
+      "externalId": "Q45391513",
+      "name": "苏𬬱",
+      "citation": "维基百科 / Wikidata Q45391513",
+      "aliases": [
+        "蘇釿",
+        "Su Jin"
+      ],
+      "gender": "male",
+      "bio": "Later Shu person CBDB = 19216"
+    },
+    {
+      "externalId": "Q45391516",
+      "name": "苏祜",
+      "citation": "维基百科 / Wikidata Q45391516",
+      "aliases": [
+        "蘇祜",
+        "Su Hu"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 19217"
+    },
+    {
+      "externalId": "Q45391520",
+      "name": "苏杲",
+      "citation": "维基百科 / Wikidata Q45391520",
+      "aliases": [
+        "蘇杲",
+        "Su Gao"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 19218"
+    },
+    {
+      "externalId": "Q45424894",
+      "name": "苏柄",
+      "citation": "维基百科 / Wikidata Q45424894",
+      "aliases": [
+        "蘇柄",
+        "Su Bing"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 37245"
+    },
+    {
+      "externalId": "Q45424937",
+      "name": "苏极",
+      "citation": "维基百科 / Wikidata Q45424937",
+      "aliases": [
+        "蘇極",
+        "Su Ji"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 37246"
+    },
+    {
+      "externalId": "Q45424980",
+      "name": "苏栘",
+      "citation": "维基百科 / Wikidata Q45424980",
+      "aliases": [
+        "蘇栘",
+        "Su Yi"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 37247"
+    },
+    {
+      "externalId": "Q45425020",
+      "name": "苏杞",
+      "citation": "维基百科 / Wikidata Q45425020",
+      "aliases": [
+        "蘇杞",
+        "Su Qi"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 37248"
+    },
+    {
+      "externalId": "Q45487156",
+      "name": "苏签",
+      "citation": "维基百科 / Wikidata Q45487156",
+      "aliases": [
+        "蘇簽",
+        "Su Qian"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB=119637"
+    },
+    {
+      "externalId": "Q45487218",
+      "name": "苏节",
+      "citation": "维基百科 / Wikidata Q45487218",
+      "aliases": [
+        "蘇節",
+        "Su Jie"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 119638"
+    },
+    {
+      "externalId": "Q832770",
+      "name": "秦观",
+      "citation": "维基百科 / Wikidata Q832770",
+      "aliases": [
+        "Qin Guan"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1049
+      },
+      "death": {
+        "year": 1100
+      },
+      "bio": "北宋詞人",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/%E5%AE%8B%E5%A4%AA%E5%8F%B2%E7%A7%A6%E8%A7%82.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q947039",
+      "name": "苏洵",
+      "citation": "维基百科 / Wikidata Q947039",
+      "aliases": [
+        "Su Xun"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1009
+      },
+      "death": {
+        "year": 1066
+      },
+      "bio": "唐宋八大家之一",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/%E5%AE%8B%E5%A4%AA%E5%B8%B8%E7%BC%96%E6%A0%A1%E8%8B%8F%E6%B4%B5.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q18654093",
+      "child": "Q36020"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q18654093",
+      "child": "Q1155951"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45364023",
+      "child": "Q10514231"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45364023",
+      "child": "Q45362452"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q16260880",
+      "child": "Q45391332"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q947039",
+      "child": "Q36020"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45362419",
+      "child": "Q947039"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q947039",
+      "child": "Q1155951"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q36020",
+      "child": "Q10514231"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q947039",
+      "child": "Q15927844"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45360669",
+      "child": "Q18654093"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45391332",
+      "child": "Q45358677"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45360669",
+      "child": "Q45360637"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45378733",
+      "child": "Q45360669"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45391338",
+      "child": "Q45362415"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45391520",
+      "child": "Q45362419"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45362419",
+      "child": "Q45362424"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q36020",
+      "child": "Q45362452"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45378732",
+      "child": "Q45378733"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q36020",
+      "child": "Q45391332"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45362452",
+      "child": "Q45391338"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45391338",
+      "child": "Q45391342"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45362415",
+      "child": "Q45391345"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q10514231",
+      "child": "Q45391396"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45362419",
+      "child": "Q45391511"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45391513",
+      "child": "Q45391516"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45391516",
+      "child": "Q45391520"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45362415",
+      "child": "Q45424894"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45362415",
+      "child": "Q45424937"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45362415",
+      "child": "Q45424980"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45362415",
+      "child": "Q45425020"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q10514231",
+      "child": "Q45487156"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q10514231",
+      "child": "Q45487218"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q10415082",
+      "b": "Q36020"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q16260880",
+      "b": "Q36020"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q36020",
+      "b": "Q45364023"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q15927844",
+      "b": "Q832770"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q18654093",
+      "b": "Q947039"
+    }
+  ]
+}

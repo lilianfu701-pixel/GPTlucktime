@@ -1,0 +1,112 @@
+{
+  "key": "wikidata:guomoruo",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q102349392",
+      "name": "郭汉英",
+      "citation": "维基百科 / Wikidata Q102349392",
+      "aliases": [
+        "Hanying Guo"
+      ],
+      "gender": "male"
+    },
+    {
+      "externalId": "Q10880666",
+      "name": "于立群",
+      "citation": "维基百科 / Wikidata Q10880666",
+      "aliases": [
+        "Yu Liqun"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1916
+      },
+      "death": {
+        "year": 1979
+      },
+      "bio": "中国女演员",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Yu%20Liqun.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q16076035",
+      "name": "郭世英",
+      "citation": "维基百科 / Wikidata Q16076035",
+      "aliases": [
+        "Guo Shiying"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1942
+      },
+      "death": {
+        "year": 1968
+      },
+      "bio": "郭沫若之子"
+    },
+    {
+      "externalId": "Q357821",
+      "name": "郭沫若",
+      "citation": "维基百科 / Wikidata Q357821",
+      "aliases": [
+        "Guo Moruo"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1892
+      },
+      "death": {
+        "year": 1978
+      },
+      "bio": "中國作家、歷史學家",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/%E9%83%AD%E5%BC%80%E8%B4%9E.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q7818901",
+      "name": "佐藤富子",
+      "citation": "维基百科 / Wikidata Q7818901",
+      "aliases": [
+        "Tomiko Satō"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1894
+      },
+      "death": {
+        "year": 1995
+      },
+      "bio": "郭沫若之妻",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Tomiko%20Sat%C5%8D%20%28cropped%29.jpg",
+      "photoCredit": "作者：Degenerate prodigy · CC BY-SA 4.0 · 来源：Wikimedia Commons"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q10880666",
+      "child": "Q16076035"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q357821",
+      "child": "Q16076035"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q357821",
+      "child": "Q102349392"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q357821",
+      "b": "Q7818901"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q10880666",
+      "b": "Q357821"
+    }
+  ]
+}

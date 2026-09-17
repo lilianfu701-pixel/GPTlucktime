@@ -1,0 +1,373 @@
+{
+  "key": "wikidata:zhugeliang",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q1037723",
+      "name": "诸葛玄",
+      "citation": "维基百科 / Wikidata Q1037723",
+      "aliases": [
+        "諸葛玄",
+        "Zhuge Xuan"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 150
+      },
+      "death": {
+        "year": 197
+      },
+      "bio": "Chinese Eastern Han government official (died 197)"
+    },
+    {
+      "externalId": "Q11632137",
+      "name": "诸葛懐",
+      "citation": "维基百科 / Wikidata Q11632137",
+      "aliases": [
+        "諸葛懐",
+        "Zhuge Huai"
+      ],
+      "gender": "male",
+      "bio": "son of Zhuge Liang"
+    },
+    {
+      "externalId": "Q11632141",
+      "name": "诸葛质",
+      "citation": "维基百科 / Wikidata Q11632141",
+      "aliases": [
+        "諸葛質",
+        "Zhuge Zhi"
+      ],
+      "gender": "male"
+    },
+    {
+      "externalId": "Q118727213",
+      "name": "诸葛显",
+      "citation": "维基百科 / Wikidata Q118727213",
+      "aliases": [
+        "諸葛顯"
+      ],
+      "gender": "male"
+    },
+    {
+      "externalId": "Q1325021",
+      "name": "诸葛尚",
+      "citation": "维基百科 / Wikidata Q1325021",
+      "aliases": [
+        "Zhuge Shang"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 245
+      },
+      "death": {
+        "year": 263
+      },
+      "bio": "Chinese Shu Han state general (died 263)",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Zhuge%20Shang%20Qing%20portrait.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q141258932",
+      "name": "刘氏 (诸葛瞻妻)",
+      "citation": "维基百科 / Wikidata Q141258932",
+      "aliases": [
+        "劉氏 (諸葛瞻妻)",
+        "Lady Liu (wife of Zhuge Zhan)"
+      ],
+      "gender": "female",
+      "bio": "蜀漢公主，劉禪之女，諸葛瞻之妻"
+    },
+    {
+      "externalId": "Q18659362",
+      "name": "诸葛果",
+      "citation": "维基百科 / Wikidata Q18659362",
+      "aliases": [
+        "Zhuge Guo"
+      ],
+      "gender": "female"
+    },
+    {
+      "externalId": "Q198191",
+      "name": "诸葛均",
+      "citation": "维基百科 / Wikidata Q198191",
+      "aliases": [
+        "諸葛均",
+        "Zhuge Jun"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 100
+      },
+      "death": {
+        "year": 200
+      },
+      "bio": "politician (0100-0200)"
+    },
+    {
+      "externalId": "Q198193",
+      "name": "诸葛瑾",
+      "citation": "维基百科 / Wikidata Q198193",
+      "aliases": [
+        "諸葛瑾",
+        "Zhuge Jin"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 174
+      },
+      "death": {
+        "year": 241
+      },
+      "bio": "State of Eastern Wu official (174-241)",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Zhuge%20Jin%20Qing%20illustration.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q198198",
+      "name": "诸葛恪",
+      "citation": "维基百科 / Wikidata Q198198",
+      "aliases": [
+        "諸葛恪",
+        "Zhuge Ke"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 203
+      },
+      "death": {
+        "year": 253
+      },
+      "bio": "Eastern Wu general and politician (203-253)",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Zhuge%20Ke%20Qing%20illustration.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q198200",
+      "name": "诸葛乔",
+      "citation": "维基百科 / Wikidata Q198200",
+      "aliases": [
+        "諸葛喬",
+        "Zhuge Qiao"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 199
+      },
+      "death": {
+        "year": 223
+      },
+      "bio": "Chinese Shu Han state official (204-228)"
+    },
+    {
+      "externalId": "Q198208",
+      "name": "诸葛瞻",
+      "citation": "维基百科 / Wikidata Q198208",
+      "aliases": [
+        "Zhuge Zhan"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 227
+      },
+      "death": {
+        "year": 263
+      },
+      "bio": "诸葛亮长子",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/ZhugeZhan.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q198211",
+      "name": "诸葛亮",
+      "citation": "维基百科 / Wikidata Q198211",
+      "aliases": [
+        "Zhuge Liang"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 181
+      },
+      "death": {
+        "year": 234
+      },
+      "bio": "三國時期蜀漢丞相（181～234）",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/%E8%9C%80%E6%B1%89%E4%B8%9E%E7%9B%B8%E5%BF%A0%E6%AD%A6%E4%BE%AF%E8%AF%B8%E8%91%9B%E4%BA%AE.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q270008",
+      "name": "黄夫人",
+      "citation": "维基百科 / Wikidata Q270008",
+      "aliases": [
+        "黃夫人",
+        "Huang Yueying"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 200
+      },
+      "death": {
+        "year": 234
+      },
+      "bio": "Zhuge Liang's wife"
+    },
+    {
+      "externalId": "Q4024369",
+      "name": "诸葛珪",
+      "citation": "维基百科 / Wikidata Q4024369",
+      "aliases": [
+        "諸葛珪",
+        "Zhuge Gui"
+      ],
+      "gender": "male",
+      "bio": "Chinese politician"
+    },
+    {
+      "externalId": "Q4024374",
+      "name": "诸葛攀",
+      "citation": "维基百科 / Wikidata Q4024374",
+      "aliases": [
+        "諸葛攀",
+        "Zhuge Pan"
+      ],
+      "gender": "male",
+      "bio": "Chinese military personnel"
+    },
+    {
+      "externalId": "Q5369017",
+      "name": "诸葛丰",
+      "citation": "维基百科 / Wikidata Q5369017",
+      "aliases": [
+        "諸葛豐",
+        "Zhuge Feng"
+      ],
+      "gender": "male",
+      "bio": "Western Han Dynasty person CBDB = 25402"
+    },
+    {
+      "externalId": "Q5372243",
+      "name": "诸葛融",
+      "citation": "维基百科 / Wikidata Q5372243",
+      "aliases": [
+        "諸葛融",
+        "Zhuge Rong"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 250
+      },
+      "death": {
+        "year": 253
+      },
+      "bio": "Eastern Wu general"
+    },
+    {
+      "externalId": "Q8016829",
+      "name": "诸葛京",
+      "citation": "维基百科 / Wikidata Q8016829",
+      "aliases": [
+        "諸葛京",
+        "Zhuge Jing"
+      ],
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q270008",
+      "child": "Q198208"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q270008",
+      "child": "Q18659362"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q4024369",
+      "child": "Q198191"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q4024369",
+      "child": "Q198193"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q198193",
+      "child": "Q198198"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q198193",
+      "child": "Q198200"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q198211",
+      "child": "Q198208"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q4024369",
+      "child": "Q198211"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q198208",
+      "child": "Q1325021"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q5369017",
+      "child": "Q4024369"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q198200",
+      "child": "Q4024374"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q198193",
+      "child": "Q5372243"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q198208",
+      "child": "Q8016829"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q198211",
+      "child": "Q11632137"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q198208",
+      "child": "Q11632141"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q198211",
+      "child": "Q18659362"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q4024374",
+      "child": "Q118727213"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q141258932",
+      "b": "Q198208"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q198211",
+      "b": "Q270008"
+    }
+  ]
+}

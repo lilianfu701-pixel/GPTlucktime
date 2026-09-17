@@ -1,0 +1,251 @@
+{
+  "key": "wikidata:simaguang",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q33566",
+      "name": "司马光",
+      "citation": "维基百科 / Wikidata Q33566",
+      "aliases": [
+        "司馬光",
+        "Sima Guang"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1019
+      },
+      "death": {
+        "year": 1086
+      },
+      "bio": "Chinese politician, writer, and historian during the Northern Song dynasty (1019–1086)",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Sima%20Guang%201.jpg",
+      "photoCredit": "作者：Annonymous · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q45358642",
+      "name": "司马池",
+      "citation": "维基百科 / Wikidata Q45358642",
+      "aliases": [
+        "司馬池",
+        "Sima Chi"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 980
+      },
+      "death": {
+        "year": 1041
+      },
+      "bio": "Song dynasty person (CBDB = 1486)"
+    },
+    {
+      "externalId": "Q45362382",
+      "name": "司马沂",
+      "citation": "维基百科 / Wikidata Q45362382",
+      "aliases": [
+        "司馬沂",
+        "Sima Yi"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 975
+      },
+      "death": {
+        "year": 1006
+      },
+      "bio": "Song dynasty person CBDB = 3746"
+    },
+    {
+      "externalId": "Q45362388",
+      "name": "司马旦",
+      "citation": "维基百科 / Wikidata Q45362388",
+      "aliases": [
+        "司馬旦",
+        "Sima Dan"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1006
+      },
+      "death": {
+        "year": 1087
+      },
+      "bio": "Song dynasty person (CBDB = 3748)"
+    },
+    {
+      "externalId": "Q45397644",
+      "name": "司马林",
+      "citation": "维基百科 / Wikidata Q45397644",
+      "aliases": [
+        "司馬林",
+        "Sima Lin"
+      ],
+      "gender": "male",
+      "bio": "person, CBDB = 21208"
+    },
+    {
+      "externalId": "Q45397647",
+      "name": "司马政",
+      "citation": "维基百科 / Wikidata Q45397647",
+      "aliases": [
+        "司馬政",
+        "Sima Zheng"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person (CBDB = 21209)"
+    },
+    {
+      "externalId": "Q45397652",
+      "name": "司马珂",
+      "citation": "维基百科 / Wikidata Q45397652",
+      "aliases": [
+        "司馬珂",
+        "Sima Ke"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person (CBDB = 21210)"
+    },
+    {
+      "externalId": "Q45397657",
+      "name": "司马炳",
+      "citation": "维基百科 / Wikidata Q45397657",
+      "aliases": [
+        "司馬炳",
+        "Sima Bing"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person (CBDB = 21211)"
+    },
+    {
+      "externalId": "Q45397661",
+      "name": "司马炫",
+      "citation": "维基百科 / Wikidata Q45397661",
+      "aliases": [
+        "司馬炫",
+        "Sima Xuan"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person (CBDB = 21212)"
+    },
+    {
+      "externalId": "Q45430018",
+      "name": "薛氏",
+      "citation": "维基百科 / Wikidata Q45430018",
+      "aliases": [
+        "Xue Shi"
+      ],
+      "gender": "female",
+      "bio": "司馬政妻"
+    },
+    {
+      "externalId": "Q45430267",
+      "name": "皇甫氏",
+      "citation": "维基百科 / Wikidata Q45430267",
+      "aliases": [
+        "Huangfu Shi"
+      ],
+      "gender": "female",
+      "bio": "司馬炫妻"
+    },
+    {
+      "externalId": "Q45430758",
+      "name": "张氏",
+      "citation": "维基百科 / Wikidata Q45430758",
+      "aliases": [
+        "張氏",
+        "Zhang Shi"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1023
+      },
+      "death": {
+        "year": 1082
+      },
+      "bio": "司馬光妻"
+    },
+    {
+      "externalId": "Q65798725",
+      "name": "聂氏",
+      "citation": "维基百科 / Wikidata Q65798725",
+      "aliases": [
+        "聶氏",
+        "Nie Shi"
+      ],
+      "gender": "female",
+      "bio": "司馬池妻"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q45430267",
+      "child": "Q45358642"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45430018",
+      "child": "Q45397661"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45358642",
+      "child": "Q33566"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45397661",
+      "child": "Q45358642"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45397661",
+      "child": "Q45362382"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45358642",
+      "child": "Q45362388"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45397644",
+      "child": "Q45397647"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45397647",
+      "child": "Q45397652"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45397647",
+      "child": "Q45397657"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45397647",
+      "child": "Q45397661"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q33566",
+      "b": "Q45430758"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45358642",
+      "b": "Q65798725"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45397647",
+      "b": "Q45430018"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45397661",
+      "b": "Q45430267"
+    }
+  ]
+}

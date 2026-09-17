@@ -1,0 +1,456 @@
+{
+  "key": "wikidata:yanfu",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q10924398",
+      "name": "严璩",
+      "citation": "维基百科 / Wikidata Q10924398",
+      "aliases": [
+        "嚴璩",
+        "Yan Qu"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1874
+      },
+      "death": {
+        "year": 1942
+      },
+      "bio": "Republic of China person CBDB = 198012"
+    },
+    {
+      "externalId": "Q15914044",
+      "name": "辜启允",
+      "citation": "维基百科 / Wikidata Q15914044",
+      "aliases": [
+        "辜啟允",
+        "Chester Koo"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1953
+      },
+      "death": {
+        "year": 2001
+      },
+      "bio": "台湾企业家"
+    },
+    {
+      "externalId": "Q15938921",
+      "name": "辜严倬云",
+      "citation": "维基百科 / Wikidata Q15938921",
+      "aliases": [
+        "辜嚴倬雲",
+        "Cecilia Yen Koo"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1920
+      },
+      "death": {
+        "year": 2025
+      },
+      "bio": "中華民國女性人物"
+    },
+    {
+      "externalId": "Q45436854",
+      "name": "严琥",
+      "citation": "维基百科 / Wikidata Q45436854",
+      "aliases": [
+        "嚴琥",
+        "Yan Hu"
+      ],
+      "gender": "male",
+      "bio": "Republic of China person CBDB = 198013"
+    },
+    {
+      "externalId": "Q45436917",
+      "name": "严𤩽",
+      "citation": "维基百科 / Wikidata Q45436917",
+      "aliases": [
+        "嚴瓛",
+        "Yan Huan"
+      ],
+      "gender": "male",
+      "bio": "Republic of China person CBDB = 198014"
+    },
+    {
+      "externalId": "Q45436979",
+      "name": "严璇",
+      "citation": "维基百科 / Wikidata Q45436979",
+      "aliases": [
+        "嚴璿",
+        "Yan Xuan"
+      ],
+      "gender": "male",
+      "bio": "Republic of China person CBDB = 198015"
+    },
+    {
+      "externalId": "Q45437042",
+      "name": "严玷",
+      "citation": "维基百科 / Wikidata Q45437042",
+      "aliases": [
+        "嚴玷",
+        "Yan Dian"
+      ],
+      "gender": "male",
+      "bio": "Republic of China person CBDB = 198016"
+    },
+    {
+      "externalId": "Q45437105",
+      "name": "严瑸",
+      "citation": "维基百科 / Wikidata Q45437105",
+      "aliases": [
+        "嚴璸",
+        "Yan Bin"
+      ],
+      "gender": "female",
+      "bio": "Republic of China person CBDB = 198017"
+    },
+    {
+      "externalId": "Q45437167",
+      "name": "严璆",
+      "citation": "维基百科 / Wikidata Q45437167",
+      "aliases": [
+        "嚴璆",
+        "Yan Qiu"
+      ],
+      "gender": "male",
+      "bio": "Republic of China person CBDB = 198018"
+    },
+    {
+      "externalId": "Q45437229",
+      "name": "严珑",
+      "citation": "维基百科 / Wikidata Q45437229",
+      "aliases": [
+        "嚴瓏",
+        "Yan Long"
+      ],
+      "gender": "male",
+      "bio": "Republic of China person CBDB = 198019"
+    },
+    {
+      "externalId": "Q45437293",
+      "name": "严顼",
+      "citation": "维基百科 / Wikidata Q45437293",
+      "aliases": [
+        "嚴頊",
+        "Yan Xu"
+      ],
+      "gender": "male",
+      "bio": "Republic of China person CBDB = 198020"
+    },
+    {
+      "externalId": "Q559957",
+      "name": "严复",
+      "citation": "维基百科 / Wikidata Q559957",
+      "aliases": [
+        "Yan Fu"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1854
+      },
+      "death": {
+        "year": 1921
+      },
+      "bio": "中國思想家、翻譯家（1854－1921）",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Yan%20fu.jpg",
+      "photoCredit": "作者：AnonymousUnknown author · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q65809973",
+      "name": "王氏",
+      "citation": "维基百科 / Wikidata Q65809973",
+      "aliases": [
+        "Wang Shi"
+      ],
+      "gender": "female",
+      "bio": "嚴復妻"
+    },
+    {
+      "externalId": "Q65809977",
+      "name": "朱氏",
+      "citation": "维基百科 / Wikidata Q65809977",
+      "aliases": [
+        "Zhu Shi"
+      ],
+      "gender": "female",
+      "bio": "嚴復妻"
+    },
+    {
+      "externalId": "Q65809981",
+      "name": "江莺娘",
+      "citation": "维基百科 / Wikidata Q65809981",
+      "aliases": [
+        "江鶯娘",
+        "Jiang Shi"
+      ],
+      "gender": "female",
+      "bio": "嚴復妾"
+    },
+    {
+      "externalId": "Q697695",
+      "name": "辜振甫",
+      "citation": "维基百科 / Wikidata Q697695",
+      "aliases": [
+        "Koo Chen-fu"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1917
+      },
+      "death": {
+        "year": 2005
+      },
+      "bio": "台湾企业家",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/19690120%E8%BE%9C%E6%8C%AF%E7%94%AB.jpg",
+      "photoCredit": "作者：中央通訊社記者馮國鏘 · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q8051206",
+      "name": "叶明勋",
+      "citation": "维基百科 / Wikidata Q8051206",
+      "aliases": [
+        "葉明勳",
+        "Yeh Ming-hsun"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1913
+      },
+      "death": {
+        "year": 2009
+      },
+      "bio": "台灣記者"
+    },
+    {
+      "externalId": "Q8296616",
+      "name": "严侨",
+      "citation": "维基百科 / Wikidata Q8296616",
+      "aliases": [
+        "嚴僑",
+        "Yan Qiao"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1920
+      },
+      "death": {
+        "year": 1974
+      }
+    },
+    {
+      "externalId": "Q8971010",
+      "name": "华严",
+      "citation": "维基百科 / Wikidata Q8971010",
+      "aliases": [
+        "華嚴",
+        "Hua Yan"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1926
+      },
+      "death": {
+        "year": 2022
+      },
+      "bio": "Taiwanese writer"
+    },
+    {
+      "externalId": "Q9349921",
+      "name": "辜成允",
+      "citation": "维基百科 / Wikidata Q9349921",
+      "aliases": [
+        "Leslie Koo"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1954
+      },
+      "death": {
+        "year": 2017
+      },
+      "bio": "台湾企业家",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/03.15%20%E3%80%8C%E8%BE%9C%E6%88%90%E5%85%81%E5%85%88%E7%94%9F%E6%87%B7%E5%BF%B5%E9%9F%B3%E6%A8%82%E6%9C%83%E3%80%8D%20%2833293348352%29.jpg",
+      "photoCredit": "作者：總統府 · CC BY 2.0 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q98067055",
+      "name": "林慕兰",
+      "citation": "维基百科 / Wikidata Q98067055",
+      "aliases": [
+        "林慕蘭",
+        "Lin Mulan"
+      ],
+      "gender": "female"
+    },
+    {
+      "externalId": "Q98067441",
+      "name": "林倩",
+      "citation": "维基百科 / Wikidata Q98067441",
+      "aliases": [
+        "Lin Qian"
+      ],
+      "gender": "female"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q98067055",
+      "child": "Q8296616"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q98067055",
+      "child": "Q8971010"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q15938921",
+      "child": "Q9349921"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q65809973",
+      "child": "Q10924398"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q15938921",
+      "child": "Q15914044"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q98067055",
+      "child": "Q15938921"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q65809981",
+      "child": "Q45436854"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q65809981",
+      "child": "Q45436917"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q65809977",
+      "child": "Q45436979"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q65809977",
+      "child": "Q45437042"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45436854",
+      "child": "Q8296616"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45436854",
+      "child": "Q8971010"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q697695",
+      "child": "Q9349921"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q559957",
+      "child": "Q10924398"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q697695",
+      "child": "Q15914044"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45436854",
+      "child": "Q15938921"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q559957",
+      "child": "Q45436854"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q559957",
+      "child": "Q45436917"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q559957",
+      "child": "Q45436979"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q559957",
+      "child": "Q45437042"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q559957",
+      "child": "Q45437105"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q559957",
+      "child": "Q45437167"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q559957",
+      "child": "Q45437229"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q559957",
+      "child": "Q45437293"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q559957",
+      "b": "Q65809973"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q559957",
+      "b": "Q65809977"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q559957",
+      "b": "Q65809981"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q15938921",
+      "b": "Q697695"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q8051206",
+      "b": "Q8971010"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q8296616",
+      "b": "Q98067441"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45436854",
+      "b": "Q98067055"
+    }
+  ]
+}

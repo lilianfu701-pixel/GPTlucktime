@@ -1,0 +1,2128 @@
+{
+  "key": "wikidata:caocao",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q10323146",
+      "name": "曹喈",
+      "citation": "维基百科 / Wikidata Q10323146",
+      "aliases": [
+        "Cao Jie"
+      ],
+      "gender": "male"
+    },
+    {
+      "externalId": "Q10323203",
+      "name": "曹子上",
+      "citation": "维基百科 / Wikidata Q10323203",
+      "aliases": [
+        "Cao Zishang"
+      ],
+      "gender": "male",
+      "bio": "son of Chinese warlord Cao Caoi"
+    },
+    {
+      "externalId": "Q10323222",
+      "name": "曹子乘",
+      "citation": "维基百科 / Wikidata Q10323222",
+      "aliases": [
+        "Cao Zicheng"
+      ],
+      "gender": "male",
+      "bio": "son of Chinese warlord Cao Cao"
+    },
+    {
+      "externalId": "Q10323244",
+      "name": "曹子京",
+      "citation": "维基百科 / Wikidata Q10323244",
+      "aliases": [
+        "Cao Zijing"
+      ],
+      "gender": "male",
+      "bio": "son of Chinese warlord Cao Cao"
+    },
+    {
+      "externalId": "Q10323269",
+      "name": "曹子勤",
+      "citation": "维基百科 / Wikidata Q10323269",
+      "aliases": [
+        "Cao Ziqin"
+      ],
+      "gender": "male",
+      "bio": "son of Chinese warlord Cao Cao"
+    },
+    {
+      "externalId": "Q10323292",
+      "name": "曹子棘",
+      "citation": "维基百科 / Wikidata Q10323292",
+      "aliases": [
+        "Cao Ziji"
+      ],
+      "gender": "male",
+      "bio": "son of Chinese warlord Cao Cao"
+    },
+    {
+      "externalId": "Q10323773",
+      "name": "曹茂",
+      "citation": "维基百科 / Wikidata Q10323773",
+      "aliases": [
+        "Cao Mao"
+      ],
+      "gender": "male",
+      "bio": "an imperial prince of the state of Cao Wei"
+    },
+    {
+      "externalId": "Q10323803",
+      "name": "曹蕤",
+      "citation": "维基百科 / Wikidata Q10323803",
+      "aliases": [
+        "Cao Rui"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 233
+      },
+      "bio": "son of Cao Pi and Prince of Beihai (died 233)"
+    },
+    {
+      "externalId": "Q107738502",
+      "name": "张济之妻",
+      "citation": "维基百科 / Wikidata Q107738502",
+      "aliases": [
+        "張濟之妻",
+        "wife of Zhang Ji"
+      ],
+      "gender": "female",
+      "bio": "东汉末年张济之妻"
+    },
+    {
+      "externalId": "Q108061655",
+      "name": "曹彰妻",
+      "citation": "维基百科 / Wikidata Q108061655",
+      "gender": "female"
+    },
+    {
+      "externalId": "Q108131697",
+      "name": "曹氏",
+      "citation": "维基百科 / Wikidata Q108131697",
+      "gender": "female"
+    },
+    {
+      "externalId": "Q108133988",
+      "name": "刘氏",
+      "citation": "维基百科 / Wikidata Q108133988",
+      "aliases": [
+        "劉氏",
+        "datter av keiser Xian"
+      ],
+      "gender": "female"
+    },
+    {
+      "externalId": "Q10864206",
+      "name": "丁夫人 (魏武帝)",
+      "citation": "维基百科 / Wikidata Q10864206",
+      "aliases": [
+        "Lady Ding"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 150
+      },
+      "bio": "wife of Cao Cao"
+    },
+    {
+      "externalId": "Q10884663",
+      "name": "任夫人",
+      "citation": "维基百科 / Wikidata Q10884663",
+      "gender": "female"
+    },
+    {
+      "externalId": "Q10899949",
+      "name": "刘曼",
+      "citation": "维基百科 / Wikidata Q10899949",
+      "aliases": [
+        "劉曼",
+        "Liu Man"
+      ],
+      "gender": "female",
+      "bio": "daughter of Emperor Liu Xian and Empress Cao Jie"
+    },
+    {
+      "externalId": "Q10909274",
+      "name": "南阳公主",
+      "citation": "维基百科 / Wikidata Q10909274",
+      "aliases": [
+        "南陽公主",
+        "Princess Nanyang"
+      ],
+      "gender": "female",
+      "bio": "princess of Western Jin, daughter of Sima Yi and Zhang Chunhua"
+    },
+    {
+      "externalId": "Q10947311",
+      "name": "安阳公主",
+      "citation": "维基百科 / Wikidata Q10947311",
+      "aliases": [
+        "安陽公主",
+        "Princess Anyang"
+      ],
+      "gender": "female",
+      "bio": "Princess of the Cao Wei state"
+    },
+    {
+      "externalId": "Q11090946",
+      "name": "曹俨",
+      "citation": "维基百科 / Wikidata Q11090946",
+      "aliases": [
+        "曹儼",
+        "Cao Yan"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 223
+      },
+      "bio": "Prince of Guangping and son of Cao Pi (died 223)"
+    },
+    {
+      "externalId": "Q11090976",
+      "name": "曹协",
+      "citation": "维基百科 / Wikidata Q11090976",
+      "aliases": [
+        "曹協",
+        "Cao Xie"
+      ],
+      "gender": "male",
+      "bio": "son of Cao Pi and Prince of Zan"
+    },
+    {
+      "externalId": "Q11090991",
+      "name": "曹均",
+      "citation": "维基百科 / Wikidata Q11090991",
+      "aliases": [
+        "Cao Jun"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 219
+      },
+      "bio": "son of warlord Cao Cao (died 219)"
+    },
+    {
+      "externalId": "Q11091019",
+      "name": "曹子整",
+      "citation": "维基百科 / Wikidata Q11091019",
+      "aliases": [
+        "Cao Zizheng"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 218
+      },
+      "bio": "a son of Chinese warlord Cao Cao (died 218)"
+    },
+    {
+      "externalId": "Q11091072",
+      "name": "曹干",
+      "citation": "维基百科 / Wikidata Q11091072",
+      "aliases": [
+        "曹幹",
+        "Cao Gan"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 216
+      },
+      "death": {
+        "year": 261
+      },
+      "bio": "曹操之子"
+    },
+    {
+      "externalId": "Q11091100",
+      "name": "曹徽",
+      "citation": "维基百科 / Wikidata Q11091100",
+      "aliases": [
+        "Cao Hui"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 250
+      },
+      "death": {
+        "year": 242
+      },
+      "bio": "an imperial prince of the state of Cao Wei (died 242)"
+    },
+    {
+      "externalId": "Q11091110",
+      "name": "曹抗",
+      "citation": "维基百科 / Wikidata Q11091110",
+      "aliases": [
+        "Cao Kang"
+      ],
+      "gender": "male"
+    },
+    {
+      "externalId": "Q11091154",
+      "name": "曹楷",
+      "citation": "维基百科 / Wikidata Q11091154",
+      "aliases": [
+        "Cao Kai"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 250
+      }
+    },
+    {
+      "externalId": "Q11091159",
+      "name": "曹殷",
+      "citation": "维基百科 / Wikidata Q11091159",
+      "aliases": [
+        "Cao Yin"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 231
+      },
+      "death": {
+        "year": 232
+      }
+    },
+    {
+      "externalId": "Q11091186",
+      "name": "曹淑 (三国)",
+      "citation": "维基百科 / Wikidata Q11091186",
+      "aliases": [
+        "Shu"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 232
+      }
+    },
+    {
+      "externalId": "Q11091240",
+      "name": "曹礼",
+      "citation": "维基百科 / Wikidata Q11091240",
+      "aliases": [
+        "曹禮",
+        "Cao Li"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 208
+      },
+      "death": {
+        "year": 229
+      },
+      "bio": "Cao Wei state prince and son of Cao Pi (208-229)"
+    },
+    {
+      "externalId": "Q11091247",
+      "name": "曹穆",
+      "citation": "维基百科 / Wikidata Q11091247",
+      "aliases": [
+        "Cao Mu"
+      ],
+      "gender": "male"
+    },
+    {
+      "externalId": "Q11091292",
+      "name": "曹贡",
+      "citation": "维基百科 / Wikidata Q11091292",
+      "aliases": [
+        "曹貢",
+        "Cao Gong"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 223
+      },
+      "bio": "Prince of Qinghe and son of Cao Pi (died 223)"
+    },
+    {
+      "externalId": "Q11091297",
+      "name": "曹邕",
+      "citation": "维基百科 / Wikidata Q11091297",
+      "aliases": [
+        "Cao Yong"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 229
+      },
+      "bio": "Cao Wei prince and son of Cao Pi (died 229)"
+    },
+    {
+      "externalId": "Q11091307",
+      "name": "曹鉴",
+      "citation": "维基百科 / Wikidata Q11091307",
+      "aliases": [
+        "曹鑒",
+        "Cao Jian"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 225
+      },
+      "bio": "son of Cao Pi and Prince of Dongwuyang (died 225/6)"
+    },
+    {
+      "externalId": "Q11104070",
+      "name": "东乡公主",
+      "citation": "维基百科 / Wikidata Q11104070",
+      "aliases": [
+        "東鄉公主",
+        "Princess Dongxiang"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 250
+      },
+      "bio": "Imperial princess of Cao Wei state"
+    },
+    {
+      "externalId": "Q11561243",
+      "name": "清河公主",
+      "citation": "维基百科 / Wikidata Q11561243",
+      "aliases": [
+        "Princess Qinghe"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 150
+      }
+    },
+    {
+      "externalId": "Q1156713",
+      "name": "何晏",
+      "citation": "维基百科 / Wikidata Q1156713",
+      "aliases": [
+        "He Yan"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 195
+      },
+      "death": {
+        "year": 249
+      },
+      "bio": "Chinese official, scholar and philosopher (c.195-249)"
+    },
+    {
+      "externalId": "Q117312658",
+      "name": "崔氏",
+      "citation": "维基百科 / Wikidata Q117312658",
+      "aliases": [
+        "Lady Cui"
+      ],
+      "gender": "female",
+      "bio": "Princess consort of Cao Wei state"
+    },
+    {
+      "externalId": "Q1205162",
+      "name": "夏侯楙",
+      "citation": "维基百科 / Wikidata Q1205162",
+      "aliases": [
+        "Xiahou Mao"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 200
+      },
+      "death": {
+        "year": 300
+      },
+      "bio": "3rd century Cao Wei state general"
+    },
+    {
+      "externalId": "Q120698607",
+      "name": "曹嘉",
+      "citation": "维基百科 / Wikidata Q120698607",
+      "aliases": [
+        "Cao Jia"
+      ],
+      "gender": "male",
+      "bio": "曹操之孙，楚王曹彪之子"
+    },
+    {
+      "externalId": "Q12603402",
+      "name": "荀恺",
+      "citation": "维基百科 / Wikidata Q12603402",
+      "aliases": [
+        "荀愷",
+        "Xun Kai"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 240
+      },
+      "death": {
+        "year": 305
+      }
+    },
+    {
+      "externalId": "Q128647",
+      "name": "曹志",
+      "citation": "维基百科 / Wikidata Q128647",
+      "aliases": [
+        "Cao Zhi"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 250
+      },
+      "death": {
+        "year": 288
+      },
+      "bio": "cao Wei prince and Western Jin official (died 288)"
+    },
+    {
+      "externalId": "Q15909080",
+      "name": "荀崧",
+      "citation": "维基百科 / Wikidata Q15909080",
+      "aliases": [
+        "Xun Song"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 263
+      },
+      "bio": "China person CBDB = 135454"
+    },
+    {
+      "externalId": "Q15909870",
+      "name": "荀羡",
+      "citation": "维基百科 / Wikidata Q15909870",
+      "aliases": [
+        "荀羨",
+        "Xun Xian"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 322
+      },
+      "death": {
+        "year": 359
+      },
+      "bio": "Chinese Jin dynasty general (322–359)"
+    },
+    {
+      "externalId": "Q15929527",
+      "name": "金乡公主",
+      "citation": "维基百科 / Wikidata Q15929527",
+      "aliases": [
+        "金鄉公主",
+        "Princess Jinxiang"
+      ],
+      "gender": "female",
+      "bio": "3rd century Chinese Cao Wei imperial princess"
+    },
+    {
+      "externalId": "Q180920",
+      "name": "献穆皇后",
+      "citation": "维基百科 / Wikidata Q180920",
+      "aliases": [
+        "獻穆皇后",
+        "Empress Cao Jie"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 200
+      },
+      "death": {
+        "year": 237
+      },
+      "bio": "Chinese Han dynasty empress (197-260)",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/%E7%8C%AE%E7%A9%86%E7%9A%87%E5%90%8E.png",
+      "photoCredit": "作者：刘锡永 等 · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q197147",
+      "name": "张皇后",
+      "citation": "维基百科 / Wikidata Q197147",
+      "aliases": [
+        "張皇后",
+        "Empress Zhang"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 250
+      },
+      "death": {
+        "year": 300
+      },
+      "bio": "魏廢帝"
+    },
+    {
+      "externalId": "Q197312",
+      "name": "张绣",
+      "citation": "维基百科 / Wikidata Q197312",
+      "aliases": [
+        "張繡",
+        "Zhang Xiu"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 200
+      },
+      "death": {
+        "year": 207
+      },
+      "bio": "Chinese general and warlord (died 207)",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Zhang%20Xiu%20Qing%20portrait.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q197580",
+      "name": "怀皇后 (曹芳)",
+      "citation": "维基百科 / Wikidata Q197580",
+      "aliases": [
+        "懷皇后 (曹芳)",
+        "Empress Zhen"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 200
+      },
+      "death": {
+        "year": 251
+      },
+      "bio": "Empress of Cao Wei (died 251)"
+    },
+    {
+      "externalId": "Q197585",
+      "name": "文昭甄皇后",
+      "citation": "维基百科 / Wikidata Q197585",
+      "aliases": [
+        "Lady Zhen"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 183
+      },
+      "death": {
+        "year": 221
+      },
+      "bio": "first wife of Cao Pi, first ruler of Cao Wei (183-221)",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Lady%20Zhen%20Qing%20dynasty%20portrait.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q204077",
+      "name": "曹操",
+      "citation": "维基百科 / Wikidata Q204077",
+      "aliases": [
+        "Cao Cao"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 155
+      },
+      "death": {
+        "year": 220
+      },
+      "bio": "東漢末年的軍事家、政治家和詩人",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Cao%20Cao%20scth.jpg",
+      "photoCredit": "作者：Wang Qi · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q22813355",
+      "name": "曹潜",
+      "citation": "维基百科 / Wikidata Q22813355",
+      "gender": "male"
+    },
+    {
+      "externalId": "Q26124935",
+      "name": "荀霬",
+      "citation": "维基百科 / Wikidata Q26124935",
+      "aliases": [
+        "Xun Yi"
+      ],
+      "gender": "male",
+      "bio": "尚书令荀彧的孙子"
+    },
+    {
+      "externalId": "Q26124953",
+      "name": "荀甝",
+      "citation": "维基百科 / Wikidata Q26124953",
+      "gender": "male"
+    },
+    {
+      "externalId": "Q26124994",
+      "name": "荀𫖳",
+      "citation": "维基百科 / Wikidata Q26124994",
+      "aliases": [
+        "荀頵"
+      ],
+      "gender": "male"
+    },
+    {
+      "externalId": "Q28415496",
+      "name": "荀悝",
+      "citation": "维基百科 / Wikidata Q28415496"
+    },
+    {
+      "externalId": "Q284527",
+      "name": "明悼毛皇后",
+      "citation": "维基百科 / Wikidata Q284527",
+      "aliases": [
+        "Empress Mao"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 150
+      },
+      "death": {
+        "year": 237
+      },
+      "bio": "Empress of Cao Wei (died 237)"
+    },
+    {
+      "externalId": "Q292670",
+      "name": "郭女王",
+      "citation": "维基百科 / Wikidata Q292670",
+      "aliases": [
+        "Guo Nüwang"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 184
+      },
+      "death": {
+        "year": 235
+      },
+      "bio": "魏-三國人﹐女﹐號文德郭皇后﹐廣宗人(今河北威縣)。古今女史有著錄。",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/%E6%96%87%E5%BE%B7%E7%9A%87%E5%90%8E.png",
+      "photoCredit": "作者：刘锡永 等 · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q292698",
+      "name": "武宣卞皇后",
+      "citation": "维基百科 / Wikidata Q292698",
+      "aliases": [
+        "Empress Dowager Bian"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 159
+      },
+      "death": {
+        "year": 230
+      },
+      "bio": "魏-三國人﹐女﹐又名卞皇后﹐開陽人(今山東臨沂)。古今女史﹐名媛尺牘﹐宮閨文選有著錄。"
+    },
+    {
+      "externalId": "Q293157",
+      "name": "卞皇后 (魏元帝)",
+      "citation": "维基百科 / Wikidata Q293157",
+      "aliases": [
+        "Empress Bian"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 300
+      },
+      "death": {
+        "year": 300
+      },
+      "bio": "Empress of Cao Wei from 263 to 266"
+    },
+    {
+      "externalId": "Q30928775",
+      "name": "王昭仪",
+      "citation": "维基百科 / Wikidata Q30928775",
+      "aliases": [
+        "王昭儀",
+        "Wang Zhaoyi"
+      ],
+      "gender": "female"
+    },
+    {
+      "externalId": "Q30941250",
+      "name": "秦夫人",
+      "citation": "维基百科 / Wikidata Q30941250",
+      "aliases": [
+        "Qin Furén"
+      ],
+      "gender": "female"
+    },
+    {
+      "externalId": "Q30941284",
+      "name": "尹夫人",
+      "citation": "维基百科 / Wikidata Q30941284",
+      "aliases": [
+        "Yin"
+      ],
+      "gender": "female",
+      "bio": "noblewoman; spouse of Cao Cao"
+    },
+    {
+      "externalId": "Q30941289",
+      "name": "环夫人",
+      "citation": "维基百科 / Wikidata Q30941289",
+      "aliases": [
+        "環夫人",
+        "Huan"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 150
+      },
+      "bio": "noblewoman; concubine of Cao Cao"
+    },
+    {
+      "externalId": "Q30941395",
+      "name": "邢贵人",
+      "citation": "维基百科 / Wikidata Q30941395",
+      "aliases": [
+        "Xing Guiren"
+      ],
+      "gender": "female",
+      "death": {
+        "year": 259
+      }
+    },
+    {
+      "externalId": "Q30945654",
+      "name": "曹琬",
+      "citation": "维基百科 / Wikidata Q30945654",
+      "gender": "male"
+    },
+    {
+      "externalId": "Q313333",
+      "name": "曹丕",
+      "citation": "维基百科 / Wikidata Q313333",
+      "aliases": [
+        "Cao Pi"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 187
+      },
+      "death": {
+        "year": 226
+      },
+      "bio": "曹魏皇帝",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Cao%20Pi%20Tang.jpg",
+      "photoCredit": "作者：Yan Li-pen · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q3178707",
+      "name": "曹玹",
+      "citation": "维基百科 / Wikidata Q3178707",
+      "aliases": [
+        "Cao Xuan"
+      ],
+      "gender": "male",
+      "bio": "son of Cao Cao and Prince of Jiyang (died c.215)"
+    },
+    {
+      "externalId": "Q378470",
+      "name": "曹叡",
+      "citation": "维基百科 / Wikidata Q378470",
+      "aliases": [
+        "Cao Rui"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 205
+      },
+      "death": {
+        "year": 239
+      },
+      "bio": "三國時期魏國君主",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/%E9%AD%8F%E6%98%8E%E5%B8%9D.png",
+      "photoCredit": "作者：刘锡永 等 · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q470091",
+      "name": "曹奂",
+      "citation": "维基百科 / Wikidata Q470091",
+      "aliases": [
+        "Cao Huan"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 246
+      },
+      "death": {
+        "year": 302
+      },
+      "bio": "曹魏末代皇帝 (246-303)"
+    },
+    {
+      "externalId": "Q48910802",
+      "name": "曹琮",
+      "citation": "维基百科 / Wikidata Q48910802",
+      "aliases": [
+        "Cao Cong"
+      ],
+      "gender": "male",
+      "bio": "曹操的孫子"
+    },
+    {
+      "externalId": "Q48927654",
+      "name": "王昌",
+      "citation": "维基百科 / Wikidata Q48927654",
+      "aliases": [
+        "Wang Chang"
+      ],
+      "gender": "male",
+      "bio": "Chinese person from the Three Kingdoms period"
+    },
+    {
+      "externalId": "Q5251280",
+      "name": "曹偃",
+      "citation": "维基百科 / Wikidata Q5251280",
+      "aliases": [
+        "Cao Yan"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 236
+      }
+    },
+    {
+      "externalId": "Q5251290",
+      "name": "曹启",
+      "citation": "维基百科 / Wikidata Q5251290",
+      "aliases": [
+        "曹啟",
+        "Cao Qi"
+      ],
+      "gender": "male"
+    },
+    {
+      "externalId": "Q5251300",
+      "name": "曹寻",
+      "citation": "维基百科 / Wikidata Q5251300",
+      "aliases": [
+        "曹尋",
+        "Cao Xun"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 250
+      },
+      "death": {
+        "year": 248
+      }
+    },
+    {
+      "externalId": "Q5251345",
+      "name": "曹敏",
+      "citation": "维基百科 / Wikidata Q5251345",
+      "aliases": [
+        "Cao Min"
+      ],
+      "gender": "male"
+    },
+    {
+      "externalId": "Q5251382",
+      "name": "曹翕",
+      "citation": "维基百科 / Wikidata Q5251382",
+      "aliases": [
+        "Cao Xi"
+      ],
+      "gender": "male"
+    },
+    {
+      "externalId": "Q5251461",
+      "name": "曹壹",
+      "citation": "维基百科 / Wikidata Q5251461",
+      "aliases": [
+        "Cao Yi"
+      ],
+      "gender": "male"
+    },
+    {
+      "externalId": "Q5251471",
+      "name": "曹温",
+      "citation": "维基百科 / Wikidata Q5251471",
+      "aliases": [
+        "Cao Wen"
+      ],
+      "gender": "male"
+    },
+    {
+      "externalId": "Q5251478",
+      "name": "曹赞",
+      "citation": "维基百科 / Wikidata Q5251478",
+      "aliases": [
+        "Cao Zan"
+      ],
+      "gender": "male"
+    },
+    {
+      "externalId": "Q5295861",
+      "name": "曹冏",
+      "citation": "维基百科 / Wikidata Q5295861",
+      "aliases": [
+        "Cao Ying"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 226
+      }
+    },
+    {
+      "externalId": "Q5353300",
+      "name": "曹矩",
+      "citation": "维基百科 / Wikidata Q5353300",
+      "aliases": [
+        "Cao Ju"
+      ],
+      "gender": "male",
+      "bio": "a son of Chinese warlord Cao Cao"
+    },
+    {
+      "externalId": "Q5353322",
+      "name": "曹据",
+      "citation": "维基百科 / Wikidata Q5353322",
+      "aliases": [
+        "曹據",
+        "Cao Ju"
+      ],
+      "gender": "male",
+      "bio": "3rd century prince of the state of Cao Wei"
+    },
+    {
+      "externalId": "Q545204",
+      "name": "卞皇后 (曹髦)",
+      "citation": "维基百科 / Wikidata Q545204",
+      "aliases": [
+        "Empress Bian (Cao Mao's wife)"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 200
+      },
+      "death": {
+        "year": 300
+      },
+      "bio": "Empress of Cao Wei from 255 to 260"
+    },
+    {
+      "externalId": "Q545811",
+      "name": "王皇后",
+      "citation": "维基百科 / Wikidata Q545811",
+      "aliases": [
+        "Empress Wang"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 250
+      },
+      "bio": "Empress of Cao Wei in 254"
+    },
+    {
+      "externalId": "Q550290",
+      "name": "曹髦",
+      "citation": "维基百科 / Wikidata Q550290",
+      "aliases": [
+        "Cao Mao"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 241
+      },
+      "death": {
+        "year": 260
+      },
+      "bio": "曹魏皇帝"
+    },
+    {
+      "externalId": "Q557261",
+      "name": "曹昂",
+      "citation": "维基百科 / Wikidata Q557261",
+      "aliases": [
+        "Cao Ang"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 177
+      },
+      "death": {
+        "year": 197
+      },
+      "bio": "曹操嫡长子"
+    },
+    {
+      "externalId": "Q571756",
+      "name": "曹熊",
+      "citation": "维基百科 / Wikidata Q571756",
+      "aliases": [
+        "Cao Xiong"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 195
+      },
+      "death": {
+        "year": 220
+      },
+      "bio": "son of Chinese Han dynasty warlord Cao Cao"
+    },
+    {
+      "externalId": "Q580624",
+      "name": "曹冲",
+      "citation": "维基百科 / Wikidata Q580624",
+      "aliases": [
+        "Cao Chong"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 196
+      },
+      "death": {
+        "year": 208
+      },
+      "bio": "Chinese warlord Cao Cao's son (196–208)"
+    },
+    {
+      "externalId": "Q6402587",
+      "name": "曹德",
+      "citation": "维基百科 / Wikidata Q6402587",
+      "aliases": [
+        "Cao De"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 150
+      },
+      "death": {
+        "year": 193
+      }
+    },
+    {
+      "externalId": "Q6420786",
+      "name": "曹悌",
+      "citation": "维基百科 / Wikidata Q6420786",
+      "aliases": [
+        "Cao Ti"
+      ],
+      "gender": "male"
+    },
+    {
+      "externalId": "Q698890",
+      "name": "曹植",
+      "citation": "维基百科 / Wikidata Q698890",
+      "aliases": [
+        "Cao Zhi"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 192
+      },
+      "death": {
+        "year": 232
+      },
+      "bio": "三國時期曹魏宗室及詩人",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Portrait%20Cao%20Zhi.jpg",
+      "photoCredit": "作者：顧愷之 · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q699893",
+      "name": "曹彰",
+      "citation": "维基百科 / Wikidata Q699893",
+      "aliases": [
+        "Cao Zhang"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 190
+      },
+      "death": {
+        "year": 223
+      },
+      "bio": "三國時期曹魏宗室",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Cao%20Zhang%20-%20Qing%20ZQ-SGYY.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q699910",
+      "name": "曹嵩",
+      "citation": "维基百科 / Wikidata Q699910",
+      "aliases": [
+        "Cao Song"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 200
+      },
+      "death": {
+        "year": 194
+      },
+      "bio": "Eastern Han dynasty official (died 193)"
+    },
+    {
+      "externalId": "Q703118",
+      "name": "曹霖",
+      "citation": "维基百科 / Wikidata Q703118",
+      "aliases": [
+        "Cao Lin"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 201
+      },
+      "death": {
+        "year": 250
+      },
+      "bio": "imperial prince of Cao Wei (died 251)"
+    },
+    {
+      "externalId": "Q706827",
+      "name": "曹衮",
+      "citation": "维基百科 / Wikidata Q706827",
+      "aliases": [
+        "曹袞",
+        "Cao Gun"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 250
+      },
+      "death": {
+        "year": 235
+      },
+      "bio": "prince of the state of Cao Wei (died 235)"
+    },
+    {
+      "externalId": "Q706866",
+      "name": "曹林",
+      "citation": "维基百科 / Wikidata Q706866",
+      "aliases": [
+        "Cao Lin"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 250
+      },
+      "death": {
+        "year": 256
+      },
+      "bio": "a prince of the state of Cao Wei (died 256)"
+    },
+    {
+      "externalId": "Q706905",
+      "name": "曹宇",
+      "citation": "维基百科 / Wikidata Q706905",
+      "aliases": [
+        "Cao Yu"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 250
+      },
+      "death": {
+        "year": 278
+      },
+      "bio": "prince of the state of Cao Wei (died 278)"
+    },
+    {
+      "externalId": "Q707386",
+      "name": "曹铄",
+      "citation": "维基百科 / Wikidata Q707386",
+      "aliases": [
+        "曹鑠",
+        "Cao Shuo"
+      ],
+      "gender": "male",
+      "bio": "son of Cao Cao and Prince of Xiang"
+    },
+    {
+      "externalId": "Q711798",
+      "name": "曹峻",
+      "citation": "维基百科 / Wikidata Q711798",
+      "aliases": [
+        "Cao Jun"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 250
+      },
+      "death": {
+        "year": 259
+      },
+      "bio": "prince of the state of Cao Wei (died 259)"
+    },
+    {
+      "externalId": "Q712084",
+      "name": "曹询",
+      "citation": "维基百科 / Wikidata Q712084",
+      "aliases": [
+        "曹詢",
+        "Cao Xun"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 231
+      },
+      "death": {
+        "year": 244
+      },
+      "bio": "Chinese prince"
+    },
+    {
+      "externalId": "Q713702",
+      "name": "明元郭皇后",
+      "citation": "维基百科 / Wikidata Q713702",
+      "aliases": [
+        "Empress Guo"
+      ],
+      "gender": "female",
+      "death": {
+        "year": 263
+      },
+      "bio": "Empress Dowager of Cao Wei (died 264)"
+    },
+    {
+      "externalId": "Q7316",
+      "name": "汉献帝",
+      "citation": "维基百科 / Wikidata Q7316",
+      "aliases": [
+        "漢獻帝",
+        "Emperor Xian of Han"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 181
+      },
+      "death": {
+        "year": 234
+      },
+      "bio": "中国东汉末代皇帝",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Death%20of%20Consort%20Dong.png",
+      "photoCredit": "作者：The picture above is a print from a Qing Dynasty edition of Luo Guanzhongs Romance of the Three Kingdoms · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q735448",
+      "name": "曹彪",
+      "citation": "维基百科 / Wikidata Q735448",
+      "aliases": [
+        "Cao Biao"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 195
+      },
+      "death": {
+        "year": 251
+      },
+      "bio": "prince of the Cao Wei state (195-251)"
+    },
+    {
+      "externalId": "Q77822",
+      "name": "曹芳",
+      "citation": "维基百科 / Wikidata Q77822",
+      "aliases": [
+        "Cao Fang"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 232
+      },
+      "death": {
+        "year": 274
+      },
+      "bio": "曹魏皇帝"
+    },
+    {
+      "externalId": "Q8252899",
+      "name": "曹宪",
+      "citation": "维基百科 / Wikidata Q8252899",
+      "aliases": [
+        "曹憲",
+        "Cao Xian"
+      ],
+      "gender": "female",
+      "bio": "daughter of warlord Cao Cao"
+    },
+    {
+      "externalId": "Q8252909",
+      "name": "曹华",
+      "citation": "维基百科 / Wikidata Q8252909",
+      "aliases": [
+        "曹華",
+        "Cao Hua"
+      ],
+      "gender": "female",
+      "bio": "daughter of Cao Cao and Empress Bian"
+    },
+    {
+      "externalId": "Q8253522",
+      "name": "杜夫人",
+      "citation": "维基百科 / Wikidata Q8253522",
+      "aliases": [
+        "Du"
+      ],
+      "gender": "female",
+      "bio": "noblewoman"
+    },
+    {
+      "externalId": "Q8253555",
+      "name": "刘夫人",
+      "citation": "维基百科 / Wikidata Q8253555",
+      "aliases": [
+        "Lady Liu"
+      ],
+      "gender": "female",
+      "bio": "spouse of Cao Cao"
+    },
+    {
+      "externalId": "Q8253560",
+      "name": "张美人",
+      "citation": "维基百科 / Wikidata Q8253560",
+      "aliases": [
+        "Zhang Meiren"
+      ],
+      "gender": "female",
+      "bio": "魏廢帝"
+    },
+    {
+      "externalId": "Q8253563",
+      "name": "禺婉",
+      "citation": "维基百科 / Wikidata Q8253563",
+      "aliases": [
+        "Yu Van"
+      ],
+      "gender": "female",
+      "death": {
+        "year": 254
+      }
+    },
+    {
+      "externalId": "Q8266165",
+      "name": "荀灌",
+      "citation": "维基百科 / Wikidata Q8266165",
+      "aliases": [
+        "Xun Guan"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 303
+      },
+      "bio": "4th century Chinese Jin dynasty general",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Xun%20Guan%20Peking%20opera.jpg",
+      "photoCredit": "作者：陈文 · CC BY 2.0 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q858941",
+      "name": "秦朗",
+      "citation": "维基百科 / Wikidata Q858941",
+      "aliases": [
+        "Qin Lang"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 150
+      },
+      "bio": "3rd century Cao Wei general"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q292698",
+      "child": "Q180920"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q292698",
+      "child": "Q313333"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q197585",
+      "child": "Q378470"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q8253555",
+      "child": "Q557261"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q292698",
+      "child": "Q571756"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q30941289",
+      "child": "Q580624"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q292698",
+      "child": "Q698890"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q292698",
+      "child": "Q699893"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q8253522",
+      "child": "Q706827"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q8253522",
+      "child": "Q706866"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q30941289",
+      "child": "Q706905"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q8253555",
+      "child": "Q707386"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q30941250",
+      "child": "Q711798"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q8253522",
+      "child": "Q858941"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q30941284",
+      "child": "Q1156713"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q30941250",
+      "child": "Q3178707"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q30941284",
+      "child": "Q5353300"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q30941289",
+      "child": "Q5353322"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q292698",
+      "child": "Q8252909"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q180920",
+      "child": "Q10899949"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q30928775",
+      "child": "Q11091072"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q108061655",
+      "child": "Q11091154"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q713702",
+      "child": "Q11091186"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q197585",
+      "child": "Q11104070"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q8253555",
+      "child": "Q11561243"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q10909274",
+      "child": "Q12603402"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q8253522",
+      "child": "Q15929527"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q10947311",
+      "child": "Q26124935"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q10947311",
+      "child": "Q26124953"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q10909274",
+      "child": "Q28415496"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q378470",
+      "child": "Q77822"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q11091154",
+      "child": "Q77822"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q698890",
+      "child": "Q128647"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q204077",
+      "child": "Q180920"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q699910",
+      "child": "Q204077"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q204077",
+      "child": "Q313333"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q313333",
+      "child": "Q378470"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q706905",
+      "child": "Q470091"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q703118",
+      "child": "Q550290"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q204077",
+      "child": "Q557261"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q204077",
+      "child": "Q571756"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q204077",
+      "child": "Q580624"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q204077",
+      "child": "Q698890"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q204077",
+      "child": "Q699893"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q313333",
+      "child": "Q703118"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q204077",
+      "child": "Q706827"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q204077",
+      "child": "Q706866"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q204077",
+      "child": "Q706905"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q204077",
+      "child": "Q707386"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q204077",
+      "child": "Q711798"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q378470",
+      "child": "Q712084"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q204077",
+      "child": "Q735448"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q204077",
+      "child": "Q3178707"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q22813355",
+      "child": "Q5251280"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q703118",
+      "child": "Q5251290"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q11090976",
+      "child": "Q5251300"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q11090991",
+      "child": "Q5251345"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q11091100",
+      "child": "Q5251382"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q706866",
+      "child": "Q5251461"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q11091154",
+      "child": "Q5251471"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q706866",
+      "child": "Q5251478"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q378470",
+      "child": "Q5295861"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q204077",
+      "child": "Q5353300"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q204077",
+      "child": "Q5353322"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q699910",
+      "child": "Q6402587"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q11091154",
+      "child": "Q6420786"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q204077",
+      "child": "Q8252899"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q204077",
+      "child": "Q8252909"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q15909080",
+      "child": "Q8266165"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q313333",
+      "child": "Q10323146"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q204077",
+      "child": "Q10323203"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q204077",
+      "child": "Q10323222"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q204077",
+      "child": "Q10323244"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q204077",
+      "child": "Q10323269"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q204077",
+      "child": "Q10323292"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q204077",
+      "child": "Q10323773"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q313333",
+      "child": "Q10323803"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q7316",
+      "child": "Q10899949"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q204077",
+      "child": "Q10947311"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q313333",
+      "child": "Q11090946"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q313333",
+      "child": "Q11090976"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q204077",
+      "child": "Q11090991"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q204077",
+      "child": "Q11091019"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q204077",
+      "child": "Q11091072"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q204077",
+      "child": "Q11091100"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q11090991",
+      "child": "Q11091110"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q699893",
+      "child": "Q11091154"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q378470",
+      "child": "Q11091159"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q378470",
+      "child": "Q11091186"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q313333",
+      "child": "Q11091240"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q378470",
+      "child": "Q11091247"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q313333",
+      "child": "Q11091292"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q313333",
+      "child": "Q11091297"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q313333",
+      "child": "Q11091307"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q313333",
+      "child": "Q11104070"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q204077",
+      "child": "Q11561243"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q26124935",
+      "child": "Q12603402"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q26124994",
+      "child": "Q15909080"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q15909080",
+      "child": "Q15909870"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q204077",
+      "child": "Q15929527"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q707386",
+      "child": "Q22813355"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q26124953",
+      "child": "Q26124994"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q26124935",
+      "child": "Q28415496"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q11090991",
+      "child": "Q30945654"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q5353322",
+      "child": "Q48910802"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q699893",
+      "child": "Q108131697"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q7316",
+      "child": "Q108133988"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q735448",
+      "child": "Q120698607"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q180920",
+      "b": "Q7316"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q7316",
+      "b": "Q8252909"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q197147",
+      "b": "Q77822"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q197580",
+      "b": "Q77822"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q545811",
+      "b": "Q77822"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q77822",
+      "b": "Q8253560"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q77822",
+      "b": "Q8253563"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q30941395",
+      "b": "Q77822"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q11090991",
+      "b": "Q197312"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q197585",
+      "b": "Q313333"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q204077",
+      "b": "Q292698"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q204077",
+      "b": "Q8253522"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q204077",
+      "b": "Q8253555"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q10864206",
+      "b": "Q204077"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q204077",
+      "b": "Q30928775"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q204077",
+      "b": "Q30941250"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q204077",
+      "b": "Q30941284"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q204077",
+      "b": "Q30941289"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q107738502",
+      "b": "Q204077"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q284527",
+      "b": "Q378470"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q292670",
+      "b": "Q313333"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q293157",
+      "b": "Q470091"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q10884663",
+      "b": "Q313333"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q108133988",
+      "b": "Q313333"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q378470",
+      "b": "Q713702"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q545204",
+      "b": "Q550290"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q117312658",
+      "b": "Q698890"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q108061655",
+      "b": "Q699893"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q1156713",
+      "b": "Q15929527"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q11561243",
+      "b": "Q1205162"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q10909274",
+      "b": "Q26124935"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q108131697",
+      "b": "Q48927654"
+    }
+  ]
+}

@@ -1,0 +1,1029 @@
+{
+  "key": "wikidata:wangxizhi",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q10479413",
+      "name": "羊耽",
+      "citation": "维基百科 / Wikidata Q10479413",
+      "aliases": [
+        "Yang Dan"
+      ],
+      "gender": "male",
+      "bio": "Cao Wei person CBDB = 135471"
+    },
+    {
+      "externalId": "Q10479481",
+      "name": "羊衜",
+      "citation": "维基百科 / Wikidata Q10479481",
+      "aliases": [
+        "Yang Dao"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 150
+      },
+      "bio": "Cao Wei official"
+    },
+    {
+      "externalId": "Q1066719",
+      "name": "夏侯威",
+      "citation": "维基百科 / Wikidata Q1066719",
+      "aliases": [
+        "Xiahou Wei"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 200
+      },
+      "death": {
+        "year": 300
+      },
+      "bio": "Chinese general"
+    },
+    {
+      "externalId": "Q1069286",
+      "name": "辛毗",
+      "citation": "维基百科 / Wikidata Q1069286",
+      "aliases": [
+        "Xin Pi"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 101
+      },
+      "death": {
+        "year": 235
+      },
+      "bio": "Chinese Cao Wei state official (died c. 235)"
+    },
+    {
+      "externalId": "Q1075235",
+      "name": "夏侯惠",
+      "citation": "维基百科 / Wikidata Q1075235",
+      "aliases": [
+        "Xiahou Hui"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 200
+      },
+      "death": {
+        "year": 300
+      },
+      "bio": "3rd century Cao Wei official"
+    },
+    {
+      "externalId": "Q10871555",
+      "name": "夏侯庄",
+      "citation": "维基百科 / Wikidata Q10871555",
+      "aliases": [
+        "夏侯莊"
+      ],
+      "gender": "male"
+    },
+    {
+      "externalId": "Q10916700",
+      "name": "司马道福",
+      "citation": "维基百科 / Wikidata Q10916700",
+      "aliases": [
+        "Sima Daofu"
+      ],
+      "gender": "female",
+      "bio": "daughter of Emperor Jianwen of Jin"
+    },
+    {
+      "externalId": "Q10931851",
+      "name": "夏侯光姬",
+      "citation": "维基百科 / Wikidata Q10931851",
+      "aliases": [
+        "Xiahou Guangji"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 250
+      },
+      "bio": "mother of Emperor Yuan of Jin"
+    },
+    {
+      "externalId": "Q10931855",
+      "name": "夏侯淳",
+      "citation": "维基百科 / Wikidata Q10931855",
+      "gender": "male"
+    },
+    {
+      "externalId": "Q10931856",
+      "name": "夏侯湛",
+      "citation": "维基百科 / Wikidata Q10931856",
+      "gender": "male",
+      "birth": {
+        "year": 243
+      },
+      "death": {
+        "year": 291
+      },
+      "bio": "Chinese author"
+    },
+    {
+      "externalId": "Q10931860",
+      "name": "夏侯骏",
+      "citation": "维基百科 / Wikidata Q10931860",
+      "aliases": [
+        "夏侯駿"
+      ],
+      "gender": "male"
+    },
+    {
+      "externalId": "Q1114786",
+      "name": "辛宪英",
+      "citation": "维基百科 / Wikidata Q1114786",
+      "aliases": [
+        "辛憲英",
+        "Xin Xianying"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 191
+      },
+      "death": {
+        "year": 269
+      },
+      "bio": "Chinese noblewoman and advisor (191–269)"
+    },
+    {
+      "externalId": "Q11429927",
+      "name": "夏侯荣",
+      "citation": "维基百科 / Wikidata Q11429927",
+      "aliases": [
+        "Xiahou Rong"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 207
+      },
+      "death": {
+        "year": 219
+      }
+    },
+    {
+      "externalId": "Q11429929",
+      "name": "夏侯称",
+      "citation": "维基百科 / Wikidata Q11429929",
+      "aliases": [
+        "夏侯稱",
+        "Xiahou Cheng"
+      ],
+      "gender": "male"
+    },
+    {
+      "externalId": "Q134098549",
+      "name": "夏侯氏",
+      "citation": "维基百科 / Wikidata Q134098549",
+      "gender": "female"
+    },
+    {
+      "externalId": "Q15903940",
+      "name": "羊续",
+      "citation": "维基百科 / Wikidata Q15903940",
+      "aliases": [
+        "羊續",
+        "Yang Xu"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 142
+      },
+      "bio": "Eastern Han official"
+    },
+    {
+      "externalId": "Q15905263",
+      "name": "郗璇",
+      "citation": "维基百科 / Wikidata Q15905263",
+      "aliases": [
+        "郗璿",
+        "Chi Xuan"
+      ],
+      "gender": "female",
+      "bio": "王羲之夫人"
+    },
+    {
+      "externalId": "Q15905408",
+      "name": "羊琇",
+      "citation": "维基百科 / Wikidata Q15905408",
+      "aliases": [
+        "Yang Xiu"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 236
+      },
+      "death": {
+        "year": 282
+      },
+      "bio": "Cao Wei person CBDB = 135475"
+    },
+    {
+      "externalId": "Q15907839",
+      "name": "王览",
+      "citation": "维基百科 / Wikidata Q15907839",
+      "aliases": [
+        "王覽",
+        "Wang Lan"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 206
+      },
+      "bio": "China person CBDB = 25786"
+    },
+    {
+      "externalId": "Q15909509",
+      "name": "王彬",
+      "citation": "维基百科 / Wikidata Q15909509",
+      "aliases": [
+        "Wang Bin"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 278
+      },
+      "death": {
+        "year": 336
+      },
+      "bio": "Chinese official under the Jin dynasty"
+    },
+    {
+      "externalId": "Q15911516",
+      "name": "王廙",
+      "citation": "维基百科 / Wikidata Q15911516",
+      "aliases": [
+        "Wang Yi"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 276
+      },
+      "death": {
+        "year": 322
+      },
+      "bio": "Eastern Jin dynasty person CBDB = 25806"
+    },
+    {
+      "externalId": "Q15926312",
+      "name": "辛敞",
+      "citation": "维基百科 / Wikidata Q15926312",
+      "aliases": [
+        "Xin Chang"
+      ],
+      "gender": "male",
+      "bio": "Cao Wei person CBDB = 135474"
+    },
+    {
+      "externalId": "Q15928529",
+      "name": "王徽之",
+      "citation": "维基百科 / Wikidata Q15928529",
+      "aliases": [
+        "Wang Huizhi"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 338
+      },
+      "bio": "东晋时期书法家、名士"
+    },
+    {
+      "externalId": "Q15956125",
+      "name": "王桢之",
+      "citation": "维基百科 / Wikidata Q15956125",
+      "gender": "male"
+    },
+    {
+      "externalId": "Q16077602",
+      "name": "王凝之",
+      "citation": "维基百科 / Wikidata Q16077602",
+      "aliases": [
+        "Wang Ningzhi"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 334
+      },
+      "bio": "东晋大臣"
+    },
+    {
+      "externalId": "Q16905978",
+      "name": "王孟姜",
+      "citation": "维基百科 / Wikidata Q16905978",
+      "aliases": [
+        "Wang Mengjiang"
+      ],
+      "gender": "female",
+      "bio": "daughter of Wang Xizhi"
+    },
+    {
+      "externalId": "Q16906109",
+      "name": "王法明",
+      "citation": "维基百科 / Wikidata Q16906109",
+      "gender": "male"
+    },
+    {
+      "externalId": "Q16906209",
+      "name": "王裁",
+      "citation": "维基百科 / Wikidata Q16906209",
+      "aliases": [
+        "Wang Cai"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 250
+      },
+      "bio": "西晋时期大臣"
+    },
+    {
+      "externalId": "Q2194004",
+      "name": "王神爱",
+      "citation": "维基百科 / Wikidata Q2194004",
+      "aliases": [
+        "王神愛",
+        "Empress Wang Shen'ai"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 384
+      },
+      "death": {
+        "year": 412
+      },
+      "bio": "Jin Dynasty empress"
+    },
+    {
+      "externalId": "Q22814785",
+      "name": "王仁",
+      "citation": "维基百科 / Wikidata Q22814785",
+      "aliases": [
+        "Wang Ren"
+      ],
+      "gender": "male",
+      "bio": "Eastern Han Dynasty person CBDB = 25783"
+    },
+    {
+      "externalId": "Q22814786",
+      "name": "王融",
+      "citation": "维基百科 / Wikidata Q22814786",
+      "aliases": [
+        "Wang Rong"
+      ],
+      "gender": "male",
+      "bio": "Eastern Han Dynasty person CBDB = 25784"
+    },
+    {
+      "externalId": "Q22814788",
+      "name": "王会",
+      "citation": "维基百科 / Wikidata Q22814788",
+      "gender": "male"
+    },
+    {
+      "externalId": "Q22814789",
+      "name": "王正",
+      "citation": "维基百科 / Wikidata Q22814789",
+      "aliases": [
+        "Wang Zheng"
+      ],
+      "gender": "male",
+      "bio": "Western Jin dynasty person CBDB = 25791"
+    },
+    {
+      "externalId": "Q22814790",
+      "name": "王旷",
+      "citation": "维基百科 / Wikidata Q22814790",
+      "aliases": [
+        "Wang Guang"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 250
+      },
+      "bio": "晉朝書法家，王羲之的父親"
+    },
+    {
+      "externalId": "Q22814791",
+      "name": "王翼之",
+      "citation": "维基百科 / Wikidata Q22814791",
+      "gender": "male"
+    },
+    {
+      "externalId": "Q22814888",
+      "name": "王琛",
+      "citation": "维基百科 / Wikidata Q22814888",
+      "gender": "male"
+    },
+    {
+      "externalId": "Q22814890",
+      "name": "王基",
+      "citation": "维基百科 / Wikidata Q22814890",
+      "gender": "male"
+    },
+    {
+      "externalId": "Q22814937",
+      "name": "羊秘",
+      "citation": "维基百科 / Wikidata Q22814937",
+      "aliases": [
+        "羊祕"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 150
+      }
+    },
+    {
+      "externalId": "Q22814946",
+      "name": "羊瑾",
+      "citation": "维基百科 / Wikidata Q22814946",
+      "gender": "male"
+    },
+    {
+      "externalId": "Q28415680",
+      "name": "夏侯衡",
+      "citation": "维基百科 / Wikidata Q28415680",
+      "gender": "male",
+      "birth": {
+        "year": 150
+      }
+    },
+    {
+      "externalId": "Q378510",
+      "name": "夏侯渊",
+      "citation": "维基百科 / Wikidata Q378510",
+      "aliases": [
+        "Xiahou Yuan"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 200
+      },
+      "death": {
+        "year": 219
+      },
+      "bio": "东汉末年将领",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Xiahou%20Yuan%20Portrait.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q378564",
+      "name": "王羲之",
+      "citation": "维基百科 / Wikidata Q378564",
+      "aliases": [
+        "Wang Xizhi"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 303
+      },
+      "death": {
+        "year": 361
+      },
+      "bio": "東晉書法家、道士",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Portraits%20of%20Famous%20Men%20-%20Wang%20Xizhi%20%28cropped%29.jpg",
+      "photoCredit": "作者：Unknown Chinese artist · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q45408733",
+      "name": "王祥",
+      "citation": "维基百科 / Wikidata Q45408733",
+      "aliases": [
+        "Wang Xiang"
+      ],
+      "gender": "male",
+      "bio": "Western Jin dynasty person CBDB = 25785"
+    },
+    {
+      "externalId": "Q45472880",
+      "name": "桃叶",
+      "citation": "维基百科 / Wikidata Q45472880",
+      "aliases": [
+        "桃葉",
+        "Taoye"
+      ],
+      "gender": "female",
+      "bio": "Eastern Jin dynasty person CBDB = 135442"
+    },
+    {
+      "externalId": "Q45472947",
+      "name": "桃根",
+      "citation": "维基百科 / Wikidata Q45472947",
+      "aliases": [
+        "Taogen"
+      ],
+      "gender": "female",
+      "bio": "Eastern Jin dynasty person CBDB = 135443"
+    },
+    {
+      "externalId": "Q47182758",
+      "name": "王玄之",
+      "citation": "维基百科 / Wikidata Q47182758",
+      "aliases": [
+        "Wang Xuanzhi"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 326
+      },
+      "bio": "son of Wang Xizhi"
+    },
+    {
+      "externalId": "Q55696717",
+      "name": "王悦",
+      "citation": "维基百科 / Wikidata Q55696717",
+      "aliases": [
+        "王悅"
+      ],
+      "gender": "male"
+    },
+    {
+      "externalId": "Q559425",
+      "name": "王献之",
+      "citation": "维基百科 / Wikidata Q559425",
+      "aliases": [
+        "Wang Xianzhi"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 344
+      },
+      "death": {
+        "year": 386
+      },
+      "bio": "东晋时期书法家、名士",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Du%20Jin%20-%20Wang%20Xianzhi%20%28Wang%20Hsien-Chih%29%20and%20Two%20Wives%20Among%20Willows%20and%20Rocks%20-%20Walters%20355.jpg",
+      "photoCredit": "作者：After Tang Yin · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q67196814",
+      "name": "王靖之",
+      "citation": "维基百科 / Wikidata Q67196814",
+      "aliases": [
+        "Wang Jingzhi"
+      ],
+      "gender": "male"
+    },
+    {
+      "externalId": "Q710053",
+      "name": "王祥",
+      "citation": "维基百科 / Wikidata Q710053",
+      "aliases": [
+        "Wang Xiang"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 185
+      },
+      "death": {
+        "year": 269
+      },
+      "bio": "魏、西晉官員，《二十四孝》中臥冰求鯉的主角",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Osho%20catches%20fish%20for%20his%20stepmother.jpg",
+      "photoCredit": "作者：Utagawa Kuniyoshi · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q7403",
+      "name": "晋安帝",
+      "citation": "维基百科 / Wikidata Q7403",
+      "aliases": [
+        "Emperor An of Jin"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 382
+      },
+      "death": {
+        "year": 419
+      },
+      "bio": "东晋皇帝",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Harvard%20drs%2049802792%20%E7%B9%A1%E5%83%8F%E4%B8%89%E5%9C%8B%E6%BC%94%E7%BE%A9%E7%BA%8C%E7%B7%A8%20v.1%20%28%E6%99%89%E5%AE%89%E5%B8%9D%29.jpg",
+      "photoCredit": "作者：see below · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q740312",
+      "name": "夏侯霸",
+      "citation": "维基百科 / Wikidata Q740312",
+      "aliases": [
+        "Xiahou Ba"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 187
+      },
+      "death": {
+        "year": 262
+      },
+      "bio": "3rd century Chinese Cao Wei state general",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/XiahouBa.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q76825137",
+      "name": "羊氏",
+      "citation": "维基百科 / Wikidata Q76825137",
+      "gender": "female"
+    },
+    {
+      "externalId": "Q76825151",
+      "name": "孔氏",
+      "citation": "维基百科 / Wikidata Q76825151",
+      "gender": "female"
+    },
+    {
+      "externalId": "Q76825195",
+      "name": "蔡氏",
+      "citation": "维基百科 / Wikidata Q76825195",
+      "gender": "female"
+    },
+    {
+      "externalId": "Q8012902",
+      "name": "王叡",
+      "citation": "维基百科 / Wikidata Q8012902",
+      "aliases": [
+        "Wang Ye"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 150
+      },
+      "death": {
+        "year": 189
+      },
+      "bio": "Han dynasty person (? - 189 or 190 )"
+    },
+    {
+      "externalId": "Q8044361",
+      "name": "谢道韫",
+      "citation": "维基百科 / Wikidata Q8044361",
+      "aliases": [
+        "謝道韞",
+        "Xie Daoyun"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 349
+      },
+      "death": {
+        "year": 409
+      },
+      "bio": "東晉女诗人",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Xie%20Daoyun.jpg",
+      "photoCredit": "作者：Although it proclaimed the copyright, but the image is scanned from a Chinese book which was published at 1772, named as Li chao ming yuan shi ci: 12 juan (edited by Lu Chang, Qing dynasty) (歷朝名媛詩詞﹕十二卷(清陸昶輯)。清乾隆三十八年（1772）紅樹樓刻本, thus it should be in public domain. · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q856757",
+      "name": "夏侯和",
+      "citation": "维基百科 / Wikidata Q856757",
+      "aliases": [
+        "Xiahou He"
+      ],
+      "gender": "male",
+      "bio": "三国时代魏国将领"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q15905263",
+      "child": "Q559425"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q10916700",
+      "child": "Q2194004"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q76825137",
+      "child": "Q10931851"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q1114786",
+      "child": "Q15905408"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q134098549",
+      "child": "Q15911516"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q15905263",
+      "child": "Q15928529"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q15905263",
+      "child": "Q16077602"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q15905263",
+      "child": "Q16905978"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q134098549",
+      "child": "Q22814790"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q1114786",
+      "child": "Q22814946"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q1114786",
+      "child": "Q76825137"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q76825137",
+      "child": "Q134098549"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q22814790",
+      "child": "Q378564"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q378564",
+      "child": "Q559425"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q22814786",
+      "child": "Q710053"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q378510",
+      "child": "Q740312"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q378510",
+      "child": "Q856757"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q378510",
+      "child": "Q1066719"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q378510",
+      "child": "Q1075235"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q1069286",
+      "child": "Q1114786"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q559425",
+      "child": "Q2194004"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q22814785",
+      "child": "Q8012902"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q15903940",
+      "child": "Q10479413"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q15903940",
+      "child": "Q10479481"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q1066719",
+      "child": "Q10871555"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q10871555",
+      "child": "Q10931851"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q10871555",
+      "child": "Q10931855"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q10871555",
+      "child": "Q10931856"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q1066719",
+      "child": "Q10931860"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q378510",
+      "child": "Q11429927"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q378510",
+      "child": "Q11429929"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q10479413",
+      "child": "Q15905408"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q22814786",
+      "child": "Q15907839"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q22814789",
+      "child": "Q15909509"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q22814789",
+      "child": "Q15911516"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q1069286",
+      "child": "Q15926312"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q378564",
+      "child": "Q15928529"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q15928529",
+      "child": "Q15956125"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q378564",
+      "child": "Q16077602"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q378564",
+      "child": "Q16905978"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q22814791",
+      "child": "Q16906109"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q15907839",
+      "child": "Q16906209"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q22814785",
+      "child": "Q22814786"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q15907839",
+      "child": "Q22814788"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q15907839",
+      "child": "Q22814789"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q22814789",
+      "child": "Q22814790"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q15956125",
+      "child": "Q22814791"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q15907839",
+      "child": "Q22814888"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q15907839",
+      "child": "Q22814890"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q15903940",
+      "child": "Q22814937"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q10479413",
+      "child": "Q22814946"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q378510",
+      "child": "Q28415680"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q22814786",
+      "child": "Q45408733"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q378564",
+      "child": "Q47182758"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q67196814",
+      "child": "Q55696717"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q559425",
+      "child": "Q67196814"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q10479413",
+      "child": "Q76825137"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q10871555",
+      "child": "Q134098549"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q2194004",
+      "b": "Q7403"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q15905263",
+      "b": "Q378564"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q10916700",
+      "b": "Q559425"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45472880",
+      "b": "Q559425"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45472947",
+      "b": "Q559425"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q10479413",
+      "b": "Q1114786"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q16077602",
+      "b": "Q8044361"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q10479481",
+      "b": "Q76825151"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q10479481",
+      "b": "Q76825195"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q10871555",
+      "b": "Q76825137"
+    }
+  ]
+}

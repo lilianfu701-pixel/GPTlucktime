@@ -1,0 +1,286 @@
+{
+  "key": "wikidata:kongzi",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q10944385",
+      "name": "孔求",
+      "citation": "维基百科 / Wikidata Q10944385",
+      "aliases": [
+        "Kong Qiu"
+      ],
+      "gender": "male"
+    },
+    {
+      "externalId": "Q11093231",
+      "name": "木金父",
+      "citation": "维基百科 / Wikidata Q11093231",
+      "aliases": [
+        "Mu Jinfu"
+      ],
+      "gender": "male"
+    },
+    {
+      "externalId": "Q1147803",
+      "name": "孔伋",
+      "citation": "维基百科 / Wikidata Q1147803",
+      "aliases": [
+        "Zisi"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 482
+      },
+      "death": {
+        "year": 401
+      },
+      "bio": "中国儒家，孔子之孙",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Half%20Portraits%20of%20the%20Great%20Sage%20and%20Virtuous%20Men%20of%20Old%20-%20Kong%20Ji%20Zisi%20%28%E5%AD%94%E4%BC%8B%20%E5%AD%90%E6%80%9D%29.jpg",
+      "photoCredit": "作者：anonymous · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q133571005",
+      "name": "Kong Jiao",
+      "citation": "维基百科 / Wikidata Q133571005",
+      "gender": "female",
+      "birth": {
+        "year": 550
+      },
+      "bio": "Daughter of Confucius"
+    },
+    {
+      "externalId": "Q133571110",
+      "name": "Yan Xiang",
+      "citation": "维基百科 / Wikidata Q133571110",
+      "gender": "male",
+      "bio": "Maternal grandfather of Confucius"
+    },
+    {
+      "externalId": "Q15939908",
+      "name": "防叔",
+      "citation": "维基百科 / Wikidata Q15939908",
+      "aliases": [
+        "Fang shu"
+      ],
+      "gender": "male",
+      "bio": "春秋时期鲁国政治人物，孔子曾祖父"
+    },
+    {
+      "externalId": "Q15940896",
+      "name": "祁父",
+      "citation": "维基百科 / Wikidata Q15940896",
+      "aliases": [
+        "Qi Fu"
+      ],
+      "gender": "male"
+    },
+    {
+      "externalId": "Q22812620",
+      "name": "孔白",
+      "citation": "维基百科 / Wikidata Q22812620",
+      "aliases": [
+        "Kong Bai"
+      ],
+      "gender": "male"
+    },
+    {
+      "externalId": "Q22812621",
+      "name": "孔箕",
+      "citation": "维基百科 / Wikidata Q22812621",
+      "aliases": [
+        "Kong Ji"
+      ],
+      "gender": "male"
+    },
+    {
+      "externalId": "Q24835105",
+      "name": "亓官氏",
+      "citation": "维基百科 / Wikidata Q24835105",
+      "aliases": [
+        "Qiguan Shi"
+      ],
+      "gender": "female",
+      "bio": "Confucius' wife"
+    },
+    {
+      "externalId": "Q4604",
+      "name": "孔子",
+      "citation": "维基百科 / Wikidata Q4604",
+      "aliases": [
+        "Confucius"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 550
+      },
+      "death": {
+        "year": 478
+      },
+      "bio": "中国古代思想家，儒家学派创始人",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Confucius%2C%20fresco%20from%20a%20Western%20Han%20tomb%20of%20Dongping%20County%2C%20Shandong%20province%2C%20China.jpg",
+      "photoCredit": "作者：Anonymous Chinese painter of the Western Han period · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q7239593",
+      "name": "颜征在",
+      "citation": "维基百科 / Wikidata Q7239593",
+      "aliases": [
+        "顏徵在",
+        "Yan Zhengzai"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 567
+      },
+      "death": {
+        "year": 534
+      },
+      "bio": "孔子生母"
+    },
+    {
+      "externalId": "Q7239680",
+      "name": "孟皮",
+      "citation": "维基百科 / Wikidata Q7239680",
+      "aliases": [
+        "Meng Pi"
+      ],
+      "gender": "male",
+      "bio": "孔子兄长"
+    },
+    {
+      "externalId": "Q7239950",
+      "name": "伯夏",
+      "citation": "维基百科 / Wikidata Q7239950",
+      "aliases": [
+        "Ba Xia"
+      ],
+      "gender": "male",
+      "bio": "春秋时期鲁国政治人物，孔子祖父"
+    },
+    {
+      "externalId": "Q7240164",
+      "name": "孔鲤",
+      "citation": "维基百科 / Wikidata Q7240164",
+      "aliases": [
+        "Kong Li"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 531
+      },
+      "death": {
+        "year": 482
+      },
+      "bio": "孔子之子"
+    },
+    {
+      "externalId": "Q847621",
+      "name": "叔梁纥",
+      "citation": "维基百科 / Wikidata Q847621",
+      "aliases": [
+        "叔梁紇",
+        "Shuliang He"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 621
+      },
+      "death": {
+        "year": 547
+      },
+      "bio": "father of Master Kong (Confucius)"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q7239593",
+      "child": "Q4604"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q24835105",
+      "child": "Q7240164"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q24835105",
+      "child": "Q133571005"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q847621",
+      "child": "Q4604"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q7239950",
+      "child": "Q847621"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q7240164",
+      "child": "Q1147803"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q133571110",
+      "child": "Q7239593"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q847621",
+      "child": "Q7239680"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q15939908",
+      "child": "Q7239950"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q4604",
+      "child": "Q7240164"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q22812620",
+      "child": "Q10944385"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q15940896",
+      "child": "Q15939908"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q11093231",
+      "child": "Q15940896"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q1147803",
+      "child": "Q22812620"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q10944385",
+      "child": "Q22812621"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q4604",
+      "child": "Q133571005"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q24835105",
+      "b": "Q4604"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q7239593",
+      "b": "Q847621"
+    }
+  ]
+}

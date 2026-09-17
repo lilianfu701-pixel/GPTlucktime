@@ -1,0 +1,181 @@
+{
+  "key": "wikidata:chenbaozhen",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q10887833",
+      "name": "俞明诗",
+      "citation": "维基百科 / Wikidata Q10887833",
+      "aliases": [
+        "Yu Mingshi"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1865
+      },
+      "death": {
+        "year": 1923
+      },
+      "bio": "清末民初诗人"
+    },
+    {
+      "externalId": "Q11658292",
+      "name": "陈三立",
+      "citation": "维基百科 / Wikidata Q11658292",
+      "aliases": [
+        "Chen Sanli"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1853
+      },
+      "death": {
+        "year": 1937
+      },
+      "bio": "中國詩人",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Zhensanli.jpg",
+      "photoCredit": "公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q131691043",
+      "name": "汪梅未",
+      "citation": "维基百科 / Wikidata Q131691043",
+      "aliases": [
+        "Wang Meiwei"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1882
+      },
+      "death": {
+        "year": 1913
+      }
+    },
+    {
+      "externalId": "Q3170503",
+      "name": "陈师曾",
+      "citation": "维基百科 / Wikidata Q3170503",
+      "aliases": [
+        "Chen Shizeng"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1876
+      },
+      "death": {
+        "year": 1923
+      },
+      "bio": "中国画家",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Chen%20Shizeng.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q5090760",
+      "name": "陈封怀",
+      "citation": "维基百科 / Wikidata Q5090760",
+      "aliases": [
+        "Chen Feng Huai"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1900
+      },
+      "death": {
+        "year": 1993
+      },
+      "bio": "中国植物学家"
+    },
+    {
+      "externalId": "Q67491359",
+      "name": "范孝嫦",
+      "citation": "维基百科 / Wikidata Q67491359",
+      "aliases": [
+        "Fan Xiaochang"
+      ],
+      "gender": "female"
+    },
+    {
+      "externalId": "Q714824",
+      "name": "陈寅恪",
+      "citation": "维基百科 / Wikidata Q714824",
+      "aliases": [
+        "Chen Yinque"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1890
+      },
+      "death": {
+        "year": 1969
+      },
+      "bio": "中國歷史學家（1890—1969）",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Chen%20Yinke.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q835816",
+      "name": "陈宝箴",
+      "citation": "维基百科 / Wikidata Q835816",
+      "aliases": [
+        "Chen Baozhen"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1831
+      },
+      "death": {
+        "year": 1900
+      },
+      "bio": "Qing Dynasty politician (1831-1900)",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Chen-bao-zhen.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q10887833",
+      "child": "Q714824"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q67491359",
+      "child": "Q5090760"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q11658292",
+      "child": "Q714824"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q11658292",
+      "child": "Q3170503"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q3170503",
+      "child": "Q5090760"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q835816",
+      "child": "Q11658292"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q3170503",
+      "b": "Q67491359"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q131691043",
+      "b": "Q3170503"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q10887833",
+      "b": "Q11658292"
+    }
+  ]
+}
