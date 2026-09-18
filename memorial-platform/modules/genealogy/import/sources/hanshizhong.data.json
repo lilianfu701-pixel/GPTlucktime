@@ -1,0 +1,279 @@
+{
+  "key": "wikidata:hanshizhong",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q3380988",
+      "name": "梁夫人",
+      "citation": "维基百科 / Wikidata Q3380988",
+      "aliases": [
+        "Liang Hongyu"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1102
+      },
+      "death": {
+        "year": 1135
+      },
+      "bio": "Chinese general",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/%E5%8F%A4%E4%BB%8A%E7%99%BE%E7%BE%8E%E5%9C%96%E4%B9%8B%E6%A2%81%E5%A4%AB%E4%BA%BA%EF%BC%88One%20hundred%20beauties%20Lady%20Liang%EF%BC%89.png",
+      "photoCredit": "作者：Wu Youru(died c. 1893) · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q45356422",
+      "name": "韩彦直",
+      "citation": "维基百科 / Wikidata Q45356422",
+      "aliases": [
+        "韓彥直",
+        "Han Yanzhi"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1131
+      },
+      "bio": "Song dynasty person (CBDB = 667)"
+    },
+    {
+      "externalId": "Q45361241",
+      "name": "韩彦质",
+      "citation": "维基百科 / Wikidata Q45361241",
+      "aliases": [
+        "韓彥質",
+        "Han Yanzhi"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB=3330"
+    },
+    {
+      "externalId": "Q45361243",
+      "name": "韩彦古",
+      "citation": "维基百科 / Wikidata Q45361243",
+      "aliases": [
+        "韓彥古",
+        "Han Yangu"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 1192
+      },
+      "bio": "Song dynasty person CBDB = 3331"
+    },
+    {
+      "externalId": "Q45367555",
+      "name": "韩彦朴",
+      "citation": "维基百科 / Wikidata Q45367555",
+      "aliases": [
+        "韓彥朴",
+        "Han Yanpu"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 10222"
+    },
+    {
+      "externalId": "Q45387302",
+      "name": "韩则",
+      "citation": "维基百科 / Wikidata Q45387302",
+      "aliases": [
+        "韓則",
+        "Han Ze"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB=17810"
+    },
+    {
+      "externalId": "Q45387309",
+      "name": "韩广",
+      "citation": "维基百科 / Wikidata Q45387309",
+      "aliases": [
+        "韓廣",
+        "Han Guang"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person (CBDB = 17811)"
+    },
+    {
+      "externalId": "Q45387315",
+      "name": "韩庆",
+      "citation": "维基百科 / Wikidata Q45387315",
+      "aliases": [
+        "韓慶",
+        "Han Qing"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person (CBDB = 17812)"
+    },
+    {
+      "externalId": "Q45479951",
+      "name": "韩亮",
+      "citation": "维基百科 / Wikidata Q45479951",
+      "aliases": [
+        "韓亮",
+        "Han Liang"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 119511"
+    },
+    {
+      "externalId": "Q65799222",
+      "name": "郝氏",
+      "citation": "维基百科 / Wikidata Q65799222",
+      "aliases": [
+        "Hao Shi"
+      ],
+      "gender": "female",
+      "bio": "韓則妻"
+    },
+    {
+      "externalId": "Q65799223",
+      "name": "高氏",
+      "citation": "维基百科 / Wikidata Q65799223",
+      "aliases": [
+        "Gao Shi"
+      ],
+      "gender": "female",
+      "bio": "韓廣妻"
+    },
+    {
+      "externalId": "Q65799224",
+      "name": "贺氏",
+      "citation": "维基百科 / Wikidata Q65799224",
+      "aliases": [
+        "賀氏",
+        "He Shi"
+      ],
+      "gender": "female",
+      "bio": "韓慶妻"
+    },
+    {
+      "externalId": "Q65799225",
+      "name": "白氏",
+      "citation": "维基百科 / Wikidata Q65799225",
+      "aliases": [
+        "Bai Shi"
+      ],
+      "gender": "female",
+      "bio": "韓世忠妻"
+    },
+    {
+      "externalId": "Q65799338",
+      "name": "茅氏",
+      "citation": "维基百科 / Wikidata Q65799338",
+      "aliases": [
+        "Mao Shi"
+      ],
+      "gender": "female",
+      "bio": "韓世忠妻"
+    },
+    {
+      "externalId": "Q65801457",
+      "name": "王氏",
+      "citation": "维基百科 / Wikidata Q65801457",
+      "aliases": [
+        "Wang Shi"
+      ],
+      "gender": "female",
+      "bio": "韓彥直妻"
+    },
+    {
+      "externalId": "Q706861",
+      "name": "韩世忠",
+      "citation": "维基百科 / Wikidata Q706861",
+      "aliases": [
+        "Han Shizhong"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1089
+      },
+      "death": {
+        "year": 1151
+      },
+      "bio": "中国南宋名将 (1089–1151)",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/%E9%9F%93%E4%B8%96%E5%BF%A0.jpg",
+      "photoCredit": "作者：劉松年繪 · 公有领域 · 来源：Wikimedia Commons"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q45387315",
+      "child": "Q706861"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q706861",
+      "child": "Q45356422"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q706861",
+      "child": "Q45361241"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q706861",
+      "child": "Q45361243"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q706861",
+      "child": "Q45367555"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45387302",
+      "child": "Q45387309"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45387309",
+      "child": "Q45387315"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q706861",
+      "child": "Q45479951"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q65799224",
+      "child": "Q706861"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q65799338",
+      "child": "Q45356422"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q65799222",
+      "child": "Q45387309"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q65799223",
+      "child": "Q45387315"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q3380988",
+      "b": "Q706861"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q65799225",
+      "b": "Q706861"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q65799338",
+      "b": "Q706861"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45356422",
+      "b": "Q65801457"
+    }
+  ]
+}

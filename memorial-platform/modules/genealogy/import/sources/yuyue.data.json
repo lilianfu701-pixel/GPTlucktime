@@ -1,0 +1,340 @@
+{
+  "key": "wikidata:yuyue",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q10887841",
+      "name": "俞樾",
+      "citation": "维基百科 / Wikidata Q10887841",
+      "aliases": [
+        "Yu Yue"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1821
+      },
+      "death": {
+        "year": 1906
+      },
+      "bio": "清朝经学家、训诂学家（1821－1907）",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/%E4%BF%9E%E6%A8%BE%E5%83%8F%E5%82%B3.jpg",
+      "photoCredit": "作者：叶恭绰辑，杨鹏秋摹绘 · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q10887897",
+      "name": "俞陛云",
+      "citation": "维基百科 / Wikidata Q10887897",
+      "aliases": [
+        "Biyun Yu"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1868
+      },
+      "death": {
+        "year": 1950
+      },
+      "bio": "中国近代学者（1868－1950）",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/%E4%BF%9E%E9%99%9B%E4%BA%91.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q134080094",
+      "name": "许引之",
+      "citation": "维基百科 / Wikidata Q134080094",
+      "aliases": [
+        "許引之"
+      ],
+      "gender": "male"
+    },
+    {
+      "externalId": "Q134080108",
+      "name": "俞绍莱",
+      "citation": "维基百科 / Wikidata Q134080108",
+      "aliases": [
+        "俞紹萊"
+      ],
+      "gender": "male"
+    },
+    {
+      "externalId": "Q134080110",
+      "name": "许之仙",
+      "citation": "维基百科 / Wikidata Q134080110",
+      "aliases": [
+        "許之仙"
+      ],
+      "gender": "female"
+    },
+    {
+      "externalId": "Q134080115",
+      "name": "俞祖仁",
+      "citation": "维基百科 / Wikidata Q134080115",
+      "gender": "male"
+    },
+    {
+      "externalId": "Q134080294",
+      "name": "俞琎",
+      "citation": "维基百科 / Wikidata Q134080294",
+      "aliases": [
+        "俞璡"
+      ],
+      "gender": "female"
+    },
+    {
+      "externalId": "Q15898369",
+      "name": "许宝驹",
+      "citation": "维基百科 / Wikidata Q15898369",
+      "aliases": [
+        "Baoju Xu"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1899
+      },
+      "death": {
+        "year": 1960
+      },
+      "bio": "Chinese politician",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Xu%20Baoju.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q15906393",
+      "name": "许宝𫘧",
+      "citation": "维基百科 / Wikidata Q15906393",
+      "aliases": [
+        "許寶騄",
+        "Pao-Lu Hsu"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1910
+      },
+      "death": {
+        "year": 1970
+      },
+      "bio": "中国数学家",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/%E8%A8%B1%E5%AF%B6%E9%A8%84.jpg",
+      "photoCredit": "作者：不詳 · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q15916456",
+      "name": "许宝骙",
+      "citation": "维基百科 / Wikidata Q15916456",
+      "aliases": [
+        "Baoguo Xu"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1909
+      },
+      "death": {
+        "year": 2001
+      },
+      "bio": "Chinese translator"
+    },
+    {
+      "externalId": "Q16922248",
+      "name": "许祐身",
+      "citation": "维基百科 / Wikidata Q16922248",
+      "aliases": [
+        "Xu Youshen"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1850
+      },
+      "death": {
+        "year": 1908
+      },
+      "bio": "Qing dynasty person CBDB=53995"
+    },
+    {
+      "externalId": "Q17001501",
+      "name": "郭豸",
+      "citation": "维基百科 / Wikidata Q17001501",
+      "gender": "female",
+      "birth": {
+        "year": 1910
+      },
+      "death": {
+        "year": 1971
+      }
+    },
+    {
+      "externalId": "Q45476114",
+      "name": "姚文玉",
+      "citation": "维基百科 / Wikidata Q45476114",
+      "aliases": [
+        "Yao Wenyu"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1820
+      },
+      "death": {
+        "year": 1879
+      },
+      "bio": "Qing dynasty person CBDB = 119312"
+    },
+    {
+      "externalId": "Q45667756",
+      "name": "俞鸿渐",
+      "citation": "维基百科 / Wikidata Q45667756",
+      "aliases": [
+        "俞鴻漸",
+        "Yu Hongjian"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1781
+      },
+      "death": {
+        "year": 1846
+      },
+      "bio": "Qing dynasty person CBDB = 85105"
+    },
+    {
+      "externalId": "Q45684847",
+      "name": "俞绣孙",
+      "citation": "维基百科 / Wikidata Q45684847",
+      "aliases": [
+        "俞繡孫",
+        "Yu Xiusun"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1849
+      },
+      "death": {
+        "year": 1882
+      },
+      "bio": "Qing dynasty person CBDB = 53994"
+    },
+    {
+      "externalId": "Q8059956",
+      "name": "俞平伯",
+      "citation": "维基百科 / Wikidata Q8059956",
+      "aliases": [
+        "Yu Pingbo"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1900
+      },
+      "death": {
+        "year": 1990
+      },
+      "bio": "中国作家、红学家（1900－1990）",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Yu%20Pingbo.jpg",
+      "photoCredit": "作者：猫猫的日记本 · CC BY-SA 4.0 · 来源：Wikimedia Commons"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q134080110",
+      "child": "Q8059956"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q134080294",
+      "child": "Q17001501"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45476114",
+      "child": "Q45684847"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45684847",
+      "child": "Q134080094"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45476114",
+      "child": "Q134080108"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45684847",
+      "child": "Q134080110"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45476114",
+      "child": "Q134080115"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q10887897",
+      "child": "Q8059956"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45667756",
+      "child": "Q10887841"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q134080115",
+      "child": "Q10887897"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q134080094",
+      "child": "Q15898369"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q134080094",
+      "child": "Q15906393"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q134080094",
+      "child": "Q15916456"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q10887841",
+      "child": "Q45684847"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q16922248",
+      "child": "Q134080094"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q10887841",
+      "child": "Q134080108"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q16922248",
+      "child": "Q134080110"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q10887841",
+      "child": "Q134080115"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q10887897",
+      "child": "Q134080294"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q10887841",
+      "b": "Q45476114"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q16922248",
+      "b": "Q45684847"
+    }
+  ]
+}

@@ -1,0 +1,677 @@
+{
+  "key": "wikidata:weiyingwu",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q1021828",
+      "name": "韦应物",
+      "citation": "维基百科 / Wikidata Q1021828",
+      "aliases": [
+        "Wei Yingwu"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 737
+      },
+      "death": {
+        "year": 792
+      },
+      "bio": "Tang Dynasty Chinese poet"
+    },
+    {
+      "externalId": "Q11118375",
+      "name": "杨敬之",
+      "citation": "维基百科 / Wikidata Q11118375",
+      "aliases": [
+        "楊敬之",
+        "Yang Jingzhi"
+      ],
+      "gender": "male",
+      "bio": "Tang dynasty person CBDB = 93187"
+    },
+    {
+      "externalId": "Q11663934",
+      "name": "韦世康",
+      "citation": "维基百科 / Wikidata Q11663934",
+      "aliases": [
+        "韋世康",
+        "Wei Shikang"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 531
+      },
+      "death": {
+        "year": 597
+      },
+      "bio": "Sui dynasty person CBDB = 31016"
+    },
+    {
+      "externalId": "Q11663944",
+      "name": "韦洸",
+      "citation": "维基百科 / Wikidata Q11663944",
+      "aliases": [
+        "韋洸",
+        "Wei Huang"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 550
+      },
+      "death": {
+        "year": 590
+      }
+    },
+    {
+      "externalId": "Q11663945",
+      "name": "韦冲",
+      "citation": "维基百科 / Wikidata Q11663945",
+      "aliases": [
+        "Wei Chong"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 540
+      },
+      "death": {
+        "year": 605
+      },
+      "bio": "Tang dynasty person CBDB=31029"
+    },
+    {
+      "externalId": "Q11663950",
+      "name": "韦艺",
+      "citation": "维基百科 / Wikidata Q11663950",
+      "aliases": [
+        "Wei Yi"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 538
+      },
+      "death": {
+        "year": 595
+      },
+      "bio": "Tang dynasty person CBDB = 180878"
+    },
+    {
+      "externalId": "Q1291502",
+      "name": "韦庄",
+      "citation": "维基百科 / Wikidata Q1291502",
+      "aliases": [
+        "Wei Zhuang"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 836
+      },
+      "death": {
+        "year": 910
+      },
+      "bio": "Chinese poet (836-910)"
+    },
+    {
+      "externalId": "Q134029470",
+      "name": "韦氏",
+      "citation": "维基百科 / Wikidata Q134029470",
+      "aliases": [
+        "韋氏"
+      ],
+      "gender": "female"
+    },
+    {
+      "externalId": "Q15934434",
+      "name": "韦瓘",
+      "citation": "维基百科 / Wikidata Q15934434",
+      "aliases": [
+        "Wei Guan"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 535
+      }
+    },
+    {
+      "externalId": "Q15944659",
+      "name": "韦挺",
+      "citation": "维基百科 / Wikidata Q15944659",
+      "aliases": [
+        "韋挺"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 590
+      }
+    },
+    {
+      "externalId": "Q16603430",
+      "name": "襄乐公主",
+      "citation": "维基百科 / Wikidata Q16603430",
+      "aliases": [
+        "襄樂公主"
+      ],
+      "gender": "female"
+    },
+    {
+      "externalId": "Q18908935",
+      "name": "韦蔼",
+      "citation": "维基百科 / Wikidata Q18908935",
+      "aliases": [
+        "韋藹",
+        "Wei Ai"
+      ],
+      "gender": "male",
+      "bio": "Tang dynasty person CBDB = 92190"
+    },
+    {
+      "externalId": "Q45422241",
+      "name": "韦令仪",
+      "citation": "维基百科 / Wikidata Q45422241",
+      "aliases": [
+        "Wei Lingyi"
+      ],
+      "gender": "male",
+      "bio": "Tang dynasty person CBDB = 32820"
+    },
+    {
+      "externalId": "Q45422242",
+      "name": "韦銮",
+      "citation": "维基百科 / Wikidata Q45422242",
+      "aliases": [
+        "Wei Luan"
+      ],
+      "gender": "male",
+      "bio": "Tang dynasty person CBDB = 32821"
+    },
+    {
+      "externalId": "Q45449725",
+      "name": "韦式",
+      "citation": "维基百科 / Wikidata Q45449725",
+      "aliases": [
+        "韋式",
+        "Wei Shi"
+      ],
+      "gender": "male",
+      "bio": "Tang dynasty person CBDB = 92155"
+    },
+    {
+      "externalId": "Q45503664",
+      "name": "元苹",
+      "citation": "维基百科 / Wikidata Q45503664",
+      "aliases": [
+        "元蘋",
+        "Yuan Pin"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 740
+      },
+      "death": {
+        "year": 776
+      },
+      "bio": "Tang dynasty person CBDB = 146280"
+    },
+    {
+      "externalId": "Q45503725",
+      "name": "韦庆复",
+      "citation": "维基百科 / Wikidata Q45503725",
+      "aliases": [
+        "韋慶復",
+        "Wei Qingfu"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 776
+      },
+      "death": {
+        "year": 809
+      },
+      "bio": "Tang dynasty person CBDB = 146281"
+    },
+    {
+      "externalId": "Q45503790",
+      "name": "裴棣",
+      "citation": "维基百科 / Wikidata Q45503790",
+      "aliases": [
+        "Pei Di"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 788
+      },
+      "death": {
+        "year": 846
+      },
+      "bio": "Tang dynasty person CBDB = 146282"
+    },
+    {
+      "externalId": "Q45507988",
+      "name": "杨戴",
+      "citation": "维基百科 / Wikidata Q45507988",
+      "aliases": [
+        "楊戴",
+        "Yang Dai"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 906
+      },
+      "bio": "person, CBDB = 172764"
+    },
+    {
+      "externalId": "Q45508051",
+      "name": "杨迢",
+      "citation": "维基百科 / Wikidata Q45508051",
+      "aliases": [
+        "楊迢",
+        "Yang Tiao"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 943
+      },
+      "bio": "person, CBDB = 172765"
+    },
+    {
+      "externalId": "Q45508115",
+      "name": "杨迈",
+      "citation": "维基百科 / Wikidata Q45508115",
+      "aliases": [
+        "楊邁",
+        "Yang Mai"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 943
+      },
+      "bio": "person, CBDB = 172766"
+    },
+    {
+      "externalId": "Q45513309",
+      "name": "韦兴宗",
+      "citation": "维基百科 / Wikidata Q45513309",
+      "aliases": [
+        "韋興宗",
+        "Wei Xingzong"
+      ],
+      "gender": "male",
+      "bio": "person, CBDB = 157274"
+    },
+    {
+      "externalId": "Q45514601",
+      "name": "杨德邻",
+      "citation": "维基百科 / Wikidata Q45514601",
+      "aliases": [
+        "楊德鄰",
+        "Yang  Delin"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 830
+      },
+      "bio": "Tang dynasty person CBDB = 93194"
+    },
+    {
+      "externalId": "Q45634303",
+      "name": "杨戎",
+      "citation": "维基百科 / Wikidata Q45634303",
+      "aliases": [
+        "楊戎",
+        "Yang Rong"
+      ],
+      "gender": "male",
+      "bio": "Tang dynasty person CBDB = 196250"
+    },
+    {
+      "externalId": "Q45662969",
+      "name": "韦鉴",
+      "citation": "维基百科 / Wikidata Q45662969",
+      "aliases": [
+        "韋鑒",
+        "Wei Jian"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 785
+      },
+      "bio": "Tang dynasty person CBDB = 180920"
+    },
+    {
+      "externalId": "Q45663027",
+      "name": "韦退之",
+      "citation": "维基百科 / Wikidata Q45663027",
+      "aliases": [
+        "韋退之",
+        "Wei Tuizhi"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 872
+      },
+      "bio": "Tang dynasty person CBDB=180922"
+    },
+    {
+      "externalId": "Q45663083",
+      "name": "韦厚复",
+      "citation": "维基百科 / Wikidata Q45663083",
+      "aliases": [
+        "韋厚復",
+        "Wei Houfu"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 828
+      },
+      "bio": "Tang dynasty person CBDB = 180923"
+    },
+    {
+      "externalId": "Q45663141",
+      "name": "韦彻",
+      "citation": "维基百科 / Wikidata Q45663141",
+      "aliases": [
+        "韋徹",
+        "Wei Che"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 865
+      },
+      "bio": "Tang dynasty person CBDB = 180924"
+    },
+    {
+      "externalId": "Q45663198",
+      "name": "韦播",
+      "citation": "维基百科 / Wikidata Q45663198",
+      "aliases": [
+        "韋播",
+        "Wei Bo"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 939
+      },
+      "bio": "person, CBDB = 180926"
+    },
+    {
+      "externalId": "Q45663252",
+      "name": "韦匡",
+      "citation": "维基百科 / Wikidata Q45663252",
+      "aliases": [
+        "韋匡",
+        "Wei Kuang"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 976
+      },
+      "bio": "person, CBDB = 180927"
+    },
+    {
+      "externalId": "Q45663365",
+      "name": "韦韫",
+      "citation": "维基百科 / Wikidata Q45663365",
+      "aliases": [
+        "韋韞",
+        "Wei Yun"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 869
+      },
+      "bio": "Tang dynasty person CBDB = 180929"
+    },
+    {
+      "externalId": "Q45663423",
+      "name": "韦锜",
+      "citation": "维基百科 / Wikidata Q45663423",
+      "aliases": [
+        "韋錡",
+        "Wei Yi"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 785
+      },
+      "bio": "Tang dynasty person CBDB = 180931"
+    },
+    {
+      "externalId": "Q45663478",
+      "name": "韦镕",
+      "citation": "维基百科 / Wikidata Q45663478",
+      "aliases": [
+        "韋鎔",
+        "Wei Rong"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 785
+      },
+      "bio": "Tang dynasty person CBDB = 180932"
+    },
+    {
+      "externalId": "Q45663651",
+      "name": "韦烈",
+      "citation": "维基百科 / Wikidata Q45663651",
+      "aliases": [
+        "韋烈",
+        "Wei Lie"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 722
+      },
+      "bio": "Tang dynasty person CBDB = 180935"
+    },
+    {
+      "externalId": "Q45664367",
+      "name": "韦德运",
+      "citation": "维基百科 / Wikidata Q45664367",
+      "aliases": [
+        "韋德運",
+        "Wei Deyun"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 648
+      },
+      "bio": "Tang dynasty person CBDB = 180951"
+    },
+    {
+      "externalId": "Q60994306",
+      "name": "韦镒",
+      "citation": "维基百科 / Wikidata Q60994306",
+      "gender": "male",
+      "birth": {
+        "year": 709
+      }
+    },
+    {
+      "externalId": "Q60994440",
+      "name": "韦万石",
+      "citation": "维基百科 / Wikidata Q60994440",
+      "gender": "male",
+      "bio": "中国古代历史人物"
+    },
+    {
+      "externalId": "Q7979747",
+      "name": "韦待价",
+      "citation": "维基百科 / Wikidata Q7979747",
+      "aliases": [
+        "韋待價",
+        "Wei Daijia"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 689
+      },
+      "bio": "Tang Dynasty chancellor"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q45422242",
+      "child": "Q1021828"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45663365",
+      "child": "Q1291502"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q15944659",
+      "child": "Q7979747"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q11663945",
+      "child": "Q15944659"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q7979747",
+      "child": "Q45422241"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45422241",
+      "child": "Q45422242"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45663141",
+      "child": "Q45449725"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q1021828",
+      "child": "Q45503725"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q11118375",
+      "child": "Q45507988"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45507988",
+      "child": "Q45508051"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45507988",
+      "child": "Q45508115"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q15944659",
+      "child": "Q45513309"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q11118375",
+      "child": "Q45514601"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q11118375",
+      "child": "Q45634303"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45422241",
+      "child": "Q45662969"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45503725",
+      "child": "Q45663027"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q1021828",
+      "child": "Q45663083"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45663083",
+      "child": "Q45663141"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45449725",
+      "child": "Q45663198"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45663198",
+      "child": "Q45663252"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45663141",
+      "child": "Q45663365"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45422241",
+      "child": "Q45663423"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45422241",
+      "child": "Q45663478"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q7979747",
+      "child": "Q45663651"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q11663945",
+      "child": "Q45664367"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45422241",
+      "child": "Q60994306"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q15944659",
+      "child": "Q60994440"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q1021828",
+      "child": "Q134029470"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q134029470",
+      "child": "Q11118375"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45503664",
+      "child": "Q134029470"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q1021828",
+      "b": "Q45503664"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q11663934",
+      "b": "Q16603430"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45503725",
+      "b": "Q45503790"
+    }
+  ]
+}

@@ -1,0 +1,102 @@
+{
+  "key": "wikidata:fanchengda",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q16078140",
+      "name": "范雩",
+      "citation": "维基百科 / Wikidata Q16078140",
+      "aliases": [
+        "Fan Yu"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty politician"
+    },
+    {
+      "externalId": "Q45383923",
+      "name": "范泽",
+      "citation": "维基百科 / Wikidata Q45383923",
+      "aliases": [
+        "范澤",
+        "Fan Ze"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 16738"
+    },
+    {
+      "externalId": "Q45383926",
+      "name": "范师尹",
+      "citation": "维基百科 / Wikidata Q45383926",
+      "aliases": [
+        "范師尹",
+        "Fan Shiyin"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person (CBDB = 16739)"
+    },
+    {
+      "externalId": "Q45383932",
+      "name": "范成象",
+      "citation": "维基百科 / Wikidata Q45383932",
+      "aliases": [
+        "Fan Chengxiang"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person (CBDB = 16740)"
+    },
+    {
+      "externalId": "Q45383936",
+      "name": "范成绩",
+      "citation": "维基百科 / Wikidata Q45383936",
+      "aliases": [
+        "范成績",
+        "Fan Chengji"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 16741"
+    },
+    {
+      "externalId": "Q626733",
+      "name": "范成大",
+      "citation": "维基百科 / Wikidata Q626733",
+      "aliases": [
+        "Fan Chengda"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1126
+      },
+      "death": {
+        "year": 1193
+      },
+      "bio": "南宋诗人"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q16078140",
+      "child": "Q626733"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45383926",
+      "child": "Q16078140"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45383923",
+      "child": "Q45383926"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q16078140",
+      "child": "Q45383932"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q16078140",
+      "child": "Q45383936"
+    }
+  ]
+}

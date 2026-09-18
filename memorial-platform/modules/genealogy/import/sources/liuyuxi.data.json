@@ -1,0 +1,131 @@
+{
+  "key": "wikidata:liuyuxi",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q45424402",
+      "name": "刘锽",
+      "citation": "维基百科 / Wikidata Q45424402",
+      "aliases": [
+        "劉鍠",
+        "Liu Huang"
+      ],
+      "gender": "male",
+      "bio": "Tang dynasty person CBDB = 33610"
+    },
+    {
+      "externalId": "Q45424422",
+      "name": "刘绪",
+      "citation": "维基百科 / Wikidata Q45424422",
+      "aliases": [
+        "劉緒",
+        "Liu Xu"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 794
+      },
+      "bio": "Tang dynasty person CBDB = 33611"
+    },
+    {
+      "externalId": "Q45424443",
+      "name": "刘承雍",
+      "citation": "维基百科 / Wikidata Q45424443",
+      "aliases": [
+        "劉承雍",
+        "Liu Chengyong"
+      ],
+      "gender": "male",
+      "bio": "Tang dynasty person CBDB = 33612"
+    },
+    {
+      "externalId": "Q45424554",
+      "name": "刘凯",
+      "citation": "维基百科 / Wikidata Q45424554",
+      "aliases": [
+        "劉凱",
+        "Liu Kai"
+      ],
+      "gender": "male",
+      "bio": "Tang dynasty person CBDB = 33609"
+    },
+    {
+      "externalId": "Q45567345",
+      "name": "刘云",
+      "citation": "维基百科 / Wikidata Q45567345",
+      "aliases": [
+        "劉雲",
+        "Liu Yun"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 757
+      },
+      "bio": "Tang dynasty person CBDB = 189542"
+    },
+    {
+      "externalId": "Q45600268",
+      "name": "刘公济",
+      "citation": "维基百科 / Wikidata Q45600268",
+      "aliases": [
+        "劉公濟",
+        "Liu Gongji"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 794
+      },
+      "bio": "Tang dynasty person CBDB = 190364"
+    },
+    {
+      "externalId": "Q706837",
+      "name": "刘禹锡",
+      "citation": "维基百科 / Wikidata Q706837",
+      "aliases": [
+        "Liu Yuxi"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 772
+      },
+      "death": {
+        "year": 842
+      },
+      "bio": "中国唐代文学家、哲学家（772-842）",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Riu%20Yu%20hsi.jpg",
+      "photoCredit": "公有领域 · 来源：Wikimedia Commons"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q45424422",
+      "child": "Q706837"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45424554",
+      "child": "Q45424402"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45424402",
+      "child": "Q45424422"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45567345",
+      "child": "Q45424422"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q706837",
+      "child": "Q45424443"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45567345",
+      "child": "Q45600268"
+    }
+  ]
+}

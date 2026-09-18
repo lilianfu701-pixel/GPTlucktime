@@ -1,0 +1,273 @@
+{
+  "key": "wikidata:songyingxing",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q16002191",
+      "name": "宋迪嘉",
+      "citation": "维基百科 / Wikidata Q16002191",
+      "aliases": [
+        "Song Dijia"
+      ],
+      "gender": "male",
+      "bio": "Ming dynasty person CBDB = 272863"
+    },
+    {
+      "externalId": "Q16002200",
+      "name": "宋承庆",
+      "citation": "维基百科 / Wikidata Q16002200",
+      "aliases": [
+        "宋承慶"
+      ],
+      "gender": "male"
+    },
+    {
+      "externalId": "Q16002203",
+      "name": "宋国霖",
+      "citation": "维基百科 / Wikidata Q16002203",
+      "aliases": [
+        "宋國霖"
+      ],
+      "gender": "male"
+    },
+    {
+      "externalId": "Q16002245",
+      "name": "宋旦",
+      "citation": "维基百科 / Wikidata Q16002245",
+      "aliases": [
+        "Song Dan"
+      ],
+      "gender": "male",
+      "bio": "Ming dynasty person CBDB = 272867"
+    },
+    {
+      "externalId": "Q16002247",
+      "name": "宋晖",
+      "citation": "维基百科 / Wikidata Q16002247",
+      "aliases": [
+        "宋暉",
+        "Song Hui"
+      ],
+      "gender": "male",
+      "bio": "Ming dynasty person CBDB = 272868"
+    },
+    {
+      "externalId": "Q16002249",
+      "name": "宋时",
+      "citation": "维基百科 / Wikidata Q16002249",
+      "aliases": [
+        "宋時",
+        "Song Shi"
+      ],
+      "gender": "male",
+      "bio": "Ming dynasty person CBDB = 272866"
+    },
+    {
+      "externalId": "Q16002251",
+      "name": "宋和庆",
+      "citation": "维基百科 / Wikidata Q16002251",
+      "aliases": [
+        "宋和慶"
+      ],
+      "gender": "male"
+    },
+    {
+      "externalId": "Q16002254",
+      "name": "宋介庆",
+      "citation": "维基百科 / Wikidata Q16002254",
+      "aliases": [
+        "宋介慶"
+      ],
+      "gender": "male"
+    },
+    {
+      "externalId": "Q16002256",
+      "name": "宋具庆",
+      "citation": "维基百科 / Wikidata Q16002256",
+      "aliases": [
+        "宋具慶"
+      ],
+      "gender": "male"
+    },
+    {
+      "externalId": "Q16002258",
+      "name": "宋垂庆",
+      "citation": "维基百科 / Wikidata Q16002258",
+      "aliases": [
+        "宋垂慶"
+      ],
+      "gender": "male"
+    },
+    {
+      "externalId": "Q16002267",
+      "name": "宋应鼎",
+      "citation": "维基百科 / Wikidata Q16002267",
+      "aliases": [
+        "宋應鼎"
+      ],
+      "gender": "male"
+    },
+    {
+      "externalId": "Q16002269",
+      "name": "宋应鼎",
+      "citation": "维基百科 / Wikidata Q16002269",
+      "aliases": [
+        "宋應鼎"
+      ],
+      "gender": "male"
+    },
+    {
+      "externalId": "Q65881114",
+      "name": "涂氏",
+      "citation": "维基百科 / Wikidata Q65881114",
+      "aliases": [
+        "塗氏",
+        "Tu Shi"
+      ],
+      "gender": "female",
+      "bio": "宋景母"
+    },
+    {
+      "externalId": "Q65881118",
+      "name": "张氏",
+      "citation": "维基百科 / Wikidata Q65881118",
+      "aliases": [
+        "張氏",
+        "Zhang Shi"
+      ],
+      "gender": "female",
+      "bio": "宋景妻"
+    },
+    {
+      "externalId": "Q6820662",
+      "name": "宋景",
+      "citation": "维基百科 / Wikidata Q6820662",
+      "aliases": [
+        "Song Jing"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1476
+      },
+      "death": {
+        "year": 1547
+      },
+      "bio": "Ming dynasty person CBDB = 68287"
+    },
+    {
+      "externalId": "Q6820746",
+      "name": "宋应升",
+      "citation": "维基百科 / Wikidata Q6820746",
+      "aliases": [
+        "宋应昇",
+        "Song Yingsheng"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1578
+      },
+      "death": {
+        "year": 1646
+      },
+      "bio": "person, CBDB ID = 398143"
+    },
+    {
+      "externalId": "Q716217",
+      "name": "宋应星",
+      "citation": "维基百科 / Wikidata Q716217",
+      "aliases": [
+        "Song Yingxing"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1587
+      },
+      "death": {
+        "year": 1666
+      },
+      "bio": "Chinese scholar (1587-1666)"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q65881114",
+      "child": "Q6820662"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q16002203",
+      "child": "Q716217"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q16002191",
+      "child": "Q6820662"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q16002203",
+      "child": "Q6820746"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q16002256",
+      "child": "Q16002200"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q16002200",
+      "child": "Q16002203"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q16002191",
+      "child": "Q16002245"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q16002191",
+      "child": "Q16002247"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q16002191",
+      "child": "Q16002249"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q6820662",
+      "child": "Q16002251"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q6820662",
+      "child": "Q16002254"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q6820662",
+      "child": "Q16002256"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q6820662",
+      "child": "Q16002258"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q16002203",
+      "child": "Q16002267"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q16002203",
+      "child": "Q16002269"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q65881118",
+      "b": "Q6820662"
+    }
+  ]
+}

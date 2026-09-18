@@ -1,0 +1,708 @@
+{
+  "key": "wikidata:hanqi",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q11663960",
+      "name": "韩琦",
+      "citation": "维基百科 / Wikidata Q11663960",
+      "aliases": [
+        "Han Qi"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1008
+      },
+      "death": {
+        "year": 1075
+      },
+      "bio": "Song dynasty chancellor",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/%E5%AE%8B%E9%9F%A9%E9%AD%8F%E5%85%AC%E7%90%A6.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q16076358",
+      "name": "韩忠彦",
+      "citation": "维基百科 / Wikidata Q16076358",
+      "aliases": [
+        "韓忠彥",
+        "Han Zhongyan"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1038
+      },
+      "death": {
+        "year": 1109
+      },
+      "bio": "北宋政治人物"
+    },
+    {
+      "externalId": "Q16603481",
+      "name": "淑寿公主",
+      "citation": "维基百科 / Wikidata Q16603481",
+      "aliases": [
+        "淑壽公主",
+        "Princess Shushou"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1050
+      },
+      "death": {
+        "year": 1111
+      },
+      "bio": "Song Dynasty princess"
+    },
+    {
+      "externalId": "Q18669251",
+      "name": "韩国华",
+      "citation": "维基百科 / Wikidata Q18669251",
+      "aliases": [
+        "Han Guohua"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 957
+      },
+      "bio": "Song dynasty person (CBDB = 651)"
+    },
+    {
+      "externalId": "Q30942985",
+      "name": "韩嘉彦",
+      "citation": "维基百科 / Wikidata Q30942985",
+      "aliases": [
+        "Han Jiayan"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 1129
+      },
+      "bio": "Song dynasty person CBDB = 17802"
+    },
+    {
+      "externalId": "Q45356352",
+      "name": "韩璩",
+      "citation": "维基百科 / Wikidata Q45356352",
+      "aliases": [
+        "韓璩",
+        "Han Qu"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1002
+      },
+      "death": {
+        "year": 1042
+      },
+      "bio": "Song dynasty person (CBDB = 641)"
+    },
+    {
+      "externalId": "Q45356355",
+      "name": "韩琚",
+      "citation": "维基百科 / Wikidata Q45356355",
+      "aliases": [
+        "韓琚",
+        "Han Ju"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 989
+      },
+      "death": {
+        "year": 1040
+      },
+      "bio": "Song dynasty person CBDB = 642"
+    },
+    {
+      "externalId": "Q45356367",
+      "name": "韩肖胄",
+      "citation": "维基百科 / Wikidata Q45356367",
+      "aliases": [
+        "韓肖胄",
+        "Han Xiaozhou"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person (CBDB = 646)"
+    },
+    {
+      "externalId": "Q45356370",
+      "name": "韩协",
+      "citation": "维基百科 / Wikidata Q45356370",
+      "aliases": [
+        "韓協",
+        "Han Xie"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person (CBDB = 647)"
+    },
+    {
+      "externalId": "Q45356397",
+      "name": "韩粹彦",
+      "citation": "维基百科 / Wikidata Q45356397",
+      "aliases": [
+        "韓粹彥",
+        "Han Cuiyan"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1065
+      },
+      "death": {
+        "year": 1118
+      },
+      "bio": "Song dynasty person CBDB = 656"
+    },
+    {
+      "externalId": "Q45361208",
+      "name": "韩璆",
+      "citation": "维基百科 / Wikidata Q45361208",
+      "aliases": [
+        "韓璆",
+        "Han Qiu"
+      ],
+      "gender": "male",
+      "bio": "person, CBDB = 3318"
+    },
+    {
+      "externalId": "Q45361211",
+      "name": "韩珫",
+      "citation": "维基百科 / Wikidata Q45361211",
+      "aliases": [
+        "韓珫",
+        "Han Chong"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 3319"
+    },
+    {
+      "externalId": "Q45361214",
+      "name": "韩治",
+      "citation": "维基百科 / Wikidata Q45361214",
+      "aliases": [
+        "韓治",
+        "Han Zhi"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person (CBDB = 3320)"
+    },
+    {
+      "externalId": "Q45361222",
+      "name": "韩耩",
+      "citation": "维基百科 / Wikidata Q45361222",
+      "aliases": [
+        "韓耩",
+        "Han Gou"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person (CBDB = 3324)"
+    },
+    {
+      "externalId": "Q45363803",
+      "name": "孙氏",
+      "citation": "维基百科 / Wikidata Q45363803",
+      "aliases": [
+        "孫氏",
+        "Sun Shi"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1044
+      },
+      "death": {
+        "year": 1118
+      },
+      "bio": "韓純彥妻"
+    },
+    {
+      "externalId": "Q45363807",
+      "name": "吕氏",
+      "citation": "维基百科 / Wikidata Q45363807",
+      "aliases": [
+        "呂氏",
+        "Lv Shi"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1039
+      },
+      "death": {
+        "year": 1065
+      },
+      "bio": "韓忠彥妻"
+    },
+    {
+      "externalId": "Q45363812",
+      "name": "陈氏",
+      "citation": "维基百科 / Wikidata Q45363812",
+      "aliases": [
+        "陳氏",
+        "Chen Shi"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1003
+      },
+      "death": {
+        "year": 1070
+      },
+      "bio": "韓璩妻"
+    },
+    {
+      "externalId": "Q45363833",
+      "name": "胡氏",
+      "citation": "维基百科 / Wikidata Q45363833",
+      "aliases": [
+        "Hu Shi"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 968
+      },
+      "death": {
+        "year": 1030
+      },
+      "bio": "韓國華妻"
+    },
+    {
+      "externalId": "Q45365099",
+      "name": "韩纯彦",
+      "citation": "维基百科 / Wikidata Q45365099",
+      "aliases": [
+        "韓純彥",
+        "Han Chunyan"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB=7031"
+    },
+    {
+      "externalId": "Q45365644",
+      "name": "韩膺胄",
+      "citation": "维基百科 / Wikidata Q45365644",
+      "aliases": [
+        "韓膺冑",
+        "Han Yingzhou"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person (CBDB = 7231)"
+    },
+    {
+      "externalId": "Q45387003",
+      "name": "韩",
+      "citation": "维基百科 / Wikidata Q45387003",
+      "aliases": [
+        "韓",
+        "Han Yibin"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 812
+      },
+      "death": {
+        "year": 886
+      },
+      "bio": "Tang dynasty person CBDB = 17715"
+    },
+    {
+      "externalId": "Q45387008",
+      "name": "韩昌辞",
+      "citation": "维基百科 / Wikidata Q45387008",
+      "aliases": [
+        "韓昌辭",
+        "Han Changci"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 873
+      },
+      "death": {
+        "year": 902
+      },
+      "bio": "person, CBDB = 17717"
+    },
+    {
+      "externalId": "Q45387011",
+      "name": "韩球",
+      "citation": "维基百科 / Wikidata Q45387011",
+      "aliases": [
+        "韓球",
+        "Han Qiu"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 17719"
+    },
+    {
+      "externalId": "Q45387028",
+      "name": "韩瑄",
+      "citation": "维基百科 / Wikidata Q45387028",
+      "aliases": [
+        "韓瑄",
+        "Han Xuan"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 17724"
+    },
+    {
+      "externalId": "Q45387207",
+      "name": "韩肤胄",
+      "citation": "维基百科 / Wikidata Q45387207",
+      "aliases": [
+        "韓膚冑",
+        "Han Fuzhou"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 17782"
+    },
+    {
+      "externalId": "Q45387244",
+      "name": "韩同卿",
+      "citation": "维基百科 / Wikidata Q45387244",
+      "aliases": [
+        "韓同卿",
+        "Han Tongqing"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1150
+      },
+      "death": {
+        "year": 1199
+      },
+      "bio": "Song dynasty person (CBDB = 17793)"
+    },
+    {
+      "externalId": "Q45387263",
+      "name": "韩浩",
+      "citation": "维基百科 / Wikidata Q45387263",
+      "aliases": [
+        "韓浩",
+        "Han Hao"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 1128
+      },
+      "bio": "Song dynasty person CBDB = 17799"
+    },
+    {
+      "externalId": "Q45387269",
+      "name": "韩端彦",
+      "citation": "维基百科 / Wikidata Q45387269",
+      "aliases": [
+        "韓端彥",
+        "Han Duanyan"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 17801"
+    },
+    {
+      "externalId": "Q45387283",
+      "name": "韩诚",
+      "citation": "维基百科 / Wikidata Q45387283",
+      "aliases": [
+        "韓誠",
+        "Han Cheng"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person (CBDB = 17804)"
+    },
+    {
+      "externalId": "Q45427827",
+      "name": "韩澡",
+      "citation": "维基百科 / Wikidata Q45427827",
+      "aliases": [
+        "韓澡",
+        "Han Zao"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 34114"
+    },
+    {
+      "externalId": "Q45427866",
+      "name": "韩澄",
+      "citation": "维基百科 / Wikidata Q45427866",
+      "aliases": [
+        "韓澄",
+        "Han Cheng"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 34115"
+    },
+    {
+      "externalId": "Q65799227",
+      "name": "庄氏",
+      "citation": "维基百科 / Wikidata Q65799227",
+      "aliases": [
+        "莊氏",
+        "Zhuang Shi"
+      ],
+      "gender": "female",
+      "bio": "韓同卿妻"
+    },
+    {
+      "externalId": "Q65799229",
+      "name": "文氏",
+      "citation": "维基百科 / Wikidata Q65799229",
+      "aliases": [
+        "Wen Shi"
+      ],
+      "gender": "female",
+      "bio": "person, China Biographical Database ID=52530"
+    },
+    {
+      "externalId": "Q65799231",
+      "name": "王氏",
+      "citation": "维基百科 / Wikidata Q65799231",
+      "aliases": [
+        "Wang Shi"
+      ],
+      "gender": "female",
+      "bio": "韓肖冑妻"
+    },
+    {
+      "externalId": "Q65799234",
+      "name": "李氏",
+      "citation": "维基百科 / Wikidata Q65799234",
+      "aliases": [
+        "Li Shi"
+      ],
+      "gender": "female",
+      "bio": "韓國華母"
+    },
+    {
+      "externalId": "Q65799339",
+      "name": "文氏",
+      "citation": "维基百科 / Wikidata Q65799339",
+      "aliases": [
+        "Wen Shi"
+      ],
+      "gender": "female",
+      "bio": "韓肖冑妻"
+    },
+    {
+      "externalId": "Q65816892",
+      "name": "吴氏",
+      "citation": "维基百科 / Wikidata Q65816892",
+      "aliases": [
+        "吳氏",
+        "Wu Shi"
+      ],
+      "gender": "female",
+      "bio": "韓誠妻"
+    },
+    {
+      "externalId": "Q708637",
+      "name": "韩侂胄",
+      "citation": "维基百科 / Wikidata Q708637",
+      "aliases": [
+        "韓侂冑",
+        "Han Tuozhou"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1152
+      },
+      "death": {
+        "year": 1207
+      },
+      "bio": "中国南宋权相"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q65816892",
+      "child": "Q708637"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q65799234",
+      "child": "Q18669251"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q65799229",
+      "child": "Q45356367"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45387283",
+      "child": "Q708637"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q18669251",
+      "child": "Q11663960"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q11663960",
+      "child": "Q16076358"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45361222",
+      "child": "Q18669251"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q11663960",
+      "child": "Q30942985"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q18669251",
+      "child": "Q45356352"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q18669251",
+      "child": "Q45356355"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45361214",
+      "child": "Q45356367"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45356367",
+      "child": "Q45356370"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q11663960",
+      "child": "Q45356397"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45387008",
+      "child": "Q45361208"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q18669251",
+      "child": "Q45361211"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q16076358",
+      "child": "Q45361214"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45361208",
+      "child": "Q45361222"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q11663960",
+      "child": "Q45365099"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45361214",
+      "child": "Q45365644"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45387003",
+      "child": "Q45387008"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q18669251",
+      "child": "Q45387011"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q18669251",
+      "child": "Q45387028"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45361214",
+      "child": "Q45387207"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45356370",
+      "child": "Q45387244"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q16076358",
+      "child": "Q45387263"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q11663960",
+      "child": "Q45387269"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q30942985",
+      "child": "Q45387283"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q16076358",
+      "child": "Q45427827"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q16076358",
+      "child": "Q45427866"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q16076358",
+      "b": "Q45363807"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q16603481",
+      "b": "Q30942985"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q18669251",
+      "b": "Q45363833"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45356352",
+      "b": "Q45363812"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45356367",
+      "b": "Q65799231"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45356367",
+      "b": "Q65799339"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45361214",
+      "b": "Q65799229"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45363803",
+      "b": "Q45365099"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45387244",
+      "b": "Q65799227"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45387283",
+      "b": "Q65816892"
+    }
+  ]
+}

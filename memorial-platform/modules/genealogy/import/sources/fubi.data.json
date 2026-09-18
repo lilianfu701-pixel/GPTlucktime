@@ -1,0 +1,425 @@
+{
+  "key": "wikidata:fubi",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q10954250",
+      "name": "富弼",
+      "citation": "维基百科 / Wikidata Q10954250",
+      "aliases": [
+        "Fu Bi"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1004
+      },
+      "death": {
+        "year": 1083
+      },
+      "bio": "宋朝政治家",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/%E5%AF%8C%E5%BD%A5%E5%9C%8B%E5%83%8F.jpg",
+      "photoCredit": "作者：王圻 · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q24832192",
+      "name": "田况",
+      "citation": "维基百科 / Wikidata Q24832192",
+      "aliases": [
+        "田況",
+        "Tian Kuang"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1005
+      },
+      "death": {
+        "year": 1063
+      },
+      "bio": "Song dynasty person CBDB=1617"
+    },
+    {
+      "externalId": "Q30941733",
+      "name": "富绍庭",
+      "citation": "维基百科 / Wikidata Q30941733",
+      "aliases": [
+        "Fu Shaoting"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1035
+      },
+      "bio": "Song dynasty politician"
+    },
+    {
+      "externalId": "Q45361200",
+      "name": "富言",
+      "citation": "维基百科 / Wikidata Q45361200",
+      "aliases": [
+        "Fu Yan"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 969
+      },
+      "death": {
+        "year": 1031
+      },
+      "bio": "Song dynasty person (CBDB = 3313)"
+    },
+    {
+      "externalId": "Q45364054",
+      "name": "富氏",
+      "citation": "维基百科 / Wikidata Q45364054",
+      "aliases": [
+        "Fu Shi"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1016
+      },
+      "death": {
+        "year": 1087
+      },
+      "bio": "Song dynasty person (CBDB = 5118)"
+    },
+    {
+      "externalId": "Q45365627",
+      "name": "富直清",
+      "citation": "维基百科 / Wikidata Q45365627",
+      "aliases": [
+        "Fu Zhiqing"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1047
+      },
+      "death": {
+        "year": 1083
+      },
+      "bio": "Song dynasty person CBDB = 7226"
+    },
+    {
+      "externalId": "Q45365635",
+      "name": "富绍京",
+      "citation": "维基百科 / Wikidata Q45365635",
+      "aliases": [
+        "富紹京",
+        "Fu Shaojing"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1047
+      },
+      "death": {
+        "year": 1083
+      },
+      "bio": "Song dynasty person CBDB = 7228"
+    },
+    {
+      "externalId": "Q45366304",
+      "name": "富直柔",
+      "citation": "维基百科 / Wikidata Q45366304",
+      "aliases": [
+        "Fu Zhirou"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1084
+      },
+      "death": {
+        "year": 1156
+      },
+      "bio": "Song dynasty person (CBDB = 8047)"
+    },
+    {
+      "externalId": "Q45383150",
+      "name": "富璘",
+      "citation": "维基百科 / Wikidata Q45383150",
+      "aliases": [
+        "Fu Lin"
+      ],
+      "gender": "male",
+      "bio": "person, CBDB = 16512"
+    },
+    {
+      "externalId": "Q45383156",
+      "name": "富处谦",
+      "citation": "维基百科 / Wikidata Q45383156",
+      "aliases": [
+        "富處謙",
+        "Fu Chuqian"
+      ],
+      "gender": "male",
+      "bio": "person, CBDB = 16513"
+    },
+    {
+      "externalId": "Q45383158",
+      "name": "富A",
+      "citation": "维基百科 / Wikidata Q45383158",
+      "aliases": [
+        "Fu A"
+      ],
+      "gender": "male",
+      "bio": "person, CBDB = 16514"
+    },
+    {
+      "externalId": "Q45383181",
+      "name": "富令荀",
+      "citation": "维基百科 / Wikidata Q45383181",
+      "aliases": [
+        "Fu Lingxun"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person (CBDB = 16521)"
+    },
+    {
+      "externalId": "Q45383182",
+      "name": "富绍隆",
+      "citation": "维基百科 / Wikidata Q45383182",
+      "aliases": [
+        "富紹隆",
+        "Fu Shaolong"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 16522"
+    },
+    {
+      "externalId": "Q45383184",
+      "name": "富翱",
+      "citation": "维基百科 / Wikidata Q45383184",
+      "aliases": [
+        "Fu Ao"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 16523"
+    },
+    {
+      "externalId": "Q45383186",
+      "name": "富橚",
+      "citation": "维基百科 / Wikidata Q45383186",
+      "aliases": [
+        "Fu Su"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1137
+      },
+      "death": {
+        "year": 1186
+      },
+      "bio": "Song dynasty person CBDB = 16524"
+    },
+    {
+      "externalId": "Q45383189",
+      "name": "富桷",
+      "citation": "维基百科 / Wikidata Q45383189",
+      "aliases": [
+        "Fu Jue"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB=16525"
+    },
+    {
+      "externalId": "Q45704923",
+      "name": "富鼎",
+      "citation": "维基百科 / Wikidata Q45704923",
+      "aliases": [
+        "Fu Ding"
+      ],
+      "gender": "male",
+      "bio": "person, CBDB = 118119"
+    },
+    {
+      "externalId": "Q65798912",
+      "name": "刘氏",
+      "citation": "维基百科 / Wikidata Q65798912",
+      "aliases": [
+        "劉氏",
+        "Liu Shi"
+      ],
+      "gender": "female",
+      "bio": "富處謙妻"
+    },
+    {
+      "externalId": "Q65798913",
+      "name": "赵氏",
+      "citation": "维基百科 / Wikidata Q65798913",
+      "aliases": [
+        "趙氏",
+        "Zhao Shi"
+      ],
+      "gender": "female",
+      "bio": "富令荀妻"
+    },
+    {
+      "externalId": "Q65798914",
+      "name": "韩氏",
+      "citation": "维基百科 / Wikidata Q65798914",
+      "aliases": [
+        "韓氏",
+        "Han Shi"
+      ],
+      "gender": "female",
+      "bio": "富言妻"
+    },
+    {
+      "externalId": "Q65798915",
+      "name": "晏氏",
+      "citation": "维基百科 / Wikidata Q65798915",
+      "aliases": [
+        "Yan Shi"
+      ],
+      "gender": "female",
+      "bio": "富弼妻"
+    },
+    {
+      "externalId": "Q65798916",
+      "name": "王氏",
+      "citation": "维基百科 / Wikidata Q65798916",
+      "aliases": [
+        "Wang Shi"
+      ],
+      "gender": "female",
+      "bio": "富直柔妻"
+    },
+    {
+      "externalId": "Q65798917",
+      "name": "刘氏",
+      "citation": "维基百科 / Wikidata Q65798917",
+      "aliases": [
+        "劉氏",
+        "Liu Shi"
+      ],
+      "gender": "female",
+      "bio": "富紹庭妻"
+    },
+    {
+      "externalId": "Q65800152",
+      "name": "韩氏",
+      "citation": "维基百科 / Wikidata Q65800152",
+      "aliases": [
+        "韓氏",
+        "Han Shi"
+      ],
+      "gender": "female",
+      "bio": "富弼母"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q65800152",
+      "child": "Q10954250"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q65798913",
+      "child": "Q45361200"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q65798912",
+      "child": "Q45383181"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45361200",
+      "child": "Q10954250"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q10954250",
+      "child": "Q30941733"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45383181",
+      "child": "Q45361200"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45361200",
+      "child": "Q45364054"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45365635",
+      "child": "Q45365627"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q10954250",
+      "child": "Q45365635"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q30941733",
+      "child": "Q45366304"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45383150",
+      "child": "Q45383156"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45383150",
+      "child": "Q45383158"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45383156",
+      "child": "Q45383181"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q10954250",
+      "child": "Q45383182"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45361200",
+      "child": "Q45383184"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45366304",
+      "child": "Q45383186"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45366304",
+      "child": "Q45383189"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45361200",
+      "child": "Q45704923"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q10954250",
+      "b": "Q65798915"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q24832192",
+      "b": "Q45364054"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q30941733",
+      "b": "Q65798917"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45361200",
+      "b": "Q65798914"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45366304",
+      "b": "Q65798916"
+    }
+  ]
+}

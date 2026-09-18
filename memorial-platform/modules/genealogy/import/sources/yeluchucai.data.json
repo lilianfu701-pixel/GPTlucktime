@@ -1,0 +1,243 @@
+{
+  "key": "wikidata:yeluchucai",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q117449",
+      "name": "耶律楚材",
+      "citation": "维基百科 / Wikidata Q117449",
+      "aliases": [
+        "Yelü Chucai"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1189
+      },
+      "death": {
+        "year": 1243
+      },
+      "bio": "Khitan astronomer, adviser to Genghis Khan ; chancellor to Ögedei Khan (1189-1243)",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/%E8%80%B6%E5%BE%8B%E6%A5%9A%E6%9D%90.JPG",
+      "photoCredit": "作者：Gisling · CC BY 3.0 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q15913874",
+      "name": "耶律希亮",
+      "citation": "维基百科 / Wikidata Q15913874",
+      "aliases": [
+        "Yelü Xiliang"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1246
+      },
+      "death": {
+        "year": 1327
+      },
+      "bio": "Yuan dynasty person CBDB = 29282"
+    },
+    {
+      "externalId": "Q15941441",
+      "name": "耶律铸",
+      "citation": "维基百科 / Wikidata Q15941441",
+      "aliases": [
+        "耶律鑄",
+        "Yelü Zhu"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1221
+      },
+      "death": {
+        "year": 1285
+      },
+      "bio": "served under Möngke Khan (Mongol Empire), Yuan dynasty politician"
+    },
+    {
+      "externalId": "Q24873774",
+      "name": "移剌履",
+      "citation": "维基百科 / Wikidata Q24873774",
+      "aliases": [
+        "Yelv Lv"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1132
+      },
+      "death": {
+        "year": 1191
+      },
+      "bio": "Jin dynasty person CBDB = 29267"
+    },
+    {
+      "externalId": "Q45415660",
+      "name": "耶律辨材",
+      "citation": "维基百科 / Wikidata Q45415660",
+      "aliases": [
+        "Yelv Biancai"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1171
+      },
+      "death": {
+        "year": 1237
+      },
+      "bio": "Jin dynasty person CBDB = 29268"
+    },
+    {
+      "externalId": "Q45415661",
+      "name": "耶律合鲁",
+      "citation": "维基百科 / Wikidata Q45415661",
+      "aliases": [
+        "耶律合魯",
+        "Yelv Helu"
+      ],
+      "gender": "male",
+      "bio": "隱國子"
+    },
+    {
+      "externalId": "Q45415662",
+      "name": "耶律胡笃",
+      "citation": "维基百科 / Wikidata Q45415662",
+      "aliases": [
+        "耶律胡篤",
+        "Yelv Hudu"
+      ],
+      "gender": "male",
+      "bio": "Liao dynasty person CBDB = 29270"
+    },
+    {
+      "externalId": "Q45415663",
+      "name": "耶律内制",
+      "citation": "维基百科 / Wikidata Q45415663",
+      "aliases": [
+        "耶律內制",
+        "Yelv Neizhi"
+      ],
+      "gender": "male",
+      "bio": "Liao dynasty person CBDB = 29271"
+    },
+    {
+      "externalId": "Q45415664",
+      "name": "耶律聿鲁",
+      "citation": "维基百科 / Wikidata Q45415664",
+      "aliases": [
+        "耶律聿魯",
+        "Yelv Yvlu"
+      ],
+      "gender": "male",
+      "bio": "Jin dynasty person CBDB = 29272"
+    },
+    {
+      "externalId": "Q45415667",
+      "name": "耶律善材",
+      "citation": "维基百科 / Wikidata Q45415667",
+      "aliases": [
+        "Yelv Shancai"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1172
+      },
+      "death": {
+        "year": 1232
+      },
+      "bio": "Jin dynasty person CBDB = 29273"
+    },
+    {
+      "externalId": "Q45415675",
+      "name": "耶律铉",
+      "citation": "维基百科 / Wikidata Q45415675",
+      "aliases": [
+        "耶律鉉",
+        "Yelv Xuan"
+      ],
+      "gender": "male",
+      "bio": "Yuan dynasty person CBDB=29280"
+    },
+    {
+      "externalId": "Q45415691",
+      "name": "耶律希逸",
+      "citation": "维基百科 / Wikidata Q45415691",
+      "aliases": [
+        "Yelü Xiyi"
+      ],
+      "gender": "male",
+      "bio": "Yuan dynasty person CBDB = 29289"
+    },
+    {
+      "externalId": "Q65800049",
+      "name": "杨氏",
+      "citation": "维基百科 / Wikidata Q65800049",
+      "aliases": [
+        "楊氏",
+        "Yang Shi"
+      ],
+      "gender": "female",
+      "bio": "耶律楚材母"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q24873774",
+      "child": "Q117449"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q15941441",
+      "child": "Q15913874"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q117449",
+      "child": "Q15941441"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45415664",
+      "child": "Q24873774"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q24873774",
+      "child": "Q45415660"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45415661",
+      "child": "Q45415662"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45415662",
+      "child": "Q45415663"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45415663",
+      "child": "Q45415664"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q24873774",
+      "child": "Q45415667"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q117449",
+      "child": "Q45415675"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q15941441",
+      "child": "Q45415691"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q65800049",
+      "child": "Q117449"
+    }
+  ]
+}

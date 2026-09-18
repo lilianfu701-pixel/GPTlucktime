@@ -1,0 +1,127 @@
+{
+  "key": "wikidata:yansong",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q10924350",
+      "name": "严世蕃",
+      "citation": "维基百科 / Wikidata Q10924350",
+      "aliases": [
+        "嚴世蕃",
+        "Yan Shifan"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1513
+      },
+      "death": {
+        "year": 1565
+      },
+      "bio": "明朝政治人物（1513–1565）"
+    },
+    {
+      "externalId": "Q45461490",
+      "name": "严琏",
+      "citation": "维基百科 / Wikidata Q45461490",
+      "aliases": [
+        "嚴璉",
+        "Yan Lian"
+      ],
+      "gender": "male",
+      "bio": "Ming dynasty person CBDB = 272726"
+    },
+    {
+      "externalId": "Q45461553",
+      "name": "严廷献",
+      "citation": "维基百科 / Wikidata Q45461553",
+      "aliases": [
+        "嚴廷獻",
+        "Yan Tingxian"
+      ],
+      "gender": "male",
+      "bio": "Ming dynasty person CBDB = 272727"
+    },
+    {
+      "externalId": "Q45461678",
+      "name": "严淮",
+      "citation": "维基百科 / Wikidata Q45461678",
+      "aliases": [
+        "嚴淮",
+        "Yan Huai"
+      ],
+      "gender": "male",
+      "bio": "Ming dynasty person CBDB = 272729"
+    },
+    {
+      "externalId": "Q65880978",
+      "name": "晏氏",
+      "citation": "维基百科 / Wikidata Q65880978",
+      "aliases": [
+        "Yan Shi"
+      ],
+      "gender": "female",
+      "bio": "嚴嵩母"
+    },
+    {
+      "externalId": "Q65880982",
+      "name": "欧阳氏",
+      "citation": "维基百科 / Wikidata Q65880982",
+      "aliases": [
+        "歐陽氏",
+        "Ouyang Shi"
+      ],
+      "gender": "female",
+      "bio": "嚴嵩妻"
+    },
+    {
+      "externalId": "Q698700",
+      "name": "严嵩",
+      "citation": "维基百科 / Wikidata Q698700",
+      "aliases": [
+        "Yan Song"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1480
+      },
+      "death": {
+        "year": 1567
+      },
+      "bio": "中国明朝政治人物（1480－1567）",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Yansong2.jpg",
+      "photoCredit": "作者：Qing people painted \"Statue of Yan Song\" · 公有领域 · 来源：Wikimedia Commons"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q45461678",
+      "child": "Q698700"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q698700",
+      "child": "Q10924350"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45461490",
+      "child": "Q45461553"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45461553",
+      "child": "Q45461678"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q65880978",
+      "child": "Q698700"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q65880982",
+      "b": "Q698700"
+    }
+  ]
+}

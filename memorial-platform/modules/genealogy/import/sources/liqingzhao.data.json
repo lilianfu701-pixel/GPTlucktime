@@ -1,0 +1,424 @@
+{
+  "key": "wikidata:liqingzhao",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q10562739",
+      "name": "郑居中",
+      "citation": "维基百科 / Wikidata Q10562739",
+      "aliases": [
+        "鄭居中",
+        "Zheng Juzhong"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1059
+      },
+      "death": {
+        "year": 1123
+      },
+      "bio": "北宋政治人物"
+    },
+    {
+      "externalId": "Q16904070",
+      "name": "王珪",
+      "citation": "维基百科 / Wikidata Q16904070",
+      "aliases": [
+        "Wang Gui"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1019
+      },
+      "death": {
+        "year": 1085
+      },
+      "bio": "Chinese Song Dynasty politician"
+    },
+    {
+      "externalId": "Q22099525",
+      "name": "王仲岏",
+      "citation": "维基百科 / Wikidata Q22099525",
+      "aliases": [
+        "Wang Zhongshan"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person (CBDB = 7081)"
+    },
+    {
+      "externalId": "Q24836273",
+      "name": "王方贽",
+      "citation": "维基百科 / Wikidata Q24836273",
+      "aliases": [
+        "王方贄",
+        "Wang Zhi"
+      ],
+      "gender": "male",
+      "bio": "中国古代历史人物"
+    },
+    {
+      "externalId": "Q4515473",
+      "name": "赵明诚",
+      "citation": "维基百科 / Wikidata Q4515473",
+      "aliases": [
+        "趙明誠",
+        "Zhao Mingcheng"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1081
+      },
+      "death": {
+        "year": 1129
+      },
+      "bio": "宋朝金石学家"
+    },
+    {
+      "externalId": "Q45359477",
+      "name": "王罕",
+      "citation": "维基百科 / Wikidata Q45359477",
+      "aliases": [
+        "Wang Han"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 1810"
+    },
+    {
+      "externalId": "Q45362924",
+      "name": "王仲端",
+      "citation": "维基百科 / Wikidata Q45362924",
+      "aliases": [
+        "Wang Zhongduan"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 3944"
+    },
+    {
+      "externalId": "Q45363022",
+      "name": "王覃",
+      "citation": "维基百科 / Wikidata Q45363022",
+      "aliases": [
+        "Wang Tan"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 990
+      },
+      "death": {
+        "year": 1059
+      },
+      "bio": "Song dynasty person (CBDB = 3979)"
+    },
+    {
+      "externalId": "Q45364098",
+      "name": "狄氏",
+      "citation": "维基百科 / Wikidata Q45364098",
+      "aliases": [
+        "Di Shi"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1001
+      },
+      "death": {
+        "year": 1069
+      },
+      "bio": "王罕妻"
+    },
+    {
+      "externalId": "Q45364118",
+      "name": "吕氏",
+      "citation": "维基百科 / Wikidata Q45364118",
+      "aliases": [
+        "呂氏",
+        "Lv Shi"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 990
+      },
+      "death": {
+        "year": 1059
+      },
+      "bio": "王覃妻"
+    },
+    {
+      "externalId": "Q45366062",
+      "name": "王仲嶷",
+      "citation": "维基百科 / Wikidata Q45366062",
+      "aliases": [
+        "Wang Zhongni"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 7373"
+    },
+    {
+      "externalId": "Q45377946",
+      "name": "王准",
+      "citation": "维基百科 / Wikidata Q45377946",
+      "aliases": [
+        "王準",
+        "Wang Zhun"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person (CBDB = 13515)"
+    },
+    {
+      "externalId": "Q45377949",
+      "name": "王永",
+      "citation": "维基百科 / Wikidata Q45377949",
+      "aliases": [
+        "Wang Yong"
+      ],
+      "gender": "male",
+      "bio": "Later Shu person CBDB = 13516"
+    },
+    {
+      "externalId": "Q45387687",
+      "name": "王仲修",
+      "citation": "维基百科 / Wikidata Q45387687",
+      "aliases": [
+        "Wang Zhongxiu"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB=17934"
+    },
+    {
+      "externalId": "Q45430093",
+      "name": "尹氏",
+      "citation": "维基百科 / Wikidata Q45430093",
+      "aliases": [
+        "Yin Shi"
+      ],
+      "gender": "female",
+      "bio": "王永妻"
+    },
+    {
+      "externalId": "Q45430509",
+      "name": "薛氏",
+      "citation": "维基百科 / Wikidata Q45430509",
+      "aliases": [
+        "Xue Shi"
+      ],
+      "gender": "female",
+      "bio": "王準妻"
+    },
+    {
+      "externalId": "Q45431390",
+      "name": "丘氏",
+      "citation": "维基百科 / Wikidata Q45431390",
+      "aliases": [
+        "Qiu Shi"
+      ],
+      "gender": "female",
+      "bio": "王贄妻"
+    },
+    {
+      "externalId": "Q45431414",
+      "name": "王仲𡷗",
+      "citation": "维基百科 / Wikidata Q45431414",
+      "aliases": [
+        "Wang Zhonghuan"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 38880"
+    },
+    {
+      "externalId": "Q45433223",
+      "name": "郑氏",
+      "citation": "维基百科 / Wikidata Q45433223",
+      "aliases": [
+        "鄭氏",
+        "Zheng Shi"
+      ],
+      "gender": "female",
+      "bio": "王珪妻"
+    },
+    {
+      "externalId": "Q464470",
+      "name": "李清照",
+      "citation": "维基百科 / Wikidata Q464470",
+      "aliases": [
+        "Li Qingzhao"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1084
+      },
+      "death": {
+        "year": 1155
+      },
+      "bio": "北宋末年至南宋初年女詞人",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Li%20Qingzhao%20statue.JPG",
+      "photoCredit": "作者：Gisling · CC BY 3.0 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q65800390",
+      "name": "王氏",
+      "citation": "维基百科 / Wikidata Q65800390",
+      "aliases": [
+        "Wang Shi"
+      ],
+      "gender": "female",
+      "bio": "李格非妻"
+    },
+    {
+      "externalId": "Q65816875",
+      "name": "王氏",
+      "citation": "维基百科 / Wikidata Q65816875",
+      "aliases": [
+        "Wang Shi"
+      ],
+      "gender": "female",
+      "bio": "鄭居中妻"
+    },
+    {
+      "externalId": "Q7226315",
+      "name": "李格非",
+      "citation": "维基百科 / Wikidata Q7226315",
+      "aliases": [
+        "Li Gefei"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1045
+      },
+      "death": {
+        "year": 1105
+      },
+      "bio": "Song dynasty person (CBDB = 7039)"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q65800390",
+      "child": "Q464470"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45430509",
+      "child": "Q16904070"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45430093",
+      "child": "Q24836273"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45431390",
+      "child": "Q45377946"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q7226315",
+      "child": "Q464470"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45377946",
+      "child": "Q16904070"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q16904070",
+      "child": "Q22099525"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45377949",
+      "child": "Q24836273"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q24836273",
+      "child": "Q45359477"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q16904070",
+      "child": "Q45362924"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q24836273",
+      "child": "Q45363022"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q16904070",
+      "child": "Q45366062"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q24836273",
+      "child": "Q45377946"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q16904070",
+      "child": "Q45387687"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q16904070",
+      "child": "Q45431414"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q16904070",
+      "child": "Q65800390"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q16904070",
+      "child": "Q65816875"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q4515473",
+      "b": "Q464470"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q65800390",
+      "b": "Q7226315"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q10562739",
+      "b": "Q65816875"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q16904070",
+      "b": "Q45433223"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q24836273",
+      "b": "Q45431390"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45359477",
+      "b": "Q45364098"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45363022",
+      "b": "Q45364118"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45377946",
+      "b": "Q45430509"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45377949",
+      "b": "Q45430093"
+    }
+  ]
+}

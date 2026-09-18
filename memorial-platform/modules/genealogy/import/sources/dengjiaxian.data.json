@@ -1,0 +1,214 @@
+{
+  "key": "wikidata:dengjiaxian",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q3022454",
+      "name": "邓石如",
+      "citation": "维基百科 / Wikidata Q3022454",
+      "aliases": [
+        "Deng Shiru"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1739
+      },
+      "death": {
+        "year": 1805
+      },
+      "bio": "Chinese artist (1739-1805)",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/%E9%84%A7%E7%9F%B3%E5%A6%82.jpg",
+      "photoCredit": "作者：清叶衍兰辑摹，黄小泉绘。 · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q30611007",
+      "name": "邓以蛰",
+      "citation": "维基百科 / Wikidata Q30611007",
+      "aliases": [
+        "Yizhe Deng"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1892
+      },
+      "death": {
+        "year": 1973
+      }
+    },
+    {
+      "externalId": "Q30947116",
+      "name": "邓艺孙",
+      "citation": "维基百科 / Wikidata Q30947116",
+      "aliases": [
+        "Deng Yisun"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1857
+      },
+      "death": {
+        "year": 1913
+      },
+      "bio": "Republic of China person CBDB = 72689"
+    },
+    {
+      "externalId": "Q45559319",
+      "name": "邓传密",
+      "citation": "维基百科 / Wikidata Q45559319",
+      "aliases": [
+        "鄧傳密",
+        "Deng Chuanmi"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1795
+      },
+      "death": {
+        "year": 1870
+      },
+      "bio": "Qing dynasty person CBDB = 72705"
+    },
+    {
+      "externalId": "Q5256919",
+      "name": "邓稼先",
+      "citation": "维基百科 / Wikidata Q5256919",
+      "aliases": [
+        "Deng Jiaxian"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1924
+      },
+      "death": {
+        "year": 1986
+      },
+      "bio": "中國核物理學家",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/%E9%84%A7%E7%A8%BC%E5%85%88%E6%99%AE%E6%B8%A1%E7%85%A7%E7%89%87.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q67188583",
+      "name": "郑华炽",
+      "citation": "维基百科 / Wikidata Q67188583",
+      "aliases": [
+        "Zheng Huachi"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1903
+      },
+      "death": {
+        "year": 1990
+      },
+      "bio": "Chinese physicist (1903-1990)"
+    },
+    {
+      "externalId": "Q98024409",
+      "name": "邓初",
+      "citation": "维基百科 / Wikidata Q98024409",
+      "aliases": [
+        "Deng Chu"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1888
+      },
+      "death": {
+        "year": 1959
+      }
+    },
+    {
+      "externalId": "Q98025012",
+      "name": "方愫悌",
+      "citation": "维基百科 / Wikidata Q98025012",
+      "aliases": [
+        "Fang Suti"
+      ],
+      "gender": "female"
+    },
+    {
+      "externalId": "Q98026547",
+      "name": "邓仲先",
+      "citation": "维基百科 / Wikidata Q98026547",
+      "aliases": [
+        "Deng Zhongxian"
+      ],
+      "gender": "female"
+    },
+    {
+      "externalId": "Q98026879",
+      "name": "邓解",
+      "citation": "维基百科 / Wikidata Q98026879",
+      "aliases": [
+        "Deng Jie"
+      ],
+      "gender": "male"
+    },
+    {
+      "externalId": "Q98033967",
+      "name": "许鹿希",
+      "citation": "维基百科 / Wikidata Q98033967",
+      "aliases": [
+        "Xu Luxi"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1928
+      },
+      "living": true,
+      "bio": "1928- Peking University Health Science Center; daughter of Xu Deheng and Lao Junzhan, wife of Deng Jiaxian"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q30611007",
+      "child": "Q5256919"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q30947116",
+      "child": "Q30611007"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q98026879",
+      "child": "Q30947116"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q3022454",
+      "child": "Q45559319"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q30947116",
+      "child": "Q98024409"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q30611007",
+      "child": "Q98026547"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45559319",
+      "child": "Q98026879"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q5256919",
+      "b": "Q98033967"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q67188583",
+      "b": "Q98026547"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q98024409",
+      "b": "Q98025012"
+    }
+  ]
+}

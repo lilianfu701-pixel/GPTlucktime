@@ -1,0 +1,308 @@
+{
+  "key": "wikidata:lianheng",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q124609058",
+      "name": "连夏甸",
+      "citation": "维基百科 / Wikidata Q124609058",
+      "aliases": [
+        "連夏甸",
+        "Lian Xiadian"
+      ],
+      "gender": "female",
+      "bio": "daughter of Lian Heng"
+    },
+    {
+      "externalId": "Q15934868",
+      "name": "赵兰坤",
+      "citation": "维基百科 / Wikidata Q15934868",
+      "aliases": [
+        "趙蘭坤",
+        "Zhao Lankun"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1910
+      },
+      "death": {
+        "year": 2011
+      },
+      "bio": "连战之母"
+    },
+    {
+      "externalId": "Q16260705",
+      "name": "连咏心",
+      "citation": "维基百科 / Wikidata Q16260705",
+      "aliases": [
+        "連詠心",
+        "Lien Yung-hsin"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1981
+      },
+      "living": true,
+      "bio": "连战之女"
+    },
+    {
+      "externalId": "Q18234609",
+      "name": "林伯奏",
+      "citation": "维基百科 / Wikidata Q18234609",
+      "aliases": [
+        "Lin Bozuo"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1897
+      },
+      "death": {
+        "year": 1992
+      },
+      "bio": "臺灣企業家",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/%E6%9E%97%E4%BC%AF%E5%A5%8F.jpg",
+      "photoCredit": "作者：中國金融年鑑社 · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q19825813",
+      "name": "连胜武",
+      "citation": "维基百科 / Wikidata Q19825813",
+      "aliases": [
+        "連勝武",
+        "Lien Sheng-wu"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1976
+      },
+      "living": true,
+      "bio": "臺灣企業家"
+    },
+    {
+      "externalId": "Q29913271",
+      "name": "连惠心",
+      "citation": "维基百科 / Wikidata Q29913271",
+      "aliases": [
+        "連惠心",
+        "Arlene Lien"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1967
+      },
+      "living": true,
+      "bio": "連戰之女"
+    },
+    {
+      "externalId": "Q558718",
+      "name": "连战",
+      "citation": "维基百科 / Wikidata Q558718",
+      "aliases": [
+        "連戰",
+        "Lien Chan"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1936
+      },
+      "living": true,
+      "bio": "學者 和前任中華民國副總統",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/2005KMT%20NanjingTour%20LienChan.jpg",
+      "photoCredit": "作者：Head shot modified by Rico Shen · CC BY-SA 3.0 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q6539891",
+      "name": "连横",
+      "citation": "维基百科 / Wikidata Q6539891",
+      "aliases": [
+        "連橫",
+        "Lian Heng"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1878
+      },
+      "death": {
+        "year": 1936
+      },
+      "bio": "臺灣歷史學家",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Lien-Heng.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q6544158",
+      "name": "连方瑀",
+      "citation": "维基百科 / Wikidata Q6544158",
+      "aliases": [
+        "連方瑀",
+        "Lien Fang Yu"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1943
+      },
+      "living": true,
+      "bio": "前任中華民國第二夫人",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/2005KMT%20NanjingTour%20LienFangYu.jpg",
+      "photoCredit": "作者：Head shot modified by Rico Shen · CC BY-SA 3.0 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q7441162",
+      "name": "连胜文",
+      "citation": "维基百科 / Wikidata Q7441162",
+      "aliases": [
+        "連勝文",
+        "Sean Lien"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1970
+      },
+      "living": true,
+      "bio": "臺灣政治人物",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Year%20of%20T2009%20Press%20Conference%20Sean%20Lien.jpg",
+      "photoCredit": "作者：Rico Shen · CC BY-SA 4.0 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q8270075",
+      "name": "连震东",
+      "citation": "维基百科 / Wikidata Q8270075",
+      "aliases": [
+        "連震東",
+        "Lien Chen-tung"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1904
+      },
+      "death": {
+        "year": 1986
+      },
+      "bio": "臺灣政治人物",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/19701019%E9%80%A3%E9%9C%87%E6%9D%B1.jpg",
+      "photoCredit": "作者：中央通訊社 · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q8938814",
+      "name": "蔡依珊",
+      "citation": "维基百科 / Wikidata Q8938814",
+      "aliases": [
+        "Patty Tsai"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1979
+      },
+      "living": true,
+      "bio": "連勝文妻子"
+    },
+    {
+      "externalId": "Q9292137",
+      "name": "林文月",
+      "citation": "维基百科 / Wikidata Q9292137",
+      "aliases": [
+        "Lin Wenyue"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1933
+      },
+      "death": {
+        "year": 2023
+      },
+      "bio": "臺灣作家"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q8270075",
+      "child": "Q558718"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q558718",
+      "child": "Q7441162"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q6539891",
+      "child": "Q8270075"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q18234609",
+      "child": "Q9292137"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q558718",
+      "child": "Q16260705"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q558718",
+      "child": "Q19825813"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q558718",
+      "child": "Q29913271"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q6539891",
+      "child": "Q124609058"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q15934868",
+      "child": "Q558718"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q6544158",
+      "child": "Q7441162"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q124609058",
+      "child": "Q9292137"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q6544158",
+      "child": "Q16260705"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q6544158",
+      "child": "Q19825813"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q6544158",
+      "child": "Q29913271"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q558718",
+      "b": "Q6544158"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q7441162",
+      "b": "Q8938814"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q15934868",
+      "b": "Q8270075"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q124609058",
+      "b": "Q18234609"
+    }
+  ]
+}

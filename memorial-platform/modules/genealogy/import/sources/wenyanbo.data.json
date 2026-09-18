@@ -1,0 +1,363 @@
+{
+  "key": "wikidata:wenyanbo",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q10300103",
+      "name": "文及甫",
+      "citation": "维基百科 / Wikidata Q10300103",
+      "aliases": [
+        "Wen Jifu"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person (CBDB = 7391)"
+    },
+    {
+      "externalId": "Q11079830",
+      "name": "文彦博",
+      "citation": "维基百科 / Wikidata Q11079830",
+      "aliases": [
+        "文彥博",
+        "Wen Yanbo"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1005
+      },
+      "death": {
+        "year": 1096
+      },
+      "bio": "北宋政治人物",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/%E6%AD%B7%E4%BB%A3%E8%81%96%E8%B3%A2%E5%90%8D%E4%BA%BA%E5%83%8F-25-%E5%AE%8B%E4%B8%9E%E7%9B%B8%E6%96%87%E6%BD%9E%E5%85%AC%E5%BD%A6%E5%8D%9A.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q45359868",
+      "name": "文保雍",
+      "citation": "维基百科 / Wikidata Q45359868",
+      "aliases": [
+        "Wen Baoyong"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 1952"
+    },
+    {
+      "externalId": "Q45359873",
+      "name": "文永世",
+      "citation": "维基百科 / Wikidata Q45359873",
+      "aliases": [
+        "Wen Yongshi"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 1954"
+    },
+    {
+      "externalId": "Q45373504",
+      "name": "文锐",
+      "citation": "维基百科 / Wikidata Q45373504",
+      "aliases": [
+        "文銳",
+        "Wen Rui"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 944
+      },
+      "death": {
+        "year": 996
+      },
+      "bio": "Song dynasty person (CBDB = 12111)"
+    },
+    {
+      "externalId": "Q45373507",
+      "name": "文洎",
+      "citation": "维基百科 / Wikidata Q45373507",
+      "aliases": [
+        "Wen Ji"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 1037
+      },
+      "bio": "Song dynasty person (CBDB = 12112)"
+    },
+    {
+      "externalId": "Q45373511",
+      "name": "敬崇远",
+      "citation": "维基百科 / Wikidata Q45373511",
+      "aliases": [
+        "敬崇遠",
+        "Jing Chongyuan"
+      ],
+      "gender": "male",
+      "bio": "person, CBDB = 12113"
+    },
+    {
+      "externalId": "Q45373517",
+      "name": "文彦若",
+      "citation": "维基百科 / Wikidata Q45373517",
+      "aliases": [
+        "文彥若",
+        "Wen Yanruo"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1015
+      },
+      "death": {
+        "year": 1045
+      },
+      "bio": "Song dynasty person CBDB = 12114"
+    },
+    {
+      "externalId": "Q45373523",
+      "name": "文宗道",
+      "citation": "维基百科 / Wikidata Q45373523",
+      "aliases": [
+        "Wen Zongdao"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB=12115"
+    },
+    {
+      "externalId": "Q45375683",
+      "name": "敬祟",
+      "citation": "维基百科 / Wikidata Q45375683",
+      "aliases": [
+        "Jing Sui"
+      ],
+      "gender": "male",
+      "bio": "Tang dynasty person CBDB=12844"
+    },
+    {
+      "externalId": "Q45375687",
+      "name": "敬沼",
+      "citation": "维基百科 / Wikidata Q45375687",
+      "aliases": [
+        "Jing Zhao"
+      ],
+      "gender": "male",
+      "bio": "person, CBDB = 12845"
+    },
+    {
+      "externalId": "Q45402198",
+      "name": "文恭祖",
+      "citation": "维基百科 / Wikidata Q45402198",
+      "aliases": [
+        "Wen Gongzu"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person (CBDB = 22297)"
+    },
+    {
+      "externalId": "Q45428101",
+      "name": "文淳",
+      "citation": "维基百科 / Wikidata Q45428101",
+      "aliases": [
+        "Wen Chun"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 36620"
+    },
+    {
+      "externalId": "Q45428142",
+      "name": "文渊",
+      "citation": "维基百科 / Wikidata Q45428142",
+      "aliases": [
+        "文淵",
+        "Wen Yuan"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 36621"
+    },
+    {
+      "externalId": "Q45428185",
+      "name": "文渭",
+      "citation": "维基百科 / Wikidata Q45428185",
+      "aliases": [
+        "Wen Wei"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 36622"
+    },
+    {
+      "externalId": "Q45521256",
+      "name": "文崇远",
+      "citation": "维基百科 / Wikidata Q45521256",
+      "aliases": [
+        "文崇遠",
+        "Wen Chongyuan"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person (CBDB = 45782)"
+    },
+    {
+      "externalId": "Q65798703",
+      "name": "耿氏",
+      "citation": "维基百科 / Wikidata Q65798703",
+      "aliases": [
+        "Geng Shi"
+      ],
+      "gender": "female",
+      "bio": "文洎妻"
+    },
+    {
+      "externalId": "Q65798704",
+      "name": "申氏",
+      "citation": "维基百科 / Wikidata Q65798704",
+      "aliases": [
+        "Shen Shi"
+      ],
+      "gender": "female",
+      "bio": "文洎妻"
+    },
+    {
+      "externalId": "Q65798705",
+      "name": "宋氏",
+      "citation": "维基百科 / Wikidata Q65798705",
+      "aliases": [
+        "Song Shi"
+      ],
+      "gender": "female",
+      "bio": "文崇遠妻"
+    },
+    {
+      "externalId": "Q65798706",
+      "name": "吴氏",
+      "citation": "维基百科 / Wikidata Q65798706",
+      "aliases": [
+        "吳氏",
+        "Wu Shi"
+      ],
+      "gender": "female",
+      "bio": "文銳妻"
+    },
+    {
+      "externalId": "Q65799267",
+      "name": "王氏",
+      "citation": "维基百科 / Wikidata Q65799267",
+      "aliases": [
+        "Wang Shi"
+      ],
+      "gender": "female",
+      "bio": "文銳妻"
+    },
+    {
+      "externalId": "Q65799268",
+      "name": "郭氏",
+      "citation": "维基百科 / Wikidata Q65799268",
+      "aliases": [
+        "Guo Shi"
+      ],
+      "gender": "female",
+      "bio": "文銳妻"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q11079830",
+      "child": "Q10300103"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45373507",
+      "child": "Q11079830"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q11079830",
+      "child": "Q45359868"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45402198",
+      "child": "Q45359873"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45373511",
+      "child": "Q45373504"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45521256",
+      "child": "Q45373504"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45373504",
+      "child": "Q45373507"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45375687",
+      "child": "Q45373511"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45373507",
+      "child": "Q45373517"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q11079830",
+      "child": "Q45373523"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45375683",
+      "child": "Q45375687"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q11079830",
+      "child": "Q45402198"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45373504",
+      "child": "Q45428101"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45373504",
+      "child": "Q45428142"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45373504",
+      "child": "Q45428185"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q65798705",
+      "child": "Q45373504"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45373504",
+      "b": "Q65798706"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45373504",
+      "b": "Q65799267"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45373504",
+      "b": "Q65799268"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45373507",
+      "b": "Q65798703"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45373507",
+      "b": "Q65798704"
+    }
+  ]
+}

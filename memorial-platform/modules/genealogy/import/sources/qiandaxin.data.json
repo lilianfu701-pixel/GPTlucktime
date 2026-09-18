@@ -1,0 +1,462 @@
+{
+  "key": "wikidata:qiandaxin",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q15945051",
+      "name": "钱大昭",
+      "citation": "维基百科 / Wikidata Q15945051",
+      "aliases": [
+        "錢大昭",
+        "Qian Dazhao"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1744
+      },
+      "death": {
+        "year": 1813
+      },
+      "bio": "Qing dynasty person CBDB = 29878"
+    },
+    {
+      "externalId": "Q45416801",
+      "name": "钱玉炯",
+      "citation": "维基百科 / Wikidata Q45416801",
+      "aliases": [
+        "錢玉炯",
+        "Qian Yujiong"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1666
+      },
+      "death": {
+        "year": 1759
+      },
+      "bio": "Qing dynasty person CBDB = 29877"
+    },
+    {
+      "externalId": "Q45416803",
+      "name": "钱东塾",
+      "citation": "维基百科 / Wikidata Q45416803",
+      "aliases": [
+        "錢東塾",
+        "Qian Dongshu"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1768
+      },
+      "bio": "Qing dynasty person CBDB = 29879"
+    },
+    {
+      "externalId": "Q45416810",
+      "name": "钱炳",
+      "citation": "维基百科 / Wikidata Q45416810",
+      "aliases": [
+        "錢炳",
+        "Qian Bing"
+      ],
+      "gender": "male",
+      "bio": "Ming dynasty person CBDB = 29883"
+    },
+    {
+      "externalId": "Q45416812",
+      "name": "钱珠",
+      "citation": "维基百科 / Wikidata Q45416812",
+      "aliases": [
+        "錢珠",
+        "Qian Zhu"
+      ],
+      "gender": "male",
+      "bio": "Qing dynasty person CBDB = 29884"
+    },
+    {
+      "externalId": "Q45416814",
+      "name": "钱岐",
+      "citation": "维基百科 / Wikidata Q45416814",
+      "aliases": [
+        "錢岐",
+        "Qian Qi"
+      ],
+      "gender": "male",
+      "bio": "Qing dynasty person CBDB = 29885"
+    },
+    {
+      "externalId": "Q45416816",
+      "name": "钱桂发",
+      "citation": "维基百科 / Wikidata Q45416816",
+      "aliases": [
+        "錢桂發",
+        "Qian Guifa"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1697
+      },
+      "death": {
+        "year": 1775
+      },
+      "bio": "Qing dynasty person CBDB = 29886"
+    },
+    {
+      "externalId": "Q45416818",
+      "name": "钱东壁",
+      "citation": "维基百科 / Wikidata Q45416818",
+      "aliases": [
+        "錢東壁",
+        "Qian Dongbi"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1766
+      },
+      "bio": "Qing dynasty person CBDB = 29887"
+    },
+    {
+      "externalId": "Q45416819",
+      "name": "钱师慎",
+      "citation": "维基百科 / Wikidata Q45416819",
+      "aliases": [
+        "錢師慎",
+        "Qian Shishen"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1788
+      },
+      "death": {
+        "year": 1819
+      },
+      "bio": "Qing dynasty person CBDB = 29888"
+    },
+    {
+      "externalId": "Q45416821",
+      "name": "钱庆曾",
+      "citation": "维基百科 / Wikidata Q45416821",
+      "aliases": [
+        "錢慶曾",
+        "Qian Qingzeng"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1809
+      },
+      "death": {
+        "year": 1870
+      },
+      "bio": "Qing dynasty person CBDB = 29889"
+    },
+    {
+      "externalId": "Q45416823",
+      "name": "钱阿诒",
+      "citation": "维基百科 / Wikidata Q45416823",
+      "aliases": [
+        "錢阿詒",
+        "Qian Ayi"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1789
+      },
+      "death": {
+        "year": 1791
+      },
+      "bio": "Qing dynasty person CBDB = 29890"
+    },
+    {
+      "externalId": "Q45416827",
+      "name": "钱师康",
+      "citation": "维基百科 / Wikidata Q45416827",
+      "aliases": [
+        "錢師康",
+        "Qian Shikang"
+      ],
+      "gender": "male",
+      "bio": "Qing dynasty person CBDB = 29891"
+    },
+    {
+      "externalId": "Q45416828",
+      "name": "沈太恭人",
+      "citation": "维基百科 / Wikidata Q45416828",
+      "aliases": [
+        "Shen Taigongren"
+      ],
+      "gender": "female",
+      "death": {
+        "year": 1777
+      },
+      "bio": "Qing dynasty person CBDB = 29892"
+    },
+    {
+      "externalId": "Q45416830",
+      "name": "朱宜人",
+      "citation": "维基百科 / Wikidata Q45416830",
+      "aliases": [
+        "Zhu Yiren"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1667
+      },
+      "death": {
+        "year": 1748
+      },
+      "bio": "Qing dynasty person CBDB = 29894"
+    },
+    {
+      "externalId": "Q45416835",
+      "name": "王恭人",
+      "citation": "维基百科 / Wikidata Q45416835",
+      "aliases": [
+        "Wang Gongren"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1728
+      },
+      "death": {
+        "year": 1767
+      },
+      "bio": "Qing dynasty person CBDB = 29896"
+    },
+    {
+      "externalId": "Q45416838",
+      "name": "朱孺人",
+      "citation": "维基百科 / Wikidata Q45416838",
+      "aliases": [
+        "Zhu Ruren"
+      ],
+      "gender": "female",
+      "bio": "Qing dynasty person CBDB = 29899"
+    },
+    {
+      "externalId": "Q45416843",
+      "name": "汪氏",
+      "citation": "维基百科 / Wikidata Q45416843",
+      "aliases": [
+        "Wang Shi"
+      ],
+      "gender": "female",
+      "bio": "錢東壁妻"
+    },
+    {
+      "externalId": "Q45416845",
+      "name": "钱氏",
+      "citation": "维基百科 / Wikidata Q45416845",
+      "aliases": [
+        "錢氏",
+        "Qian Shi"
+      ],
+      "gender": "female",
+      "bio": "瞿中溶妻"
+    },
+    {
+      "externalId": "Q45416847",
+      "name": "瞿中溶",
+      "citation": "维基百科 / Wikidata Q45416847",
+      "aliases": [
+        "Qu Zhongrong"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1769
+      },
+      "death": {
+        "year": 1842
+      },
+      "bio": "Qing dynasty person CBDB = 29904",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/%E7%9E%BF%E4%B8%AD%E6%BA%B6.jpg",
+      "photoCredit": "作者：叶公绰辑，杨鹏秋摹绘。 · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q45416849",
+      "name": "钱氏",
+      "citation": "维基百科 / Wikidata Q45416849",
+      "aliases": [
+        "錢氏",
+        "Qian Shi"
+      ],
+      "gender": "female",
+      "bio": "錢大昕次女"
+    },
+    {
+      "externalId": "Q45416851",
+      "name": "许希冲",
+      "citation": "维基百科 / Wikidata Q45416851",
+      "aliases": [
+        "許希沖",
+        "Xu Xichong"
+      ],
+      "gender": "male",
+      "bio": "Qing dynasty person CBDB = 29906"
+    },
+    {
+      "externalId": "Q45416852",
+      "name": "钱氏",
+      "citation": "维基百科 / Wikidata Q45416852",
+      "aliases": [
+        "錢氏",
+        "Qian Shi"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1781
+      },
+      "death": {
+        "year": 1791
+      },
+      "bio": "錢大昕三女"
+    },
+    {
+      "externalId": "Q45416854",
+      "name": "钱氏",
+      "citation": "维基百科 / Wikidata Q45416854",
+      "aliases": [
+        "錢氏",
+        "Qian Shi"
+      ],
+      "gender": "female",
+      "death": {
+        "year": 1791
+      },
+      "bio": "錢東壁女"
+    },
+    {
+      "externalId": "Q7267607",
+      "name": "钱大昕",
+      "citation": "维基百科 / Wikidata Q7267607",
+      "aliases": [
+        "Qian Daxin"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1728
+      },
+      "death": {
+        "year": 1804
+      },
+      "bio": "historian and linguist of Qing dynasty in China (1728–1804)",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Qian%20Daxin.png",
+      "photoCredit": "作者：叶衍兰 · 公有领域 · 来源：Wikimedia Commons"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q45416816",
+      "child": "Q7267607"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45416816",
+      "child": "Q15945051"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45416814",
+      "child": "Q45416801"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q7267607",
+      "child": "Q45416803"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45416810",
+      "child": "Q45416812"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45416812",
+      "child": "Q45416814"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45416801",
+      "child": "Q45416816"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q7267607",
+      "child": "Q45416818"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45416818",
+      "child": "Q45416819"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45416819",
+      "child": "Q45416821"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45416803",
+      "child": "Q45416823"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45416803",
+      "child": "Q45416827"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q7267607",
+      "child": "Q45416845"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q7267607",
+      "child": "Q45416849"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q7267607",
+      "child": "Q45416852"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45416818",
+      "child": "Q45416854"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45416835",
+      "b": "Q7267607"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45416801",
+      "b": "Q45416830"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45416803",
+      "b": "Q45416838"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45416816",
+      "b": "Q45416828"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45416818",
+      "b": "Q45416843"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45416845",
+      "b": "Q45416847"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45416849",
+      "b": "Q45416851"
+    }
+  ]
+}

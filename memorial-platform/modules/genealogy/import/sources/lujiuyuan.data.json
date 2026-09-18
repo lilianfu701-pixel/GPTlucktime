@@ -1,0 +1,228 @@
+{
+  "key": "wikidata:lujiuyuan",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q10565028",
+      "name": "陆持之",
+      "citation": "维基百科 / Wikidata Q10565028",
+      "aliases": [
+        "Lu Chizhi"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1171
+      },
+      "death": {
+        "year": 1225
+      },
+      "bio": "Song dynasty person (CBDB = 20637)"
+    },
+    {
+      "externalId": "Q15931690",
+      "name": "陆九龄",
+      "citation": "维基百科 / Wikidata Q15931690",
+      "aliases": [
+        "陸九齡",
+        "Lu Jiuling"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1132
+      },
+      "death": {
+        "year": 1180
+      },
+      "bio": "Song dynasty person CBDB = 20584"
+    },
+    {
+      "externalId": "Q16076396",
+      "name": "陆九韶",
+      "citation": "维基百科 / Wikidata Q16076396",
+      "aliases": [
+        "Lu Jiushao"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1128
+      },
+      "bio": "Song dynasty person CBDB = 20582"
+    },
+    {
+      "externalId": "Q2466384",
+      "name": "陆九渊",
+      "citation": "维基百科 / Wikidata Q2466384",
+      "aliases": [
+        "陸九淵",
+        "Lu Jiuyuan"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1139
+      },
+      "death": {
+        "year": 1193
+      },
+      "bio": "南宋理學家 (1139-1192)",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Chiu%20Yuan.jpg",
+      "photoCredit": "公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q45362049",
+      "name": "陆九臯",
+      "citation": "维基百科 / Wikidata Q45362049",
+      "aliases": [
+        "陸九臯",
+        "Lu Jiugao"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1125
+      },
+      "death": {
+        "year": 1191
+      },
+      "bio": "Song dynasty person CBDB = 3631"
+    },
+    {
+      "externalId": "Q45395564",
+      "name": "陆德迁",
+      "citation": "维基百科 / Wikidata Q45395564",
+      "aliases": [
+        "陸德遷",
+        "Lu Deqian"
+      ],
+      "gender": "male",
+      "bio": "Wuyue person CBDB = 20538"
+    },
+    {
+      "externalId": "Q45395567",
+      "name": "陆有程",
+      "citation": "维基百科 / Wikidata Q45395567",
+      "aliases": [
+        "陸有程",
+        "Lu Youcheng"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person (CBDB = 20539)"
+    },
+    {
+      "externalId": "Q45395571",
+      "name": "陆演",
+      "citation": "维基百科 / Wikidata Q45395571",
+      "aliases": [
+        "陸演",
+        "Lu Yan"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 20540"
+    },
+    {
+      "externalId": "Q45395573",
+      "name": "陆戬",
+      "citation": "维基百科 / Wikidata Q45395573",
+      "aliases": [
+        "陸戩",
+        "Lu Jian"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 20541"
+    },
+    {
+      "externalId": "Q45395584",
+      "name": "陆贺",
+      "citation": "维基百科 / Wikidata Q45395584",
+      "aliases": [
+        "陸賀",
+        "Lu He"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person (CBDB = 20544)"
+    },
+    {
+      "externalId": "Q45395588",
+      "name": "陆九思",
+      "citation": "维基百科 / Wikidata Q45395588",
+      "aliases": [
+        "陸九思",
+        "Lu Jiusi"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 20545"
+    },
+    {
+      "externalId": "Q45395602",
+      "name": "陆九叙",
+      "citation": "维基百科 / Wikidata Q45395602",
+      "aliases": [
+        "陸九敘",
+        "Lu Jiuxu"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1123
+      },
+      "death": {
+        "year": 1187
+      },
+      "bio": "Song dynasty person CBDB = 20549"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q45395584",
+      "child": "Q2466384"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q2466384",
+      "child": "Q10565028"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45395584",
+      "child": "Q15931690"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45395584",
+      "child": "Q16076396"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45395584",
+      "child": "Q45362049"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45395564",
+      "child": "Q45395567"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45395567",
+      "child": "Q45395571"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45395571",
+      "child": "Q45395573"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45395573",
+      "child": "Q45395584"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45395584",
+      "child": "Q45395588"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45395584",
+      "child": "Q45395602"
+    }
+  ]
+}

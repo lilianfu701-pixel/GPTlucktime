@@ -1,0 +1,159 @@
+{
+  "key": "wikidata:wangwei",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q313605",
+      "name": "王维",
+      "citation": "维基百科 / Wikidata Q313605",
+      "aliases": [
+        "Wang Wei"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 699
+      },
+      "death": {
+        "year": 759
+      },
+      "bio": "唐朝诗人、画家（692－761）",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Wang%20Wei.jpg",
+      "photoCredit": "公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q45421023",
+      "name": "王儒贤",
+      "citation": "维基百科 / Wikidata Q45421023",
+      "aliases": [
+        "王儒賢",
+        "Wang Ruxian"
+      ],
+      "gender": "male",
+      "bio": "Tang dynasty person CBDB = 32170"
+    },
+    {
+      "externalId": "Q45421025",
+      "name": "王知节",
+      "citation": "维基百科 / Wikidata Q45421025",
+      "aliases": [
+        "王知節",
+        "Wang Zhijie"
+      ],
+      "gender": "male",
+      "bio": "Tang dynasty person CBDB = 32171"
+    },
+    {
+      "externalId": "Q45421029",
+      "name": "王胄",
+      "citation": "维基百科 / Wikidata Q45421029",
+      "aliases": [
+        "王冑",
+        "Wang Zhou"
+      ],
+      "gender": "male",
+      "bio": "Tang dynasty person CBDB = 32172"
+    },
+    {
+      "externalId": "Q45421031",
+      "name": "王处廉",
+      "citation": "维基百科 / Wikidata Q45421031",
+      "aliases": [
+        "王處廉",
+        "Wang Chulian"
+      ],
+      "gender": "male",
+      "bio": "Tang dynasty person CBDB = 32173"
+    },
+    {
+      "externalId": "Q45421039",
+      "name": "王绎",
+      "citation": "维基百科 / Wikidata Q45421039",
+      "aliases": [
+        "王繹",
+        "Wang Yi"
+      ],
+      "gender": "male",
+      "bio": "Tang dynasty person CBDB = 32176"
+    },
+    {
+      "externalId": "Q45421041",
+      "name": "王弦",
+      "citation": "维基百科 / Wikidata Q45421041",
+      "aliases": [
+        "王絃",
+        "Wang Xuan"
+      ],
+      "gender": "male",
+      "bio": "Tang dynasty person CBDB = 32177"
+    },
+    {
+      "externalId": "Q45421044",
+      "name": "王𬘘",
+      "citation": "维基百科 / Wikidata Q45421044",
+      "aliases": [
+        "王紞",
+        "Wang Dan"
+      ],
+      "gender": "male",
+      "bio": "Tang dynasty person CBDB = 32178"
+    },
+    {
+      "externalId": "Q5946567",
+      "name": "王缙",
+      "citation": "维基百科 / Wikidata Q5946567",
+      "aliases": [
+        "Wang Jin"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 700
+      },
+      "death": {
+        "year": 782
+      },
+      "bio": "Tang Dynasty chancellor"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q45421031",
+      "child": "Q313605"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45421031",
+      "child": "Q5946567"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45421023",
+      "child": "Q45421025"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45421025",
+      "child": "Q45421029"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45421029",
+      "child": "Q45421031"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45421031",
+      "child": "Q45421039"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45421031",
+      "child": "Q45421041"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45421031",
+      "child": "Q45421044"
+    }
+  ]
+}

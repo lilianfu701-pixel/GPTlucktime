@@ -1,0 +1,81 @@
+{
+  "key": "wikidata:kongshangren",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q61720242",
+      "name": "孔贞璠",
+      "citation": "维基百科 / Wikidata Q61720242",
+      "gender": "male"
+    },
+    {
+      "externalId": "Q61720302",
+      "name": "孔闻讷",
+      "citation": "维基百科 / Wikidata Q61720302",
+      "gender": "male"
+    },
+    {
+      "externalId": "Q61720347",
+      "name": "孔宏颉",
+      "citation": "维基百科 / Wikidata Q61720347",
+      "gender": "male"
+    },
+    {
+      "externalId": "Q61720383",
+      "name": "孔承佽",
+      "citation": "维基百科 / Wikidata Q61720383",
+      "gender": "male"
+    },
+    {
+      "externalId": "Q61720411",
+      "name": "孔彦道",
+      "citation": "维基百科 / Wikidata Q61720411",
+      "gender": "male"
+    },
+    {
+      "externalId": "Q834579",
+      "name": "孔尚任",
+      "citation": "维基百科 / Wikidata Q834579",
+      "aliases": [
+        "Kong Shangren"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1648
+      },
+      "death": {
+        "year": 1718
+      },
+      "bio": "Chinese writer",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/%E5%AD%94%E5%B0%9A%E4%BB%BB.jpg",
+      "photoCredit": "作者：清人繪 · 公有领域 · 来源：Wikimedia Commons"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q61720242",
+      "child": "Q834579"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q61720302",
+      "child": "Q61720242"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q61720347",
+      "child": "Q61720302"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q61720383",
+      "child": "Q61720347"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q61720411",
+      "child": "Q61720383"
+    }
+  ]
+}

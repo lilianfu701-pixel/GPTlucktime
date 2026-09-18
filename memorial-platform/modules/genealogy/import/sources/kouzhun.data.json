@@ -1,0 +1,91 @@
+{
+  "key": "wikidata:kouzhun",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q3274619",
+      "name": "寇准",
+      "citation": "维基百科 / Wikidata Q3274619",
+      "aliases": [
+        "寇準",
+        "Kou Zhun"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 961
+      },
+      "death": {
+        "year": 1023
+      },
+      "bio": "宋朝丞相",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Kou%20Zhun.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q45391943",
+      "name": "寇宾",
+      "citation": "维基百科 / Wikidata Q45391943",
+      "aliases": [
+        "寇賓",
+        "Kou Bin"
+      ],
+      "gender": "male",
+      "bio": "Tang dynasty person CBDB = 19358"
+    },
+    {
+      "externalId": "Q45391945",
+      "name": "寇延良",
+      "citation": "维基百科 / Wikidata Q45391945",
+      "aliases": [
+        "Kou Yanliang"
+      ],
+      "gender": "male",
+      "bio": "person, CBDB = 19359"
+    },
+    {
+      "externalId": "Q45391947",
+      "name": "寇湘",
+      "citation": "维基百科 / Wikidata Q45391947",
+      "aliases": [
+        "Kou Xiang"
+      ],
+      "gender": "male",
+      "bio": "person (CBDB = 19360)"
+    },
+    {
+      "externalId": "Q45706432",
+      "name": "蒨桃",
+      "citation": "维基百科 / Wikidata Q45706432",
+      "aliases": [
+        "Qian Tao"
+      ],
+      "gender": "female",
+      "death": {
+        "year": 1020
+      },
+      "bio": "Song dynasty person CBDB = 118223"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q45391947",
+      "child": "Q3274619"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45391943",
+      "child": "Q45391945"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45391945",
+      "child": "Q45391947"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q3274619",
+      "b": "Q45706432"
+    }
+  ]
+}

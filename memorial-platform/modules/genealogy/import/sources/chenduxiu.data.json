@@ -1,0 +1,104 @@
+{
+  "key": "wikidata:chenduxiu",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q107190052",
+      "name": "陈孟吉",
+      "citation": "维基百科 / Wikidata Q107190052",
+      "aliases": [
+        "Chen Mengji"
+      ],
+      "gender": "male",
+      "bio": "陈独秀的长兄"
+    },
+    {
+      "externalId": "Q107524892",
+      "name": "陈松年",
+      "citation": "维基百科 / Wikidata Q107524892",
+      "aliases": [
+        "Chen Songnian"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1910
+      },
+      "death": {
+        "year": 1990
+      },
+      "bio": "中国文史学者，陈独秀第三子"
+    },
+    {
+      "externalId": "Q369681",
+      "name": "陈独秀",
+      "citation": "维基百科 / Wikidata Q369681",
+      "aliases": [
+        "陳獨秀",
+        "Chen Duxiu"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1879
+      },
+      "death": {
+        "year": 1942
+      },
+      "bio": "首任中國共產黨中央委員會總書記",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Chen%20Duxiu4.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q8295098",
+      "name": "陈乔年",
+      "citation": "维基百科 / Wikidata Q8295098",
+      "aliases": [
+        "Chen Qiaonian"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1902
+      },
+      "death": {
+        "year": 1928
+      },
+      "bio": "中国共产党早期领导人",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Chen%20Qiaonian.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q8297107",
+      "name": "陈延年",
+      "citation": "维基百科 / Wikidata Q8297107",
+      "aliases": [
+        "Chen Yannian"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1898
+      },
+      "death": {
+        "year": 1927
+      },
+      "bio": "国民政府处决的中共烈士",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Chen%20Yannian.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q369681",
+      "child": "Q8295098"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q369681",
+      "child": "Q8297107"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q369681",
+      "child": "Q107524892"
+    }
+  ]
+}

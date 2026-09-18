@@ -1,0 +1,353 @@
+{
+  "key": "wikidata:yuanzhen",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q45421174",
+      "name": "元弘",
+      "citation": "维基百科 / Wikidata Q45421174",
+      "aliases": [
+        "Yuan Hong"
+      ],
+      "gender": "male",
+      "bio": "Tang dynasty person CBDB = 32244"
+    },
+    {
+      "externalId": "Q45421176",
+      "name": "元义端",
+      "citation": "维基百科 / Wikidata Q45421176",
+      "aliases": [
+        "元義端",
+        "Yuan Yiduan"
+      ],
+      "gender": "male",
+      "bio": "Tang dynasty person CBDB = 32245"
+    },
+    {
+      "externalId": "Q45421178",
+      "name": "元延景",
+      "citation": "维基百科 / Wikidata Q45421178",
+      "aliases": [
+        "Yuan Yanjing"
+      ],
+      "gender": "male",
+      "bio": "Tang dynasty person CBDB = 32246"
+    },
+    {
+      "externalId": "Q45421179",
+      "name": "元悱",
+      "citation": "维基百科 / Wikidata Q45421179",
+      "aliases": [
+        "Yuan Fei"
+      ],
+      "gender": "male",
+      "bio": "Tang dynasty person CBDB=32247"
+    },
+    {
+      "externalId": "Q45421184",
+      "name": "元秬",
+      "citation": "维基百科 / Wikidata Q45421184",
+      "aliases": [
+        "Yuan Ju"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 753
+      },
+      "death": {
+        "year": 819
+      },
+      "bio": "Tang dynasty person CBDB=32249"
+    },
+    {
+      "externalId": "Q45421185",
+      "name": "郑太郡",
+      "citation": "维基百科 / Wikidata Q45421185",
+      "aliases": [
+        "鄭太郡",
+        "Zheng Taijun"
+      ],
+      "gender": "female",
+      "bio": "Tang dynasty person CBDB = 32250"
+    },
+    {
+      "externalId": "Q45421188",
+      "name": "元宽",
+      "citation": "维基百科 / Wikidata Q45421188",
+      "aliases": [
+        "元寬",
+        "Yuan Kuan"
+      ],
+      "gender": "male",
+      "bio": "Tang dynasty person CBDB = 32251"
+    },
+    {
+      "externalId": "Q45421189",
+      "name": "元沂",
+      "citation": "维基百科 / Wikidata Q45421189",
+      "aliases": [
+        "Yuan Yi"
+      ],
+      "gender": "male",
+      "bio": "Tang dynasty person CBDB = 32252"
+    },
+    {
+      "externalId": "Q45421191",
+      "name": "元积",
+      "citation": "维基百科 / Wikidata Q45421191",
+      "aliases": [
+        "元積",
+        "Yuan Ji"
+      ],
+      "gender": "male",
+      "bio": "Tang dynasty person CBDB = 32253"
+    },
+    {
+      "externalId": "Q45421200",
+      "name": "元氏",
+      "citation": "维基百科 / Wikidata Q45421200",
+      "aliases": [
+        "Yuan Shi"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 776
+      },
+      "death": {
+        "year": 809
+      },
+      "bio": "Tang dynasty person CBDB = 32258"
+    },
+    {
+      "externalId": "Q45421202",
+      "name": "元真一",
+      "citation": "维基百科 / Wikidata Q45421202",
+      "aliases": [
+        "Yuan Zhenyi"
+      ],
+      "gender": "female",
+      "bio": "Tang dynasty person CBDB = 32259"
+    },
+    {
+      "externalId": "Q45421205",
+      "name": "陆翰",
+      "citation": "维基百科 / Wikidata Q45421205",
+      "aliases": [
+        "陸翰",
+        "Lu Han"
+      ],
+      "gender": "male",
+      "bio": "Tang dynasty person CBDB = 32260"
+    },
+    {
+      "externalId": "Q45421232",
+      "name": "元道护",
+      "citation": "维基百科 / Wikidata Q45421232",
+      "aliases": [
+        "元道護",
+        "Yuan Daohu"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 829
+      },
+      "bio": "Tang dynasty person CBDB = 32273"
+    },
+    {
+      "externalId": "Q45421727",
+      "name": "元延祚",
+      "citation": "维基百科 / Wikidata Q45421727",
+      "aliases": [
+        "Yuan Yanzuo"
+      ],
+      "gender": "male",
+      "bio": "Tang dynasty person CBDB = 32537"
+    },
+    {
+      "externalId": "Q45441737",
+      "name": "独孤公",
+      "citation": "维基百科 / Wikidata Q45441737",
+      "aliases": [
+        "獨孤公",
+        "Dugu Gong"
+      ],
+      "gender": "male",
+      "bio": "person, CBDB = 150363"
+    },
+    {
+      "externalId": "Q45472962",
+      "name": "韦丛",
+      "citation": "维基百科 / Wikidata Q45472962",
+      "aliases": [
+        "韋叢",
+        "Wei Cong"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 783
+      },
+      "death": {
+        "year": 809
+      },
+      "bio": "Tang dynasty person CBDB = 145687"
+    },
+    {
+      "externalId": "Q45625354",
+      "name": "裴淑",
+      "citation": "维基百科 / Wikidata Q45625354",
+      "aliases": [
+        "Pei Shu"
+      ],
+      "gender": "female",
+      "bio": "Tang dynasty person CBDB = 69991"
+    },
+    {
+      "externalId": "Q468709",
+      "name": "元稹",
+      "citation": "维基百科 / Wikidata Q468709",
+      "aliases": [
+        "Yuan Zhen"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 779
+      },
+      "death": {
+        "year": 831
+      },
+      "bio": "中國唐代詩人",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Yuan%20Chen.jpg",
+      "photoCredit": "公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q65802907",
+      "name": "元氏",
+      "citation": "维基百科 / Wikidata Q65802907",
+      "aliases": [
+        "Yuan Shi"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 651
+      },
+      "death": {
+        "year": 677
+      },
+      "bio": "元義端女"
+    },
+    {
+      "externalId": "Q65803880",
+      "name": "郑氏",
+      "citation": "维基百科 / Wikidata Q65803880",
+      "aliases": [
+        "鄭氏",
+        "Zheng Shi"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 747
+      },
+      "death": {
+        "year": 806
+      },
+      "bio": "鄭濟女"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q45421188",
+      "child": "Q468709"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45421174",
+      "child": "Q45421176"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45421176",
+      "child": "Q45421178"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45421178",
+      "child": "Q45421179"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45421188",
+      "child": "Q45421184"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45421179",
+      "child": "Q45421188"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45421188",
+      "child": "Q45421189"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45421188",
+      "child": "Q45421191"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45421188",
+      "child": "Q45421200"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45421188",
+      "child": "Q45421202"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q468709",
+      "child": "Q45421232"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45421176",
+      "child": "Q45421727"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45421176",
+      "child": "Q65802907"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45472962",
+      "b": "Q468709"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45625354",
+      "b": "Q468709"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45421185",
+      "b": "Q45421188"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45421188",
+      "b": "Q65803880"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45421200",
+      "b": "Q45421205"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45441737",
+      "b": "Q65802907"
+    }
+  ]
+}

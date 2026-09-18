@@ -1,0 +1,288 @@
+{
+  "key": "wikidata:huangyanpei",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q11138472",
+      "name": "沈树镛",
+      "citation": "维基百科 / Wikidata Q11138472",
+      "aliases": [
+        "沈樹鏞",
+        "Shen Shuyong"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1832
+      },
+      "death": {
+        "year": 1873
+      },
+      "bio": "清朝人，中國歷代人物傳記資料庫編號=79699",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/%E6%B2%88%E6%A8%B9%E9%8F%9E.jpg",
+      "photoCredit": "作者：叶公绰辑，杨鹏秋摹绘。 · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q11177574",
+      "name": "黄方毅",
+      "citation": "维基百科 / Wikidata Q11177574",
+      "aliases": [
+        "Huang Fangyi"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1946
+      },
+      "living": true,
+      "bio": "Chinese politician"
+    },
+    {
+      "externalId": "Q1632807",
+      "name": "黄万里",
+      "citation": "维基百科 / Wikidata Q1632807",
+      "aliases": [
+        "黃万里",
+        "Huang Wanli"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1911
+      },
+      "death": {
+        "year": 2001
+      },
+      "bio": "中国水利工程学专家（1911—2001）",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/%E9%BB%84%E4%B8%87%E9%87%8C%E9%9B%95%E5%A1%91.jpg",
+      "photoCredit": "作者：Kcx36 · CC BY-SA 4.0 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q16908377",
+      "name": "黄竞武",
+      "citation": "维基百科 / Wikidata Q16908377",
+      "aliases": [
+        "Huang Jingwu"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1903
+      },
+      "death": {
+        "year": 1949
+      },
+      "bio": "中国民主同盟盟员, 革命烈士"
+    },
+    {
+      "externalId": "Q5925773",
+      "name": "黄炎培",
+      "citation": "维基百科 / Wikidata Q5925773",
+      "aliases": [
+        "Huang Yanpei"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1878
+      },
+      "death": {
+        "year": 1965
+      },
+      "bio": "Chinese politician (1878–1965)",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Huang%20Yanpei.jpg",
+      "photoCredit": "作者：Unknown; scanned by Internet Archive (https://archive.org/) · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q63253919",
+      "name": "丁玉隽",
+      "citation": "维基百科 / Wikidata Q63253919",
+      "aliases": [
+        "Ding Yujuan"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1917
+      }
+    },
+    {
+      "externalId": "Q63253928",
+      "name": "黄且圆",
+      "citation": "维基百科 / Wikidata Q63253928",
+      "aliases": [
+        "Huang Qieyuan"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1939
+      },
+      "death": {
+        "year": 2012
+      }
+    },
+    {
+      "externalId": "Q63254050",
+      "name": "黄叔才",
+      "citation": "维基百科 / Wikidata Q63254050",
+      "aliases": [
+        "Huang Shucai"
+      ],
+      "gender": "male"
+    },
+    {
+      "externalId": "Q63254052",
+      "name": "黄典谟",
+      "citation": "维基百科 / Wikidata Q63254052",
+      "aliases": [
+        "Huang Dianmo"
+      ],
+      "gender": "male"
+    },
+    {
+      "externalId": "Q63254055",
+      "name": "沈氏",
+      "citation": "维基百科 / Wikidata Q63254055",
+      "gender": "female"
+    },
+    {
+      "externalId": "Q63254092",
+      "name": "黄燡斌",
+      "citation": "维基百科 / Wikidata Q63254092",
+      "aliases": [
+        "Huang Yibin"
+      ],
+      "gender": "male"
+    },
+    {
+      "externalId": "Q63254204",
+      "name": "吴氏",
+      "citation": "维基百科 / Wikidata Q63254204",
+      "gender": "female"
+    },
+    {
+      "externalId": "Q8288365",
+      "name": "黄大能",
+      "citation": "维基百科 / Wikidata Q8288365",
+      "aliases": [
+        "Huang Daneng"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1916
+      },
+      "death": {
+        "year": 2010
+      }
+    },
+    {
+      "externalId": "Q8462828",
+      "name": "杨乐",
+      "citation": "维基百科 / Wikidata Q8462828",
+      "aliases": [
+        "Yang Le"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1939
+      },
+      "death": {
+        "year": 2023
+      },
+      "bio": "中国数学家（1939—2023）"
+    },
+    {
+      "externalId": "Q8967986",
+      "name": "黄孟复",
+      "citation": "维基百科 / Wikidata Q8967986",
+      "aliases": [
+        "黃孟復",
+        "Huang Mengfu"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1944
+      },
+      "living": true,
+      "bio": "黄炎培之孙，第十届、第十一届全国政协副主席",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Huang%20Mengfu%20at%20the%20Annual%20Meeting%20of%20the%20New%20Champions%20in%20Tianjin%2C%20China%202012.jpg",
+      "photoCredit": "作者：World Economic Forum · CC BY-SA 2.0 · 来源：Wikimedia Commons"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q5925773",
+      "child": "Q1632807"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q63254050",
+      "child": "Q5925773"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q5925773",
+      "child": "Q8288365"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q16908377",
+      "child": "Q8967986"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q5925773",
+      "child": "Q11177574"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q5925773",
+      "child": "Q16908377"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q1632807",
+      "child": "Q63253928"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q63254052",
+      "child": "Q63254050"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q63254052",
+      "child": "Q63254092"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q63253919",
+      "child": "Q63253928"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q63254055",
+      "child": "Q63254050"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q63254055",
+      "child": "Q63254092"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q1632807",
+      "b": "Q63253919"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q63253928",
+      "b": "Q8462828"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q11138472",
+      "b": "Q63254204"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q63254052",
+      "b": "Q63254055"
+    }
+  ]
+}

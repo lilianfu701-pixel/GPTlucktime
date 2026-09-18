@@ -1,0 +1,532 @@
+{
+  "key": "wikidata:fangxuanling",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q10297036",
+      "name": "房遗直",
+      "citation": "维基百科 / Wikidata Q10297036",
+      "aliases": [
+        "Fang Yizhi"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 679
+      },
+      "bio": "Tang dynasty politician"
+    },
+    {
+      "externalId": "Q11075491",
+      "name": "房彦谦",
+      "citation": "维基百科 / Wikidata Q11075491",
+      "aliases": [
+        "房彦謙",
+        "Fang Yanqian"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 547
+      },
+      "bio": "Northern Qi person CBDB = 17129"
+    },
+    {
+      "externalId": "Q11075508",
+      "name": "房遗爱",
+      "citation": "维基百科 / Wikidata Q11075508",
+      "aliases": [
+        "Fang Yiai"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 622
+      },
+      "death": {
+        "year": 653
+      },
+      "bio": "Tang dynasty politician"
+    },
+    {
+      "externalId": "Q4310081",
+      "name": "高阳公主",
+      "citation": "维基百科 / Wikidata Q4310081",
+      "aliases": [
+        "高陽公主",
+        "Princess Gaoyang"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 627
+      },
+      "death": {
+        "year": 653
+      },
+      "bio": "Tang dynasty princess"
+    },
+    {
+      "externalId": "Q45385206",
+      "name": "房法寿",
+      "citation": "维基百科 / Wikidata Q45385206",
+      "aliases": [
+        "房法壽",
+        "Fang Fashou"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 458
+      },
+      "bio": "Northern Wei person CBDB = 17125"
+    },
+    {
+      "externalId": "Q45385209",
+      "name": "房伯祖",
+      "citation": "维基百科 / Wikidata Q45385209",
+      "aliases": [
+        "Fang Bozu"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 495
+      },
+      "bio": "Northern Wei person CBDB=195025"
+    },
+    {
+      "externalId": "Q45385211",
+      "name": "房翼",
+      "citation": "维基百科 / Wikidata Q45385211",
+      "aliases": [
+        "Fang Yi"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 532
+      },
+      "bio": "Northern Wei person CBDB=194334"
+    },
+    {
+      "externalId": "Q45385214",
+      "name": "房熊",
+      "citation": "维基百科 / Wikidata Q45385214",
+      "aliases": [
+        "Fang Xiong"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 569
+      },
+      "bio": "Northern Qi person CBDB=17128"
+    },
+    {
+      "externalId": "Q45517450",
+      "name": "房某",
+      "citation": "维基百科 / Wikidata Q45517450",
+      "aliases": [
+        "Fang Mou"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 716
+      },
+      "bio": "Tang dynasty person CBDB=172930"
+    },
+    {
+      "externalId": "Q45517515",
+      "name": "房某",
+      "citation": "维基百科 / Wikidata Q45517515",
+      "aliases": [
+        "Fang Mou"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 753
+      },
+      "bio": "Tang dynasty person CBDB = 172931"
+    },
+    {
+      "externalId": "Q45517579",
+      "name": "房某",
+      "citation": "维基百科 / Wikidata Q45517579",
+      "aliases": [
+        "Fang Mou"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 790
+      },
+      "bio": "Tang dynasty person CBDB = 172932"
+    },
+    {
+      "externalId": "Q45517644",
+      "name": "房某",
+      "citation": "维基百科 / Wikidata Q45517644",
+      "aliases": [
+        "Fang Mou"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 827
+      },
+      "bio": "Tang dynasty person CBDB = 172933"
+    },
+    {
+      "externalId": "Q45518224",
+      "name": "房遗则",
+      "citation": "维基百科 / Wikidata Q45518224",
+      "aliases": [
+        "房遺則",
+        "Fang Yize"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 679
+      },
+      "bio": "Tang dynasty person CBDB=172942"
+    },
+    {
+      "externalId": "Q45518351",
+      "name": "房某",
+      "citation": "维基百科 / Wikidata Q45518351",
+      "aliases": [
+        "Fang Mou"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 716
+      },
+      "bio": "Tang dynasty person CBDB = 172944"
+    },
+    {
+      "externalId": "Q45518415",
+      "name": "房某",
+      "citation": "维基百科 / Wikidata Q45518415",
+      "aliases": [
+        "Fang Mou"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 753
+      },
+      "bio": "Tang dynasty person CBDB=172945"
+    },
+    {
+      "externalId": "Q45518478",
+      "name": "房绛",
+      "citation": "维基百科 / Wikidata Q45518478",
+      "aliases": [
+        "房絳",
+        "Fang Jiang"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 790
+      },
+      "bio": "Tang dynasty person CBDB = 172946"
+    },
+    {
+      "externalId": "Q45518543",
+      "name": "房晦",
+      "citation": "维基百科 / Wikidata Q45518543",
+      "aliases": [
+        "Fang Hui"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 827
+      },
+      "bio": "Tang dynasty person CBDB = 172947"
+    },
+    {
+      "externalId": "Q45518671",
+      "name": "房勋",
+      "citation": "维基百科 / Wikidata Q45518671",
+      "aliases": [
+        "房勳",
+        "Fang Xun"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 827
+      },
+      "bio": "Tang dynasty person CBDB = 172949"
+    },
+    {
+      "externalId": "Q45518923",
+      "name": "房沼",
+      "citation": "维基百科 / Wikidata Q45518923",
+      "aliases": [
+        "Fang Zhao"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 753
+      },
+      "bio": "Tang dynasty person CBDB = 172953"
+    },
+    {
+      "externalId": "Q45523365",
+      "name": "房豹",
+      "citation": "维基百科 / Wikidata Q45523365",
+      "aliases": [
+        "Fang Bao"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 569
+      },
+      "bio": "person, CBDB = 194335"
+    },
+    {
+      "externalId": "Q45604554",
+      "name": "房承先",
+      "citation": "维基百科 / Wikidata Q45604554",
+      "aliases": [
+        "Fang Chengxian"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 678
+      },
+      "death": {
+        "year": 715
+      },
+      "bio": "Tang dynasty person CBDB = 143020"
+    },
+    {
+      "externalId": "Q45614485",
+      "name": "房遗义",
+      "citation": "维基百科 / Wikidata Q45614485",
+      "aliases": [
+        "房遺義",
+        "Fang Yiyi"
+      ],
+      "gender": "male",
+      "bio": "Tang dynasty person CBDB = 164813"
+    },
+    {
+      "externalId": "Q45614611",
+      "name": "房安禹",
+      "citation": "维基百科 / Wikidata Q45614611",
+      "aliases": [
+        "Fang Anyu"
+      ],
+      "gender": "male",
+      "bio": "Tang dynasty person CBDB = 164816"
+    },
+    {
+      "externalId": "Q45614673",
+      "name": "房晋晋",
+      "citation": "维基百科 / Wikidata Q45614673",
+      "aliases": [
+        "房晉晉",
+        "Fang Jinjin"
+      ],
+      "gender": "male",
+      "bio": "Tang dynasty person CBDB = 164817"
+    },
+    {
+      "externalId": "Q45638518",
+      "name": "房彦诩",
+      "citation": "维基百科 / Wikidata Q45638518",
+      "aliases": [
+        "房彥詡",
+        "Fang Yanxu"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 541
+      },
+      "death": {
+        "year": 590
+      },
+      "bio": "person, CBDB = 196335"
+    },
+    {
+      "externalId": "Q56260493",
+      "name": "房叔祖",
+      "citation": "维基百科 / Wikidata Q56260493",
+      "gender": "male"
+    },
+    {
+      "externalId": "Q65801242",
+      "name": "卢氏",
+      "citation": "维基百科 / Wikidata Q65801242",
+      "aliases": [
+        "盧氏",
+        "Lu Shi"
+      ],
+      "gender": "female",
+      "bio": "房玄齡妻"
+    },
+    {
+      "externalId": "Q65808243",
+      "name": "吴氏",
+      "citation": "维基百科 / Wikidata Q65808243",
+      "aliases": [
+        "吳氏",
+        "Wu Shi"
+      ],
+      "gender": "female",
+      "bio": "房承先妻"
+    },
+    {
+      "externalId": "Q736647",
+      "name": "房玄龄",
+      "citation": "维基百科 / Wikidata Q736647",
+      "aliases": [
+        "房玄齡",
+        "Fang Xuanling"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 578
+      },
+      "death": {
+        "year": 648
+      },
+      "bio": "隋末唐初政治人物",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Fang%20Xuanling.jpg",
+      "photoCredit": "作者：Kikuchi Yōsai · 公有领域 · 来源：Wikimedia Commons"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q11075491",
+      "child": "Q736647"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q736647",
+      "child": "Q10297036"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45385214",
+      "child": "Q11075491"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q736647",
+      "child": "Q11075508"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45385206",
+      "child": "Q45385209"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45385209",
+      "child": "Q45385211"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45385211",
+      "child": "Q45385214"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q10297036",
+      "child": "Q45517450"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45517450",
+      "child": "Q45517515"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45517515",
+      "child": "Q45517579"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45517579",
+      "child": "Q45517644"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q736647",
+      "child": "Q45518224"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q11075508",
+      "child": "Q45518351"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45518351",
+      "child": "Q45518415"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45518415",
+      "child": "Q45518478"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45518478",
+      "child": "Q45518543"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45518478",
+      "child": "Q45518671"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45518351",
+      "child": "Q45518923"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45385211",
+      "child": "Q45523365"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45614485",
+      "child": "Q45604554"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q736647",
+      "child": "Q45614485"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45604554",
+      "child": "Q45614611"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45604554",
+      "child": "Q45614673"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45385214",
+      "child": "Q45638518"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45385206",
+      "child": "Q56260493"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q65801242",
+      "b": "Q736647"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q11075508",
+      "b": "Q4310081"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45604554",
+      "b": "Q65808243"
+    }
+  ]
+}

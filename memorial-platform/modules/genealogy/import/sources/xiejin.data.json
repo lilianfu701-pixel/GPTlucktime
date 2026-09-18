@@ -1,0 +1,111 @@
+{
+  "key": "wikidata:xiejin",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q16260421",
+      "name": "解纶",
+      "citation": "维基百科 / Wikidata Q16260421",
+      "aliases": [
+        "Xie Lun"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1358
+      },
+      "bio": "Ming dynasty politician, jinshi 1388"
+    },
+    {
+      "externalId": "Q3492967",
+      "name": "解缙",
+      "citation": "维基百科 / Wikidata Q3492967",
+      "aliases": [
+        "解縉",
+        "Xie Jin"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1369
+      },
+      "death": {
+        "year": 1415
+      },
+      "bio": "明朝政治人物",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/%E8%A7%A3%E7%B8%89.png",
+      "photoCredit": "作者：顾建龙（1606-？） · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q45425705",
+      "name": "解子元",
+      "citation": "维基百科 / Wikidata Q45425705",
+      "aliases": [
+        "Xie Ziyuan"
+      ],
+      "gender": "male",
+      "bio": "Yuan dynasty person CBDB = 34465"
+    },
+    {
+      "externalId": "Q45425747",
+      "name": "解开",
+      "citation": "维基百科 / Wikidata Q45425747",
+      "aliases": [
+        "解開",
+        "Xie Kai"
+      ],
+      "gender": "male",
+      "bio": "Ming dynasty person CBDB = 34466"
+    },
+    {
+      "externalId": "Q45425890",
+      "name": "解祯亮",
+      "citation": "维基百科 / Wikidata Q45425890",
+      "aliases": [
+        "解禎亮",
+        "Xie Zhenliang"
+      ],
+      "gender": "male",
+      "bio": "Ming dynasty person CBDB = 34470"
+    },
+    {
+      "externalId": "Q45659502",
+      "name": "徐爱玉",
+      "citation": "维基百科 / Wikidata Q45659502",
+      "aliases": [
+        "徐愛玉",
+        "Xu  Aiyu"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1371
+      },
+      "bio": "Ming dynasty person"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q45425747",
+      "child": "Q3492967"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45425747",
+      "child": "Q16260421"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45425705",
+      "child": "Q45425747"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q3492967",
+      "child": "Q45425890"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q3492967",
+      "b": "Q45659502"
+    }
+  ]
+}

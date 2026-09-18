@@ -85,6 +85,43 @@ import caoyu from "./caoyu.data.json";
 import zhangjiasen from "./zhangjiasen.data.json";
 import guweijun from "./guweijun.data.json";
 import tangshaoyi from "./tangshaoyi.data.json";
+// Wave 5 — 唐宋名臣文人 + 明清 + 近代世家。
+import peidu from "./peidu.data.json";
+import wangwei from "./wangwei.data.json";
+import liuyuxi from "./liuyuxi.data.json";
+import yuanzhen from "./yuanzhen.data.json";
+import weiyingwu from "./weiyingwu.data.json";
+import zhangjiuling from "./zhangjiuling.data.json";
+import direnjie from "./direnjie.data.json";
+import fangxuanling from "./fangxuanling.data.json";
+import weizheng from "./weizheng.data.json";
+import lideyu from "./lideyu.data.json";
+import chusuiliang from "./chusuiliang.data.json";
+import liqingzhao from "./liqingzhao.data.json";
+import hanqi from "./hanqi.data.json";
+import fubi from "./fubi.data.json";
+import wenyanbo from "./wenyanbo.data.json";
+import caixiang from "./caixiang.data.json";
+import yangwanli from "./yangwanli.data.json";
+import fanchengda from "./fanchengda.data.json";
+import lujiuyuan from "./lujiuyuan.data.json";
+import hanshizhong from "./hanshizhong.data.json";
+import kouzhun from "./kouzhun.data.json";
+import yeluchucai from "./yeluchucai.data.json";
+import xiejin from "./xiejin.data.json";
+import yansong from "./yansong.data.json";
+import wangshizhen from "./wangshizhen.data.json";
+import songyingxing from "./songyingxing.data.json";
+import kongshangren from "./kongshangren.data.json";
+import wangshizhen2 from "./wangshizhen2.data.json";
+import qiandaxin from "./qiandaxin.data.json";
+import yuyue from "./yuyue.data.json";
+import chenduxiu from "./chenduxiu.data.json";
+import qianxuantong from "./qianxuantong.data.json";
+import huangyanpei from "./huangyanpei.data.json";
+import chenqimei from "./chenqimei.data.json";
+import lianheng from "./lianheng.data.json";
+import dengjiaxian from "./dengjiaxian.data.json";
 
 /**
  * Every Wikidata-sourced family in one registry, so wiring a new one is a single
@@ -183,6 +220,43 @@ const FAMILIES: { key: string; label: string; dataset: GenealogyDataset }[] = [
   { key: "zhangjiasen", label: "张君劢家族（宝山张氏）", dataset: zhangjiasen as GenealogyDataset },
   { key: "guweijun", label: "顾维钧家族", dataset: guweijun as GenealogyDataset },
   { key: "tangshaoyi", label: "唐绍仪家族", dataset: tangshaoyi as GenealogyDataset },
+  // 第五批：唐宋名臣文人 + 明清 + 近代世家。
+  { key: "peidu", label: "裴度家族（河东裴氏）", dataset: peidu as GenealogyDataset },
+  { key: "wangwei", label: "王维家族", dataset: wangwei as GenealogyDataset },
+  { key: "liuyuxi", label: "刘禹锡家族", dataset: liuyuxi as GenealogyDataset },
+  { key: "yuanzhen", label: "元稹家族", dataset: yuanzhen as GenealogyDataset },
+  { key: "weiyingwu", label: "韦应物家族（京兆韦氏）", dataset: weiyingwu as GenealogyDataset },
+  { key: "zhangjiuling", label: "张九龄家族", dataset: zhangjiuling as GenealogyDataset },
+  { key: "direnjie", label: "狄仁杰家族", dataset: direnjie as GenealogyDataset },
+  { key: "fangxuanling", label: "房玄龄家族", dataset: fangxuanling as GenealogyDataset },
+  { key: "weizheng", label: "魏徵家族", dataset: weizheng as GenealogyDataset },
+  { key: "lideyu", label: "李德裕家族（赵郡李氏）", dataset: lideyu as GenealogyDataset },
+  { key: "chusuiliang", label: "褚遂良家族", dataset: chusuiliang as GenealogyDataset },
+  { key: "liqingzhao", label: "李清照家族（赵明诚）", dataset: liqingzhao as GenealogyDataset },
+  { key: "hanqi", label: "韩琦家族（相州韩氏）", dataset: hanqi as GenealogyDataset },
+  { key: "fubi", label: "富弼家族", dataset: fubi as GenealogyDataset },
+  { key: "wenyanbo", label: "文彦博家族", dataset: wenyanbo as GenealogyDataset },
+  { key: "caixiang", label: "蔡襄家族", dataset: caixiang as GenealogyDataset },
+  { key: "yangwanli", label: "杨万里家族", dataset: yangwanli as GenealogyDataset },
+  { key: "fanchengda", label: "范成大家族", dataset: fanchengda as GenealogyDataset },
+  { key: "lujiuyuan", label: "陆九渊家族", dataset: lujiuyuan as GenealogyDataset },
+  { key: "hanshizhong", label: "韩世忠家族（梁红玉）", dataset: hanshizhong as GenealogyDataset },
+  { key: "kouzhun", label: "寇准家族", dataset: kouzhun as GenealogyDataset },
+  { key: "yeluchucai", label: "耶律楚材家族", dataset: yeluchucai as GenealogyDataset },
+  { key: "xiejin", label: "解缙家族", dataset: xiejin as GenealogyDataset },
+  { key: "yansong", label: "严嵩家族", dataset: yansong as GenealogyDataset },
+  { key: "wangshizhen", label: "王世贞家族（太仓王氏）", dataset: wangshizhen as GenealogyDataset },
+  { key: "songyingxing", label: "宋应星家族", dataset: songyingxing as GenealogyDataset },
+  { key: "kongshangren", label: "孔尚任家族（曲阜孔氏）", dataset: kongshangren as GenealogyDataset },
+  { key: "wangshizhen2", label: "王士禛家族（新城王氏）", dataset: wangshizhen2 as GenealogyDataset },
+  { key: "qiandaxin", label: "钱大昕家族（嘉定钱氏）", dataset: qiandaxin as GenealogyDataset },
+  { key: "yuyue", label: "俞樾家族（俞平伯）", dataset: yuyue as GenealogyDataset },
+  { key: "chenduxiu", label: "陈独秀家族", dataset: chenduxiu as GenealogyDataset },
+  { key: "qianxuantong", label: "钱玄同家族（钱三强）", dataset: qianxuantong as GenealogyDataset },
+  { key: "huangyanpei", label: "黄炎培家族（川沙黄氏）", dataset: huangyanpei as GenealogyDataset },
+  { key: "chenqimei", label: "陈其美家族（二陈）", dataset: chenqimei as GenealogyDataset },
+  { key: "lianheng", label: "连横家族（连战）", dataset: lianheng as GenealogyDataset },
+  { key: "dengjiaxian", label: "邓稼先家族（怀宁邓氏）", dataset: dengjiaxian as GenealogyDataset },
   // 清皇室（溥仪）：完整世系，多为封号名，绝嗣线，人数最大——放在末尾。
   { key: "puyi", label: "清皇室（溥仪）", dataset: puyi as GenealogyDataset },
 ];

@@ -1,0 +1,378 @@
+{
+  "key": "wikidata:caixiang",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q1289157",
+      "name": "蔡襄",
+      "citation": "维基百科 / Wikidata Q1289157",
+      "aliases": [
+        "Cai Xiang"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1012
+      },
+      "death": {
+        "year": 1067
+      },
+      "bio": "Chinese calligrapher-architect (1012–1067)",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Cai%20Xiang-001.JPG",
+      "photoCredit": "作者：Gisling · CC BY-SA 3.0 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q16075503",
+      "name": "蔡戡",
+      "citation": "维基百科 / Wikidata Q16075503",
+      "aliases": [
+        "Cai Kan"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1141
+      },
+      "bio": "Song dynasty person CBDB = 3860"
+    },
+    {
+      "externalId": "Q45362690",
+      "name": "蔡高",
+      "citation": "维基百科 / Wikidata Q45362690",
+      "aliases": [
+        "Cai Gao"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 3861"
+    },
+    {
+      "externalId": "Q45362695",
+      "name": "蔡洸",
+      "citation": "维基百科 / Wikidata Q45362695",
+      "aliases": [
+        "Cai Guang"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 3863"
+    },
+    {
+      "externalId": "Q45362698",
+      "name": "蔡旻",
+      "citation": "维基百科 / Wikidata Q45362698",
+      "aliases": [
+        "Cai Min"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 1091
+      },
+      "bio": "Song dynasty person (CBDB = 3864)"
+    },
+    {
+      "externalId": "Q45364059",
+      "name": "方道坚",
+      "citation": "维基百科 / Wikidata Q45364059",
+      "aliases": [
+        "方道堅",
+        "Fang Daojian"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1115
+      },
+      "death": {
+        "year": 1191
+      },
+      "bio": "Song dynasty person (CBDB = 5120)"
+    },
+    {
+      "externalId": "Q45364306",
+      "name": "卢太君",
+      "citation": "维基百科 / Wikidata Q45364306",
+      "aliases": [
+        "盧太君",
+        "Lu Taijun"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 975
+      },
+      "death": {
+        "year": 1066
+      },
+      "bio": "Song dynasty person CBDB = 5198"
+    },
+    {
+      "externalId": "Q45366008",
+      "name": "蔡湍",
+      "citation": "维基百科 / Wikidata Q45366008",
+      "aliases": [
+        "Cai Tuan"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person (CBDB = 7354)"
+    },
+    {
+      "externalId": "Q45373241",
+      "name": "蔡显皇",
+      "citation": "维基百科 / Wikidata Q45373241",
+      "aliases": [
+        "蔡顯皇",
+        "Cai Xianhuang"
+      ],
+      "gender": "male",
+      "bio": "Min person CBDB = 12014"
+    },
+    {
+      "externalId": "Q45373243",
+      "name": "蔡恭",
+      "citation": "维基百科 / Wikidata Q45373243",
+      "aliases": [
+        "Cai Gong"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 12015"
+    },
+    {
+      "externalId": "Q45373245",
+      "name": "蔡琇",
+      "citation": "维基百科 / Wikidata Q45373245",
+      "aliases": [
+        "Cai Xiu"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person (CBDB = 12016)"
+    },
+    {
+      "externalId": "Q45373250",
+      "name": "蔡立",
+      "citation": "维基百科 / Wikidata Q45373250",
+      "aliases": [
+        "Cai Li"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 12018"
+    },
+    {
+      "externalId": "Q45373253",
+      "name": "蔡匀",
+      "citation": "维基百科 / Wikidata Q45373253",
+      "aliases": [
+        "蔡勻",
+        "Cai Yun"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1038
+      },
+      "death": {
+        "year": 1055
+      },
+      "bio": "Song dynasty person CBDB = 12019"
+    },
+    {
+      "externalId": "Q45373259",
+      "name": "蔡旬",
+      "citation": "维基百科 / Wikidata Q45373259",
+      "aliases": [
+        "Cai Xun"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 12020"
+    },
+    {
+      "externalId": "Q45373264",
+      "name": "蔡伷",
+      "citation": "维基百科 / Wikidata Q45373264",
+      "aliases": [
+        "Cai Zhou"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 12021"
+    },
+    {
+      "externalId": "Q45373266",
+      "name": "蔡佃",
+      "citation": "维基百科 / Wikidata Q45373266",
+      "aliases": [
+        "Cai Dian"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 12022"
+    },
+    {
+      "externalId": "Q45373269",
+      "name": "蔡伸",
+      "citation": "维基百科 / Wikidata Q45373269",
+      "aliases": [
+        "Cai Shen"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1088
+      },
+      "death": {
+        "year": 1156
+      },
+      "bio": "Song dynasty person (CBDB = 12023)"
+    },
+    {
+      "externalId": "Q45373327",
+      "name": "蔡袤",
+      "citation": "维基百科 / Wikidata Q45373327",
+      "aliases": [
+        "Cai Mao"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person (CBDB = 12045)"
+    },
+    {
+      "externalId": "Q45409387",
+      "name": "蔡康",
+      "citation": "维基百科 / Wikidata Q45409387",
+      "aliases": [
+        "Cai Kang"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 26141"
+    },
+    {
+      "externalId": "Q45427398",
+      "name": "蔡流",
+      "citation": "维基百科 / Wikidata Q45427398",
+      "aliases": [
+        "Cai Liu"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB=37305"
+    },
+    {
+      "externalId": "Q45427442",
+      "name": "蔡潩",
+      "citation": "维基百科 / Wikidata Q45427442",
+      "aliases": [
+        "Cai Yi"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 37306"
+    },
+    {
+      "externalId": "Q65799920",
+      "name": "程氏",
+      "citation": "维基百科 / Wikidata Q65799920",
+      "aliases": [
+        "Cheng Shi"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1004
+      },
+      "bio": "蔡高妻"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q45373245",
+      "child": "Q1289157"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45366008",
+      "child": "Q16075503"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45373245",
+      "child": "Q45362690"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45373269",
+      "child": "Q45362695"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q1289157",
+      "child": "Q45362698"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45373269",
+      "child": "Q45366008"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45373241",
+      "child": "Q45373243"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45373243",
+      "child": "Q45373245"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45373245",
+      "child": "Q45373250"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q1289157",
+      "child": "Q45373253"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q1289157",
+      "child": "Q45373259"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45362698",
+      "child": "Q45373264"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45362698",
+      "child": "Q45373266"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45362698",
+      "child": "Q45373269"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45373245",
+      "child": "Q45373327"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q16075503",
+      "child": "Q45409387"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45373269",
+      "child": "Q45427398"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45373269",
+      "child": "Q45427442"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45362690",
+      "b": "Q65799920"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45364059",
+      "b": "Q45366008"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45364306",
+      "b": "Q45373245"
+    }
+  ]
+}

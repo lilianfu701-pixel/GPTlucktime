@@ -1,0 +1,443 @@
+{
+  "key": "wikidata:weizheng",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q134081021",
+      "name": "魏氏",
+      "citation": "维基百科 / Wikidata Q134081021",
+      "gender": "female"
+    },
+    {
+      "externalId": "Q378356",
+      "name": "魏徵",
+      "citation": "维基百科 / Wikidata Q378356",
+      "aliases": [
+        "Wei Zheng"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 580
+      },
+      "death": {
+        "year": 643
+      },
+      "bio": "隋末唐初政治人物",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/WeiZheng.jpg",
+      "photoCredit": "作者：Taken by Fanghong · CC BY 2.5 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q45380979",
+      "name": "魏钊",
+      "citation": "维基百科 / Wikidata Q45380979",
+      "aliases": [
+        "魏釗",
+        "Wei Zhao"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 554
+      },
+      "bio": "Eastern Wei person CBDB = 15607"
+    },
+    {
+      "externalId": "Q45380980",
+      "name": "魏彦",
+      "citation": "维基百科 / Wikidata Q45380980",
+      "aliases": [
+        "魏彥",
+        "Wei Yan"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 517
+      },
+      "bio": "Eastern Wei person CBDB=15608"
+    },
+    {
+      "externalId": "Q45380981",
+      "name": "魏长贤",
+      "citation": "维基百科 / Wikidata Q45380981",
+      "aliases": [
+        "魏長賢",
+        "Wei Changxian"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 591
+      },
+      "bio": "Northern Qi person CBDB = 15609"
+    },
+    {
+      "externalId": "Q45418715",
+      "name": "魏处",
+      "citation": "维基百科 / Wikidata Q45418715",
+      "aliases": [
+        "魏處",
+        "Wei Chu"
+      ],
+      "gender": "male",
+      "bio": "Northern Wei person CBDB = 30890"
+    },
+    {
+      "externalId": "Q45418717",
+      "name": "魏叔玉",
+      "citation": "维基百科 / Wikidata Q45418717",
+      "aliases": [
+        "Wei Shuyu"
+      ],
+      "gender": "male",
+      "bio": "Tang dynasty person CBDB = 30891"
+    },
+    {
+      "externalId": "Q45418719",
+      "name": "魏叔琬",
+      "citation": "维基百科 / Wikidata Q45418719",
+      "aliases": [
+        "Wei Shuwan"
+      ],
+      "gender": "male",
+      "bio": "Tang dynasty person CBDB = 30892"
+    },
+    {
+      "externalId": "Q45418721",
+      "name": "魏叔璘",
+      "citation": "维基百科 / Wikidata Q45418721",
+      "aliases": [
+        "Wei Shulin"
+      ],
+      "gender": "male",
+      "bio": "Tang dynasty person CBDB = 30893"
+    },
+    {
+      "externalId": "Q45418723",
+      "name": "魏叔瑜",
+      "citation": "维基百科 / Wikidata Q45418723",
+      "aliases": [
+        "Wei Shuyu"
+      ],
+      "gender": "male",
+      "bio": "Tang dynasty person CBDB = 30894"
+    },
+    {
+      "externalId": "Q45418725",
+      "name": "魏膺",
+      "citation": "维基百科 / Wikidata Q45418725",
+      "aliases": [
+        "Wei Ying"
+      ],
+      "gender": "male",
+      "bio": "Tang dynasty person CBDB = 30895"
+    },
+    {
+      "externalId": "Q45418727",
+      "name": "魏华",
+      "citation": "维基百科 / Wikidata Q45418727",
+      "aliases": [
+        "魏華",
+        "Wei Hua"
+      ],
+      "gender": "male",
+      "bio": "Tang dynasty person CBDB = 30896"
+    },
+    {
+      "externalId": "Q45418729",
+      "name": "魏瞻",
+      "citation": "维基百科 / Wikidata Q45418729",
+      "aliases": [
+        "Wei Zhan"
+      ],
+      "gender": "male",
+      "bio": "Tang dynasty person CBDB = 30897"
+    },
+    {
+      "externalId": "Q45474239",
+      "name": "李绪",
+      "citation": "维基百科 / Wikidata Q45474239",
+      "aliases": [
+        "李緒",
+        "Li Xu"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 650
+      },
+      "death": {
+        "year": 688
+      },
+      "bio": "Tang dynasty person CBDB = 187992"
+    },
+    {
+      "externalId": "Q45474303",
+      "name": "李志顺",
+      "citation": "维基百科 / Wikidata Q45474303",
+      "aliases": [
+        "李志順",
+        "Li Zhishun"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 706
+      },
+      "bio": "Tang dynasty person CBDB = 187993"
+    },
+    {
+      "externalId": "Q45474359",
+      "name": "李某",
+      "citation": "维基百科 / Wikidata Q45474359",
+      "aliases": [
+        "Li Mou"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 733
+      },
+      "bio": "Tang dynasty person CBDB = 187994"
+    },
+    {
+      "externalId": "Q45474422",
+      "name": "李晖",
+      "citation": "维基百科 / Wikidata Q45474422",
+      "aliases": [
+        "李暉",
+        "Li Hui"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 760
+      },
+      "bio": "Tang dynasty person CBDB = 187995"
+    },
+    {
+      "externalId": "Q45681834",
+      "name": "魏伯胤",
+      "citation": "维基百科 / Wikidata Q45681834",
+      "aliases": [
+        "Wei Boyin"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 591
+      },
+      "bio": "person, CBDB = 176006"
+    },
+    {
+      "externalId": "Q45681898",
+      "name": "魏殷",
+      "citation": "维基百科 / Wikidata Q45681898",
+      "aliases": [
+        "Wei Yin"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 741
+      },
+      "bio": "Tang dynasty person CBDB = 176016"
+    },
+    {
+      "externalId": "Q45681927",
+      "name": "魏明",
+      "citation": "维基百科 / Wikidata Q45681927",
+      "aliases": [
+        "Wei Ming"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 778
+      },
+      "bio": "Tang dynasty person CBDB = 176017"
+    },
+    {
+      "externalId": "Q45681959",
+      "name": "魏凭",
+      "citation": "维基百科 / Wikidata Q45681959",
+      "aliases": [
+        "魏憑",
+        "Wei Ping"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 815
+      },
+      "bio": "Tang dynasty person CBDB = 176018"
+    },
+    {
+      "externalId": "Q45682117",
+      "name": "魏隋",
+      "citation": "维基百科 / Wikidata Q45682117",
+      "aliases": [
+        "Wei Sui"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 778
+      },
+      "bio": "Tang dynasty person CBDB = 176023"
+    },
+    {
+      "externalId": "Q45682148",
+      "name": "魏万",
+      "citation": "维基百科 / Wikidata Q45682148",
+      "aliases": [
+        "魏萬",
+        "Wei Wan"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 778
+      },
+      "bio": "Tang dynasty person CBDB = 176024"
+    },
+    {
+      "externalId": "Q45682180",
+      "name": "魏德振",
+      "citation": "维基百科 / Wikidata Q45682180",
+      "aliases": [
+        "Wei Dezhen"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 591
+      },
+      "bio": "person, CBDB = 176025"
+    },
+    {
+      "externalId": "Q7979763",
+      "name": "魏谟",
+      "citation": "维基百科 / Wikidata Q7979763",
+      "aliases": [
+        "Wei Mo"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 793
+      },
+      "death": {
+        "year": 858
+      },
+      "bio": "Tang dynasty chancellor"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q45380981",
+      "child": "Q378356"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45681959",
+      "child": "Q7979763"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45380980",
+      "child": "Q45380979"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45418715",
+      "child": "Q45380979"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45380979",
+      "child": "Q45380981"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q378356",
+      "child": "Q45418717"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q378356",
+      "child": "Q45418719"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q378356",
+      "child": "Q45418721"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q378356",
+      "child": "Q45418723"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45418717",
+      "child": "Q45418725"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45418723",
+      "child": "Q45418727"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45418727",
+      "child": "Q45418729"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45474239",
+      "child": "Q45474303"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45474303",
+      "child": "Q45474359"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45474359",
+      "child": "Q45474422"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45380979",
+      "child": "Q45681834"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45418721",
+      "child": "Q45681898"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45681898",
+      "child": "Q45681927"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45681927",
+      "child": "Q45681959"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45681898",
+      "child": "Q45682117"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45681898",
+      "child": "Q45682148"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45380979",
+      "child": "Q45682180"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q378356",
+      "child": "Q134081021"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q134081021",
+      "child": "Q45474239"
+    }
+  ]
+}

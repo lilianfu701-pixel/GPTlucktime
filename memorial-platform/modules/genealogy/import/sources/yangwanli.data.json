@@ -1,0 +1,174 @@
+{
+  "key": "wikidata:yangwanli",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q22100286",
+      "name": "杨长孺",
+      "citation": "维基百科 / Wikidata Q22100286",
+      "aliases": [
+        "楊長孺",
+        "Yang Changru"
+      ],
+      "gender": "male",
+      "bio": "Southern Song politician"
+    },
+    {
+      "externalId": "Q2900054",
+      "name": "杨万里",
+      "citation": "维基百科 / Wikidata Q2900054",
+      "aliases": [
+        "楊萬里",
+        "Yang Wanli"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1127
+      },
+      "death": {
+        "year": 1206
+      },
+      "bio": "南宋诗人"
+    },
+    {
+      "externalId": "Q45368698",
+      "name": "杨堪",
+      "citation": "维基百科 / Wikidata Q45368698",
+      "aliases": [
+        "楊堪",
+        "Yang Kan"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person (CBDB = 10563)"
+    },
+    {
+      "externalId": "Q45368703",
+      "name": "杨芾",
+      "citation": "维基百科 / Wikidata Q45368703",
+      "aliases": [
+        "楊芾",
+        "Yang Fu"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1096
+      },
+      "death": {
+        "year": 1164
+      },
+      "bio": "Song dynasty person CBDB = 10564"
+    },
+    {
+      "externalId": "Q45376796",
+      "name": "杨亨",
+      "citation": "维基百科 / Wikidata Q45376796",
+      "aliases": [
+        "楊亨",
+        "Yang Heng"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person (CBDB = 13186)"
+    },
+    {
+      "externalId": "Q45376800",
+      "name": "杨同",
+      "citation": "维基百科 / Wikidata Q45376800",
+      "aliases": [
+        "楊同",
+        "Yang Tong"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person (CBDB = 13187)"
+    },
+    {
+      "externalId": "Q45381316",
+      "name": "杨开",
+      "citation": "维基百科 / Wikidata Q45381316",
+      "aliases": [
+        "楊開",
+        "Yang Kai"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 15897"
+    },
+    {
+      "externalId": "Q45381317",
+      "name": "杨格非",
+      "citation": "维基百科 / Wikidata Q45381317",
+      "aliases": [
+        "楊格非",
+        "Yang Gefei"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person (CBDB = 15898)"
+    },
+    {
+      "externalId": "Q45411750",
+      "name": "杨次公",
+      "citation": "维基百科 / Wikidata Q45411750",
+      "aliases": [
+        "楊次公",
+        "Yang Cigong"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB=27308"
+    },
+    {
+      "externalId": "Q65800047",
+      "name": "某氏",
+      "citation": "维基百科 / Wikidata Q65800047",
+      "aliases": [
+        "Mou Shi"
+      ],
+      "gender": "female",
+      "bio": "楊万里母; 宋人﹐女。蘭閨寶錄有著錄。"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q65800047",
+      "child": "Q2900054"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45368703",
+      "child": "Q2900054"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q2900054",
+      "child": "Q22100286"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45376796",
+      "child": "Q45368698"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45381317",
+      "child": "Q45368703"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45368698",
+      "child": "Q45376800"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45368698",
+      "child": "Q45381316"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45381316",
+      "child": "Q45381317"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q2900054",
+      "child": "Q45411750"
+    }
+  ]
+}

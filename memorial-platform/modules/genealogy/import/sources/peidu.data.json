@@ -1,0 +1,678 @@
+{
+  "key": "wikidata:peidu",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q1564717",
+      "name": "裴耀卿",
+      "citation": "维基百科 / Wikidata Q1564717",
+      "aliases": [
+        "Pei Yaoqing"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 681
+      },
+      "death": {
+        "year": 743
+      },
+      "bio": "chancellor during the reign of Emperor Xuanzong of Tang"
+    },
+    {
+      "externalId": "Q18906959",
+      "name": "裴子余",
+      "citation": "维基百科 / Wikidata Q18906959",
+      "aliases": [
+        "裴子餘",
+        "Pei Ziyu"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 726
+      },
+      "bio": "Tang dynasty person CBDB = 31925"
+    },
+    {
+      "externalId": "Q18906968",
+      "name": "裴守真",
+      "citation": "维基百科 / Wikidata Q18906968",
+      "aliases": [
+        "Pei Shouzhen"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 702
+      },
+      "bio": "Tang dynasty person CBDB = 31924"
+    },
+    {
+      "externalId": "Q18906980",
+      "name": "裴幼卿",
+      "citation": "维基百科 / Wikidata Q18906980",
+      "aliases": [
+        "Pei Youqing"
+      ],
+      "gender": "male",
+      "bio": "Tang dynasty person CBDB = 33046"
+    },
+    {
+      "externalId": "Q18907003",
+      "name": "裴春卿",
+      "citation": "维基百科 / Wikidata Q18907003",
+      "aliases": [
+        "Pei Chunqing"
+      ],
+      "gender": "male",
+      "bio": "Tang dynasty person CBDB = 33047"
+    },
+    {
+      "externalId": "Q45420562",
+      "name": "裴正",
+      "citation": "维基百科 / Wikidata Q45420562",
+      "aliases": [
+        "Pei Zheng"
+      ],
+      "gender": "male",
+      "bio": "Sui dynasty person CBDB = 31922"
+    },
+    {
+      "externalId": "Q45420563",
+      "name": "裴眷",
+      "citation": "维基百科 / Wikidata Q45420563",
+      "aliases": [
+        "Pei Juan"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 667
+      },
+      "bio": "Tang dynasty person CBDB = 31923"
+    },
+    {
+      "externalId": "Q45420570",
+      "name": "裴巨卿",
+      "citation": "维基百科 / Wikidata Q45420570",
+      "aliases": [
+        "Pei Juqing"
+      ],
+      "gender": "male",
+      "bio": "Tang dynasty person CBDB=31926"
+    },
+    {
+      "externalId": "Q45493775",
+      "name": "裴譔",
+      "citation": "维基百科 / Wikidata Q45493775",
+      "aliases": [
+        "Pei Zhuan"
+      ],
+      "gender": "male",
+      "bio": "person, CBDB = 156830"
+    },
+    {
+      "externalId": "Q45505279",
+      "name": "裴识",
+      "citation": "维基百科 / Wikidata Q45505279",
+      "aliases": [
+        "裴識",
+        "Pei Shi"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 796
+      },
+      "death": {
+        "year": 864
+      },
+      "bio": "Tang dynasty person CBDB = 146317"
+    },
+    {
+      "externalId": "Q45599832",
+      "name": "裴清",
+      "citation": "维基百科 / Wikidata Q45599832",
+      "aliases": [
+        "Pei Qing"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 704
+      },
+      "bio": "Tang dynasty person CBDB = 190356"
+    },
+    {
+      "externalId": "Q45631805",
+      "name": "裴溥",
+      "citation": "维基百科 / Wikidata Q45631805",
+      "aliases": [
+        "Pei Pu"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 892
+      },
+      "bio": "Tang dynasty person CBDB = 185443"
+    },
+    {
+      "externalId": "Q45643013",
+      "name": "裴九思",
+      "citation": "维基百科 / Wikidata Q45643013",
+      "aliases": [
+        "Pei Jiusi"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 704
+      },
+      "bio": "Tang dynasty person CBDB = 170739"
+    },
+    {
+      "externalId": "Q45645483",
+      "name": "裴侨卿",
+      "citation": "维基百科 / Wikidata Q45645483",
+      "aliases": [
+        "裴僑卿",
+        "Pei Qiaoqing"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 741
+      },
+      "bio": "Tang dynasty person CBDB = 170787"
+    },
+    {
+      "externalId": "Q45646265",
+      "name": "裴淑",
+      "citation": "维基百科 / Wikidata Q45646265",
+      "aliases": [
+        "Pei Shu"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 778
+      },
+      "bio": "Tang dynasty person CBDB = 170801"
+    },
+    {
+      "externalId": "Q45646325",
+      "name": "裴挺",
+      "citation": "维基百科 / Wikidata Q45646325",
+      "aliases": [
+        "Pei Ting"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 778
+      },
+      "bio": "Tang dynasty person CBDB=170802"
+    },
+    {
+      "externalId": "Q45646384",
+      "name": "裴溆",
+      "citation": "维基百科 / Wikidata Q45646384",
+      "aliases": [
+        "Pei Xu"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 784
+      },
+      "bio": "Tang dynasty person CBDB = 170803"
+    },
+    {
+      "externalId": "Q45646445",
+      "name": "裴常棣",
+      "citation": "维基百科 / Wikidata Q45646445",
+      "aliases": [
+        "Pei Changdi"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 821
+      },
+      "bio": "Tang dynasty person CBDB = 170804"
+    },
+    {
+      "externalId": "Q45646563",
+      "name": "裴常宪",
+      "citation": "维基百科 / Wikidata Q45646563",
+      "aliases": [
+        "裴常憲",
+        "Pei Changxian"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 821
+      },
+      "bio": "Tang dynasty person CBDB = 170806"
+    },
+    {
+      "externalId": "Q45646623",
+      "name": "裴好古",
+      "citation": "维基百科 / Wikidata Q45646623",
+      "aliases": [
+        "Pei Haogu"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 821
+      },
+      "bio": "Tang dynasty person CBDB = 170807"
+    },
+    {
+      "externalId": "Q45646680",
+      "name": "裴好问",
+      "citation": "维基百科 / Wikidata Q45646680",
+      "aliases": [
+        "裴好問",
+        "Pei Haowen"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 821
+      },
+      "bio": "Tang dynasty person CBDB = 170808"
+    },
+    {
+      "externalId": "Q45646741",
+      "name": "裴昱",
+      "citation": "维基百科 / Wikidata Q45646741",
+      "aliases": [
+        "Pei Yu"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 741
+      },
+      "bio": "Tang dynasty person CBDB = 170809"
+    },
+    {
+      "externalId": "Q45647039",
+      "name": "裴归仁",
+      "citation": "维基百科 / Wikidata Q45647039",
+      "aliases": [
+        "裴歸仁",
+        "Pei Guiren"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 667
+      },
+      "bio": "Tang dynasty person CBDB = 170814"
+    },
+    {
+      "externalId": "Q45671673",
+      "name": "裴诩",
+      "citation": "维基百科 / Wikidata Q45671673",
+      "aliases": [
+        "裴詡",
+        "Pei Xu"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 861
+      },
+      "bio": "Tang dynasty person CBDB = 171335"
+    },
+    {
+      "externalId": "Q45671721",
+      "name": "裴造",
+      "citation": "维基百科 / Wikidata Q45671721",
+      "aliases": [
+        "Pei Zao"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 898
+      },
+      "bio": "Tang dynasty person CBDB = 171336"
+    },
+    {
+      "externalId": "Q45671765",
+      "name": "裴谂",
+      "citation": "维基百科 / Wikidata Q45671765",
+      "aliases": [
+        "裴諗",
+        "Pei Shen"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 880
+      },
+      "bio": "Tang dynasty person CBDB = 171337"
+    },
+    {
+      "externalId": "Q45671809",
+      "name": "裴沼",
+      "citation": "维基百科 / Wikidata Q45671809",
+      "aliases": [
+        "Pei Zhao"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 917
+      },
+      "bio": "person, CBDB = 171338"
+    },
+    {
+      "externalId": "Q45671856",
+      "name": "裴调",
+      "citation": "维基百科 / Wikidata Q45671856",
+      "aliases": [
+        "裴調",
+        "Pei Diao"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 861
+      },
+      "bio": "Tang dynasty person CBDB=171339"
+    },
+    {
+      "externalId": "Q45671900",
+      "name": "裴佋",
+      "citation": "维基百科 / Wikidata Q45671900",
+      "aliases": [
+        "Pei Zhao"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 892
+      },
+      "bio": "Tang dynasty person CBDB = 171340"
+    },
+    {
+      "externalId": "Q45671944",
+      "name": "裴逈",
+      "citation": "维基百科 / Wikidata Q45671944",
+      "aliases": [
+        "Pei Jiong"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 892
+      },
+      "bio": "Tang dynasty person CBDB = 171341"
+    },
+    {
+      "externalId": "Q45671988",
+      "name": "裴纯懿",
+      "citation": "维基百科 / Wikidata Q45671988",
+      "aliases": [
+        "裴純懿",
+        "Pei Chunyi"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 929
+      },
+      "bio": "person, CBDB = 171342"
+    },
+    {
+      "externalId": "Q45672035",
+      "name": "裴𫍯",
+      "citation": "维基百科 / Wikidata Q45672035",
+      "aliases": [
+        "裴諴",
+        "Pei Xian"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 861
+      },
+      "bio": "Tang dynasty person CBDB = 171343"
+    },
+    {
+      "externalId": "Q45672081",
+      "name": "裴光鼎",
+      "citation": "维基百科 / Wikidata Q45672081",
+      "aliases": [
+        "Pei Guangding"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 898
+      },
+      "bio": "Tang dynasty person CBDB = 171344"
+    },
+    {
+      "externalId": "Q45672127",
+      "name": "裴让",
+      "citation": "维基百科 / Wikidata Q45672127",
+      "aliases": [
+        "裴讓",
+        "Pei Rang"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 861
+      },
+      "bio": "Tang dynasty person CBDB = 171345"
+    },
+    {
+      "externalId": "Q45672172",
+      "name": "裴禹昌",
+      "citation": "维基百科 / Wikidata Q45672172",
+      "aliases": [
+        "Pei Yuchang"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 898
+      },
+      "bio": "Tang dynasty person CBDB = 171346"
+    },
+    {
+      "externalId": "Q45690726",
+      "name": "裴议",
+      "citation": "维基百科 / Wikidata Q45690726",
+      "aliases": [
+        "裴議",
+        "Pei Yi"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 861
+      },
+      "bio": "Tang dynasty person CBDB = 186891"
+    },
+    {
+      "externalId": "Q717888",
+      "name": "裴度",
+      "citation": "维基百科 / Wikidata Q717888",
+      "aliases": [
+        "Pei Du"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 765
+      },
+      "death": {
+        "year": 839
+      },
+      "bio": "裴度（765年－839年），字中立，河东闻喜县（今山西省运城市闻喜县）人，出自河东裴氏东眷裴",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/%E5%94%90%E8%A3%B4%E6%99%8B%E5%9B%BD%E6%96%87%E5%BF%A0%E5%85%AC%E5%BA%A6.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q45646384",
+      "child": "Q717888"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q18906968",
+      "child": "Q1564717"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q18906968",
+      "child": "Q18906959"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45420563",
+      "child": "Q18906968"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q18906968",
+      "child": "Q18906980"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q18906968",
+      "child": "Q18907003"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45420562",
+      "child": "Q45420563"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q18906968",
+      "child": "Q45420570"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q717888",
+      "child": "Q45493775"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q717888",
+      "child": "Q45505279"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45420563",
+      "child": "Q45599832"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45505279",
+      "child": "Q45631805"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45420563",
+      "child": "Q45643013"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q18906968",
+      "child": "Q45645483"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q18907003",
+      "child": "Q45646265"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q18907003",
+      "child": "Q45646325"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q18907003",
+      "child": "Q45646384"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45646384",
+      "child": "Q45646445"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45646384",
+      "child": "Q45646563"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45646384",
+      "child": "Q45646623"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45646384",
+      "child": "Q45646680"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q18906968",
+      "child": "Q45646741"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45420562",
+      "child": "Q45647039"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q717888",
+      "child": "Q45671673"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45671673",
+      "child": "Q45671721"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q717888",
+      "child": "Q45671765"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45671765",
+      "child": "Q45671809"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q717888",
+      "child": "Q45671856"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45505279",
+      "child": "Q45671900"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45505279",
+      "child": "Q45671944"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45671944",
+      "child": "Q45671988"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q717888",
+      "child": "Q45672035"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45672035",
+      "child": "Q45672081"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q717888",
+      "child": "Q45672127"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45672127",
+      "child": "Q45672172"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q717888",
+      "child": "Q45690726"
+    }
+  ]
+}

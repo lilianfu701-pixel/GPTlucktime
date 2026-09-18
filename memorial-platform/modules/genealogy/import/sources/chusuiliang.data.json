@@ -1,0 +1,353 @@
+{
+  "key": "wikidata:chusuiliang",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q10516947",
+      "name": "褚玠",
+      "citation": "维基百科 / Wikidata Q10516947",
+      "aliases": [
+        "Chu Jie"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 529
+      },
+      "death": {
+        "year": 580
+      },
+      "bio": "Chen dynasty person CBDB = 30935"
+    },
+    {
+      "externalId": "Q11318495",
+      "name": "褚炫",
+      "citation": "维基百科 / Wikidata Q11318495",
+      "aliases": [
+        "Chu Xuan"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 445
+      },
+      "death": {
+        "year": 485
+      },
+      "bio": "Southern Qi person CBDB=30932"
+    },
+    {
+      "externalId": "Q11318508",
+      "name": "褚亮",
+      "citation": "维基百科 / Wikidata Q11318508",
+      "aliases": [
+        "Chu Liang"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 560
+      },
+      "death": {
+        "year": 647
+      },
+      "bio": "Tang dynasty politician"
+    },
+    {
+      "externalId": "Q22814032",
+      "name": "褚湮",
+      "citation": "维基百科 / Wikidata Q22814032",
+      "gender": "male"
+    },
+    {
+      "externalId": "Q22814034",
+      "name": "褚蒙",
+      "citation": "维基百科 / Wikidata Q22814034",
+      "aliases": [
+        "Chu Meng"
+      ],
+      "gender": "male",
+      "bio": "Chen dynasty person CBDB = 30934"
+    },
+    {
+      "externalId": "Q45418798",
+      "name": "褚沄",
+      "citation": "维基百科 / Wikidata Q45418798",
+      "aliases": [
+        "褚澐",
+        "Chu Yun"
+      ],
+      "gender": "male",
+      "bio": "Liang dynasty person CBDB = 30933"
+    },
+    {
+      "externalId": "Q45418806",
+      "name": "褚遂贤",
+      "citation": "维基百科 / Wikidata Q45418806",
+      "aliases": [
+        "褚遂賢",
+        "Chu Suixian"
+      ],
+      "gender": "male",
+      "bio": "Tang dynasty person CBDB = 30937"
+    },
+    {
+      "externalId": "Q45418812",
+      "name": "褚彦甫",
+      "citation": "维基百科 / Wikidata Q45418812",
+      "aliases": [
+        "褚彥甫",
+        "Chu Yanfu"
+      ],
+      "gender": "male",
+      "bio": "Tang dynasty person CBDB = 30940"
+    },
+    {
+      "externalId": "Q45418813",
+      "name": "褚彦冲",
+      "citation": "维基百科 / Wikidata Q45418813",
+      "aliases": [
+        "褚彥沖",
+        "Chu Yanchong"
+      ],
+      "gender": "male",
+      "bio": "Tang dynasty person CBDB = 30941"
+    },
+    {
+      "externalId": "Q45439954",
+      "name": "褚汉",
+      "citation": "维基百科 / Wikidata Q45439954",
+      "aliases": [
+        "褚漢",
+        "Chu Han"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 506
+      },
+      "bio": "person, CBDB = 176829"
+    },
+    {
+      "externalId": "Q45440016",
+      "name": "褚象",
+      "citation": "维基百科 / Wikidata Q45440016",
+      "aliases": [
+        "Chu Xiang"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 543
+      },
+      "bio": "person, CBDB = 176830"
+    },
+    {
+      "externalId": "Q45440150",
+      "name": "褚侨",
+      "citation": "维基百科 / Wikidata Q45440150",
+      "aliases": [
+        "褚僑",
+        "Chu Qiao"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 728
+      },
+      "bio": "Tang dynasty person CBDB = 176841"
+    },
+    {
+      "externalId": "Q45440215",
+      "name": "褚休",
+      "citation": "维基百科 / Wikidata Q45440215",
+      "aliases": [
+        "Chu Xiu"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 728
+      },
+      "bio": "Tang dynasty person CBDB = 176842"
+    },
+    {
+      "externalId": "Q45440277",
+      "name": "褚某",
+      "citation": "维基百科 / Wikidata Q45440277",
+      "aliases": [
+        "Chu Mou"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 765
+      },
+      "bio": "Tang dynasty person CBDB=176843"
+    },
+    {
+      "externalId": "Q45440339",
+      "name": "褚某",
+      "citation": "维基百科 / Wikidata Q45440339",
+      "aliases": [
+        "Chu Mou"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 802
+      },
+      "bio": "Tang dynasty person CBDB = 176844"
+    },
+    {
+      "externalId": "Q45440403",
+      "name": "褚某",
+      "citation": "维基百科 / Wikidata Q45440403",
+      "aliases": [
+        "Chu Mou"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 839
+      },
+      "bio": "Tang dynasty person CBDB=176845"
+    },
+    {
+      "externalId": "Q45440781",
+      "name": "褚伦",
+      "citation": "维基百科 / Wikidata Q45440781",
+      "aliases": [
+        "褚倫",
+        "Chu Lun"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 728
+      },
+      "bio": "Tang dynasty person CBDB = 176852"
+    },
+    {
+      "externalId": "Q45440842",
+      "name": "褚俨",
+      "citation": "维基百科 / Wikidata Q45440842",
+      "aliases": [
+        "褚儼",
+        "Chu Yan"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 728
+      },
+      "bio": "Tang dynasty person CBDB = 176853"
+    },
+    {
+      "externalId": "Q557726",
+      "name": "褚遂良",
+      "citation": "维基百科 / Wikidata Q557726",
+      "aliases": [
+        "Chu Suiliang"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 596
+      },
+      "death": {
+        "year": 658
+      },
+      "bio": "Chinese chancellor"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q11318508",
+      "child": "Q557726"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q22814034",
+      "child": "Q10516947"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45440016",
+      "child": "Q10516947"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q10516947",
+      "child": "Q11318508"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q11318495",
+      "child": "Q22814032"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q22814032",
+      "child": "Q22814034"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45418798",
+      "child": "Q22814034"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q11318495",
+      "child": "Q45418798"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q11318508",
+      "child": "Q45418806"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q557726",
+      "child": "Q45418812"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q557726",
+      "child": "Q45418813"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q11318495",
+      "child": "Q45439954"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45439954",
+      "child": "Q45440016"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45418812",
+      "child": "Q45440150"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45418812",
+      "child": "Q45440215"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45440215",
+      "child": "Q45440277"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45440277",
+      "child": "Q45440339"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45440339",
+      "child": "Q45440403"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45418813",
+      "child": "Q45440781"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45418813",
+      "child": "Q45440842"
+    }
+  ]
+}

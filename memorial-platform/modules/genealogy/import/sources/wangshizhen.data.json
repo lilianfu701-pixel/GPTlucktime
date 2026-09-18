@@ -1,0 +1,368 @@
+{
+  "key": "wikidata:wangshizhen",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q15933350",
+      "name": "王忬",
+      "citation": "维基百科 / Wikidata Q15933350",
+      "aliases": [
+        "Wang Shu"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1507
+      },
+      "death": {
+        "year": 1560
+      },
+      "bio": "Ming dynasty person CBDB = 34718",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/%E7%8E%8B%E5%BF%AC.jpg",
+      "photoCredit": "作者：孔繼堯 · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q16260750",
+      "name": "王世懋",
+      "citation": "维基百科 / Wikidata Q16260750",
+      "aliases": [
+        "Wang Shimao"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1536
+      },
+      "death": {
+        "year": 1588
+      },
+      "bio": "Ming dynasty person CBDB = 34719"
+    },
+    {
+      "externalId": "Q19856054",
+      "name": "王侨",
+      "citation": "维基百科 / Wikidata Q19856054",
+      "aliases": [
+        "王僑",
+        "Wang Qiao"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1439
+      },
+      "bio": "politician"
+    },
+    {
+      "externalId": "Q20063835",
+      "name": "王倬",
+      "citation": "维基百科 / Wikidata Q20063835",
+      "aliases": [
+        "Wang Zhuo"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1447
+      },
+      "death": {
+        "year": 1521
+      },
+      "bio": "politician"
+    },
+    {
+      "externalId": "Q28413923",
+      "name": "王士骐",
+      "citation": "维基百科 / Wikidata Q28413923",
+      "aliases": [
+        "王士騏",
+        "Wang Shiqi"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1557
+      },
+      "bio": "Ming dynasty politician, jin shi 1589"
+    },
+    {
+      "externalId": "Q45443021",
+      "name": "王辂",
+      "citation": "维基百科 / Wikidata Q45443021",
+      "aliases": [
+        "王輅",
+        "Wang Lu"
+      ],
+      "gender": "male",
+      "bio": "Ming dynasty person CBDB = 309372"
+    },
+    {
+      "externalId": "Q45446442",
+      "name": "王士骕",
+      "citation": "维基百科 / Wikidata Q45446442",
+      "aliases": [
+        "王士驌",
+        "Wang Shisu"
+      ],
+      "gender": "male",
+      "bio": "Ming dynasty person CBDB = 134660"
+    },
+    {
+      "externalId": "Q45593520",
+      "name": "华叔阳",
+      "citation": "维基百科 / Wikidata Q45593520",
+      "aliases": [
+        "華叔陽",
+        "Hua Shuyang"
+      ],
+      "gender": "male",
+      "bio": "Ming dynasty person CBDB = 131528"
+    },
+    {
+      "externalId": "Q45637209",
+      "name": "王质",
+      "citation": "维基百科 / Wikidata Q45637209",
+      "aliases": [
+        "王質",
+        "Wang Zhi"
+      ],
+      "gender": "male",
+      "bio": "Ming dynasty person CBDB = 250183"
+    },
+    {
+      "externalId": "Q45637271",
+      "name": "王琳",
+      "citation": "维基百科 / Wikidata Q45637271",
+      "aliases": [
+        "Wang Lin"
+      ],
+      "gender": "male",
+      "bio": "Ming dynasty person CBDB = 250184"
+    },
+    {
+      "externalId": "Q6127545",
+      "name": "王世贞",
+      "citation": "维基百科 / Wikidata Q6127545",
+      "aliases": [
+        "Wang Shizhen"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1526
+      },
+      "death": {
+        "year": 1590
+      },
+      "bio": "Ming dynasty writer (1526–1590)",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Wang%20Shizhen.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q65827491",
+      "name": "陈氏",
+      "citation": "维基百科 / Wikidata Q65827491",
+      "aliases": [
+        "陳氏",
+        "Chen Shi"
+      ],
+      "gender": "female",
+      "bio": "王忬母"
+    },
+    {
+      "externalId": "Q65827493",
+      "name": "郁氏",
+      "citation": "维基百科 / Wikidata Q65827493",
+      "aliases": [
+        "Yu Shi"
+      ],
+      "gender": "female",
+      "bio": "王忬妻"
+    },
+    {
+      "externalId": "Q65833786",
+      "name": "郁氏",
+      "citation": "维基百科 / Wikidata Q65833786",
+      "aliases": [
+        "Yu Shi"
+      ],
+      "gender": "female",
+      "bio": "王世貞母"
+    },
+    {
+      "externalId": "Q65833790",
+      "name": "魏氏",
+      "citation": "维基百科 / Wikidata Q65833790",
+      "aliases": [
+        "Wei Shi"
+      ],
+      "gender": "female",
+      "bio": "王世貞妻"
+    },
+    {
+      "externalId": "Q65851988",
+      "name": "章氏",
+      "citation": "维基百科 / Wikidata Q65851988",
+      "aliases": [
+        "Zhang Shi"
+      ],
+      "gender": "female",
+      "bio": "王世懋妻"
+    },
+    {
+      "externalId": "Q65854458",
+      "name": "张氏",
+      "citation": "维基百科 / Wikidata Q65854458",
+      "aliases": [
+        "張氏",
+        "Zhang Shi"
+      ],
+      "gender": "female",
+      "bio": "王僑母"
+    },
+    {
+      "externalId": "Q65854461",
+      "name": "陆氏",
+      "citation": "维基百科 / Wikidata Q65854461",
+      "aliases": [
+        "陸氏",
+        "Lu Shi"
+      ],
+      "gender": "female",
+      "bio": "王僑妻"
+    },
+    {
+      "externalId": "Q65856924",
+      "name": "陈氏",
+      "citation": "维基百科 / Wikidata Q65856924",
+      "aliases": [
+        "陳氏",
+        "Chen Shi"
+      ],
+      "gender": "female",
+      "bio": "王倬妻"
+    },
+    {
+      "externalId": "Q65856928",
+      "name": "陈氏",
+      "citation": "维基百科 / Wikidata Q65856928",
+      "aliases": [
+        "陳氏",
+        "Chen Shi"
+      ],
+      "gender": "female",
+      "bio": "王倬繼妻"
+    },
+    {
+      "externalId": "Q65861019",
+      "name": "王氏",
+      "citation": "维基百科 / Wikidata Q65861019",
+      "aliases": [
+        "Wang Shi"
+      ],
+      "gender": "female",
+      "bio": "華叔陽妻"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q15933350",
+      "child": "Q6127545"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q20063835",
+      "child": "Q15933350"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q15933350",
+      "child": "Q16260750"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45443021",
+      "child": "Q19856054"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45443021",
+      "child": "Q20063835"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q6127545",
+      "child": "Q28413923"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45637271",
+      "child": "Q45443021"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q6127545",
+      "child": "Q45446442"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45637209",
+      "child": "Q45637271"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q6127545",
+      "child": "Q65861019"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q65833786",
+      "child": "Q6127545"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q65827491",
+      "child": "Q15933350"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q65854458",
+      "child": "Q19856054"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q65854458",
+      "child": "Q20063835"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q6127545",
+      "b": "Q65833790"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q15933350",
+      "b": "Q65827493"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q16260750",
+      "b": "Q65851988"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q19856054",
+      "b": "Q65854461"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q20063835",
+      "b": "Q65856924"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q20063835",
+      "b": "Q65856928"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45593520",
+      "b": "Q65861019"
+    }
+  ]
+}
