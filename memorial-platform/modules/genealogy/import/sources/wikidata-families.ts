@@ -163,6 +163,18 @@ import zhangshizhao from "./zhangshizhao.data.json";
 import lishizeng from "./lishizeng.data.json";
 import wengwenhao from "./wengwenhao.data.json";
 import zhoupeiyuan from "./zhoupeiyuan.data.json";
+// Wave 8 — 近现代艺术家 + 学者 + 实业家 + 汉宋文人。
+import maodun from "./maodun.data.json";
+import yanxiu from "./yanxiu.data.json";
+import laoshe from "./laoshe.data.json";
+import zhangjian from "./zhangjian.data.json";
+import hushi from "./hushi.data.json";
+import caiyuanpei from "./caiyuanpei.data.json";
+import lisiguang from "./lisiguang.data.json";
+import mifu from "./mifu.data.json";
+import zhengxuan from "./zhengxuan.data.json";
+import qibaishi from "./qibaishi.data.json";
+import wuchangshuo from "./wuchangshuo.data.json";
 
 /**
  * Every Wikidata-sourced family in one registry, so wiring a new one is a single
@@ -341,6 +353,18 @@ const FAMILIES: { key: string; label: string; dataset: GenealogyDataset }[] = [
   { key: "huwenhu", label: "胡文虎家族（永安堂）", dataset: huwenhu as GenealogyDataset },
   // 清皇室（溥仪）：完整世系，多为封号名，绝嗣线，人数最大——放在末尾。
   { key: "puyi", label: "清皇室（溥仪）", dataset: puyi as GenealogyDataset },
+  // 第八批：近现代艺术家 + 学者 + 实业家 + 汉宋文人世家。
+  { key: "maodun", label: "茅盾家族（沈氏·张琴秋）", dataset: maodun as GenealogyDataset },
+  { key: "yanxiu", label: "严修家族（严卞世家·天津）", dataset: yanxiu as GenealogyDataset },
+  { key: "laoshe", label: "老舍家族（舒氏）", dataset: laoshe as GenealogyDataset },
+  { key: "zhangjian", label: "张謇家族（南通张氏）", dataset: zhangjian as GenealogyDataset },
+  { key: "hushi", label: "胡适家族", dataset: hushi as GenealogyDataset },
+  { key: "caiyuanpei", label: "蔡元培家族", dataset: caiyuanpei as GenealogyDataset },
+  { key: "lisiguang", label: "李四光家族", dataset: lisiguang as GenealogyDataset },
+  { key: "mifu", label: "米芾家族（米友仁）", dataset: mifu as GenealogyDataset },
+  { key: "zhengxuan", label: "郑玄家族（汉代经学）", dataset: zhengxuan as GenealogyDataset },
+  { key: "qibaishi", label: "齐白石家族", dataset: qibaishi as GenealogyDataset },
+  { key: "wuchangshuo", label: "吴昌硕家族", dataset: wuchangshuo as GenealogyDataset },
 ];
 
 export type WikidataFamilyMeta = {

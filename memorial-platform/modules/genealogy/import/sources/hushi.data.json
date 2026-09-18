@@ -1,0 +1,72 @@
+{
+  "key": "wikidata:hushi",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q4193768",
+      "name": "胡传",
+      "citation": "维基百科 / Wikidata Q4193768",
+      "aliases": [
+        "胡傳",
+        "Hu Chuan"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1841
+      },
+      "death": {
+        "year": 1895
+      },
+      "bio": "清朝官員、胡適之父",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Hu%20Chuan.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q47667",
+      "name": "胡适",
+      "citation": "维基百科 / Wikidata Q47667",
+      "aliases": [
+        "胡適",
+        "Hu Shih"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1891
+      },
+      "death": {
+        "year": 1962
+      },
+      "bio": "中國历史学家、作家、哲学家，新文化運動的領袖之一",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Hu%20Shih%201960%20color.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q56271321",
+      "name": "胡思杜",
+      "citation": "维基百科 / Wikidata Q56271321",
+      "aliases": [
+        "Hu Sidu"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1921
+      },
+      "death": {
+        "year": 1957
+      },
+      "bio": "中华民国学者、作家、政治人物胡适的次子"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q4193768",
+      "child": "Q47667"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q47667",
+      "child": "Q56271321"
+    }
+  ]
+}

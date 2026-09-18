@@ -1,0 +1,72 @@
+{
+  "key": "wikidata:lisiguang",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q11096978",
+      "name": "李林",
+      "citation": "维基百科 / Wikidata Q11096978",
+      "aliases": [
+        "Li Lin"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1923
+      },
+      "death": {
+        "year": 2002
+      },
+      "bio": "物理学家",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Li%20Lin%20%28physicist%29.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q15908399",
+      "name": "邹承鲁",
+      "citation": "维基百科 / Wikidata Q15908399",
+      "aliases": [
+        "Chen-Lu Tsou"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1923
+      },
+      "death": {
+        "year": 2006
+      },
+      "bio": "中国生物化学家（1923-2006）",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Zou%20Chenglu.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q707276",
+      "name": "李四光",
+      "citation": "维基百科 / Wikidata Q707276",
+      "aliases": [
+        "Li Siguang"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1889
+      },
+      "death": {
+        "year": 1971
+      },
+      "bio": "近代中国地质学家",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Li%20Siguang.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q707276",
+      "child": "Q11096978"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q11096978",
+      "b": "Q15908399"
+    }
+  ]
+}

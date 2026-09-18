@@ -1,0 +1,44 @@
+{
+  "key": "wikidata:qibaishi",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q16262844",
+      "name": "Qi Liangyi",
+      "citation": "维基百科 / Wikidata Q16262844",
+      "gender": "female",
+      "birth": {
+        "year": 1923
+      },
+      "death": {
+        "year": 1988
+      },
+      "bio": "Chinese painter (1923–1988)"
+    },
+    {
+      "externalId": "Q369608",
+      "name": "齐白石",
+      "citation": "维基百科 / Wikidata Q369608",
+      "aliases": [
+        "Qi Baishi"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1864
+      },
+      "death": {
+        "year": 1957
+      },
+      "bio": "中国著名国画家",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Qi%20Baishi%20%281956%29%2C%20by%20Zheng%20Jingkang.jpg",
+      "photoCredit": "作者：Zheng Jingkang · 公有领域 · 来源：Wikimedia Commons"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q369608",
+      "child": "Q16262844"
+    }
+  ]
+}

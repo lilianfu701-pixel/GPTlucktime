@@ -10,38 +10,37 @@ const UA = "missingu-genealogy/1.0 (https://missingu.org)";
 
 /** key → the most-connected member of the clan (usually the patriarch). */
 const CANDIDATES: { key: string; name: string; era: string }[] = [
-  // 古代 / 中古
-  { key: "caocao", name: "曹操", era: "汉末三国" },
-  { key: "simaguang", name: "司马光", era: "北宋" },
-  { key: "wangxizhi", name: "王羲之", era: "东晋·琅琊王氏" },
-  { key: "sushi", name: "苏轼", era: "北宋·眉山苏氏" },
-  { key: "ouyangxiu", name: "欧阳修", era: "北宋" },
-  { key: "zhuxi", name: "朱熹", era: "南宋" },
-  { key: "wangyangming", name: "王守仁", era: "明·余姚王氏" },
-  { key: "zhugeliang", name: "诸葛亮", era: "三国" },
-  { key: "dufu", name: "杜甫", era: "唐" },
-  { key: "kongzi", name: "孔丘", era: "春秋·孔子世家" },
-  { key: "mingimperial", name: "朱元璋", era: "明皇室" },
-  { key: "tangimperial", name: "李世民", era: "唐皇室·陇西李氏" },
-  // 近代
-  { key: "linzexu", name: "林则徐", era: "清" },
-  { key: "zuozongtang", name: "左宗棠", era: "清" },
-  { key: "zhangzhidong", name: "张之洞", era: "清" },
-  { key: "wengtonghe", name: "翁同龢", era: "清·常熟翁氏" },
-  { key: "kangyouwei", name: "康有为", era: "清末" },
-  { key: "yanfu", name: "严复", era: "清末" },
-  { key: "tansitong", name: "谭嗣同", era: "清末" },
-  { key: "caiyuanpei", name: "蔡元培", era: "清末民初" },
-  { key: "zhangtaiyan", name: "章太炎", era: "清末民初" },
-  { key: "chenbaozhen", name: "陈宝箴", era: "清末·义宁陈氏" },
-  { key: "zhangjian", name: "张謇", era: "清末实业" },
-  { key: "chenjiageng", name: "陈嘉庚", era: "近代华侨" },
-  // 现代
-  { key: "hushi", name: "胡适", era: "民国" },
-  { key: "guomoruo", name: "郭沫若", era: "现代" },
-  { key: "bajin", name: "巴金", era: "现代" },
-  { key: "hualuogeng", name: "华罗庚", era: "现代科学" },
-  { key: "zhaoyuanren", name: "赵元任", era: "现代·常州赵氏" },
+  // 波次8 — 近现代艺术家
+  { key: "qibaishi", name: "齐白石", era: "近现代·画家" },
+  { key: "zhangdaqian", name: "张大千", era: "近现代·画家" },
+  { key: "fubaoshi", name: "傅抱石", era: "近现代·画家" },
+  { key: "wuchangshuo", name: "吴昌硕", era: "近现代·书画篆刻" },
+  { key: "laoshe", name: "老舍", era: "现代·小说家" },
+  { key: "maodun", name: "茅盾", era: "现代·文学家" },
+  { key: "bajin", name: "巴金", era: "现代·文学家" },
+  // 近现代科学家/学者
+  { key: "hualuogeng", name: "华罗庚", era: "现代·数学家" },
+  { key: "zhukezhen", name: "竺可桢", era: "现代·气象学家" },
+  { key: "lisiguang", name: "李四光", era: "现代·地质学家" },
+  { key: "maoyisheng", name: "茅以升", era: "现代·桥梁工程师" },
+  { key: "lianyuying", name: "钱穆", era: "现代·历史学家" },
+  { key: "hushi", name: "胡适", era: "民国·学者" },
+  // 清末民初实业/教育
+  { key: "caiyuanpei", name: "蔡元培", era: "清末民初·教育家" },
+  { key: "zhangjian", name: "张謇", era: "清末·南通实业家" },
+  { key: "yanxiu", name: "严修", era: "清末·教育家" },
+  // 明清文人/艺术家
+  { key: "zhengbanqiao", name: "郑燮", era: "清·扬州八怪" },
+  { key: "psongling", name: "蒲松龄", era: "清·聊斋志异" },
+  { key: "mifu", name: "米芾", era: "北宋·书画家" },
+  // 近代军政
+  { key: "yanxishan", name: "阎锡山", era: "民国·山西督军" },
+  { key: "liyuanhong", name: "黎元洪", era: "民国·大总统" },
+  { key: "caie", name: "蔡锷", era: "民国·护国" },
+  // 古代重要学者
+  { key: "zhengxuan", name: "郑玄", era: "汉·经学家" },
+  { key: "xielingyun", name: "谢灵运", era: "南朝·山水诗" },
+  { key: "yuxin", name: "庾信", era: "南北朝·诗人" },
 ];
 
 type SearchHit = { id: string; label?: string; description?: string };

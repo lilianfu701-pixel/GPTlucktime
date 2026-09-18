@@ -1,0 +1,132 @@
+{
+  "key": "wikidata:maodun",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q11067464",
+      "name": "张琴秋",
+      "citation": "维基百科 / Wikidata Q11067464",
+      "aliases": [
+        "Zhang Qinqiu"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1904
+      },
+      "death": {
+        "year": 1968
+      },
+      "bio": "中共官员（1904－1968）",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Zhang%20Qinqiu1.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q112666359",
+      "name": "沈永锡",
+      "citation": "维基百科 / Wikidata Q112666359",
+      "aliases": [
+        "Shen Yongxi"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1872
+      },
+      "death": {
+        "year": 1906
+      }
+    },
+    {
+      "externalId": "Q112666382",
+      "name": "沈恩培",
+      "citation": "维基百科 / Wikidata Q112666382",
+      "aliases": [
+        "Shen Enpei"
+      ],
+      "gender": "male"
+    },
+    {
+      "externalId": "Q112666405",
+      "name": "沈恩敏",
+      "citation": "维基百科 / Wikidata Q112666405",
+      "aliases": [
+        "Shen Enmin"
+      ],
+      "gender": "female"
+    },
+    {
+      "externalId": "Q112666414",
+      "name": "卢福基",
+      "citation": "维基百科 / Wikidata Q112666414",
+      "aliases": [
+        "Lu Fuji"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 1919
+      }
+    },
+    {
+      "externalId": "Q358494",
+      "name": "茅盾",
+      "citation": "维基百科 / Wikidata Q358494",
+      "aliases": [
+        "Mao Dun"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1896
+      },
+      "death": {
+        "year": 1981
+      },
+      "bio": "中國作家（1896－1981）",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/%E8%8C%85%E7%9B%BE%E6%B2%88%E9%9B%81%E5%86%B0.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q8296474",
+      "name": "沈泽民",
+      "citation": "维基百科 / Wikidata Q8296474",
+      "aliases": [
+        "Shen Zemin"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1900
+      },
+      "death": {
+        "year": 1933
+      },
+      "bio": "中国共产党早期领导人",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Shen%20Zemin.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q112666359",
+      "child": "Q358494"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q112666359",
+      "child": "Q8296474"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q112666382",
+      "child": "Q112666359"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q11067464",
+      "b": "Q8296474"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q112666405",
+      "b": "Q112666414"
+    }
+  ]
+}

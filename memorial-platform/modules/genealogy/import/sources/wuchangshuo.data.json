@@ -1,0 +1,42 @@
+{
+  "key": "wikidata:wuchangshuo",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q45625056",
+      "name": "施酒",
+      "citation": "维基百科 / Wikidata Q45625056",
+      "aliases": [
+        "Shi Jiu"
+      ],
+      "gender": "female",
+      "bio": "Republic of China person CBDB = 122255"
+    },
+    {
+      "externalId": "Q715400",
+      "name": "吴昌硕",
+      "citation": "维基百科 / Wikidata Q715400",
+      "aliases": [
+        "吳昌碩",
+        "Wu Chang-shuo"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1844
+      },
+      "death": {
+        "year": 1927
+      },
+      "bio": "清末民初篆刻家",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/%E5%91%89%E6%98%8C%E7%A2%A9%E5%B0%8F%E5%83%8F.png",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "spouse",
+      "a": "Q45625056",
+      "b": "Q715400"
+    }
+  ]
+}

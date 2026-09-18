@@ -1,0 +1,62 @@
+{
+  "key": "wikidata:mifu",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q3178580",
+      "name": "米友仁",
+      "citation": "维基百科 / Wikidata Q3178580",
+      "aliases": [
+        "Mi Youren"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1086
+      },
+      "death": {
+        "year": 1153
+      },
+      "bio": "12世紀的畫家"
+    },
+    {
+      "externalId": "Q320129",
+      "name": "米芾",
+      "citation": "维基百科 / Wikidata Q320129",
+      "aliases": [
+        "Mi Fu"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1051
+      },
+      "death": {
+        "year": 1107
+      },
+      "bio": "Chinese artist (1051-1107)",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/%E7%B1%B3%E8%8A%BE.jpg",
+      "photoCredit": "作者：Chao Bu's Painting · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q45396144",
+      "name": "米友知",
+      "citation": "维基百科 / Wikidata Q45396144",
+      "aliases": [
+        "Mi Youzhi"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 20724"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q320129",
+      "child": "Q3178580"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q320129",
+      "child": "Q45396144"
+    }
+  ]
+}

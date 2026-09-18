@@ -1,0 +1,381 @@
+{
+  "key": "wikidata:yanxiu",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q10871546",
+      "name": "严修",
+      "citation": "维基百科 / Wikidata Q10871546",
+      "aliases": [
+        "Yan Xiu"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1860
+      },
+      "death": {
+        "year": 1929
+      },
+      "bio": "清末民初教育家",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Yan%20Xiu.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q10871585",
+      "name": "严智开",
+      "citation": "维基百科 / Wikidata Q10871585",
+      "aliases": [
+        "Yan Zhikai"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1894
+      },
+      "death": {
+        "year": 1942
+      },
+      "bio": "中国画家"
+    },
+    {
+      "externalId": "Q109174866",
+      "name": "严仁荫",
+      "citation": "维基百科 / Wikidata Q109174866",
+      "gender": "male",
+      "birth": {
+        "year": 1908
+      },
+      "death": {
+        "year": 1977
+      }
+    },
+    {
+      "externalId": "Q112086087",
+      "name": "严智蠲",
+      "citation": "维基百科 / Wikidata Q112086087",
+      "aliases": [
+        "嚴智蠲",
+        "Yan Zhijuan"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1886
+      }
+    },
+    {
+      "externalId": "Q112086192",
+      "name": "严智崇",
+      "citation": "维基百科 / Wikidata Q112086192",
+      "aliases": [
+        "嚴智崇",
+        "Yan Zhichong"
+      ],
+      "gender": "male"
+    },
+    {
+      "externalId": "Q112087845",
+      "name": "王光超",
+      "citation": "维基百科 / Wikidata Q112087845",
+      "aliases": [
+        "Wang Guangchao"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1912
+      },
+      "death": {
+        "year": 2003
+      }
+    },
+    {
+      "externalId": "Q112107810",
+      "name": "卞肇新",
+      "citation": "维基百科 / Wikidata Q112107810",
+      "aliases": [
+        "Bian Zhaoxin"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1889
+      },
+      "death": {
+        "year": 1952
+      }
+    },
+    {
+      "externalId": "Q112107880",
+      "name": "卞学锐",
+      "citation": "维基百科 / Wikidata Q112107880",
+      "aliases": [
+        "卞學銳",
+        "Richard H. J. Pian"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1917
+      },
+      "death": {
+        "year": 2005
+      }
+    },
+    {
+      "externalId": "Q112107919",
+      "name": "娄梅博",
+      "citation": "维基百科 / Wikidata Q112107919",
+      "aliases": [
+        "婁梅博",
+        "Mabel L. Pian"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1922
+      },
+      "death": {
+        "year": 2005
+      }
+    },
+    {
+      "externalId": "Q112107951",
+      "name": "卞学钤",
+      "citation": "维基百科 / Wikidata Q112107951",
+      "aliases": [
+        "卞學鈐",
+        "Charles H. C. Pian"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1921
+      },
+      "death": {
+        "year": 1994
+      }
+    },
+    {
+      "externalId": "Q112108015",
+      "name": "范繁",
+      "citation": "维基百科 / Wikidata Q112108015",
+      "aliases": [
+        "Juliette Fan-Fan Pian"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1921
+      },
+      "death": {
+        "year": 2001
+      }
+    },
+    {
+      "externalId": "Q112108029",
+      "name": "卞学镇",
+      "citation": "维基百科 / Wikidata Q112108029",
+      "aliases": [
+        "Bian Xuezhen"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1924
+      },
+      "death": {
+        "year": 2001
+      }
+    },
+    {
+      "externalId": "Q112108038",
+      "name": "沈兑",
+      "citation": "维基百科 / Wikidata Q112108038",
+      "aliases": [
+        "Shen Dui"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1925
+      }
+    },
+    {
+      "externalId": "Q30607008",
+      "name": "严仁英",
+      "citation": "维基百科 / Wikidata Q30607008",
+      "aliases": [
+        "Yan Renying"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1913
+      },
+      "death": {
+        "year": 2017
+      }
+    },
+    {
+      "externalId": "Q3523695",
+      "name": "卞学𨱑",
+      "citation": "维基百科 / Wikidata Q3523695",
+      "aliases": [
+        "卞學鐄",
+        "Theodore Hsueh-Huang Pian"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1919
+      },
+      "death": {
+        "year": 2009
+      },
+      "bio": "American engineer (1919–2009)"
+    },
+    {
+      "externalId": "Q48903559",
+      "name": "严智怡",
+      "citation": "维基百科 / Wikidata Q48903559",
+      "aliases": [
+        "Yan Zhiyi"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1882
+      },
+      "death": {
+        "year": 1935
+      },
+      "bio": "中国博物馆学家",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Yan%20Zhiyi.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q9182246",
+      "name": "卞赵如兰",
+      "citation": "维基百科 / Wikidata Q9182246",
+      "aliases": [
+        "卞趙如蘭",
+        "Rulan Chao Pian"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1922
+      },
+      "death": {
+        "year": 2013
+      },
+      "bio": "American musicologist",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Rulan%20Chao%20Pian%20at%20the%20age%20of%2020.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q9667021",
+      "name": "严智钟",
+      "citation": "维基百科 / Wikidata Q9667021",
+      "aliases": [
+        "嚴智鍾",
+        "Yan Zhizhong"
+      ],
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q112107810",
+      "child": "Q3523695"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q10871546",
+      "child": "Q9667021"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q10871546",
+      "child": "Q10871585"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q112086192",
+      "child": "Q30607008"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q10871546",
+      "child": "Q48903559"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q112086192",
+      "child": "Q109174866"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q10871546",
+      "child": "Q112086087"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q10871546",
+      "child": "Q112086192"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q112107810",
+      "child": "Q112107880"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q112107810",
+      "child": "Q112107951"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q112107810",
+      "child": "Q112108029"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q112086087",
+      "child": "Q3523695"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q112086087",
+      "child": "Q112107880"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q112086087",
+      "child": "Q112107951"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q112086087",
+      "child": "Q112108029"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q3523695",
+      "b": "Q9182246"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q112087845",
+      "b": "Q30607008"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q112086087",
+      "b": "Q112107810"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q112107880",
+      "b": "Q112107919"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q112107951",
+      "b": "Q112108015"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q112108029",
+      "b": "Q112108038"
+    }
+  ]
+}

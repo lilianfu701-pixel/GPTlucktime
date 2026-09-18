@@ -1,0 +1,87 @@
+{
+  "key": "wikidata:zhangjian",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q11066775",
+      "name": "张孝若",
+      "citation": "维基百科 / Wikidata Q11066775",
+      "aliases": [
+        "張孝若",
+        "Chang Chien, Jr."
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1895
+      },
+      "death": {
+        "year": 1935
+      },
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Zhang%20Xiaoruo.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q11069080",
+      "name": "张詧",
+      "citation": "维基百科 / Wikidata Q11069080",
+      "aliases": [
+        "張詧",
+        "Chang Ch'a"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1851
+      },
+      "death": {
+        "year": 1939
+      },
+      "bio": "Republic of China person CBDB = 80125",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Zhang%20Cha.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q706685",
+      "name": "张謇",
+      "citation": "维基百科 / Wikidata Q706685",
+      "aliases": [
+        "張謇",
+        "Chang Chien"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1853
+      },
+      "death": {
+        "year": 1926
+      },
+      "bio": "中国近代实业家、政治家、教育家",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Zhang%20Jian.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q78116815",
+      "name": "张绪武",
+      "citation": "维基百科 / Wikidata Q78116815",
+      "aliases": [
+        "Zhang Xuwu"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1928
+      },
+      "living": true
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q706685",
+      "child": "Q11066775"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q11066775",
+      "child": "Q78116815"
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "key": "wikidata:zhengxuan",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q11643905",
+      "name": "郑小同",
+      "citation": "维基百科 / Wikidata Q11643905",
+      "aliases": [
+        "鄭小同",
+        "Zheng Xiaotong"
+      ],
+      "gender": "male",
+      "bio": "Cao Wei scholar"
+    },
+    {
+      "externalId": "Q12615933",
+      "name": "郑益",
+      "citation": "维基百科 / Wikidata Q12615933",
+      "aliases": [
+        "鄭益"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 170
+      }
+    },
+    {
+      "externalId": "Q197649",
+      "name": "郑玄",
+      "citation": "维基百科 / Wikidata Q197649",
+      "aliases": [
+        "Zheng Xuan"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 127
+      },
+      "death": {
+        "year": 200
+      },
+      "bio": "東漢經學家、訓詁學家 (127–200)",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/%E4%BB%87%E8%8B%B1%20%E4%B8%B4%E5%AE%8B%E4%BA%BA%E7%94%BB%E5%86%8C%201.jpg",
+      "photoCredit": "作者：Qiu Ying · 公有领域 · 来源：Wikimedia Commons"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q12615933",
+      "child": "Q11643905"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q197649",
+      "child": "Q12615933"
+    }
+  ]
+}

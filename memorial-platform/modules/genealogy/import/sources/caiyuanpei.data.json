@@ -1,0 +1,62 @@
+{
+  "key": "wikidata:caiyuanpei",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q107004554",
+      "name": "周峻",
+      "citation": "维基百科 / Wikidata Q107004554",
+      "aliases": [
+        "Zhou Jun"
+      ],
+      "gender": "female",
+      "bio": "wife of Cai Yuanpei"
+    },
+    {
+      "externalId": "Q15921590",
+      "name": "蔡威廉",
+      "citation": "维基百科 / Wikidata Q15921590",
+      "aliases": [
+        "Cai Weilian"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1904
+      },
+      "death": {
+        "year": 1939
+      },
+      "bio": "Chinese painter (1904-1939)"
+    },
+    {
+      "externalId": "Q19796",
+      "name": "蔡元培",
+      "citation": "维基百科 / Wikidata Q19796",
+      "aliases": [
+        "Cai Yuanpei"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1868
+      },
+      "death": {
+        "year": 1940
+      },
+      "bio": "中華民國中央研究院第1任院長、中國教育家（1868-1940）",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Cai%20Yuanpei-loc-nodate-crop.jpg",
+      "photoCredit": "作者：The Library of Congress · 公有领域 · 来源：Wikimedia Commons"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q19796",
+      "child": "Q15921590"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q107004554",
+      "b": "Q19796"
+    }
+  ]
+}

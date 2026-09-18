@@ -1,0 +1,97 @@
+{
+  "key": "wikidata:laoshe",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q15935100",
+      "name": "舒雨",
+      "citation": "维基百科 / Wikidata Q15935100",
+      "aliases": [
+        "Shu Yu"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1937
+      },
+      "living": true,
+      "bio": "Chinese translator; third child, second daughter of Lao She"
+    },
+    {
+      "externalId": "Q315167",
+      "name": "老舍",
+      "citation": "维基百科 / Wikidata Q315167",
+      "aliases": [
+        "Lao She"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1899
+      },
+      "death": {
+        "year": 1966
+      },
+      "bio": "中國作家（1899—1966）",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/LaoShe.jpg",
+      "photoCredit": "公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q5924781",
+      "name": "胡絜青",
+      "citation": "维基百科 / Wikidata Q5924781",
+      "aliases": [
+        "Hu Xieqing"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1905
+      },
+      "death": {
+        "year": 2001
+      },
+      "bio": "中国艺术家"
+    },
+    {
+      "externalId": "Q9330115",
+      "name": "舒乙",
+      "citation": "维基百科 / Wikidata Q9330115",
+      "aliases": [
+        "Shu Yi"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1935
+      },
+      "death": {
+        "year": 2021
+      },
+      "bio": "中国作家"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q315167",
+      "child": "Q9330115"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q315167",
+      "child": "Q15935100"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q5924781",
+      "child": "Q9330115"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q5924781",
+      "child": "Q15935100"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q315167",
+      "b": "Q5924781"
+    }
+  ]
+}
