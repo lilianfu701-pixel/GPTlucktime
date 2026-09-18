@@ -184,6 +184,16 @@ import ye_jianying from "./ye_jianying.data.json";
 import li_shangyin from "./li_shangyin.data.json";
 import chen_lifu from "./chen_lifu.data.json";
 import bai_chongxi from "./bai_chongxi.data.json";
+// Wave 10 — 南北朝·隋唐文人世家 + 近现代文化名人。
+import yuxin from "./yuxin.data.json";
+import nalan from "./nalan.data.json";
+import tian_han from "./tian_han.data.json";
+import wen_yiduo from "./wen_yiduo.data.json";
+import li_yu from "./li_yu.data.json";
+import ouyang_xun from "./ouyang_xun.data.json";
+import qin_guan from "./qin_guan.data.json";
+import shen_congwen from "./shen_congwen.data.json";
+import jia_yi from "./jia_yi.data.json";
 
 /**
  * Every Wikidata-sourced family in one registry, so wiring a new one is a single
@@ -383,6 +393,16 @@ const FAMILIES: { key: string; label: string; dataset: GenealogyDataset }[] = [
   { key: "li_shangyin", label: "李商隐家族（晚唐诗人）", dataset: li_shangyin as GenealogyDataset },
   { key: "chen_lifu", label: "陈立夫家族（CC系·陈果夫）", dataset: chen_lifu as GenealogyDataset },
   { key: "bai_chongxi", label: "白崇禧家族（桂系·白先勇）", dataset: bai_chongxi as GenealogyDataset },
+  // 第十批：南北朝·隋唐文人世家 + 近现代文化名人。
+  { key: "yuxin", label: "庾信家族（庾肩吾·南北朝）", dataset: yuxin as GenealogyDataset },
+  { key: "nalan", label: "纳兰性德家族（纳兰明珠·满洲清代）", dataset: nalan as GenealogyDataset },
+  { key: "tian_han", label: "田汉家族（田大畏）", dataset: tian_han as GenealogyDataset },
+  { key: "wen_yiduo", label: "闻一多家族（闻家驷）", dataset: wen_yiduo as GenealogyDataset },
+  { key: "li_yu", label: "李煜家族（南唐后主·大周后）", dataset: li_yu as GenealogyDataset },
+  { key: "ouyang_xun", label: "欧阳询家族（欧阳通·初唐书法）", dataset: ouyang_xun as GenealogyDataset },
+  { key: "qin_guan", label: "秦观家族（秦湛·苏门四学士）", dataset: qin_guan as GenealogyDataset },
+  { key: "shen_congwen", label: "沈从文家族（张兆和）", dataset: shen_congwen as GenealogyDataset },
+  { key: "jia_yi", label: "贾谊家族（西汉政论）", dataset: jia_yi as GenealogyDataset },
 ];
 
 export type WikidataFamilyMeta = {

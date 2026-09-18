@@ -1,0 +1,36 @@
+{
+  "people": [
+    {
+      "externalId": "Q301650",
+      "name": "贾谊",
+      "gender": "male",
+      "birth": {
+        "year": 200,
+        "month": 1,
+        "day": 1
+      },
+      "death": {
+        "year": 168,
+        "month": 1,
+        "day": 1
+      }
+    },
+    {
+      "externalId": "Q45372300",
+      "name": "賈璠",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q301650",
+      "child": "Q45372300"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q301650",
+      "child": "Q45372300"
+    }
+  ]
+}

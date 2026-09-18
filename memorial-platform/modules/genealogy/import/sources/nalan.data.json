@@ -1,0 +1,122 @@
+{
+  "people": [
+    {
+      "externalId": "Q1131641",
+      "name": "纳兰性德",
+      "gender": "male",
+      "birth": {
+        "year": 1655,
+        "month": 1,
+        "day": 19
+      },
+      "death": {
+        "year": 1685,
+        "month": 7,
+        "day": 1
+      }
+    },
+    {
+      "externalId": "Q12147831",
+      "name": "納蘭明珠",
+      "gender": "male",
+      "birth": {
+        "year": 1635,
+        "month": 11,
+        "day": 19
+      },
+      "death": {
+        "year": 1708,
+        "month": 6,
+        "day": 3
+      }
+    },
+    {
+      "externalId": "Q134290873",
+      "name": "Aisin Gioro",
+      "gender": "female"
+    },
+    {
+      "externalId": "Q12147847",
+      "name": "纳兰揆叙",
+      "gender": "male",
+      "birth": {
+        "year": 1674
+      },
+      "death": {
+        "year": 1717
+      }
+    },
+    {
+      "externalId": "Q136887421",
+      "name": "Miss Nalan",
+      "gender": "female"
+    },
+    {
+      "externalId": "Q45532262",
+      "name": "沈宛",
+      "gender": "female"
+    },
+    {
+      "externalId": "Q65800449",
+      "name": "盧氏",
+      "gender": "female",
+      "death": {
+        "year": 1677,
+        "month": 1,
+        "day": 1
+      }
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q12147831",
+      "child": "Q1131641"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q134290873",
+      "child": "Q1131641"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q1131641",
+      "b": "Q45532262"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q1131641",
+      "b": "Q65800449"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q12147831",
+      "child": "Q1131641"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q12147831",
+      "child": "Q12147847"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q12147831",
+      "child": "Q136887421"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q134290873",
+      "child": "Q1131641"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q12147831",
+      "child": "Q12147847"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q12147831",
+      "child": "Q136887421"
+    }
+  ]
+}

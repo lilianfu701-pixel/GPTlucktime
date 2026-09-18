@@ -1,0 +1,54 @@
+{
+  "people": [
+    {
+      "externalId": "Q713502",
+      "name": "聞一多",
+      "gender": "male",
+      "birth": {
+        "year": 1899,
+        "month": 11,
+        "day": 2
+      },
+      "death": {
+        "year": 1946,
+        "month": 7,
+        "day": 15
+      }
+    },
+    {
+      "externalId": "Q110110018",
+      "name": "闻立鹏",
+      "gender": "male",
+      "birth": {
+        "year": 1931
+      }
+    },
+    {
+      "externalId": "Q11074961",
+      "name": "闻家驷",
+      "gender": "male",
+      "birth": {
+        "year": 1905,
+        "month": 2,
+        "day": 7
+      },
+      "death": {
+        "year": 1997,
+        "month": 11,
+        "day": 8
+      }
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q713502",
+      "child": "Q110110018"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q713502",
+      "child": "Q110110018"
+    }
+  ]
+}

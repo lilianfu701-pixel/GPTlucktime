@@ -1,0 +1,357 @@
+{
+  "people": [
+    {
+      "externalId": "Q378528",
+      "name": "李煜",
+      "gender": "male",
+      "birth": {
+        "year": 937,
+        "month": 2,
+        "day": 13
+      },
+      "death": {
+        "year": 978,
+        "month": 8,
+        "day": 15
+      }
+    },
+    {
+      "externalId": "Q718254",
+      "name": "李璟",
+      "gender": "male",
+      "birth": {
+        "year": 916
+      },
+      "death": {
+        "year": 961
+      }
+    },
+    {
+      "externalId": "Q16138265",
+      "name": "李仲寓",
+      "gender": "male",
+      "birth": {
+        "year": 958,
+        "month": 1,
+        "day": 1
+      }
+    },
+    {
+      "externalId": "Q16138264",
+      "name": "李仲宣",
+      "gender": "male",
+      "birth": {
+        "year": 961,
+        "month": 1,
+        "day": 1
+      }
+    },
+    {
+      "externalId": "Q45392775",
+      "name": "李仲寓",
+      "gender": "male"
+    },
+    {
+      "externalId": "Q45589755",
+      "name": "李仲猷",
+      "gender": "male"
+    },
+    {
+      "externalId": "Q16260155",
+      "name": "李弘冀",
+      "gender": "male",
+      "birth": {
+        "year": 933,
+        "month": 1,
+        "day": 1
+      },
+      "death": {
+        "year": 959,
+        "month": 1,
+        "day": 1
+      }
+    },
+    {
+      "externalId": "Q16260156",
+      "name": "李弘茂",
+      "gender": "male",
+      "birth": {
+        "year": 933,
+        "month": 1,
+        "day": 1
+      },
+      "death": {
+        "year": 951,
+        "month": 1,
+        "day": 1
+      }
+    },
+    {
+      "externalId": "Q16076474",
+      "name": "李从庆",
+      "gender": "male"
+    },
+    {
+      "externalId": "Q15901364",
+      "name": "李良佐",
+      "gender": "male"
+    },
+    {
+      "externalId": "Q10335022",
+      "name": "李從善",
+      "gender": "male",
+      "birth": {
+        "year": 940,
+        "month": 1,
+        "day": 1
+      },
+      "death": {
+        "year": 987,
+        "month": 1,
+        "day": 1
+      }
+    },
+    {
+      "externalId": "Q16076476",
+      "name": "李从镒",
+      "gender": "male"
+    },
+    {
+      "externalId": "Q16259903",
+      "name": "李从谦",
+      "gender": "male",
+      "birth": {
+        "year": 946,
+        "month": 1,
+        "day": 1
+      },
+      "death": {
+        "year": 995,
+        "month": 1,
+        "day": 1
+      }
+    },
+    {
+      "externalId": "Q16076455",
+      "name": "李从信",
+      "gender": "male"
+    },
+    {
+      "externalId": "Q8262958",
+      "name": "大周后",
+      "gender": "female",
+      "birth": {
+        "year": 936,
+        "month": 1,
+        "day": 1
+      },
+      "death": {
+        "year": 964,
+        "month": 12,
+        "day": 8
+      }
+    },
+    {
+      "externalId": "Q8256209",
+      "name": "小周后",
+      "gender": "female",
+      "birth": {
+        "year": 950,
+        "month": 1,
+        "day": 1
+      }
+    },
+    {
+      "externalId": "Q24832704",
+      "name": "黄保仪",
+      "gender": "female"
+    },
+    {
+      "externalId": "Q15927963",
+      "name": "窅娘",
+      "gender": "female"
+    },
+    {
+      "externalId": "Q65800395",
+      "name": "周氏",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q718254",
+      "child": "Q378528"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q378528",
+      "child": "Q16138265"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q378528",
+      "child": "Q16138264"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q378528",
+      "child": "Q45392775"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q378528",
+      "child": "Q45589755"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q378528",
+      "b": "Q8262958"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q378528",
+      "b": "Q8256209"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q378528",
+      "b": "Q24832704"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q378528",
+      "b": "Q15927963"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q378528",
+      "b": "Q65800395"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q718254",
+      "child": "Q378528"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q718254",
+      "child": "Q16260155"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q718254",
+      "child": "Q16260156"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q718254",
+      "child": "Q16076474"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q718254",
+      "child": "Q15901364"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q718254",
+      "child": "Q10335022"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q718254",
+      "child": "Q16076476"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q718254",
+      "child": "Q16259903"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q718254",
+      "child": "Q16076455"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q378528",
+      "child": "Q16138265"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q8262958",
+      "child": "Q16138265"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q378528",
+      "child": "Q16138264"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q8262958",
+      "child": "Q16138264"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q378528",
+      "child": "Q45392775"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q378528",
+      "child": "Q45589755"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q718254",
+      "child": "Q16260155"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q718254",
+      "child": "Q16260156"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q718254",
+      "child": "Q16076474"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q718254",
+      "child": "Q15901364"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q718254",
+      "child": "Q10335022"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q718254",
+      "child": "Q16076476"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q718254",
+      "child": "Q16259903"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q718254",
+      "child": "Q16076455"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q8262958",
+      "child": "Q16138265"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q8262958",
+      "child": "Q16138264"
+    }
+  ]
+}

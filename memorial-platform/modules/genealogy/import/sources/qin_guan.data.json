@@ -1,0 +1,46 @@
+{
+  "people": [
+    {
+      "externalId": "Q832770",
+      "name": "秦观",
+      "gender": "male",
+      "birth": {
+        "year": 1049,
+        "month": 1,
+        "day": 1
+      },
+      "death": {
+        "year": 1100,
+        "month": 1,
+        "day": 1
+      }
+    },
+    {
+      "externalId": "Q45381666",
+      "name": "秦湛",
+      "gender": "male"
+    },
+    {
+      "externalId": "Q15927844",
+      "name": "苏小妹",
+      "gender": "female"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q832770",
+      "child": "Q45381666"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q832770",
+      "b": "Q15927844"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q832770",
+      "child": "Q45381666"
+    }
+  ]
+}

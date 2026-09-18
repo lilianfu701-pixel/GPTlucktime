@@ -1,0 +1,46 @@
+{
+  "people": [
+    {
+      "externalId": "Q434207",
+      "name": "田汉",
+      "gender": "male",
+      "birth": {
+        "year": 1898,
+        "month": 3,
+        "day": 12
+      },
+      "death": {
+        "year": 1968,
+        "month": 12,
+        "day": 10
+      }
+    },
+    {
+      "externalId": "Q15699162",
+      "name": "田大畏",
+      "gender": "male",
+      "birth": {
+        "year": 1931,
+        "month": 8,
+        "day": 1
+      },
+      "death": {
+        "year": 2013,
+        "month": 6,
+        "day": 12
+      }
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q434207",
+      "child": "Q15699162"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q434207",
+      "child": "Q15699162"
+    }
+  ]
+}

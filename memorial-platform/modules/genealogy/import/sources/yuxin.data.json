@@ -1,0 +1,45 @@
+{
+  "key": "wikidata:yuxin",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q11064128",
+      "name": "庾肩吾",
+      "citation": "维基百科 / Wikidata Q11064128",
+      "aliases": [
+        "Jianwu Yu"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 487
+      },
+      "death": {
+        "year": 551
+      },
+      "bio": "庾肩吾（487年－551年），字子慎，一字慎之，南陽郡新野（今屬河南）人"
+    },
+    {
+      "externalId": "Q832427",
+      "name": "庾信",
+      "citation": "维基百科 / Wikidata Q832427",
+      "aliases": [
+        "Yu Xin"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 513
+      },
+      "death": {
+        "year": 581
+      },
+      "bio": "中国南北朝后期文学家（513～581）"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q11064128",
+      "child": "Q832427"
+    }
+  ]
+}

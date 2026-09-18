@@ -1,0 +1,137 @@
+{
+  "people": [
+    {
+      "externalId": "Q1207679",
+      "name": "欧阳询",
+      "gender": "male",
+      "birth": {
+        "year": 557,
+        "month": 1,
+        "day": 1
+      },
+      "death": {
+        "year": 641,
+        "month": 1,
+        "day": 1
+      }
+    },
+    {
+      "externalId": "Q1111968",
+      "name": "歐陽紇",
+      "gender": "male",
+      "birth": {
+        "year": 538
+      },
+      "death": {
+        "year": 570
+      }
+    },
+    {
+      "externalId": "Q45373770",
+      "name": "歐陽通",
+      "gender": "male"
+    },
+    {
+      "externalId": "Q45686186",
+      "name": "歐陽長卿",
+      "gender": "male",
+      "death": {
+        "year": 653,
+        "month": 1,
+        "day": 1
+      }
+    },
+    {
+      "externalId": "Q45686216",
+      "name": "歐陽肅",
+      "gender": "male",
+      "death": {
+        "year": 653,
+        "month": 1,
+        "day": 1
+      }
+    },
+    {
+      "externalId": "Q45686282",
+      "name": "歐陽倫",
+      "gender": "male",
+      "death": {
+        "year": 653,
+        "month": 1,
+        "day": 1
+      }
+    },
+    {
+      "externalId": "Q65801277",
+      "name": "徐氏",
+      "gender": "female"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q1111968",
+      "child": "Q1207679"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q1207679",
+      "child": "Q45373770"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q1207679",
+      "child": "Q45686186"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q1207679",
+      "child": "Q45686216"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q1207679",
+      "child": "Q45686282"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q1207679",
+      "b": "Q65801277"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q1111968",
+      "child": "Q1207679"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q1207679",
+      "child": "Q45373770"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q65801277",
+      "child": "Q45373770"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q1207679",
+      "child": "Q45686186"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q1207679",
+      "child": "Q45686216"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q1207679",
+      "child": "Q45686282"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q65801277",
+      "child": "Q45373770"
+    }
+  ]
+}

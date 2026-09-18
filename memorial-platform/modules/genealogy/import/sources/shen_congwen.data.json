@@ -1,0 +1,41 @@
+{
+  "people": [
+    {
+      "externalId": "Q559264",
+      "name": "沈从文",
+      "gender": "male",
+      "birth": {
+        "year": 1902,
+        "month": 12,
+        "day": 28
+      },
+      "death": {
+        "year": 1988,
+        "month": 5,
+        "day": 10
+      }
+    },
+    {
+      "externalId": "Q11068126",
+      "name": "張兆和",
+      "gender": "female",
+      "birth": {
+        "year": 1910,
+        "month": 9,
+        "day": 15
+      },
+      "death": {
+        "year": 2003,
+        "month": 2,
+        "day": 16
+      }
+    }
+  ],
+  "relations": [
+    {
+      "kind": "spouse",
+      "a": "Q559264",
+      "b": "Q11068126"
+    }
+  ]
+}
