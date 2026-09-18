@@ -1,0 +1,142 @@
+{
+  "key": "cbdb:liugong",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "33589",
+      "name": "柳公權",
+      "citation": "CBDB 中国历代人物传记资料库 person 33589",
+      "gender": "male",
+      "birth": {
+        "year": 778
+      },
+      "death": {
+        "year": 865
+      }
+    },
+    {
+      "externalId": "33583",
+      "name": "柳子溫",
+      "citation": "CBDB 中国历代人物传记资料库 person 33583",
+      "gender": "male"
+    },
+    {
+      "externalId": "159195",
+      "name": "柳知微",
+      "citation": "CBDB 中国历代人物传记资料库 person 159195",
+      "gender": "male"
+    },
+    {
+      "externalId": "141889",
+      "name": "陳蘭英",
+      "citation": "CBDB 中国历代人物传记资料库 person 141889",
+      "gender": "female",
+      "birth": {
+        "year": 811
+      },
+      "death": {
+        "year": 850
+      }
+    },
+    {
+      "externalId": "178244",
+      "name": "柳仲憲",
+      "citation": "CBDB 中国历代人物传记资料库 person 178244",
+      "gender": "male",
+      "death": {
+        "year": 874
+      }
+    },
+    {
+      "externalId": "33581",
+      "name": "柳正禮",
+      "citation": "CBDB 中国历代人物传记资料库 person 33581",
+      "gender": "male"
+    },
+    {
+      "externalId": "178245",
+      "name": "柳瑗",
+      "citation": "CBDB 中国历代人物传记资料库 person 178245",
+      "gender": "male",
+      "death": {
+        "year": 911
+      }
+    },
+    {
+      "externalId": "33580",
+      "name": "柳明偉",
+      "citation": "CBDB 中国历代人物传记资料库 person 33580",
+      "gender": "male"
+    },
+    {
+      "externalId": "33579",
+      "name": "柳客尼",
+      "citation": "CBDB 中国历代人物传记资料库 person 33579",
+      "gender": "male"
+    },
+    {
+      "externalId": "33578",
+      "name": "柳孝斌",
+      "citation": "CBDB 中国历代人物传记资料库 person 33578",
+      "gender": "male"
+    },
+    {
+      "externalId": "33577",
+      "name": "柳道茂",
+      "citation": "CBDB 中国历代人物传记资料库 person 33577",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "33583",
+      "child": "33589"
+    },
+    {
+      "kind": "parent",
+      "parent": "33589",
+      "child": "159195"
+    },
+    {
+      "kind": "parent",
+      "parent": "33589",
+      "child": "178244"
+    },
+    {
+      "kind": "parent",
+      "parent": "33581",
+      "child": "33583"
+    },
+    {
+      "kind": "spouse",
+      "a": "141889",
+      "b": "159195"
+    },
+    {
+      "kind": "parent",
+      "parent": "178244",
+      "child": "178245"
+    },
+    {
+      "kind": "parent",
+      "parent": "33580",
+      "child": "33581"
+    },
+    {
+      "kind": "parent",
+      "parent": "33579",
+      "child": "33580"
+    },
+    {
+      "kind": "parent",
+      "parent": "33578",
+      "child": "33579"
+    },
+    {
+      "kind": "parent",
+      "parent": "33577",
+      "child": "33578"
+    }
+  ]
+}

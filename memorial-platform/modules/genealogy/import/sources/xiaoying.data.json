@@ -1,0 +1,199 @@
+{
+  "key": "cbdb:xiaoying",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "32169",
+      "name": "蕭穎士",
+      "citation": "CBDB 中国历代人物传记资料库 person 32169",
+      "gender": "male",
+      "birth": {
+        "year": 709
+      },
+      "death": {
+        "year": 760
+      }
+    },
+    {
+      "externalId": "194122",
+      "name": "蕭旻",
+      "citation": "CBDB 中国历代人物传记资料库 person 194122",
+      "gender": "male",
+      "death": {
+        "year": 724
+      }
+    },
+    {
+      "externalId": "145566",
+      "name": "蕭存",
+      "citation": "CBDB 中国历代人物传记资料库 person 145566",
+      "gender": "male",
+      "birth": {
+        "year": 739
+      },
+      "death": {
+        "year": 800
+      }
+    },
+    {
+      "externalId": "194121",
+      "name": "蕭元恭",
+      "citation": "CBDB 中国历代人物传记资料库 person 194121",
+      "gender": "male",
+      "death": {
+        "year": 687
+      }
+    },
+    {
+      "externalId": "194124",
+      "name": "蕭敻",
+      "citation": "CBDB 中国历代人物传记资料库 person 194124",
+      "gender": "male",
+      "death": {
+        "year": 835
+      }
+    },
+    {
+      "externalId": "194125",
+      "name": "蕭東",
+      "citation": "CBDB 中国历代人物传记资料库 person 194125",
+      "gender": "male",
+      "death": {
+        "year": 835
+      }
+    },
+    {
+      "externalId": "194126",
+      "name": "蕭愿",
+      "citation": "CBDB 中国历代人物传记资料库 person 194126",
+      "gender": "male",
+      "death": {
+        "year": 835
+      }
+    },
+    {
+      "externalId": "194127",
+      "name": "蕭奐",
+      "citation": "CBDB 中国历代人物传记资料库 person 194127",
+      "gender": "male",
+      "death": {
+        "year": 835
+      }
+    },
+    {
+      "externalId": "194120",
+      "name": "蕭某",
+      "citation": "CBDB 中国历代人物传记资料库 person 194120",
+      "gender": "male",
+      "death": {
+        "year": 640
+      }
+    },
+    {
+      "externalId": "149356",
+      "name": "蕭造",
+      "citation": "CBDB 中国历代人物传记资料库 person 149356",
+      "gender": "male"
+    },
+    {
+      "externalId": "193977",
+      "name": "蕭解",
+      "citation": "CBDB 中国历代人物传记资料库 person 193977",
+      "gender": "male",
+      "death": {
+        "year": 566
+      }
+    },
+    {
+      "externalId": "191373",
+      "name": "蕭恢",
+      "citation": "CBDB 中国历代人物传记资料库 person 191373",
+      "gender": "male",
+      "death": {
+        "year": 529
+      }
+    },
+    {
+      "externalId": "162162",
+      "name": "蕭順之",
+      "citation": "CBDB 中国历代人物传记资料库 person 162162",
+      "gender": "male"
+    },
+    {
+      "externalId": "193966",
+      "name": "蕭道賜",
+      "citation": "CBDB 中国历代人物传记资料库 person 193966",
+      "gender": "male",
+      "death": {
+        "year": 455
+      }
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "194122",
+      "child": "32169"
+    },
+    {
+      "kind": "parent",
+      "parent": "32169",
+      "child": "145566"
+    },
+    {
+      "kind": "parent",
+      "parent": "194121",
+      "child": "194122"
+    },
+    {
+      "kind": "parent",
+      "parent": "145566",
+      "child": "194124"
+    },
+    {
+      "kind": "parent",
+      "parent": "145566",
+      "child": "194125"
+    },
+    {
+      "kind": "parent",
+      "parent": "145566",
+      "child": "194126"
+    },
+    {
+      "kind": "parent",
+      "parent": "145566",
+      "child": "194127"
+    },
+    {
+      "kind": "parent",
+      "parent": "194120",
+      "child": "194121"
+    },
+    {
+      "kind": "parent",
+      "parent": "149356",
+      "child": "194120"
+    },
+    {
+      "kind": "parent",
+      "parent": "193977",
+      "child": "149356"
+    },
+    {
+      "kind": "parent",
+      "parent": "191373",
+      "child": "193977"
+    },
+    {
+      "kind": "parent",
+      "parent": "162162",
+      "child": "191373"
+    },
+    {
+      "kind": "parent",
+      "parent": "193966",
+      "child": "162162"
+    }
+  ]
+}

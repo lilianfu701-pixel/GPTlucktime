@@ -1,0 +1,173 @@
+{
+  "key": "cbdb:suweidao",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "19214",
+      "name": "蘇味道",
+      "citation": "CBDB 中国历代人物传记资料库 person 19214",
+      "gender": "male"
+    },
+    {
+      "externalId": "32660",
+      "name": "蘇倇",
+      "citation": "CBDB 中国历代人物传记资料库 person 32660",
+      "gender": "male"
+    },
+    {
+      "externalId": "181597",
+      "name": "蘇伷",
+      "citation": "CBDB 中国历代人物传记资料库 person 181597",
+      "gender": "male",
+      "death": {
+        "year": 730
+      }
+    },
+    {
+      "externalId": "181598",
+      "name": "蘇份",
+      "citation": "CBDB 中国历代人物传记资料库 person 181598",
+      "gender": "male",
+      "death": {
+        "year": 730
+      }
+    },
+    {
+      "externalId": "181599",
+      "name": "蘇倜",
+      "citation": "CBDB 中国历代人物传记资料库 person 181599",
+      "gender": "male",
+      "death": {
+        "year": 730
+      }
+    },
+    {
+      "externalId": "190184",
+      "name": "蘇某",
+      "citation": "CBDB 中国历代人物传记资料库 person 190184",
+      "gender": "male",
+      "death": {
+        "year": 730
+      }
+    },
+    {
+      "externalId": "190181",
+      "name": "蘇來",
+      "citation": "CBDB 中国历代人物传记资料库 person 190181",
+      "gender": "male",
+      "death": {
+        "year": 767
+      }
+    },
+    {
+      "externalId": "160232",
+      "name": "蘇佐",
+      "citation": "CBDB 中国历代人物传记资料库 person 160232",
+      "gender": "male"
+    },
+    {
+      "externalId": "160226",
+      "name": "蘇巢",
+      "citation": "CBDB 中国历代人物传记资料库 person 160226",
+      "gender": "male"
+    },
+    {
+      "externalId": "142067",
+      "name": "蘇嗣君",
+      "citation": "CBDB 中国历代人物传记资料库 person 142067",
+      "gender": "female",
+      "birth": {
+        "year": 819
+      },
+      "death": {
+        "year": 874
+      }
+    },
+    {
+      "externalId": "94019",
+      "name": "趙璜",
+      "citation": "CBDB 中国历代人物传记资料库 person 94019",
+      "gender": "male",
+      "birth": {
+        "year": 804
+      },
+      "death": {
+        "year": 862
+      }
+    },
+    {
+      "externalId": "161064",
+      "name": "趙汴娘",
+      "citation": "CBDB 中国历代人物传记资料库 person 161064",
+      "gender": "male"
+    },
+    {
+      "externalId": "161069",
+      "name": "趙軿",
+      "citation": "CBDB 中国历代人物传记资料库 person 161069",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "19214",
+      "child": "32660"
+    },
+    {
+      "kind": "parent",
+      "parent": "19214",
+      "child": "181597"
+    },
+    {
+      "kind": "parent",
+      "parent": "19214",
+      "child": "181598"
+    },
+    {
+      "kind": "parent",
+      "parent": "19214",
+      "child": "181599"
+    },
+    {
+      "kind": "parent",
+      "parent": "19214",
+      "child": "190184"
+    },
+    {
+      "kind": "parent",
+      "parent": "190184",
+      "child": "190181"
+    },
+    {
+      "kind": "parent",
+      "parent": "190181",
+      "child": "160232"
+    },
+    {
+      "kind": "parent",
+      "parent": "160232",
+      "child": "160226"
+    },
+    {
+      "kind": "parent",
+      "parent": "160226",
+      "child": "142067"
+    },
+    {
+      "kind": "spouse",
+      "a": "142067",
+      "b": "94019"
+    },
+    {
+      "kind": "parent",
+      "parent": "142067",
+      "child": "161064"
+    },
+    {
+      "kind": "parent",
+      "parent": "142067",
+      "child": "161069"
+    }
+  ]
+}

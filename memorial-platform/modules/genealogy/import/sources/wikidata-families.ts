@@ -206,6 +206,12 @@ import weijian from "./weijian.data.json";
 import wangbo from "./wangbo.data.json";
 import xueji from "./xueji.data.json";
 import peilj from "./peilj.data.json";
+import weishuyu from "./weishuyu.data.json";
+import yuzhining from "./yuzhining.data.json";
+import suweidao from "./suweidao.data.json";
+import liufen from "./liufen.data.json";
+import liugong from "./liugong.data.json";
+import xiaoying from "./xiaoying.data.json";
 
 /**
  * Every Wikidata-sourced family in one registry, so wiring a new one is a single
@@ -428,6 +434,12 @@ const FAMILIES: { key: string; label: string; dataset: GenealogyDataset }[] = [
   { key: "wangbo", label: "河东王氏·王勃支（王通·王福畤·初唐四杰）", dataset: wangbo as GenealogyDataset },
   { key: "xueji", label: "河东薛氏·薛稷支（薛广德·薛收·薛道衡·书画名家）", dataset: xueji as GenealogyDataset },
   { key: "peilj", label: "河东裴氏·裴寂支（裴徽·裴茂·魏晋深世系）", dataset: peilj as GenealogyDataset },
+  { key: "weishuyu", label: "京兆韦氏·韦绶支（韦敻·韦世康·韦云平·第二支）", dataset: weishuyu as GenealogyDataset },
+  { key: "yuzhining", label: "关中于氏·于志宁支（于洛拔·北魏到晚唐）", dataset: yuzhining as GenealogyDataset },
+  { key: "suweidao", label: "赵郡苏氏·苏味道支（蘇嗣君·晚唐苏氏女支）", dataset: suweidao as GenealogyDataset },
+  { key: "liufen", label: "河东柳氏·柳芬支（柳懿·柳均·南北朝到唐）", dataset: liufen as GenealogyDataset },
+  { key: "liugong", label: "河东柳氏·柳公权支（书法家·柳瑗·柳仲憲）", dataset: liugong as GenealogyDataset },
+  { key: "xiaoying", label: "兰陵萧氏·萧颖士支（萧道赐·萧恢·南朝到唐）", dataset: xiaoying as GenealogyDataset },
 ];
 
 export type WikidataFamilyMeta = {

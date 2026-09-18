@@ -1,0 +1,125 @@
+{
+  "key": "cbdb:liufen",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "156046",
+      "name": "柳芬",
+      "citation": "CBDB 中国历代人物传记资料库 person 156046",
+      "gender": "male"
+    },
+    {
+      "externalId": "156045",
+      "name": "柳知仁",
+      "citation": "CBDB 中国历代人物传记资料库 person 156045",
+      "gender": "male"
+    },
+    {
+      "externalId": "141366",
+      "name": "柳均",
+      "citation": "CBDB 中国历代人物传记资料库 person 141366",
+      "gender": "male",
+      "birth": {
+        "year": 720
+      },
+      "death": {
+        "year": 774
+      }
+    },
+    {
+      "externalId": "156041",
+      "name": "李氏(柳均妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 156041",
+      "gender": "female"
+    },
+    {
+      "externalId": "156044",
+      "name": "柳懷儉",
+      "citation": "CBDB 中国历代人物传记资料库 person 156044",
+      "gender": "male"
+    },
+    {
+      "externalId": "156047",
+      "name": "柳曾",
+      "citation": "CBDB 中国历代人物传记资料库 person 156047",
+      "gender": "male"
+    },
+    {
+      "externalId": "156043",
+      "name": "柳煥",
+      "citation": "CBDB 中国历代人物传记资料库 person 156043",
+      "gender": "male"
+    },
+    {
+      "externalId": "189786",
+      "name": "柳務",
+      "citation": "CBDB 中国历代人物传记资料库 person 189786",
+      "gender": "male",
+      "death": {
+        "year": 594
+      }
+    },
+    {
+      "externalId": "156042",
+      "name": "柳敏",
+      "citation": "CBDB 中国历代人物传记资料库 person 156042",
+      "gender": "male"
+    },
+    {
+      "externalId": "189788",
+      "name": "柳懿",
+      "citation": "CBDB 中国历代人物传记资料库 person 189788",
+      "gender": "male",
+      "death": {
+        "year": 520
+      }
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "156045",
+      "child": "156046"
+    },
+    {
+      "kind": "parent",
+      "parent": "156046",
+      "child": "141366"
+    },
+    {
+      "kind": "parent",
+      "parent": "156044",
+      "child": "156045"
+    },
+    {
+      "kind": "spouse",
+      "a": "141366",
+      "b": "156041"
+    },
+    {
+      "kind": "parent",
+      "parent": "141366",
+      "child": "156047"
+    },
+    {
+      "kind": "parent",
+      "parent": "156043",
+      "child": "156044"
+    },
+    {
+      "kind": "parent",
+      "parent": "189786",
+      "child": "156043"
+    },
+    {
+      "kind": "parent",
+      "parent": "156042",
+      "child": "189786"
+    },
+    {
+      "kind": "parent",
+      "parent": "189788",
+      "child": "156042"
+    }
+  ]
+}

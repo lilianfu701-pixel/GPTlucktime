@@ -1,0 +1,606 @@
+{
+  "key": "cbdb:yuzhining",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "31485",
+      "name": "于志寧",
+      "citation": "CBDB 中国历代人物传记资料库 person 31485",
+      "gender": "male",
+      "birth": {
+        "year": 588
+      },
+      "death": {
+        "year": 665
+      }
+    },
+    {
+      "externalId": "31477",
+      "name": "于宣道",
+      "citation": "CBDB 中国历代人物传记资料库 person 31477",
+      "gender": "male"
+    },
+    {
+      "externalId": "31486",
+      "name": "于立政",
+      "citation": "CBDB 中国历代人物传记资料库 person 31486",
+      "gender": "male"
+    },
+    {
+      "externalId": "31495",
+      "name": "于慎言",
+      "citation": "CBDB 中国历代人物传记资料库 person 31495",
+      "gender": "male"
+    },
+    {
+      "externalId": "31476",
+      "name": "于義",
+      "citation": "CBDB 中国历代人物传记资料库 person 31476",
+      "gender": "male"
+    },
+    {
+      "externalId": "31506",
+      "name": "于知微",
+      "citation": "CBDB 中国历代人物传记资料库 person 31506",
+      "gender": "male",
+      "birth": {
+        "year": 635
+      },
+      "death": {
+        "year": 713
+      }
+    },
+    {
+      "externalId": "31507",
+      "name": "于大猷",
+      "citation": "CBDB 中国历代人物传记资料库 person 31507",
+      "gender": "male",
+      "birth": {
+        "year": 644
+      },
+      "death": {
+        "year": 700
+      }
+    },
+    {
+      "externalId": "177667",
+      "name": "于遊藝",
+      "citation": "CBDB 中国历代人物传记资料库 person 177667",
+      "gender": "male",
+      "death": {
+        "year": 740
+      }
+    },
+    {
+      "externalId": "178060",
+      "name": "于光遠",
+      "citation": "CBDB 中国历代人物传记资料库 person 178060",
+      "gender": "male",
+      "death": {
+        "year": 740
+      }
+    },
+    {
+      "externalId": "31496",
+      "name": "于安貞",
+      "citation": "CBDB 中国历代人物传记资料库 person 31496",
+      "gender": "male"
+    },
+    {
+      "externalId": "31473",
+      "name": "于謹",
+      "citation": "CBDB 中国历代人物传记资料库 person 31473",
+      "gender": "male",
+      "birth": {
+        "year": 493
+      },
+      "death": {
+        "year": 568
+      }
+    },
+    {
+      "externalId": "31508",
+      "name": "于克勤",
+      "citation": "CBDB 中国历代人物传记资料库 person 31508",
+      "gender": "male"
+    },
+    {
+      "externalId": "31509",
+      "name": "于克構",
+      "citation": "CBDB 中国历代人物传记资料库 person 31509",
+      "gender": "male"
+    },
+    {
+      "externalId": "31510",
+      "name": "于克懋",
+      "citation": "CBDB 中国历代人物传记资料库 person 31510",
+      "gender": "male"
+    },
+    {
+      "externalId": "177668",
+      "name": "于伯獻",
+      "citation": "CBDB 中国历代人物传记资料库 person 177668",
+      "gender": "male",
+      "death": {
+        "year": 777
+      }
+    },
+    {
+      "externalId": "142724",
+      "name": "于賢",
+      "citation": "CBDB 中国历代人物传记资料库 person 142724",
+      "gender": "male",
+      "birth": {
+        "year": 664
+      },
+      "death": {
+        "year": 686
+      }
+    },
+    {
+      "externalId": "178062",
+      "name": "于仙鼎",
+      "citation": "CBDB 中国历代人物传记资料库 person 178062",
+      "gender": "male",
+      "death": {
+        "year": 723
+      }
+    },
+    {
+      "externalId": "31497",
+      "name": "于默成",
+      "citation": "CBDB 中国历代人物传记资料库 person 31497",
+      "gender": "male"
+    },
+    {
+      "externalId": "31472",
+      "name": "于提",
+      "citation": "CBDB 中国历代人物传记资料库 person 31472",
+      "gender": "male"
+    },
+    {
+      "externalId": "178064",
+      "name": "于嘉祥",
+      "citation": "CBDB 中国历代人物传记资料库 person 178064",
+      "gender": "male",
+      "death": {
+        "year": 751
+      }
+    },
+    {
+      "externalId": "178065",
+      "name": "于休徵",
+      "citation": "CBDB 中国历代人物传记资料库 person 178065",
+      "gender": "male",
+      "death": {
+        "year": 751
+      }
+    },
+    {
+      "externalId": "31498",
+      "name": "于休烈",
+      "citation": "CBDB 中国历代人物传记资料库 person 31498",
+      "gender": "male",
+      "birth": {
+        "year": 692
+      },
+      "death": {
+        "year": 772
+      }
+    },
+    {
+      "externalId": "31471",
+      "name": "于安定",
+      "citation": "CBDB 中国历代人物传记资料库 person 31471",
+      "gender": "male"
+    },
+    {
+      "externalId": "31499",
+      "name": "于益",
+      "citation": "CBDB 中国历代人物传记资料库 person 31499",
+      "gender": "male"
+    },
+    {
+      "externalId": "31500",
+      "name": "于肅",
+      "citation": "CBDB 中国历代人物传记资料库 person 31500",
+      "gender": "male"
+    },
+    {
+      "externalId": "31470",
+      "name": "于婆",
+      "citation": "CBDB 中国历代人物传记资料库 person 31470",
+      "gender": "male"
+    },
+    {
+      "externalId": "31501",
+      "name": "于敖",
+      "citation": "CBDB 中国历代人物传记资料库 person 31501",
+      "gender": "male",
+      "birth": {
+        "year": 765
+      },
+      "death": {
+        "year": 830
+      }
+    },
+    {
+      "externalId": "31469",
+      "name": "于天恩",
+      "citation": "CBDB 中国历代人物传记资料库 person 31469",
+      "gender": "male"
+    },
+    {
+      "externalId": "31502",
+      "name": "于球",
+      "citation": "CBDB 中国历代人物传记资料库 person 31502",
+      "gender": "male"
+    },
+    {
+      "externalId": "31503",
+      "name": "于珪",
+      "citation": "CBDB 中国历代人物传记资料库 person 31503",
+      "gender": "male"
+    },
+    {
+      "externalId": "31505",
+      "name": "于琮",
+      "citation": "CBDB 中国历代人物传记资料库 person 31505",
+      "gender": "male"
+    },
+    {
+      "externalId": "194177",
+      "name": "李氏(廣德公主)",
+      "citation": "CBDB 中国历代人物传记资料库 person 194177",
+      "gender": "female",
+      "death": {
+        "year": 896
+      }
+    },
+    {
+      "externalId": "91921",
+      "name": "于瓌",
+      "citation": "CBDB 中国历代人物传记资料库 person 91921",
+      "gender": "male"
+    },
+    {
+      "externalId": "178072",
+      "name": "于瓌",
+      "citation": "CBDB 中国历代人物传记资料库 person 178072",
+      "gender": "male",
+      "death": {
+        "year": 861
+      }
+    },
+    {
+      "externalId": "178073",
+      "name": "于琄",
+      "citation": "CBDB 中国历代人物传记资料库 person 178073",
+      "gender": "male",
+      "death": {
+        "year": 861
+      }
+    },
+    {
+      "externalId": "31504",
+      "name": "于",
+      "citation": "CBDB 中国历代人物传记资料库 person 31504",
+      "gender": "male"
+    },
+    {
+      "externalId": "31467",
+      "name": "于洛拔",
+      "citation": "CBDB 中国历代人物传记资料库 person 31467",
+      "gender": "male",
+      "birth": {
+        "year": 415
+      },
+      "death": {
+        "year": 458
+      }
+    },
+    {
+      "externalId": "178070",
+      "name": "于梲",
+      "citation": "CBDB 中国历代人物传记资料库 person 178070",
+      "gender": "male",
+      "death": {
+        "year": 898
+      }
+    },
+    {
+      "externalId": "141992",
+      "name": "于氏(于珪女)",
+      "citation": "CBDB 中国历代人物传记资料库 person 141992",
+      "gender": "female",
+      "birth": {
+        "year": 836
+      },
+      "death": {
+        "year": 865
+      }
+    },
+    {
+      "externalId": "141790",
+      "name": "孫備",
+      "citation": "CBDB 中国历代人物传记资料库 person 141790",
+      "gender": "male",
+      "birth": {
+        "year": 803
+      },
+      "death": {
+        "year": 841
+      }
+    },
+    {
+      "externalId": "145413",
+      "name": "于氏(于珪女)",
+      "citation": "CBDB 中国历代人物传记资料库 person 145413",
+      "gender": "female",
+      "birth": {
+        "year": 840
+      },
+      "death": {
+        "year": 871
+      }
+    },
+    {
+      "externalId": "185904",
+      "name": "崔特",
+      "citation": "CBDB 中国历代人物传记资料库 person 185904",
+      "gender": "male",
+      "death": {
+        "year": 892
+      }
+    },
+    {
+      "externalId": "178071",
+      "name": "于兢",
+      "citation": "CBDB 中国历代人物传记资料库 person 178071",
+      "gender": "male",
+      "death": {
+        "year": 898
+      }
+    },
+    {
+      "externalId": "189828",
+      "name": "于鄴",
+      "citation": "CBDB 中国历代人物传记资料库 person 189828",
+      "gender": "male",
+      "death": {
+        "year": 898
+      }
+    },
+    {
+      "externalId": "195397",
+      "name": "于藹",
+      "citation": "CBDB 中国历代人物传记资料库 person 195397",
+      "gender": "male",
+      "death": {
+        "year": 898
+      }
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "31477",
+      "child": "31485"
+    },
+    {
+      "kind": "parent",
+      "parent": "31485",
+      "child": "31486"
+    },
+    {
+      "kind": "parent",
+      "parent": "31485",
+      "child": "31495"
+    },
+    {
+      "kind": "parent",
+      "parent": "31476",
+      "child": "31477"
+    },
+    {
+      "kind": "parent",
+      "parent": "31486",
+      "child": "31506"
+    },
+    {
+      "kind": "parent",
+      "parent": "31486",
+      "child": "31507"
+    },
+    {
+      "kind": "parent",
+      "parent": "31486",
+      "child": "177667"
+    },
+    {
+      "kind": "parent",
+      "parent": "31486",
+      "child": "178060"
+    },
+    {
+      "kind": "parent",
+      "parent": "31495",
+      "child": "31496"
+    },
+    {
+      "kind": "parent",
+      "parent": "31473",
+      "child": "31476"
+    },
+    {
+      "kind": "parent",
+      "parent": "31506",
+      "child": "31508"
+    },
+    {
+      "kind": "parent",
+      "parent": "31506",
+      "child": "31509"
+    },
+    {
+      "kind": "parent",
+      "parent": "31506",
+      "child": "31510"
+    },
+    {
+      "kind": "parent",
+      "parent": "177667",
+      "child": "177668"
+    },
+    {
+      "kind": "parent",
+      "parent": "31496",
+      "child": "142724"
+    },
+    {
+      "kind": "parent",
+      "parent": "31496",
+      "child": "178062"
+    },
+    {
+      "kind": "parent",
+      "parent": "31496",
+      "child": "31497"
+    },
+    {
+      "kind": "parent",
+      "parent": "31472",
+      "child": "31473"
+    },
+    {
+      "kind": "parent",
+      "parent": "31497",
+      "child": "178064"
+    },
+    {
+      "kind": "parent",
+      "parent": "31497",
+      "child": "178065"
+    },
+    {
+      "kind": "parent",
+      "parent": "31497",
+      "child": "31498"
+    },
+    {
+      "kind": "parent",
+      "parent": "31471",
+      "child": "31472"
+    },
+    {
+      "kind": "parent",
+      "parent": "31498",
+      "child": "31499"
+    },
+    {
+      "kind": "parent",
+      "parent": "31498",
+      "child": "31500"
+    },
+    {
+      "kind": "parent",
+      "parent": "31470",
+      "child": "31471"
+    },
+    {
+      "kind": "parent",
+      "parent": "31500",
+      "child": "31501"
+    },
+    {
+      "kind": "parent",
+      "parent": "31469",
+      "child": "31470"
+    },
+    {
+      "kind": "parent",
+      "parent": "31501",
+      "child": "31502"
+    },
+    {
+      "kind": "parent",
+      "parent": "31501",
+      "child": "31503"
+    },
+    {
+      "kind": "parent",
+      "parent": "31501",
+      "child": "31505"
+    },
+    {
+      "kind": "parent",
+      "parent": "31501",
+      "child": "91921"
+    },
+    {
+      "kind": "parent",
+      "parent": "31501",
+      "child": "178072"
+    },
+    {
+      "kind": "parent",
+      "parent": "31501",
+      "child": "178073"
+    },
+    {
+      "kind": "parent",
+      "parent": "31501",
+      "child": "31504"
+    },
+    {
+      "kind": "parent",
+      "parent": "31467",
+      "child": "31469"
+    },
+    {
+      "kind": "parent",
+      "parent": "31502",
+      "child": "178070"
+    },
+    {
+      "kind": "parent",
+      "parent": "31503",
+      "child": "141992"
+    },
+    {
+      "kind": "parent",
+      "parent": "31503",
+      "child": "145413"
+    },
+    {
+      "kind": "parent",
+      "parent": "31503",
+      "child": "178071"
+    },
+    {
+      "kind": "parent",
+      "parent": "31503",
+      "child": "189828"
+    },
+    {
+      "kind": "parent",
+      "parent": "31503",
+      "child": "195397"
+    },
+    {
+      "kind": "spouse",
+      "a": "194177",
+      "b": "31505"
+    },
+    {
+      "kind": "spouse",
+      "a": "141790",
+      "b": "141992"
+    },
+    {
+      "kind": "spouse",
+      "a": "145413",
+      "b": "185904"
+    }
+  ]
+}
