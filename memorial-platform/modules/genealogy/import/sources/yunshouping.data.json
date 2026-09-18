@@ -1,0 +1,176 @@
+{
+  "key": "wikidata:yunshouping",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q11073526",
+      "name": "恽日初",
+      "citation": "维基百科 / Wikidata Q11073526",
+      "aliases": [
+        "惲日初",
+        "Yun Richu"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1601
+      },
+      "death": {
+        "year": 1678
+      },
+      "bio": "Qing dynasty person CBDB = 85219"
+    },
+    {
+      "externalId": "Q1329823",
+      "name": "恽寿平",
+      "citation": "维基百科 / Wikidata Q1329823",
+      "aliases": [
+        "惲壽平",
+        "Yun Shouping"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1633
+      },
+      "death": {
+        "year": 1690
+      },
+      "bio": "中国清代画家",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/%E6%83%B2%E6%A0%BC.jpg",
+      "photoCredit": "作者：清叶衍兰辑摹，黄小泉绘。 · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q133289290",
+      "name": "恽应雨",
+      "citation": "维基百科 / Wikidata Q133289290",
+      "aliases": [
+        "惲應雨"
+      ],
+      "gender": "male"
+    },
+    {
+      "externalId": "Q133289304",
+      "name": "恽应侯",
+      "citation": "维基百科 / Wikidata Q133289304",
+      "aliases": [
+        "惲應侯"
+      ],
+      "gender": "male"
+    },
+    {
+      "externalId": "Q20688421",
+      "name": "恽绍芳",
+      "citation": "维基百科 / Wikidata Q20688421",
+      "aliases": [
+        "惲紹芳",
+        "Yun Shaofang"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1518
+      },
+      "bio": "politician"
+    },
+    {
+      "externalId": "Q45637207",
+      "name": "恽镃",
+      "citation": "维基百科 / Wikidata Q45637207",
+      "aliases": [
+        "惲鎡",
+        "Yun Zi"
+      ],
+      "gender": "male",
+      "bio": "Ming dynasty person CBDB = 308505"
+    },
+    {
+      "externalId": "Q45637332",
+      "name": "恽训",
+      "citation": "维基百科 / Wikidata Q45637332",
+      "aliases": [
+        "惲訓",
+        "Yun Xun"
+      ],
+      "gender": "male",
+      "bio": "Ming dynasty person CBDB = 308507"
+    },
+    {
+      "externalId": "Q65832939",
+      "name": "赵氏",
+      "citation": "维基百科 / Wikidata Q65832939",
+      "aliases": [
+        "趙氏",
+        "Zhao Shi"
+      ],
+      "gender": "female",
+      "bio": "惲紹芳母"
+    },
+    {
+      "externalId": "Q65832943",
+      "name": "张氏",
+      "citation": "维基百科 / Wikidata Q65832943",
+      "aliases": [
+        "張氏",
+        "Zhang Shi"
+      ],
+      "gender": "female",
+      "bio": "惲紹芳妻"
+    },
+    {
+      "externalId": "Q65832947",
+      "name": "黄氏",
+      "citation": "维基百科 / Wikidata Q65832947",
+      "aliases": [
+        "黃氏",
+        "Huang Shi"
+      ],
+      "gender": "female",
+      "bio": "惲紹芳繼妻"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q65832939",
+      "child": "Q20688421"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q11073526",
+      "child": "Q1329823"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q133289304",
+      "child": "Q11073526"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45637332",
+      "child": "Q20688421"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45637207",
+      "child": "Q45637332"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q20688421",
+      "child": "Q133289290"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q20688421",
+      "child": "Q133289304"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q20688421",
+      "b": "Q65832943"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q20688421",
+      "b": "Q65832947"
+    }
+  ]
+}

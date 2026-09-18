@@ -1,0 +1,167 @@
+{
+  "key": "wikidata:caoyin",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q10323954",
+      "name": "曹颙",
+      "citation": "维基百科 / Wikidata Q10323954",
+      "aliases": [
+        "Cao Yong"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1689
+      },
+      "death": {
+        "year": 1715
+      },
+      "bio": "清朝官员"
+    },
+    {
+      "externalId": "Q11091054",
+      "name": "曹寅",
+      "citation": "维基百科 / Wikidata Q11091054",
+      "aliases": [
+        "Cao Yin"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1658
+      },
+      "death": {
+        "year": 1712
+      },
+      "bio": "清朝官员"
+    },
+    {
+      "externalId": "Q11091111",
+      "name": "曹振彦",
+      "citation": "维基百科 / Wikidata Q11091111",
+      "aliases": [
+        "曹振彥",
+        "Cao Zhenyan"
+      ],
+      "gender": "male",
+      "bio": "清朝官员"
+    },
+    {
+      "externalId": "Q11091278",
+      "name": "曹荃",
+      "citation": "维基百科 / Wikidata Q11091278",
+      "aliases": [
+        "Cao Quan"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1658
+      },
+      "death": {
+        "year": 1705
+      },
+      "bio": "清朝官员"
+    },
+    {
+      "externalId": "Q15927589",
+      "name": "曹玺",
+      "citation": "维基百科 / Wikidata Q15927589",
+      "aliases": [
+        "Cao Xi"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1629
+      },
+      "death": {
+        "year": 1684
+      },
+      "bio": "清朝官员"
+    },
+    {
+      "externalId": "Q15944918",
+      "name": "曹锡远",
+      "citation": "维基百科 / Wikidata Q15944918",
+      "aliases": [
+        "Cao Xiyuan"
+      ],
+      "gender": "male",
+      "bio": "明朝官员"
+    },
+    {
+      "externalId": "Q17025551",
+      "name": "曹尔正",
+      "citation": "维基百科 / Wikidata Q17025551",
+      "aliases": [
+        "Cao Erzheng"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1648
+      },
+      "bio": "清朝官员"
+    },
+    {
+      "externalId": "Q97179641",
+      "name": "孙氏",
+      "citation": "维基百科 / Wikidata Q97179641",
+      "aliases": [
+        "Lady Sun"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1632
+      },
+      "death": {
+        "year": 1706
+      },
+      "bio": "曹玺妻，曹寅、曹荃母"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q11091054",
+      "child": "Q10323954"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q15927589",
+      "child": "Q11091054"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q15944918",
+      "child": "Q11091111"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q15927589",
+      "child": "Q11091278"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q11091111",
+      "child": "Q15927589"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q11091111",
+      "child": "Q17025551"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q97179641",
+      "child": "Q11091054"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q97179641",
+      "child": "Q11091278"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q15927589",
+      "b": "Q97179641"
+    }
+  ]
+}

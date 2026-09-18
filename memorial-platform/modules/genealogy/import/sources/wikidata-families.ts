@@ -122,6 +122,34 @@ import huangyanpei from "./huangyanpei.data.json";
 import chenqimei from "./chenqimei.data.json";
 import lianheng from "./lianheng.data.json";
 import dengjiaxian from "./dengjiaxian.data.json";
+// Wave 6 — 唐宋名相 + 明清世家（桐城/太仓/东林等）。
+import zhangying from "./zhangying.data.json";
+import yangtinghe from "./yangtinghe.data.json";
+import wangdan from "./wangdan.data.json";
+import caoyin from "./caoyin.data.json";
+import hanyi from "./hanyi.data.json";
+import zhangjun from "./zhangjun.data.json";
+import ligang from "./ligang.data.json";
+import suson from "./suson.data.json";
+import zenggongliang from "./zenggongliang.data.json";
+import caijing from "./caijing.data.json";
+import zhangyue from "./zhangyue.data.json";
+import yaochong from "./yaochong.data.json";
+import songjing from "./songjing.data.json";
+import cenwenben from "./cenwenben.data.json";
+import lishiji from "./lishiji.data.json";
+import lidongyang from "./lidongyang.data.json";
+import xujie from "./xujie.data.json";
+import wangxijue from "./wangxijue.data.json";
+import yexianggao from "./yexianggao.data.json";
+import guxiancheng from "./guxiancheng.data.json";
+import fanwencheng from "./fanwencheng.data.json";
+import fangbao from "./fangbao.data.json";
+import yaonai from "./yaonai.data.json";
+import yunshouping from "./yunshouping.data.json";
+import ronghong from "./ronghong.data.json";
+import wutingfang from "./wutingfang.data.json";
+import cenchunxuan from "./cenchunxuan.data.json";
 
 /**
  * Every Wikidata-sourced family in one registry, so wiring a new one is a single
@@ -257,6 +285,34 @@ const FAMILIES: { key: string; label: string; dataset: GenealogyDataset }[] = [
   { key: "chenqimei", label: "陈其美家族（二陈）", dataset: chenqimei as GenealogyDataset },
   { key: "lianheng", label: "连横家族（连战）", dataset: lianheng as GenealogyDataset },
   { key: "dengjiaxian", label: "邓稼先家族（怀宁邓氏）", dataset: dengjiaxian as GenealogyDataset },
+  // 第六批：唐宋名相 + 明清世家。
+  { key: "zhangyue", label: "张说家族", dataset: zhangyue as GenealogyDataset },
+  { key: "yaochong", label: "姚崇家族（吴兴姚氏）", dataset: yaochong as GenealogyDataset },
+  { key: "songjing", label: "宋璟家族", dataset: songjing as GenealogyDataset },
+  { key: "cenwenben", label: "岑文本家族（南阳岑氏·岑参）", dataset: cenwenben as GenealogyDataset },
+  { key: "lishiji", label: "李勣家族", dataset: lishiji as GenealogyDataset },
+  { key: "wangdan", label: "王旦家族（三槐王氏）", dataset: wangdan as GenealogyDataset },
+  { key: "hanyi", label: "韩亿家族（灵寿韩氏）", dataset: hanyi as GenealogyDataset },
+  { key: "suson", label: "苏颂家族", dataset: suson as GenealogyDataset },
+  { key: "zenggongliang", label: "曾公亮家族（晋江曾氏）", dataset: zenggongliang as GenealogyDataset },
+  { key: "caijing", label: "蔡京家族（兴化蔡氏）", dataset: caijing as GenealogyDataset },
+  { key: "ligang", label: "李纲家族", dataset: ligang as GenealogyDataset },
+  { key: "zhangjun", label: "张浚家族（张栻）", dataset: zhangjun as GenealogyDataset },
+  { key: "yangtinghe", label: "杨廷和家族（新都杨氏·杨慎）", dataset: yangtinghe as GenealogyDataset },
+  { key: "lidongyang", label: "李东阳家族", dataset: lidongyang as GenealogyDataset },
+  { key: "xujie", label: "徐阶家族（松江徐氏）", dataset: xujie as GenealogyDataset },
+  { key: "wangxijue", label: "王锡爵家族（太仓王氏）", dataset: wangxijue as GenealogyDataset },
+  { key: "yexianggao", label: "叶向高家族（福清叶氏）", dataset: yexianggao as GenealogyDataset },
+  { key: "guxiancheng", label: "顾宪成家族（东林）", dataset: guxiancheng as GenealogyDataset },
+  { key: "caoyin", label: "曹寅家族（江宁织造曹家）", dataset: caoyin as GenealogyDataset },
+  { key: "zhangying", label: "张英家族（桐城张氏）", dataset: zhangying as GenealogyDataset },
+  { key: "fangbao", label: "方苞家族（桐城方氏）", dataset: fangbao as GenealogyDataset },
+  { key: "yaonai", label: "姚鼐家族（桐城姚氏）", dataset: yaonai as GenealogyDataset },
+  { key: "yunshouping", label: "恽寿平家族（常州恽氏）", dataset: yunshouping as GenealogyDataset },
+  { key: "fanwencheng", label: "范文程家族（沈阳范氏）", dataset: fanwencheng as GenealogyDataset },
+  { key: "cenchunxuan", label: "岑春煊家族（西林岑氏）", dataset: cenchunxuan as GenealogyDataset },
+  { key: "ronghong", label: "容闳家族", dataset: ronghong as GenealogyDataset },
+  { key: "wutingfang", label: "伍廷芳家族", dataset: wutingfang as GenealogyDataset },
   // 清皇室（溥仪）：完整世系，多为封号名，绝嗣线，人数最大——放在末尾。
   { key: "puyi", label: "清皇室（溥仪）", dataset: puyi as GenealogyDataset },
 ];

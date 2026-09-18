@@ -1,0 +1,215 @@
+{
+  "key": "wikidata:cenchunxuan",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q10880666",
+      "name": "于立群",
+      "citation": "维基百科 / Wikidata Q10880666",
+      "aliases": [
+        "Yu Liqun"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1916
+      },
+      "death": {
+        "year": 1979
+      },
+      "bio": "中国女演员",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Yu%20Liqun.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q11048135",
+      "name": "岑德广",
+      "citation": "维基百科 / Wikidata Q11048135",
+      "aliases": [
+        "Cen Deguang"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1897
+      },
+      "death": {
+        "year": 1972
+      },
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Cen%20Deguang.jpg",
+      "photoCredit": "作者：Unknown; scanned by 天竺鼠 (talk) 12:30, 22 August 2009 (UTC) · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q11471910",
+      "name": "岑毓英",
+      "citation": "维基百科 / Wikidata Q11471910",
+      "aliases": [
+        "Cen Yuying"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1829
+      },
+      "death": {
+        "year": 1889
+      },
+      "bio": "Qing dynasty official (1829-1889)"
+    },
+    {
+      "externalId": "Q134067662",
+      "name": "岑氏",
+      "citation": "维基百科 / Wikidata Q134067662",
+      "gender": "female"
+    },
+    {
+      "externalId": "Q16076035",
+      "name": "郭世英",
+      "citation": "维基百科 / Wikidata Q16076035",
+      "aliases": [
+        "Guo Shiying"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1942
+      },
+      "death": {
+        "year": 1968
+      },
+      "bio": "郭沫若之子"
+    },
+    {
+      "externalId": "Q2944205",
+      "name": "岑春煊",
+      "citation": "维基百科 / Wikidata Q2944205",
+      "aliases": [
+        "Cen Chunxuan"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1861
+      },
+      "death": {
+        "year": 1933
+      },
+      "bio": "政治人物",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Cen%20Chunxuan%20%281%29.jpg",
+      "photoCredit": "作者：The original uploader was Jason22 at Chinese Wikipedia. · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q357821",
+      "name": "郭沫若",
+      "citation": "维基百科 / Wikidata Q357821",
+      "aliases": [
+        "Guo Moruo"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1892
+      },
+      "death": {
+        "year": 1978
+      },
+      "bio": "中國作家、歷史學家",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/%E9%83%AD%E5%BC%80%E8%B4%9E.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q45527052",
+      "name": "岑春蓂",
+      "citation": "维基百科 / Wikidata Q45527052",
+      "aliases": [
+        "Cen Chunming"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1868
+      },
+      "death": {
+        "year": 1944
+      },
+      "bio": "Qing dynasty person CBDB = 61640"
+    },
+    {
+      "externalId": "Q45600097",
+      "name": "岑春荣",
+      "citation": "维基百科 / Wikidata Q45600097",
+      "aliases": [
+        "岑春榮",
+        "Cen Chunrong"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1852
+      },
+      "death": {
+        "year": 1905
+      },
+      "bio": "Qing dynasty person CBDB = 78659"
+    },
+    {
+      "externalId": "Q98400128",
+      "name": "唐宝玫",
+      "citation": "维基百科 / Wikidata Q98400128",
+      "aliases": [
+        "Edith Tong"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1902
+      },
+      "death": {
+        "year": 1941
+      }
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q134067662",
+      "child": "Q10880666"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q10880666",
+      "child": "Q16076035"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q11471910",
+      "child": "Q2944205"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q2944205",
+      "child": "Q11048135"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q357821",
+      "child": "Q16076035"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q11471910",
+      "child": "Q45527052"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q11471910",
+      "child": "Q45600097"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q2944205",
+      "child": "Q134067662"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q10880666",
+      "b": "Q357821"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q11048135",
+      "b": "Q98400128"
+    }
+  ]
+}

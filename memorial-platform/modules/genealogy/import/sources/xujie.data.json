@@ -1,0 +1,158 @@
+{
+  "key": "wikidata:xujie",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q11071010",
+      "name": "徐阶",
+      "citation": "维基百科 / Wikidata Q11071010",
+      "aliases": [
+        "徐階",
+        "Xu Jie"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1503
+      },
+      "death": {
+        "year": 1583
+      },
+      "bio": "明朝政治家",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/%E5%BE%90%E9%9A%8E.jpg",
+      "photoCredit": "作者：​清 徐璋 · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q17500696",
+      "name": "徐元春",
+      "citation": "维基百科 / Wikidata Q17500696",
+      "aliases": [
+        "Xu Yuanchun"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1548
+      },
+      "bio": "politician"
+    },
+    {
+      "externalId": "Q17500699",
+      "name": "徐陟",
+      "citation": "维基百科 / Wikidata Q17500699",
+      "aliases": [
+        "Xu Zhi"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1513
+      },
+      "death": {
+        "year": 1584
+      },
+      "bio": "Ming dynasty person CBDB = 68548"
+    },
+    {
+      "externalId": "Q44250971",
+      "name": "徐黼",
+      "citation": "维基百科 / Wikidata Q44250971",
+      "gender": "male",
+      "birth": {
+        "year": 1457
+      },
+      "death": {
+        "year": 1524
+      }
+    },
+    {
+      "externalId": "Q44251172",
+      "name": "徐礼",
+      "citation": "维基百科 / Wikidata Q44251172",
+      "gender": "male",
+      "birth": {
+        "year": 1437
+      },
+      "bio": "明乐善居士"
+    },
+    {
+      "externalId": "Q45618503",
+      "name": "徐黼",
+      "citation": "维基百科 / Wikidata Q45618503",
+      "aliases": [
+        "Xu Fu"
+      ],
+      "gender": "male",
+      "bio": "person, CBDB = 212584"
+    },
+    {
+      "externalId": "Q45618628",
+      "name": "徐璠",
+      "citation": "维基百科 / Wikidata Q45618628",
+      "aliases": [
+        "Xu Fan"
+      ],
+      "gender": "male",
+      "bio": "person, CBDB = 212586"
+    },
+    {
+      "externalId": "Q65814868",
+      "name": "朱氏",
+      "citation": "维基百科 / Wikidata Q65814868",
+      "aliases": [
+        "Zhu Shi"
+      ],
+      "gender": "female",
+      "bio": "徐元春妻"
+    },
+    {
+      "externalId": "Q65833219",
+      "name": "宋氏",
+      "citation": "维基百科 / Wikidata Q65833219",
+      "aliases": [
+        "Song Shi"
+      ],
+      "gender": "female",
+      "bio": "徐陟妻"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q44250971",
+      "child": "Q11071010"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45618503",
+      "child": "Q11071010"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45618628",
+      "child": "Q17500696"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q44250971",
+      "child": "Q17500699"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q44251172",
+      "child": "Q44250971"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q11071010",
+      "child": "Q45618628"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q17500696",
+      "b": "Q65814868"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q17500699",
+      "b": "Q65833219"
+    }
+  ]
+}

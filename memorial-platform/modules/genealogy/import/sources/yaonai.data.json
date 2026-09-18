@@ -1,0 +1,219 @@
+{
+  "key": "wikidata:yaonai",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q10943334",
+      "name": "姚文然",
+      "citation": "维基百科 / Wikidata Q10943334",
+      "aliases": [
+        "Yao Wenran"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1620
+      },
+      "death": {
+        "year": 1678
+      },
+      "bio": "Qing dynasty politician"
+    },
+    {
+      "externalId": "Q133324484",
+      "name": "姚氏",
+      "citation": "维基百科 / Wikidata Q133324484",
+      "gender": "female"
+    },
+    {
+      "externalId": "Q133324749",
+      "name": "姚孔锳",
+      "citation": "维基百科 / Wikidata Q133324749",
+      "aliases": [
+        "姚孔鍈"
+      ],
+      "gender": "male"
+    },
+    {
+      "externalId": "Q133324758",
+      "name": "姚士基",
+      "citation": "维基百科 / Wikidata Q133324758",
+      "gender": "male"
+    },
+    {
+      "externalId": "Q28415679",
+      "name": "姚范",
+      "citation": "维基百科 / Wikidata Q28415679",
+      "aliases": [
+        "Yao Fan"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1702
+      },
+      "death": {
+        "year": 1771
+      },
+      "bio": "Qing dynasty person CBDB = 35101"
+    },
+    {
+      "externalId": "Q45616697",
+      "name": "姚凤仪",
+      "citation": "维基百科 / Wikidata Q45616697",
+      "aliases": [
+        "姚鳳儀",
+        "Yao Fengyi"
+      ],
+      "gender": "female",
+      "bio": "Qing dynasty person CBDB = 100117"
+    },
+    {
+      "externalId": "Q45616760",
+      "name": "方于宣",
+      "citation": "维基百科 / Wikidata Q45616760",
+      "aliases": [
+        "Fang Yuxuan"
+      ],
+      "gender": "male",
+      "bio": "Qing dynasty person CBDB = 100119"
+    },
+    {
+      "externalId": "Q45638934",
+      "name": "姚孙棐",
+      "citation": "维基百科 / Wikidata Q45638934",
+      "aliases": [
+        "姚孫棐",
+        "Yao Sunfei"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1598
+      },
+      "death": {
+        "year": 1663
+      },
+      "bio": "Ming dynasty person CBDB = 360144"
+    },
+    {
+      "externalId": "Q45685702",
+      "name": "姚凤翙",
+      "citation": "维基百科 / Wikidata Q45685702",
+      "aliases": [
+        "姚鳳翽",
+        "Yao Fenghui"
+      ],
+      "gender": "female",
+      "bio": "Qing dynasty person CBDB = 69955"
+    },
+    {
+      "externalId": "Q45685826",
+      "name": "方云旅",
+      "citation": "维基百科 / Wikidata Q45685826",
+      "aliases": [
+        "方雲旅",
+        "Fang Yunlv"
+      ],
+      "gender": "male",
+      "bio": "Qing dynasty person CBDB = 69961"
+    },
+    {
+      "externalId": "Q5939170",
+      "name": "姚鼐",
+      "citation": "维基百科 / Wikidata Q5939170",
+      "aliases": [
+        "Yao Nai"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1731
+      },
+      "death": {
+        "year": 1815
+      },
+      "bio": "Qing Dynasty scholar (1731–1815)",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/%E5%A7%9A%E9%BC%90.jpg",
+      "photoCredit": "作者：清叶衍兰摹绘 · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q65800542",
+      "name": "姚氏",
+      "citation": "维基百科 / Wikidata Q65800542",
+      "aliases": [
+        "Yao Shi"
+      ],
+      "gender": "female",
+      "bio": "姚孫裴女"
+    },
+    {
+      "externalId": "Q67490761",
+      "name": "姚淑",
+      "citation": "维基百科 / Wikidata Q67490761",
+      "aliases": [
+        "Yao Shu"
+      ],
+      "gender": "male",
+      "bio": "father of Yao Nai"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q67490761",
+      "child": "Q5939170"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45638934",
+      "child": "Q10943334"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q133324749",
+      "child": "Q28415679"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45638934",
+      "child": "Q45616697"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45638934",
+      "child": "Q45685702"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45638934",
+      "child": "Q65800542"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q133324749",
+      "child": "Q67490761"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q67490761",
+      "child": "Q133324484"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q133324758",
+      "child": "Q133324749"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q10943334",
+      "child": "Q133324758"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45616697",
+      "b": "Q45616760"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45685702",
+      "b": "Q45685826"
+    }
+  ]
+}

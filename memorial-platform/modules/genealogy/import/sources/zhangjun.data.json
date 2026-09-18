@@ -1,0 +1,499 @@
+{
+  "key": "wikidata:zhangjun",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q11066651",
+      "name": "张叔夜",
+      "citation": "维基百科 / Wikidata Q11066651",
+      "aliases": [
+        "Zhang Shuye"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1065
+      },
+      "death": {
+        "year": 1127
+      },
+      "bio": "北宋政治人物"
+    },
+    {
+      "externalId": "Q11066981",
+      "name": "张常先",
+      "citation": "维基百科 / Wikidata Q11066981",
+      "aliases": [
+        "Zhang Changxian"
+      ],
+      "gender": "male",
+      "bio": "宋朝官員"
+    },
+    {
+      "externalId": "Q45360721",
+      "name": "张忠恕",
+      "citation": "维基百科 / Wikidata Q45360721",
+      "aliases": [
+        "張忠恕",
+        "Zhang Zhongshu"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1174
+      },
+      "death": {
+        "year": 1230
+      },
+      "bio": "Song dynasty person CBDB = 3132"
+    },
+    {
+      "externalId": "Q45360737",
+      "name": "张枃",
+      "citation": "维基百科 / Wikidata Q45360737",
+      "aliases": [
+        "張枃",
+        "Zhang Yun"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 1197
+      },
+      "bio": "Song dynasty person CBDB = 3136"
+    },
+    {
+      "externalId": "Q45374353",
+      "name": "张璘",
+      "citation": "维基百科 / Wikidata Q45374353",
+      "aliases": [
+        "張璘",
+        "Zhang Lin"
+      ],
+      "gender": "male",
+      "bio": "Tang dynasty person CBDB = 12389"
+    },
+    {
+      "externalId": "Q45374357",
+      "name": "张庭坚",
+      "citation": "维基百科 / Wikidata Q45374357",
+      "aliases": [
+        "張庭堅",
+        "Zhang Tingjian"
+      ],
+      "gender": "male",
+      "bio": "Later Shu person CBDB = 12390"
+    },
+    {
+      "externalId": "Q45374360",
+      "name": "张文矩",
+      "citation": "维基百科 / Wikidata Q45374360",
+      "aliases": [
+        "張文矩",
+        "Zhang Wenju"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person (CBDB = 12391)"
+    },
+    {
+      "externalId": "Q45374381",
+      "name": "张纮",
+      "citation": "维基百科 / Wikidata Q45374381",
+      "aliases": [
+        "張紘",
+        "Zhang Hong"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person (CBDB = 12395)"
+    },
+    {
+      "externalId": "Q45374384",
+      "name": "张咸",
+      "citation": "维基百科 / Wikidata Q45374384",
+      "aliases": [
+        "張咸",
+        "Zhang Xian"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1048
+      },
+      "death": {
+        "year": 1099
+      },
+      "bio": "Song dynasty person CBDB = 12396"
+    },
+    {
+      "externalId": "Q45374499",
+      "name": "张滉",
+      "citation": "维基百科 / Wikidata Q45374499",
+      "aliases": [
+        "張滉",
+        "Zhang Huang"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person (CBDB = 12437)"
+    },
+    {
+      "externalId": "Q45374504",
+      "name": "张洽",
+      "citation": "维基百科 / Wikidata Q45374504",
+      "aliases": [
+        "張洽",
+        "Zhang Xia"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB=12439"
+    },
+    {
+      "externalId": "Q45374509",
+      "name": "张焯",
+      "citation": "维基百科 / Wikidata Q45374509",
+      "aliases": [
+        "張焯",
+        "Zhang Zhuo"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person (CBDB = 12440)"
+    },
+    {
+      "externalId": "Q45378205",
+      "name": "张伯奋",
+      "citation": "维基百科 / Wikidata Q45378205",
+      "aliases": [
+        "張伯奮",
+        "Zhang Bofen"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 13599"
+    },
+    {
+      "externalId": "Q45378206",
+      "name": "张仲熊",
+      "citation": "维基百科 / Wikidata Q45378206",
+      "aliases": [
+        "張仲熊",
+        "Zhang Zhongxiong"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 13600"
+    },
+    {
+      "externalId": "Q45378707",
+      "name": "张澥",
+      "citation": "维基百科 / Wikidata Q45378707",
+      "aliases": [
+        "張澥",
+        "Zhang Xie"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person (CBDB = 13782)"
+    },
+    {
+      "externalId": "Q45382464",
+      "name": "张忠纯",
+      "citation": "维基百科 / Wikidata Q45382464",
+      "aliases": [
+        "張忠純",
+        "Zhang Zhongchun"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 16303"
+    },
+    {
+      "externalId": "Q45397567",
+      "name": "张近",
+      "citation": "维基百科 / Wikidata Q45397567",
+      "aliases": [
+        "張近",
+        "Zhang Jin"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 21178"
+    },
+    {
+      "externalId": "Q45411806",
+      "name": "张宗望",
+      "citation": "维基百科 / Wikidata Q45411806",
+      "aliases": [
+        "張宗望",
+        "Zhang Zongwang"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person (CBDB = 27343)"
+    },
+    {
+      "externalId": "Q65798807",
+      "name": "任氏",
+      "citation": "维基百科 / Wikidata Q65798807",
+      "aliases": [
+        "Ren Shi"
+      ],
+      "gender": "female",
+      "bio": "張咸妻"
+    },
+    {
+      "externalId": "Q65798812",
+      "name": "乐氏",
+      "citation": "维基百科 / Wikidata Q65798812",
+      "aliases": [
+        "樂氏",
+        "Le Shi"
+      ],
+      "gender": "female",
+      "bio": "張浚妻"
+    },
+    {
+      "externalId": "Q65798813",
+      "name": "宇文氏",
+      "citation": "维基百科 / Wikidata Q65798813",
+      "aliases": [
+        "Yuwen Shi"
+      ],
+      "gender": "female",
+      "bio": "張浚妻"
+    },
+    {
+      "externalId": "Q65798814",
+      "name": "杨氏",
+      "citation": "维基百科 / Wikidata Q65798814",
+      "aliases": [
+        "楊氏",
+        "Yang Shi"
+      ],
+      "gender": "female",
+      "bio": "張文矩妻"
+    },
+    {
+      "externalId": "Q65798815",
+      "name": "赵氏",
+      "citation": "维基百科 / Wikidata Q65798815",
+      "aliases": [
+        "趙氏",
+        "Zhao Shi"
+      ],
+      "gender": "female",
+      "bio": "張紘妻"
+    },
+    {
+      "externalId": "Q65799271",
+      "name": "赵氏",
+      "citation": "维基百科 / Wikidata Q65799271",
+      "aliases": [
+        "趙氏",
+        "Zhao Shi"
+      ],
+      "gender": "female",
+      "bio": "張咸妻"
+    },
+    {
+      "externalId": "Q65799272",
+      "name": "计氏",
+      "citation": "维基百科 / Wikidata Q65799272",
+      "aliases": [
+        "計氏",
+        "Ji Shi"
+      ],
+      "gender": "female",
+      "bio": "張咸妻"
+    },
+    {
+      "externalId": "Q65799273",
+      "name": "王氏",
+      "citation": "维基百科 / Wikidata Q65799273",
+      "aliases": [
+        "Wang Shi"
+      ],
+      "gender": "female",
+      "bio": "張紘妻"
+    },
+    {
+      "externalId": "Q65800045",
+      "name": "计法真",
+      "citation": "维基百科 / Wikidata Q65800045",
+      "aliases": [
+        "計法真",
+        "Ji Fazhen"
+      ],
+      "gender": "female",
+      "bio": "張浚母; 南宋人(fl.1146)﹐女﹐綿竹人(今四川綿竹)。蘭閨寶錄有著錄。"
+    },
+    {
+      "externalId": "Q708644",
+      "name": "张栻",
+      "citation": "维基百科 / Wikidata Q708644",
+      "aliases": [
+        "張栻",
+        "Zhang Shi"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1133
+      },
+      "death": {
+        "year": 1180
+      },
+      "bio": "Song Dynasty scholar and government official (1133-1181) important in the development of Neoconfucianism",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/%E5%AE%8B%E5%8F%B3%E6%96%87%E6%AE%BF%E4%BF%AE%E6%92%B0%E5%BC%A0%E6%A0%BB.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q710270",
+      "name": "张浚",
+      "citation": "维基百科 / Wikidata Q710270",
+      "aliases": [
+        "張浚",
+        "Zhang Jun"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1097
+      },
+      "death": {
+        "year": 1164
+      },
+      "bio": "南宋抗金将领（1097－1164）",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Statue%20of%20Zhang%20Jun%2C%20Nanxuan%20Cultural%20Park%2C%204%20April%202021A.jpg",
+      "photoCredit": "作者：Uploaded by Huangdan2060 · CC BY 3.0 · 来源：Wikimedia Commons"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q710270",
+      "child": "Q708644"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45374384",
+      "child": "Q710270"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45411806",
+      "child": "Q11066651"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q11066651",
+      "child": "Q11066981"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45360737",
+      "child": "Q45360721"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q710270",
+      "child": "Q45360737"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45374353",
+      "child": "Q45374357"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45374357",
+      "child": "Q45374360"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45374360",
+      "child": "Q45374381"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45374381",
+      "child": "Q45374384"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45374384",
+      "child": "Q45374499"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45374509",
+      "child": "Q45374504"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q708644",
+      "child": "Q45374509"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q11066651",
+      "child": "Q45378205"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q11066651",
+      "child": "Q45378206"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45374384",
+      "child": "Q45378707"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45360737",
+      "child": "Q45382464"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45411806",
+      "child": "Q45397567"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q710270",
+      "child": "Q45411806"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q65800045",
+      "child": "Q710270"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q65798814",
+      "child": "Q45374381"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q65798812",
+      "b": "Q710270"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q65798813",
+      "b": "Q710270"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45374381",
+      "b": "Q65798815"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45374381",
+      "b": "Q65799273"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45374384",
+      "b": "Q65798807"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45374384",
+      "b": "Q65799271"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45374384",
+      "b": "Q65799272"
+    }
+  ]
+}

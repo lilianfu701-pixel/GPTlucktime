@@ -1,0 +1,433 @@
+{
+  "key": "wikidata:zhangyue",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q10721489",
+      "name": "宁亲公主",
+      "citation": "维基百科 / Wikidata Q10721489",
+      "aliases": [
+        "寧親公主",
+        "Princess Ningqin"
+      ],
+      "gender": "female",
+      "bio": "daughter of Chinese emperor Xuanzong of Tang"
+    },
+    {
+      "externalId": "Q11068701",
+      "name": "张洎",
+      "citation": "维基百科 / Wikidata Q11068701",
+      "aliases": [
+        "張洎",
+        "Zhang Ji"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 757
+      },
+      "bio": "Tang dynasty person CBDB = 31414"
+    },
+    {
+      "externalId": "Q18909029",
+      "name": "张均",
+      "citation": "维基百科 / Wikidata Q18909029",
+      "aliases": [
+        "張均",
+        "Zhang Jun"
+      ],
+      "gender": "male",
+      "bio": "Tang dynasty person CBDB = 31413"
+    },
+    {
+      "externalId": "Q45419625",
+      "name": "张子犯",
+      "citation": "维基百科 / Wikidata Q45419625",
+      "aliases": [
+        "張子犯",
+        "Zhang Zifan"
+      ],
+      "gender": "male",
+      "bio": "Northern Wei person CBDB = 31395"
+    },
+    {
+      "externalId": "Q45419626",
+      "name": "张俊",
+      "citation": "维基百科 / Wikidata Q45419626",
+      "aliases": [
+        "張俊",
+        "Zhang Jun"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 576
+      },
+      "bio": "Northern Qi person CBDB = 31396"
+    },
+    {
+      "externalId": "Q45419627",
+      "name": "张弋",
+      "citation": "维基百科 / Wikidata Q45419627",
+      "aliases": [
+        "張弋",
+        "Zhang Yi"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 613
+      },
+      "bio": "Sui dynasty person CBDB = 31397"
+    },
+    {
+      "externalId": "Q45419628",
+      "name": "张恪",
+      "citation": "维基百科 / Wikidata Q45419628",
+      "aliases": [
+        "張恪",
+        "Zhang Ke"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 650
+      },
+      "bio": "Tang dynasty person CBDB = 31398"
+    },
+    {
+      "externalId": "Q45419630",
+      "name": "张骘",
+      "citation": "维基百科 / Wikidata Q45419630",
+      "aliases": [
+        "張騭",
+        "Zhang Zhi"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 628
+      },
+      "death": {
+        "year": 679
+      },
+      "bio": "Tang dynasty person CBDB = 31399"
+    },
+    {
+      "externalId": "Q45419631",
+      "name": "冯氏",
+      "citation": "维基百科 / Wikidata Q45419631",
+      "aliases": [
+        "馮氏",
+        "Feng Shi"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 626
+      },
+      "death": {
+        "year": 707
+      },
+      "bio": "張騭妻"
+    },
+    {
+      "externalId": "Q45419659",
+      "name": "张埱",
+      "citation": "维基百科 / Wikidata Q45419659",
+      "aliases": [
+        "張埱",
+        "Zhang Chu"
+      ],
+      "gender": "male",
+      "bio": "Tang dynasty person CBDB = 31415"
+    },
+    {
+      "externalId": "Q45536810",
+      "name": "张蒙",
+      "citation": "维基百科 / Wikidata Q45536810",
+      "aliases": [
+        "張濛",
+        "Zhang Meng"
+      ],
+      "gender": "male",
+      "bio": "Tang dynasty person CBDB = 93543"
+    },
+    {
+      "externalId": "Q45611027",
+      "name": "张某",
+      "citation": "维基百科 / Wikidata Q45611027",
+      "aliases": [
+        "張某",
+        "Zhang Mou"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 724
+      },
+      "bio": "Tang dynasty person CBDB = 190592"
+    },
+    {
+      "externalId": "Q45685879",
+      "name": "张光",
+      "citation": "维基百科 / Wikidata Q45685879",
+      "aliases": [
+        "張光",
+        "Zhang Guang"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 724
+      },
+      "bio": "Tang dynasty person CBDB = 176160"
+    },
+    {
+      "externalId": "Q45685911",
+      "name": "张珪",
+      "citation": "维基百科 / Wikidata Q45685911",
+      "aliases": [
+        "張珪",
+        "Zhang Gui"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 724
+      },
+      "bio": "Tang dynasty person CBDB = 176161"
+    },
+    {
+      "externalId": "Q45685974",
+      "name": "张岯",
+      "citation": "维基百科 / Wikidata Q45685974",
+      "aliases": [
+        "張岯",
+        "Zhang Pi"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 798
+      },
+      "bio": "Tang dynasty person CBDB = 176165"
+    },
+    {
+      "externalId": "Q45686004",
+      "name": "张密",
+      "citation": "维基百科 / Wikidata Q45686004",
+      "aliases": [
+        "張密",
+        "Zhang Mi"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 798
+      },
+      "bio": "Tang dynasty person CBDB = 176166"
+    },
+    {
+      "externalId": "Q45686037",
+      "name": "张嵍",
+      "citation": "维基百科 / Wikidata Q45686037",
+      "aliases": [
+        "張嵍",
+        "Zhang Wu"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 798
+      },
+      "bio": "Tang dynasty person CBDB = 176168"
+    },
+    {
+      "externalId": "Q45686067",
+      "name": "张岩",
+      "citation": "维基百科 / Wikidata Q45686067",
+      "aliases": [
+        "張岩",
+        "Zhang Yan"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 798
+      },
+      "bio": "Tang dynasty person CBDB = 176169"
+    },
+    {
+      "externalId": "Q45686129",
+      "name": "张涣",
+      "citation": "维基百科 / Wikidata Q45686129",
+      "aliases": [
+        "張渙",
+        "Zhang Huan"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 798
+      },
+      "bio": "Tang dynasty person CBDB=176171"
+    },
+    {
+      "externalId": "Q45686160",
+      "name": "张岱",
+      "citation": "维基百科 / Wikidata Q45686160",
+      "aliases": [
+        "張岱",
+        "Zhang Dai"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 798
+      },
+      "bio": "Tang dynasty person CBDB = 176172"
+    },
+    {
+      "externalId": "Q6539114",
+      "name": "李倓",
+      "citation": "维基百科 / Wikidata Q6539114",
+      "aliases": [
+        "Li Tan"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 701
+      },
+      "death": {
+        "year": 757
+      },
+      "bio": "唐肃宗李亨第三子"
+    },
+    {
+      "externalId": "Q701545",
+      "name": "张说",
+      "citation": "维基百科 / Wikidata Q701545",
+      "aliases": [
+        "張說",
+        "Zhang Yue"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 663
+      },
+      "death": {
+        "year": 730
+      },
+      "bio": "唐朝宰相"
+    },
+    {
+      "externalId": "Q8255081",
+      "name": "恭顺皇后",
+      "citation": "维基百科 / Wikidata Q8255081",
+      "gender": "female"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q10721489",
+      "child": "Q8255081"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45419630",
+      "child": "Q701545"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q11068701",
+      "child": "Q8255081"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q701545",
+      "child": "Q11068701"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q701545",
+      "child": "Q18909029"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45419625",
+      "child": "Q45419626"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45419626",
+      "child": "Q45419627"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45419627",
+      "child": "Q45419628"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45419628",
+      "child": "Q45419630"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q701545",
+      "child": "Q45419659"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q18909029",
+      "child": "Q45536810"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45419630",
+      "child": "Q45611027"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45419630",
+      "child": "Q45685879"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45419630",
+      "child": "Q45685911"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q18909029",
+      "child": "Q45685974"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q18909029",
+      "child": "Q45686004"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q18909029",
+      "child": "Q45686037"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q18909029",
+      "child": "Q45686067"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q11068701",
+      "child": "Q45686129"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q11068701",
+      "child": "Q45686160"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q6539114",
+      "b": "Q8255081"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q10721489",
+      "b": "Q11068701"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45419630",
+      "b": "Q45419631"
+    }
+  ]
+}

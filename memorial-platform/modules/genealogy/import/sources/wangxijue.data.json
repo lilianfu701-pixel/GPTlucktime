@@ -1,0 +1,372 @@
+{
+  "key": "wikidata:wangxijue",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q116797549",
+      "name": "宋氏",
+      "citation": "维基百科 / Wikidata Q116797549",
+      "aliases": [
+        "Song Shi"
+      ],
+      "gender": "female"
+    },
+    {
+      "externalId": "Q15896819",
+      "name": "王撰",
+      "citation": "维基百科 / Wikidata Q15896819",
+      "aliases": [
+        "Wang Zhuan"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1623
+      },
+      "death": {
+        "year": 1709
+      },
+      "bio": "Qing dynasty person CBDB = 69433 (1623–1709)"
+    },
+    {
+      "externalId": "Q15902501",
+      "name": "王掞",
+      "citation": "维基百科 / Wikidata Q15902501",
+      "aliases": [
+        "Wang Shan"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1645
+      },
+      "death": {
+        "year": 1728
+      },
+      "bio": "Qing dynasty politician (1645–1728)",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/%E7%8E%8B%E6%8E%9E.jpg",
+      "photoCredit": "作者：清孔继尧绘，周秉锠镌，为《沧浪亭五百名贤像》之一 · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q16077684",
+      "name": "王衡",
+      "citation": "维基百科 / Wikidata Q16077684",
+      "aliases": [
+        "Wang Heng"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1561
+      },
+      "death": {
+        "year": 1609
+      },
+      "bio": "politician"
+    },
+    {
+      "externalId": "Q16904055",
+      "name": "王奕清",
+      "citation": "维基百科 / Wikidata Q16904055",
+      "aliases": [
+        "Wang Yiqing"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1664
+      },
+      "death": {
+        "year": 1737
+      },
+      "bio": "Qing dynasty person CBDB = 69263"
+    },
+    {
+      "externalId": "Q16923068",
+      "name": "王揆",
+      "citation": "维基百科 / Wikidata Q16923068",
+      "aliases": [
+        "Wang Kui"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1619
+      },
+      "death": {
+        "year": 1696
+      },
+      "bio": "Qing dynasty person CBDB = 69382"
+    },
+    {
+      "externalId": "Q17026854",
+      "name": "王摅",
+      "citation": "维基百科 / Wikidata Q17026854",
+      "aliases": [
+        "王攄",
+        "Wang Shu"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1636
+      },
+      "death": {
+        "year": 1699
+      },
+      "bio": "Qing dynasty person CBDB = 71243"
+    },
+    {
+      "externalId": "Q28417920",
+      "name": "王奕鸿",
+      "citation": "维基百科 / Wikidata Q28417920",
+      "aliases": [
+        "王奕鴻",
+        "Wang Yihong"
+      ],
+      "gender": "male",
+      "bio": "Qing dynasty person CBDB = 69264"
+    },
+    {
+      "externalId": "Q30947343",
+      "name": "王抃",
+      "citation": "维基百科 / Wikidata Q30947343",
+      "aliases": [
+        "Wang Bian"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1628
+      },
+      "death": {
+        "year": 1702
+      },
+      "bio": "Qing dynasty person CBDB = 71077"
+    },
+    {
+      "externalId": "Q45452630",
+      "name": "王鼎爵",
+      "citation": "维基百科 / Wikidata Q45452630",
+      "aliases": [
+        "Wang Dingjue"
+      ],
+      "gender": "male",
+      "bio": "Ming dynasty person CBDB = 124003"
+    },
+    {
+      "externalId": "Q45482718",
+      "name": "王侁",
+      "citation": "维基百科 / Wikidata Q45482718",
+      "aliases": [
+        "Wang Shen"
+      ],
+      "gender": "male",
+      "bio": "Ming dynasty person CBDB = 326161"
+    },
+    {
+      "externalId": "Q45482779",
+      "name": "王涌",
+      "citation": "维基百科 / Wikidata Q45482779",
+      "aliases": [
+        "王湧",
+        "Wang Yong"
+      ],
+      "gender": "male",
+      "bio": "Ming dynasty person CBDB = 326162"
+    },
+    {
+      "externalId": "Q45482904",
+      "name": "王梦祥",
+      "citation": "维基百科 / Wikidata Q45482904",
+      "aliases": [
+        "王夢祥",
+        "Wang Mengxiang"
+      ],
+      "gender": "male",
+      "bio": "Ming dynasty person CBDB = 326164"
+    },
+    {
+      "externalId": "Q65852922",
+      "name": "吴氏",
+      "citation": "维基百科 / Wikidata Q65852922",
+      "aliases": [
+        "吳氏",
+        "Wu Shi"
+      ],
+      "gender": "female",
+      "bio": "王錫爵母"
+    },
+    {
+      "externalId": "Q65852926",
+      "name": "朱氏",
+      "citation": "维基百科 / Wikidata Q65852926",
+      "aliases": [
+        "Zhu Shi"
+      ],
+      "gender": "female",
+      "bio": "王錫爵妻"
+    },
+    {
+      "externalId": "Q65861000",
+      "name": "庄氏",
+      "citation": "维基百科 / Wikidata Q65861000",
+      "aliases": [
+        "莊氏",
+        "Zhuang Shi"
+      ],
+      "gender": "female",
+      "bio": "王鼎爵妻"
+    },
+    {
+      "externalId": "Q716184",
+      "name": "王时敏",
+      "citation": "维基百科 / Wikidata Q716184",
+      "aliases": [
+        "王時敏",
+        "Wang Shimin"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1592
+      },
+      "death": {
+        "year": 1680
+      },
+      "bio": "明末清初畫家",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/%E7%8E%8B%E6%97%B6%E6%95%8F.jpg",
+      "photoCredit": "作者：明末画家 曾鲸 · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q716338",
+      "name": "王原祁",
+      "citation": "维基百科 / Wikidata Q716338",
+      "aliases": [
+        "Wang Yuanqi"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1642
+      },
+      "death": {
+        "year": 1715
+      },
+      "bio": "Chinese painter (1642-1715)",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/%E7%8E%8B%E5%8E%9F%E7%A5%81.jpg",
+      "photoCredit": "作者：清叶衍兰辑摹，黄小泉绘。 · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q7967692",
+      "name": "王锡爵",
+      "citation": "维基百科 / Wikidata Q7967692",
+      "aliases": [
+        "Wang Xijue"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1534
+      },
+      "death": {
+        "year": 1610
+      },
+      "bio": "Chinese Grand Secretary",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Wang%20Xijue.jpg",
+      "photoCredit": "作者：清人繪 · 公有领域 · 来源：Wikimedia Commons"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q65852922",
+      "child": "Q7967692"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q116797549",
+      "child": "Q16904055"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q116797549",
+      "child": "Q28417920"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q16077684",
+      "child": "Q716184"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q16923068",
+      "child": "Q716338"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45482904",
+      "child": "Q7967692"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q716184",
+      "child": "Q15896819"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q716184",
+      "child": "Q15902501"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q7967692",
+      "child": "Q16077684"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q15902501",
+      "child": "Q16904055"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q716184",
+      "child": "Q16923068"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q716184",
+      "child": "Q17026854"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q15902501",
+      "child": "Q28417920"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q716184",
+      "child": "Q30947343"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45482904",
+      "child": "Q45452630"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45482718",
+      "child": "Q45482779"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45482779",
+      "child": "Q45482904"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q65852926",
+      "b": "Q7967692"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q116797549",
+      "b": "Q15902501"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45452630",
+      "b": "Q65861000"
+    }
+  ]
+}

@@ -1,0 +1,292 @@
+{
+  "key": "wikidata:yangtinghe",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q11118168",
+      "name": "杨廷仪",
+      "citation": "维基百科 / Wikidata Q11118168",
+      "aliases": [
+        "楊廷儀",
+        "Yang Tingyi"
+      ],
+      "gender": "male",
+      "bio": "Ming dynasty politician"
+    },
+    {
+      "externalId": "Q11118434",
+      "name": "杨春",
+      "citation": "维基百科 / Wikidata Q11118434",
+      "aliases": [
+        "楊春",
+        "Yang Chun"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1436
+      },
+      "death": {
+        "year": 1515
+      },
+      "bio": "father of Yang Tinghe"
+    },
+    {
+      "externalId": "Q16203734",
+      "name": "黄峨",
+      "citation": "维基百科 / Wikidata Q16203734",
+      "aliases": [
+        "Huang E"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1488
+      },
+      "death": {
+        "year": 1566
+      },
+      "bio": "明代作家、诗人，状元杨慎之妻"
+    },
+    {
+      "externalId": "Q28408890",
+      "name": "杨有仁",
+      "citation": "维基百科 / Wikidata Q28408890",
+      "aliases": [
+        "楊有仁",
+        "Yang Youren"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1544
+      },
+      "bio": "politician"
+    },
+    {
+      "externalId": "Q45461080",
+      "name": "杨世贤",
+      "citation": "维基百科 / Wikidata Q45461080",
+      "aliases": [
+        "楊世賢",
+        "Yang Shixian"
+      ],
+      "gender": "male",
+      "bio": "Ming dynasty person CBDB = 256815"
+    },
+    {
+      "externalId": "Q45461145",
+      "name": "杨寿山",
+      "citation": "维基百科 / Wikidata Q45461145",
+      "aliases": [
+        "楊壽山",
+        "Yang Shoushan"
+      ],
+      "gender": "male",
+      "bio": "Ming dynasty person CBDB = 256816"
+    },
+    {
+      "externalId": "Q45461207",
+      "name": "杨玟",
+      "citation": "维基百科 / Wikidata Q45461207",
+      "aliases": [
+        "楊玟",
+        "Yang Min"
+      ],
+      "gender": "male",
+      "bio": "Ming dynasty person CBDB = 256817"
+    },
+    {
+      "externalId": "Q45593814",
+      "name": "杨惇",
+      "citation": "维基百科 / Wikidata Q45593814",
+      "aliases": [
+        "楊惇",
+        "Yang Dun"
+      ],
+      "gender": "male",
+      "bio": "Ming dynasty person CBDB = 275721"
+    },
+    {
+      "externalId": "Q5947507",
+      "name": "杨廷和",
+      "citation": "维基百科 / Wikidata Q5947507",
+      "aliases": [
+        "楊廷和",
+        "Yang Tinghe"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1459
+      },
+      "death": {
+        "year": 1529
+      },
+      "bio": "明代内阁首辅",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Yang%20Tinghe.png",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q65820031",
+      "name": "严氏",
+      "citation": "维基百科 / Wikidata Q65820031",
+      "aliases": [
+        "嚴氏",
+        "Yan Shi"
+      ],
+      "gender": "female",
+      "bio": "楊有仁妻"
+    },
+    {
+      "externalId": "Q65857677",
+      "name": "叶氏",
+      "citation": "维基百科 / Wikidata Q65857677",
+      "aliases": [
+        "葉氏",
+        "Ye Shi"
+      ],
+      "gender": "female",
+      "bio": "楊廷和母"
+    },
+    {
+      "externalId": "Q65857682",
+      "name": "黄氏",
+      "citation": "维基百科 / Wikidata Q65857682",
+      "aliases": [
+        "黃氏",
+        "Huang Shi"
+      ],
+      "gender": "female",
+      "bio": "楊廷和妻"
+    },
+    {
+      "externalId": "Q65862510",
+      "name": "熊氏",
+      "citation": "维基百科 / Wikidata Q65862510",
+      "aliases": [
+        "Xiong Shi"
+      ],
+      "gender": "female",
+      "bio": "楊春母"
+    },
+    {
+      "externalId": "Q65862515",
+      "name": "叶氏",
+      "citation": "维基百科 / Wikidata Q65862515",
+      "aliases": [
+        "葉氏",
+        "Ye Shi"
+      ],
+      "gender": "female",
+      "bio": "楊春妻"
+    },
+    {
+      "externalId": "Q65884423",
+      "name": "王氏",
+      "citation": "维基百科 / Wikidata Q65884423",
+      "aliases": [
+        "Wang Shi"
+      ],
+      "gender": "female",
+      "bio": "楊慎妻"
+    },
+    {
+      "externalId": "Q711808",
+      "name": "杨慎",
+      "citation": "维基百科 / Wikidata Q711808",
+      "aliases": [
+        "楊慎",
+        "Yang Shen"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1488
+      },
+      "death": {
+        "year": 1559
+      },
+      "bio": "明代文學家（1488-1559）",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/%E6%A5%8A%E6%85%8E.jpg",
+      "photoCredit": "作者：錢杜繪 · 公有领域 · 来源：Wikimedia Commons"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q65857682",
+      "child": "Q711808"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q65857677",
+      "child": "Q5947507"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q65862510",
+      "child": "Q11118434"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q5947507",
+      "child": "Q711808"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q11118434",
+      "child": "Q5947507"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q11118434",
+      "child": "Q11118168"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45461207",
+      "child": "Q11118434"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45593814",
+      "child": "Q28408890"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45461080",
+      "child": "Q45461145"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45461145",
+      "child": "Q45461207"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q5947507",
+      "child": "Q45593814"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q16203734",
+      "b": "Q711808"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q65884423",
+      "b": "Q711808"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q5947507",
+      "b": "Q65857682"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q11118434",
+      "b": "Q65862515"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q28408890",
+      "b": "Q65820031"
+    }
+  ]
+}

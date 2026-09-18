@@ -1,0 +1,348 @@
+{
+  "key": "wikidata:fanwencheng",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q111727550",
+      "name": "范济",
+      "citation": "维基百科 / Wikidata Q111727550",
+      "aliases": [
+        "范濟",
+        "Fan Ji"
+      ],
+      "gender": "male"
+    },
+    {
+      "externalId": "Q111727982",
+      "name": "范佳氏",
+      "citation": "维基百科 / Wikidata Q111727982",
+      "aliases": [
+        "Fanjia Shi"
+      ],
+      "gender": "female"
+    },
+    {
+      "externalId": "Q111728093",
+      "name": "范承祚",
+      "citation": "维基百科 / Wikidata Q111728093",
+      "aliases": [
+        "Fan Chengzuo"
+      ],
+      "gender": "male"
+    },
+    {
+      "externalId": "Q111728200",
+      "name": "钮祜禄氏",
+      "citation": "维基百科 / Wikidata Q111728200",
+      "aliases": [
+        "鈕祜祿氏",
+        "Niohuru"
+      ],
+      "gender": "female",
+      "bio": "wife of Fan Chengzuo"
+    },
+    {
+      "externalId": "Q12237485",
+      "name": "范宜恒",
+      "citation": "维基百科 / Wikidata Q12237485",
+      "aliases": [
+        "Fan Yiheng"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 1797
+      },
+      "bio": "Qing dynasty politician"
+    },
+    {
+      "externalId": "Q12237501",
+      "name": "范时捷",
+      "citation": "维基百科 / Wikidata Q12237501",
+      "aliases": [
+        "范時捷",
+        "Fan Shijie"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 1738
+      },
+      "bio": "Qing dynasty person CBDB = 57365"
+    },
+    {
+      "externalId": "Q12237531",
+      "name": "范承勋",
+      "citation": "维基百科 / Wikidata Q12237531",
+      "aliases": [
+        "范承勳",
+        "Fan Chengxun"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1641
+      },
+      "death": {
+        "year": 1714
+      },
+      "bio": "Qing dynasty politician"
+    },
+    {
+      "externalId": "Q12237547",
+      "name": "范承谟",
+      "citation": "维基百科 / Wikidata Q12237547",
+      "aliases": [
+        "范承謨",
+        "Fan Chengmo"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1624
+      },
+      "death": {
+        "year": 1676
+      },
+      "bio": "Qing dynasty politician"
+    },
+    {
+      "externalId": "Q12237563",
+      "name": "范文程",
+      "citation": "维基百科 / Wikidata Q12237563",
+      "aliases": [
+        "Fan Wencheng"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1597
+      },
+      "death": {
+        "year": 1666
+      },
+      "bio": "清朝大臣, 北宋大臣范仲淹的十七世孙",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Fan%20WenCheng.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q12237579",
+      "name": "范时绎",
+      "citation": "维基百科 / Wikidata Q12237579",
+      "aliases": [
+        "范時繹",
+        "Fan Shiyi"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 1741
+      },
+      "bio": "Qing dynasty politician"
+    },
+    {
+      "externalId": "Q12244622",
+      "name": "范建中",
+      "citation": "维基百科 / Wikidata Q12244622",
+      "aliases": [
+        "Fan Jianzhong"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 1800
+      },
+      "bio": "Qing dynasty politician"
+    },
+    {
+      "externalId": "Q22829721",
+      "name": "永璨",
+      "citation": "维基百科 / Wikidata Q22829721",
+      "aliases": [
+        "Yongcan"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1753
+      },
+      "death": {
+        "year": 1810
+      },
+      "bio": "一等鎮國將軍"
+    },
+    {
+      "externalId": "Q45495201",
+      "name": "范承斌",
+      "citation": "维基百科 / Wikidata Q45495201",
+      "aliases": [
+        "Fan Chengbin"
+      ],
+      "gender": "male",
+      "bio": "Ming dynasty person CBDB = 124686"
+    },
+    {
+      "externalId": "Q45501633",
+      "name": "范宜宾",
+      "citation": "维基百科 / Wikidata Q45501633",
+      "aliases": [
+        "范宜賓",
+        "Fan Yibin"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1710
+      },
+      "bio": "Qing dynasty person CBDB = 61219"
+    },
+    {
+      "externalId": "Q45507332",
+      "name": "范承烈",
+      "citation": "维基百科 / Wikidata Q45507332",
+      "aliases": [
+        "Fan Chenglie"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1642
+      },
+      "bio": "Qing dynasty person CBDB = 82481"
+    },
+    {
+      "externalId": "Q45580397",
+      "name": "范时绶",
+      "citation": "维基百科 / Wikidata Q45580397",
+      "aliases": [
+        "范時綬",
+        "Fan Shishou"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 1782
+      },
+      "bio": "Qing dynasty person CBDB = 57366"
+    },
+    {
+      "externalId": "Q7733079",
+      "name": "弘曕",
+      "citation": "维基百科 / Wikidata Q7733079",
+      "aliases": [
+        "Hongyan"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1733
+      },
+      "death": {
+        "year": 1765
+      },
+      "bio": "Prince Guo Gong of the Second Rank; sixth son of Emperor Yongzheng (Qing Dynasty); adopted by the Prince Yunli (1738)",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Yinli3.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q7733271",
+      "name": "永瑹",
+      "citation": "维基百科 / Wikidata Q7733271",
+      "aliases": [
+        "Yongtu"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1752
+      },
+      "death": {
+        "year": 1789
+      }
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q111727982",
+      "child": "Q7733271"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q111727982",
+      "child": "Q22829721"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q7733079",
+      "child": "Q7733271"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45580397",
+      "child": "Q12237485"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45495201",
+      "child": "Q12237501"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q12237563",
+      "child": "Q12237531"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q12237563",
+      "child": "Q12237547"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q12237531",
+      "child": "Q12237579"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q111727550",
+      "child": "Q12244622"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q7733079",
+      "child": "Q22829721"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q12237563",
+      "child": "Q45495201"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q12237579",
+      "child": "Q45501633"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q12237563",
+      "child": "Q45507332"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q111728093",
+      "child": "Q45580397"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q12237501",
+      "child": "Q111727550"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45501633",
+      "child": "Q111727982"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q12237563",
+      "child": "Q111728093"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q111727982",
+      "b": "Q7733079"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q111728093",
+      "b": "Q111728200"
+    }
+  ]
+}

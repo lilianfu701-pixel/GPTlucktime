@@ -1,0 +1,196 @@
+{
+  "key": "wikidata:fangbao",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q11084989",
+      "name": "方苞",
+      "citation": "维基百科 / Wikidata Q11084989",
+      "aliases": [
+        "Fang Bao"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1668
+      },
+      "death": {
+        "year": 1749
+      },
+      "bio": "清代文學家，首創散文流派桐城派"
+    },
+    {
+      "externalId": "Q134816111",
+      "name": "方仲舒",
+      "citation": "维基百科 / Wikidata Q134816111",
+      "gender": "male"
+    },
+    {
+      "externalId": "Q134816127",
+      "name": "方炽",
+      "citation": "维基百科 / Wikidata Q134816127",
+      "aliases": [
+        "方熾"
+      ],
+      "gender": "male"
+    },
+    {
+      "externalId": "Q134816142",
+      "name": "方象干",
+      "citation": "维基百科 / Wikidata Q134816142",
+      "aliases": [
+        "方象乾"
+      ],
+      "gender": "male"
+    },
+    {
+      "externalId": "Q15940954",
+      "name": "方拱干",
+      "citation": "维基百科 / Wikidata Q15940954",
+      "aliases": [
+        "方拱乾",
+        "Fang Gongqian"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1596
+      },
+      "death": {
+        "year": 1667
+      },
+      "bio": "politician"
+    },
+    {
+      "externalId": "Q45538561",
+      "name": "方学尹",
+      "citation": "维基百科 / Wikidata Q45538561",
+      "aliases": [
+        "方學尹",
+        "Fang Xueyin"
+      ],
+      "gender": "male",
+      "bio": "Ming dynasty person CBDB = 226666"
+    },
+    {
+      "externalId": "Q45538816",
+      "name": "方若篆",
+      "citation": "维基百科 / Wikidata Q45538816",
+      "aliases": [
+        "Fang Ruozhuan"
+      ],
+      "gender": "male",
+      "bio": "Ming dynasty person CBDB = 226673"
+    },
+    {
+      "externalId": "Q45538880",
+      "name": "方若笏",
+      "citation": "维基百科 / Wikidata Q45538880",
+      "aliases": [
+        "Fang Ruohu"
+      ],
+      "gender": "male",
+      "bio": "Ming dynasty person CBDB = 226674"
+    },
+    {
+      "externalId": "Q45538943",
+      "name": "方若节",
+      "citation": "维基百科 / Wikidata Q45538943",
+      "aliases": [
+        "方若節",
+        "Fang Ruojie"
+      ],
+      "gender": "male",
+      "bio": "Ming dynasty person CBDB = 226675"
+    },
+    {
+      "externalId": "Q45672196",
+      "name": "方大美",
+      "citation": "维基百科 / Wikidata Q45672196",
+      "aliases": [
+        "Fang Damei"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1554
+      },
+      "bio": "Ming dynasty person CBDB = 207038"
+    },
+    {
+      "externalId": "Q65830660",
+      "name": "刘氏",
+      "citation": "维基百科 / Wikidata Q65830660",
+      "aliases": [
+        "劉氏",
+        "Liu Shi"
+      ],
+      "gender": "female",
+      "bio": "方大美母"
+    },
+    {
+      "externalId": "Q65830664",
+      "name": "王氏",
+      "citation": "维基百科 / Wikidata Q65830664",
+      "aliases": [
+        "Wang Shi"
+      ],
+      "gender": "female",
+      "bio": "方大美妻"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q134816111",
+      "child": "Q11084989"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45672196",
+      "child": "Q15940954"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45672196",
+      "child": "Q45538816"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45672196",
+      "child": "Q45538880"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45672196",
+      "child": "Q45538943"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45538561",
+      "child": "Q45672196"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q134816127",
+      "child": "Q134816111"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q134816142",
+      "child": "Q134816127"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45672196",
+      "child": "Q134816142"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q65830660",
+      "child": "Q45672196"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45672196",
+      "b": "Q65830664"
+    }
+  ]
+}

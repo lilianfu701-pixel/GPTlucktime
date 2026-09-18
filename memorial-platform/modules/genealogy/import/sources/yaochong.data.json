@@ -1,0 +1,1096 @@
+{
+  "key": "wikidata:yaochong",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q1275350",
+      "name": "姚崇",
+      "citation": "维基百科 / Wikidata Q1275350",
+      "aliases": [
+        "Yao Chong"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 650
+      },
+      "death": {
+        "year": 687
+      },
+      "bio": "Chinese chancellor"
+    },
+    {
+      "externalId": "Q45410999",
+      "name": "姚宣业",
+      "citation": "维基百科 / Wikidata Q45410999",
+      "aliases": [
+        "姚宣業",
+        "Yao Xuanye"
+      ],
+      "gender": "male",
+      "bio": "former Liang person CBDB = 26931"
+    },
+    {
+      "externalId": "Q45411002",
+      "name": "姚安仁",
+      "citation": "维基百科 / Wikidata Q45411002",
+      "aliases": [
+        "Yao Anren"
+      ],
+      "gender": "male",
+      "bio": "Sui dynasty person CBDB = 26932"
+    },
+    {
+      "externalId": "Q45411004",
+      "name": "姚祥",
+      "citation": "维基百科 / Wikidata Q45411004",
+      "aliases": [
+        "Yao Xiang"
+      ],
+      "gender": "male",
+      "bio": "Sui dynasty person CBDB = 26933"
+    },
+    {
+      "externalId": "Q45411007",
+      "name": "姚懿",
+      "citation": "维基百科 / Wikidata Q45411007",
+      "aliases": [
+        "Yao Yi"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 590
+      },
+      "death": {
+        "year": 662
+      },
+      "bio": "Tang dynasty person CBDB = 26934"
+    },
+    {
+      "externalId": "Q45421072",
+      "name": "刘氏",
+      "citation": "维基百科 / Wikidata Q45421072",
+      "aliases": [
+        "劉氏",
+        "Liu Shi"
+      ],
+      "gender": "female",
+      "death": {
+        "year": 707
+      },
+      "bio": "姚懿妻"
+    },
+    {
+      "externalId": "Q45421074",
+      "name": "姚元景",
+      "citation": "维基百科 / Wikidata Q45421074",
+      "aliases": [
+        "Yao Yuanjing"
+      ],
+      "gender": "male",
+      "bio": "Tang dynasty person CBDB=32193"
+    },
+    {
+      "externalId": "Q45421075",
+      "name": "姚彝",
+      "citation": "维基百科 / Wikidata Q45421075",
+      "aliases": [
+        "Yao Yi"
+      ],
+      "gender": "male",
+      "bio": "Tang dynasty person CBDB = 32194"
+    },
+    {
+      "externalId": "Q45421076",
+      "name": "姚异",
+      "citation": "维基百科 / Wikidata Q45421076",
+      "aliases": [
+        "Yao Yi"
+      ],
+      "gender": "male",
+      "bio": "Tang dynasty person CBDB = 32195"
+    },
+    {
+      "externalId": "Q45421078",
+      "name": "姚弈",
+      "citation": "维基百科 / Wikidata Q45421078",
+      "aliases": [
+        "Yao Yi"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 742
+      },
+      "bio": "Tang dynasty person CBDB = 32196"
+    },
+    {
+      "externalId": "Q45464467",
+      "name": "姚侑",
+      "citation": "维基百科 / Wikidata Q45464467",
+      "aliases": [
+        "Yao You"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 747
+      },
+      "death": {
+        "year": 802
+      },
+      "bio": "Tang dynasty person CBDB=145512"
+    },
+    {
+      "externalId": "Q45469590",
+      "name": "姚",
+      "citation": "维基百科 / Wikidata Q45469590",
+      "aliases": [
+        "Yao"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 783
+      },
+      "death": {
+        "year": 809
+      },
+      "bio": "Tang dynasty person CBDB = 145620"
+    },
+    {
+      "externalId": "Q45575532",
+      "name": "姚伦",
+      "citation": "维基百科 / Wikidata Q45575532",
+      "aliases": [
+        "姚倫",
+        "Yao Lun"
+      ],
+      "gender": "male",
+      "bio": "Tang dynasty person CBDB = 94158"
+    },
+    {
+      "externalId": "Q45599130",
+      "name": "姚宏",
+      "citation": "维基百科 / Wikidata Q45599130",
+      "aliases": [
+        "Yao Hong"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 502
+      },
+      "bio": "person, CBDB = 190345"
+    },
+    {
+      "externalId": "Q45604653",
+      "name": "姚栖简",
+      "citation": "维基百科 / Wikidata Q45604653",
+      "aliases": [
+        "姚栖簡",
+        "Yao Qijian"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 842
+      },
+      "bio": "Tang dynasty person CBDB = 190451"
+    },
+    {
+      "externalId": "Q45604715",
+      "name": "姚安仁",
+      "citation": "维基百科 / Wikidata Q45604715",
+      "aliases": [
+        "Yao Anren"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 576
+      },
+      "bio": "person, CBDB = 190452"
+    },
+    {
+      "externalId": "Q45604780",
+      "name": "姚宣业",
+      "citation": "维基百科 / Wikidata Q45604780",
+      "aliases": [
+        "姚宣業",
+        "Yao Xuanye"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 539
+      },
+      "bio": "person, CBDB = 190453"
+    },
+    {
+      "externalId": "Q45679113",
+      "name": "姚某",
+      "citation": "维基百科 / Wikidata Q45679113",
+      "aliases": [
+        "Yao Mou"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 724
+      },
+      "bio": "Tang dynasty person CBDB = 186446"
+    },
+    {
+      "externalId": "Q45684303",
+      "name": "姚成允",
+      "citation": "维基百科 / Wikidata Q45684303",
+      "aliases": [
+        "Yao Chengyun"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 843
+      },
+      "bio": "Tang dynasty person CBDB = 186644"
+    },
+    {
+      "externalId": "Q45684335",
+      "name": "姚成则",
+      "citation": "维基百科 / Wikidata Q45684335",
+      "aliases": [
+        "姚成則",
+        "Yao Chengze"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 843
+      },
+      "bio": "Tang dynasty person CBDB = 186645"
+    },
+    {
+      "externalId": "Q45684366",
+      "name": "姚成功",
+      "citation": "维基百科 / Wikidata Q45684366",
+      "aliases": [
+        "Yao Chenggong"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 843
+      },
+      "bio": "Tang dynasty person CBDB = 186646"
+    },
+    {
+      "externalId": "Q45693460",
+      "name": "姚闿",
+      "citation": "维基百科 / Wikidata Q45693460",
+      "aliases": [
+        "姚闓",
+        "Yao Kai"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 761
+      },
+      "bio": "Tang dynasty person CBDB = 181944"
+    },
+    {
+      "externalId": "Q45693489",
+      "name": "姚系",
+      "citation": "维基百科 / Wikidata Q45693489",
+      "aliases": [
+        "姚係",
+        "Yao Xi"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 798
+      },
+      "bio": "Tang dynasty person CBDB = 181945"
+    },
+    {
+      "externalId": "Q45693520",
+      "name": "姚俟",
+      "citation": "维基百科 / Wikidata Q45693520",
+      "aliases": [
+        "Yao Si"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 798
+      },
+      "bio": "Tang dynasty person CBDB = 181946"
+    },
+    {
+      "externalId": "Q45693547",
+      "name": "姚阆",
+      "citation": "维基百科 / Wikidata Q45693547",
+      "aliases": [
+        "姚閬",
+        "Yao Lang"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 761
+      },
+      "bio": "Tang dynasty person CBDB = 181947"
+    },
+    {
+      "externalId": "Q45693577",
+      "name": "姚倍",
+      "citation": "维基百科 / Wikidata Q45693577",
+      "aliases": [
+        "Yao Bei"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 798
+      },
+      "bio": "Tang dynasty person CBDB=181948"
+    },
+    {
+      "externalId": "Q45693604",
+      "name": "姚但",
+      "citation": "维基百科 / Wikidata Q45693604",
+      "aliases": [
+        "Yao Dan"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 798
+      },
+      "bio": "Tang dynasty person CBDB = 181950"
+    },
+    {
+      "externalId": "Q45693631",
+      "name": "姚𬮱",
+      "citation": "维基百科 / Wikidata Q45693631",
+      "aliases": [
+        "姚闉",
+        "Yao Yin"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 769
+      },
+      "bio": "Tang dynasty person CBDB = 181951"
+    },
+    {
+      "externalId": "Q45693659",
+      "name": "姚成宗",
+      "citation": "维基百科 / Wikidata Q45693659",
+      "aliases": [
+        "Yao Chengzong"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 843
+      },
+      "bio": "Tang dynasty person CBDB = 181952"
+    },
+    {
+      "externalId": "Q45693688",
+      "name": "姚珙",
+      "citation": "维基百科 / Wikidata Q45693688",
+      "aliases": [
+        "Yao Gong"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 843
+      },
+      "bio": "Tang dynasty person CBDB = 181953"
+    },
+    {
+      "externalId": "Q45693715",
+      "name": "姚伾",
+      "citation": "维基百科 / Wikidata Q45693715",
+      "aliases": [
+        "Yao Pi"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 806
+      },
+      "bio": "Tang dynasty person CBDB = 181954"
+    },
+    {
+      "externalId": "Q45693743",
+      "name": "姚闶",
+      "citation": "维基百科 / Wikidata Q45693743",
+      "aliases": [
+        "姚閌",
+        "Yao Kang"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 761
+      },
+      "bio": "Tang dynasty person CBDB = 181955"
+    },
+    {
+      "externalId": "Q45693772",
+      "name": "姚辟",
+      "citation": "维基百科 / Wikidata Q45693772",
+      "aliases": [
+        "姚闢",
+        "Yao Pi"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 761
+      },
+      "bio": "Tang dynasty person CBDB = 181956"
+    },
+    {
+      "externalId": "Q45693799",
+      "name": "姚偁",
+      "citation": "维基百科 / Wikidata Q45693799",
+      "aliases": [
+        "Yao Cheng"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 798
+      },
+      "bio": "Tang dynasty person CBDB = 181957"
+    },
+    {
+      "externalId": "Q45693826",
+      "name": "姚勗",
+      "citation": "维基百科 / Wikidata Q45693826",
+      "aliases": [
+        "Yao Xu"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 835
+      },
+      "bio": "Tang dynasty person CBDB = 181958"
+    },
+    {
+      "externalId": "Q45693854",
+      "name": "姚偕",
+      "citation": "维基百科 / Wikidata Q45693854",
+      "aliases": [
+        "Yao Xie"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 798
+      },
+      "bio": "Tang dynasty person CBDB = 181959"
+    },
+    {
+      "externalId": "Q45693884",
+      "name": "姚烈",
+      "citation": "维基百科 / Wikidata Q45693884",
+      "aliases": [
+        "Yao Lie"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 835
+      },
+      "bio": "Tang dynasty person CBDB = 181960"
+    },
+    {
+      "externalId": "Q45693912",
+      "name": "姚闳",
+      "citation": "维基百科 / Wikidata Q45693912",
+      "aliases": [
+        "姚閎",
+        "Yao Hong"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 768
+      },
+      "bio": "Tang dynasty person CBDB = 181962"
+    },
+    {
+      "externalId": "Q45693937",
+      "name": "姚怦",
+      "citation": "维基百科 / Wikidata Q45693937",
+      "aliases": [
+        "Yao Peng"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 805
+      },
+      "bio": "Tang dynasty person CBDB = 181963"
+    },
+    {
+      "externalId": "Q45693966",
+      "name": "姚丹",
+      "citation": "维基百科 / Wikidata Q45693966",
+      "aliases": [
+        "Yao Dan"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 842
+      },
+      "bio": "Tang dynasty person CBDB = 181964"
+    },
+    {
+      "externalId": "Q45693993",
+      "name": "姚增",
+      "citation": "维基百科 / Wikidata Q45693993",
+      "aliases": [
+        "Yao Zeng"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 879
+      },
+      "bio": "Tang dynasty person CBDB = 181965"
+    },
+    {
+      "externalId": "Q45694021",
+      "name": "姚均",
+      "citation": "维基百科 / Wikidata Q45694021",
+      "aliases": [
+        "Yao Jun"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 879
+      },
+      "bio": "Tang dynasty person CBDB = 181966"
+    },
+    {
+      "externalId": "Q45694049",
+      "name": "姚蕴",
+      "citation": "维基百科 / Wikidata Q45694049",
+      "aliases": [
+        "姚蘊",
+        "Yao Yun"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 879
+      },
+      "bio": "Tang dynasty person CBDB = 181967"
+    },
+    {
+      "externalId": "Q45694158",
+      "name": "姚浼",
+      "citation": "维基百科 / Wikidata Q45694158",
+      "aliases": [
+        "Yao Mei"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 842
+      },
+      "bio": "Tang dynasty person CBDB = 181971"
+    },
+    {
+      "externalId": "Q45694186",
+      "name": "姚温",
+      "citation": "维基百科 / Wikidata Q45694186",
+      "aliases": [
+        "姚溫",
+        "Yao Wen"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 842
+      },
+      "bio": "Tang dynasty person CBDB = 181972"
+    },
+    {
+      "externalId": "Q45694212",
+      "name": "姚悟",
+      "citation": "维基百科 / Wikidata Q45694212",
+      "aliases": [
+        "Yao Wu"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 805
+      },
+      "bio": "Tang dynasty person CBDB = 181973"
+    },
+    {
+      "externalId": "Q45694238",
+      "name": "姚憺",
+      "citation": "维基百科 / Wikidata Q45694238",
+      "aliases": [
+        "Yao Dan"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 805
+      },
+      "bio": "Tang dynasty person CBDB = 181974"
+    },
+    {
+      "externalId": "Q45694265",
+      "name": "姚惇",
+      "citation": "维基百科 / Wikidata Q45694265",
+      "aliases": [
+        "Yao Dun"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 805
+      },
+      "bio": "Tang dynasty person CBDB = 181975"
+    },
+    {
+      "externalId": "Q45694291",
+      "name": "姚惕",
+      "citation": "维基百科 / Wikidata Q45694291",
+      "aliases": [
+        "Yao Ti"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 805
+      },
+      "bio": "Tang dynasty person CBDB = 181976"
+    },
+    {
+      "externalId": "Q45694317",
+      "name": "姚闬",
+      "citation": "维基百科 / Wikidata Q45694317",
+      "aliases": [
+        "姚閈",
+        "Yao Han"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 761
+      },
+      "bio": "Tang dynasty person CBDB = 181977"
+    },
+    {
+      "externalId": "Q45694344",
+      "name": "姚恬",
+      "citation": "维基百科 / Wikidata Q45694344",
+      "aliases": [
+        "Yao Tian"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 798
+      },
+      "bio": "Tang dynasty person CBDB = 181978"
+    },
+    {
+      "externalId": "Q45694373",
+      "name": "姚憕",
+      "citation": "维基百科 / Wikidata Q45694373",
+      "aliases": [
+        "Yao Zheng"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 798
+      },
+      "bio": "Tang dynasty person CBDB=181979"
+    },
+    {
+      "externalId": "Q45694399",
+      "name": "姚阀",
+      "citation": "维基百科 / Wikidata Q45694399",
+      "aliases": [
+        "姚閥",
+        "Yao Fa"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 761
+      },
+      "bio": "Tang dynasty person CBDB = 181980"
+    },
+    {
+      "externalId": "Q45694426",
+      "name": "姚阐",
+      "citation": "维基百科 / Wikidata Q45694426",
+      "aliases": [
+        "姚闡",
+        "Yao Chan"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 761
+      },
+      "bio": "Tang dynasty person CBDB = 181982"
+    },
+    {
+      "externalId": "Q45694454",
+      "name": "姚恒",
+      "citation": "维基百科 / Wikidata Q45694454",
+      "aliases": [
+        "姚恆",
+        "Yao Heng"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 798
+      },
+      "bio": "Tang dynasty person CBDB = 181983"
+    },
+    {
+      "externalId": "Q45694480",
+      "name": "姚恺",
+      "citation": "维基百科 / Wikidata Q45694480",
+      "aliases": [
+        "姚愷",
+        "Yao Kai"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 798
+      },
+      "bio": "Tang dynasty person CBDB=181984"
+    },
+    {
+      "externalId": "Q45694506",
+      "name": "姚协",
+      "citation": "维基百科 / Wikidata Q45694506",
+      "aliases": [
+        "姚協",
+        "Yao Xie"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 798
+      },
+      "bio": "Tang dynasty person CBDB = 181985"
+    },
+    {
+      "externalId": "Q45694534",
+      "name": "姚愐",
+      "citation": "维基百科 / Wikidata Q45694534",
+      "aliases": [
+        "Yao Mian"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 798
+      },
+      "bio": "Tang dynasty person CBDB = 181986"
+    },
+    {
+      "externalId": "Q45694561",
+      "name": "姚忱",
+      "citation": "维基百科 / Wikidata Q45694561",
+      "aliases": [
+        "Yao Chen"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 798
+      },
+      "bio": "Tang dynasty person CBDB = 181987"
+    },
+    {
+      "externalId": "Q45694590",
+      "name": "姚恽",
+      "citation": "维基百科 / Wikidata Q45694590",
+      "aliases": [
+        "姚惲",
+        "Yao Yun"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 798
+      },
+      "bio": "Tang dynasty person CBDB=181988"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q45411007",
+      "child": "Q1275350"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45410999",
+      "child": "Q45411002"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45411002",
+      "child": "Q45411004"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45604715",
+      "child": "Q45411004"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45411004",
+      "child": "Q45411007"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45411007",
+      "child": "Q45421074"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q1275350",
+      "child": "Q45421075"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q1275350",
+      "child": "Q45421076"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q1275350",
+      "child": "Q45421078"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45693631",
+      "child": "Q45464467"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45694265",
+      "child": "Q45469590"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45693547",
+      "child": "Q45575532"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45694265",
+      "child": "Q45604653"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45604780",
+      "child": "Q45604715"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45599130",
+      "child": "Q45604780"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q1275350",
+      "child": "Q45679113"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45464467",
+      "child": "Q45684303"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45464467",
+      "child": "Q45684335"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45464467",
+      "child": "Q45684366"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45421075",
+      "child": "Q45693460"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45693460",
+      "child": "Q45693489"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45693460",
+      "child": "Q45693520"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45421075",
+      "child": "Q45693547"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45693547",
+      "child": "Q45693577"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45693547",
+      "child": "Q45693604"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45421075",
+      "child": "Q45693631"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45464467",
+      "child": "Q45693659"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45464467",
+      "child": "Q45693688"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45693631",
+      "child": "Q45693715"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45421075",
+      "child": "Q45693743"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45421075",
+      "child": "Q45693772"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45693772",
+      "child": "Q45693799"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45693799",
+      "child": "Q45693826"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45693772",
+      "child": "Q45693854"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45693854",
+      "child": "Q45693884"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45421076",
+      "child": "Q45693912"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45693912",
+      "child": "Q45693937"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45693937",
+      "child": "Q45693966"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45693966",
+      "child": "Q45693993"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45693966",
+      "child": "Q45694021"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45693966",
+      "child": "Q45694049"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45693937",
+      "child": "Q45694158"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45693937",
+      "child": "Q45694186"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45693912",
+      "child": "Q45694212"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45693912",
+      "child": "Q45694238"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45693912",
+      "child": "Q45694265"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45693912",
+      "child": "Q45694291"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45421076",
+      "child": "Q45694317"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45694317",
+      "child": "Q45694344"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45694317",
+      "child": "Q45694373"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45421076",
+      "child": "Q45694399"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45421078",
+      "child": "Q45694426"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45694426",
+      "child": "Q45694454"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45694426",
+      "child": "Q45694480"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45694426",
+      "child": "Q45694506"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45694426",
+      "child": "Q45694534"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45694426",
+      "child": "Q45694561"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45694426",
+      "child": "Q45694590"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45411007",
+      "b": "Q45421072"
+    }
+  ]
+}

@@ -1,0 +1,501 @@
+{
+  "key": "wikidata:cenwenben",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q1018002",
+      "name": "岑文本",
+      "citation": "维基百科 / Wikidata Q1018002",
+      "aliases": [
+        "Cen Wenben"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 595
+      },
+      "death": {
+        "year": 645
+      },
+      "bio": "岑文本（595年－645年5月10日），南阳郡棘阳县（今新野县）人，字景仁"
+    },
+    {
+      "externalId": "Q3274331",
+      "name": "岑参",
+      "citation": "维基百科 / Wikidata Q3274331",
+      "aliases": [
+        "岑參",
+        "Cen Shen"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 715
+      },
+      "death": {
+        "year": 770
+      },
+      "bio": "中国唐代诗人（717?～769）",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Tang%20dynasty%20poet%20Cen%20Shen.jpg",
+      "photoCredit": "作者：Kanō Tsunenobu (1636-1713) · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q45420030",
+      "name": "岑惠甫",
+      "citation": "维基百科 / Wikidata Q45420030",
+      "aliases": [
+        "Cen Huifu"
+      ],
+      "gender": "male",
+      "bio": "Liang dynasty person CBDB = 31621"
+    },
+    {
+      "externalId": "Q45420031",
+      "name": "岑昶",
+      "citation": "维基百科 / Wikidata Q45420031",
+      "aliases": [
+        "Cen Chang"
+      ],
+      "gender": "male",
+      "bio": "Liang dynasty person CBDB = 31622"
+    },
+    {
+      "externalId": "Q45420034",
+      "name": "岑善方",
+      "citation": "维基百科 / Wikidata Q45420034",
+      "aliases": [
+        "Cen Shanfang"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 561
+      },
+      "bio": "Northern Zhou person CBDB = 31623"
+    },
+    {
+      "externalId": "Q45420037",
+      "name": "岑之元",
+      "citation": "维基百科 / Wikidata Q45420037",
+      "aliases": [
+        "Cen Zhiyuan"
+      ],
+      "gender": "male",
+      "bio": "Northern Zhou person CBDB = 31624"
+    },
+    {
+      "externalId": "Q45420039",
+      "name": "岑之利",
+      "citation": "维基百科 / Wikidata Q45420039",
+      "aliases": [
+        "Cen Zhili"
+      ],
+      "gender": "male",
+      "bio": "Sui dynasty person CBDB = 31625"
+    },
+    {
+      "externalId": "Q45420040",
+      "name": "岑之象",
+      "citation": "维基百科 / Wikidata Q45420040",
+      "aliases": [
+        "Cen Zhixiang"
+      ],
+      "gender": "male",
+      "bio": "Sui dynasty person CBDB = 31626"
+    },
+    {
+      "externalId": "Q45420042",
+      "name": "岑文叔",
+      "citation": "维基百科 / Wikidata Q45420042",
+      "aliases": [
+        "Cen Wenshu"
+      ],
+      "gender": "male",
+      "bio": "Tang dynasty person CBDB = 31627"
+    },
+    {
+      "externalId": "Q45420045",
+      "name": "岑曼倩",
+      "citation": "维基百科 / Wikidata Q45420045",
+      "aliases": [
+        "Cen Manqing"
+      ],
+      "gender": "male",
+      "bio": "Tang dynasty person CBDB = 31630"
+    },
+    {
+      "externalId": "Q45421571",
+      "name": "岑献",
+      "citation": "维基百科 / Wikidata Q45421571",
+      "aliases": [
+        "岑獻",
+        "Cen Xian"
+      ],
+      "gender": "male",
+      "bio": "Tang dynasty person CBDB = 32442"
+    },
+    {
+      "externalId": "Q45421807",
+      "name": "岑景倩",
+      "citation": "维基百科 / Wikidata Q45421807",
+      "aliases": [
+        "Cen Jingqing"
+      ],
+      "gender": "male",
+      "bio": "Tang dynasty person CBDB = 32579"
+    },
+    {
+      "externalId": "Q45421809",
+      "name": "岑植",
+      "citation": "维基百科 / Wikidata Q45421809",
+      "aliases": [
+        "Cen Zhi"
+      ],
+      "gender": "male",
+      "bio": "Tang dynasty person CBDB=32580"
+    },
+    {
+      "externalId": "Q45421810",
+      "name": "岑渭",
+      "citation": "维基百科 / Wikidata Q45421810",
+      "aliases": [
+        "Cen Wei"
+      ],
+      "gender": "male",
+      "bio": "Tang dynasty person CBDB = 32581"
+    },
+    {
+      "externalId": "Q45421813",
+      "name": "岑况",
+      "citation": "维基百科 / Wikidata Q45421813",
+      "aliases": [
+        "岑況",
+        "Cen Kuang"
+      ],
+      "gender": "male",
+      "bio": "Tang dynasty person CBDB = 32582"
+    },
+    {
+      "externalId": "Q45545901",
+      "name": "岑文昭",
+      "citation": "维基百科 / Wikidata Q45545901",
+      "aliases": [
+        "Cen Wenzhao"
+      ],
+      "gender": "male",
+      "bio": "Tang dynasty person CBDB = 163372"
+    },
+    {
+      "externalId": "Q45684267",
+      "name": "岑某",
+      "citation": "维基百科 / Wikidata Q45684267",
+      "aliases": [
+        "Cen Mou"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 764
+      },
+      "bio": "Tang dynasty person CBDB = 176100"
+    },
+    {
+      "externalId": "Q45684297",
+      "name": "岑定",
+      "citation": "维基百科 / Wikidata Q45684297",
+      "aliases": [
+        "Cen Ding"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 801
+      },
+      "bio": "Tang dynasty person CBDB = 176101"
+    },
+    {
+      "externalId": "Q45684327",
+      "name": "岑弘",
+      "citation": "维基百科 / Wikidata Q45684327",
+      "aliases": [
+        "Cen Hong"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 801
+      },
+      "bio": "Tang dynasty person CBDB = 176102"
+    },
+    {
+      "externalId": "Q45684359",
+      "name": "岑通",
+      "citation": "维基百科 / Wikidata Q45684359",
+      "aliases": [
+        "Cen Tong"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 801
+      },
+      "bio": "Tang dynasty person CBDB = 176103"
+    },
+    {
+      "externalId": "Q45684390",
+      "name": "岑至",
+      "citation": "维基百科 / Wikidata Q45684390",
+      "aliases": [
+        "Cen Zhi"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 801
+      },
+      "bio": "Tang dynasty person CBDB = 176104"
+    },
+    {
+      "externalId": "Q45684420",
+      "name": "岑靖",
+      "citation": "维基百科 / Wikidata Q45684420",
+      "aliases": [
+        "Cen Jing"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 801
+      },
+      "bio": "Tang dynasty person CBDB = 176105"
+    },
+    {
+      "externalId": "Q45684453",
+      "name": "岑融",
+      "citation": "维基百科 / Wikidata Q45684453",
+      "aliases": [
+        "Cen Rong"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 838
+      },
+      "bio": "Tang dynasty person CBDB = 176106"
+    },
+    {
+      "externalId": "Q45684485",
+      "name": "岑玢",
+      "citation": "维基百科 / Wikidata Q45684485",
+      "aliases": [
+        "Cen Bin"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 838
+      },
+      "bio": "Tang dynasty person CBDB = 176107"
+    },
+    {
+      "externalId": "Q45684514",
+      "name": "岑敷",
+      "citation": "维基百科 / Wikidata Q45684514",
+      "aliases": [
+        "Cen Fu"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 764
+      },
+      "bio": "Tang dynasty person CBDB = 176109"
+    },
+    {
+      "externalId": "Q45684791",
+      "name": "岑则",
+      "citation": "维基百科 / Wikidata Q45684791",
+      "aliases": [
+        "岑則",
+        "Cen Ze"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 801
+      },
+      "bio": "Tang dynasty person CBDB = 176121"
+    },
+    {
+      "externalId": "Q45684822",
+      "name": "岑某",
+      "citation": "维基百科 / Wikidata Q45684822",
+      "aliases": [
+        "Cen Mou"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 801
+      },
+      "bio": "Tang dynasty person CBDB = 176123"
+    },
+    {
+      "externalId": "Q45684854",
+      "name": "岑某",
+      "citation": "维基百科 / Wikidata Q45684854",
+      "aliases": [
+        "Cen Mou"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 838
+      },
+      "bio": "Tang dynasty person CBDB = 176124"
+    },
+    {
+      "externalId": "Q5058772",
+      "name": "岑羲",
+      "citation": "维基百科 / Wikidata Q5058772",
+      "aliases": [
+        "Cen Xi"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 650
+      },
+      "death": {
+        "year": 713
+      },
+      "bio": "chancellor during the reigns of Emperor Shang, Emperor Ruizong, and Emperor Xuanzong."
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q45420040",
+      "child": "Q1018002"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45421809",
+      "child": "Q3274331"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45420045",
+      "child": "Q5058772"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45420030",
+      "child": "Q45420031"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45420031",
+      "child": "Q45420034"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45420034",
+      "child": "Q45420037"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45420034",
+      "child": "Q45420039"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45420034",
+      "child": "Q45420040"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45420040",
+      "child": "Q45420042"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q1018002",
+      "child": "Q45420045"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45420045",
+      "child": "Q45421571"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q1018002",
+      "child": "Q45421807"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45421807",
+      "child": "Q45421809"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45421809",
+      "child": "Q45421810"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45421809",
+      "child": "Q45421813"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45420040",
+      "child": "Q45545901"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45421571",
+      "child": "Q45684267"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45684267",
+      "child": "Q45684297"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45684267",
+      "child": "Q45684327"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45684267",
+      "child": "Q45684359"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45684267",
+      "child": "Q45684390"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45684267",
+      "child": "Q45684420"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45684420",
+      "child": "Q45684453"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45684420",
+      "child": "Q45684485"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q5058772",
+      "child": "Q45684514"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45421813",
+      "child": "Q45684791"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q3274331",
+      "child": "Q45684822"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45684822",
+      "child": "Q45684854"
+    }
+  ]
+}

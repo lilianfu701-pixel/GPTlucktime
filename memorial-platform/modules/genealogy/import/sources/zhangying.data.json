@@ -1,0 +1,595 @@
+{
+  "key": "wikidata:zhangying",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q11067617",
+      "name": "张若潭",
+      "citation": "维基百科 / Wikidata Q11067617",
+      "aliases": [
+        "Zhang Ruotan"
+      ],
+      "gender": "male",
+      "bio": "Qing dynasty person CBDB = 346396"
+    },
+    {
+      "externalId": "Q11067619",
+      "name": "张若震",
+      "citation": "维基百科 / Wikidata Q11067619",
+      "aliases": [
+        "Zhang Ruozhen"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1696
+      },
+      "death": {
+        "year": 1756
+      },
+      "bio": "politician"
+    },
+    {
+      "externalId": "Q11068362",
+      "name": "张廷瑑",
+      "citation": "维基百科 / Wikidata Q11068362",
+      "aliases": [
+        "張廷瑑",
+        "Zhang Tingtuan"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1681
+      },
+      "death": {
+        "year": 1764
+      },
+      "bio": "Qing dynasty person CBDB = 69685"
+    },
+    {
+      "externalId": "Q11068363",
+      "name": "张廷璐",
+      "citation": "维基百科 / Wikidata Q11068363",
+      "aliases": [
+        "張廷璐",
+        "Zhang Tinglu"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1675
+      },
+      "death": {
+        "year": 1745
+      },
+      "bio": "清朝太子太傅、禮部左侍郎"
+    },
+    {
+      "externalId": "Q11068364",
+      "name": "张廷瓒",
+      "citation": "维基百科 / Wikidata Q11068364",
+      "aliases": [
+        "張廷瓚",
+        "Zhang Tingzan"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 1702
+      },
+      "bio": "Qing dynasty person CBDB = 69675"
+    },
+    {
+      "externalId": "Q11068590",
+      "name": "张曾敞",
+      "citation": "维基百科 / Wikidata Q11068590",
+      "aliases": [
+        "張曾敞",
+        "Zhang Cengchang"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1731
+      },
+      "death": {
+        "year": 1777
+      },
+      "bio": "Qing dynasty person CBDB = 347012"
+    },
+    {
+      "externalId": "Q11068891",
+      "name": "张秉文",
+      "citation": "维基百科 / Wikidata Q11068891",
+      "aliases": [
+        "張秉文",
+        "Zhang Bingwen"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1585
+      },
+      "death": {
+        "year": 1639
+      },
+      "bio": "Ming dynasty person CBDB = 54982"
+    },
+    {
+      "externalId": "Q11069017",
+      "name": "张若渟",
+      "citation": "维基百科 / Wikidata Q11069017",
+      "aliases": [
+        "張若渟",
+        "Zhang Ruoting"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1726
+      },
+      "death": {
+        "year": 1802
+      },
+      "bio": "清朝太子太保、刑部尚書"
+    },
+    {
+      "externalId": "Q11069019",
+      "name": "张若澄",
+      "citation": "维基百科 / Wikidata Q11069019",
+      "aliases": [
+        "張若澄",
+        "Zhang Ruocheng"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1722
+      },
+      "death": {
+        "year": 1770
+      },
+      "bio": "painter (1722-1770)"
+    },
+    {
+      "externalId": "Q11069021",
+      "name": "张若需",
+      "citation": "维基百科 / Wikidata Q11069021",
+      "aliases": [
+        "張若需",
+        "Zhang Ruoxu"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1710
+      },
+      "death": {
+        "year": 1753
+      },
+      "bio": "Qing dynasty person CBDB = 80605"
+    },
+    {
+      "externalId": "Q11069023",
+      "name": "张若霭",
+      "citation": "维基百科 / Wikidata Q11069023",
+      "aliases": [
+        "張若靄",
+        "Zhang Ruoai"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1713
+      },
+      "death": {
+        "year": 1746
+      },
+      "bio": "清代画家"
+    },
+    {
+      "externalId": "Q11069025",
+      "name": "张英",
+      "citation": "维基百科 / Wikidata Q11069025",
+      "aliases": [
+        "張英",
+        "Zhang Ying"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1637
+      },
+      "death": {
+        "year": 1708
+      },
+      "bio": "Qing dynasty politician"
+    },
+    {
+      "externalId": "Q133399928",
+      "name": "张氏",
+      "citation": "维基百科 / Wikidata Q133399928",
+      "aliases": [
+        "張氏"
+      ],
+      "gender": "female"
+    },
+    {
+      "externalId": "Q133403103",
+      "name": "张廷𤪌",
+      "citation": "维基百科 / Wikidata Q133403103",
+      "aliases": [
+        "張廷𤪌"
+      ],
+      "gender": "male"
+    },
+    {
+      "externalId": "Q133403917",
+      "name": "张士维",
+      "citation": "维基百科 / Wikidata Q133403917",
+      "aliases": [
+        "張士維"
+      ],
+      "gender": "male"
+    },
+    {
+      "externalId": "Q133404363",
+      "name": "張士繡",
+      "citation": "维基百科 / Wikidata Q133404363",
+      "gender": "male"
+    },
+    {
+      "externalId": "Q15915350",
+      "name": "张淳",
+      "citation": "维基百科 / Wikidata Q15915350",
+      "aliases": [
+        "張淳",
+        "Zhang Chun"
+      ],
+      "gender": "male",
+      "bio": "politician"
+    },
+    {
+      "externalId": "Q197295",
+      "name": "张廷玉",
+      "citation": "维基百科 / Wikidata Q197295",
+      "aliases": [
+        "Zhang Tingyu"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1672
+      },
+      "death": {
+        "year": 1755
+      },
+      "bio": "清朝大臣（1672–1755）",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Zhang%20Tingyu.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q45444375",
+      "name": "方孟式",
+      "citation": "维基百科 / Wikidata Q45444375",
+      "aliases": [
+        "Fang Mengshi"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1584
+      },
+      "death": {
+        "year": 1639
+      },
+      "bio": "Ming dynasty person CBDB = 54981"
+    },
+    {
+      "externalId": "Q45448548",
+      "name": "张鹏",
+      "citation": "维基百科 / Wikidata Q45448548",
+      "aliases": [
+        "張鵬",
+        "Zhang Peng"
+      ],
+      "gender": "male",
+      "bio": "Ming dynasty person CBDB = 336008"
+    },
+    {
+      "externalId": "Q45448611",
+      "name": "张木",
+      "citation": "维基百科 / Wikidata Q45448611",
+      "aliases": [
+        "張木",
+        "Zhang Mu"
+      ],
+      "gender": "male",
+      "bio": "Ming dynasty person CBDB = 336009"
+    },
+    {
+      "externalId": "Q45500670",
+      "name": "张若娴",
+      "citation": "维基百科 / Wikidata Q45500670",
+      "aliases": [
+        "張若嫻",
+        "Zhang Ruoxian"
+      ],
+      "gender": "female",
+      "bio": "Qing dynasty person CBDB = 55983"
+    },
+    {
+      "externalId": "Q45541278",
+      "name": "张似谊",
+      "citation": "维基百科 / Wikidata Q45541278",
+      "aliases": [
+        "張似誼",
+        "Zhang Siyi"
+      ],
+      "gender": "female",
+      "bio": "Qing dynasty person CBDB = 56674"
+    },
+    {
+      "externalId": "Q45541353",
+      "name": "姚文燕",
+      "citation": "维基百科 / Wikidata Q45541353",
+      "aliases": [
+        "Yao Wenyan"
+      ],
+      "gender": "male",
+      "bio": "Qing dynasty person CBDB = 56676"
+    },
+    {
+      "externalId": "Q45677861",
+      "name": "张令仪",
+      "citation": "维基百科 / Wikidata Q45677861",
+      "aliases": [
+        "張令儀",
+        "Zhang Lingyi"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1671
+      },
+      "death": {
+        "year": 1724
+      },
+      "bio": "Qing dynasty person CBDB = 69666"
+    },
+    {
+      "externalId": "Q45678588",
+      "name": "姚士封",
+      "citation": "维基百科 / Wikidata Q45678588",
+      "aliases": [
+        "Yao Shifeng"
+      ],
+      "gender": "male",
+      "bio": "Qing dynasty person CBDB = 69690"
+    },
+    {
+      "externalId": "Q45685188",
+      "name": "姚斟元",
+      "citation": "维基百科 / Wikidata Q45685188",
+      "aliases": [
+        "Yao Zhenyuan"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1738
+      },
+      "death": {
+        "year": 1794
+      },
+      "bio": "Qing dynasty person CBDB = 85588"
+    },
+    {
+      "externalId": "Q45694894",
+      "name": "张若霖",
+      "citation": "维基百科 / Wikidata Q45694894",
+      "aliases": [
+        "張若霖",
+        "Zhang Ruolin"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1673
+      },
+      "death": {
+        "year": 1732
+      },
+      "bio": "Qing dynasty person CBDB = 80606"
+    },
+    {
+      "externalId": "Q45695801",
+      "name": "张秉彝",
+      "citation": "维基百科 / Wikidata Q45695801",
+      "aliases": [
+        "張秉彝",
+        "Zhang Bingyi"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1593
+      },
+      "death": {
+        "year": 1667
+      },
+      "bio": "Qing dynasty person CBDB = 80643"
+    },
+    {
+      "externalId": "Q65863536",
+      "name": "余氏",
+      "citation": "维基百科 / Wikidata Q65863536",
+      "aliases": [
+        "Yu Shi"
+      ],
+      "gender": "female",
+      "bio": "張淳母"
+    },
+    {
+      "externalId": "Q65863540",
+      "name": "尹氏",
+      "citation": "维基百科 / Wikidata Q65863540",
+      "aliases": [
+        "Yin Shi"
+      ],
+      "gender": "female",
+      "bio": "張淳妻"
+    },
+    {
+      "externalId": "Q67490326",
+      "name": "姚骙",
+      "citation": "维基百科 / Wikidata Q67490326",
+      "aliases": [
+        "姚騤",
+        "Yao Kui"
+      ],
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q11069025",
+      "child": "Q197295"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q133403103",
+      "child": "Q11067617"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q11068363",
+      "child": "Q11067619"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q11069025",
+      "child": "Q11068362"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q11069025",
+      "child": "Q11068363"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q11069025",
+      "child": "Q11068364"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q11069021",
+      "child": "Q11068590"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q133403917",
+      "child": "Q11068891"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q197295",
+      "child": "Q11069017"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q197295",
+      "child": "Q11069019"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q11068363",
+      "child": "Q11069021"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q197295",
+      "child": "Q11069023"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45695801",
+      "child": "Q11069025"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45448611",
+      "child": "Q15915350"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45448548",
+      "child": "Q45448611"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q11068362",
+      "child": "Q45500670"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q197295",
+      "child": "Q45541278"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q11069025",
+      "child": "Q45677861"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q11068364",
+      "child": "Q45694894"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q133403917",
+      "child": "Q45695801"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45685188",
+      "child": "Q67490326"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45694894",
+      "child": "Q133399928"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q11069025",
+      "child": "Q133403103"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q15915350",
+      "child": "Q133403917"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q15915350",
+      "child": "Q133404363"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q65863536",
+      "child": "Q15915350"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q133399928",
+      "child": "Q45685188"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q11068891",
+      "b": "Q45444375"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q15915350",
+      "b": "Q65863540"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45541278",
+      "b": "Q45541353"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45677861",
+      "b": "Q45678588"
+    }
+  ]
+}

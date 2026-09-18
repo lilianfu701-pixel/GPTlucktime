@@ -1,0 +1,166 @@
+{
+  "key": "wikidata:lidongyang",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q45414525",
+      "name": "李淳",
+      "citation": "维基百科 / Wikidata Q45414525",
+      "aliases": [
+        "Li Chun"
+      ],
+      "gender": "male",
+      "bio": "Ming dynasty person CBDB = 28692"
+    },
+    {
+      "externalId": "Q45414529",
+      "name": "李荣",
+      "citation": "维基百科 / Wikidata Q45414529",
+      "aliases": [
+        "李榮",
+        "Li Rong"
+      ],
+      "gender": "male",
+      "bio": "Ming dynasty person CBDB = 28693"
+    },
+    {
+      "externalId": "Q45414531",
+      "name": "李尚宝",
+      "citation": "维基百科 / Wikidata Q45414531",
+      "aliases": [
+        "李尚寶",
+        "Li Shangbao"
+      ],
+      "gender": "male",
+      "bio": "Ming dynasty person CBDB = 28694"
+    },
+    {
+      "externalId": "Q45650419",
+      "name": "李文祥",
+      "citation": "维基百科 / Wikidata Q45650419",
+      "aliases": [
+        "Li Wenxiang"
+      ],
+      "gender": "male",
+      "bio": "Ming dynasty person CBDB = 324518"
+    },
+    {
+      "externalId": "Q45650894",
+      "name": "李允兴",
+      "citation": "维基百科 / Wikidata Q45650894",
+      "aliases": [
+        "李允興",
+        "Li Yunxing"
+      ],
+      "gender": "male",
+      "bio": "Ming dynasty person CBDB = 324529"
+    },
+    {
+      "externalId": "Q45660281",
+      "name": "李兆先",
+      "citation": "维基百科 / Wikidata Q45660281",
+      "aliases": [
+        "Li Zhaoxian"
+      ],
+      "gender": "male",
+      "bio": "person, CBDB = 122961"
+    },
+    {
+      "externalId": "Q65800561",
+      "name": "潘氏",
+      "citation": "维基百科 / Wikidata Q65800561",
+      "aliases": [
+        "Pan Shi"
+      ],
+      "gender": "female",
+      "bio": "李兆先妻"
+    },
+    {
+      "externalId": "Q65850874",
+      "name": "刘氏",
+      "citation": "维基百科 / Wikidata Q65850874",
+      "aliases": [
+        "劉氏",
+        "Liu Shi"
+      ],
+      "gender": "female",
+      "bio": "李東陽母"
+    },
+    {
+      "externalId": "Q65850898",
+      "name": "刘氏",
+      "citation": "维基百科 / Wikidata Q65850898",
+      "aliases": [
+        "劉氏",
+        "Liu Shi"
+      ],
+      "gender": "female",
+      "bio": "李東陽妻"
+    },
+    {
+      "externalId": "Q698212",
+      "name": "李东阳",
+      "citation": "维基百科 / Wikidata Q698212",
+      "aliases": [
+        "Li Dongyang"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1447
+      },
+      "death": {
+        "year": 1516
+      },
+      "bio": "明朝文学家、书法家",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Li%20Dongyang.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q65850874",
+      "child": "Q698212"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45414525",
+      "child": "Q698212"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45414529",
+      "child": "Q45414525"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45650894",
+      "child": "Q45414525"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q698212",
+      "child": "Q45414531"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45650419",
+      "child": "Q45650894"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q698212",
+      "child": "Q45660281"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q65850898",
+      "b": "Q698212"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45660281",
+      "b": "Q65800561"
+    }
+  ]
+}

@@ -1,0 +1,148 @@
+{
+  "key": "wikidata:wutingfang",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q114358107",
+      "name": "伍郑镜宇",
+      "citation": "维基百科 / Wikidata Q114358107",
+      "aliases": [
+        "伍鄭鏡宇",
+        "Sylvia Wu"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1915
+      },
+      "death": {
+        "year": 2022
+      },
+      "bio": "Chinese-American restaurateur and cookbook author"
+    },
+    {
+      "externalId": "Q124586634",
+      "name": "伍竞仁",
+      "citation": "维基百科 / Wikidata Q124586634",
+      "aliases": [
+        "伍競仁",
+        "King Yan Wu"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1918
+      },
+      "death": {
+        "year": 2011
+      }
+    },
+    {
+      "externalId": "Q5540123",
+      "name": "伍浩平",
+      "citation": "维基百科 / Wikidata Q5540123",
+      "aliases": [
+        "George H. Wu"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1950
+      },
+      "living": true,
+      "bio": "United States federal judge",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/George%20H.%20Wu%20District%20Judge.jpg",
+      "photoCredit": "作者：United States Court of Appeals for the Ninth Circuit · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q58356653",
+      "name": "何妙龄",
+      "citation": "维基百科 / Wikidata Q58356653",
+      "aliases": [
+        "何妙齡",
+        "Ho Miu-ling"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1847
+      },
+      "death": {
+        "year": 1937
+      },
+      "bio": "Hong Kong philanthropist",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/HoMiuLing1908.jpg",
+      "photoCredit": "作者：Ying Cheong, Shanghai. · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q5977698",
+      "name": "伍朝枢",
+      "citation": "维基百科 / Wikidata Q5977698",
+      "aliases": [
+        "伍朝樞",
+        "Wu Chaoshu"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1887
+      },
+      "death": {
+        "year": 1934
+      },
+      "bio": "Republic of China diplomat (1887–1934)",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/1928%20Wu%20Chaosho.jpg",
+      "photoCredit": "作者：Georges Chevalier · CC BY 4.0 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q696704",
+      "name": "伍廷芳",
+      "citation": "维基百科 / Wikidata Q696704",
+      "aliases": [
+        "Wu Ting-fang"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1842
+      },
+      "death": {
+        "year": 1922
+      },
+      "bio": "Premier of the Republic of China (1842-1922)",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Wu%20Tingfang%20by%20Gutekunst%201902.jpg",
+      "photoCredit": "作者：Frederick Gutekunst · 公有领域 · 来源：Wikimedia Commons"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q114358107",
+      "child": "Q5540123"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q58356653",
+      "child": "Q5977698"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q124586634",
+      "child": "Q5540123"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q696704",
+      "child": "Q5977698"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q5977698",
+      "child": "Q124586634"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q58356653",
+      "b": "Q696704"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q114358107",
+      "b": "Q124586634"
+    }
+  ]
+}

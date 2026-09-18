@@ -1,0 +1,102 @@
+{
+  "key": "wikidata:yexianggao",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q10916314",
+      "name": "叶向高",
+      "citation": "维基百科 / Wikidata Q10916314",
+      "aliases": [
+        "Ye Xianggao"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1559
+      },
+      "death": {
+        "year": 1627
+      },
+      "bio": "Ming dynasty politician"
+    },
+    {
+      "externalId": "Q45579917",
+      "name": "叶仕俨",
+      "citation": "维基百科 / Wikidata Q45579917",
+      "aliases": [
+        "葉仕儼",
+        "Ye Shiyan"
+      ],
+      "gender": "male",
+      "bio": "Ming dynasty person CBDB = 222262"
+    },
+    {
+      "externalId": "Q45579981",
+      "name": "叶广彬",
+      "citation": "维基百科 / Wikidata Q45579981",
+      "aliases": [
+        "葉廣彬",
+        "Ye Guangbin"
+      ],
+      "gender": "male",
+      "bio": "Ming dynasty person CBDB = 222263"
+    },
+    {
+      "externalId": "Q45580045",
+      "name": "叶朝荣",
+      "citation": "维基百科 / Wikidata Q45580045",
+      "aliases": [
+        "葉朝榮",
+        "Ye Chaorong"
+      ],
+      "gender": "male",
+      "bio": "Ming dynasty person CBDB = 222264"
+    },
+    {
+      "externalId": "Q65825361",
+      "name": "林氏",
+      "citation": "维基百科 / Wikidata Q65825361",
+      "aliases": [
+        "Lin Shi"
+      ],
+      "gender": "female",
+      "bio": "葉向高母"
+    },
+    {
+      "externalId": "Q65825365",
+      "name": "俞氏",
+      "citation": "维基百科 / Wikidata Q65825365",
+      "aliases": [
+        "Yu Shi"
+      ],
+      "gender": "female",
+      "bio": "葉向高妻"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q45580045",
+      "child": "Q10916314"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45579917",
+      "child": "Q45579981"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45579981",
+      "child": "Q45580045"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q65825361",
+      "child": "Q10916314"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q10916314",
+      "b": "Q65825365"
+    }
+  ]
+}

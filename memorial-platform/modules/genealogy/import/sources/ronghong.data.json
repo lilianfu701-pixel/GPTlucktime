@@ -1,0 +1,105 @@
+{
+  "key": "wikidata:ronghong",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q111663892",
+      "name": "Mary Louisa Yung",
+      "citation": "维基百科 / Wikidata Q111663892",
+      "gender": "female",
+      "birth": {
+        "year": 1851
+      },
+      "death": {
+        "year": 1886
+      }
+    },
+    {
+      "externalId": "Q111663980",
+      "name": "容觐彤",
+      "citation": "维基百科 / Wikidata Q111663980",
+      "aliases": [
+        "容覲彤",
+        "Morrison Brown Yung"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1876
+      },
+      "death": {
+        "year": 1934
+      }
+    },
+    {
+      "externalId": "Q111664002",
+      "name": "梁藏生",
+      "citation": "维基百科 / Wikidata Q111664002",
+      "aliases": [
+        "Liang Jong Sun"
+      ],
+      "gender": "female"
+    },
+    {
+      "externalId": "Q133629696",
+      "name": "容永成",
+      "citation": "维基百科 / Wikidata Q133629696",
+      "gender": "male",
+      "birth": {
+        "year": 1933
+      },
+      "living": true,
+      "bio": "Yung, Frank Yung Cheng 容永成, 1-Sep-1933"
+    },
+    {
+      "externalId": "Q1353934",
+      "name": "容闳",
+      "citation": "维基百科 / Wikidata Q1353934",
+      "aliases": [
+        "容閎",
+        "Yung Wing"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1828
+      },
+      "death": {
+        "year": 1912
+      },
+      "bio": "Chinese-American diplomat and businessman (1828–1912)",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Yung%20Wing%20Frontispiece%20My%20Life%20in%20China%20and%20America%201909%20FRD%204814.jpg",
+      "photoCredit": "作者：Fred Hsu · CC BY-SA 3.0 · 来源：Wikimedia Commons"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q111663892",
+      "child": "Q111663980"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q111664002",
+      "child": "Q133629696"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q1353934",
+      "child": "Q111663980"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q111663980",
+      "child": "Q133629696"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q111663892",
+      "b": "Q1353934"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q111663980",
+      "b": "Q111664002"
+    }
+  ]
+}

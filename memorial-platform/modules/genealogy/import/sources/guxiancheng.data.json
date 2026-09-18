@@ -1,0 +1,146 @@
+{
+  "key": "wikidata:guxiancheng",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q30944427",
+      "name": "顾允成",
+      "citation": "维基百科 / Wikidata Q30944427",
+      "aliases": [
+        "顧允成",
+        "Gu Yuncheng"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1554
+      },
+      "death": {
+        "year": 1607
+      },
+      "bio": "Ming dynasty person CBDB = 34743",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/%E9%A1%A7%E5%85%81%E6%88%90.jpg",
+      "photoCredit": "作者：Unknown artist · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q45647724",
+      "name": "顾纬",
+      "citation": "维基百科 / Wikidata Q45647724",
+      "aliases": [
+        "顧緯",
+        "Gu Wei"
+      ],
+      "gender": "male",
+      "bio": "Ming dynasty person CBDB = 218653"
+    },
+    {
+      "externalId": "Q45647785",
+      "name": "顾夔",
+      "citation": "维基百科 / Wikidata Q45647785",
+      "aliases": [
+        "顧夔",
+        "Gu Kui"
+      ],
+      "gender": "male",
+      "bio": "Ming dynasty person CBDB = 218654"
+    },
+    {
+      "externalId": "Q45647844",
+      "name": "顾学",
+      "citation": "维基百科 / Wikidata Q45647844",
+      "aliases": [
+        "顧學",
+        "Gu Xue"
+      ],
+      "gender": "male",
+      "bio": "Ming dynasty person CBDB = 218655"
+    },
+    {
+      "externalId": "Q6121590",
+      "name": "顾宪成",
+      "citation": "维基百科 / Wikidata Q6121590",
+      "aliases": [
+        "顧憲成",
+        "Gu Xiancheng"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1550
+      },
+      "death": {
+        "year": 1612
+      },
+      "bio": "明朝政治家 “东林书院”创建者者",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/%E9%A1%A7%E6%86%B2%E6%88%90.jpg",
+      "photoCredit": "作者：Unknown artist · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q65821521",
+      "name": "钱氏",
+      "citation": "维基百科 / Wikidata Q65821521",
+      "aliases": [
+        "錢氏",
+        "Qian Shi"
+      ],
+      "gender": "female",
+      "bio": "顧憲成母"
+    },
+    {
+      "externalId": "Q65821526",
+      "name": "朱氏",
+      "citation": "维基百科 / Wikidata Q65821526",
+      "aliases": [
+        "Zhu Shi"
+      ],
+      "gender": "female",
+      "bio": "顧憲成妻"
+    },
+    {
+      "externalId": "Q65832921",
+      "name": "华氏",
+      "citation": "维基百科 / Wikidata Q65832921",
+      "aliases": [
+        "華氏",
+        "Hua Shi"
+      ],
+      "gender": "female",
+      "bio": "顧允成妻"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q65821521",
+      "child": "Q6121590"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45647844",
+      "child": "Q6121590"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45647844",
+      "child": "Q30944427"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45647724",
+      "child": "Q45647785"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45647785",
+      "child": "Q45647844"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q6121590",
+      "b": "Q65821526"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q30944427",
+      "b": "Q65832921"
+    }
+  ]
+}

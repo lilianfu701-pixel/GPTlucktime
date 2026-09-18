@@ -1,0 +1,319 @@
+{
+  "key": "wikidata:ligang",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q1391913",
+      "name": "李纲",
+      "citation": "维基百科 / Wikidata Q1391913",
+      "aliases": [
+        "Li Gang"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1085
+      },
+      "death": {
+        "year": 1140
+      },
+      "bio": "宋朝大臣",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Li%20Kang.jpg",
+      "photoCredit": "公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q45357613",
+      "name": "李维",
+      "citation": "维基百科 / Wikidata Q45357613",
+      "aliases": [
+        "李維",
+        "Li Wei"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 1107"
+    },
+    {
+      "externalId": "Q45361714",
+      "name": "李夔",
+      "citation": "维基百科 / Wikidata Q45361714",
+      "aliases": [
+        "Li Kui"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1047
+      },
+      "death": {
+        "year": 1121
+      },
+      "bio": "Song dynasty person (CBDB = 3510)"
+    },
+    {
+      "externalId": "Q45361792",
+      "name": "李宗之",
+      "citation": "维基百科 / Wikidata Q45361792",
+      "aliases": [
+        "Li Zongzhi"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 1151
+      },
+      "bio": "Song dynasty person CBDB=3538"
+    },
+    {
+      "externalId": "Q45363526",
+      "name": "李K",
+      "citation": "维基百科 / Wikidata Q45363526",
+      "aliases": [
+        "Li K"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 4159"
+    },
+    {
+      "externalId": "Q45363900",
+      "name": "吴氏",
+      "citation": "维基百科 / Wikidata Q45363900",
+      "aliases": [
+        "吳氏",
+        "Wu Shi"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1058
+      },
+      "death": {
+        "year": 1101
+      },
+      "bio": "李夔妻"
+    },
+    {
+      "externalId": "Q45371825",
+      "name": "李昂之",
+      "citation": "维基百科 / Wikidata Q45371825",
+      "aliases": [
+        "Li Angzhi"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 11562"
+    },
+    {
+      "externalId": "Q45391299",
+      "name": "李经",
+      "citation": "维基百科 / Wikidata Q45391299",
+      "aliases": [
+        "李經",
+        "Li Jing"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 19158"
+    },
+    {
+      "externalId": "Q45391302",
+      "name": "李待",
+      "citation": "维基百科 / Wikidata Q45391302",
+      "aliases": [
+        "Li Dai"
+      ],
+      "gender": "male",
+      "bio": "Min person CBDB = 19159"
+    },
+    {
+      "externalId": "Q45391306",
+      "name": "李僧护",
+      "citation": "维基百科 / Wikidata Q45391306",
+      "aliases": [
+        "李僧護",
+        "Li Senghu"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person (CBDB = 19160)"
+    },
+    {
+      "externalId": "Q45392934",
+      "name": "李茂之",
+      "citation": "维基百科 / Wikidata Q45392934",
+      "aliases": [
+        "Li Maozhi"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 1140
+      },
+      "bio": "Song dynasty person (CBDB = 19681)"
+    },
+    {
+      "externalId": "Q45430071",
+      "name": "张氏",
+      "citation": "维基百科 / Wikidata Q45430071",
+      "aliases": [
+        "張氏",
+        "Zhang Shi"
+      ],
+      "gender": "female",
+      "bio": "Song dynasty person CBDB = 40958"
+    },
+    {
+      "externalId": "Q45432820",
+      "name": "卢氏",
+      "citation": "维基百科 / Wikidata Q45432820",
+      "aliases": [
+        "盧氏",
+        "Lu Shi"
+      ],
+      "gender": "female",
+      "bio": "李僧護妻"
+    },
+    {
+      "externalId": "Q45433071",
+      "name": "廖氏",
+      "citation": "维基百科 / Wikidata Q45433071",
+      "aliases": [
+        "Liao Shi"
+      ],
+      "gender": "female",
+      "bio": "李僧護妻"
+    },
+    {
+      "externalId": "Q45433134",
+      "name": "龚氏",
+      "citation": "维基百科 / Wikidata Q45433134",
+      "aliases": [
+        "龔氏",
+        "Gong Shi"
+      ],
+      "gender": "female",
+      "bio": "李僧護妻"
+    },
+    {
+      "externalId": "Q45433699",
+      "name": "李赓",
+      "citation": "维基百科 / Wikidata Q45433699",
+      "aliases": [
+        "李賡",
+        "Li Geng"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person (CBDB = 41518)"
+    },
+    {
+      "externalId": "Q45433888",
+      "name": "黄氏",
+      "citation": "维基百科 / Wikidata Q45433888",
+      "aliases": [
+        "黃氏",
+        "Huang Shi"
+      ],
+      "gender": "female",
+      "bio": "李賡妻"
+    },
+    {
+      "externalId": "Q45433949",
+      "name": "饶氏",
+      "citation": "维基百科 / Wikidata Q45433949",
+      "aliases": [
+        "饒氏",
+        "Rao Shi"
+      ],
+      "gender": "female",
+      "bio": "李賡妻"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q45433888",
+      "child": "Q45361714"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45432820",
+      "child": "Q45433699"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45361714",
+      "child": "Q1391913"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45361714",
+      "child": "Q45357613"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45433699",
+      "child": "Q45361714"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q1391913",
+      "child": "Q45361792"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q1391913",
+      "child": "Q45363526"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q1391913",
+      "child": "Q45371825"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45361714",
+      "child": "Q45391299"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45391302",
+      "child": "Q45391306"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q1391913",
+      "child": "Q45392934"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45391306",
+      "child": "Q45433699"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q1391913",
+      "b": "Q45430071"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45361714",
+      "b": "Q45363900"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45391306",
+      "b": "Q45432820"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45391306",
+      "b": "Q45433071"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45391306",
+      "b": "Q45433134"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45433699",
+      "b": "Q45433888"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45433699",
+      "b": "Q45433949"
+    }
+  ]
+}

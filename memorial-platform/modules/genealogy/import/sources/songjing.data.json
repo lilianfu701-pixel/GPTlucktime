@@ -1,0 +1,627 @@
+{
+  "key": "wikidata:songjing",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q10195137",
+      "name": "宋渥",
+      "citation": "维基百科 / Wikidata Q10195137",
+      "aliases": [
+        "Song Wo"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 926
+      },
+      "death": {
+        "year": 989
+      },
+      "bio": "Song dynasty person (CBDB = 7066)"
+    },
+    {
+      "externalId": "Q10195253",
+      "name": "宋浑",
+      "citation": "维基百科 / Wikidata Q10195253",
+      "aliases": [
+        "宋渾",
+        "Song Hun"
+      ],
+      "gender": "male",
+      "bio": "Tang dynasty person CBDB = 31298"
+    },
+    {
+      "externalId": "Q10877788",
+      "name": "义宁公主",
+      "citation": "维基百科 / Wikidata Q10877788",
+      "gender": "female"
+    },
+    {
+      "externalId": "Q10918129",
+      "name": "向敏中",
+      "citation": "维基百科 / Wikidata Q10918129",
+      "aliases": [
+        "Xiang Minzhong"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 949
+      },
+      "death": {
+        "year": 1020
+      },
+      "bio": "Song dynasty person (CBDB = 705)"
+    },
+    {
+      "externalId": "Q11131840",
+      "name": "永宁公主",
+      "citation": "维基百科 / Wikidata Q11131840",
+      "aliases": [
+        "永寧公主",
+        "Princess Yongning"
+      ],
+      "gender": "female",
+      "bio": "後漢高祖"
+    },
+    {
+      "externalId": "Q24833743",
+      "name": "宋钦道",
+      "citation": "维基百科 / Wikidata Q24833743",
+      "aliases": [
+        "Song Qindao"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 572
+      },
+      "bio": "Northern Qi person CBDB = 31290"
+    },
+    {
+      "externalId": "Q30942887",
+      "name": "宋廷浩",
+      "citation": "维基百科 / Wikidata Q30942887",
+      "aliases": [
+        "Song Tinghao"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 897
+      },
+      "bio": "Song dynasty person (CBDB = 119991)"
+    },
+    {
+      "externalId": "Q45362546",
+      "name": "宋延昭",
+      "citation": "维基百科 / Wikidata Q45362546",
+      "aliases": [
+        "Song Yanzhao"
+      ],
+      "gender": "male",
+      "bio": "person, CBDB = 3808"
+    },
+    {
+      "externalId": "Q45388988",
+      "name": "宋俨",
+      "citation": "维基百科 / Wikidata Q45388988",
+      "aliases": [
+        "宋儼",
+        "Song Yan"
+      ],
+      "gender": "male",
+      "bio": "Tang dynasty person CBDB = 18348"
+    },
+    {
+      "externalId": "Q45388990",
+      "name": "宋瑶",
+      "citation": "维基百科 / Wikidata Q45388990",
+      "aliases": [
+        "宋瑤",
+        "Song Yao"
+      ],
+      "gender": "male",
+      "bio": "person, CBDB = 18349"
+    },
+    {
+      "externalId": "Q45419433",
+      "name": "宋元节",
+      "citation": "维基百科 / Wikidata Q45419433",
+      "aliases": [
+        "宋元節",
+        "Song Yuanjie"
+      ],
+      "gender": "male",
+      "bio": "Sui dynasty person CBDB = 31291"
+    },
+    {
+      "externalId": "Q45419434",
+      "name": "宋弘俊",
+      "citation": "维基百科 / Wikidata Q45419434",
+      "aliases": [
+        "Song Hongjun"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 611
+      },
+      "bio": "Tang dynasty person CBDB = 31292"
+    },
+    {
+      "externalId": "Q45419436",
+      "name": "宋复",
+      "citation": "维基百科 / Wikidata Q45419436",
+      "aliases": [
+        "宋復",
+        "Song Fu"
+      ],
+      "gender": "male",
+      "bio": "Tang dynasty person CBDB = 31294"
+    },
+    {
+      "externalId": "Q45419438",
+      "name": "宋功",
+      "citation": "维基百科 / Wikidata Q45419438",
+      "aliases": [
+        "Song Gong"
+      ],
+      "gender": "male",
+      "bio": "Tang dynasty person CBDB = 31295"
+    },
+    {
+      "externalId": "Q45419439",
+      "name": "宋升",
+      "citation": "维基百科 / Wikidata Q45419439",
+      "aliases": [
+        "宋昇",
+        "Song Sheng"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 31296"
+    },
+    {
+      "externalId": "Q45419440",
+      "name": "宋汉",
+      "citation": "维基百科 / Wikidata Q45419440",
+      "aliases": [
+        "宋漢",
+        "Song Han"
+      ],
+      "gender": "male",
+      "bio": "Tang dynasty person CBDB = 31297"
+    },
+    {
+      "externalId": "Q45419443",
+      "name": "宋恕",
+      "citation": "维基百科 / Wikidata Q45419443",
+      "aliases": [
+        "Song Shu"
+      ],
+      "gender": "male",
+      "bio": "Tang dynasty person CBDB = 31299"
+    },
+    {
+      "externalId": "Q45419444",
+      "name": "宋延",
+      "citation": "维基百科 / Wikidata Q45419444",
+      "aliases": [
+        "Song Yan"
+      ],
+      "gender": "male",
+      "bio": "Tang dynasty person CBDB = 31300"
+    },
+    {
+      "externalId": "Q45419447",
+      "name": "宋华",
+      "citation": "维基百科 / Wikidata Q45419447",
+      "aliases": [
+        "宋華",
+        "Song Hua"
+      ],
+      "gender": "male",
+      "bio": "Tang dynasty person CBDB = 31301"
+    },
+    {
+      "externalId": "Q45419449",
+      "name": "宋衡",
+      "citation": "维基百科 / Wikidata Q45419449",
+      "aliases": [
+        "Song Heng"
+      ],
+      "gender": "male",
+      "bio": "Tang dynasty person CBDB = 31302"
+    },
+    {
+      "externalId": "Q45434434",
+      "name": "宋氏",
+      "citation": "维基百科 / Wikidata Q45434434",
+      "aliases": [
+        "Song Shi"
+      ],
+      "gender": "female",
+      "bio": "向敏中妻"
+    },
+    {
+      "externalId": "Q45508134",
+      "name": "宋忠宪",
+      "citation": "维基百科 / Wikidata Q45508134",
+      "aliases": [
+        "宋忠憲",
+        "Song Zhongxian"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 839
+      },
+      "bio": "Tang dynasty person CBDB=193995"
+    },
+    {
+      "externalId": "Q45508198",
+      "name": "宋忠庆",
+      "citation": "维基百科 / Wikidata Q45508198",
+      "aliases": [
+        "宋忠慶",
+        "Song Zhongqing"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 839
+      },
+      "bio": "Tang dynasty person CBDB = 193996"
+    },
+    {
+      "externalId": "Q45508259",
+      "name": "宋忠亮",
+      "citation": "维基百科 / Wikidata Q45508259",
+      "aliases": [
+        "Song Zhongliang"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 839
+      },
+      "bio": "Tang dynasty person CBDB = 193997"
+    },
+    {
+      "externalId": "Q45508323",
+      "name": "宋忠和",
+      "citation": "维基百科 / Wikidata Q45508323",
+      "aliases": [
+        "Song Zhonghe"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 839
+      },
+      "bio": "Tang dynasty person CBDB=193998"
+    },
+    {
+      "externalId": "Q45508387",
+      "name": "宋忠弁",
+      "citation": "维基百科 / Wikidata Q45508387",
+      "aliases": [
+        "Song Zhongbian"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 839
+      },
+      "bio": "Tang dynasty person CBDB = 193999"
+    },
+    {
+      "externalId": "Q45554691",
+      "name": "宋务本",
+      "citation": "维基百科 / Wikidata Q45554691",
+      "aliases": [
+        "宋務本",
+        "Song Wuben"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 648
+      },
+      "bio": "Tang dynasty person CBDB = 183994"
+    },
+    {
+      "externalId": "Q45554753",
+      "name": "宋玄抚",
+      "citation": "维基百科 / Wikidata Q45554753",
+      "aliases": [
+        "宋玄撫",
+        "Song Xuanfu"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 685
+      },
+      "bio": "Tang dynasty person CBDB = 183995"
+    },
+    {
+      "externalId": "Q45554816",
+      "name": "宋尚",
+      "citation": "维基百科 / Wikidata Q45554816",
+      "aliases": [
+        "Song Shang"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 759
+      },
+      "bio": "Tang dynasty person CBDB = 183998"
+    },
+    {
+      "externalId": "Q45554878",
+      "name": "宋寔",
+      "citation": "维基百科 / Wikidata Q45554878",
+      "aliases": [
+        "Song Shi"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 796
+      },
+      "bio": "Tang dynasty person CBDB = 183999"
+    },
+    {
+      "externalId": "Q45554940",
+      "name": "宋衮",
+      "citation": "维基百科 / Wikidata Q45554940",
+      "aliases": [
+        "Song Gun"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 796
+      },
+      "bio": "Tang dynasty person CBDB = 184002"
+    },
+    {
+      "externalId": "Q45555129",
+      "name": "宋倓",
+      "citation": "维基百科 / Wikidata Q45555129",
+      "aliases": [
+        "Song Tan"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 796
+      },
+      "bio": "Tang dynasty person CBDB = 184009"
+    },
+    {
+      "externalId": "Q45555191",
+      "name": "宋某",
+      "citation": "维基百科 / Wikidata Q45555191",
+      "aliases": [
+        "Song Mou"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 833
+      },
+      "bio": "Tang dynasty person CBDB = 184010"
+    },
+    {
+      "externalId": "Q45555257",
+      "name": "宋渤",
+      "citation": "维基百科 / Wikidata Q45555257",
+      "aliases": [
+        "Song Bo"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 870
+      },
+      "bio": "Tang dynasty person CBDB = 184011"
+    },
+    {
+      "externalId": "Q45555320",
+      "name": "宋坚",
+      "citation": "维基百科 / Wikidata Q45555320",
+      "aliases": [
+        "宋堅",
+        "Song Jian"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 870
+      },
+      "bio": "Tang dynasty person CBDB = 184012"
+    },
+    {
+      "externalId": "Q712060",
+      "name": "宋璟",
+      "citation": "维基百科 / Wikidata Q712060",
+      "aliases": [
+        "Song Jing"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 663
+      },
+      "death": {
+        "year": 737
+      },
+      "bio": "唐朝宰相"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q10877788",
+      "child": "Q10195137"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45554753",
+      "child": "Q712060"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q30942887",
+      "child": "Q10195137"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q712060",
+      "child": "Q10195253"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45388990",
+      "child": "Q30942887"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45388990",
+      "child": "Q45362546"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45419447",
+      "child": "Q45388988"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45388988",
+      "child": "Q45388990"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q24833743",
+      "child": "Q45419433"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45419433",
+      "child": "Q45419434"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q712060",
+      "child": "Q45419436"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q712060",
+      "child": "Q45419438"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q712060",
+      "child": "Q45419439"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q712060",
+      "child": "Q45419440"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q712060",
+      "child": "Q45419443"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q712060",
+      "child": "Q45419444"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q712060",
+      "child": "Q45419447"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q712060",
+      "child": "Q45419449"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45362546",
+      "child": "Q45434434"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45419447",
+      "child": "Q45508134"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45419447",
+      "child": "Q45508198"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45419447",
+      "child": "Q45508259"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45419447",
+      "child": "Q45508323"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45419447",
+      "child": "Q45508387"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45419434",
+      "child": "Q45554691"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45554691",
+      "child": "Q45554753"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q712060",
+      "child": "Q45554816"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45554816",
+      "child": "Q45554878"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45419443",
+      "child": "Q45554940"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45419449",
+      "child": "Q45555129"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45555129",
+      "child": "Q45555191"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45555191",
+      "child": "Q45555257"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45555191",
+      "child": "Q45555320"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q10195137",
+      "b": "Q11131840"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q10877788",
+      "b": "Q30942887"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q10918129",
+      "b": "Q45434434"
+    }
+  ]
+}

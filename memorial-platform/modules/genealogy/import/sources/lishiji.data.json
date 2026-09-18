@@ -1,0 +1,483 @@
+{
+  "key": "wikidata:lishiji",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q4261986",
+      "name": "李敬业",
+      "citation": "维基百科 / Wikidata Q4261986",
+      "aliases": [
+        "李敬業",
+        "Li Jingye"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 601
+      },
+      "death": {
+        "year": 684
+      },
+      "bio": "中国唐朝军事将领"
+    },
+    {
+      "externalId": "Q45485135",
+      "name": "马炜",
+      "citation": "维基百科 / Wikidata Q45485135",
+      "aliases": [
+        "馬煒",
+        "Ma Wei"
+      ],
+      "gender": "male",
+      "bio": "person, CBDB = 151254"
+    },
+    {
+      "externalId": "Q45485199",
+      "name": "王勗",
+      "citation": "维基百科 / Wikidata Q45485199",
+      "aliases": [
+        "Wang Xu"
+      ],
+      "gender": "male",
+      "bio": "person, CBDB = 151255"
+    },
+    {
+      "externalId": "Q45485261",
+      "name": "李思文",
+      "citation": "维基百科 / Wikidata Q45485261",
+      "aliases": [
+        "Li Siwen"
+      ],
+      "gender": "male",
+      "bio": "Tang dynasty person CBDB = 151257"
+    },
+    {
+      "externalId": "Q45485324",
+      "name": "伯烨",
+      "citation": "维基百科 / Wikidata Q45485324",
+      "aliases": [
+        "伯燁",
+        "Bo Ye"
+      ],
+      "gender": "male",
+      "bio": "person, CBDB = 151258"
+    },
+    {
+      "externalId": "Q45485389",
+      "name": "子乔",
+      "citation": "维基百科 / Wikidata Q45485389",
+      "aliases": [
+        "子喬",
+        "Zi Qiao"
+      ],
+      "gender": "male",
+      "bio": "person, CBDB = 151259"
+    },
+    {
+      "externalId": "Q45499622",
+      "name": "李今",
+      "citation": "维基百科 / Wikidata Q45499622",
+      "aliases": [
+        "Li Jin"
+      ],
+      "gender": "male",
+      "bio": "Tang dynasty person CBDB = 162369"
+    },
+    {
+      "externalId": "Q45504194",
+      "name": "李鹊",
+      "citation": "维基百科 / Wikidata Q45504194",
+      "aliases": [
+        "李鵲",
+        "Li Que"
+      ],
+      "gender": "male",
+      "bio": "person, CBDB = 162463"
+    },
+    {
+      "externalId": "Q45510314",
+      "name": "王将勗",
+      "citation": "维基百科 / Wikidata Q45510314",
+      "aliases": [
+        "王將勗",
+        "Wang Jiangxu"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 701
+      },
+      "bio": "Tang dynasty person CBDB = 194048"
+    },
+    {
+      "externalId": "Q45557144",
+      "name": "李盖",
+      "citation": "维基百科 / Wikidata Q45557144",
+      "aliases": [
+        "李蓋",
+        "Li Gai"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 616
+      },
+      "bio": "person, CBDB = 147421"
+    },
+    {
+      "externalId": "Q45557206",
+      "name": "李康",
+      "citation": "维基百科 / Wikidata Q45557206",
+      "aliases": [
+        "Li Kang"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 579
+      },
+      "bio": "Tang dynasty person CBDB = 147422"
+    },
+    {
+      "externalId": "Q45581250",
+      "name": "李震",
+      "citation": "维基百科 / Wikidata Q45581250",
+      "aliases": [
+        "Li Zhen"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 617
+      },
+      "death": {
+        "year": 665
+      },
+      "bio": "Tang dynasty person CBDB = 142563"
+    },
+    {
+      "externalId": "Q45591605",
+      "name": "徐琛",
+      "citation": "维基百科 / Wikidata Q45591605",
+      "aliases": [
+        "Xu Chen"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 468
+      },
+      "bio": "person, CBDB = 184725"
+    },
+    {
+      "externalId": "Q45591668",
+      "name": "徐懋",
+      "citation": "维基百科 / Wikidata Q45591668",
+      "aliases": [
+        "Xu Mao"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 505
+      },
+      "bio": "person, CBDB = 184726"
+    },
+    {
+      "externalId": "Q45591731",
+      "name": "徐元起",
+      "citation": "维基百科 / Wikidata Q45591731",
+      "aliases": [
+        "Xu Yuanqi"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 542
+      },
+      "bio": "person, CBDB = 184727"
+    },
+    {
+      "externalId": "Q45591922",
+      "name": "徐敬猷",
+      "citation": "维基百科 / Wikidata Q45591922",
+      "aliases": [
+        "Xu Jingyou"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 713
+      },
+      "bio": "Tang dynasty person CBDB = 184730"
+    },
+    {
+      "externalId": "Q45591985",
+      "name": "徐思顺",
+      "citation": "维基百科 / Wikidata Q45591985",
+      "aliases": [
+        "徐思順",
+        "Xu Sishun"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 713
+      },
+      "bio": "Tang dynasty person CBDB = 184731"
+    },
+    {
+      "externalId": "Q45592048",
+      "name": "徐湘",
+      "citation": "维基百科 / Wikidata Q45592048",
+      "aliases": [
+        "Xu Xiang"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 750
+      },
+      "bio": "Tang dynasty person CBDB = 184732"
+    },
+    {
+      "externalId": "Q45592112",
+      "name": "徐弘光",
+      "citation": "维基百科 / Wikidata Q45592112",
+      "aliases": [
+        "Xu Hongguang"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 787
+      },
+      "bio": "Tang dynasty person CBDB = 184733"
+    },
+    {
+      "externalId": "Q45592240",
+      "name": "徐弼",
+      "citation": "维基百科 / Wikidata Q45592240",
+      "aliases": [
+        "Xu Bi"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 616
+      },
+      "bio": "person, CBDB = 184735"
+    },
+    {
+      "externalId": "Q45621711",
+      "name": "息武钦载",
+      "citation": "维基百科 / Wikidata Q45621711",
+      "aliases": [
+        "息武欽載",
+        "Xiwu Qinzai"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 674
+      },
+      "death": {
+        "year": 688
+      },
+      "bio": "person, CBDB = 139372"
+    },
+    {
+      "externalId": "Q45683675",
+      "name": "温炜",
+      "citation": "维基百科 / Wikidata Q45683675",
+      "aliases": [
+        "温煒",
+        "Wen Wei"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 669
+      },
+      "bio": "Tang dynasty person CBDB = 176074"
+    },
+    {
+      "externalId": "Q65802766",
+      "name": "李氏",
+      "citation": "维基百科 / Wikidata Q65802766",
+      "aliases": [
+        "Li Shi"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 591
+      },
+      "death": {
+        "year": 657
+      },
+      "bio": "李康女"
+    },
+    {
+      "externalId": "Q65802952",
+      "name": "李氏",
+      "citation": "维基百科 / Wikidata Q65802952",
+      "aliases": [
+        "Li Shi"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 654
+      },
+      "death": {
+        "year": 716
+      },
+      "bio": "李思文女"
+    },
+    {
+      "externalId": "Q65804245",
+      "name": "王某",
+      "citation": "维基百科 / Wikidata Q65804245",
+      "aliases": [
+        "Wang Mou"
+      ],
+      "gender": "male",
+      "bio": "person, China Biographical Database ID=147420"
+    },
+    {
+      "externalId": "Q717965",
+      "name": "李世𪟝",
+      "citation": "维基百科 / Wikidata Q717965",
+      "aliases": [
+        "李世勣",
+        "Li Shiji"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 594
+      },
+      "death": {
+        "year": 669
+      },
+      "bio": "隋末唐初将领",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/%E6%9D%8E%E5%8B%A3.png",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q65802952",
+      "child": "Q45485324"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q65802952",
+      "child": "Q45485389"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45557144",
+      "child": "Q717965"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45581250",
+      "child": "Q4261986"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q717965",
+      "child": "Q45485261"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45557144",
+      "child": "Q45499622"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45557206",
+      "child": "Q45557144"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45504194",
+      "child": "Q45557206"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45591731",
+      "child": "Q45557206"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q717965",
+      "child": "Q45581250"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45499622",
+      "child": "Q45581250"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45591605",
+      "child": "Q45591668"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45591668",
+      "child": "Q45591731"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45581250",
+      "child": "Q45591922"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45581250",
+      "child": "Q45591985"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45591985",
+      "child": "Q45592048"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45592048",
+      "child": "Q45592112"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45557206",
+      "child": "Q45592240"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45485261",
+      "child": "Q45621711"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45557206",
+      "child": "Q65802766"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45485261",
+      "child": "Q65802952"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45485135",
+      "b": "Q65802952"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45485199",
+      "b": "Q65802952"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45510314",
+      "b": "Q65802952"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45683675",
+      "b": "Q65802952"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q65802766",
+      "b": "Q65804245"
+    }
+  ]
+}

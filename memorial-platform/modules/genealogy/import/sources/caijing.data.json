@@ -1,0 +1,270 @@
+{
+  "key": "wikidata:caijing",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q1146610",
+      "name": "蔡京",
+      "citation": "维基百科 / Wikidata Q1146610",
+      "aliases": [
+        "Cai Jing"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1047
+      },
+      "death": {
+        "year": 1126
+      },
+      "bio": "北宋政治人物",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/%E8%81%BD%E7%90%B4%E5%9C%96%20%28%E8%94%A1%E4%BA%AC%20cropped%29.jpg",
+      "photoCredit": "作者：Emperor Huizong of Song · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q141259120",
+      "name": "王氏 (福国夫人)",
+      "citation": "维基百科 / Wikidata Q141259120",
+      "aliases": [
+        "王氏 (福國夫人)",
+        "Lady Wang (wife of Cai Bian)"
+      ],
+      "gender": "female",
+      "bio": "北宋王安石次女，封福國夫人，嫁蔡卞"
+    },
+    {
+      "externalId": "Q15890229",
+      "name": "蔡翛",
+      "citation": "维基百科 / Wikidata Q15890229",
+      "aliases": [
+        "Cai Xiao"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 1126
+      },
+      "bio": "Song dynasty person CBDB = 12036"
+    },
+    {
+      "externalId": "Q15942370",
+      "name": "蔡绦",
+      "citation": "维基百科 / Wikidata Q15942370",
+      "aliases": [
+        "蔡絛",
+        "Cai Tao"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB=10838"
+    },
+    {
+      "externalId": "Q16603589",
+      "name": "茂德帝姬",
+      "citation": "维基百科 / Wikidata Q16603589",
+      "aliases": [
+        "Princess Fujin"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1106
+      },
+      "death": {
+        "year": 1128
+      },
+      "bio": "宋徽宗第五女"
+    },
+    {
+      "externalId": "Q16906910",
+      "name": "蔡攸",
+      "citation": "维基百科 / Wikidata Q16906910",
+      "aliases": [
+        "Cai You"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1077
+      },
+      "death": {
+        "year": 1126
+      },
+      "bio": "北宋政治人物，父蔡京"
+    },
+    {
+      "externalId": "Q19825779",
+      "name": "蔡鞗",
+      "citation": "维基百科 / Wikidata Q19825779",
+      "aliases": [
+        "Cai Tiao"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1107
+      },
+      "bio": "Song dynasty person (CBDB = 4154)"
+    },
+    {
+      "externalId": "Q4391249",
+      "name": "蔡卞",
+      "citation": "维基百科 / Wikidata Q4391249",
+      "aliases": [
+        "Cai Bian"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1058
+      },
+      "death": {
+        "year": 1117
+      },
+      "bio": "Song dynasty person (CBDB = 8131)"
+    },
+    {
+      "externalId": "Q45362663",
+      "name": "蔡衢",
+      "citation": "维基百科 / Wikidata Q45362663",
+      "aliases": [
+        "Cai Qu"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1106
+      },
+      "death": {
+        "year": 1163
+      },
+      "bio": "Song dynasty person CBDB = 3852"
+    },
+    {
+      "externalId": "Q45362704",
+      "name": "蔡条",
+      "citation": "维基百科 / Wikidata Q45362704",
+      "aliases": [
+        "蔡條",
+        "Cai Tiao"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 3866"
+    },
+    {
+      "externalId": "Q45364064",
+      "name": "宋氏",
+      "citation": "维基百科 / Wikidata Q45364064",
+      "aliases": [
+        "Song Shi"
+      ],
+      "gender": "female",
+      "bio": "蔡攸妻"
+    },
+    {
+      "externalId": "Q45373239",
+      "name": "蔡准",
+      "citation": "维基百科 / Wikidata Q45373239",
+      "aliases": [
+        "蔡準",
+        "Cai Zhun"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person (CBDB = 12013)"
+    },
+    {
+      "externalId": "Q45373309",
+      "name": "蔡儵",
+      "citation": "维基百科 / Wikidata Q45373309",
+      "aliases": [
+        "Cai Shu"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person (CBDB = 12037)"
+    },
+    {
+      "externalId": "Q45373314",
+      "name": "蔡衍",
+      "citation": "维基百科 / Wikidata Q45373314",
+      "aliases": [
+        "Cai Yan"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 12039"
+    },
+    {
+      "externalId": "Q45373315",
+      "name": "蔡行",
+      "citation": "维基百科 / Wikidata Q45373315",
+      "aliases": [
+        "Cai Xing"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 12040"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q45373239",
+      "child": "Q1146610"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45373239",
+      "child": "Q4391249"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q1146610",
+      "child": "Q15890229"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q1146610",
+      "child": "Q15942370"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q1146610",
+      "child": "Q16906910"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q1146610",
+      "child": "Q19825779"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45373309",
+      "child": "Q45362663"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q1146610",
+      "child": "Q45362704"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q1146610",
+      "child": "Q45373309"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q16906910",
+      "child": "Q45373314"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q16906910",
+      "child": "Q45373315"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q141259120",
+      "b": "Q4391249"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q16603589",
+      "b": "Q19825779"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q16906910",
+      "b": "Q45364064"
+    }
+  ]
+}
