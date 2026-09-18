@@ -14,7 +14,7 @@ Cross-source note: CBDB ids live in namespace "cbdb"; a person already imported
 from Wikidata (a QID) will NOT auto-dedup. The script reports name-overlap with
 the existing corpus so fragmentation risk is visible before anything is written.
 """
-import json, re, sys, time, urllib.parse, urllib.request, os, glob
+import json, re, sys, time, urllib.parse, urllib.request, os, glob, tempfile
 
 API = "https://cbdb.fas.harvard.edu/cbdbapi/person.php"
 UA = "missingu-genealogy/1.0 (https://missingu.org)"
@@ -226,8 +226,8 @@ def main():
         json.dump(ds, open(out, "w", encoding="utf-8"), ensure_ascii=False, indent=2)
         print("✓ 写入", out)
     else:
-        # dry-run: dump to scratchpad for inspection
-        tmp = os.path.join(os.path.dirname(__file__), f"{key}.preview.json")
+        # dry-run: dump to the system temp dir (never the repo) for inspection.
+        tmp = os.path.join(tempfile.gettempdir(), f"cbdb_{key}.preview.json")
         json.dump(ds, open(tmp, "w", encoding="utf-8"), ensure_ascii=False, indent=2)
         print("（dry-run，预览写入", tmp, "；加 --write 才写入源目录）")
 
