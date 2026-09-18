@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useMemo, useState } from "react";
 
 type Report = {
   source: string;
@@ -82,15 +82,25 @@ export function GenealogySeed(props: {
   /** Deceased pages already seeded per family key, read from the DB on load. */
   imported: Record<string, number>;
 }) {
-  const [selected, setSelected] = useState<Set<string>>(
-    () => new Set(props.families.map((f) => f.key)),
-  );
-  const [skipLiving, setSkipLiving] = useState(true);
+  const [selected, setSelected] = useState<Set<string>>(() => new Set());
+  const [skipLiving, setSkipLiving] = useState(false);
   const [busy, setBusy] = useState(false);
   const [rows, setRows] = useState<Record<string, RowState>>({});
   const [legacy, setLegacy] = useState<"kong" | "song">("kong");
   const [legacyReport, setLegacyReport] = useState<Report | null>(null);
   const [legacyError, setLegacyError] = useState<string | null>(null);
+
+  // 未导入的排在上面、已导入的沉到底部，方便一眼找到还没灌的家族。
+  // 同一状态内保持原有的策展顺序（Array.sort 稳定）。
+  const sortedFamilies = useMemo(() => {
+    const isDone = (f: FamilyMeta): boolean => {
+      const n = props.imported[f.key] ?? 0;
+      return n > 0 && n >= f.deceased;
+    };
+    return [...props.families].sort(
+      (a, b) => (isDone(a) ? 1 : 0) - (isDone(b) ? 1 : 0),
+    );
+  }, [props.families, props.imported]);
 
   function toggle(key: string): void {
     setSelected((prev) => {
@@ -103,7 +113,7 @@ export function GenealogySeed(props: {
 
   async function runBatch(action: "seed" | "rollback"): Promise<void> {
     if (busy) return;
-    const keys = props.families.map((f) => f.key).filter((k) => selected.has(k));
+    const keys = sortedFamilies.map((f) => f.key).filter((k) => selected.has(k));
     if (keys.length === 0) return;
     if (
       action === "rollback" &&
@@ -193,7 +203,7 @@ export function GenealogySeed(props: {
         </label>
 
         <ul className="stack">
-          {props.families.map((f) => {
+          {sortedFamilies.map((f) => {
             const state = rows[f.key];
             return (
               <li key={f.key} className="adminHeadRow" style={{ alignItems: "center", gap: "0.75rem" }}>
@@ -228,7 +238,7 @@ export function GenealogySeed(props: {
             checked={skipLiving}
             onChange={(e) => setSkipLiving(e.target.checked)}
           />
-          <span>只灌已故世代（跳过在世者，推荐首次勾选）</span>
+          <span>只灌已故世代（勾选后跳过在世者，不建其页面）</span>
         </label>
 
         <div className="adminHeadRow">
