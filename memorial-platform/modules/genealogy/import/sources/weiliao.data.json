@@ -1,0 +1,162 @@
+{
+  "key": "cbdb:weiliao",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "4001",
+      "name": "魏了翁",
+      "citation": "CBDB 中国历代人物传记资料库 person 4001",
+      "gender": "male",
+      "birth": {
+        "year": 1178
+      },
+      "death": {
+        "year": 1237
+      }
+    },
+    {
+      "externalId": "13827",
+      "name": "魏孝璹",
+      "citation": "CBDB 中国历代人物传记资料库 person 13827",
+      "gender": "male"
+    },
+    {
+      "externalId": "43791",
+      "name": "魏璧海",
+      "citation": "CBDB 中国历代人物传记资料库 person 43791",
+      "gender": "female",
+      "birth": {
+        "year": 1203
+      },
+      "death": {
+        "year": 1204
+      }
+    },
+    {
+      "externalId": "13860",
+      "name": "魏嘉惠",
+      "citation": "CBDB 中国历代人物传记资料库 person 13860",
+      "gender": "male"
+    },
+    {
+      "externalId": "13859",
+      "name": "魏近思",
+      "citation": "CBDB 中国历代人物传记资料库 person 13859",
+      "gender": "male"
+    },
+    {
+      "externalId": "13855",
+      "name": "魏克愚",
+      "citation": "CBDB 中国历代人物传记资料库 person 13855",
+      "gender": "male",
+      "birth": {
+        "year": 1219
+      },
+      "death": {
+        "year": 1269
+      }
+    },
+    {
+      "externalId": "13814",
+      "name": "魏革",
+      "citation": "CBDB 中国历代人物传记资料库 person 13814",
+      "gender": "male",
+      "death": {
+        "year": 1160
+      }
+    },
+    {
+      "externalId": "43763",
+      "name": "高氏(魏革妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 43763",
+      "gender": "female",
+      "birth": {
+        "year": 1110
+      },
+      "death": {
+        "year": 1188
+      }
+    },
+    {
+      "externalId": "13856",
+      "name": "魏華國",
+      "citation": "CBDB 中国历代人物传记资料库 person 13856",
+      "gender": "male"
+    },
+    {
+      "externalId": "13857",
+      "name": "魏華遠",
+      "citation": "CBDB 中国历代人物传记资料库 person 13857",
+      "gender": "male"
+    },
+    {
+      "externalId": "13858",
+      "name": "魏華敷",
+      "citation": "CBDB 中国历代人物传记资料库 person 13858",
+      "gender": "male"
+    },
+    {
+      "externalId": "13812",
+      "name": "魏大昕",
+      "citation": "CBDB 中国历代人物传记资料库 person 13812",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "13827",
+      "child": "4001"
+    },
+    {
+      "kind": "parent",
+      "parent": "4001",
+      "child": "43791"
+    },
+    {
+      "kind": "parent",
+      "parent": "4001",
+      "child": "13860"
+    },
+    {
+      "kind": "parent",
+      "parent": "4001",
+      "child": "13859"
+    },
+    {
+      "kind": "parent",
+      "parent": "4001",
+      "child": "13855"
+    },
+    {
+      "kind": "parent",
+      "parent": "13814",
+      "child": "13827"
+    },
+    {
+      "kind": "parent",
+      "parent": "13855",
+      "child": "13856"
+    },
+    {
+      "kind": "parent",
+      "parent": "13855",
+      "child": "13857"
+    },
+    {
+      "kind": "parent",
+      "parent": "13855",
+      "child": "13858"
+    },
+    {
+      "kind": "parent",
+      "parent": "13812",
+      "child": "13814"
+    },
+    {
+      "kind": "spouse",
+      "a": "13814",
+      "b": "43763"
+    }
+  ]
+}

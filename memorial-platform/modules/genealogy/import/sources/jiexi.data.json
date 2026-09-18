@@ -1,0 +1,120 @@
+{
+  "key": "cbdb:jiexi",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "27954",
+      "name": "揭傒斯",
+      "citation": "CBDB 中国历代人物传记资料库 person 27954",
+      "gender": "male",
+      "birth": {
+        "year": 1274
+      },
+      "death": {
+        "year": 1344
+      }
+    },
+    {
+      "externalId": "27955",
+      "name": "揭來成",
+      "citation": "CBDB 中国历代人物传记资料库 person 27955",
+      "gender": "male",
+      "birth": {
+        "year": 1235
+      },
+      "death": {
+        "year": 1309
+      }
+    },
+    {
+      "externalId": "27958",
+      "name": "揭汯",
+      "citation": "CBDB 中国历代人物传记资料库 person 27958",
+      "gender": "male",
+      "birth": {
+        "year": 1304
+      },
+      "death": {
+        "year": 1373
+      }
+    },
+    {
+      "externalId": "27963",
+      "name": "擖廣陽",
+      "citation": "CBDB 中国历代人物传记资料库 person 27963",
+      "gender": "male"
+    },
+    {
+      "externalId": "27959",
+      "name": "擖惟聰",
+      "citation": "CBDB 中国历代人物传记资料库 person 27959",
+      "gender": "male"
+    },
+    {
+      "externalId": "27961",
+      "name": "擖樞",
+      "citation": "CBDB 中国历代人物传记资料库 person 27961",
+      "gender": "male"
+    },
+    {
+      "externalId": "27962",
+      "name": "擖樂",
+      "citation": "CBDB 中国历代人物传记资料库 person 27962",
+      "gender": "male"
+    },
+    {
+      "externalId": "27964",
+      "name": "擖平仲",
+      "citation": "CBDB 中国历代人物传记资料库 person 27964",
+      "gender": "male"
+    },
+    {
+      "externalId": "27960",
+      "name": "擖光朝",
+      "citation": "CBDB 中国历代人物传记资料库 person 27960",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "27955",
+      "child": "27954"
+    },
+    {
+      "kind": "parent",
+      "parent": "27954",
+      "child": "27958"
+    },
+    {
+      "kind": "parent",
+      "parent": "27954",
+      "child": "27963"
+    },
+    {
+      "kind": "parent",
+      "parent": "27959",
+      "child": "27955"
+    },
+    {
+      "kind": "parent",
+      "parent": "27958",
+      "child": "27961"
+    },
+    {
+      "kind": "parent",
+      "parent": "27958",
+      "child": "27962"
+    },
+    {
+      "kind": "parent",
+      "parent": "27963",
+      "child": "27964"
+    },
+    {
+      "kind": "parent",
+      "parent": "27960",
+      "child": "27959"
+    }
+  ]
+}

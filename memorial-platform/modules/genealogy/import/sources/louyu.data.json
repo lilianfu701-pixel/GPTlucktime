@@ -1,0 +1,178 @@
+{
+  "key": "cbdb:louyu",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "3624",
+      "name": "樓鑰",
+      "citation": "CBDB 中国历代人物传记资料库 person 3624",
+      "gender": "male",
+      "birth": {
+        "year": 1137
+      },
+      "death": {
+        "year": 1213
+      }
+    },
+    {
+      "externalId": "3615",
+      "name": "樓璩",
+      "citation": "CBDB 中国历代人物传记资料库 person 3615",
+      "gender": "male",
+      "death": {
+        "year": 1182
+      }
+    },
+    {
+      "externalId": "5077",
+      "name": "汪氏(樓璩妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 5077",
+      "gender": "female",
+      "birth": {
+        "year": 1110
+      },
+      "death": {
+        "year": 1204
+      }
+    },
+    {
+      "externalId": "35560",
+      "name": "汪慧通",
+      "citation": "CBDB 中国历代人物传记资料库 person 35560",
+      "gender": "female",
+      "birth": {
+        "year": 1110
+      },
+      "death": {
+        "year": 1204
+      }
+    },
+    {
+      "externalId": "19947",
+      "name": "樓淳",
+      "citation": "CBDB 中国历代人物传记资料库 person 19947",
+      "gender": "male"
+    },
+    {
+      "externalId": "19948",
+      "name": "樓潚",
+      "citation": "CBDB 中国历代人物传记资料库 person 19948",
+      "gender": "male"
+    },
+    {
+      "externalId": "35876",
+      "name": "樓濛",
+      "citation": "CBDB 中国历代人物传记资料库 person 35876",
+      "gender": "male"
+    },
+    {
+      "externalId": "3614",
+      "name": "樓治",
+      "citation": "CBDB 中国历代人物传记资料库 person 3614",
+      "gender": "male"
+    },
+    {
+      "externalId": "684325",
+      "name": "吳氏(吳樸女)",
+      "citation": "CBDB 中国历代人物传记资料库 person 684325",
+      "gender": "female"
+    },
+    {
+      "externalId": "3618",
+      "name": "樓异",
+      "citation": "CBDB 中国历代人物传记资料库 person 3618",
+      "gender": "male"
+    },
+    {
+      "externalId": "3613",
+      "name": "樓常",
+      "citation": "CBDB 中国历代人物传记资料库 person 3613",
+      "gender": "male"
+    },
+    {
+      "externalId": "3623",
+      "name": "樓郁",
+      "citation": "CBDB 中国历代人物传记资料库 person 3623",
+      "gender": "male"
+    },
+    {
+      "externalId": "19921",
+      "name": "樓杲",
+      "citation": "CBDB 中国历代人物传记资料库 person 19921",
+      "gender": "male"
+    },
+    {
+      "externalId": "19943",
+      "name": "樓皓",
+      "citation": "CBDB 中国历代人物传记资料库 person 19943",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "3615",
+      "child": "3624"
+    },
+    {
+      "kind": "parent",
+      "parent": "3624",
+      "child": "19947"
+    },
+    {
+      "kind": "parent",
+      "parent": "3624",
+      "child": "19948"
+    },
+    {
+      "kind": "parent",
+      "parent": "3624",
+      "child": "35876"
+    },
+    {
+      "kind": "parent",
+      "parent": "3624",
+      "child": "3614"
+    },
+    {
+      "kind": "parent",
+      "parent": "3618",
+      "child": "3615"
+    },
+    {
+      "kind": "spouse",
+      "a": "3615",
+      "b": "5077"
+    },
+    {
+      "kind": "spouse",
+      "a": "35560",
+      "b": "3615"
+    },
+    {
+      "kind": "spouse",
+      "a": "3614",
+      "b": "684325"
+    },
+    {
+      "kind": "parent",
+      "parent": "3613",
+      "child": "3618"
+    },
+    {
+      "kind": "parent",
+      "parent": "3623",
+      "child": "3613"
+    },
+    {
+      "kind": "parent",
+      "parent": "19921",
+      "child": "3623"
+    },
+    {
+      "kind": "parent",
+      "parent": "19943",
+      "child": "19921"
+    }
+  ]
+}

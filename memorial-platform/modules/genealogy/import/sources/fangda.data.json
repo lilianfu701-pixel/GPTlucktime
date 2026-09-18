@@ -1,0 +1,241 @@
+{
+  "key": "cbdb:fangda",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "54971",
+      "name": "方大鎮",
+      "citation": "CBDB 中国历代人物传记资料库 person 54971",
+      "gender": "male",
+      "birth": {
+        "year": 1558
+      },
+      "death": {
+        "year": 1628
+      }
+    },
+    {
+      "externalId": "54970",
+      "name": "方學漸",
+      "citation": "CBDB 中国历代人物传记资料库 person 54970",
+      "gender": "male",
+      "birth": {
+        "year": 1539
+      },
+      "death": {
+        "year": 1615
+      }
+    },
+    {
+      "externalId": "54969",
+      "name": "方維儀",
+      "citation": "CBDB 中国历代人物传记资料库 person 54969",
+      "gender": "female",
+      "birth": {
+        "year": 1585
+      },
+      "death": {
+        "year": 1668
+      }
+    },
+    {
+      "externalId": "54972",
+      "name": "姚孫棨",
+      "citation": "CBDB 中国历代人物传记资料库 person 54972",
+      "gender": "male"
+    },
+    {
+      "externalId": "54976",
+      "name": "方維則",
+      "citation": "CBDB 中国历代人物传记资料库 person 54976",
+      "gender": "female",
+      "birth": {
+        "year": 1585
+      },
+      "death": {
+        "year": 1668
+      }
+    },
+    {
+      "externalId": "54978",
+      "name": "吳紹忠",
+      "citation": "CBDB 中国历代人物传记资料库 person 54978",
+      "gender": "male"
+    },
+    {
+      "externalId": "54981",
+      "name": "方孟式",
+      "citation": "CBDB 中国历代人物传记资料库 person 54981",
+      "gender": "female",
+      "birth": {
+        "year": 1584
+      },
+      "death": {
+        "year": 1639
+      }
+    },
+    {
+      "externalId": "54982",
+      "name": "張秉文",
+      "citation": "CBDB 中国历代人物传记资料库 person 54982",
+      "gender": "male",
+      "death": {
+        "year": 1639
+      }
+    },
+    {
+      "externalId": "54991",
+      "name": "方孔炤",
+      "citation": "CBDB 中国历代人物传记资料库 person 54991",
+      "gender": "male"
+    },
+    {
+      "externalId": "121310",
+      "name": "吳令儀",
+      "citation": "CBDB 中国历代人物传记资料库 person 121310",
+      "gender": "female",
+      "birth": {
+        "year": 1593
+      },
+      "death": {
+        "year": 1622
+      }
+    },
+    {
+      "externalId": "122571",
+      "name": "張德茂",
+      "citation": "CBDB 中国历代人物传记资料库 person 122571",
+      "gender": "female"
+    },
+    {
+      "externalId": "122580",
+      "name": "孫文庠",
+      "citation": "CBDB 中国历代人物传记资料库 person 122580",
+      "gender": "male"
+    },
+    {
+      "externalId": "338258",
+      "name": "倪文庠",
+      "citation": "CBDB 中国历代人物传记资料库 person 338258",
+      "gender": "male"
+    },
+    {
+      "externalId": "54996",
+      "name": "方以智",
+      "citation": "CBDB 中国历代人物传记资料库 person 54996",
+      "gender": "male",
+      "birth": {
+        "year": 1611
+      },
+      "death": {
+        "year": 1671
+      }
+    },
+    {
+      "externalId": "56279",
+      "name": "方中通",
+      "citation": "CBDB 中国历代人物传记资料库 person 56279",
+      "gender": "male",
+      "birth": {
+        "year": 1634
+      },
+      "death": {
+        "year": 1698
+      }
+    },
+    {
+      "externalId": "68996",
+      "name": "方中履",
+      "citation": "CBDB 中国历代人物传记资料库 person 68996",
+      "gender": "male"
+    },
+    {
+      "externalId": "56275",
+      "name": "張瑩",
+      "citation": "CBDB 中国历代人物传记资料库 person 56275",
+      "gender": "female"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "54970",
+      "child": "54971"
+    },
+    {
+      "kind": "parent",
+      "parent": "54971",
+      "child": "54969"
+    },
+    {
+      "kind": "parent",
+      "parent": "54971",
+      "child": "54976"
+    },
+    {
+      "kind": "parent",
+      "parent": "54971",
+      "child": "54981"
+    },
+    {
+      "kind": "parent",
+      "parent": "54971",
+      "child": "54991"
+    },
+    {
+      "kind": "spouse",
+      "a": "54969",
+      "b": "54972"
+    },
+    {
+      "kind": "spouse",
+      "a": "54976",
+      "b": "54978"
+    },
+    {
+      "kind": "spouse",
+      "a": "54981",
+      "b": "54982"
+    },
+    {
+      "kind": "parent",
+      "parent": "54981",
+      "child": "122571"
+    },
+    {
+      "kind": "spouse",
+      "a": "121310",
+      "b": "54991"
+    },
+    {
+      "kind": "parent",
+      "parent": "54991",
+      "child": "54996"
+    },
+    {
+      "kind": "spouse",
+      "a": "122571",
+      "b": "122580"
+    },
+    {
+      "kind": "spouse",
+      "a": "122571",
+      "b": "338258"
+    },
+    {
+      "kind": "parent",
+      "parent": "54996",
+      "child": "56279"
+    },
+    {
+      "kind": "parent",
+      "parent": "54996",
+      "child": "68996"
+    },
+    {
+      "kind": "spouse",
+      "a": "56275",
+      "b": "68996"
+    }
+  ]
+}

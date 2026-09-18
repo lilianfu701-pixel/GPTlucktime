@@ -1,0 +1,172 @@
+{
+  "key": "cbdb:yuju",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "10801",
+      "name": "虞集",
+      "citation": "CBDB 中国历代人物传记资料库 person 10801",
+      "gender": "male",
+      "birth": {
+        "year": 1272
+      },
+      "death": {
+        "year": 1348
+      }
+    },
+    {
+      "externalId": "10797",
+      "name": "虞汲",
+      "citation": "CBDB 中国历代人物传记资料库 person 10797",
+      "gender": "male",
+      "death": {
+        "year": 1318
+      }
+    },
+    {
+      "externalId": "118943",
+      "name": "楊氏(虞集母)",
+      "citation": "CBDB 中国历代人物传记资料库 person 118943",
+      "gender": "female"
+    },
+    {
+      "externalId": "109915",
+      "name": "虞安民",
+      "citation": "CBDB 中国历代人物传记资料库 person 109915",
+      "gender": "male"
+    },
+    {
+      "externalId": "10796",
+      "name": "虞㠭",
+      "citation": "CBDB 中国历代人物传记资料库 person 10796",
+      "gender": "male"
+    },
+    {
+      "externalId": "10794",
+      "name": "虞剛簡",
+      "citation": "CBDB 中国历代人物传记资料库 person 10794",
+      "gender": "male",
+      "birth": {
+        "year": 1164
+      },
+      "death": {
+        "year": 1227
+      }
+    },
+    {
+      "externalId": "49661",
+      "name": "趙氏(虞剛簡妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 49661",
+      "gender": "female"
+    },
+    {
+      "externalId": "10793",
+      "name": "虞公亮",
+      "citation": "CBDB 中国历代人物传记资料库 person 10793",
+      "gender": "male"
+    },
+    {
+      "externalId": "8170",
+      "name": "虞允文",
+      "citation": "CBDB 中国历代人物传记资料库 person 8170",
+      "gender": "male",
+      "birth": {
+        "year": 1110
+      },
+      "death": {
+        "year": 1174
+      }
+    },
+    {
+      "externalId": "2091",
+      "name": "虞祺",
+      "citation": "CBDB 中国历代人物传记资料库 person 2091",
+      "gender": "male"
+    },
+    {
+      "externalId": "119633",
+      "name": "虞琪",
+      "citation": "CBDB 中国历代人物传记资料库 person 119633",
+      "gender": "male"
+    },
+    {
+      "externalId": "22796",
+      "name": "虞軒",
+      "citation": "CBDB 中国历代人物传记资料库 person 22796",
+      "gender": "male"
+    },
+    {
+      "externalId": "22795",
+      "name": "虞昭白",
+      "citation": "CBDB 中国历代人物传记资料库 person 22795",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "10797",
+      "child": "10801"
+    },
+    {
+      "kind": "parent",
+      "parent": "118943",
+      "child": "10801"
+    },
+    {
+      "kind": "parent",
+      "parent": "10801",
+      "child": "109915"
+    },
+    {
+      "kind": "parent",
+      "parent": "10796",
+      "child": "10797"
+    },
+    {
+      "kind": "spouse",
+      "a": "10797",
+      "b": "118943"
+    },
+    {
+      "kind": "parent",
+      "parent": "10794",
+      "child": "10796"
+    },
+    {
+      "kind": "parent",
+      "parent": "10793",
+      "child": "10794"
+    },
+    {
+      "kind": "spouse",
+      "a": "10794",
+      "b": "49661"
+    },
+    {
+      "kind": "parent",
+      "parent": "8170",
+      "child": "10793"
+    },
+    {
+      "kind": "parent",
+      "parent": "2091",
+      "child": "8170"
+    },
+    {
+      "kind": "parent",
+      "parent": "119633",
+      "child": "8170"
+    },
+    {
+      "kind": "parent",
+      "parent": "22796",
+      "child": "2091"
+    },
+    {
+      "kind": "parent",
+      "parent": "22795",
+      "child": "22796"
+    }
+  ]
+}

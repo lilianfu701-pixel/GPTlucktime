@@ -1,0 +1,212 @@
+{
+  "key": "cbdb:wucheng",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "696575",
+      "name": "吳澄",
+      "citation": "CBDB 中国历代人物传记资料库 person 696575",
+      "gender": "male"
+    },
+    {
+      "externalId": "696588",
+      "name": "李氏(吳澄妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 696588",
+      "gender": "female"
+    },
+    {
+      "externalId": "696590",
+      "name": "常氏(吳澄妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 696590",
+      "gender": "female"
+    },
+    {
+      "externalId": "696592",
+      "name": "柴氏(吳澄妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 696592",
+      "gender": "female"
+    },
+    {
+      "externalId": "696722",
+      "name": "吳氏(劉某妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 696722",
+      "gender": "female"
+    },
+    {
+      "externalId": "696728",
+      "name": "劉某(吳澄女婿)",
+      "citation": "CBDB 中国历代人物传记资料库 person 696728",
+      "gender": "male"
+    },
+    {
+      "externalId": "696730",
+      "name": "吳氏(李某妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 696730",
+      "gender": "female"
+    },
+    {
+      "externalId": "696732",
+      "name": "李某(吳澄女婿)",
+      "citation": "CBDB 中国历代人物传记资料库 person 696732",
+      "gender": "male"
+    },
+    {
+      "externalId": "696733",
+      "name": "吳氏(裴某妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 696733",
+      "gender": "female"
+    },
+    {
+      "externalId": "696734",
+      "name": "裴某(吳澄女婿)",
+      "citation": "CBDB 中国历代人物传记资料库 person 696734",
+      "gender": "male"
+    },
+    {
+      "externalId": "696600",
+      "name": "吳長緒",
+      "citation": "CBDB 中国历代人物传记资料库 person 696600",
+      "gender": "male"
+    },
+    {
+      "externalId": "696604",
+      "name": "張氏(吳長緒妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 696604",
+      "gender": "female"
+    },
+    {
+      "externalId": "696605",
+      "name": "吳顯",
+      "citation": "CBDB 中国历代人物传记资料库 person 696605",
+      "gender": "male"
+    },
+    {
+      "externalId": "696608",
+      "name": "馮氏(吳顯妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 696608",
+      "gender": "female"
+    },
+    {
+      "externalId": "696609",
+      "name": "吳璉",
+      "citation": "CBDB 中国历代人物传记资料库 person 696609",
+      "gender": "male"
+    },
+    {
+      "externalId": "696612",
+      "name": "成氏(吳璉妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 696612",
+      "gender": "female"
+    },
+    {
+      "externalId": "696616",
+      "name": "吳貴",
+      "citation": "CBDB 中国历代人物传记资料库 person 696616",
+      "gender": "male"
+    },
+    {
+      "externalId": "696619",
+      "name": "段氏(吳貴妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 696619",
+      "gender": "female"
+    },
+    {
+      "externalId": "696620",
+      "name": "吳乞哥",
+      "citation": "CBDB 中国历代人物传记资料库 person 696620",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "spouse",
+      "a": "696575",
+      "b": "696588"
+    },
+    {
+      "kind": "spouse",
+      "a": "696575",
+      "b": "696590"
+    },
+    {
+      "kind": "parent",
+      "parent": "696575",
+      "child": "696722"
+    },
+    {
+      "kind": "parent",
+      "parent": "696575",
+      "child": "696730"
+    },
+    {
+      "kind": "parent",
+      "parent": "696575",
+      "child": "696733"
+    },
+    {
+      "kind": "parent",
+      "parent": "696575",
+      "child": "696600"
+    },
+    {
+      "kind": "parent",
+      "parent": "696575",
+      "child": "696605"
+    },
+    {
+      "kind": "parent",
+      "parent": "696575",
+      "child": "696609"
+    },
+    {
+      "kind": "parent",
+      "parent": "696575",
+      "child": "696616"
+    },
+    {
+      "kind": "parent",
+      "parent": "696575",
+      "child": "696620"
+    },
+    {
+      "kind": "spouse",
+      "a": "696575",
+      "b": "696592"
+    },
+    {
+      "kind": "spouse",
+      "a": "696722",
+      "b": "696728"
+    },
+    {
+      "kind": "spouse",
+      "a": "696730",
+      "b": "696732"
+    },
+    {
+      "kind": "spouse",
+      "a": "696733",
+      "b": "696734"
+    },
+    {
+      "kind": "spouse",
+      "a": "696600",
+      "b": "696604"
+    },
+    {
+      "kind": "spouse",
+      "a": "696605",
+      "b": "696608"
+    },
+    {
+      "kind": "spouse",
+      "a": "696609",
+      "b": "696612"
+    },
+    {
+      "kind": "spouse",
+      "a": "696616",
+      "b": "696619"
+    }
+  ]
+}

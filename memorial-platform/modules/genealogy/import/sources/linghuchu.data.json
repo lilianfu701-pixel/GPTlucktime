@@ -1,0 +1,117 @@
+{
+  "key": "cbdb:linghuchu",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "32980",
+      "name": "令狐楚",
+      "citation": "CBDB 中国历代人物传记资料库 person 32980",
+      "gender": "male",
+      "birth": {
+        "year": 766
+      },
+      "death": {
+        "year": 837
+      }
+    },
+    {
+      "externalId": "184324",
+      "name": "令狐承簡",
+      "citation": "CBDB 中国历代人物传记资料库 person 184324",
+      "gender": "male",
+      "death": {
+        "year": 788
+      }
+    },
+    {
+      "externalId": "32984",
+      "name": "令狐緒",
+      "citation": "CBDB 中国历代人物传记资料库 person 32984",
+      "gender": "male"
+    },
+    {
+      "externalId": "32985",
+      "name": "令狐綯",
+      "citation": "CBDB 中国历代人物传记资料库 person 32985",
+      "gender": "male",
+      "death": {
+        "year": 861
+      }
+    },
+    {
+      "externalId": "32983",
+      "name": "令狐澄",
+      "citation": "CBDB 中国历代人物传记资料库 person 32983",
+      "gender": "male"
+    },
+    {
+      "externalId": "32986",
+      "name": "令狐滈",
+      "citation": "CBDB 中国历代人物传记资料库 person 32986",
+      "gender": "male"
+    },
+    {
+      "externalId": "32987",
+      "name": "令狐渙",
+      "citation": "CBDB 中国历代人物传记资料库 person 32987",
+      "gender": "male"
+    },
+    {
+      "externalId": "184330",
+      "name": "令狐專",
+      "citation": "CBDB 中国历代人物传记资料库 person 184330",
+      "gender": "male",
+      "death": {
+        "year": 909
+      }
+    },
+    {
+      "externalId": "32988",
+      "name": "令狐渢",
+      "citation": "CBDB 中国历代人物传记资料库 person 32988",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "184324",
+      "child": "32980"
+    },
+    {
+      "kind": "parent",
+      "parent": "32980",
+      "child": "32984"
+    },
+    {
+      "kind": "parent",
+      "parent": "32980",
+      "child": "32985"
+    },
+    {
+      "kind": "parent",
+      "parent": "32985",
+      "child": "32983"
+    },
+    {
+      "kind": "parent",
+      "parent": "32985",
+      "child": "32986"
+    },
+    {
+      "kind": "parent",
+      "parent": "32985",
+      "child": "32987"
+    },
+    {
+      "kind": "parent",
+      "parent": "32985",
+      "child": "184330"
+    },
+    {
+      "kind": "parent",
+      "parent": "32985",
+      "child": "32988"
+    }
+  ]
+}

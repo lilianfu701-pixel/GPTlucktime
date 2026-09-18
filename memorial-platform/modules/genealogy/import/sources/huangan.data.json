@@ -1,0 +1,156 @@
+{
+  "key": "cbdb:huangan",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "3394",
+      "name": "胡安國",
+      "citation": "CBDB 中国历代人物传记资料库 person 3394",
+      "gender": "male",
+      "birth": {
+        "year": 1074
+      },
+      "death": {
+        "year": 1138
+      }
+    },
+    {
+      "externalId": "11868",
+      "name": "胡淵",
+      "citation": "CBDB 中国历代人物传记资料库 person 11868",
+      "gender": "male",
+      "birth": {
+        "year": 1050
+      },
+      "death": {
+        "year": 1119
+      }
+    },
+    {
+      "externalId": "42987",
+      "name": "吳氏(胡淵妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 42987",
+      "gender": "female"
+    },
+    {
+      "externalId": "13147",
+      "name": "胡寧",
+      "citation": "CBDB 中国历代人物传记资料库 person 13147",
+      "gender": "male"
+    },
+    {
+      "externalId": "7252",
+      "name": "胡宏",
+      "citation": "CBDB 中国历代人物传记资料库 person 7252",
+      "gender": "male",
+      "birth": {
+        "year": 1106
+      },
+      "death": {
+        "year": 1162
+      }
+    },
+    {
+      "externalId": "44940",
+      "name": "唐氏(胡宏妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 44940",
+      "gender": "female",
+      "death": {
+        "year": 1147
+      }
+    },
+    {
+      "externalId": "18857",
+      "name": "胡罕",
+      "citation": "CBDB 中国历代人物传记资料库 person 18857",
+      "gender": "male"
+    },
+    {
+      "externalId": "18861",
+      "name": "胡大本",
+      "citation": "CBDB 中国历代人物传记资料库 person 18861",
+      "gender": "male"
+    },
+    {
+      "externalId": "4149",
+      "name": "胡大時",
+      "citation": "CBDB 中国历代人物传记资料库 person 4149",
+      "gender": "male"
+    },
+    {
+      "externalId": "18862",
+      "name": "胡大壯",
+      "citation": "CBDB 中国历代人物传记资料库 person 18862",
+      "gender": "male"
+    },
+    {
+      "externalId": "18856",
+      "name": "胡容",
+      "citation": "CBDB 中国历代人物传记资料库 person 18856",
+      "gender": "male"
+    },
+    {
+      "externalId": "18855",
+      "name": "胡敏",
+      "citation": "CBDB 中国历代人物传记资料库 person 18855",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "11868",
+      "child": "3394"
+    },
+    {
+      "kind": "parent",
+      "parent": "3394",
+      "child": "13147"
+    },
+    {
+      "kind": "parent",
+      "parent": "3394",
+      "child": "7252"
+    },
+    {
+      "kind": "parent",
+      "parent": "18857",
+      "child": "11868"
+    },
+    {
+      "kind": "spouse",
+      "a": "11868",
+      "b": "42987"
+    },
+    {
+      "kind": "parent",
+      "parent": "13147",
+      "child": "18861"
+    },
+    {
+      "kind": "spouse",
+      "a": "44940",
+      "b": "7252"
+    },
+    {
+      "kind": "parent",
+      "parent": "7252",
+      "child": "4149"
+    },
+    {
+      "kind": "parent",
+      "parent": "7252",
+      "child": "18862"
+    },
+    {
+      "kind": "parent",
+      "parent": "18856",
+      "child": "18857"
+    },
+    {
+      "kind": "parent",
+      "parent": "18855",
+      "child": "18856"
+    }
+  ]
+}

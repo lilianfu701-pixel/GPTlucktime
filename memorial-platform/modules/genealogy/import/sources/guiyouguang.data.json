@@ -1,0 +1,140 @@
+{
+  "key": "cbdb:guiyouguang",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "34733",
+      "name": "歸有光",
+      "citation": "CBDB 中国历代人物传记资料库 person 34733",
+      "gender": "male",
+      "birth": {
+        "year": 1506
+      },
+      "death": {
+        "year": 1571
+      }
+    },
+    {
+      "externalId": "331714",
+      "name": "魏氏(歸有光妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 331714",
+      "gender": "female"
+    },
+    {
+      "externalId": "331715",
+      "name": "王氏(歸有光繼妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 331715",
+      "gender": "female"
+    },
+    {
+      "externalId": "331716",
+      "name": "費氏(歸有光繼妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 331716",
+      "gender": "female"
+    },
+    {
+      "externalId": "331710",
+      "name": "歸正",
+      "citation": "CBDB 中国历代人物传记资料库 person 331710",
+      "gender": "male"
+    },
+    {
+      "externalId": "331712",
+      "name": "周氏(歸有光母)",
+      "citation": "CBDB 中国历代人物传记资料库 person 331712",
+      "gender": "female"
+    },
+    {
+      "externalId": "34734",
+      "name": "歸子慕",
+      "citation": "CBDB 中国历代人物传记资料库 person 34734",
+      "gender": "male"
+    },
+    {
+      "externalId": "133452",
+      "name": "歸昌世",
+      "citation": "CBDB 中国历代人物传记资料库 person 133452",
+      "gender": "male",
+      "birth": {
+        "year": 1574
+      },
+      "death": {
+        "year": 1645
+      }
+    },
+    {
+      "externalId": "65939",
+      "name": "歸莊",
+      "citation": "CBDB 中国历代人物传记资料库 person 65939",
+      "gender": "male",
+      "birth": {
+        "year": 1613
+      },
+      "death": {
+        "year": 1673
+      }
+    },
+    {
+      "externalId": "522756",
+      "name": "歸瑰",
+      "citation": "CBDB 中国历代人物传记资料库 person 522756"
+    },
+    {
+      "externalId": "522758",
+      "name": "歸瓌",
+      "citation": "CBDB 中国历代人物传记资料库 person 522758"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "331710",
+      "child": "34733"
+    },
+    {
+      "kind": "parent",
+      "parent": "331712",
+      "child": "34733"
+    },
+    {
+      "kind": "spouse",
+      "a": "331714",
+      "b": "34733"
+    },
+    {
+      "kind": "spouse",
+      "a": "331715",
+      "b": "34733"
+    },
+    {
+      "kind": "spouse",
+      "a": "331716",
+      "b": "34733"
+    },
+    {
+      "kind": "parent",
+      "parent": "34733",
+      "child": "34734"
+    },
+    {
+      "kind": "parent",
+      "parent": "34734",
+      "child": "133452"
+    },
+    {
+      "kind": "parent",
+      "parent": "133452",
+      "child": "65939"
+    },
+    {
+      "kind": "parent",
+      "parent": "65939",
+      "child": "522756"
+    },
+    {
+      "kind": "parent",
+      "parent": "65939",
+      "child": "522758"
+    }
+  ]
+}

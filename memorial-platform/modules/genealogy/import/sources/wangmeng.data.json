@@ -1,0 +1,497 @@
+{
+  "key": "cbdb:wangmeng",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "175662",
+      "name": "王猛",
+      "citation": "CBDB 中国历代人物传记资料库 person 175662",
+      "gender": "male",
+      "death": {
+        "year": 552
+      }
+    },
+    {
+      "externalId": "152187",
+      "name": "王續",
+      "citation": "CBDB 中国历代人物传记资料库 person 152187",
+      "gender": "male"
+    },
+    {
+      "externalId": "175663",
+      "name": "王繕",
+      "citation": "CBDB 中国历代人物传记资料库 person 175663",
+      "gender": "male",
+      "death": {
+        "year": 589
+      }
+    },
+    {
+      "externalId": "175664",
+      "name": "王纊",
+      "citation": "CBDB 中国历代人物传记资料库 person 175664",
+      "gender": "male",
+      "death": {
+        "year": 589
+      }
+    },
+    {
+      "externalId": "153383",
+      "name": "王德素",
+      "citation": "CBDB 中国历代人物传记资料库 person 153383",
+      "gender": "male"
+    },
+    {
+      "externalId": "175680",
+      "name": "王德本",
+      "citation": "CBDB 中国历代人物传记资料库 person 175680",
+      "gender": "male",
+      "death": {
+        "year": 626
+      }
+    },
+    {
+      "externalId": "152188",
+      "name": "王德儉",
+      "citation": "CBDB 中国历代人物传记资料库 person 152188",
+      "gender": "male"
+    },
+    {
+      "externalId": "153384",
+      "name": "王豫",
+      "citation": "CBDB 中国历代人物传记资料库 person 153384",
+      "gender": "male"
+    },
+    {
+      "externalId": "175676",
+      "name": "王鼎",
+      "citation": "CBDB 中国历代人物传记资料库 person 175676",
+      "gender": "male",
+      "death": {
+        "year": 663
+      }
+    },
+    {
+      "externalId": "175678",
+      "name": "王瑜",
+      "citation": "CBDB 中国历代人物传记资料库 person 175678",
+      "gender": "male",
+      "death": {
+        "year": 663
+      }
+    },
+    {
+      "externalId": "175679",
+      "name": "王瑤",
+      "citation": "CBDB 中国历代人物传记资料库 person 175679",
+      "gender": "male",
+      "death": {
+        "year": 663
+      }
+    },
+    {
+      "externalId": "175681",
+      "name": "王撝",
+      "citation": "CBDB 中国历代人物传记资料库 person 175681",
+      "gender": "male",
+      "death": {
+        "year": 663
+      }
+    },
+    {
+      "externalId": "140839",
+      "name": "王秦客",
+      "citation": "CBDB 中国历代人物传记资料库 person 140839",
+      "gender": "male",
+      "birth": {
+        "year": 671
+      },
+      "death": {
+        "year": 743
+      }
+    },
+    {
+      "externalId": "153381",
+      "name": "薛氏(王秦客妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 153381",
+      "gender": "female"
+    },
+    {
+      "externalId": "175682",
+      "name": "王承慶",
+      "citation": "CBDB 中国历代人物传记资料库 person 175682",
+      "gender": "male",
+      "death": {
+        "year": 700
+      }
+    },
+    {
+      "externalId": "175683",
+      "name": "王承先",
+      "citation": "CBDB 中国历代人物传记资料库 person 175683",
+      "gender": "male",
+      "death": {
+        "year": 700
+      }
+    },
+    {
+      "externalId": "153385",
+      "name": "王兼之",
+      "citation": "CBDB 中国历代人物传记资料库 person 153385",
+      "gender": "male"
+    },
+    {
+      "externalId": "153386",
+      "name": "王少微",
+      "citation": "CBDB 中国历代人物传记资料库 person 153386",
+      "gender": "male"
+    },
+    {
+      "externalId": "153387",
+      "name": "王晤微",
+      "citation": "CBDB 中国历代人物传记资料库 person 153387",
+      "gender": "male"
+    },
+    {
+      "externalId": "153388",
+      "name": "王照之",
+      "citation": "CBDB 中国历代人物传记资料库 person 153388",
+      "gender": "male"
+    },
+    {
+      "externalId": "153389",
+      "name": "王黯之",
+      "citation": "CBDB 中国历代人物传记资料库 person 153389",
+      "gender": "male"
+    },
+    {
+      "externalId": "175684",
+      "name": "王某",
+      "citation": "CBDB 中国历代人物传记资料库 person 175684",
+      "gender": "male",
+      "death": {
+        "year": 737
+      }
+    },
+    {
+      "externalId": "175685",
+      "name": "王重華",
+      "citation": "CBDB 中国历代人物传记资料库 person 175685",
+      "gender": "male",
+      "death": {
+        "year": 774
+      }
+    },
+    {
+      "externalId": "175686",
+      "name": "王蕭",
+      "citation": "CBDB 中国历代人物传记资料库 person 175686",
+      "gender": "male",
+      "death": {
+        "year": 774
+      }
+    },
+    {
+      "externalId": "175687",
+      "name": "王重明",
+      "citation": "CBDB 中国历代人物传记资料库 person 175687",
+      "gender": "male",
+      "death": {
+        "year": 774
+      }
+    },
+    {
+      "externalId": "175688",
+      "name": "王拱",
+      "citation": "CBDB 中国历代人物传记资料库 person 175688",
+      "gender": "male",
+      "death": {
+        "year": 811
+      }
+    },
+    {
+      "externalId": "175689",
+      "name": "王權",
+      "citation": "CBDB 中国历代人物传记资料库 person 175689",
+      "gender": "male",
+      "death": {
+        "year": 811
+      }
+    },
+    {
+      "externalId": "175697",
+      "name": "王楷",
+      "citation": "CBDB 中国历代人物传记资料库 person 175697",
+      "gender": "male",
+      "death": {
+        "year": 811
+      }
+    },
+    {
+      "externalId": "175690",
+      "name": "王申伯",
+      "citation": "CBDB 中国历代人物传记资料库 person 175690",
+      "gender": "male",
+      "death": {
+        "year": 848
+      }
+    },
+    {
+      "externalId": "175692",
+      "name": "王貞伯",
+      "citation": "CBDB 中国历代人物传记资料库 person 175692",
+      "gender": "male",
+      "death": {
+        "year": 848
+      }
+    },
+    {
+      "externalId": "146031",
+      "name": "王瑾",
+      "citation": "CBDB 中国历代人物传记资料库 person 146031",
+      "gender": "male",
+      "birth": {
+        "year": 826
+      },
+      "death": {
+        "year": 847
+      }
+    },
+    {
+      "externalId": "175691",
+      "name": "王莘",
+      "citation": "CBDB 中国历代人物传记资料库 person 175691",
+      "gender": "male",
+      "death": {
+        "year": 885
+      }
+    },
+    {
+      "externalId": "175693",
+      "name": "王葆",
+      "citation": "CBDB 中国历代人物传记资料库 person 175693",
+      "gender": "male",
+      "death": {
+        "year": 885
+      }
+    },
+    {
+      "externalId": "175694",
+      "name": "王師甫",
+      "citation": "CBDB 中国历代人物传记资料库 person 175694",
+      "gender": "male",
+      "death": {
+        "year": 885
+      }
+    },
+    {
+      "externalId": "175695",
+      "name": "王藩",
+      "citation": "CBDB 中国历代人物传记资料库 person 175695",
+      "gender": "male",
+      "death": {
+        "year": 885
+      }
+    },
+    {
+      "externalId": "175696",
+      "name": "王蕘",
+      "citation": "CBDB 中国历代人物传记资料库 person 175696",
+      "gender": "male",
+      "death": {
+        "year": 885
+      }
+    },
+    {
+      "externalId": "192827",
+      "name": "王蔚",
+      "citation": "CBDB 中国历代人物传记资料库 person 192827",
+      "gender": "male",
+      "death": {
+        "year": 885
+      }
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "175662",
+      "child": "152187"
+    },
+    {
+      "kind": "parent",
+      "parent": "175662",
+      "child": "175663"
+    },
+    {
+      "kind": "parent",
+      "parent": "175662",
+      "child": "175664"
+    },
+    {
+      "kind": "parent",
+      "parent": "152187",
+      "child": "153383"
+    },
+    {
+      "kind": "parent",
+      "parent": "152187",
+      "child": "175680"
+    },
+    {
+      "kind": "parent",
+      "parent": "175664",
+      "child": "152188"
+    },
+    {
+      "kind": "parent",
+      "parent": "153383",
+      "child": "153384"
+    },
+    {
+      "kind": "parent",
+      "parent": "153383",
+      "child": "175676"
+    },
+    {
+      "kind": "parent",
+      "parent": "153383",
+      "child": "175678"
+    },
+    {
+      "kind": "parent",
+      "parent": "153383",
+      "child": "175679"
+    },
+    {
+      "kind": "parent",
+      "parent": "175680",
+      "child": "175681"
+    },
+    {
+      "kind": "parent",
+      "parent": "153384",
+      "child": "140839"
+    },
+    {
+      "kind": "parent",
+      "parent": "175681",
+      "child": "175682"
+    },
+    {
+      "kind": "parent",
+      "parent": "175681",
+      "child": "175683"
+    },
+    {
+      "kind": "spouse",
+      "a": "140839",
+      "b": "153381"
+    },
+    {
+      "kind": "parent",
+      "parent": "140839",
+      "child": "153385"
+    },
+    {
+      "kind": "parent",
+      "parent": "140839",
+      "child": "153386"
+    },
+    {
+      "kind": "parent",
+      "parent": "140839",
+      "child": "153387"
+    },
+    {
+      "kind": "parent",
+      "parent": "140839",
+      "child": "153388"
+    },
+    {
+      "kind": "parent",
+      "parent": "140839",
+      "child": "153389"
+    },
+    {
+      "kind": "parent",
+      "parent": "175683",
+      "child": "175684"
+    },
+    {
+      "kind": "parent",
+      "parent": "175684",
+      "child": "175685"
+    },
+    {
+      "kind": "parent",
+      "parent": "175684",
+      "child": "175686"
+    },
+    {
+      "kind": "parent",
+      "parent": "175684",
+      "child": "175687"
+    },
+    {
+      "kind": "parent",
+      "parent": "175687",
+      "child": "175688"
+    },
+    {
+      "kind": "parent",
+      "parent": "175687",
+      "child": "175689"
+    },
+    {
+      "kind": "parent",
+      "parent": "175687",
+      "child": "175697"
+    },
+    {
+      "kind": "parent",
+      "parent": "175689",
+      "child": "175690"
+    },
+    {
+      "kind": "parent",
+      "parent": "175689",
+      "child": "175692"
+    },
+    {
+      "kind": "parent",
+      "parent": "175690",
+      "child": "146031"
+    },
+    {
+      "kind": "parent",
+      "parent": "175690",
+      "child": "175691"
+    },
+    {
+      "kind": "parent",
+      "parent": "175692",
+      "child": "175693"
+    },
+    {
+      "kind": "parent",
+      "parent": "175692",
+      "child": "175694"
+    },
+    {
+      "kind": "parent",
+      "parent": "175692",
+      "child": "175695"
+    },
+    {
+      "kind": "parent",
+      "parent": "175692",
+      "child": "175696"
+    },
+    {
+      "kind": "parent",
+      "parent": "175692",
+      "child": "192827"
+    }
+  ]
+}

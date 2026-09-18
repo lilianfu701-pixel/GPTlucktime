@@ -212,6 +212,17 @@ import suweidao from "./suweidao.data.json";
 import liufen from "./liufen.data.json";
 import liugong from "./liugong.data.json";
 import xiaoying from "./xiaoying.data.json";
+// CBDB 第二批（宋元明宋代理学 + 唐代令狐氏 + 太原王氏）
+import huangan from "./huangan.data.json";
+import weiliao from "./weiliao.data.json";
+import guiyouguang from "./guiyouguang.data.json";
+import louyu from "./louyu.data.json";
+import fangda from "./fangda.data.json";
+import wucheng from "./wucheng.data.json";
+import linghuchu from "./linghuchu.data.json";
+import yuju from "./yuju.data.json";
+import jiexi from "./jiexi.data.json";
+import wangmeng from "./wangmeng.data.json";
 
 /**
  * Every Wikidata-sourced family in one registry, so wiring a new one is a single
@@ -440,6 +451,17 @@ const FAMILIES: { key: string; label: string; dataset: GenealogyDataset }[] = [
   { key: "liufen", label: "河东柳氏·柳芬支（柳懿·柳均·南北朝到唐）", dataset: liufen as GenealogyDataset },
   { key: "liugong", label: "河东柳氏·柳公权支（书法家·柳瑗·柳仲憲）", dataset: liugong as GenealogyDataset },
   { key: "xiaoying", label: "兰陵萧氏·萧颖士支（萧道赐·萧恢·南朝到唐）", dataset: xiaoying as GenealogyDataset },
+  // CBDB 第二批：宋代理学/文学 + 明代文人 + 元代四大家 + 唐代贵族
+  { key: "huangan", label: "湖湘胡氏·胡安国支（《春秋传》·胡宏·胡寅，1074-1138）", dataset: huangan as GenealogyDataset },
+  { key: "weiliao", label: "眉山魏氏·魏了翁支（鹤山先生·南宋理学，1178-1237）", dataset: weiliao as GenealogyDataset },
+  { key: "louyu", label: "明州楼氏·楼钥支（南宋名臣，1137-1213）", dataset: louyu as GenealogyDataset },
+  { key: "fangda", label: "桐城方氏·方大镇支（方以智父系·明代东林，1558-1628）", dataset: fangda as GenealogyDataset },
+  { key: "guiyouguang", label: "昆山归氏·归有光支（震川先生·明代散文，1506-1571）", dataset: guiyouguang as GenealogyDataset },
+  { key: "wucheng", label: "崇仁吴氏·吴澄支（草庐先生·元代理学）", dataset: wucheng as GenealogyDataset },
+  { key: "yuju", label: "崇仁虞氏·虞集支（元代四大家·含虞允文，1272-1348）", dataset: yuju as GenealogyDataset },
+  { key: "jiexi", label: "丰城揭氏·揭傒斯支（元代四大家，1274-1344）", dataset: jiexi as GenealogyDataset },
+  { key: "linghuchu", label: "唐代令狐氏·令狐楚支（令狐绹父·766-837）", dataset: linghuchu as GenealogyDataset },
+  { key: "wangmeng", label: "太原王氏·王猛支（南北朝到唐·?-552到885）", dataset: wangmeng as GenealogyDataset },
 ];
 
 export type WikidataFamilyMeta = {
