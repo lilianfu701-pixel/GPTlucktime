@@ -90,16 +90,20 @@ export function GenealogySeed(props: {
   const [legacyReport, setLegacyReport] = useState<Report | null>(null);
   const [legacyError, setLegacyError] = useState<string | null>(null);
 
-  // 未导入的排在上面、已导入的沉到底部，方便一眼找到还没灌的家族。
-  // 同一状态内保持原有的策展顺序（Array.sort 稳定）。
+  // 未导入的排在最上面、已导入的沉到底部；同一状态内按注册顺序倒序，
+  // 让最新采集的家族浮到顶部，一眼就能找到还没灌的新数据。
   const sortedFamilies = useMemo(() => {
+    const order = new Map(props.families.map((f, i) => [f.key, i]));
     const isDone = (f: FamilyMeta): boolean => {
       const n = props.imported[f.key] ?? 0;
       return n > 0 && n >= f.deceased;
     };
-    return [...props.families].sort(
-      (a, b) => (isDone(a) ? 1 : 0) - (isDone(b) ? 1 : 0),
-    );
+    return [...props.families].sort((a, b) => {
+      const da = isDone(a) ? 1 : 0;
+      const db = isDone(b) ? 1 : 0;
+      if (da !== db) return da - db;
+      return (order.get(b.key) ?? 0) - (order.get(a.key) ?? 0);
+    });
   }, [props.families, props.imported]);
 
   function toggle(key: string): void {
