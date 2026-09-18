@@ -1,0 +1,161 @@
+{
+  "key": "wikidata:jiangbaili",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q10513832",
+      "name": "蒋光煦",
+      "citation": "维基百科 / Wikidata Q10513832",
+      "aliases": [
+        "蔣光煦",
+        "Jiang Guangxu"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1813
+      },
+      "death": {
+        "year": 1860
+      },
+      "bio": "Qing dynasty person CBDB = 65839"
+    },
+    {
+      "externalId": "Q133481055",
+      "name": "蒋学烺",
+      "citation": "维基百科 / Wikidata Q133481055",
+      "aliases": [
+        "蔣學烺"
+      ],
+      "gender": "male"
+    },
+    {
+      "externalId": "Q13604752",
+      "name": "蒋百里",
+      "citation": "维基百科 / Wikidata Q13604752",
+      "aliases": [
+        "蔣百里",
+        "Jiang Baili"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1882
+      },
+      "death": {
+        "year": 1938
+      },
+      "bio": "中国军事理论家 (1882-1938)"
+    },
+    {
+      "externalId": "Q15932139",
+      "name": "蒋廷黻",
+      "citation": "维基百科 / Wikidata Q15932139",
+      "aliases": [
+        "蔣廷黻",
+        "Jiang Tingfu"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1850
+      },
+      "bio": "Republic of China person CBDB = 89618"
+    },
+    {
+      "externalId": "Q333500",
+      "name": "钱学森",
+      "citation": "维基百科 / Wikidata Q333500",
+      "aliases": [
+        "Qian Xuesen"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1911
+      },
+      "death": {
+        "year": 2009
+      },
+      "bio": "中国空气动力学家（1911—2009）",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/%E6%AD%B8%E5%9C%8B%E5%BE%8C%E7%9A%84%E9%8C%A2%E5%AD%B8%E6%A3%AE.png",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q3432098",
+      "name": "蒋英",
+      "citation": "维基百科 / Wikidata Q3432098",
+      "aliases": [
+        "蔣英",
+        "Jiang Ying"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1919
+      },
+      "death": {
+        "year": 2012
+      },
+      "bio": "中国歌唱家 (1919-2012)",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Jiang%20Ying.jpg",
+      "photoCredit": "作者：Los Angeles Times · CC BY 4.0 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q45549951",
+      "name": "郭子芳",
+      "citation": "维基百科 / Wikidata Q45549951",
+      "aliases": [
+        "Guo  Zifang"
+      ],
+      "gender": "male",
+      "bio": "Qing dynasty person CBDB = 120745"
+    },
+    {
+      "externalId": "Q45617035",
+      "name": "蒋英",
+      "citation": "维基百科 / Wikidata Q45617035",
+      "aliases": [
+        "蔣英",
+        "Jiang Ying"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1839
+      },
+      "bio": "Qing dynasty person CBDB = 89542"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q13604752",
+      "child": "Q3432098"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q133481055",
+      "child": "Q13604752"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q10513832",
+      "child": "Q15932139"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q10513832",
+      "child": "Q45617035"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q10513832",
+      "child": "Q133481055"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q333500",
+      "b": "Q3432098"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45549951",
+      "b": "Q45617035"
+    }
+  ]
+}

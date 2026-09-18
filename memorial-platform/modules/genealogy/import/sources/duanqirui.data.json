@@ -1,0 +1,127 @@
+{
+  "key": "wikidata:duanqirui",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q131690146",
+      "name": "袁家鼐",
+      "citation": "维基百科 / Wikidata Q131690146",
+      "aliases": [
+        "Yuan Jianai"
+      ],
+      "gender": "male"
+    },
+    {
+      "externalId": "Q131690151",
+      "name": "段式巽",
+      "citation": "维基百科 / Wikidata Q131690151",
+      "aliases": [
+        "Duan Shixun"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1901
+      },
+      "death": {
+        "year": 1993
+      }
+    },
+    {
+      "externalId": "Q131690240",
+      "name": "李国源",
+      "citation": "维基百科 / Wikidata Q131690240",
+      "aliases": [
+        "李國源",
+        "Li Guoyuan"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1896
+      },
+      "death": {
+        "year": 1974
+      }
+    },
+    {
+      "externalId": "Q131690465",
+      "name": "段式萱",
+      "citation": "维基百科 / Wikidata Q131690465",
+      "aliases": [
+        "Duan Shixuan"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1892
+      },
+      "death": {
+        "year": 1919
+      }
+    },
+    {
+      "externalId": "Q131691190",
+      "name": "吴氏",
+      "citation": "维基百科 / Wikidata Q131691190",
+      "aliases": [
+        "Wu Shi"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1867
+      },
+      "death": {
+        "year": 1900
+      },
+      "bio": "段祺瑞元配"
+    },
+    {
+      "externalId": "Q706172",
+      "name": "段祺瑞",
+      "citation": "维基百科 / Wikidata Q706172",
+      "aliases": [
+        "Duan Qirui"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1865
+      },
+      "death": {
+        "year": 1936
+      },
+      "bio": "前中華民國北洋政府國務總理",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/DuanQirui.jpg",
+      "photoCredit": "作者：Unknown photographer · 公有领域 · 来源：Wikimedia Commons"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q131691190",
+      "child": "Q131690465"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q706172",
+      "child": "Q131690151"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q706172",
+      "child": "Q131690465"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q131691190",
+      "b": "Q706172"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q131690146",
+      "b": "Q131690151"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q131690240",
+      "b": "Q131690465"
+    }
+  ]
+}

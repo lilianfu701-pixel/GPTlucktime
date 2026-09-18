@@ -1,0 +1,473 @@
+{
+  "key": "wikidata:hedong",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q120696793",
+      "name": "麦景榕",
+      "citation": "维基百科 / Wikidata Q120696793",
+      "aliases": [
+        "麥景榕"
+      ],
+      "gender": "female",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/%E9%BA%A5%E6%99%AF%E6%A6%95%E7%B4%80%E5%BF%B5%E4%BA%94%E5%9B%9B%E9%81%8B%E5%8B%95%E7%99%BE%E5%91%A8%E5%B9%B4%E9%9F%B3%E6%A8%82%E6%9C%83.jpg",
+      "photoCredit": "作者：Lung910226 · CC BY-SA 4.0 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q131565489",
+      "name": "Patrick Hotung",
+      "citation": "维基百科 / Wikidata Q131565489",
+      "gender": "male",
+      "birth": {
+        "year": 1960
+      },
+      "living": true,
+      "bio": "American businessman (born 1960)"
+    },
+    {
+      "externalId": "Q132179170",
+      "name": "Irene Maud Bosman",
+      "citation": "维基百科 / Wikidata Q132179170",
+      "gender": "female",
+      "birth": {
+        "year": 1881
+      },
+      "bio": "Bosman, Irene Maud, 16-Apr-1881 - Sep-1969;"
+    },
+    {
+      "externalId": "Q132179210",
+      "name": "Walter Bosman",
+      "citation": "维基百科 / Wikidata Q132179210",
+      "gender": "male",
+      "birth": {
+        "year": 1867
+      },
+      "death": {
+        "year": 1946
+      },
+      "bio": "Bosman, Walter, 1867 - 1946"
+    },
+    {
+      "externalId": "Q132179390",
+      "name": "何锦姿",
+      "citation": "维基百科 / Wikidata Q132179390",
+      "aliases": [
+        "何錦姿"
+      ],
+      "gender": "female"
+    },
+    {
+      "externalId": "Q14396422",
+      "name": "何世俭",
+      "citation": "维基百科 / Wikidata Q14396422",
+      "aliases": [
+        "何世儉",
+        "Edward Ho"
+      ],
+      "gender": "male",
+      "bio": "(1902 - 1957)"
+    },
+    {
+      "externalId": "Q18667290",
+      "name": "何仕文",
+      "citation": "维基百科 / Wikidata Q18667290",
+      "aliases": [
+        "Charles Henri Maurice Bosman"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1839
+      },
+      "death": {
+        "year": 1892
+      },
+      "bio": "(1839-1892)"
+    },
+    {
+      "externalId": "Q28059864",
+      "name": "张静蓉",
+      "citation": "维基百科 / Wikidata Q28059864",
+      "aliases": [
+        "張靜蓉",
+        "Clara Cheung"
+      ],
+      "gender": "female",
+      "bio": "(1875 - certain 1938)",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/LadyHotung.jpg",
+      "photoCredit": "作者：unknown, · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q28059868",
+      "name": "施娣",
+      "citation": "维基百科 / Wikidata Q28059868",
+      "aliases": [
+        "Madame Si"
+      ],
+      "gender": "female",
+      "death": {
+        "year": 1896
+      },
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Madame%20Si2.jpg",
+      "photoCredit": "作者：unknown, · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q28059870",
+      "name": "何世勤",
+      "citation": "维基百科 / Wikidata Q28059870",
+      "aliases": [
+        "Henry Ho"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1898
+      },
+      "death": {
+        "year": 1900
+      }
+    },
+    {
+      "externalId": "Q6121156",
+      "name": "何东",
+      "citation": "维基百科 / Wikidata Q6121156",
+      "aliases": [
+        "何東",
+        "Robert Hotung"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1862
+      },
+      "death": {
+        "year": 1956
+      },
+      "bio": "香港企業家和慈善家",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/He%20Dong3.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q6663194",
+      "name": "罗德丞",
+      "citation": "维基百科 / Wikidata Q6663194",
+      "aliases": [
+        "羅德丞",
+        "Lo Tak-shing"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1935
+      },
+      "death": {
+        "year": 2006
+      },
+      "bio": "(1935-2006)"
+    },
+    {
+      "externalId": "Q7259247",
+      "name": "何佐芝",
+      "citation": "维基百科 / Wikidata Q7259247",
+      "aliases": [
+        "George Ho"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1918
+      },
+      "death": {
+        "year": 2014
+      },
+      "bio": "Hong Kong businessman (1919–2014)"
+    },
+    {
+      "externalId": "Q7486136",
+      "name": "何福",
+      "citation": "维基百科 / Wikidata Q7486136",
+      "aliases": [
+        "Ho Fook"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1863
+      },
+      "death": {
+        "year": 1926
+      },
+      "bio": "香港商人",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Ho%20Fook.png",
+      "photoCredit": "作者：Arnold Wright · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q7486164",
+      "name": "何甘棠",
+      "citation": "维基百科 / Wikidata Q7486164",
+      "aliases": [
+        "Ho Kam Tong"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1866
+      },
+      "death": {
+        "year": 1950
+      },
+      "bio": "香港商人",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Ho%20Kam%20Tong.jpg",
+      "photoCredit": "作者：Arnold Wright · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q7486205",
+      "name": "何鸿章",
+      "citation": "维基百科 / Wikidata Q7486205",
+      "aliases": [
+        "何鴻章",
+        "Eric Edward Hotung"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1926
+      },
+      "death": {
+        "year": 2017
+      },
+      "bio": "(1926-2017)"
+    },
+    {
+      "externalId": "Q7486211",
+      "name": "何鸿卿",
+      "citation": "维基百科 / Wikidata Q7486211",
+      "aliases": [
+        "何鴻卿",
+        "Joseph Edward Hotung"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1930
+      },
+      "death": {
+        "year": 2021
+      },
+      "bio": "Hong Kong businessman, art collector, and philanthropist (1930–2021)"
+    },
+    {
+      "externalId": "Q7486768",
+      "name": "何东舜铭",
+      "citation": "维基百科 / Wikidata Q7486768",
+      "aliases": [
+        "何東舜銘",
+        "Michael Hotung"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1955
+      },
+      "living": true
+    },
+    {
+      "externalId": "Q7486830",
+      "name": "陈复生",
+      "citation": "维基百科 / Wikidata Q7486830",
+      "aliases": [
+        "陳復生",
+        "Katie Chan"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1960
+      },
+      "living": true,
+      "bio": "香港女演員、節目主持人"
+    },
+    {
+      "externalId": "Q7486865",
+      "name": "何世礼",
+      "citation": "维基百科 / Wikidata Q7486865",
+      "aliases": [
+        "何世禮",
+        "Ho Shai Lai"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1906
+      },
+      "death": {
+        "year": 1998
+      },
+      "bio": "Hong Kong businessman, Military General of the Republic of China"
+    },
+    {
+      "externalId": "Q7486892",
+      "name": "何鸿毅",
+      "citation": "维基百科 / Wikidata Q7486892",
+      "aliases": [
+        "何鴻毅",
+        "Robert Ho"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1932
+      },
+      "death": {
+        "year": 2025
+      },
+      "bio": "Chinese Canadian-American philanthropist and former journalist"
+    },
+    {
+      "externalId": "Q7486915",
+      "name": "郑何艾龄",
+      "citation": "维基百科 / Wikidata Q7486915",
+      "aliases": [
+        "鄭何艾齡",
+        "Irene Cheng"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1904
+      },
+      "death": {
+        "year": 2007
+      },
+      "bio": "(1904-2007)"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q28059868",
+      "child": "Q6121156"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q132179390",
+      "child": "Q6663194"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q28059868",
+      "child": "Q7486136"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q28059868",
+      "child": "Q7486164"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q28059864",
+      "child": "Q7486865"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q28059864",
+      "child": "Q7486915"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q28059864",
+      "child": "Q14396422"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q28059864",
+      "child": "Q28059870"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q7486830",
+      "child": "Q120696793"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q28059864",
+      "child": "Q132179390"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q18667290",
+      "child": "Q6121156"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q6121156",
+      "child": "Q7259247"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q18667290",
+      "child": "Q7486136"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q14396422",
+      "child": "Q7486205"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q14396422",
+      "child": "Q7486211"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q7486205",
+      "child": "Q7486768"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q6121156",
+      "child": "Q7486865"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q7486865",
+      "child": "Q7486892"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q6121156",
+      "child": "Q7486915"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q6121156",
+      "child": "Q14396422"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q6121156",
+      "child": "Q28059870"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q7486768",
+      "child": "Q120696793"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q7486211",
+      "child": "Q131565489"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q18667290",
+      "child": "Q132179170"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q18667290",
+      "child": "Q132179210"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q6121156",
+      "child": "Q132179390"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q28059864",
+      "b": "Q6121156"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q7486768",
+      "b": "Q7486830"
+    }
+  ]
+}

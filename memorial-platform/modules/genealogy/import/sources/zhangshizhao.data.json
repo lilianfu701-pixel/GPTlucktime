@@ -1,0 +1,159 @@
+{
+  "key": "wikidata:zhangshizhao",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q16906473",
+      "name": "章用",
+      "citation": "维基百科 / Wikidata Q16906473",
+      "aliases": [
+        "Jack Yung Chang"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1911
+      },
+      "bio": "Chinese historian of mathematics",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/%E7%AB%A0%E7%94%A8%E6%95%99%E6%8E%88%E5%A2%93%E7%A2%91%E9%81%BA%E5%83%8F%202019-04-27.jpg",
+      "photoCredit": "作者：Stomatapoll · CC BY-SA 4.0 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q202597",
+      "name": "陈凯歌",
+      "citation": "维基百科 / Wikidata Q202597",
+      "aliases": [
+        "Chen Kaige"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1952
+      },
+      "living": true,
+      "bio": "中国电影导演",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/26th%20Tokyo%20International%20Film%20Festival%20Chen%20Kaige.jpg",
+      "photoCredit": "作者：Dick Thomas Johnson · CC BY 2.0 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q3439103",
+      "name": "章含之",
+      "citation": "维基百科 / Wikidata Q3439103",
+      "aliases": [
+        "Zhang Hanzhi"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1935
+      },
+      "death": {
+        "year": 2008
+      },
+      "bio": "中国女翻译"
+    },
+    {
+      "externalId": "Q382192",
+      "name": "乔冠华",
+      "citation": "维基百科 / Wikidata Q382192",
+      "aliases": [
+        "Qiao Guanhua"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1913
+      },
+      "death": {
+        "year": 1983
+      },
+      "bio": "中華人民共和國外交官员",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/%E5%96%AC%E6%9C%A8.jpg",
+      "photoCredit": "作者：政協秘書處 · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q5942570",
+      "name": "洪晃",
+      "citation": "维基百科 / Wikidata Q5942570",
+      "aliases": [
+        "Hung Huang"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1962
+      },
+      "living": true,
+      "bio": "中国作家",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Hong%20Huang%20at%20TEDxBeijing%202009.JPG",
+      "photoCredit": "作者：Shizhao · CC BY-SA 3.0 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q699144",
+      "name": "章士钊",
+      "citation": "维基百科 / Wikidata Q699144",
+      "aliases": [
+        "章士釗",
+        "Zhang Shizhao"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1881
+      },
+      "death": {
+        "year": 1973
+      },
+      "bio": "Chinese intellectual (1881 – 1973)",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/%E7%AB%A0%E5%A3%AB%E9%92%8A.jpg",
+      "photoCredit": "作者：Mrgaoyu · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q8460130",
+      "name": "洪君彦",
+      "citation": "维基百科 / Wikidata Q8460130",
+      "aliases": [
+        "Hong Junyan"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1932
+      },
+      "death": {
+        "year": 2012
+      },
+      "bio": "中国经济学家"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q3439103",
+      "child": "Q5942570"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q699144",
+      "child": "Q3439103"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q8460130",
+      "child": "Q5942570"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q699144",
+      "child": "Q16906473"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q3439103",
+      "b": "Q382192"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q3439103",
+      "b": "Q8460130"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q202597",
+      "b": "Q5942570"
+    }
+  ]
+}

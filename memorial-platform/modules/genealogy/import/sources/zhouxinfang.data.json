@@ -1,0 +1,188 @@
+{
+  "key": "wikidata:zhouxinfang",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q1090631",
+      "name": "周天娜",
+      "citation": "维基百科 / Wikidata Q1090631",
+      "aliases": [
+        "Tina Chow"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1950
+      },
+      "death": {
+        "year": 1992
+      },
+      "bio": "American model and fashion icon (1950-1992)",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Tina%20Chow%2C%20Jewelry%20Maker.jpg",
+      "photoCredit": "作者：Gotfryd, Bernard, photographer · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q1373897",
+      "name": "周信芳",
+      "citation": "维基百科 / Wikidata Q1373897",
+      "aliases": [
+        "Zhou Xinfang"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1895
+      },
+      "death": {
+        "year": 1975
+      },
+      "bio": "中国京剧表演家（1895－1975）",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/1962-03%201962%E5%B9%B4%20%E4%BA%AC%E5%89%A7%20%E5%BE%90%E7%AD%96%E8%B7%91%E5%9F%8E%20%E5%91%A8%E4%BF%A1%E8%8A%B3%E6%89%AE%E6%BC%94%E5%BE%90%E7%AD%96.jpg",
+      "photoCredit": "作者：《人民画报》 · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q1374039",
+      "name": "周英华",
+      "citation": "维基百科 / Wikidata Q1374039",
+      "aliases": [
+        "Michael Chow"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1939
+      },
+      "living": true,
+      "bio": "美籍华人企业家、演员"
+    },
+    {
+      "externalId": "Q28414914",
+      "name": "马克斯·周",
+      "citation": "维基百科 / Wikidata Q28414914",
+      "aliases": [
+        "Max Chow"
+      ],
+      "gender": "male",
+      "bio": "actor"
+    },
+    {
+      "externalId": "Q434790",
+      "name": "周采芹",
+      "citation": "维基百科 / Wikidata Q434790",
+      "aliases": [
+        "Tsai Chin"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1933
+      },
+      "living": true,
+      "bio": "中國出生的英國演員",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Tsai%20Chin%20%2840817490063%29%20%28cropped%29.jpg",
+      "photoCredit": "作者：Greg2600 · CC BY-SA 2.0 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q532417",
+      "name": "周佳纳",
+      "citation": "维基百科 / Wikidata Q532417",
+      "aliases": [
+        "周佳納",
+        "China Chow"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1974
+      },
+      "living": true,
+      "bio": "English actress and model"
+    },
+    {
+      "externalId": "Q9632364",
+      "name": "周少麟",
+      "citation": "维基百科 / Wikidata Q9632364",
+      "aliases": [
+        "Zhou Shaolin"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1934
+      },
+      "death": {
+        "year": 2010
+      },
+      "bio": "中国京剧演员"
+    },
+    {
+      "externalId": "Q9633203",
+      "name": "周慰堂",
+      "citation": "维基百科 / Wikidata Q9633203",
+      "aliases": [
+        "Zhou Weitang"
+      ],
+      "gender": "male",
+      "bio": "中国京剧演员"
+    },
+    {
+      "externalId": "Q981330",
+      "name": "Grace Coddington",
+      "citation": "维基百科 / Wikidata Q981330",
+      "gender": "female",
+      "birth": {
+        "year": 1941
+      },
+      "living": true,
+      "bio": "former model and creative director of American Vogue magazine",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Grace%20Coddington.jpg",
+      "photoCredit": "作者：jauretsi from USA · CC BY-SA 2.0 · 来源：Wikimedia Commons"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q1373897",
+      "child": "Q434790"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q1374039",
+      "child": "Q532417"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q9633203",
+      "child": "Q1373897"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q1373897",
+      "child": "Q1374039"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q1373897",
+      "child": "Q9632364"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q1374039",
+      "child": "Q28414914"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q1090631",
+      "child": "Q532417"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q1090631",
+      "child": "Q28414914"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q1374039",
+      "b": "Q981330"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q1090631",
+      "b": "Q1374039"
+    }
+  ]
+}

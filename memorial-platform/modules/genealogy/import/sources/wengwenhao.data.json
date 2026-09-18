@@ -1,0 +1,173 @@
+{
+  "key": "wikidata:wengwenhao",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q16077374",
+      "name": "翁心源",
+      "citation": "维基百科 / Wikidata Q16077374",
+      "gender": "male",
+      "birth": {
+        "year": 1912
+      },
+      "death": {
+        "year": 1970
+      }
+    },
+    {
+      "externalId": "Q18165157",
+      "name": "翁心翰",
+      "citation": "维基百科 / Wikidata Q18165157",
+      "gender": "male",
+      "birth": {
+        "year": 1917
+      },
+      "death": {
+        "year": 1944
+      }
+    },
+    {
+      "externalId": "Q20687918",
+      "name": "翁景和",
+      "citation": "维基百科 / Wikidata Q20687918",
+      "gender": "male",
+      "birth": {
+        "year": 1823
+      },
+      "death": {
+        "year": 1877
+      }
+    },
+    {
+      "externalId": "Q21060998",
+      "name": "翁文涛",
+      "citation": "维基百科 / Wikidata Q21060998",
+      "aliases": [
+        "翁文濤",
+        "Weng Wentao"
+      ],
+      "gender": "male",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/%E9%A7%90%E5%8F%B0%E5%8C%97%E4%B8%BB%E4%BA%8B%E7%BF%81%E6%96%87%E6%BF%A4.png",
+      "photoCredit": "作者：Unknown photographer · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q45471968",
+      "name": "翁传泗",
+      "citation": "维基百科 / Wikidata Q45471968",
+      "aliases": [
+        "翁傳泗",
+        "Weng Chuansi"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1872
+      },
+      "death": {
+        "year": 1920
+      },
+      "bio": "Republic of China person CBDB = 87213"
+    },
+    {
+      "externalId": "Q6123787",
+      "name": "翁文灏",
+      "citation": "维基百科 / Wikidata Q6123787",
+      "aliases": [
+        "翁文灝",
+        "Weng Wenhao"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1889
+      },
+      "death": {
+        "year": 1971
+      },
+      "bio": "中華民國行憲後首任行政院院長、中國地質學家（1889～1971）",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/%E7%BF%81%E7%A7%98%E6%9B%B8%E6%96%87%E7%81%9D.jpg",
+      "photoCredit": "作者：國立中央研究院文書處 · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q67168166",
+      "name": "翁传洙",
+      "citation": "维基百科 / Wikidata Q67168166",
+      "aliases": [
+        "翁傳洙",
+        "Weng Chuanzhu"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1872
+      },
+      "death": {
+        "year": 1961
+      }
+    },
+    {
+      "externalId": "Q67168460",
+      "name": "翁运高",
+      "citation": "维基百科 / Wikidata Q67168460",
+      "aliases": [
+        "翁運高",
+        "Weng Yungao"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1839
+      },
+      "death": {
+        "year": 1889
+      }
+    },
+    {
+      "externalId": "Q67168539",
+      "name": "翁文澜",
+      "citation": "维基百科 / Wikidata Q67168539",
+      "aliases": [
+        "Weng Wenlan"
+      ],
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q67168166",
+      "child": "Q6123787"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q6123787",
+      "child": "Q16077374"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q6123787",
+      "child": "Q18165157"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q67168166",
+      "child": "Q21060998"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q67168460",
+      "child": "Q45471968"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q67168460",
+      "child": "Q67168166"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q20687918",
+      "child": "Q67168460"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q67168166",
+      "child": "Q67168539"
+    }
+  ]
+}

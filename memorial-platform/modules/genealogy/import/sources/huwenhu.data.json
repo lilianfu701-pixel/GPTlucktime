@@ -1,0 +1,123 @@
+{
+  "key": "wikidata:huwenhu",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q104450767",
+      "name": "胡督东",
+      "citation": "维基百科 / Wikidata Q104450767",
+      "aliases": [
+        "胡督東",
+        "Aw Toke Tone"
+      ],
+      "gender": "male"
+    },
+    {
+      "externalId": "Q10488876",
+      "name": "胡好",
+      "citation": "维基百科 / Wikidata Q10488876",
+      "aliases": [
+        "Aw Hoe"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1919
+      },
+      "death": {
+        "year": 1951
+      },
+      "bio": "Hong Kong businessperson"
+    },
+    {
+      "externalId": "Q15995841",
+      "name": "胡文豹",
+      "citation": "维基百科 / Wikidata Q15995841",
+      "aliases": [
+        "Aw Boon Par"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1888
+      },
+      "death": {
+        "year": 1944
+      },
+      "bio": "Singaporean businessman"
+    },
+    {
+      "externalId": "Q4829605",
+      "name": "胡子钦",
+      "citation": "维基百科 / Wikidata Q4829605",
+      "aliases": [
+        "胡子欽",
+        "Aw Chu Kin"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 1908
+      },
+      "bio": "Burmese Chinese herbalist"
+    },
+    {
+      "externalId": "Q7405057",
+      "name": "胡仙",
+      "citation": "维基百科 / Wikidata Q7405057",
+      "aliases": [
+        "Sally Aw"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1932
+      },
+      "living": true,
+      "bio": "Hong Kong business people",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/19691105%E8%83%A1%E4%BB%99.jpg",
+      "photoCredit": "作者：中央通訊社 · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q791575",
+      "name": "胡文虎",
+      "citation": "维基百科 / Wikidata Q791575",
+      "aliases": [
+        "Aw Boon Haw"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1882
+      },
+      "death": {
+        "year": 1954
+      },
+      "bio": "Burmese Chinese businessman (1882–1954)",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Hu%20Wenhu2.jpg",
+      "photoCredit": "作者：Unknown; scanned by 天竺鼠 (talk) 15:41, 24 January 2011 (UTC) · 公有领域 · 来源：Wikimedia Commons"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q4829605",
+      "child": "Q791575"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q791575",
+      "child": "Q7405057"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q791575",
+      "child": "Q10488876"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q4829605",
+      "child": "Q15995841"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q10488876",
+      "child": "Q104450767"
+    }
+  ]
+}

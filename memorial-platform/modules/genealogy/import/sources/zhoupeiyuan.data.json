@@ -1,0 +1,107 @@
+{
+  "key": "wikidata:zhoupeiyuan",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q4515490",
+      "name": "周培源",
+      "citation": "维基百科 / Wikidata Q4515490",
+      "aliases": [
+        "Zhou Peiyuan"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1902
+      },
+      "death": {
+        "year": 1993
+      },
+      "bio": "中国理论物理学家（1902—1993）",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Zhou%20Peiyuan.jpg",
+      "photoCredit": "作者：Gisling · CC BY 3.0 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q6539969",
+      "name": "梁从诫",
+      "citation": "维基百科 / Wikidata Q6539969",
+      "aliases": [
+        "Liang Congjie"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1932
+      },
+      "death": {
+        "year": 2010
+      },
+      "bio": "中国环保人士"
+    },
+    {
+      "externalId": "Q9345316",
+      "name": "谢兰",
+      "citation": "维基百科 / Wikidata Q9345316",
+      "aliases": [
+        "Cecilia Xie Birge"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1968
+      },
+      "living": true,
+      "bio": "美国政治人物"
+    },
+    {
+      "externalId": "Q98034072",
+      "name": "周如枚",
+      "citation": "维基百科 / Wikidata Q98034072",
+      "aliases": [
+        "Zhou Rumei"
+      ],
+      "gender": "female"
+    },
+    {
+      "externalId": "Q98034142",
+      "name": "谢荣",
+      "citation": "维基百科 / Wikidata Q98034142",
+      "aliases": [
+        "謝榮",
+        "Xie Rong"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1921
+      },
+      "death": {
+        "year": 2021
+      },
+      "bio": "中國麻醉學家"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q98034142",
+      "child": "Q9345316"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q4515490",
+      "child": "Q98034072"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q98034072",
+      "child": "Q9345316"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q6539969",
+      "b": "Q98034072"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q98034072",
+      "b": "Q98034142"
+    }
+  ]
+}

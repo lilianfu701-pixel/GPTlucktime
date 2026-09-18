@@ -1,0 +1,170 @@
+{
+  "key": "wikidata:lixishen",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q10898314",
+      "name": "利孝和",
+      "citation": "维基百科 / Wikidata Q10898314",
+      "aliases": [
+        "Harold Lee"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1910
+      },
+      "death": {
+        "year": 1980
+      },
+      "bio": "香港商人",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Harold%20Lee%201960s.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q10898425",
+      "name": "利铭泽",
+      "citation": "维基百科 / Wikidata Q10898425",
+      "aliases": [
+        "利銘澤",
+        "Richard Charles Lee"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1905
+      },
+      "death": {
+        "year": 1983
+      },
+      "bio": "Hong Kong businessman and philanthropist",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/R.%20C.%20Lee%201964.jpg",
+      "photoCredit": "作者：University of Hong Kong · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q125943528",
+      "name": "Esther Yewpick Lee",
+      "citation": "维基百科 / Wikidata Q125943528",
+      "gender": "female",
+      "birth": {
+        "year": 1909
+      },
+      "death": {
+        "year": 1996
+      }
+    },
+    {
+      "externalId": "Q5114271",
+      "name": "利希慎",
+      "citation": "维基百科 / Wikidata Q5114271",
+      "aliases": [
+        "Lee Hysan"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1880
+      },
+      "death": {
+        "year": 1928
+      },
+      "bio": "Hong Kong businessman (1880-1928)"
+    },
+    {
+      "externalId": "Q5114513",
+      "name": "利良奕",
+      "citation": "维基百科 / Wikidata Q5114513",
+      "aliases": [
+        "Lee Leung Yik"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1841
+      }
+    },
+    {
+      "externalId": "Q7937899",
+      "name": "利德蕙",
+      "citation": "维基百科 / Wikidata Q7937899",
+      "aliases": [
+        "Vivienne Poy"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1941
+      },
+      "living": true,
+      "bio": "Canadian politician",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Vivienne%20Poy.jpg",
+      "photoCredit": "作者：Simon Fraser University - University Communications · CC BY 2.0 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q9112055",
+      "name": "利陆雁群",
+      "citation": "维基百科 / Wikidata Q9112055",
+      "aliases": [
+        "利陸雁群",
+        "Christina Lee"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1925
+      },
+      "death": {
+        "year": 2022
+      },
+      "bio": "香港企業家和名媛",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Christina%20Lee%201960s.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q9385301",
+      "name": "伍卫权",
+      "citation": "维基百科 / Wikidata Q9385301",
+      "aliases": [
+        "伍衛權",
+        "Neville Poy"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1935
+      },
+      "living": true,
+      "bio": "Canadian surgeon"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q5114513",
+      "child": "Q5114271"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q10898425",
+      "child": "Q7937899"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q5114271",
+      "child": "Q10898314"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q5114271",
+      "child": "Q10898425"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q7937899",
+      "b": "Q9385301"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q10898314",
+      "b": "Q9112055"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q10898425",
+      "b": "Q125943528"
+    }
+  ]
+}

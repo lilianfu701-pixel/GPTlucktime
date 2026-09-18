@@ -1,0 +1,416 @@
+{
+  "key": "wikidata:guxianrong",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q106824238",
+      "name": "Koo Yueh Fu",
+      "citation": "维基百科 / Wikidata Q106824238",
+      "gender": "male"
+    },
+    {
+      "externalId": "Q132176282",
+      "name": "辜林瑞慧",
+      "citation": "维基百科 / Wikidata Q132176282",
+      "aliases": [
+        "Koo Lin Jui-hui"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1941
+      },
+      "death": {
+        "year": 2023
+      },
+      "bio": "臺灣女企業家"
+    },
+    {
+      "externalId": "Q133271779",
+      "name": "辜琴",
+      "citation": "维基百科 / Wikidata Q133271779",
+      "aliases": [
+        "Ko͘ Khîm"
+      ],
+      "gender": "male"
+    },
+    {
+      "externalId": "Q133271781",
+      "name": "辜安平",
+      "citation": "维基百科 / Wikidata Q133271781",
+      "aliases": [
+        "Ko͘ An-pêng"
+      ],
+      "gender": "male"
+    },
+    {
+      "externalId": "Q133271791",
+      "name": "辜龙池",
+      "citation": "维基百科 / Wikidata Q133271791",
+      "aliases": [
+        "辜龍池",
+        "KOH Leong Tee"
+      ],
+      "gender": "male"
+    },
+    {
+      "externalId": "Q15914044",
+      "name": "辜启允",
+      "citation": "维基百科 / Wikidata Q15914044",
+      "aliases": [
+        "辜啟允",
+        "Chester Koo"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1953
+      },
+      "death": {
+        "year": 2001
+      },
+      "bio": "台湾企业家"
+    },
+    {
+      "externalId": "Q15931319",
+      "name": "辜伟甫",
+      "citation": "维基百科 / Wikidata Q15931319",
+      "aliases": [
+        "辜偉甫",
+        "Koo Wei-fu"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1918
+      },
+      "death": {
+        "year": 1982
+      },
+      "bio": "台湾企业家",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/19690316%E8%BE%9C%E5%81%89%E7%94%AB.jpg",
+      "photoCredit": "作者：中央通訊社 · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q15938921",
+      "name": "辜严倬云",
+      "citation": "维基百科 / Wikidata Q15938921",
+      "aliases": [
+        "辜嚴倬雲",
+        "Cecilia Yen Koo"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1920
+      },
+      "death": {
+        "year": 2025
+      },
+      "bio": "中華民國女性人物"
+    },
+    {
+      "externalId": "Q16903382",
+      "name": "辜颜碧霞",
+      "citation": "维基百科 / Wikidata Q16903382",
+      "aliases": [
+        "辜顏碧霞",
+        "Koo Yen Pi Hsia"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1914
+      },
+      "death": {
+        "year": 2000
+      },
+      "bio": "台灣企業家與作家"
+    },
+    {
+      "externalId": "Q2680065",
+      "name": "辜濓松",
+      "citation": "维基百科 / Wikidata Q2680065",
+      "aliases": [
+        "Jeffrey Koo Sr."
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1933
+      },
+      "death": {
+        "year": 2012
+      },
+      "bio": "台湾企业家",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/2007ChinatrustGlobalLeadersForum%20JefferyKoo.jpg",
+      "photoCredit": "作者：Rico Shen · CC BY-SA 4.0 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q528299",
+      "name": "辜朝明",
+      "citation": "维基百科 / Wikidata Q528299",
+      "aliases": [
+        "Richard Koo"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1954
+      },
+      "living": true,
+      "bio": "台裔美籍经济学家",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/07.14%20%E7%B8%BD%E7%B5%B1%E6%8E%A5%E8%A6%8B%E3%80%8A%E8%B2%A1%E8%A8%8A%E3%80%8B2016%E5%B9%B4%E5%BA%A6%E5%BD%B1%E9%9F%BF%E5%8A%9B%E8%AB%96%E5%A3%87%E8%AC%9B%E5%BA%A7%E8%BE%9C%E6%9C%9D%E6%98%8E%E5%85%88%E7%94%9F%E4%B8%80%E8%A1%8C%20%2828020027130%29%20%28cropped%29.jpg",
+      "photoCredit": "作者：總統府 · CC BY 2.0 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q6425861",
+      "name": "辜礼欢",
+      "citation": "维基百科 / Wikidata Q6425861",
+      "aliases": [
+        "辜禮歡",
+        "Koh Lay Huan"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 1826
+      },
+      "bio": "First Kapitan China of Penang"
+    },
+    {
+      "externalId": "Q697695",
+      "name": "辜振甫",
+      "citation": "维基百科 / Wikidata Q697695",
+      "aliases": [
+        "Koo Chen-fu"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1917
+      },
+      "death": {
+        "year": 2005
+      },
+      "bio": "台湾企业家",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/19690120%E8%BE%9C%E6%8C%AF%E7%94%AB.jpg",
+      "photoCredit": "作者：中央通訊社記者馮國鏘 · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q698083",
+      "name": "辜显荣",
+      "citation": "维基百科 / Wikidata Q698083",
+      "aliases": [
+        "辜顯榮",
+        "Koo Hsien-jung"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1866
+      },
+      "death": {
+        "year": 1937
+      },
+      "bio": "臺灣企業家、政治人物",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Koo%20Hsien-jung.jpg",
+      "photoCredit": "作者：Unknown author · CC BY-SA 2.5 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q8349547",
+      "name": "辜宽敏",
+      "citation": "维基百科 / Wikidata Q8349547",
+      "aliases": [
+        "辜寬敏",
+        "Koo Kwang-ming"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1926
+      },
+      "death": {
+        "year": 2023
+      },
+      "bio": "前臺灣總統府資政、臺灣企業家、政治人物",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/KM%20Koo.jpg",
+      "photoCredit": "作者：cropped by Luuva · CC BY 3.0 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q8963072",
+      "name": "辜仲莹",
+      "citation": "维基百科 / Wikidata Q8963072",
+      "aliases": [
+        "辜仲瑩",
+        "Gu Zhongying"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1965
+      },
+      "living": true,
+      "bio": "台湾企业家"
+    },
+    {
+      "externalId": "Q8963090",
+      "name": "辜仲立",
+      "citation": "维基百科 / Wikidata Q8963090",
+      "aliases": [
+        "Andre Koo"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1967
+      },
+      "living": true,
+      "bio": "台湾企业家"
+    },
+    {
+      "externalId": "Q8963101",
+      "name": "辜仲谅",
+      "citation": "维基百科 / Wikidata Q8963101",
+      "aliases": [
+        "辜仲諒",
+        "Jeffrey Koo, Jr."
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1964
+      },
+      "living": true,
+      "bio": "臺灣企業家",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/2026.05.07%20Jeffrey%20Koo%2C%20Jr.%20at%20Asia-Pacific%20Stadium%20%28cropped%29.jpg",
+      "photoCredit": "作者：中華民國總統府 · CC BY 4.0 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q9349921",
+      "name": "辜成允",
+      "citation": "维基百科 / Wikidata Q9349921",
+      "aliases": [
+        "Leslie Koo"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1954
+      },
+      "death": {
+        "year": 2017
+      },
+      "bio": "台湾企业家",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/03.15%20%E3%80%8C%E8%BE%9C%E6%88%90%E5%85%81%E5%85%88%E7%94%9F%E6%87%B7%E5%BF%B5%E9%9F%B3%E6%A8%82%E6%9C%83%E3%80%8D%20%2833293348352%29.jpg",
+      "photoCredit": "作者：總統府 · CC BY 2.0 · 来源：Wikimedia Commons"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q16903382",
+      "child": "Q2680065"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q132176282",
+      "child": "Q8963072"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q132176282",
+      "child": "Q8963090"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q132176282",
+      "child": "Q8963101"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q15938921",
+      "child": "Q9349921"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q15938921",
+      "child": "Q15914044"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q8349547",
+      "child": "Q528299"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q698083",
+      "child": "Q697695"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q133271779",
+      "child": "Q698083"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q106824238",
+      "child": "Q2680065"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q698083",
+      "child": "Q8349547"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q2680065",
+      "child": "Q8963072"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q2680065",
+      "child": "Q8963090"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q2680065",
+      "child": "Q8963101"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q697695",
+      "child": "Q9349921"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q697695",
+      "child": "Q15914044"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q698083",
+      "child": "Q15931319"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q698083",
+      "child": "Q106824238"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q133271781",
+      "child": "Q133271779"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q6425861",
+      "child": "Q133271781"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q6425861",
+      "child": "Q133271791"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q15938921",
+      "b": "Q697695"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q132176282",
+      "b": "Q2680065"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q106824238",
+      "b": "Q16903382"
+    }
+  ]
+}

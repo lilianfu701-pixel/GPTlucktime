@@ -150,6 +150,19 @@ import yunshouping from "./yunshouping.data.json";
 import ronghong from "./ronghong.data.json";
 import wutingfang from "./wutingfang.data.json";
 import cenchunxuan from "./cenchunxuan.data.json";
+// Wave 7 — 港台世家 + 民国政要 + 学界世家。
+import hedong from "./hedong.data.json";
+import guxianrong from "./guxianrong.data.json";
+import lixishen from "./lixishen.data.json";
+import huwenhu from "./huwenhu.data.json";
+import zhouxinfang from "./zhouxinfang.data.json";
+import fengyuxiang from "./fengyuxiang.data.json";
+import duanqirui from "./duanqirui.data.json";
+import jiangbaili from "./jiangbaili.data.json";
+import zhangshizhao from "./zhangshizhao.data.json";
+import lishizeng from "./lishizeng.data.json";
+import wengwenhao from "./wengwenhao.data.json";
+import zhoupeiyuan from "./zhoupeiyuan.data.json";
 
 /**
  * Every Wikidata-sourced family in one registry, so wiring a new one is a single
@@ -313,6 +326,19 @@ const FAMILIES: { key: string; label: string; dataset: GenealogyDataset }[] = [
   { key: "cenchunxuan", label: "岑春煊家族（西林岑氏）", dataset: cenchunxuan as GenealogyDataset },
   { key: "ronghong", label: "容闳家族", dataset: ronghong as GenealogyDataset },
   { key: "wutingfang", label: "伍廷芳家族", dataset: wutingfang as GenealogyDataset },
+  // 第七批：港台世家 + 民国政要 + 学界世家。
+  { key: "lishizeng", label: "李石曾家族（高阳李氏）", dataset: lishizeng as GenealogyDataset },
+  { key: "duanqirui", label: "段祺瑞家族", dataset: duanqirui as GenealogyDataset },
+  { key: "fengyuxiang", label: "冯玉祥家族", dataset: fengyuxiang as GenealogyDataset },
+  { key: "jiangbaili", label: "蒋百里家族（蒋英·钱学森）", dataset: jiangbaili as GenealogyDataset },
+  { key: "zhangshizhao", label: "章士钊家族（章含之·洪晃）", dataset: zhangshizhao as GenealogyDataset },
+  { key: "wengwenhao", label: "翁文灏家族", dataset: wengwenhao as GenealogyDataset },
+  { key: "zhoupeiyuan", label: "周培源家族", dataset: zhoupeiyuan as GenealogyDataset },
+  { key: "zhouxinfang", label: "周信芳家族（麒派）", dataset: zhouxinfang as GenealogyDataset },
+  { key: "hedong", label: "何东家族（香港）", dataset: hedong as GenealogyDataset },
+  { key: "guxianrong", label: "辜显荣家族（鹿港辜家）", dataset: guxianrong as GenealogyDataset },
+  { key: "lixishen", label: "利希慎家族（香港利氏）", dataset: lixishen as GenealogyDataset },
+  { key: "huwenhu", label: "胡文虎家族（永安堂）", dataset: huwenhu as GenealogyDataset },
   // 清皇室（溥仪）：完整世系，多为封号名，绝嗣线，人数最大——放在末尾。
   { key: "puyi", label: "清皇室（溥仪）", dataset: puyi as GenealogyDataset },
 ];

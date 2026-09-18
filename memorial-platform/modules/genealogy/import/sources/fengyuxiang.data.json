@@ -1,0 +1,141 @@
+{
+  "key": "wikidata:fengyuxiang",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q26000825",
+      "name": "刘德贞",
+      "citation": "维基百科 / Wikidata Q26000825",
+      "aliases": [
+        "劉德貞",
+        "Liu Dezhen"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1889
+      },
+      "death": {
+        "year": 1923
+      },
+      "bio": "於1905年與馮玉祥結為伉儷, 1923年，劉德貞在北京協和醫院病逝"
+    },
+    {
+      "externalId": "Q28355223",
+      "name": "冯理达",
+      "citation": "维基百科 / Wikidata Q28355223",
+      "aliases": [
+        "Feng Lida"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1925
+      },
+      "death": {
+        "year": 2008
+      },
+      "bio": "Chinese general"
+    },
+    {
+      "externalId": "Q365894",
+      "name": "冯玉祥",
+      "citation": "维基百科 / Wikidata Q365894",
+      "aliases": [
+        "Feng Yuxiang"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1882
+      },
+      "death": {
+        "year": 1948
+      },
+      "bio": "民国军阀",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/02fengyuxiang-1-.jpg",
+      "photoCredit": "作者：Unknown, photographed in Republic of China · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q47667436",
+      "name": "冯丹宇",
+      "citation": "维基百科 / Wikidata Q47667436",
+      "aliases": [
+        "Feng Danyu"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1962
+      },
+      "living": true,
+      "bio": "Chinese general"
+    },
+    {
+      "externalId": "Q6538739",
+      "name": "李德全",
+      "citation": "维基百科 / Wikidata Q6538739",
+      "aliases": [
+        "Li Dequan"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1896
+      },
+      "death": {
+        "year": 1972
+      },
+      "bio": "Chinese politician",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/%E6%9D%8E%E5%BE%B7%E5%85%A8.jpg",
+      "photoCredit": "作者：政協秘書處 · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q8331143",
+      "name": "冯洪达",
+      "citation": "维基百科 / Wikidata Q8331143",
+      "aliases": [
+        "Feng Hongda"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1930
+      },
+      "death": {
+        "year": 1993
+      }
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q365894",
+      "child": "Q8331143"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q365894",
+      "child": "Q28355223"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q8331143",
+      "child": "Q47667436"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q6538739",
+      "child": "Q8331143"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q6538739",
+      "child": "Q28355223"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q365894",
+      "b": "Q6538739"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q26000825",
+      "b": "Q365894"
+    }
+  ]
+}

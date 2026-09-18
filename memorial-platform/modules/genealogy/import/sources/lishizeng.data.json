@@ -1,0 +1,128 @@
+{
+  "key": "wikidata:lishizeng",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q11097119",
+      "name": "李殿图",
+      "citation": "维基百科 / Wikidata Q11097119",
+      "aliases": [
+        "李殿圖",
+        "Li Diantu"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1738
+      },
+      "death": {
+        "year": 1812
+      },
+      "bio": "Qing dynasty person CBDB = 58936"
+    },
+    {
+      "externalId": "Q11098378",
+      "name": "李鸿藻",
+      "citation": "维基百科 / Wikidata Q11098378",
+      "aliases": [
+        "李鴻藻",
+        "Li Hongzao"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1820
+      },
+      "death": {
+        "year": 1897
+      },
+      "bio": "晚清政治人物",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Li%20Hongzao.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q113393346",
+      "name": "祁友慎",
+      "citation": "维基百科 / Wikidata Q113393346",
+      "aliases": [
+        "Qi Youshen"
+      ],
+      "gender": "male"
+    },
+    {
+      "externalId": "Q113393386",
+      "name": "李淑宜",
+      "citation": "维基百科 / Wikidata Q113393386",
+      "aliases": [
+        "Li Shuyi"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1853
+      }
+    },
+    {
+      "externalId": "Q133812489",
+      "name": "李辙通",
+      "citation": "维基百科 / Wikidata Q133812489",
+      "aliases": [
+        "李轍通"
+      ],
+      "gender": "male"
+    },
+    {
+      "externalId": "Q133812494",
+      "name": "李焜瀛",
+      "citation": "维基百科 / Wikidata Q133812494",
+      "gender": "male"
+    },
+    {
+      "externalId": "Q511775",
+      "name": "李石曾",
+      "citation": "维基百科 / Wikidata Q511775",
+      "aliases": [
+        "Li Shizeng"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1881
+      },
+      "death": {
+        "year": 1973
+      },
+      "bio": "中国教育家",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/1928%20Li%20Shizeng.jpg",
+      "photoCredit": "作者：Georges Chevalier · CC BY 4.0 · 来源：Wikimedia Commons"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q11098378",
+      "child": "Q511775"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q133812489",
+      "child": "Q11098378"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q11098378",
+      "child": "Q113393386"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q11097119",
+      "child": "Q133812489"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q11098378",
+      "child": "Q133812494"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q113393346",
+      "b": "Q113393386"
+    }
+  ]
+}
