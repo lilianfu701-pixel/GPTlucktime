@@ -489,6 +489,8 @@
     "takeoverBadge": "Takeover",
     "stewardClaimTitle": "Diese Gedenkseite wurde von unserem Team anhand einer Todesanzeige erstellt",
     "stewardClaimBody": "Sie wird noch von keinem Angehörigen oder Freund verwaltet. Wenn Sie ein Angehöriger oder Freund der verstorbenen Person sind, können Sie diese Seite beanspruchen. Nach der Bestätigung können Sie die Inhalte verwalten und Gedenkfunktionen aktivieren.",
+    "importedStewardTitle": "This memorial was created automatically by the site from public sources",
+    "importedStewardBody": "This page was compiled from public sources such as Wikipedia, for remembrance and family-tree lookup — it does not represent the wishes of the family. If you are a relative, you are welcome to claim it; once approved you can complete the content and enable memorial features.",
     "stewardClaimCta": "Diese Seite beanspruchen",
     "stewardClaimSignIn": "Zum Beanspruchen anmelden",
     "joinBadge": "Join",

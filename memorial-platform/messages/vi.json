@@ -489,6 +489,8 @@
     "takeoverBadge": "Takeover",
     "stewardClaimTitle": "Trang tưởng niệm này do đội ngũ của chúng tôi lập dựa trên cáo phó",
     "stewardClaimBody": "Hiện chưa có người thân hay bạn bè nào quản lý. Nếu bạn là người thân hoặc bạn của người đã khuất, bạn có thể nhận quản lý trang này. Sau khi được duyệt, bạn có thể quản lý nội dung và bật các tính năng tưởng niệm.",
+    "importedStewardTitle": "This memorial was created automatically by the site from public sources",
+    "importedStewardBody": "This page was compiled from public sources such as Wikipedia, for remembrance and family-tree lookup — it does not represent the wishes of the family. If you are a relative, you are welcome to claim it; once approved you can complete the content and enable memorial features.",
     "stewardClaimCta": "Nhận trang này",
     "stewardClaimSignIn": "Đăng nhập để nhận",
     "joinBadge": "Join",

@@ -304,11 +304,18 @@ export default async function MemorialPage(props: {
     .select({
       stewardedByAdminAt: memorials.stewardedByAdminAt,
       offeringsDisabled: memorials.offeringsDisabled,
+      creationIdempotencyKey: memorials.creationIdempotencyKey,
     })
     .from(memorials)
     .where(eq(memorials.id, detail.memorialId));
   const awaitingClaim = Boolean(offeringFlags?.stewardedByAdminAt);
   const disabledSlugs = offeringFlags?.offeringsDisabled ?? [];
+  // An imported page was built by the site from public data (Wikidata), which is
+  // a different origin from a family-created page or an admin's hand-built one —
+  // its claim notice says so.
+  const importedSeed = Boolean(
+    offeringFlags?.creationIdempotencyKey?.startsWith("import:"),
+  );
 
   // The family tree, assembled from the registered relatives and any confirmed
   // links to other memorials. A year is only used when the date is real, not a
@@ -495,6 +502,7 @@ export default async function MemorialPage(props: {
         {awaitingClaim && !canManage ? (
           <ClaimBanner
             memorialId={detail.memorialId}
+            imported={importedSeed}
             signedIn={viewer.userId !== null}
             signInHref={`/${locale}/sign-in?next=${encodeURIComponent(
               `/${locale}/memorials/${detail.slug}`,

@@ -489,6 +489,8 @@
     "takeoverBadge": "Takeover",
     "stewardClaimTitle": "Эта страница памяти создана нашей командой на основе некролога",
     "stewardClaimBody": "Ею пока никто из родных или друзей не управляет. Если вы родственник или друг усопшего, вы можете заявить права на эту страницу. После одобрения вы сможете управлять её содержимым и включить функции памяти.",
+    "importedStewardTitle": "This memorial was created automatically by the site from public sources",
+    "importedStewardBody": "This page was compiled from public sources such as Wikipedia, for remembrance and family-tree lookup — it does not represent the wishes of the family. If you are a relative, you are welcome to claim it; once approved you can complete the content and enable memorial features.",
     "stewardClaimCta": "Заявить права на страницу",
     "stewardClaimSignIn": "Войти, чтобы заявить права",
     "joinBadge": "Join",

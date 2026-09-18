@@ -25,6 +25,9 @@ export function ClaimBanner(props: {
   memorialId: string;
   signedIn: boolean;
   signInHref: string;
+  /** Built by the site from public data, rather than from an obituary — the
+   * notice explains that distinct origin. */
+  imported?: boolean;
   /** The viewer's existing request against this page, if any. */
   requestStatus: "pending" | "escalated" | "declined" | null;
 }) {
@@ -74,8 +77,12 @@ export function ClaimBanner(props: {
 
   return (
     <aside className="claimBanner">
-      <p className="claimBannerTitle">{t("stewardClaimTitle")}</p>
-      <p className="claimBannerBody">{t("stewardClaimBody")}</p>
+      <p className="claimBannerTitle">
+        {t(props.imported ? "importedStewardTitle" : "stewardClaimTitle")}
+      </p>
+      <p className="claimBannerBody">
+        {t(props.imported ? "importedStewardBody" : "stewardClaimBody")}
+      </p>
 
       {props.requestStatus ? (
         <p className="claimBannerStatus">

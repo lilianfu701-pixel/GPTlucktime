@@ -489,6 +489,8 @@
     "takeoverBadge": "Takeover",
     "stewardClaimTitle": "This memorial was created by our team from an obituary",
     "stewardClaimBody": "No family member or friend manages it yet. If you are a relative or friend of the deceased, you are welcome to claim this page. Once approved, you can manage its content and enable remembrance features.",
+    "importedStewardTitle": "This memorial was created automatically by the site from public sources",
+    "importedStewardBody": "This page was compiled from public sources such as Wikipedia, for remembrance and family-tree lookup — it does not represent the wishes of the family. If you are a relative, you are welcome to claim it; once approved you can complete the content and enable memorial features.",
     "stewardClaimCta": "Claim this page",
     "stewardClaimSignIn": "Sign in to claim",
     "joinBadge": "Join",
