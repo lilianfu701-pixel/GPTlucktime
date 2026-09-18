@@ -1,0 +1,74 @@
+{
+  "key": "wikidata:xu_zhimo",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q11123253",
+      "name": "陆小曼",
+      "citation": "维基百科 / Wikidata Q11123253",
+      "aliases": [
+        "陸小曼",
+        "Lu Xiaoman"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1903
+      },
+      "death": {
+        "year": 1965
+      },
+      "bio": "徐志摩之妻",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Lu%20Xiaoman%20%28%E9%99%B8%E5%B0%8F%E6%9B%BC%29%20as%20covergirl%20%28crop%29%2C%20Liangyou%2C%201927-09-30.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q557551",
+      "name": "徐志摩",
+      "citation": "维基百科 / Wikidata Q557551",
+      "aliases": [
+        "Xu Zhimo"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1897
+      },
+      "death": {
+        "year": 1931
+      },
+      "bio": "中国诗人（1897－1931）",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Xu%20Zhimo.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q8070408",
+      "name": "张幼仪",
+      "citation": "维基百科 / Wikidata Q8070408",
+      "aliases": [
+        "張幼儀",
+        "Zhang Youyi"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1900
+      },
+      "death": {
+        "year": 1988
+      },
+      "bio": "徐志摩之妻",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Xu%20Zhimo%20%26%20Zhang%20Youyi.jpg",
+      "photoCredit": "作者：(Transferred by 白布飘扬/Originally uploaded by 白布飘扬) · 公有领域 · 来源：Wikimedia Commons"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "spouse",
+      "a": "Q557551",
+      "b": "Q8070408"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q11123253",
+      "b": "Q557551"
+    }
+  ]
+}

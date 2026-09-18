@@ -1,0 +1,45 @@
+{
+  "key": "wikidata:bai_chongxi",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q706491",
+      "name": "白崇禧",
+      "citation": "维基百科 / Wikidata Q706491",
+      "aliases": [
+        "Pai Chung-hsi"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1893
+      },
+      "death": {
+        "year": 1966
+      },
+      "bio": "中華民國高級將領（1893—1966）",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Bai%20Chongxi.jpg",
+      "photoCredit": "作者：Unknown; scanned by 天竺鼠 (talk) 10:57, 19 August 2009 (UTC) · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q803692",
+      "name": "白先勇",
+      "citation": "维基百科 / Wikidata Q803692",
+      "aliases": [
+        "Pai Hsien-yung"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1937
+      },
+      "living": true,
+      "bio": "臺灣知名劇作家"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q706491",
+      "child": "Q803692"
+    }
+  ]
+}

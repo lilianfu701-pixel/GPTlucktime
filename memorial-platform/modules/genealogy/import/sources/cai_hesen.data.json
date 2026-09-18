@@ -1,0 +1,118 @@
+{
+  "key": "wikidata:cai_hesen",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q10417572",
+      "name": "葛健豪",
+      "citation": "维基百科 / Wikidata Q10417572",
+      "aliases": [
+        "Ge Jianhao"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1865
+      },
+      "death": {
+        "year": 1943
+      },
+      "bio": "Chinese activist, born 1865",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/GeJianHao.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q2933170",
+      "name": "蔡畅",
+      "citation": "维基百科 / Wikidata Q2933170",
+      "aliases": [
+        "Cai Chang"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1900
+      },
+      "death": {
+        "year": 1990
+      },
+      "bio": "中华人民共和国女性革命家、政治家 (1900-1990)",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Cai%20Chang.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q463096",
+      "name": "向警予",
+      "citation": "维基百科 / Wikidata Q463096",
+      "aliases": [
+        "Xiang Jingyu"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1895
+      },
+      "death": {
+        "year": 1928
+      },
+      "bio": "中共黨員及早期創黨領導人、女烈士",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/%E5%90%91%E8%AD%A6%E4%BA%88.jpg",
+      "photoCredit": "作者：The original uploader was Juansheng at Chinese Wikipedia. · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q632505",
+      "name": "李富春",
+      "citation": "维基百科 / Wikidata Q632505",
+      "aliases": [
+        "Li Fuchun"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1900
+      },
+      "death": {
+        "year": 1975
+      },
+      "bio": "中华人民共和国原国家计划委员会主任",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Li%20Fuchun.jpg",
+      "photoCredit": "作者：吴印咸 (Wu Yinxian) · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q837331",
+      "name": "蔡和森",
+      "citation": "维基百科 / Wikidata Q837331",
+      "aliases": [
+        "Cai Hesen"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1895
+      },
+      "death": {
+        "year": 1931
+      },
+      "bio": "中国共产党领导人",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Cai%20Hesen.jpg",
+      "photoCredit": "作者：不详 · 公有领域 · 来源：Wikimedia Commons"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q10417572",
+      "child": "Q837331"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q10417572",
+      "child": "Q2933170"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q463096",
+      "b": "Q837331"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q2933170",
+      "b": "Q632505"
+    }
+  ]
+}

@@ -175,6 +175,15 @@ import mifu from "./mifu.data.json";
 import zhengxuan from "./zhengxuan.data.json";
 import qibaishi from "./qibaishi.data.json";
 import wuchangshuo from "./wuchangshuo.data.json";
+// Wave 9 — 民国政要 + 革命先驱 + 唐代诗人 + 近现代文化名人。
+import xu_zhimo from "./xu_zhimo.data.json";
+import lin_yutang from "./lin_yutang.data.json";
+import wang_jingwei from "./wang_jingwei.data.json";
+import cai_hesen from "./cai_hesen.data.json";
+import ye_jianying from "./ye_jianying.data.json";
+import li_shangyin from "./li_shangyin.data.json";
+import chen_lifu from "./chen_lifu.data.json";
+import bai_chongxi from "./bai_chongxi.data.json";
 
 /**
  * Every Wikidata-sourced family in one registry, so wiring a new one is a single
@@ -365,6 +374,15 @@ const FAMILIES: { key: string; label: string; dataset: GenealogyDataset }[] = [
   { key: "zhengxuan", label: "郑玄家族（汉代经学）", dataset: zhengxuan as GenealogyDataset },
   { key: "qibaishi", label: "齐白石家族", dataset: qibaishi as GenealogyDataset },
   { key: "wuchangshuo", label: "吴昌硕家族", dataset: wuchangshuo as GenealogyDataset },
+  // 第九批：民国政要 + 革命先驱 + 唐代诗人 + 近现代文化名人。
+  { key: "xu_zhimo", label: "徐志摩家族（新月派·陆小曼）", dataset: xu_zhimo as GenealogyDataset },
+  { key: "lin_yutang", label: "林语堂家族", dataset: lin_yutang as GenealogyDataset },
+  { key: "wang_jingwei", label: "汪精卫家族（汪兆镛）", dataset: wang_jingwei as GenealogyDataset },
+  { key: "cai_hesen", label: "蔡和森家族（葛健豪·蔡畅·向警予）", dataset: cai_hesen as GenealogyDataset },
+  { key: "ye_jianying", label: "叶剑英家族", dataset: ye_jianying as GenealogyDataset },
+  { key: "li_shangyin", label: "李商隐家族（晚唐诗人）", dataset: li_shangyin as GenealogyDataset },
+  { key: "chen_lifu", label: "陈立夫家族（CC系·陈果夫）", dataset: chen_lifu as GenealogyDataset },
+  { key: "bai_chongxi", label: "白崇禧家族（桂系·白先勇）", dataset: bai_chongxi as GenealogyDataset },
 ];
 
 export type WikidataFamilyMeta = {

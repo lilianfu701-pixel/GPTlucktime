@@ -1,0 +1,90 @@
+{
+  "key": "wikidata:lin_yutang",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q11105890",
+      "name": "林太乙",
+      "citation": "维基百科 / Wikidata Q11105890",
+      "aliases": [
+        "Tai-yi Lin"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1926
+      },
+      "death": {
+        "year": 2003
+      },
+      "bio": "writer and translator (1926-2003)"
+    },
+    {
+      "externalId": "Q11178763",
+      "name": "黎明",
+      "citation": "维基百科 / Wikidata Q11178763",
+      "aliases": [
+        "Richard Lai Ming"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1920
+      },
+      "death": {
+        "year": 2011
+      },
+      "bio": "香港傳媒工作者、公務員及作家"
+    },
+    {
+      "externalId": "Q19840348",
+      "name": "林如斯",
+      "citation": "维基百科 / Wikidata Q19840348",
+      "aliases": [
+        "Adet Lin"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1923
+      },
+      "death": {
+        "year": 1971
+      },
+      "bio": "writer and translator"
+    },
+    {
+      "externalId": "Q334086",
+      "name": "林语堂",
+      "citation": "维基百科 / Wikidata Q334086",
+      "aliases": [
+        "林語堂",
+        "Lin Yutang"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1895
+      },
+      "death": {
+        "year": 1976
+      },
+      "bio": "中国语言学家、文学家与发明家",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Linyutang.jpg",
+      "photoCredit": "作者：Carl Van Vechten · 公有领域 · 来源：Wikimedia Commons"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q334086",
+      "child": "Q11105890"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q334086",
+      "child": "Q19840348"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q11105890",
+      "b": "Q11178763"
+    }
+  ]
+}

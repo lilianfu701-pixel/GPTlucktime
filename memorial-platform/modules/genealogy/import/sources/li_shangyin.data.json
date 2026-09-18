@@ -1,0 +1,93 @@
+{
+  "key": "wikidata:li_shangyin",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q203782",
+      "name": "李商隐",
+      "citation": "维基百科 / Wikidata Q203782",
+      "aliases": [
+        "Li Shangyin"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 813
+      },
+      "death": {
+        "year": 858
+      },
+      "bio": "唐代诗人",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Li%20Shangyin.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q45406121",
+      "name": "李叔恒",
+      "citation": "维基百科 / Wikidata Q45406121",
+      "aliases": [
+        "李叔恆",
+        "Li Shuheng"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 761
+      },
+      "bio": "Tang dynasty person CBDB = 24409"
+    },
+    {
+      "externalId": "Q45406122",
+      "name": "李俌",
+      "citation": "维基百科 / Wikidata Q45406122",
+      "aliases": [
+        "Li Fu"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 798
+      },
+      "bio": "Tang dynasty person CBDB = 24410"
+    },
+    {
+      "externalId": "Q45406124",
+      "name": "李嗣",
+      "citation": "维基百科 / Wikidata Q45406124",
+      "aliases": [
+        "Li Si"
+      ],
+      "gender": "male",
+      "bio": "Tang dynasty person CBDB = 24411"
+    },
+    {
+      "externalId": "Q45406129",
+      "name": "李廷珪",
+      "citation": "维基百科 / Wikidata Q45406129",
+      "aliases": [
+        "Li Tinggui"
+      ],
+      "gender": "male",
+      "bio": "Tang dynasty person CBDB = 24413"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q45406124",
+      "child": "Q203782"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45406121",
+      "child": "Q45406122"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45406122",
+      "child": "Q45406124"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q203782",
+      "child": "Q45406129"
+    }
+  ]
+}

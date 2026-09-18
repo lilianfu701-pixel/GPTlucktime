@@ -1,0 +1,109 @@
+{
+  "key": "wikidata:chen_lifu",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q11658310",
+      "name": "陈其采",
+      "citation": "维基百科 / Wikidata Q11658310",
+      "aliases": [
+        "陳其采",
+        "Chen Qicai"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1880
+      },
+      "death": {
+        "year": 1954
+      },
+      "bio": "中华民国政治人物",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Chen%20Qicai2.jpg",
+      "photoCredit": "作者：Unknown; scanned by Internet Archive (https://archive.org/) · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q116728544",
+      "name": "陈其业",
+      "citation": "维基百科 / Wikidata Q116728544",
+      "aliases": [
+        "陳其業"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1870
+      },
+      "death": {
+        "year": 1961
+      }
+    },
+    {
+      "externalId": "Q697768",
+      "name": "陈果夫",
+      "citation": "维基百科 / Wikidata Q697768",
+      "aliases": [
+        "陳果夫",
+        "Chen Guofu"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1892
+      },
+      "death": {
+        "year": 1951
+      },
+      "bio": "中華民國政治人物 (1892-1951)",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Chen%20Guofu.jpg",
+      "photoCredit": "作者：Unknown; scanned by 天竺鼠 (talk) 07:54, 23 August 2009 (UTC) · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q698368",
+      "name": "陈立夫",
+      "citation": "维基百科 / Wikidata Q698368",
+      "aliases": [
+        "陳立夫",
+        "Chen Lifu"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1900
+      },
+      "death": {
+        "year": 2001
+      },
+      "bio": "中華民國政治人物 (1900-2001)",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Chen%20Lifu%2001.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q715393",
+      "name": "陈其美",
+      "citation": "维基百科 / Wikidata Q715393",
+      "aliases": [
+        "陳其美",
+        "Chen Qimei"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1878
+      },
+      "death": {
+        "year": 1916
+      },
+      "bio": "中華民國政治人物 (1878-1916)",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Chen%20Qi-mei.png",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q116728544",
+      "child": "Q697768"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q116728544",
+      "child": "Q698368"
+    }
+  ]
+}

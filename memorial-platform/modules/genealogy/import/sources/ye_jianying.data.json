@@ -1,0 +1,291 @@
+{
+  "key": "wikidata:ye_jianying",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q10895923",
+      "name": "凌孜",
+      "citation": "维基百科 / Wikidata Q10895923",
+      "aliases": [
+        "Ling Zi"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1941
+      },
+      "living": true,
+      "bio": "film director"
+    },
+    {
+      "externalId": "Q10916468",
+      "name": "叶道英",
+      "citation": "维基百科 / Wikidata Q10916468",
+      "aliases": [
+        "Ye Daoying"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1906
+      },
+      "death": {
+        "year": 1989
+      },
+      "bio": "叶剑英之弟"
+    },
+    {
+      "externalId": "Q11091470",
+      "name": "曾宪植",
+      "citation": "维基百科 / Wikidata Q11091470",
+      "aliases": [
+        "Zeng Xianzhi"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1910
+      },
+      "death": {
+        "year": 1989
+      },
+      "bio": "叶剑英之妻",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Zeng%20Xianzhi%202.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q125473896",
+      "name": "吴博",
+      "citation": "维基百科 / Wikidata Q125473896",
+      "aliases": [
+        "Wu Bo"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1917
+      },
+      "death": {
+        "year": 2023
+      },
+      "bio": "原延安八路军总部秘书、叶剑英第五任妻子"
+    },
+    {
+      "externalId": "Q130343584",
+      "name": "叶楚梅",
+      "citation": "维基百科 / Wikidata Q130343584",
+      "aliases": [
+        "Ye Chumei"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1928
+      },
+      "death": {
+        "year": 2024
+      }
+    },
+    {
+      "externalId": "Q18638697",
+      "name": "叶晴晴",
+      "citation": "维基百科 / Wikidata Q18638697",
+      "aliases": [
+        "Robynn Yip"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1986
+      },
+      "living": true,
+      "bio": "叶剑英孙女"
+    },
+    {
+      "externalId": "Q504372",
+      "name": "叶剑英",
+      "citation": "维基百科 / Wikidata Q504372",
+      "aliases": [
+        "葉劍英",
+        "Ye Jianying"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1897
+      },
+      "death": {
+        "year": 1986
+      },
+      "bio": "中华人民共和国十大元帅之一，第五届全国人民代表大会常务委员会委员长",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Ye%20Jianying.jpg",
+      "photoCredit": "作者：解放军画报 刘峰 · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q5972648",
+      "name": "叶选平",
+      "citation": "维基百科 / Wikidata Q5972648",
+      "aliases": [
+        "Ye Xuanping"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1924
+      },
+      "death": {
+        "year": 2019
+      },
+      "bio": "前广东省长和广州市长，叶剑英元帅的长子"
+    },
+    {
+      "externalId": "Q60992577",
+      "name": "危拱之",
+      "citation": "维基百科 / Wikidata Q60992577",
+      "aliases": [
+        "Wei Gongzhi"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1905
+      },
+      "death": {
+        "year": 1973
+      },
+      "bio": "中共党员、叶剑英第四任妻子"
+    },
+    {
+      "externalId": "Q8248994",
+      "name": "叶静子",
+      "citation": "维基百科 / Wikidata Q8248994",
+      "aliases": [
+        "Maggie Ip"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1975
+      },
+      "living": true,
+      "bio": "叶剑英孙女"
+    },
+    {
+      "externalId": "Q8294190",
+      "name": "邹家华",
+      "citation": "维基百科 / Wikidata Q8294190",
+      "aliases": [
+        "Zou Jiahua"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1926
+      },
+      "death": {
+        "year": 2025
+      },
+      "bio": "前中华人民共和国国务院副总理（1926-2025）"
+    },
+    {
+      "externalId": "Q8321129",
+      "name": "叶选宁",
+      "citation": "维基百科 / Wikidata Q8321129",
+      "aliases": [
+        "Ye Xuanning"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1938
+      },
+      "death": {
+        "year": 2016
+      },
+      "bio": "中国政治人物"
+    },
+    {
+      "externalId": "Q9186039",
+      "name": "叶选廉",
+      "citation": "维基百科 / Wikidata Q9186039",
+      "aliases": [
+        "Ye Xuanlian"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1952
+      },
+      "living": true,
+      "bio": "叶剑英之子"
+    },
+    {
+      "externalId": "Q9348400",
+      "name": "赵欣瑜",
+      "citation": "维基百科 / Wikidata Q9348400",
+      "aliases": [
+        "Zhao Xinyu"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1969
+      },
+      "living": true,
+      "bio": "中国女歌手"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q504372",
+      "child": "Q5972648"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q8321129",
+      "child": "Q8248994"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q504372",
+      "child": "Q8321129"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q504372",
+      "child": "Q9186039"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q504372",
+      "child": "Q10895923"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q9186039",
+      "child": "Q18638697"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q504372",
+      "child": "Q130343584"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q11091470",
+      "child": "Q8321129"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q11091470",
+      "b": "Q504372"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q504372",
+      "b": "Q60992577"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q125473896",
+      "b": "Q504372"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q130343584",
+      "b": "Q8294190"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q9186039",
+      "b": "Q9348400"
+    }
+  ]
+}

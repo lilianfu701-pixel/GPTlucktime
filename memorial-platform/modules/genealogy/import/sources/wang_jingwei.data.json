@@ -1,0 +1,66 @@
+{
+  "key": "wikidata:wang_jingwei",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q11136451",
+      "name": "汪兆镛",
+      "citation": "维基百科 / Wikidata Q11136451",
+      "aliases": [
+        "汪兆鏞",
+        "Wang Zhaoyong"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1861
+      },
+      "death": {
+        "year": 1939
+      },
+      "bio": "Republic of China person CBDB = 79336"
+    },
+    {
+      "externalId": "Q22303",
+      "name": "汪精卫",
+      "citation": "维基百科 / Wikidata Q22303",
+      "aliases": [
+        "Wang Jingwei"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1883
+      },
+      "death": {
+        "year": 1944
+      },
+      "bio": "中华民国政治家",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/%E6%B1%AA%E7%B2%BE%E8%A1%9B%E7%85%A7%E7%89%87.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q8263880",
+      "name": "陈璧君",
+      "citation": "维基百科 / Wikidata Q8263880",
+      "aliases": [
+        "Chen Bijun"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1891
+      },
+      "death": {
+        "year": 1959
+      },
+      "bio": "中华民国政治人物",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Chen%20Bijun.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "spouse",
+      "a": "Q22303",
+      "b": "Q8263880"
+    }
+  ]
+}
