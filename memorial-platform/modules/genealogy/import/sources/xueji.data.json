@@ -1,0 +1,447 @@
+{
+  "key": "cbdb:xueji",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "31552",
+      "name": "薛稷",
+      "citation": "CBDB 中国历代人物传记资料库 person 31552",
+      "gender": "male",
+      "birth": {
+        "year": 649
+      },
+      "death": {
+        "year": 713
+      }
+    },
+    {
+      "externalId": "31551",
+      "name": "薛仁偉",
+      "citation": "CBDB 中国历代人物传记资料库 person 31551",
+      "gender": "male"
+    },
+    {
+      "externalId": "180257",
+      "name": "薛伯陵",
+      "citation": "CBDB 中国历代人物传记资料库 person 180257",
+      "gender": "male",
+      "death": {
+        "year": 793
+      }
+    },
+    {
+      "externalId": "31553",
+      "name": "薛伯陽",
+      "citation": "CBDB 中国历代人物传记资料库 person 31553",
+      "gender": "male"
+    },
+    {
+      "externalId": "31550",
+      "name": "薛行",
+      "citation": "CBDB 中国历代人物传记资料库 person 31550",
+      "gender": "male"
+    },
+    {
+      "externalId": "180253",
+      "name": "薛行成",
+      "citation": "CBDB 中国历代人物传记资料库 person 180253",
+      "gender": "male",
+      "death": {
+        "year": 682
+      }
+    },
+    {
+      "externalId": "31554",
+      "name": "薛談",
+      "citation": "CBDB 中国历代人物传记资料库 person 31554",
+      "gender": "male"
+    },
+    {
+      "externalId": "194431",
+      "name": "李氏(常山公主)",
+      "citation": "CBDB 中国历代人物传记资料库 person 194431",
+      "gender": "female",
+      "death": {
+        "year": 771
+      }
+    },
+    {
+      "externalId": "31549",
+      "name": "薛大年",
+      "citation": "CBDB 中国历代人物传记资料库 person 31549",
+      "gender": "male"
+    },
+    {
+      "externalId": "18767",
+      "name": "薛道衡",
+      "citation": "CBDB 中国历代人物传记资料库 person 18767",
+      "gender": "male"
+    },
+    {
+      "externalId": "162856",
+      "name": "薛道衡",
+      "citation": "CBDB 中国历代人物传记资料库 person 162856",
+      "gender": "male"
+    },
+    {
+      "externalId": "18766",
+      "name": "薛孝通",
+      "citation": "CBDB 中国历代人物传记资料库 person 18766",
+      "gender": "male",
+      "death": {
+        "year": 539
+      }
+    },
+    {
+      "externalId": "162855",
+      "name": "薛孝通",
+      "citation": "CBDB 中国历代人物传记资料库 person 162855",
+      "gender": "male"
+    },
+    {
+      "externalId": "18765",
+      "name": "薛聰",
+      "citation": "CBDB 中国历代人物传记资料库 person 18765",
+      "gender": "male"
+    },
+    {
+      "externalId": "162854",
+      "name": "薛聰",
+      "citation": "CBDB 中国历代人物传记资料库 person 162854",
+      "gender": "male"
+    },
+    {
+      "externalId": "18764",
+      "name": "薛瑚",
+      "citation": "CBDB 中国历代人物传记资料库 person 18764",
+      "gender": "male"
+    },
+    {
+      "externalId": "180237",
+      "name": "薛瑚",
+      "citation": "CBDB 中国历代人物传记资料库 person 180237",
+      "gender": "male",
+      "death": {
+        "year": 497
+      }
+    },
+    {
+      "externalId": "18762",
+      "name": "薛謹",
+      "citation": "CBDB 中国历代人物传记资料库 person 18762",
+      "gender": "male"
+    },
+    {
+      "externalId": "18761",
+      "name": "薛辯",
+      "citation": "CBDB 中国历代人物传记资料库 person 18761",
+      "gender": "male"
+    },
+    {
+      "externalId": "18760",
+      "name": "薛強",
+      "citation": "CBDB 中国历代人物传记资料库 person 18760",
+      "gender": "male"
+    },
+    {
+      "externalId": "18759",
+      "name": "薛濤",
+      "citation": "CBDB 中国历代人物传记资料库 person 18759",
+      "gender": "male"
+    },
+    {
+      "externalId": "18758",
+      "name": "薛興",
+      "citation": "CBDB 中国历代人物传记资料库 person 18758",
+      "gender": "male"
+    },
+    {
+      "externalId": "18755",
+      "name": "薛懿",
+      "citation": "CBDB 中国历代人物传记资料库 person 18755",
+      "gender": "male"
+    },
+    {
+      "externalId": "18754",
+      "name": "薛齊",
+      "citation": "CBDB 中国历代人物传记资料库 person 18754",
+      "gender": "male"
+    },
+    {
+      "externalId": "18753",
+      "name": "薛永",
+      "citation": "CBDB 中国历代人物传记资料库 person 18753",
+      "gender": "male"
+    },
+    {
+      "externalId": "18752",
+      "name": "薛蘭",
+      "citation": "CBDB 中国历代人物传记资料库 person 18752",
+      "gender": "male"
+    },
+    {
+      "externalId": "18751",
+      "name": "薛衍",
+      "citation": "CBDB 中国历代人物传记资料库 person 18751",
+      "gender": "male"
+    },
+    {
+      "externalId": "18750",
+      "name": "薛文伯",
+      "citation": "CBDB 中国历代人物传记资料库 person 18750",
+      "gender": "male"
+    },
+    {
+      "externalId": "18749",
+      "name": "薛固",
+      "citation": "CBDB 中国历代人物传记资料库 person 18749",
+      "gender": "male"
+    },
+    {
+      "externalId": "18748",
+      "name": "薛山塗",
+      "citation": "CBDB 中国历代人物传记资料库 person 18748",
+      "gender": "male"
+    },
+    {
+      "externalId": "18745",
+      "name": "薛脩",
+      "citation": "CBDB 中国历代人物传记资料库 person 18745",
+      "gender": "male"
+    },
+    {
+      "externalId": "18747",
+      "name": "薛安期",
+      "citation": "CBDB 中国历代人物传记资料库 person 18747",
+      "gender": "male"
+    },
+    {
+      "externalId": "18746",
+      "name": "薛彪",
+      "citation": "CBDB 中国历代人物传记资料库 person 18746",
+      "gender": "male"
+    },
+    {
+      "externalId": "18744",
+      "name": "薛漢",
+      "citation": "CBDB 中国历代人物传记资料库 person 18744",
+      "gender": "male"
+    },
+    {
+      "externalId": "18743",
+      "name": "薛方丘",
+      "citation": "CBDB 中国历代人物传记资料库 person 18743",
+      "gender": "male"
+    },
+    {
+      "externalId": "18742",
+      "name": "薛愿",
+      "citation": "CBDB 中国历代人物传记资料库 person 18742",
+      "gender": "male"
+    },
+    {
+      "externalId": "18741",
+      "name": "薛饒",
+      "citation": "CBDB 中国历代人物传记资料库 person 18741",
+      "gender": "male"
+    },
+    {
+      "externalId": "18740",
+      "name": "薛廣德",
+      "citation": "CBDB 中国历代人物传记资料库 person 18740",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "31551",
+      "child": "31552"
+    },
+    {
+      "kind": "parent",
+      "parent": "31552",
+      "child": "180257"
+    },
+    {
+      "kind": "parent",
+      "parent": "31552",
+      "child": "31553"
+    },
+    {
+      "kind": "parent",
+      "parent": "31550",
+      "child": "31551"
+    },
+    {
+      "kind": "parent",
+      "parent": "180253",
+      "child": "31551"
+    },
+    {
+      "kind": "parent",
+      "parent": "31553",
+      "child": "31554"
+    },
+    {
+      "kind": "parent",
+      "parent": "31549",
+      "child": "31550"
+    },
+    {
+      "kind": "parent",
+      "parent": "31549",
+      "child": "180253"
+    },
+    {
+      "kind": "spouse",
+      "a": "194431",
+      "b": "31554"
+    },
+    {
+      "kind": "parent",
+      "parent": "18767",
+      "child": "31549"
+    },
+    {
+      "kind": "parent",
+      "parent": "162856",
+      "child": "31549"
+    },
+    {
+      "kind": "parent",
+      "parent": "18766",
+      "child": "18767"
+    },
+    {
+      "kind": "parent",
+      "parent": "162855",
+      "child": "162856"
+    },
+    {
+      "kind": "parent",
+      "parent": "18765",
+      "child": "18766"
+    },
+    {
+      "kind": "parent",
+      "parent": "162854",
+      "child": "162855"
+    },
+    {
+      "kind": "parent",
+      "parent": "18764",
+      "child": "18765"
+    },
+    {
+      "kind": "parent",
+      "parent": "180237",
+      "child": "162854"
+    },
+    {
+      "kind": "parent",
+      "parent": "18762",
+      "child": "18764"
+    },
+    {
+      "kind": "parent",
+      "parent": "18761",
+      "child": "18762"
+    },
+    {
+      "kind": "parent",
+      "parent": "18760",
+      "child": "18761"
+    },
+    {
+      "kind": "parent",
+      "parent": "18759",
+      "child": "18760"
+    },
+    {
+      "kind": "parent",
+      "parent": "18758",
+      "child": "18759"
+    },
+    {
+      "kind": "parent",
+      "parent": "18755",
+      "child": "18758"
+    },
+    {
+      "kind": "parent",
+      "parent": "18754",
+      "child": "18755"
+    },
+    {
+      "kind": "parent",
+      "parent": "18753",
+      "child": "18754"
+    },
+    {
+      "kind": "parent",
+      "parent": "18752",
+      "child": "18753"
+    },
+    {
+      "kind": "parent",
+      "parent": "18751",
+      "child": "18752"
+    },
+    {
+      "kind": "parent",
+      "parent": "18750",
+      "child": "18751"
+    },
+    {
+      "kind": "parent",
+      "parent": "18749",
+      "child": "18750"
+    },
+    {
+      "kind": "parent",
+      "parent": "18748",
+      "child": "18749"
+    },
+    {
+      "kind": "parent",
+      "parent": "18745",
+      "child": "18748"
+    },
+    {
+      "kind": "parent",
+      "parent": "18747",
+      "child": "18745"
+    },
+    {
+      "kind": "parent",
+      "parent": "18746",
+      "child": "18747"
+    },
+    {
+      "kind": "parent",
+      "parent": "18744",
+      "child": "18746"
+    },
+    {
+      "kind": "parent",
+      "parent": "18743",
+      "child": "18744"
+    },
+    {
+      "kind": "parent",
+      "parent": "18742",
+      "child": "18743"
+    },
+    {
+      "kind": "parent",
+      "parent": "18741",
+      "child": "18742"
+    },
+    {
+      "kind": "parent",
+      "parent": "18740",
+      "child": "18741"
+    }
+  ]
+}

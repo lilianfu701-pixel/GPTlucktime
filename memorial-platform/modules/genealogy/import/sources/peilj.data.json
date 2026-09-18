@@ -1,0 +1,406 @@
+{
+  "key": "cbdb:peilj",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "31917",
+      "name": "裴寂",
+      "citation": "CBDB 中国历代人物传记资料库 person 31917",
+      "gender": "male",
+      "birth": {
+        "year": 570
+      },
+      "death": {
+        "year": 629
+      }
+    },
+    {
+      "externalId": "31916",
+      "name": "裴孝瑜",
+      "citation": "CBDB 中国历代人物传记资料库 person 31916",
+      "gender": "male"
+    },
+    {
+      "externalId": "31918",
+      "name": "裴律師",
+      "citation": "CBDB 中国历代人物传记资料库 person 31918",
+      "gender": "male"
+    },
+    {
+      "externalId": "170572",
+      "name": "裴法師",
+      "citation": "CBDB 中国历代人物传记资料库 person 170572",
+      "gender": "male",
+      "death": {
+        "year": 666
+      }
+    },
+    {
+      "externalId": "31915",
+      "name": "裴融",
+      "citation": "CBDB 中国历代人物传记资料库 person 31915",
+      "gender": "male"
+    },
+    {
+      "externalId": "170558",
+      "name": "裴融",
+      "citation": "CBDB 中国历代人物传记资料库 person 170558",
+      "gender": "male",
+      "death": {
+        "year": 555
+      }
+    },
+    {
+      "externalId": "170569",
+      "name": "裴承光",
+      "citation": "CBDB 中国历代人物传记资料库 person 170569",
+      "gender": "male",
+      "death": {
+        "year": 703
+      }
+    },
+    {
+      "externalId": "170570",
+      "name": "裴承祿",
+      "citation": "CBDB 中国历代人物传记资料库 person 170570",
+      "gender": "male",
+      "death": {
+        "year": 703
+      }
+    },
+    {
+      "externalId": "31919",
+      "name": "裴承先",
+      "citation": "CBDB 中国历代人物传记资料库 person 31919",
+      "gender": "male"
+    },
+    {
+      "externalId": "31914",
+      "name": "裴韜",
+      "citation": "CBDB 中国历代人物传记资料库 person 31914",
+      "gender": "male"
+    },
+    {
+      "externalId": "170557",
+      "name": "裴韜",
+      "citation": "CBDB 中国历代人物传记资料库 person 170557",
+      "gender": "male",
+      "death": {
+        "year": 518
+      }
+    },
+    {
+      "externalId": "170571",
+      "name": "裴景僊",
+      "citation": "CBDB 中国历代人物传记资料库 person 170571",
+      "gender": "male",
+      "death": {
+        "year": 740
+      }
+    },
+    {
+      "externalId": "31913",
+      "name": "裴會",
+      "citation": "CBDB 中国历代人物传记资料库 person 31913",
+      "gender": "male"
+    },
+    {
+      "externalId": "170556",
+      "name": "裴會",
+      "citation": "CBDB 中国历代人物传记资料库 person 170556",
+      "gender": "male",
+      "death": {
+        "year": 533
+      }
+    },
+    {
+      "externalId": "31911",
+      "name": "裴景惠",
+      "citation": "CBDB 中国历代人物传记资料库 person 31911",
+      "gender": "male"
+    },
+    {
+      "externalId": "170555",
+      "name": "裴景惠",
+      "citation": "CBDB 中国历代人物传记资料库 person 170555",
+      "gender": "male",
+      "death": {
+        "year": 496
+      }
+    },
+    {
+      "externalId": "31912",
+      "name": "裴種",
+      "citation": "CBDB 中国历代人物传记资料库 person 31912",
+      "gender": "male"
+    },
+    {
+      "externalId": "195401",
+      "name": "裴鍾",
+      "citation": "CBDB 中国历代人物传记资料库 person 195401",
+      "gender": "male",
+      "death": {
+        "year": 459
+      }
+    },
+    {
+      "externalId": "31910",
+      "name": "裴和",
+      "citation": "CBDB 中国历代人物传记资料库 person 31910",
+      "gender": "male"
+    },
+    {
+      "externalId": "195402",
+      "name": "裴和",
+      "citation": "CBDB 中国历代人物传记资料库 person 195402",
+      "gender": "male",
+      "death": {
+        "year": 422
+      }
+    },
+    {
+      "externalId": "31909",
+      "name": "裴劭",
+      "citation": "CBDB 中国历代人物传记资料库 person 31909",
+      "gender": "male"
+    },
+    {
+      "externalId": "195403",
+      "name": "裴劭",
+      "citation": "CBDB 中国历代人物传记资料库 person 195403",
+      "gender": "male",
+      "death": {
+        "year": 385
+      }
+    },
+    {
+      "externalId": "31908",
+      "name": "裴詵",
+      "citation": "CBDB 中国历代人物传记资料库 person 31908",
+      "gender": "male"
+    },
+    {
+      "externalId": "195404",
+      "name": "裴詵",
+      "citation": "CBDB 中国历代人物传记资料库 person 195404",
+      "gender": "male",
+      "death": {
+        "year": 348
+      }
+    },
+    {
+      "externalId": "31865",
+      "name": "裴粹",
+      "citation": "CBDB 中国历代人物传记资料库 person 31865",
+      "gender": "male"
+    },
+    {
+      "externalId": "195405",
+      "name": "裴粹",
+      "citation": "CBDB 中国历代人物传记资料库 person 195405",
+      "gender": "male",
+      "death": {
+        "year": 311
+      }
+    },
+    {
+      "externalId": "31861",
+      "name": "裴黎",
+      "citation": "CBDB 中国历代人物传记资料库 person 31861",
+      "gender": "male"
+    },
+    {
+      "externalId": "195407",
+      "name": "裴黎",
+      "citation": "CBDB 中国历代人物传记资料库 person 195407",
+      "gender": "male",
+      "death": {
+        "year": 274
+      }
+    },
+    {
+      "externalId": "31860",
+      "name": "裴徽",
+      "citation": "CBDB 中国历代人物传记资料库 person 31860",
+      "gender": "male"
+    },
+    {
+      "externalId": "195409",
+      "name": "裴徽",
+      "citation": "CBDB 中国历代人物传记资料库 person 195409",
+      "gender": "male",
+      "death": {
+        "year": 237
+      }
+    },
+    {
+      "externalId": "31857",
+      "name": "裴茂",
+      "citation": "CBDB 中国历代人物传记资料库 person 31857",
+      "gender": "male"
+    },
+    {
+      "externalId": "31856",
+      "name": "裴曄",
+      "citation": "CBDB 中国历代人物传记资料库 person 31856",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "31916",
+      "child": "31917"
+    },
+    {
+      "kind": "parent",
+      "parent": "31917",
+      "child": "31918"
+    },
+    {
+      "kind": "parent",
+      "parent": "31917",
+      "child": "170572"
+    },
+    {
+      "kind": "parent",
+      "parent": "31915",
+      "child": "31916"
+    },
+    {
+      "kind": "parent",
+      "parent": "170558",
+      "child": "31916"
+    },
+    {
+      "kind": "parent",
+      "parent": "31918",
+      "child": "170569"
+    },
+    {
+      "kind": "parent",
+      "parent": "31918",
+      "child": "170570"
+    },
+    {
+      "kind": "parent",
+      "parent": "31918",
+      "child": "31919"
+    },
+    {
+      "kind": "parent",
+      "parent": "31914",
+      "child": "31915"
+    },
+    {
+      "kind": "parent",
+      "parent": "170557",
+      "child": "170558"
+    },
+    {
+      "kind": "parent",
+      "parent": "170570",
+      "child": "170571"
+    },
+    {
+      "kind": "parent",
+      "parent": "31913",
+      "child": "31914"
+    },
+    {
+      "kind": "parent",
+      "parent": "170556",
+      "child": "170557"
+    },
+    {
+      "kind": "parent",
+      "parent": "31911",
+      "child": "31913"
+    },
+    {
+      "kind": "parent",
+      "parent": "170555",
+      "child": "170556"
+    },
+    {
+      "kind": "parent",
+      "parent": "31912",
+      "child": "31911"
+    },
+    {
+      "kind": "parent",
+      "parent": "195401",
+      "child": "170555"
+    },
+    {
+      "kind": "parent",
+      "parent": "31910",
+      "child": "31912"
+    },
+    {
+      "kind": "parent",
+      "parent": "195402",
+      "child": "195401"
+    },
+    {
+      "kind": "parent",
+      "parent": "31909",
+      "child": "31910"
+    },
+    {
+      "kind": "parent",
+      "parent": "195403",
+      "child": "195402"
+    },
+    {
+      "kind": "parent",
+      "parent": "31908",
+      "child": "31909"
+    },
+    {
+      "kind": "parent",
+      "parent": "195404",
+      "child": "195403"
+    },
+    {
+      "kind": "parent",
+      "parent": "31865",
+      "child": "31908"
+    },
+    {
+      "kind": "parent",
+      "parent": "195405",
+      "child": "195404"
+    },
+    {
+      "kind": "parent",
+      "parent": "31861",
+      "child": "31865"
+    },
+    {
+      "kind": "parent",
+      "parent": "195407",
+      "child": "195405"
+    },
+    {
+      "kind": "parent",
+      "parent": "31860",
+      "child": "31861"
+    },
+    {
+      "kind": "parent",
+      "parent": "195409",
+      "child": "195407"
+    },
+    {
+      "kind": "parent",
+      "parent": "31857",
+      "child": "31860"
+    },
+    {
+      "kind": "parent",
+      "parent": "31856",
+      "child": "31857"
+    }
+  ]
+}

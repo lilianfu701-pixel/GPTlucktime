@@ -1,0 +1,233 @@
+{
+  "key": "cbdb:weijian",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "180797",
+      "name": "韋堅",
+      "citation": "CBDB 中国历代人物传记资料库 person 180797",
+      "gender": "male",
+      "death": {
+        "year": 731
+      }
+    },
+    {
+      "externalId": "180796",
+      "name": "韋元珪",
+      "citation": "CBDB 中国历代人物传记资料库 person 180796",
+      "gender": "male",
+      "death": {
+        "year": 694
+      }
+    },
+    {
+      "externalId": "180798",
+      "name": "韋証",
+      "citation": "CBDB 中国历代人物传记资料库 person 180798",
+      "gender": "male",
+      "death": {
+        "year": 768
+      }
+    },
+    {
+      "externalId": "180799",
+      "name": "韋諒",
+      "citation": "CBDB 中国历代人物传记资料库 person 180799",
+      "gender": "male",
+      "death": {
+        "year": 768
+      }
+    },
+    {
+      "externalId": "186792",
+      "name": "韋逸",
+      "citation": "CBDB 中国历代人物传记资料库 person 186792",
+      "gender": "male",
+      "death": {
+        "year": 768
+      }
+    },
+    {
+      "externalId": "180793",
+      "name": "韋師貞",
+      "citation": "CBDB 中国历代人物传记资料库 person 180793",
+      "gender": "male",
+      "death": {
+        "year": 657
+      }
+    },
+    {
+      "externalId": "186791",
+      "name": "韋氏(韋逸女)",
+      "citation": "CBDB 中国历代人物传记资料库 person 186791",
+      "gender": "female",
+      "birth": {
+        "year": 745
+      },
+      "death": {
+        "year": 805
+      }
+    },
+    {
+      "externalId": "145486",
+      "name": "李佶",
+      "citation": "CBDB 中国历代人物传记资料库 person 145486",
+      "gender": "male",
+      "birth": {
+        "year": 742
+      },
+      "death": {
+        "year": 797
+      }
+    },
+    {
+      "externalId": "180792",
+      "name": "韋雲平",
+      "citation": "CBDB 中国历代人物传记资料库 person 180792",
+      "gender": "male",
+      "death": {
+        "year": 666
+      }
+    },
+    {
+      "externalId": "180777",
+      "name": "韋奄",
+      "citation": "CBDB 中国历代人物传记资料库 person 180777",
+      "gender": "male",
+      "death": {
+        "year": 629
+      }
+    },
+    {
+      "externalId": "179881",
+      "name": "韋鴻胄",
+      "citation": "CBDB 中国历代人物传记资料库 person 179881",
+      "gender": "male",
+      "death": {
+        "year": 592
+      }
+    },
+    {
+      "externalId": "192764",
+      "name": "韋邕",
+      "citation": "CBDB 中国历代人物传记资料库 person 192764",
+      "gender": "male",
+      "death": {
+        "year": 555
+      }
+    },
+    {
+      "externalId": "192761",
+      "name": "韋道珍",
+      "citation": "CBDB 中国历代人物传记资料库 person 192761",
+      "gender": "male",
+      "death": {
+        "year": 518
+      }
+    },
+    {
+      "externalId": "192760",
+      "name": "韋閬",
+      "citation": "CBDB 中国历代人物传记资料库 person 192760",
+      "gender": "male",
+      "death": {
+        "year": 481
+      }
+    },
+    {
+      "externalId": "192762",
+      "name": "韋逵",
+      "citation": "CBDB 中国历代人物传记资料库 person 192762",
+      "gender": "male",
+      "death": {
+        "year": 444
+      }
+    },
+    {
+      "externalId": "192763",
+      "name": "韋楷",
+      "citation": "CBDB 中国历代人物传记资料库 person 192763",
+      "gender": "male",
+      "death": {
+        "year": 407
+      }
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "180796",
+      "child": "180797"
+    },
+    {
+      "kind": "parent",
+      "parent": "180797",
+      "child": "180798"
+    },
+    {
+      "kind": "parent",
+      "parent": "180797",
+      "child": "180799"
+    },
+    {
+      "kind": "parent",
+      "parent": "180797",
+      "child": "186792"
+    },
+    {
+      "kind": "parent",
+      "parent": "180793",
+      "child": "180796"
+    },
+    {
+      "kind": "parent",
+      "parent": "186792",
+      "child": "186791"
+    },
+    {
+      "kind": "parent",
+      "parent": "180792",
+      "child": "180793"
+    },
+    {
+      "kind": "spouse",
+      "a": "145486",
+      "b": "186791"
+    },
+    {
+      "kind": "parent",
+      "parent": "180777",
+      "child": "180792"
+    },
+    {
+      "kind": "parent",
+      "parent": "179881",
+      "child": "180777"
+    },
+    {
+      "kind": "parent",
+      "parent": "192764",
+      "child": "179881"
+    },
+    {
+      "kind": "parent",
+      "parent": "192761",
+      "child": "192764"
+    },
+    {
+      "kind": "parent",
+      "parent": "192760",
+      "child": "192761"
+    },
+    {
+      "kind": "parent",
+      "parent": "192762",
+      "child": "192760"
+    },
+    {
+      "kind": "parent",
+      "parent": "192763",
+      "child": "192762"
+    }
+  ]
+}

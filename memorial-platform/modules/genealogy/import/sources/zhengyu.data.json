@@ -1,0 +1,370 @@
+{
+  "key": "cbdb:zhengyu",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "33153",
+      "name": "鄭餘慶",
+      "citation": "CBDB 中国历代人物传记资料库 person 33153",
+      "gender": "male",
+      "birth": {
+        "year": 746
+      },
+      "death": {
+        "year": 820
+      }
+    },
+    {
+      "externalId": "33146",
+      "name": "鄭慈",
+      "citation": "CBDB 中国历代人物传记资料库 person 33146",
+      "gender": "male"
+    },
+    {
+      "externalId": "183590",
+      "name": "鄭慈明",
+      "citation": "CBDB 中国历代人物传记资料库 person 183590",
+      "gender": "male",
+      "death": {
+        "year": 768
+      }
+    },
+    {
+      "externalId": "32998",
+      "name": "鄭長裕",
+      "citation": "CBDB 中国历代人物传记资料库 person 32998",
+      "gender": "male"
+    },
+    {
+      "externalId": "32997",
+      "name": "鄭曾",
+      "citation": "CBDB 中国历代人物传记资料库 person 32997",
+      "gender": "male"
+    },
+    {
+      "externalId": "32996",
+      "name": "鄭九思",
+      "citation": "CBDB 中国历代人物传记资料库 person 32996",
+      "gender": "male"
+    },
+    {
+      "externalId": "32995",
+      "name": "鄭弼",
+      "citation": "CBDB 中国历代人物传记资料库 person 32995",
+      "gender": "male"
+    },
+    {
+      "externalId": "183548",
+      "name": "鄭弼誠",
+      "citation": "CBDB 中国历代人物传记资料库 person 183548",
+      "gender": "male",
+      "death": {
+        "year": 648
+      }
+    },
+    {
+      "externalId": "32994",
+      "name": "鄭撝",
+      "citation": "CBDB 中国历代人物传记资料库 person 32994",
+      "gender": "male"
+    },
+    {
+      "externalId": "32993",
+      "name": "鄭敬德",
+      "citation": "CBDB 中国历代人物传记资料库 person 32993",
+      "gender": "male"
+    },
+    {
+      "externalId": "183406",
+      "name": "鄭敬德",
+      "citation": "CBDB 中国历代人物传记资料库 person 183406",
+      "gender": "male",
+      "death": {
+        "year": 574
+      }
+    },
+    {
+      "externalId": "32367",
+      "name": "鄭幼儒",
+      "citation": "CBDB 中国历代人物传记资料库 person 32367",
+      "gender": "male"
+    },
+    {
+      "externalId": "183187",
+      "name": "鄭幼儒",
+      "citation": "CBDB 中国历代人物传记资料库 person 183187",
+      "gender": "male",
+      "death": {
+        "year": 538
+      }
+    },
+    {
+      "externalId": "32308",
+      "name": "鄭胤",
+      "citation": "CBDB 中国历代人物传记资料库 person 32308",
+      "gender": "male"
+    },
+    {
+      "externalId": "182753",
+      "name": "鄭胤伯",
+      "citation": "CBDB 中国历代人物传记资料库 person 182753",
+      "gender": "male",
+      "death": {
+        "year": 501
+      }
+    },
+    {
+      "externalId": "28159",
+      "name": "鄭士茂",
+      "citation": "CBDB 中国历代人物传记资料库 person 28159",
+      "gender": "male"
+    },
+    {
+      "externalId": "28158",
+      "name": "鄭曄",
+      "citation": "CBDB 中国历代人物传记资料库 person 28158",
+      "gender": "male"
+    },
+    {
+      "externalId": "28157",
+      "name": "鄭溫",
+      "citation": "CBDB 中国历代人物传记资料库 person 28157",
+      "gender": "male"
+    },
+    {
+      "externalId": "28156",
+      "name": "鄭",
+      "citation": "CBDB 中国历代人物传记资料库 person 28156",
+      "gender": "male"
+    },
+    {
+      "externalId": "28155",
+      "name": "鄭略",
+      "citation": "CBDB 中国历代人物传记资料库 person 28155",
+      "gender": "male"
+    },
+    {
+      "externalId": "28154",
+      "name": "鄭隨",
+      "citation": "CBDB 中国历代人物传记资料库 person 28154",
+      "gender": "male"
+    },
+    {
+      "externalId": "28153",
+      "name": "鄭遹",
+      "citation": "CBDB 中国历代人物传记资料库 person 28153",
+      "gender": "male"
+    },
+    {
+      "externalId": "28152",
+      "name": "鄭崇",
+      "citation": "CBDB 中国历代人物传记资料库 person 28152",
+      "gender": "male"
+    },
+    {
+      "externalId": "28151",
+      "name": "鄭渾",
+      "citation": "CBDB 中国历代人物传记资料库 person 28151",
+      "gender": "male"
+    },
+    {
+      "externalId": "28150",
+      "name": "鄭熙",
+      "citation": "CBDB 中国历代人物传记资料库 person 28150",
+      "gender": "male"
+    },
+    {
+      "externalId": "28149",
+      "name": "鄭綝",
+      "citation": "CBDB 中国历代人物传记资料库 person 28149",
+      "gender": "male"
+    },
+    {
+      "externalId": "28148",
+      "name": "鄭安世",
+      "citation": "CBDB 中国历代人物传记资料库 person 28148",
+      "gender": "male"
+    },
+    {
+      "externalId": "28147",
+      "name": "鄭眾",
+      "citation": "CBDB 中国历代人物传记资料库 person 28147",
+      "gender": "male"
+    },
+    {
+      "externalId": "28146",
+      "name": "鄭興",
+      "citation": "CBDB 中国历代人物传记资料库 person 28146",
+      "gender": "male"
+    },
+    {
+      "externalId": "28145",
+      "name": "鄭賓",
+      "citation": "CBDB 中国历代人物传记资料库 person 28145",
+      "gender": "male"
+    },
+    {
+      "externalId": "28144",
+      "name": "鄭稚",
+      "citation": "CBDB 中国历代人物传记资料库 person 28144",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "33146",
+      "child": "33153"
+    },
+    {
+      "kind": "parent",
+      "parent": "183590",
+      "child": "33153"
+    },
+    {
+      "kind": "parent",
+      "parent": "32998",
+      "child": "33146"
+    },
+    {
+      "kind": "parent",
+      "parent": "32997",
+      "child": "32998"
+    },
+    {
+      "kind": "parent",
+      "parent": "32996",
+      "child": "32997"
+    },
+    {
+      "kind": "parent",
+      "parent": "32995",
+      "child": "32996"
+    },
+    {
+      "kind": "parent",
+      "parent": "183548",
+      "child": "32996"
+    },
+    {
+      "kind": "parent",
+      "parent": "32994",
+      "child": "32995"
+    },
+    {
+      "kind": "parent",
+      "parent": "32994",
+      "child": "183548"
+    },
+    {
+      "kind": "parent",
+      "parent": "32993",
+      "child": "32994"
+    },
+    {
+      "kind": "parent",
+      "parent": "183406",
+      "child": "32994"
+    },
+    {
+      "kind": "parent",
+      "parent": "32367",
+      "child": "32993"
+    },
+    {
+      "kind": "parent",
+      "parent": "183187",
+      "child": "183406"
+    },
+    {
+      "kind": "parent",
+      "parent": "32308",
+      "child": "32367"
+    },
+    {
+      "kind": "parent",
+      "parent": "182753",
+      "child": "183187"
+    },
+    {
+      "kind": "parent",
+      "parent": "28159",
+      "child": "32308"
+    },
+    {
+      "kind": "parent",
+      "parent": "28158",
+      "child": "28159"
+    },
+    {
+      "kind": "parent",
+      "parent": "28157",
+      "child": "28158"
+    },
+    {
+      "kind": "parent",
+      "parent": "28156",
+      "child": "28157"
+    },
+    {
+      "kind": "parent",
+      "parent": "28155",
+      "child": "28156"
+    },
+    {
+      "kind": "parent",
+      "parent": "28154",
+      "child": "28155"
+    },
+    {
+      "kind": "parent",
+      "parent": "28153",
+      "child": "28154"
+    },
+    {
+      "kind": "parent",
+      "parent": "28152",
+      "child": "28153"
+    },
+    {
+      "kind": "parent",
+      "parent": "28151",
+      "child": "28152"
+    },
+    {
+      "kind": "parent",
+      "parent": "28150",
+      "child": "28151"
+    },
+    {
+      "kind": "parent",
+      "parent": "28149",
+      "child": "28150"
+    },
+    {
+      "kind": "parent",
+      "parent": "28148",
+      "child": "28149"
+    },
+    {
+      "kind": "parent",
+      "parent": "28147",
+      "child": "28148"
+    },
+    {
+      "kind": "parent",
+      "parent": "28146",
+      "child": "28147"
+    },
+    {
+      "kind": "parent",
+      "parent": "28145",
+      "child": "28146"
+    },
+    {
+      "kind": "parent",
+      "parent": "28144",
+      "child": "28145"
+    }
+  ]
+}

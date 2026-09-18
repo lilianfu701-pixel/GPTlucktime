@@ -1,0 +1,150 @@
+{
+  "key": "cbdb:wangbo",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "30982",
+      "name": "王勃",
+      "citation": "CBDB 中国历代人物传记资料库 person 30982",
+      "gender": "male",
+      "birth": {
+        "year": 650
+      },
+      "death": {
+        "year": 676
+      }
+    },
+    {
+      "externalId": "30885",
+      "name": "王福畤",
+      "citation": "CBDB 中国历代人物传记资料库 person 30885",
+      "gender": "male",
+      "birth": {
+        "year": 622
+      }
+    },
+    {
+      "externalId": "11965",
+      "name": "王通",
+      "citation": "CBDB 中国历代人物传记资料库 person 11965",
+      "gender": "male",
+      "birth": {
+        "year": 583
+      },
+      "death": {
+        "year": 616
+      }
+    },
+    {
+      "externalId": "30883",
+      "name": "王隆",
+      "citation": "CBDB 中国历代人物传记资料库 person 30883",
+      "gender": "male"
+    },
+    {
+      "externalId": "30882",
+      "name": "王傑",
+      "citation": "CBDB 中国历代人物传记资料库 person 30882",
+      "gender": "male"
+    },
+    {
+      "externalId": "30881",
+      "name": "王彥",
+      "citation": "CBDB 中国历代人物传记资料库 person 30881",
+      "gender": "male"
+    },
+    {
+      "externalId": "30880",
+      "name": "王虯",
+      "citation": "CBDB 中国历代人物传记资料库 person 30880",
+      "gender": "male"
+    },
+    {
+      "externalId": "30879",
+      "name": "王煥",
+      "citation": "CBDB 中国历代人物传记资料库 person 30879",
+      "gender": "male"
+    },
+    {
+      "externalId": "30878",
+      "name": "王元則",
+      "citation": "CBDB 中国历代人物传记资料库 person 30878",
+      "gender": "male"
+    },
+    {
+      "externalId": "30876",
+      "name": "王秀",
+      "citation": "CBDB 中国历代人物传记资料库 person 30876",
+      "gender": "male"
+    },
+    {
+      "externalId": "30875",
+      "name": "王罕",
+      "citation": "CBDB 中国历代人物传记资料库 person 30875",
+      "gender": "male"
+    },
+    {
+      "externalId": "30874",
+      "name": "王寓",
+      "citation": "CBDB 中国历代人物传记资料库 person 30874",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "30885",
+      "child": "30982"
+    },
+    {
+      "kind": "parent",
+      "parent": "11965",
+      "child": "30885"
+    },
+    {
+      "kind": "parent",
+      "parent": "30883",
+      "child": "11965"
+    },
+    {
+      "kind": "parent",
+      "parent": "30882",
+      "child": "30883"
+    },
+    {
+      "kind": "parent",
+      "parent": "30881",
+      "child": "30882"
+    },
+    {
+      "kind": "parent",
+      "parent": "30880",
+      "child": "30881"
+    },
+    {
+      "kind": "parent",
+      "parent": "30879",
+      "child": "30880"
+    },
+    {
+      "kind": "parent",
+      "parent": "30878",
+      "child": "30879"
+    },
+    {
+      "kind": "parent",
+      "parent": "30876",
+      "child": "30878"
+    },
+    {
+      "kind": "parent",
+      "parent": "30875",
+      "child": "30876"
+    },
+    {
+      "kind": "parent",
+      "parent": "30874",
+      "child": "30875"
+    }
+  ]
+}
