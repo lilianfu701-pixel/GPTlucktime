@@ -197,6 +197,7 @@ import jia_yi from "./jia_yi.data.json";
 // CBDB（中国历代人物传记资料库）— namespace "cbdb"，与 wikidata 各自去重。
 // 补维基稀薄的深世系官宦/学术世家；数据源为繁体，见各数据集 citation。
 import luyijian from "./luyijian.data.json";
+import luyijian2 from "./luyijian2.data.json";
 
 /**
  * Every Wikidata-sourced family in one registry, so wiring a new one is a single
@@ -407,7 +408,10 @@ const FAMILIES: { key: string; label: string; dataset: GenealogyDataset }[] = [
   { key: "shen_congwen", label: "沈从文家族（张兆和）", dataset: shen_congwen as GenealogyDataset },
   { key: "jia_yi", label: "贾谊家族（西汉政论）", dataset: jia_yi as GenealogyDataset },
   // CBDB 批次（namespace "cbdb"）：深世系官宦/学术世家，补维基之缺。
-  { key: "luyijian", label: "东莱吕氏（吕夷简·吕公著·吕祖谦·北宋相门）", dataset: luyijian as GenealogyDataset },
+  // 东莱吕氏拆成两支重叠导入（各≤45人，避免单支超时导致族谱图建不全）；
+  // 两支共享10人、按 CBDB id 去重后自动重连成一棵树。
+  { key: "luyijian", label: "东莱吕氏·上（吕夷简·吕公著·吕希哲）", dataset: luyijian as GenealogyDataset },
+  { key: "luyijian2", label: "东莱吕氏·下（吕好问·吕本中·吕祖谦）", dataset: luyijian2 as GenealogyDataset },
 ];
 
 export type WikidataFamilyMeta = {

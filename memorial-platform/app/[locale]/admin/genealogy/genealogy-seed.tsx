@@ -141,8 +141,14 @@ export function GenealogySeed(props: {
         }));
         continue;
       }
-      // Seed: re-run the family until a pass creates nothing new. A pass that
-      // times out mid-way still saved its progress, so the next one continues.
+      // Seed: re-run the family until a pass creates nothing new — no new
+      // pages, no new portraits, AND no new links. Edges (pass two of the
+      // import) run only after every person's node exists in that request, so a
+      // big family whose person-creation eats the serverless budget can leave
+      // the graph unwired even though all pages are made. Waiting on
+      // linksCreated too keeps续灌 going until the 族谱图 is actually connected,
+      // not just until the pages exist. A pass that times out mid-way still
+      // saved its progress (links commit one by one), so the next continues.
       let last: Report | null = null;
       let converged = false;
       for (let pass = 1; pass <= MAX_SEED_PASSES; pass += 1) {
@@ -150,7 +156,11 @@ export function GenealogySeed(props: {
         const result = await callSeed(key, "seed", skipLiving);
         if (result.ok) {
           last = result.data;
-          if (result.data.memorialsCreated === 0 && result.data.portraitsAdded === 0) {
+          if (
+            result.data.memorialsCreated === 0 &&
+            result.data.portraitsAdded === 0 &&
+            result.data.linksCreated === 0
+          ) {
             converged = true;
             break;
           }

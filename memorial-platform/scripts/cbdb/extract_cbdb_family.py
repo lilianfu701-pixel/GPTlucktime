@@ -20,7 +20,12 @@ API = "https://cbdb.fas.harvard.edu/cbdbapi/person.php"
 UA = "missingu-genealogy/1.0 (https://missingu.org)"
 THROTTLE = 0.7
 LIVING_CUTOFF = 1940
-MAX_PEOPLE = 200
+# Keep a family small enough to import within the serverless time budget: the
+# admin seed builds every person's node (pass one) before any edge (pass two)
+# in one 60s request, so a >~50-person family can leave the 族谱图 unwired even
+# though the pages exist. Split a deep lineage into OVERLAPPING chunks (seed the
+# top and the bottom); shared people dedup by CBDB id and the graph reconnects.
+MAX_PEOPLE = int(os.environ.get("CBDB_MAX_PEOPLE", "45"))
 # Default: this script lives in scripts/cbdb/, sources are two levels up.
 SOURCES_DIR = os.path.normpath(os.path.join(
     os.path.dirname(__file__), "..", "..",
@@ -188,12 +193,20 @@ def existing_names():
     return names
 
 def main():
+    # Windows consoles default to GBK and raise on '✓'/CJK in prints; force
+    # utf-8 so the script never dies on output after the data is already written.
+    try:
+        sys.stdout.reconfigure(encoding="utf-8")
+    except Exception:
+        pass
     if len(sys.argv) < 3:
         print("usage: extract_cbdb.py <key> <seed_id_or_name> [more_seeds...]")
         sys.exit(1)
     key = sys.argv[1]
     seeds = []
     for arg in sys.argv[2:]:
+        if arg.startswith("--"):
+            continue
         if arg.isdigit():
             seeds.append(arg)
         else:
