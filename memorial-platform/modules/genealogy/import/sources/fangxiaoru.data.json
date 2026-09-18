@@ -1,0 +1,118 @@
+{
+  "key": "wikidata:fangxiaoru",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q11084646",
+      "name": "方克勤",
+      "citation": "维基百科 / Wikidata Q11084646",
+      "aliases": [
+        "Fang Keqin"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1326
+      },
+      "death": {
+        "year": 1376
+      },
+      "bio": "Ming dynasty person CBDB = 126394"
+    },
+    {
+      "externalId": "Q45413294",
+      "name": "方孝闻",
+      "citation": "维基百科 / Wikidata Q45413294",
+      "aliases": [
+        "方孝聞",
+        "Fang Xiaowen"
+      ],
+      "gender": "male",
+      "bio": "Ming dynasty person CBDB = 28098"
+    },
+    {
+      "externalId": "Q45413298",
+      "name": "方孝友",
+      "citation": "维基百科 / Wikidata Q45413298",
+      "aliases": [
+        "Fang Xiaoyou"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 1402
+      },
+      "bio": "Ming dynasty person CBDB = 28099"
+    },
+    {
+      "externalId": "Q45413300",
+      "name": "方中宪",
+      "citation": "维基百科 / Wikidata Q45413300",
+      "aliases": [
+        "方中憲",
+        "Fang Zhongxian"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 1402
+      },
+      "bio": "Ming dynasty person CBDB=28100"
+    },
+    {
+      "externalId": "Q45413301",
+      "name": "方中愈",
+      "citation": "维基百科 / Wikidata Q45413301",
+      "aliases": [
+        "Fang Zhongyu"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 1402
+      },
+      "bio": "Ming dynasty person CBDB = 28101"
+    },
+    {
+      "externalId": "Q707875",
+      "name": "方孝孺",
+      "citation": "维基百科 / Wikidata Q707875",
+      "aliases": [
+        "Fang Xiaoru"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1357
+      },
+      "death": {
+        "year": 1402
+      },
+      "bio": "中國明朝時代官員。古代中國制度下唯一一個被判「誅十族」的人。",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Fang-xiaoru.jpg",
+      "photoCredit": "作者：清朝 任有容 · 公有领域 · 来源：Wikimedia Commons"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q11084646",
+      "child": "Q707875"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q11084646",
+      "child": "Q45413294"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q11084646",
+      "child": "Q45413298"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q707875",
+      "child": "Q45413300"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q707875",
+      "child": "Q45413301"
+    }
+  ]
+}

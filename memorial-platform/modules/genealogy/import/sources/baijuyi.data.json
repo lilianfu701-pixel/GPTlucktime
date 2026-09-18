@@ -1,0 +1,433 @@
+{
+  "key": "wikidata:baijuyi",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q313324",
+      "name": "白居易",
+      "citation": "维基百科 / Wikidata Q313324",
+      "aliases": [
+        "Bai Juyi"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 772
+      },
+      "death": {
+        "year": 846
+      },
+      "bio": "唐代文學家",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/%E5%94%90%E5%90%8D%E8%87%A3%E5%83%8F-21-%E7%99%BD%E6%A8%82%E5%A4%A9.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q45421120",
+      "name": "白士通",
+      "citation": "维基百科 / Wikidata Q45421120",
+      "aliases": [
+        "Bai Shitong"
+      ],
+      "gender": "male",
+      "bio": "Tang dynasty person CBDB = 32218"
+    },
+    {
+      "externalId": "Q45421122",
+      "name": "白志善",
+      "citation": "维基百科 / Wikidata Q45421122",
+      "aliases": [
+        "Bai Zhishan"
+      ],
+      "gender": "male",
+      "bio": "Tang dynasty person CBDB = 32219"
+    },
+    {
+      "externalId": "Q45421124",
+      "name": "白温",
+      "citation": "维基百科 / Wikidata Q45421124",
+      "aliases": [
+        "白溫",
+        "Bai Wen"
+      ],
+      "gender": "male",
+      "bio": "Tang dynasty person CBDB = 32220"
+    },
+    {
+      "externalId": "Q45421127",
+      "name": "白锽",
+      "citation": "维基百科 / Wikidata Q45421127",
+      "aliases": [
+        "白鍠",
+        "Bai Huang"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 706
+      },
+      "death": {
+        "year": 773
+      },
+      "bio": "Tang dynasty person CBDB = 32221"
+    },
+    {
+      "externalId": "Q45421128",
+      "name": "白𬭸",
+      "citation": "维基百科 / Wikidata Q45421128",
+      "aliases": [
+        "白鏻",
+        "Bai Lin"
+      ],
+      "gender": "male",
+      "bio": "Tang dynasty person CBDB = 32222"
+    },
+    {
+      "externalId": "Q45421130",
+      "name": "白季庚",
+      "citation": "维基百科 / Wikidata Q45421130",
+      "aliases": [
+        "Bai Jigeng"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 729
+      },
+      "death": {
+        "year": 794
+      },
+      "bio": "Tang dynasty person CBDB = 32223"
+    },
+    {
+      "externalId": "Q45421136",
+      "name": "白幼文",
+      "citation": "维基百科 / Wikidata Q45421136",
+      "aliases": [
+        "Bai Youwen"
+      ],
+      "gender": "male",
+      "bio": "Tang dynasty person CBDB = 32226"
+    },
+    {
+      "externalId": "Q45421142",
+      "name": "白幼美",
+      "citation": "维基百科 / Wikidata Q45421142",
+      "aliases": [
+        "Bai Youmei"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 784
+      },
+      "death": {
+        "year": 792
+      },
+      "bio": "Tang dynasty person CBDB = 32229"
+    },
+    {
+      "externalId": "Q45421144",
+      "name": "陈润",
+      "citation": "维基百科 / Wikidata Q45421144",
+      "aliases": [
+        "陳潤",
+        "Chen Run"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 800
+      },
+      "bio": "Tang dynasty person CBDB = 32230"
+    },
+    {
+      "externalId": "Q45421148",
+      "name": "白氏",
+      "citation": "维基百科 / Wikidata Q45421148",
+      "aliases": [
+        "Bai Shi"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 731
+      },
+      "death": {
+        "year": 800
+      },
+      "bio": "陳潤妻"
+    },
+    {
+      "externalId": "Q45421152",
+      "name": "陈氏",
+      "citation": "维基百科 / Wikidata Q45421152",
+      "aliases": [
+        "陳氏",
+        "Chen Shi"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 755
+      },
+      "death": {
+        "year": 811
+      },
+      "bio": "白季庚妻"
+    },
+    {
+      "externalId": "Q45421155",
+      "name": "薛氏",
+      "citation": "维基百科 / Wikidata Q45421155",
+      "aliases": [
+        "Xue Shi"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 708
+      },
+      "death": {
+        "year": 777
+      },
+      "bio": "白鍠妻"
+    },
+    {
+      "externalId": "Q45421157",
+      "name": "白季般",
+      "citation": "维基百科 / Wikidata Q45421157",
+      "aliases": [
+        "Bai Jipan"
+      ],
+      "gender": "male",
+      "bio": "Tang dynasty person CBDB = 32236"
+    },
+    {
+      "externalId": "Q45421160",
+      "name": "白季轸",
+      "citation": "维基百科 / Wikidata Q45421160",
+      "aliases": [
+        "白季軫",
+        "Bo Jizhen"
+      ],
+      "gender": "male",
+      "bio": "Tang dynasty person CBDB = 32237"
+    },
+    {
+      "externalId": "Q45421161",
+      "name": "白季宁",
+      "citation": "维基百科 / Wikidata Q45421161",
+      "aliases": [
+        "白季寧",
+        "Bo Jining"
+      ],
+      "gender": "male",
+      "bio": "Tang dynasty person CBDB = 32238"
+    },
+    {
+      "externalId": "Q45421163",
+      "name": "白季平",
+      "citation": "维基百科 / Wikidata Q45421163",
+      "aliases": [
+        "Bo Jiping"
+      ],
+      "gender": "male",
+      "bio": "Tang dynasty person CBDB = 32239"
+    },
+    {
+      "externalId": "Q45467075",
+      "name": "白金銮",
+      "citation": "维基百科 / Wikidata Q45467075",
+      "aliases": [
+        "白金鑾",
+        "Bai  Jinluan"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 795
+      },
+      "death": {
+        "year": 859
+      },
+      "bio": "Tang dynasty person CBDB = 119153"
+    },
+    {
+      "externalId": "Q45551480",
+      "name": "白若镛",
+      "citation": "维基百科 / Wikidata Q45551480",
+      "aliases": [
+        "白若鏞",
+        "Bai Ruoyong"
+      ],
+      "gender": "male",
+      "bio": "person, CBDB = 168718"
+    },
+    {
+      "externalId": "Q45581465",
+      "name": "白景受",
+      "citation": "维基百科 / Wikidata Q45581465",
+      "aliases": [
+        "Bai Jingshou"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 868
+      },
+      "bio": "Tang dynasty person CBDB = 184553"
+    },
+    {
+      "externalId": "Q45581529",
+      "name": "白邦翰",
+      "citation": "维基百科 / Wikidata Q45581529",
+      "aliases": [
+        "Bai Banghan"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 905
+      },
+      "bio": "person, CBDB = 184554"
+    },
+    {
+      "externalId": "Q45581593",
+      "name": "白思齐",
+      "citation": "维基百科 / Wikidata Q45581593",
+      "aliases": [
+        "白思齊",
+        "Bai Siqi"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 942
+      },
+      "bio": "person, CBDB = 184555"
+    },
+    {
+      "externalId": "Q698190",
+      "name": "白行简",
+      "citation": "维基百科 / Wikidata Q698190",
+      "aliases": [
+        "Bai Xingjian"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 776
+      },
+      "death": {
+        "year": 826
+      },
+      "bio": "Chinese writer",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Sanyoushiren.jpg",
+      "photoCredit": "作者：Gisling · CC BY 2.5 · 来源：Wikimedia Commons"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q45421130",
+      "child": "Q313324"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45421130",
+      "child": "Q698190"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45421120",
+      "child": "Q45421122"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45421122",
+      "child": "Q45421124"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45421124",
+      "child": "Q45421127"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45421124",
+      "child": "Q45421128"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45421127",
+      "child": "Q45421130"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45421130",
+      "child": "Q45421136"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45421130",
+      "child": "Q45421142"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45421127",
+      "child": "Q45421148"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45421144",
+      "child": "Q45421152"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45421127",
+      "child": "Q45421157"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45421127",
+      "child": "Q45421160"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45421127",
+      "child": "Q45421161"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45421127",
+      "child": "Q45421163"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q313324",
+      "child": "Q45467075"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45421124",
+      "child": "Q45551480"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q313324",
+      "child": "Q45581465"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45581465",
+      "child": "Q45581529"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45581529",
+      "child": "Q45581593"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45421127",
+      "b": "Q45421155"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45421130",
+      "b": "Q45421152"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45421144",
+      "b": "Q45421148"
+    }
+  ]
+}

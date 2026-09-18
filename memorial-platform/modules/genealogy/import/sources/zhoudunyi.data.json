@@ -1,0 +1,243 @@
+{
+  "key": "wikidata:zhoudunyi",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q135273838",
+      "name": "郑氏",
+      "citation": "维基百科 / Wikidata Q135273838",
+      "aliases": [
+        "鄭氏"
+      ],
+      "gender": "female"
+    },
+    {
+      "externalId": "Q197962",
+      "name": "周敦颐",
+      "citation": "维基百科 / Wikidata Q197962",
+      "aliases": [
+        "Zhou Dunyi"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1017
+      },
+      "death": {
+        "year": 1073
+      },
+      "bio": "北宋理學家",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/%E5%AE%8B%E6%8F%90%E5%88%91%E5%91%A8%E6%95%A6%E9%A2%90.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q45363776",
+      "name": "陆氏",
+      "citation": "维基百科 / Wikidata Q45363776",
+      "aliases": [
+        "陸氏",
+        "Lu Shi"
+      ],
+      "gender": "female",
+      "death": {
+        "year": 1058
+      },
+      "bio": "周敦頤妻"
+    },
+    {
+      "externalId": "Q45363779",
+      "name": "蒲氏",
+      "citation": "维基百科 / Wikidata Q45363779",
+      "aliases": [
+        "Pu Shi"
+      ],
+      "gender": "female",
+      "bio": "周敦頤妻"
+    },
+    {
+      "externalId": "Q45380617",
+      "name": "郑向",
+      "citation": "维基百科 / Wikidata Q45380617",
+      "aliases": [
+        "鄭向",
+        "Zheng Xiang"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 1036
+      },
+      "bio": "Song dynasty person CBDB = 15288"
+    },
+    {
+      "externalId": "Q45380621",
+      "name": "周寿",
+      "citation": "维基百科 / Wikidata Q45380621",
+      "aliases": [
+        "周壽",
+        "Zhou Shou"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1057
+      },
+      "bio": "Song dynasty person CBDB = 15291"
+    },
+    {
+      "externalId": "Q45382783",
+      "name": "周从远",
+      "citation": "维基百科 / Wikidata Q45382783",
+      "aliases": [
+        "周從遠",
+        "Zhou Congyuan"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person (CBDB = 16402)"
+    },
+    {
+      "externalId": "Q45382786",
+      "name": "周知强",
+      "citation": "维基百科 / Wikidata Q45382786",
+      "aliases": [
+        "周知強",
+        "Zhou Zhiqiang"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 16403"
+    },
+    {
+      "externalId": "Q45382791",
+      "name": "周式",
+      "citation": "维基百科 / Wikidata Q45382791",
+      "aliases": [
+        "Zhou Shi"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 16404"
+    },
+    {
+      "externalId": "Q45382793",
+      "name": "周辅成",
+      "citation": "维基百科 / Wikidata Q45382793",
+      "aliases": [
+        "周輔成",
+        "Zhou Fucheng"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 1031
+      },
+      "bio": "Song dynasty person (CBDB = 16405)"
+    },
+    {
+      "externalId": "Q45382795",
+      "name": "周伯高",
+      "citation": "维基百科 / Wikidata Q45382795",
+      "aliases": [
+        "Zhou Bogao"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 16406"
+    },
+    {
+      "externalId": "Q45382798",
+      "name": "周焘",
+      "citation": "维基百科 / Wikidata Q45382798",
+      "aliases": [
+        "周燾",
+        "Zhou Tao"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1062
+      },
+      "bio": "Song dynasty person CBDB = 16407"
+    },
+    {
+      "externalId": "Q45382801",
+      "name": "郑灿",
+      "citation": "维基百科 / Wikidata Q45382801",
+      "aliases": [
+        "鄭燦",
+        "Zheng Can"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB=16408"
+    },
+    {
+      "externalId": "Q45409422",
+      "name": "周固",
+      "citation": "维基百科 / Wikidata Q45409422",
+      "aliases": [
+        "Zhou Gu"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 26160"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q135273838",
+      "child": "Q197962"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45382793",
+      "child": "Q197962"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45382801",
+      "child": "Q45380617"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q197962",
+      "child": "Q45380621"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45409422",
+      "child": "Q45382783"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45382783",
+      "child": "Q45382786"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45382786",
+      "child": "Q45382791"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45382786",
+      "child": "Q45382793"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45382786",
+      "child": "Q45382795"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q197962",
+      "child": "Q45382798"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45382801",
+      "child": "Q135273838"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q197962",
+      "b": "Q45363776"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q197962",
+      "b": "Q45363779"
+    }
+  ]
+}

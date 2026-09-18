@@ -1,0 +1,566 @@
+{
+  "key": "wikidata:huangtingjian",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q11096290",
+      "name": "李常",
+      "citation": "维基百科 / Wikidata Q11096290",
+      "aliases": [
+        "Li Chang"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1027
+      },
+      "death": {
+        "year": 1090
+      },
+      "bio": "Song dynasty person CBDB=971"
+    },
+    {
+      "externalId": "Q11097334",
+      "name": "李涛",
+      "citation": "维基百科 / Wikidata Q11097334",
+      "aliases": [
+        "李濤",
+        "Li Tao"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 898
+      },
+      "death": {
+        "year": 961
+      },
+      "bio": "person, CBDB = 13065"
+    },
+    {
+      "externalId": "Q135273668",
+      "name": "黄氏",
+      "citation": "维基百科 / Wikidata Q135273668",
+      "aliases": [
+        "黃氏"
+      ],
+      "gender": "female"
+    },
+    {
+      "externalId": "Q45356917",
+      "name": "黄廉",
+      "citation": "维基百科 / Wikidata Q45356917",
+      "aliases": [
+        "黃廉",
+        "Huang Lian"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person (CBDB = 851)"
+    },
+    {
+      "externalId": "Q45361453",
+      "name": "黄湜",
+      "citation": "维基百科 / Wikidata Q45361453",
+      "aliases": [
+        "黃湜",
+        "Huang Shi"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person (CBDB = 3418)"
+    },
+    {
+      "externalId": "Q45361466",
+      "name": "黄元吉",
+      "citation": "维基百科 / Wikidata Q45361466",
+      "aliases": [
+        "黃元吉",
+        "Huang Yuanji"
+      ],
+      "gender": "male",
+      "bio": "Southern Tang person CBDB=3422"
+    },
+    {
+      "externalId": "Q45363875",
+      "name": "孙氏",
+      "citation": "维基百科 / Wikidata Q45363875",
+      "aliases": [
+        "孫氏",
+        "Sun Shi"
+      ],
+      "gender": "female",
+      "death": {
+        "year": 1069
+      },
+      "bio": "黃庭堅妻"
+    },
+    {
+      "externalId": "Q45363877",
+      "name": "谢氏",
+      "citation": "维基百科 / Wikidata Q45363877",
+      "aliases": [
+        "謝氏",
+        "Xie Shi"
+      ],
+      "gender": "female",
+      "bio": "黃庭堅妻"
+    },
+    {
+      "externalId": "Q45364348",
+      "name": "李氏",
+      "citation": "维基百科 / Wikidata Q45364348",
+      "aliases": [
+        "Li Shi"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1020
+      },
+      "death": {
+        "year": 1091
+      },
+      "bio": "黃庶妻"
+    },
+    {
+      "externalId": "Q45376149",
+      "name": "黄庶",
+      "citation": "维基百科 / Wikidata Q45376149",
+      "aliases": [
+        "黃庶",
+        "Huang Shu"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person (CBDB = 12995)"
+    },
+    {
+      "externalId": "Q45376152",
+      "name": "黄中理",
+      "citation": "维基百科 / Wikidata Q45376152",
+      "aliases": [
+        "黃中理",
+        "Huang Zhongli"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person (CBDB = 12996)"
+    },
+    {
+      "externalId": "Q45376153",
+      "name": "黄注",
+      "citation": "维基百科 / Wikidata Q45376153",
+      "aliases": [
+        "黃注",
+        "Huang Zhu"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 998
+      },
+      "death": {
+        "year": 1039
+      },
+      "bio": "Song dynasty person CBDB = 12997"
+    },
+    {
+      "externalId": "Q45376157",
+      "name": "黄茂宗",
+      "citation": "维基百科 / Wikidata Q45376157",
+      "aliases": [
+        "黃茂宗",
+        "Huang Maozong"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 12998"
+    },
+    {
+      "externalId": "Q45376161",
+      "name": "黄大临",
+      "citation": "维基百科 / Wikidata Q45376161",
+      "aliases": [
+        "黃大臨",
+        "Huang Dalin"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person (CBDB = 12999)"
+    },
+    {
+      "externalId": "Q45376164",
+      "name": "黄叔达",
+      "citation": "维基百科 / Wikidata Q45376164",
+      "aliases": [
+        "黃叔達",
+        "Huang Shuda"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB=13000"
+    },
+    {
+      "externalId": "Q45376356",
+      "name": "黄渭",
+      "citation": "维基百科 / Wikidata Q45376356",
+      "aliases": [
+        "黃渭",
+        "Huang Wei"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 13057"
+    },
+    {
+      "externalId": "Q45376383",
+      "name": "李宗诲",
+      "citation": "维基百科 / Wikidata Q45376383",
+      "aliases": [
+        "李宗誨",
+        "Li Zonghui"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person (CBDB = 13066)"
+    },
+    {
+      "externalId": "Q45376388",
+      "name": "李知至",
+      "citation": "维基百科 / Wikidata Q45376388",
+      "aliases": [
+        "Li Zhizhi"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person (CBDB = 13067)"
+    },
+    {
+      "externalId": "Q45376389",
+      "name": "李东",
+      "citation": "维基百科 / Wikidata Q45376389",
+      "aliases": [
+        "李東",
+        "Li Dong"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person (CBDB = 13068)"
+    },
+    {
+      "externalId": "Q45376392",
+      "name": "李萃",
+      "citation": "维基百科 / Wikidata Q45376392",
+      "aliases": [
+        "Li Cui"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 13069"
+    },
+    {
+      "externalId": "Q45376396",
+      "name": "李布",
+      "citation": "维基百科 / Wikidata Q45376396",
+      "aliases": [
+        "Li Bu"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 13070"
+    },
+    {
+      "externalId": "Q45376408",
+      "name": "黄相",
+      "citation": "维基百科 / Wikidata Q45376408",
+      "aliases": [
+        "黃相",
+        "Huang Xiang"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 13073"
+    },
+    {
+      "externalId": "Q45376468",
+      "name": "黄淳",
+      "citation": "维基百科 / Wikidata Q45376468",
+      "aliases": [
+        "黃淳",
+        "Huang Chun"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person (CBDB = 13090)"
+    },
+    {
+      "externalId": "Q45376469",
+      "name": "黄浚",
+      "citation": "维基百科 / Wikidata Q45376469",
+      "aliases": [
+        "黃浚",
+        "Huang Jun"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 13091"
+    },
+    {
+      "externalId": "Q45376471",
+      "name": "黄灏",
+      "citation": "维基百科 / Wikidata Q45376471",
+      "aliases": [
+        "黃灝",
+        "Huang Hao"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 13092"
+    },
+    {
+      "externalId": "Q45379639",
+      "name": "李承休",
+      "citation": "维基百科 / Wikidata Q45379639",
+      "aliases": [
+        "Li Chengxiu"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person (CBDB = 14433)"
+    },
+    {
+      "externalId": "Q45390791",
+      "name": "黄瞻",
+      "citation": "维基百科 / Wikidata Q45390791",
+      "aliases": [
+        "黃瞻",
+        "Huang Zhan"
+      ],
+      "gender": "male",
+      "bio": "Southern Tang person CBDB = 18930"
+    },
+    {
+      "externalId": "Q45390792",
+      "name": "黄昭",
+      "citation": "维基百科 / Wikidata Q45390792",
+      "aliases": [
+        "黃昭",
+        "Huang Zhao"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 18931"
+    },
+    {
+      "externalId": "Q45390874",
+      "name": "黄仲熊",
+      "citation": "维基百科 / Wikidata Q45390874",
+      "aliases": [
+        "黃仲熊",
+        "Huang Zhongxiong"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1020
+      },
+      "death": {
+        "year": 1055
+      },
+      "bio": "Song dynasty person CBDB = 18990"
+    },
+    {
+      "externalId": "Q45434403",
+      "name": "洪亶",
+      "citation": "维基百科 / Wikidata Q45434403",
+      "aliases": [
+        "Hong Dan"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 42928"
+    },
+    {
+      "externalId": "Q45434529",
+      "name": "李氏",
+      "citation": "维基百科 / Wikidata Q45434529",
+      "aliases": [
+        "Li Shi"
+      ],
+      "gender": "female",
+      "bio": "洪亶妻"
+    },
+    {
+      "externalId": "Q65798924",
+      "name": "章氏",
+      "citation": "维基百科 / Wikidata Q65798924",
+      "aliases": [
+        "Zhang Shi"
+      ],
+      "gender": "female",
+      "bio": "黃廉妻"
+    },
+    {
+      "externalId": "Q709460",
+      "name": "黄庭坚",
+      "citation": "维基百科 / Wikidata Q709460",
+      "aliases": [
+        "黃庭堅",
+        "Huang Tingjian"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1045
+      },
+      "death": {
+        "year": 1105
+      },
+      "bio": "北宋詩人、書法家 (1045–1105)",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Huang%20Tingjian.png",
+      "photoCredit": "作者：Photoed and reproduction by User:Mountain · 公有领域 · 来源：Wikimedia Commons"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q45376149",
+      "child": "Q709460"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45376389",
+      "child": "Q11096290"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45361453",
+      "child": "Q45356917"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45376152",
+      "child": "Q45361453"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45390791",
+      "child": "Q45361466"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45376389",
+      "child": "Q45364348"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45361453",
+      "child": "Q45376149"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45361466",
+      "child": "Q45376152"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45376152",
+      "child": "Q45376153"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45376152",
+      "child": "Q45376157"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45376149",
+      "child": "Q45376161"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45376149",
+      "child": "Q45376164"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45376152",
+      "child": "Q45376356"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q11097334",
+      "child": "Q45376383"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45376383",
+      "child": "Q45376388"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45376388",
+      "child": "Q45376389"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45376389",
+      "child": "Q45376392"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45376389",
+      "child": "Q45376396"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q709460",
+      "child": "Q45376408"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45376152",
+      "child": "Q45376468"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45376152",
+      "child": "Q45376469"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45376152",
+      "child": "Q45376471"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q11097334",
+      "child": "Q45379639"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45361453",
+      "child": "Q45390792"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45376149",
+      "child": "Q45390874"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45376389",
+      "child": "Q45434529"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45376149",
+      "child": "Q135273668"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45364348",
+      "child": "Q709460"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45363875",
+      "b": "Q709460"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45363877",
+      "b": "Q709460"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45356917",
+      "b": "Q65798924"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45364348",
+      "b": "Q45376149"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45434403",
+      "b": "Q45434529"
+    }
+  ]
+}

@@ -1,0 +1,265 @@
+{
+  "key": "wikidata:yanshu",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q11089447",
+      "name": "晏殊",
+      "citation": "维基百科 / Wikidata Q11089447",
+      "aliases": [
+        "Yan Shu"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 991
+      },
+      "death": {
+        "year": 1055
+      },
+      "bio": "北宋政治家、文学家"
+    },
+    {
+      "externalId": "Q45360200",
+      "name": "晏知止",
+      "citation": "维基百科 / Wikidata Q45360200",
+      "aliases": [
+        "Yan Zhizhi"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person (CBDB = 2072)"
+    },
+    {
+      "externalId": "Q45363487",
+      "name": "晏成裕",
+      "citation": "维基百科 / Wikidata Q45363487",
+      "aliases": [
+        "Yan Chengyu"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 4144"
+    },
+    {
+      "externalId": "Q45364166",
+      "name": "王氏",
+      "citation": "维基百科 / Wikidata Q45364166",
+      "aliases": [
+        "Wang Shi"
+      ],
+      "gender": "female",
+      "bio": "晏知止妻"
+    },
+    {
+      "externalId": "Q45374110",
+      "name": "晏延昌",
+      "citation": "维基百科 / Wikidata Q45374110",
+      "aliases": [
+        "Yan Yanchang"
+      ],
+      "gender": "male",
+      "bio": "Southern Tang person CBDB = 12308"
+    },
+    {
+      "externalId": "Q45374194",
+      "name": "晏郜",
+      "citation": "维基百科 / Wikidata Q45374194",
+      "aliases": [
+        "Yan Gao"
+      ],
+      "gender": "male",
+      "bio": "Southern Tang person CBDB=12335"
+    },
+    {
+      "externalId": "Q45374212",
+      "name": "晏固",
+      "citation": "维基百科 / Wikidata Q45374212",
+      "aliases": [
+        "Yan Gu"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person (CBDB = 12339)"
+    },
+    {
+      "externalId": "Q45374214",
+      "name": "晏颖",
+      "citation": "维基百科 / Wikidata Q45374214",
+      "aliases": [
+        "晏穎",
+        "Yan Ying"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person (CBDB = 12340)"
+    },
+    {
+      "externalId": "Q45374234",
+      "name": "晏明远",
+      "citation": "维基百科 / Wikidata Q45374234",
+      "aliases": [
+        "晏明遠",
+        "Yan Mingyuan"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 12348"
+    },
+    {
+      "externalId": "Q45374239",
+      "name": "晏融",
+      "citation": "维基百科 / Wikidata Q45374239",
+      "aliases": [
+        "Yan Rong"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person (CBDB = 12349)"
+    },
+    {
+      "externalId": "Q45374242",
+      "name": "晏衹德",
+      "citation": "维基百科 / Wikidata Q45374242",
+      "aliases": [
+        "Yan Zhide"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB=12350"
+    },
+    {
+      "externalId": "Q45374251",
+      "name": "晏溥",
+      "citation": "维基百科 / Wikidata Q45374251",
+      "aliases": [
+        "Yan Pu"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB=12353"
+    },
+    {
+      "externalId": "Q65798636",
+      "name": "孟氏",
+      "citation": "维基百科 / Wikidata Q65798636",
+      "aliases": [
+        "Meng Shi"
+      ],
+      "gender": "female",
+      "bio": "晏殊妻"
+    },
+    {
+      "externalId": "Q65798638",
+      "name": "赵氏",
+      "citation": "维基百科 / Wikidata Q65798638",
+      "aliases": [
+        "趙氏",
+        "Zhao Shi"
+      ],
+      "gender": "female",
+      "bio": "晏溥妻"
+    },
+    {
+      "externalId": "Q65798640",
+      "name": "张氏",
+      "citation": "维基百科 / Wikidata Q65798640",
+      "aliases": [
+        "張氏",
+        "Zhang Shi"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1013
+      },
+      "death": {
+        "year": 1069
+      },
+      "bio": "晏成裕妻"
+    },
+    {
+      "externalId": "Q6788466",
+      "name": "晏几道",
+      "citation": "维基百科 / Wikidata Q6788466",
+      "aliases": [
+        "Yan Jidao"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1030
+      },
+      "death": {
+        "year": 1106
+      },
+      "bio": "Song dynasty poet"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q11089447",
+      "child": "Q6788466"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45374212",
+      "child": "Q11089447"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q11089447",
+      "child": "Q45360200"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q11089447",
+      "child": "Q45363487"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45374110",
+      "child": "Q45374194"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45374194",
+      "child": "Q45374212"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45374212",
+      "child": "Q45374214"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q11089447",
+      "child": "Q45374234"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45374194",
+      "child": "Q45374239"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q11089447",
+      "child": "Q45374242"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q6788466",
+      "child": "Q45374251"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q11089447",
+      "b": "Q65798636"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45360200",
+      "b": "Q45364166"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45363487",
+      "b": "Q65798640"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45374251",
+      "b": "Q65798638"
+    }
+  ]
+}

@@ -1,0 +1,290 @@
+{
+  "key": "wikidata:zhouxuexi",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q10920235",
+      "name": "周叔迦",
+      "citation": "维基百科 / Wikidata Q10920235",
+      "aliases": [
+        "Shujia Zhou"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1899
+      },
+      "death": {
+        "year": 1970
+      }
+    },
+    {
+      "externalId": "Q10920358",
+      "name": "周学熙",
+      "citation": "维基百科 / Wikidata Q10920358",
+      "aliases": [
+        "Zhou Xuexi"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1866
+      },
+      "death": {
+        "year": 1947
+      },
+      "bio": "Qing dynasty person CBDB = 68929",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Zhou%20Xuexi.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q10920362",
+      "name": "周学海",
+      "citation": "维基百科 / Wikidata Q10920362",
+      "aliases": [
+        "周學海",
+        "Zhou Xuehai"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1856
+      },
+      "death": {
+        "year": 1906
+      },
+      "bio": "Qing dynasty person CBDB = 83462",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/%E5%91%A8%E5%AD%B8%E6%B5%B7.jpg",
+      "photoCredit": "作者：不詳 · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q10920366",
+      "name": "周学铭",
+      "citation": "维基百科 / Wikidata Q10920366",
+      "aliases": [
+        "周學銘",
+        "Zhou Xueming"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1859
+      },
+      "death": {
+        "year": 1911
+      },
+      "bio": "政治家"
+    },
+    {
+      "externalId": "Q10921151",
+      "name": "周馥",
+      "citation": "维基百科 / Wikidata Q10921151",
+      "aliases": [
+        "Zhou Fu"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1837
+      },
+      "death": {
+        "year": 1921
+      },
+      "bio": "Chinese politician (1837-1921)",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Chou%20Fu.jpg",
+      "photoCredit": "作者：PA Crush scan of original · CC BY 3.0 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q15942795",
+      "name": "周学渊",
+      "citation": "维基百科 / Wikidata Q15942795",
+      "aliases": [
+        "周學淵"
+      ],
+      "gender": "male"
+    },
+    {
+      "externalId": "Q28355098",
+      "name": "周绍良",
+      "citation": "维基百科 / Wikidata Q28355098",
+      "aliases": [
+        "Zhou Shaoliang"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1917
+      },
+      "death": {
+        "year": 2005
+      },
+      "bio": "学者"
+    },
+    {
+      "externalId": "Q30611113",
+      "name": "周学辉",
+      "citation": "维基百科 / Wikidata Q30611113",
+      "aliases": [
+        "周學輝",
+        "Zhou Xuehui"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1882
+      },
+      "death": {
+        "year": 1971
+      }
+    },
+    {
+      "externalId": "Q9469916",
+      "name": "刘声木",
+      "citation": "维基百科 / Wikidata Q9469916",
+      "aliases": [
+        "劉聲木",
+        "Liu Shengmu"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1876
+      },
+      "death": {
+        "year": 1959
+      }
+    },
+    {
+      "externalId": "Q97976723",
+      "name": "周瑞珠",
+      "citation": "维基百科 / Wikidata Q97976723",
+      "aliases": [
+        "Zhou Ruizhu"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1902
+      },
+      "death": {
+        "year": 1923
+      }
+    },
+    {
+      "externalId": "Q97976951",
+      "name": "袁克轸",
+      "citation": "维基百科 / Wikidata Q97976951",
+      "aliases": [
+        "袁克軫",
+        "Yuan Kezhen"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1902
+      },
+      "death": {
+        "year": 1942
+      }
+    },
+    {
+      "externalId": "Q97979489",
+      "name": "周瑞钿",
+      "citation": "维基百科 / Wikidata Q97979489",
+      "aliases": [
+        "周瑞鈿",
+        "Zhou Ruitian"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1879
+      },
+      "death": {
+        "year": 1905
+      }
+    },
+    {
+      "externalId": "Q98074347",
+      "name": "周志俊",
+      "citation": "维基百科 / Wikidata Q98074347",
+      "aliases": [
+        "Zhou Zhijun"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1898
+      },
+      "death": {
+        "year": 1990
+      }
+    },
+    {
+      "externalId": "Q98074349",
+      "name": "周明泰",
+      "citation": "维基百科 / Wikidata Q98074349",
+      "birth": {
+        "year": 1896
+      },
+      "death": {
+        "year": 1994
+      }
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q10920358",
+      "child": "Q10920235"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q10921151",
+      "child": "Q10920358"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q10921151",
+      "child": "Q10920362"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q10921151",
+      "child": "Q10920366"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q10921151",
+      "child": "Q15942795"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q10920235",
+      "child": "Q28355098"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q10921151",
+      "child": "Q30611113"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q10921151",
+      "child": "Q97976723"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q10921151",
+      "child": "Q97979489"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q10920358",
+      "child": "Q98074347"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q10920358",
+      "child": "Q98074349"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q9469916",
+      "b": "Q97979489"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q97976723",
+      "b": "Q97976951"
+    }
+  ]
+}

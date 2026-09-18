@@ -1,0 +1,361 @@
+{
+  "key": "wikidata:lvmengzheng",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q10918439",
+      "name": "吕蒙正",
+      "citation": "维基百科 / Wikidata Q10918439",
+      "aliases": [
+        "Lü Mengzheng"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 946
+      },
+      "death": {
+        "year": 1011
+      },
+      "bio": "Song dynasty person (CBDB = 8101)",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/%E5%90%95%E8%92%99%E6%AD%A3.jpg",
+      "photoCredit": "作者：明代王圻辑，万历刻《三才图会》 · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q45376475",
+      "name": "吕蒙奇",
+      "citation": "维基百科 / Wikidata Q45376475",
+      "aliases": [
+        "呂蒙奇",
+        "Lu Mengqi"
+      ],
+      "gender": "male",
+      "bio": "Tang dynasty person CBDB = 13093"
+    },
+    {
+      "externalId": "Q45376478",
+      "name": "吕龟图",
+      "citation": "维基百科 / Wikidata Q45376478",
+      "aliases": [
+        "呂龜圖",
+        "Lv Guitu"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person (CBDB = 13094)"
+    },
+    {
+      "externalId": "Q45376481",
+      "name": "吕蒙休",
+      "citation": "维基百科 / Wikidata Q45376481",
+      "aliases": [
+        "呂蒙休",
+        "Lv Mengxiu"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 13095"
+    },
+    {
+      "externalId": "Q45376482",
+      "name": "吕龟祥",
+      "citation": "维基百科 / Wikidata Q45376482",
+      "aliases": [
+        "呂龜祥",
+        "Lv Guixiang"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person (CBDB = 13096)"
+    },
+    {
+      "externalId": "Q45376496",
+      "name": "吕务简",
+      "citation": "维基百科 / Wikidata Q45376496",
+      "aliases": [
+        "呂務簡",
+        "Lv Wujian"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person (CBDB = 13100)"
+    },
+    {
+      "externalId": "Q45376499",
+      "name": "吕昌辰",
+      "citation": "维基百科 / Wikidata Q45376499",
+      "aliases": [
+        "呂昌辰",
+        "Lv Changchen"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person (CBDB = 13101)"
+    },
+    {
+      "externalId": "Q45387057",
+      "name": "吕昌晖",
+      "citation": "维基百科 / Wikidata Q45387057",
+      "aliases": [
+        "呂昌暉",
+        "Lv Changhui"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 17733"
+    },
+    {
+      "externalId": "Q45387083",
+      "name": "吕昌文",
+      "citation": "维基百科 / Wikidata Q45387083",
+      "aliases": [
+        "呂昌文",
+        "Lv Changwen"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 17741"
+    },
+    {
+      "externalId": "Q45387608",
+      "name": "吕行简",
+      "citation": "维基百科 / Wikidata Q45387608",
+      "aliases": [
+        "呂行簡",
+        "Lv Xingjian"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 17906"
+    },
+    {
+      "externalId": "Q45387648",
+      "name": "吕知简",
+      "citation": "维基百科 / Wikidata Q45387648",
+      "aliases": [
+        "呂知簡",
+        "Lv Zhijian"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB=17922"
+    },
+    {
+      "externalId": "Q45387651",
+      "name": "吕承简",
+      "citation": "维基百科 / Wikidata Q45387651",
+      "aliases": [
+        "呂承簡",
+        "Lv Chengjian"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 17923"
+    },
+    {
+      "externalId": "Q45387675",
+      "name": "吕师简",
+      "citation": "维基百科 / Wikidata Q45387675",
+      "aliases": [
+        "呂師簡",
+        "Lv Shijian"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person (CBDB = 17930)"
+    },
+    {
+      "externalId": "Q45387676",
+      "name": "吕昌宗",
+      "citation": "维基百科 / Wikidata Q45387676",
+      "aliases": [
+        "呂昌宗",
+        "Lv Changzong"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB=17931"
+    },
+    {
+      "externalId": "Q45387680",
+      "name": "吕惟简",
+      "citation": "维基百科 / Wikidata Q45387680",
+      "aliases": [
+        "呂惟簡",
+        "Lv Weijian"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 17932"
+    },
+    {
+      "externalId": "Q45387681",
+      "name": "吕从简",
+      "citation": "维基百科 / Wikidata Q45387681",
+      "aliases": [
+        "呂從簡",
+        "Lv Congjian"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB=17933"
+    },
+    {
+      "externalId": "Q45428613",
+      "name": "吕仲敏",
+      "citation": "维基百科 / Wikidata Q45428613",
+      "aliases": [
+        "呂仲敏",
+        "Lv Zhongmin"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 36433"
+    },
+    {
+      "externalId": "Q45428646",
+      "name": "吕仲履",
+      "citation": "维基百科 / Wikidata Q45428646",
+      "aliases": [
+        "呂仲履",
+        "Lv Zhonglu"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 36434"
+    },
+    {
+      "externalId": "Q45428679",
+      "name": "吕仲棐",
+      "citation": "维基百科 / Wikidata Q45428679",
+      "aliases": [
+        "呂仲棐",
+        "Lv Zhongfei"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 36435"
+    },
+    {
+      "externalId": "Q65800228",
+      "name": "宋氏",
+      "citation": "维基百科 / Wikidata Q65800228",
+      "aliases": [
+        "Song Shi"
+      ],
+      "gender": "female",
+      "bio": "呂蒙正妻"
+    },
+    {
+      "externalId": "Q65800256",
+      "name": "刘氏",
+      "citation": "维基百科 / Wikidata Q65800256",
+      "aliases": [
+        "劉氏",
+        "Liu Shi"
+      ],
+      "gender": "female",
+      "bio": "呂蒙正母"
+    },
+    {
+      "externalId": "Q9628003",
+      "name": "吕居简",
+      "citation": "维基百科 / Wikidata Q9628003",
+      "aliases": [
+        "呂居簡",
+        "Lü Jujian"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person (CBDB = 1300)"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q65800256",
+      "child": "Q10918439"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q10918439",
+      "child": "Q9628003"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45376478",
+      "child": "Q10918439"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45376475",
+      "child": "Q45376478"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45376478",
+      "child": "Q45376481"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45376475",
+      "child": "Q45376482"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q10918439",
+      "child": "Q45376496"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45376496",
+      "child": "Q45376499"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45376496",
+      "child": "Q45387057"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45376496",
+      "child": "Q45387083"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q10918439",
+      "child": "Q45387608"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q10918439",
+      "child": "Q45387648"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q10918439",
+      "child": "Q45387651"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q10918439",
+      "child": "Q45387675"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45387675",
+      "child": "Q45387676"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q10918439",
+      "child": "Q45387680"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q10918439",
+      "child": "Q45387681"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45376499",
+      "child": "Q45428613"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45376499",
+      "child": "Q45428646"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45376499",
+      "child": "Q45428679"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q10918439",
+      "b": "Q65800228"
+    }
+  ]
+}

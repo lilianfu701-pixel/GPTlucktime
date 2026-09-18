@@ -1,0 +1,891 @@
+{
+  "key": "wikidata:songlian",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q10947797",
+      "name": "宋璲",
+      "citation": "维基百科 / Wikidata Q10947797",
+      "aliases": [
+        "Song Sui"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 1380
+      },
+      "bio": "宋濂次子"
+    },
+    {
+      "externalId": "Q16260761",
+      "name": "宋慎",
+      "citation": "维基百科 / Wikidata Q16260761",
+      "aliases": [
+        "Song Shen"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1342
+      },
+      "death": {
+        "year": 1382
+      },
+      "bio": "宋濂长孙"
+    },
+    {
+      "externalId": "Q45369550",
+      "name": "宋守富",
+      "citation": "维基百科 / Wikidata Q45369550",
+      "aliases": [
+        "Song Shoufu"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1260
+      },
+      "death": {
+        "year": 1337
+      },
+      "bio": "Yuan dynasty person CBDB=10835"
+    },
+    {
+      "externalId": "Q45369554",
+      "name": "宋文昭",
+      "citation": "维基百科 / Wikidata Q45369554",
+      "aliases": [
+        "Song Wenzhao"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1285
+      },
+      "death": {
+        "year": 1365
+      },
+      "bio": "Yuan dynasty person CBDB = 10836"
+    },
+    {
+      "externalId": "Q45695737",
+      "name": "宋渊",
+      "citation": "维基百科 / Wikidata Q45695737",
+      "aliases": [
+        "宋淵",
+        "Song Yuan"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1307
+      },
+      "bio": "Yuan dynasty person CBDB=117680"
+    },
+    {
+      "externalId": "Q45698308",
+      "name": "陈贤时",
+      "citation": "维基百科 / Wikidata Q45698308",
+      "aliases": [
+        "陳賢時",
+        "Chen Xianshi"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1284
+      },
+      "death": {
+        "year": 1346
+      },
+      "bio": "Yuan dynasty person CBDB = 117796"
+    },
+    {
+      "externalId": "Q45705050",
+      "name": "方丑姬",
+      "citation": "维基百科 / Wikidata Q45705050",
+      "aliases": [
+        "方醜姬",
+        "Fang Chouji"
+      ],
+      "gender": "female",
+      "bio": "Ming dynasty person CBDB = 134079"
+    },
+    {
+      "externalId": "Q65825511",
+      "name": "金妙圆",
+      "citation": "维基百科 / Wikidata Q65825511",
+      "aliases": [
+        "金妙圓",
+        "Jin Miaoyuan"
+      ],
+      "gender": "female",
+      "bio": "person, CBDB ID = 387470"
+    },
+    {
+      "externalId": "Q65825515",
+      "name": "宋文囿",
+      "citation": "维基百科 / Wikidata Q65825515",
+      "aliases": [
+        "Song Wenyou"
+      ],
+      "gender": "male",
+      "bio": "person, CBDB ID = 387471"
+    },
+    {
+      "externalId": "Q65825517",
+      "name": "宋文馨",
+      "citation": "维基百科 / Wikidata Q65825517",
+      "aliases": [
+        "Song Wenxin"
+      ],
+      "gender": "male",
+      "bio": "person, CBDB ID = 387472"
+    },
+    {
+      "externalId": "Q65825521",
+      "name": "宋文隆",
+      "citation": "维基百科 / Wikidata Q65825521",
+      "aliases": [
+        "Song Wenlong"
+      ],
+      "gender": "male",
+      "bio": "person, CBDB ID = 387473"
+    },
+    {
+      "externalId": "Q65825525",
+      "name": "阮氏",
+      "citation": "维基百科 / Wikidata Q65825525",
+      "aliases": [
+        "Ruan Shi"
+      ],
+      "gender": "female",
+      "bio": "宋文囿妻"
+    },
+    {
+      "externalId": "Q65825537",
+      "name": "张氏",
+      "citation": "维基百科 / Wikidata Q65825537",
+      "aliases": [
+        "張氏",
+        "Zhang Shi"
+      ],
+      "gender": "female",
+      "bio": "宋文囿妻"
+    },
+    {
+      "externalId": "Q65825549",
+      "name": "贾专",
+      "citation": "维基百科 / Wikidata Q65825549",
+      "aliases": [
+        "賈專",
+        "Jia Zhuan"
+      ],
+      "gender": "female",
+      "bio": "person, CBDB ID = 387480"
+    },
+    {
+      "externalId": "Q65825553",
+      "name": "宋瓒",
+      "citation": "维基百科 / Wikidata Q65825553",
+      "aliases": [
+        "宋瓚",
+        "Song Zan"
+      ],
+      "gender": "male",
+      "bio": "person, CBDB ID = 387481"
+    },
+    {
+      "externalId": "Q65825557",
+      "name": "蒋劝",
+      "citation": "维基百科 / Wikidata Q65825557",
+      "aliases": [
+        "蔣勸",
+        "Jiang Quan"
+      ],
+      "gender": "male",
+      "bio": "person, CBDB ID = 387482"
+    },
+    {
+      "externalId": "Q65903762",
+      "name": "宋瓒",
+      "citation": "维基百科 / Wikidata Q65903762",
+      "aliases": [
+        "宋瓚",
+        "Song Zan"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 1396
+      },
+      "bio": "person, CBDB ID = 437746"
+    },
+    {
+      "externalId": "Q65903768",
+      "name": "宋怿",
+      "citation": "维基百科 / Wikidata Q65903768",
+      "aliases": [
+        "宋懌",
+        "Song Yi"
+      ],
+      "gender": "male",
+      "bio": "person, CBDB ID = 437748"
+    },
+    {
+      "externalId": "Q65903771",
+      "name": "宋怀",
+      "citation": "维基百科 / Wikidata Q65903771",
+      "aliases": [
+        "宋懷",
+        "Song Huai"
+      ],
+      "gender": "male",
+      "bio": "person, CBDB ID = 437749"
+    },
+    {
+      "externalId": "Q65903774",
+      "name": "包氏",
+      "citation": "维基百科 / Wikidata Q65903774",
+      "aliases": [
+        "Bao Shi"
+      ],
+      "gender": "female",
+      "bio": "宋瓚妻"
+    },
+    {
+      "externalId": "Q65903778",
+      "name": "宋恺",
+      "citation": "维基百科 / Wikidata Q65903778",
+      "aliases": [
+        "宋愷",
+        "Song Kai"
+      ],
+      "gender": "male",
+      "bio": "person, CBDB ID = 437752"
+    },
+    {
+      "externalId": "Q65903783",
+      "name": "宋恂",
+      "citation": "维基百科 / Wikidata Q65903783",
+      "aliases": [
+        "Song Xun"
+      ],
+      "gender": "male",
+      "bio": "person, CBDB ID = 437753"
+    },
+    {
+      "externalId": "Q65903784",
+      "name": "贾氏",
+      "citation": "维基百科 / Wikidata Q65903784",
+      "aliases": [
+        "賈氏",
+        "Jia Shi"
+      ],
+      "gender": "female",
+      "bio": "宋瓚妻"
+    },
+    {
+      "externalId": "Q65903813",
+      "name": "宋柏",
+      "citation": "维基百科 / Wikidata Q65903813",
+      "aliases": [
+        "Song Bai"
+      ],
+      "gender": "male",
+      "bio": "person, CBDB ID = 437763"
+    },
+    {
+      "externalId": "Q65903816",
+      "name": "宋溥德",
+      "citation": "维基百科 / Wikidata Q65903816",
+      "aliases": [
+        "Song Pude"
+      ],
+      "gender": "male",
+      "bio": "person, CBDB ID = 437764"
+    },
+    {
+      "externalId": "Q65903825",
+      "name": "宋文馨",
+      "citation": "维基百科 / Wikidata Q65903825",
+      "aliases": [
+        "Song Wenxin"
+      ],
+      "gender": "male",
+      "bio": "person, CBDB ID = 437767"
+    },
+    {
+      "externalId": "Q65903828",
+      "name": "宋文隆",
+      "citation": "维基百科 / Wikidata Q65903828",
+      "aliases": [
+        "Song Wenlong"
+      ],
+      "gender": "male",
+      "bio": "person, CBDB ID = 437768"
+    },
+    {
+      "externalId": "Q65903889",
+      "name": "宋永敷",
+      "citation": "维基百科 / Wikidata Q65903889",
+      "aliases": [
+        "Song Yongfu"
+      ],
+      "gender": "male",
+      "bio": "person, CBDB ID = 437788"
+    },
+    {
+      "externalId": "Q65903892",
+      "name": "宋偘",
+      "citation": "维基百科 / Wikidata Q65903892",
+      "aliases": [
+        "Song Kan"
+      ],
+      "gender": "male",
+      "bio": "person, CBDB ID = 437789"
+    },
+    {
+      "externalId": "Q65903895",
+      "name": "杨子同",
+      "citation": "维基百科 / Wikidata Q65903895",
+      "aliases": [
+        "楊子同",
+        "Yang Zitong"
+      ],
+      "gender": "female",
+      "bio": "person, CBDB ID = 437790"
+    },
+    {
+      "externalId": "Q65903898",
+      "name": "李回",
+      "citation": "维基百科 / Wikidata Q65903898",
+      "aliases": [
+        "Li Hui"
+      ],
+      "gender": "female",
+      "bio": "person, CBDB ID = 437791"
+    },
+    {
+      "externalId": "Q65903901",
+      "name": "陆烈",
+      "citation": "维基百科 / Wikidata Q65903901",
+      "aliases": [
+        "陸烈",
+        "Lu Lie"
+      ],
+      "gender": "female",
+      "bio": "person, CBDB ID = 437792"
+    },
+    {
+      "externalId": "Q65903904",
+      "name": "周氏",
+      "citation": "维基百科 / Wikidata Q65903904",
+      "aliases": [
+        "Zhou Shi"
+      ],
+      "gender": "female",
+      "bio": "宋溥德妻"
+    },
+    {
+      "externalId": "Q65903907",
+      "name": "宋守还",
+      "citation": "维基百科 / Wikidata Q65903907",
+      "aliases": [
+        "宋守還",
+        "Song Shouhuan"
+      ],
+      "gender": "male",
+      "bio": "person, CBDB ID = 437794"
+    },
+    {
+      "externalId": "Q65903910",
+      "name": "沈氏",
+      "citation": "维基百科 / Wikidata Q65903910",
+      "aliases": [
+        "Shen Shi"
+      ],
+      "gender": "female",
+      "bio": "宋守還妻"
+    },
+    {
+      "externalId": "Q65903913",
+      "name": "宋守有",
+      "citation": "维基百科 / Wikidata Q65903913",
+      "aliases": [
+        "Song Shouyou"
+      ],
+      "gender": "male",
+      "bio": "person, CBDB ID = 437796"
+    },
+    {
+      "externalId": "Q65903916",
+      "name": "王康",
+      "citation": "维基百科 / Wikidata Q65903916",
+      "aliases": [
+        "Wang Kang"
+      ],
+      "gender": "female",
+      "bio": "person, CBDB ID = 437797"
+    },
+    {
+      "externalId": "Q65903919",
+      "name": "陈贤时",
+      "citation": "维基百科 / Wikidata Q65903919",
+      "aliases": [
+        "陳賢時",
+        "Chen Xianshi"
+      ],
+      "gender": "female",
+      "bio": "person, CBDB ID = 437798"
+    },
+    {
+      "externalId": "Q65903929",
+      "name": "姜氏",
+      "citation": "维基百科 / Wikidata Q65903929",
+      "aliases": [
+        "Jiang Shi"
+      ],
+      "gender": "female",
+      "bio": "宋文馨妻"
+    },
+    {
+      "externalId": "Q65903934",
+      "name": "赵氏",
+      "citation": "维基百科 / Wikidata Q65903934",
+      "aliases": [
+        "趙氏",
+        "Zhao Shi"
+      ],
+      "gender": "female",
+      "bio": "宋文隆妻"
+    },
+    {
+      "externalId": "Q65903940",
+      "name": "蒋勤",
+      "citation": "维基百科 / Wikidata Q65903940",
+      "aliases": [
+        "蔣勤",
+        "Jiang Qin"
+      ],
+      "gender": "female",
+      "bio": "person, CBDB ID = 437806"
+    },
+    {
+      "externalId": "Q65903958",
+      "name": "宋信",
+      "citation": "维基百科 / Wikidata Q65903958",
+      "aliases": [
+        "Song Xin"
+      ],
+      "gender": "male",
+      "bio": "person, CBDB ID = 437812"
+    },
+    {
+      "externalId": "Q65903961",
+      "name": "宋寿庆",
+      "citation": "维基百科 / Wikidata Q65903961",
+      "aliases": [
+        "宋壽慶",
+        "Song Shouqing"
+      ],
+      "gender": "male",
+      "bio": "person, CBDB ID = 437813"
+    },
+    {
+      "externalId": "Q65903964",
+      "name": "宋寿芝",
+      "citation": "维基百科 / Wikidata Q65903964",
+      "aliases": [
+        "宋壽芝",
+        "Song Shouzhi"
+      ],
+      "gender": "male",
+      "bio": "person, CBDB ID = 437814"
+    },
+    {
+      "externalId": "Q65903967",
+      "name": "潘氏",
+      "citation": "维基百科 / Wikidata Q65903967",
+      "aliases": [
+        "Pan Shi"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1362
+      },
+      "bio": "宋信妻"
+    },
+    {
+      "externalId": "Q65903973",
+      "name": "宋愠",
+      "citation": "维基百科 / Wikidata Q65903973",
+      "aliases": [
+        "宋慍",
+        "Song Yun"
+      ],
+      "gender": "male",
+      "bio": "person, CBDB ID = 437817"
+    },
+    {
+      "externalId": "Q65903976",
+      "name": "宋情",
+      "citation": "维基百科 / Wikidata Q65903976",
+      "aliases": [
+        "Song Qing"
+      ],
+      "gender": "male",
+      "bio": "person, CBDB ID = 437818"
+    },
+    {
+      "externalId": "Q65903979",
+      "name": "宋恪",
+      "citation": "维基百科 / Wikidata Q65903979",
+      "aliases": [
+        "Song Ke"
+      ],
+      "gender": "male",
+      "bio": "person, CBDB ID = 437819"
+    },
+    {
+      "externalId": "Q65903982",
+      "name": "宋均执",
+      "citation": "维基百科 / Wikidata Q65903982",
+      "aliases": [
+        "宋均執",
+        "Song Junzhi"
+      ],
+      "gender": "male",
+      "bio": "person, CBDB ID = 437820"
+    },
+    {
+      "externalId": "Q65903985",
+      "name": "宋均玉",
+      "citation": "维基百科 / Wikidata Q65903985",
+      "aliases": [
+        "Song Junyu"
+      ],
+      "gender": "male",
+      "bio": "person, CBDB ID = 437821"
+    },
+    {
+      "externalId": "Q65903987",
+      "name": "宋均杰",
+      "citation": "维基百科 / Wikidata Q65903987",
+      "aliases": [
+        "宋均傑",
+        "Song Junjie"
+      ],
+      "gender": "male",
+      "bio": "person, CBDB ID = 437822"
+    },
+    {
+      "externalId": "Q65903990",
+      "name": "宋均亮",
+      "citation": "维基百科 / Wikidata Q65903990",
+      "aliases": [
+        "Song Junliang"
+      ],
+      "gender": "male",
+      "bio": "person, CBDB ID = 437823"
+    },
+    {
+      "externalId": "Q713013",
+      "name": "宋濂",
+      "citation": "维基百科 / Wikidata Q713013",
+      "aliases": [
+        "Song Lian"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1310
+      },
+      "death": {
+        "year": 1381
+      },
+      "bio": "中国明朝初年思想家、文学家",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Portrait%20of%20Song%20Lian%20by%20Gu%20Jianlong.jpg",
+      "photoCredit": "作者：顧見龍 Gu Jianlong · 公有领域 · 来源：Wikimedia Commons"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q65903919",
+      "child": "Q713013"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q65903774",
+      "child": "Q16260761"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q65903784",
+      "child": "Q65903771"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q65903774",
+      "child": "Q65903778"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q65903774",
+      "child": "Q65903783"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45369554",
+      "child": "Q713013"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q713013",
+      "child": "Q10947797"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q65903762",
+      "child": "Q16260761"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q65903816",
+      "child": "Q45369550"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45369550",
+      "child": "Q45369554"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45369554",
+      "child": "Q45695737"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45369550",
+      "child": "Q65825515"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45369550",
+      "child": "Q65825517"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45369550",
+      "child": "Q65825521"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q713013",
+      "child": "Q65825553"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q713013",
+      "child": "Q65903762"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q10947797",
+      "child": "Q65903768"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q65903762",
+      "child": "Q65903771"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q65903762",
+      "child": "Q65903778"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q65903762",
+      "child": "Q65903783"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q65903892",
+      "child": "Q65903813"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q65903889",
+      "child": "Q65903816"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45369550",
+      "child": "Q65903825"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45369550",
+      "child": "Q65903828"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q65903892",
+      "child": "Q65903889"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q65903816",
+      "child": "Q65903907"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q65903816",
+      "child": "Q65903913"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q65903768",
+      "child": "Q65903958"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q65903958",
+      "child": "Q65903961"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q65903958",
+      "child": "Q65903964"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q65903762",
+      "child": "Q65903973"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q10947797",
+      "child": "Q65903976"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q10947797",
+      "child": "Q65903979"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q65903961",
+      "child": "Q65903982"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q65903961",
+      "child": "Q65903985"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q65903964",
+      "child": "Q65903987"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q65903964",
+      "child": "Q65903990"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q65825549",
+      "b": "Q713013"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q10947797",
+      "b": "Q45705050"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45369550",
+      "b": "Q65825511"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45369554",
+      "b": "Q45698308"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45369554",
+      "b": "Q65903919"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45695737",
+      "b": "Q65825557"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45695737",
+      "b": "Q65903940"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q65825515",
+      "b": "Q65825525"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q65825515",
+      "b": "Q65825537"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q65903762",
+      "b": "Q65903774"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q65903762",
+      "b": "Q65903784"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q65903813",
+      "b": "Q65903901"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q65903816",
+      "b": "Q65903904"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q65903825",
+      "b": "Q65903929"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q65903828",
+      "b": "Q65903934"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q65903889",
+      "b": "Q65903898"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q65903892",
+      "b": "Q65903895"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q65903907",
+      "b": "Q65903910"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q65903913",
+      "b": "Q65903916"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q65903958",
+      "b": "Q65903967"
+    }
+  ]
+}

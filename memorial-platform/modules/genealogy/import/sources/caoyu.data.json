@@ -1,0 +1,106 @@
+{
+  "key": "wikidata:caoyu",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q11097421",
+      "name": "李玉茹",
+      "citation": "维基百科 / Wikidata Q11097421",
+      "aliases": [
+        "Li Yuru"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1923
+      },
+      "death": {
+        "year": 2008
+      },
+      "bio": "Chinese opera singer"
+    },
+    {
+      "externalId": "Q22958190",
+      "name": "万方",
+      "citation": "维基百科 / Wikidata Q22958190",
+      "aliases": [
+        "Wan Fang"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1952
+      },
+      "living": true,
+      "bio": "中国作家，曹禺之女"
+    },
+    {
+      "externalId": "Q353783",
+      "name": "曹禺",
+      "citation": "维基百科 / Wikidata Q353783",
+      "aliases": [
+        "Cao Yu"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1910
+      },
+      "death": {
+        "year": 1996
+      },
+      "bio": "中國戲劇家和作家（1910－1996）",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Young%20Cao%20Yu.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q970019",
+      "name": "姚晨",
+      "citation": "维基百科 / Wikidata Q970019",
+      "aliases": [
+        "Yao Chen"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1979
+      },
+      "living": true,
+      "bio": "中國女演員",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/China%202014%20-%20An%20Insight%2C%20An%20Idea%20with%20Yao%20Chen.jpg",
+      "photoCredit": "作者：World Economic Forum · CC BY 3.0 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q98024618",
+      "name": "方瑞",
+      "citation": "维基百科 / Wikidata Q98024618",
+      "aliases": [
+        "Fang Rui"
+      ],
+      "gender": "female"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q98024618",
+      "child": "Q22958190"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q353783",
+      "child": "Q22958190"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q353783",
+      "b": "Q970019"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q11097421",
+      "b": "Q353783"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q353783",
+      "b": "Q98024618"
+    }
+  ]
+}

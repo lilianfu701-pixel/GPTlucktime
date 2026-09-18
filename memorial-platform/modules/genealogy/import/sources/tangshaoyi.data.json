@@ -1,0 +1,218 @@
+{
+  "key": "wikidata:tangshaoyi",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q11048135",
+      "name": "岑德广",
+      "citation": "维基百科 / Wikidata Q11048135",
+      "aliases": [
+        "Cen Deguang"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1897
+      },
+      "death": {
+        "year": 1972
+      },
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Cen%20Deguang.jpg",
+      "photoCredit": "作者：Unknown; scanned by 天竺鼠 (talk) 12:30, 22 August 2009 (UTC) · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q11067666",
+      "name": "张谦",
+      "citation": "维基百科 / Wikidata Q11067666",
+      "aliases": [
+        "Henry K. Chang"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1888
+      },
+      "death": {
+        "year": 1977
+      },
+      "bio": "Chinese diplomat",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Zhang%20Qian%20ROC.jpg",
+      "photoCredit": "作者：Unknown; scanned by --天竺鼠 (talk) 18:26, 20 December 2011 (UTC) · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q317462",
+      "name": "顾维钧",
+      "citation": "维基百科 / Wikidata Q317462",
+      "aliases": [
+        "顧維鈞",
+        "Wellington Koo"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1888
+      },
+      "death": {
+        "year": 1985
+      },
+      "bio": "外交官 和前任中華民國大總統",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Wellington%20Koo%201945.jpg",
+      "photoCredit": "作者：Unknown author · CC BY-SA 3.0 nl · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q56271230",
+      "name": "唐榴",
+      "citation": "维基百科 / Wikidata Q56271230",
+      "aliases": [
+        "Tang Liu"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1899
+      },
+      "death": {
+        "year": 1981
+      },
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/%E5%94%90%E6%A6%B4.jpg",
+      "photoCredit": "作者：寰球中國學生會週刊 · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q709890",
+      "name": "唐绍仪",
+      "citation": "维基百科 / Wikidata Q709890",
+      "aliases": [
+        "唐紹儀",
+        "Tang Shaoyi"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1862
+      },
+      "death": {
+        "year": 1938
+      },
+      "bio": "中華民國第一任內閣總理",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Tang%20Shaoyi.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q98395516",
+      "name": "唐宝玥",
+      "citation": "维基百科 / Wikidata Q98395516",
+      "aliases": [
+        "May Pao-yu Tong"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1890
+      },
+      "death": {
+        "year": 1918
+      },
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/%E9%A1%A7%E7%B6%AD%E9%88%9E%E5%92%8C%E5%A4%AB%E4%BA%BA%E5%94%90%E5%AF%B6%E7%8E%A5.jpg",
+      "photoCredit": "作者：高劍華編 · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q98398379",
+      "name": "诸昌年",
+      "citation": "维基百科 / Wikidata Q98398379",
+      "aliases": [
+        "Chu Chang-nien"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1892
+      },
+      "death": {
+        "year": 1982
+      },
+      "bio": "中华民国外交官"
+    },
+    {
+      "externalId": "Q98398399",
+      "name": "唐宝珠",
+      "citation": "维基百科 / Wikidata Q98398399",
+      "aliases": [
+        "Elsie Tong"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1897
+      },
+      "death": {
+        "year": 1971
+      },
+      "bio": "唐绍仪长女"
+    },
+    {
+      "externalId": "Q98400128",
+      "name": "唐宝玫",
+      "citation": "维基百科 / Wikidata Q98400128",
+      "aliases": [
+        "Edith Tong"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1902
+      },
+      "death": {
+        "year": 1941
+      }
+    },
+    {
+      "externalId": "Q98400179",
+      "name": "唐宝璋",
+      "citation": "维基百科 / Wikidata Q98400179",
+      "aliases": [
+        "唐寶璋",
+        "Isabel Tong Chang"
+      ],
+      "gender": "female",
+      "bio": "1887 - 1957"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q709890",
+      "child": "Q56271230"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q709890",
+      "child": "Q98395516"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q709890",
+      "child": "Q98398399"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q709890",
+      "child": "Q98400128"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q709890",
+      "child": "Q98400179"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q317462",
+      "b": "Q98395516"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q11048135",
+      "b": "Q98400128"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q11067666",
+      "b": "Q98400179"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q98398379",
+      "b": "Q98398399"
+    }
+  ]
+}

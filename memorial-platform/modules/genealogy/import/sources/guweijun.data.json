@@ -1,0 +1,145 @@
+{
+  "key": "wikidata:guweijun",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q11178455",
+      "name": "黄蕙兰",
+      "citation": "维基百科 / Wikidata Q11178455",
+      "aliases": [
+        "Oei Hui-lan"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1889
+      },
+      "death": {
+        "year": 1993
+      },
+      "bio": "中华民国名媛",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Madame%20Wellington%20Koo%20%28n%C3%A9e%20Hui-lan%20Oei%29%20with%20baby.jpg",
+      "photoCredit": "作者：Henry Walter ('H. Walter') Barnett (1862-1934) Oscar Hardee (Oscar Hardee Blyfield) (1876-1937) · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q317462",
+      "name": "顾维钧",
+      "citation": "维基百科 / Wikidata Q317462",
+      "aliases": [
+        "顧維鈞",
+        "Wellington Koo"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1888
+      },
+      "death": {
+        "year": 1985
+      },
+      "bio": "外交官 和前任中華民國大總統",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Wellington%20Koo%201945.jpg",
+      "photoCredit": "作者：Unknown author · CC BY-SA 3.0 nl · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q64014340",
+      "name": "顾裕昌",
+      "citation": "维基百科 / Wikidata Q64014340",
+      "aliases": [
+        "Wellington Koo Jr."
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1922
+      },
+      "death": {
+        "year": 1975
+      },
+      "bio": "(1922-1975)"
+    },
+    {
+      "externalId": "Q9078206",
+      "name": "严幼韵",
+      "citation": "维基百科 / Wikidata Q9078206",
+      "aliases": [
+        "Juliana Young Koo"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1905
+      },
+      "death": {
+        "year": 2017
+      },
+      "bio": "中国外交官"
+    },
+    {
+      "externalId": "Q98395516",
+      "name": "唐宝玥",
+      "citation": "维基百科 / Wikidata Q98395516",
+      "aliases": [
+        "May Pao-yu Tong"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1890
+      },
+      "death": {
+        "year": 1918
+      },
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/%E9%A1%A7%E7%B6%AD%E9%88%9E%E5%92%8C%E5%A4%AB%E4%BA%BA%E5%94%90%E5%AF%B6%E7%8E%A5.jpg",
+      "photoCredit": "作者：高劍華編 · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q99673208",
+      "name": "顾福昌",
+      "citation": "维基百科 / Wikidata Q99673208",
+      "aliases": [
+        "Fu-chang Freeman Koo"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1923
+      },
+      "death": {
+        "year": 1977
+      },
+      "bio": "(1923-1977)"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q11178455",
+      "child": "Q64014340"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q11178455",
+      "child": "Q99673208"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q317462",
+      "child": "Q64014340"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q317462",
+      "child": "Q99673208"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q317462",
+      "b": "Q9078206"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q11178455",
+      "b": "Q317462"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q317462",
+      "b": "Q98395516"
+    }
+  ]
+}

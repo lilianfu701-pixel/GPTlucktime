@@ -1,0 +1,139 @@
+{
+  "key": "wikidata:zhangjiasen",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q112683600",
+      "name": "周碧霞",
+      "citation": "维基百科 / Wikidata Q112683600",
+      "aliases": [
+        "Pihya Chang"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1909
+      },
+      "death": {
+        "year": 1997
+      }
+    },
+    {
+      "externalId": "Q19281098",
+      "name": "张祖泽",
+      "citation": "维基百科 / Wikidata Q19281098",
+      "aliases": [
+        "張祖澤",
+        "Zhang Zuze"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1867
+      },
+      "death": {
+        "year": 1928
+      },
+      "bio": "Republic of China person CBDB = 80762"
+    },
+    {
+      "externalId": "Q2782947",
+      "name": "张君劢",
+      "citation": "维基百科 / Wikidata Q2782947",
+      "aliases": [
+        "Carsun Chang"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1886
+      },
+      "death": {
+        "year": 1969
+      },
+      "bio": "中国政治家、哲学家",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Zhang%20Junmai.jpg",
+      "photoCredit": "作者：Unknown; scanned by 天竺鼠 (talk) 16:21, 25 December 2010 (UTC) · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q557551",
+      "name": "徐志摩",
+      "citation": "维基百科 / Wikidata Q557551",
+      "aliases": [
+        "Xu Zhimo"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1897
+      },
+      "death": {
+        "year": 1931
+      },
+      "bio": "中国诗人（1897－1931）",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Xu%20Zhimo.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q8070221",
+      "name": "张嘉璈",
+      "citation": "维基百科 / Wikidata Q8070221",
+      "aliases": [
+        "張嘉璈",
+        "Chang Kia-ngau"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1889
+      },
+      "death": {
+        "year": 1979
+      },
+      "bio": "中国政治人物",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/1929%20Zhang%20Jia%27ao.jpg",
+      "photoCredit": "作者：Georges Chevalier · CC BY 4.0 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q8070408",
+      "name": "张幼仪",
+      "citation": "维基百科 / Wikidata Q8070408",
+      "aliases": [
+        "張幼儀",
+        "Zhang Youyi"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1900
+      },
+      "death": {
+        "year": 1988
+      },
+      "bio": "徐志摩之妻",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Xu%20Zhimo%20%26%20Zhang%20Youyi.jpg",
+      "photoCredit": "作者：(Transferred by 白布飘扬/Originally uploaded by 白布飘扬) · 公有领域 · 来源：Wikimedia Commons"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q19281098",
+      "child": "Q2782947"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q19281098",
+      "child": "Q8070221"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q19281098",
+      "child": "Q8070408"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q557551",
+      "b": "Q8070408"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q112683600",
+      "b": "Q8070221"
+    }
+  ]
+}

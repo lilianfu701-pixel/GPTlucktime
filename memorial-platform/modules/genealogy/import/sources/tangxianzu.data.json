@@ -1,0 +1,106 @@
+{
+  "key": "wikidata:tangxianzu",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q45467200",
+      "name": "汤瑄",
+      "citation": "维基百科 / Wikidata Q45467200",
+      "aliases": [
+        "湯瑄",
+        "Tang Xuan"
+      ],
+      "gender": "male",
+      "bio": "Ming dynasty person CBDB = 225127"
+    },
+    {
+      "externalId": "Q45467263",
+      "name": "汤懋昭",
+      "citation": "维基百科 / Wikidata Q45467263",
+      "aliases": [
+        "湯懋昭",
+        "Tang Maozhao"
+      ],
+      "gender": "male",
+      "bio": "Ming dynasty person CBDB = 225128"
+    },
+    {
+      "externalId": "Q45467328",
+      "name": "汤尚贤",
+      "citation": "维基百科 / Wikidata Q45467328",
+      "aliases": [
+        "湯尚賢",
+        "Tang Shangxian"
+      ],
+      "gender": "male",
+      "bio": "Ming dynasty person CBDB = 225129"
+    },
+    {
+      "externalId": "Q65829106",
+      "name": "吴氏",
+      "citation": "维基百科 / Wikidata Q65829106",
+      "aliases": [
+        "吳氏",
+        "Wu Shi"
+      ],
+      "gender": "female",
+      "bio": "湯顯祖母"
+    },
+    {
+      "externalId": "Q65829110",
+      "name": "吴氏",
+      "citation": "维基百科 / Wikidata Q65829110",
+      "aliases": [
+        "吳氏",
+        "Wu Shi"
+      ],
+      "gender": "female",
+      "bio": "湯顯祖妻"
+    },
+    {
+      "externalId": "Q945333",
+      "name": "汤显祖",
+      "citation": "维基百科 / Wikidata Q945333",
+      "aliases": [
+        "Tang Xianzu"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1550
+      },
+      "death": {
+        "year": 1616
+      },
+      "bio": "明代戲曲作家",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/%E6%B9%AF%E9%A1%AF%E7%A5%96.jpg",
+      "photoCredit": "作者：Symane · 公有领域 · 来源：Wikimedia Commons"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q45467328",
+      "child": "Q945333"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45467200",
+      "child": "Q45467263"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45467263",
+      "child": "Q45467328"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q65829106",
+      "child": "Q945333"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q65829110",
+      "b": "Q945333"
+    }
+  ]
+}

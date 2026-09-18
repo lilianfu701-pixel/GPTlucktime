@@ -1,0 +1,147 @@
+{
+  "key": "wikidata:fengyoulan",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q109174700",
+      "name": "冯钟越",
+      "citation": "维基百科 / Wikidata Q109174700",
+      "gender": "male",
+      "death": {
+        "year": 1982
+      }
+    },
+    {
+      "externalId": "Q16076031",
+      "name": "冯台异",
+      "citation": "维基百科 / Wikidata Q16076031",
+      "aliases": [
+        "馮臺異",
+        "Feng Taiyi"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1866
+      },
+      "bio": "Qing dynasty politician"
+    },
+    {
+      "externalId": "Q5443404",
+      "name": "冯沅君",
+      "citation": "维基百科 / Wikidata Q5443404",
+      "aliases": [
+        "Feng Yuanjun"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1900
+      },
+      "death": {
+        "year": 1974
+      },
+      "bio": "penwoman, literary critic, politician (1900-)",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/%E9%A6%AE%E6%B2%85%E5%90%9B.jpg",
+      "photoCredit": "作者：持志年刊 1926-1933 持志年刊社編輯; 上海持志大學學生會出版 上海 · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q557220",
+      "name": "冯友兰",
+      "citation": "维基百科 / Wikidata Q557220",
+      "aliases": [
+        "Feng Youlan"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1895
+      },
+      "death": {
+        "year": 1990
+      },
+      "bio": "中国哲学家、哲学史家（1895－1990）",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Feng%20Youlan.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q6694865",
+      "name": "陆侃如",
+      "citation": "维基百科 / Wikidata Q6694865",
+      "aliases": [
+        "Lu Kanru"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1903
+      },
+      "death": {
+        "year": 1978
+      },
+      "bio": "Scholar of classical Chinese literature",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/%E9%99%B8%E4%BE%83%E5%A6%82.jpg",
+      "photoCredit": "公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q8073961",
+      "name": "宗璞",
+      "citation": "维基百科 / Wikidata Q8073961",
+      "aliases": [
+        "Zong Pu"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1928
+      },
+      "living": true,
+      "bio": "Chinese writer"
+    },
+    {
+      "externalId": "Q8463533",
+      "name": "冯景兰",
+      "citation": "维基百科 / Wikidata Q8463533",
+      "aliases": [
+        "Jinglan Feng"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1898
+      },
+      "death": {
+        "year": 1976
+      },
+      "bio": "中国地质学家、矿床学家、地貌学家（1898—1976）",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/%E9%A6%AE%E6%99%AF%E8%98%AD.jpg",
+      "photoCredit": "作者：楊家駱 · 公有领域 · 来源：Wikimedia Commons"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q16076031",
+      "child": "Q557220"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q16076031",
+      "child": "Q5443404"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q557220",
+      "child": "Q8073961"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q16076031",
+      "child": "Q8463533"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q557220",
+      "child": "Q109174700"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q5443404",
+      "b": "Q6694865"
+    }
+  ]
+}

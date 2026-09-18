@@ -1,0 +1,506 @@
+{
+  "key": "wikidata:zenggong",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q107028206",
+      "name": "曾洪立",
+      "citation": "维基百科 / Wikidata Q107028206",
+      "gender": "male"
+    },
+    {
+      "externalId": "Q11091628",
+      "name": "曾肇",
+      "citation": "维基百科 / Wikidata Q11091628",
+      "aliases": [
+        "Zeng Zhao"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1047
+      },
+      "death": {
+        "year": 1107
+      },
+      "bio": "Song Dynasty politician"
+    },
+    {
+      "externalId": "Q1275360",
+      "name": "曾巩",
+      "citation": "维基百科 / Wikidata Q1275360",
+      "aliases": [
+        "Zeng Gong"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1019
+      },
+      "death": {
+        "year": 1083
+      },
+      "bio": "Chinese historian, poet, politician, and writer (1019–1083)",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Zeng%20Gong.jpg",
+      "photoCredit": "公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q16077394",
+      "name": "魏玩",
+      "citation": "维基百科 / Wikidata Q16077394",
+      "aliases": [
+        "Wei Wan"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1040
+      },
+      "death": {
+        "year": 1103
+      },
+      "bio": "曾布妻"
+    },
+    {
+      "externalId": "Q24832476",
+      "name": "曾宰",
+      "citation": "维基百科 / Wikidata Q24832476",
+      "aliases": [
+        "Zeng Zai"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1022
+      },
+      "death": {
+        "year": 1068
+      },
+      "bio": "Song Dynasty politician"
+    },
+    {
+      "externalId": "Q4391229",
+      "name": "曾布",
+      "citation": "维基百科 / Wikidata Q4391229",
+      "aliases": [
+        "Zeng Bu"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1036
+      },
+      "death": {
+        "year": 1107
+      },
+      "bio": "北宋大臣"
+    },
+    {
+      "externalId": "Q45364068",
+      "name": "吴氏",
+      "citation": "维基百科 / Wikidata Q45364068",
+      "aliases": [
+        "吳氏",
+        "Wu Shi"
+      ],
+      "gender": "female",
+      "bio": "曾易占妻"
+    },
+    {
+      "externalId": "Q45364074",
+      "name": "晁德仪",
+      "citation": "维基百科 / Wikidata Q45364074",
+      "aliases": [
+        "晁德儀",
+        "Chao Deyi"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1037
+      },
+      "death": {
+        "year": 1062
+      },
+      "bio": "Song dynasty person CBDB = 5125"
+    },
+    {
+      "externalId": "Q45364082",
+      "name": "曾德耀",
+      "citation": "维基百科 / Wikidata Q45364082",
+      "aliases": [
+        "Zeng Deyao"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1042
+      },
+      "death": {
+        "year": 1061
+      },
+      "bio": "Song dynasty person CBDB = 5128"
+    },
+    {
+      "externalId": "Q45364086",
+      "name": "曾德操",
+      "citation": "维基百科 / Wikidata Q45364086",
+      "aliases": [
+        "Zeng Decao"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1044
+      },
+      "death": {
+        "year": 1074
+      },
+      "bio": "Song dynasty person (CBDB = 5129)"
+    },
+    {
+      "externalId": "Q45364492",
+      "name": "黄氏",
+      "citation": "维基百科 / Wikidata Q45364492",
+      "aliases": [
+        "黃氏",
+        "Huang Shi"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 953
+      },
+      "death": {
+        "year": 1044
+      },
+      "bio": "曾致堯妻"
+    },
+    {
+      "externalId": "Q45364935",
+      "name": "曾氏",
+      "citation": "维基百科 / Wikidata Q45364935",
+      "aliases": [
+        "Zeng Shi"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1026
+      },
+      "death": {
+        "year": 1057
+      },
+      "bio": "Song dynasty person (CBDB = 5401)"
+    },
+    {
+      "externalId": "Q45364938",
+      "name": "曾德克",
+      "citation": "维基百科 / Wikidata Q45364938",
+      "aliases": [
+        "Zeng Deke"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1040
+      },
+      "death": {
+        "year": 1108
+      },
+      "bio": "Song dynasty person (CBDB = 5402)"
+    },
+    {
+      "externalId": "Q45365747",
+      "name": "关景晖",
+      "citation": "维基百科 / Wikidata Q45365747",
+      "aliases": [
+        "關景暉",
+        "Guan Jinghui"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 7266"
+    },
+    {
+      "externalId": "Q45366040",
+      "name": "曾易占",
+      "citation": "维基百科 / Wikidata Q45366040",
+      "aliases": [
+        "Zeng Yizhan"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 989
+      },
+      "death": {
+        "year": 1047
+      },
+      "bio": "Song dynasty politician"
+    },
+    {
+      "externalId": "Q45366052",
+      "name": "王几",
+      "citation": "维基百科 / Wikidata Q45366052",
+      "aliases": [
+        "王幾",
+        "Wang Ji"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person (CBDB = 7369)"
+    },
+    {
+      "externalId": "Q45366095",
+      "name": "王无咎",
+      "citation": "维基百科 / Wikidata Q45366095",
+      "aliases": [
+        "王無咎",
+        "Wang Wujiu"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1024
+      },
+      "death": {
+        "year": 1069
+      },
+      "bio": "Song dynasty person (CBDB = 7384)"
+    },
+    {
+      "externalId": "Q45383379",
+      "name": "曾延铎",
+      "citation": "维基百科 / Wikidata Q45383379",
+      "aliases": [
+        "曾延鐸",
+        "Zeng Yanduo"
+      ],
+      "gender": "male",
+      "bio": "Southern Tang person CBDB = 16577"
+    },
+    {
+      "externalId": "Q45383383",
+      "name": "曾仁旺",
+      "citation": "维基百科 / Wikidata Q45383383",
+      "aliases": [
+        "Zeng Renwang"
+      ],
+      "gender": "male",
+      "bio": "Southern Tang person CBDB = 16578"
+    },
+    {
+      "externalId": "Q45383390",
+      "name": "曾牟",
+      "citation": "维基百科 / Wikidata Q45383390",
+      "aliases": [
+        "Zeng Mou"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB=16580"
+    },
+    {
+      "externalId": "Q45383408",
+      "name": "曾易从",
+      "citation": "维基百科 / Wikidata Q45383408",
+      "aliases": [
+        "曾易從",
+        "Zeng Yicong"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 16585"
+    },
+    {
+      "externalId": "Q45383412",
+      "name": "曾士尧",
+      "citation": "维基百科 / Wikidata Q45383412",
+      "aliases": [
+        "曾士堯",
+        "Zeng Shiyao"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 16586"
+    },
+    {
+      "externalId": "Q45383416",
+      "name": "曾易简",
+      "citation": "维基百科 / Wikidata Q45383416",
+      "aliases": [
+        "曾易簡",
+        "Zeng Yijian"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 16587"
+    },
+    {
+      "externalId": "Q45400351",
+      "name": "曾曅",
+      "citation": "维基百科 / Wikidata Q45400351",
+      "aliases": [
+        "Zeng Ye"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person (CBDB = 21697)"
+    },
+    {
+      "externalId": "Q45620826",
+      "name": "曾易直",
+      "citation": "维基百科 / Wikidata Q45620826",
+      "aliases": [
+        "Zeng Yizhi"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 339432"
+    },
+    {
+      "externalId": "Q65798922",
+      "name": "周氏",
+      "citation": "维基百科 / Wikidata Q65798922",
+      "aliases": [
+        "Zhou Shi"
+      ],
+      "gender": "female",
+      "bio": "曾易占妻"
+    },
+    {
+      "externalId": "Q7228641",
+      "name": "曾致尧",
+      "citation": "维基百科 / Wikidata Q7228641",
+      "aliases": [
+        "曾致堯",
+        "Zeng Zhiyao"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 947
+      },
+      "death": {
+        "year": 1012
+      },
+      "bio": "Song dynasty politician"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q45366040",
+      "child": "Q1275360"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45366040",
+      "child": "Q4391229"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45383383",
+      "child": "Q7228641"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45366040",
+      "child": "Q11091628"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45366040",
+      "child": "Q24832476"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45366040",
+      "child": "Q45364082"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45366040",
+      "child": "Q45364086"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45366040",
+      "child": "Q45364935"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45366040",
+      "child": "Q45364938"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q7228641",
+      "child": "Q45366040"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q107028206",
+      "child": "Q45383379"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45383379",
+      "child": "Q45383383"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45366040",
+      "child": "Q45383390"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q7228641",
+      "child": "Q45383408"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45383383",
+      "child": "Q45383412"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q7228641",
+      "child": "Q45383416"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45366040",
+      "child": "Q45400351"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q7228641",
+      "child": "Q45620826"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q1275360",
+      "b": "Q45364074"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q16077394",
+      "b": "Q4391229"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45364492",
+      "b": "Q7228641"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45364068",
+      "b": "Q45366040"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45364086",
+      "b": "Q45366052"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45364935",
+      "b": "Q45365747"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45364935",
+      "b": "Q45366095"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45364938",
+      "b": "Q45366095"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45366040",
+      "b": "Q65798922"
+    }
+  ]
+}

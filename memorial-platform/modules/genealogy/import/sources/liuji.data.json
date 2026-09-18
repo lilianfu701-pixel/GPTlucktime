@@ -1,0 +1,137 @@
+{
+  "key": "wikidata:liuji",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q10900194",
+      "name": "刘琏",
+      "citation": "维基百科 / Wikidata Q10900194",
+      "aliases": [
+        "劉璉",
+        "Liu Lian"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1347
+      },
+      "death": {
+        "year": 1379
+      },
+      "bio": "Ming dynasty person CBDB = 34419"
+    },
+    {
+      "externalId": "Q10900201",
+      "name": "刘璟",
+      "citation": "维基百科 / Wikidata Q10900201",
+      "aliases": [
+        "劉璟",
+        "Liu Jing"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1350
+      },
+      "death": {
+        "year": 1402
+      },
+      "bio": "Ming dynasty person CBDB = 34461"
+    },
+    {
+      "externalId": "Q16904683",
+      "name": "刘廌",
+      "citation": "维基百科 / Wikidata Q16904683",
+      "aliases": [
+        "劉廌",
+        "Liu Zhi"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 1392
+      },
+      "bio": "grandson of Liu Bowen, the second Count of Chengyi"
+    },
+    {
+      "externalId": "Q45425156",
+      "name": "刘爚",
+      "citation": "维基百科 / Wikidata Q45425156",
+      "aliases": [
+        "劉爚",
+        "Liu Yue"
+      ],
+      "gender": "male",
+      "bio": "Yuan dynasty person CBDB = 34452"
+    },
+    {
+      "externalId": "Q45425241",
+      "name": "刘法",
+      "citation": "维基百科 / Wikidata Q45425241",
+      "aliases": [
+        "劉法",
+        "Liu Fa"
+      ],
+      "gender": "male",
+      "bio": "Ming dynasty person CBDB = 34454"
+    },
+    {
+      "externalId": "Q45425579",
+      "name": "刘貊",
+      "citation": "维基百科 / Wikidata Q45425579",
+      "aliases": [
+        "劉貊",
+        "Liu Mo"
+      ],
+      "gender": "male",
+      "bio": "Ming dynasty person CBDB = 34462"
+    },
+    {
+      "externalId": "Q699485",
+      "name": "刘伯温",
+      "citation": "维基百科 / Wikidata Q699485",
+      "aliases": [
+        "Liu Ji"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1311
+      },
+      "death": {
+        "year": 1375
+      },
+      "bio": "明代早期政治家、文学家、谋士",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Liu%20Ji.jpg",
+      "photoCredit": "作者：Kuan-Shou（官周） · 公有领域 · 来源：Wikimedia Commons"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q45425156",
+      "child": "Q699485"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q699485",
+      "child": "Q10900194"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q699485",
+      "child": "Q10900201"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q10900194",
+      "child": "Q16904683"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q16904683",
+      "child": "Q45425241"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q10900201",
+      "child": "Q45425579"
+    }
+  ]
+}

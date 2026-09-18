@@ -1,0 +1,181 @@
+{
+  "key": "wikidata:gongzizhen",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q1041328",
+      "name": "龚自珍",
+      "citation": "维基百科 / Wikidata Q1041328",
+      "aliases": [
+        "Gong Zizhen"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1792
+      },
+      "death": {
+        "year": 1841
+      },
+      "bio": "清朝晚期思想家、文学家、诗人",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Gong%20Zizhen.jpg",
+      "photoCredit": "作者：清人绘 · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q11181924",
+      "name": "龚丽正",
+      "citation": "维基百科 / Wikidata Q11181924",
+      "aliases": [
+        "Gong Lizheng"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1767
+      },
+      "bio": "Qing dynasty person CBDB = 56531"
+    },
+    {
+      "externalId": "Q3274694",
+      "name": "段玉裁",
+      "citation": "维基百科 / Wikidata Q3274694",
+      "aliases": [
+        "Duan Yucai"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1735
+      },
+      "death": {
+        "year": 1815
+      },
+      "bio": "清朝经学家、文字音韵训诂学家（1735－1815）",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/%E6%AE%B5%E7%8E%89%E8%A3%81.jpg",
+      "photoCredit": "作者：清叶衍兰辑摹，黄小泉绘。 · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q45533169",
+      "name": "龚自璋",
+      "citation": "维基百科 / Wikidata Q45533169",
+      "aliases": [
+        "龔自璋",
+        "Gong Zizhang"
+      ],
+      "gender": "female",
+      "bio": "Qing dynasty person CBDB = 56529"
+    },
+    {
+      "externalId": "Q45533297",
+      "name": "朱祖振",
+      "citation": "维基百科 / Wikidata Q45533297",
+      "aliases": [
+        "Zhu Zuzhen"
+      ],
+      "gender": "male",
+      "bio": "Qing dynasty person CBDB = 56532"
+    },
+    {
+      "externalId": "Q45544550",
+      "name": "龚定盦",
+      "citation": "维基百科 / Wikidata Q45544550",
+      "aliases": [
+        "龔定盦",
+        "Gong Dingan"
+      ],
+      "gender": "male",
+      "bio": "Qing dynasty person CBDB = 120652"
+    },
+    {
+      "externalId": "Q45544870",
+      "name": "段驯",
+      "citation": "维基百科 / Wikidata Q45544870",
+      "aliases": [
+        "段馴",
+        "Duan Xun"
+      ],
+      "gender": "female",
+      "bio": "Qing dynasty person CBDB = 120657"
+    },
+    {
+      "externalId": "Q45563335",
+      "name": "龚橙",
+      "citation": "维基百科 / Wikidata Q45563335",
+      "aliases": [
+        "龔橙",
+        "Gong Cheng"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1817
+      },
+      "bio": "Qing dynasty person CBDB = 88675"
+    },
+    {
+      "externalId": "Q45566382",
+      "name": "龚敬身",
+      "citation": "维基百科 / Wikidata Q45566382",
+      "aliases": [
+        "龔敬身",
+        "Gong Jingshen"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1735
+      },
+      "death": {
+        "year": 1800
+      },
+      "bio": "Qing dynasty person CBDB = 88724"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q45544870",
+      "child": "Q1041328"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45544870",
+      "child": "Q45533169"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45544870",
+      "child": "Q45544550"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q11181924",
+      "child": "Q1041328"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45566382",
+      "child": "Q11181924"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q11181924",
+      "child": "Q45533169"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q3274694",
+      "child": "Q45544870"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q1041328",
+      "child": "Q45563335"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q11181924",
+      "b": "Q45544870"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45533169",
+      "b": "Q45533297"
+    }
+  ]
+}

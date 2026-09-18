@@ -1,0 +1,576 @@
+{
+  "key": "wikidata:wenzhengming",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q10300427",
+      "name": "文彭",
+      "citation": "维基百科 / Wikidata Q10300427",
+      "aliases": [
+        "Wen Peng"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1498
+      },
+      "death": {
+        "year": 1573
+      },
+      "bio": "painter (1498-1573)",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Wen%20Peng.jpg",
+      "photoCredit": "作者：d/k · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q11080108",
+      "name": "文秉",
+      "citation": "维基百科 / Wikidata Q11080108",
+      "aliases": [
+        "Wen Bing"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1609
+      },
+      "death": {
+        "year": 1669
+      },
+      "bio": "Qing dynasty person CBDB=34684"
+    },
+    {
+      "externalId": "Q117088953",
+      "name": "文奎",
+      "citation": "维基百科 / Wikidata Q117088953",
+      "aliases": [
+        "Wen Kui"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1469
+      },
+      "death": {
+        "year": 1536
+      },
+      "bio": "文徵明兄长"
+    },
+    {
+      "externalId": "Q19825633",
+      "name": "文林",
+      "citation": "维基百科 / Wikidata Q19825633",
+      "aliases": [
+        "Wen Lin"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1445
+      },
+      "death": {
+        "year": 1499
+      },
+      "bio": "politician"
+    },
+    {
+      "externalId": "Q306673",
+      "name": "文征明",
+      "citation": "维基百科 / Wikidata Q306673",
+      "aliases": [
+        "文徵明",
+        "Wen Zhengming"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1470
+      },
+      "death": {
+        "year": 1559
+      },
+      "bio": "明朝画家（1470－1559）",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Portrait%20of%20Wen%20Zhengming.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q3567210",
+      "name": "文俶",
+      "citation": "维基百科 / Wikidata Q3567210",
+      "aliases": [
+        "Wen Chu"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1594
+      },
+      "death": {
+        "year": 1634
+      },
+      "bio": "明代女画家(1595年–1634年)"
+    },
+    {
+      "externalId": "Q45425684",
+      "name": "文洪",
+      "citation": "维基百科 / Wikidata Q45425684",
+      "aliases": [
+        "Wen Hong"
+      ],
+      "gender": "male",
+      "bio": "Ming dynasty person CBDB = 34670"
+    },
+    {
+      "externalId": "Q45425767",
+      "name": "文森",
+      "citation": "维基百科 / Wikidata Q45425767",
+      "aliases": [
+        "Wen Shen"
+      ],
+      "gender": "male",
+      "bio": "Ming dynasty person CBDB = 34672"
+    },
+    {
+      "externalId": "Q45425990",
+      "name": "文台",
+      "citation": "维基百科 / Wikidata Q45425990",
+      "aliases": [
+        "文臺",
+        "Wen Tai"
+      ],
+      "gender": "male",
+      "bio": "Ming dynasty person CBDB = 34679"
+    },
+    {
+      "externalId": "Q45426033",
+      "name": "文元发",
+      "citation": "维基百科 / Wikidata Q45426033",
+      "aliases": [
+        "文元發",
+        "Wen Yuanfa"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1529
+      },
+      "death": {
+        "year": 1602
+      },
+      "bio": "Ming dynasty person CBDB = 34680"
+    },
+    {
+      "externalId": "Q45426075",
+      "name": "文元善",
+      "citation": "维基百科 / Wikidata Q45426075",
+      "aliases": [
+        "Wen Yuanshan"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1554
+      },
+      "death": {
+        "year": 1589
+      },
+      "bio": "Ming dynasty person CBDB = 34681"
+    },
+    {
+      "externalId": "Q45426140",
+      "name": "文乘",
+      "citation": "维基百科 / Wikidata Q45426140",
+      "aliases": [
+        "Wen Cheng"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1618
+      },
+      "death": {
+        "year": 1646
+      },
+      "bio": "Qing dynasty person CBDB = 34685"
+    },
+    {
+      "externalId": "Q45426180",
+      "name": "文点",
+      "citation": "维基百科 / Wikidata Q45426180",
+      "aliases": [
+        "文點",
+        "Wen Dian"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1633
+      },
+      "death": {
+        "year": 1704
+      },
+      "bio": "Qing dynasty person CBDB = 34686 (1633–1704)"
+    },
+    {
+      "externalId": "Q45426417",
+      "name": "文从简",
+      "citation": "维基百科 / Wikidata Q45426417",
+      "aliases": [
+        "文從簡",
+        "Wen Congjian"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1574
+      },
+      "death": {
+        "year": 1648
+      },
+      "bio": "Ming dynasty person CBDB = 34692 (1574–1648)"
+    },
+    {
+      "externalId": "Q45426458",
+      "name": "文柟",
+      "citation": "维基百科 / Wikidata Q45426458",
+      "aliases": [
+        "Wen Nan"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1597
+      },
+      "death": {
+        "year": 1668
+      },
+      "bio": "Qing dynasty person CBDB = 34693"
+    },
+    {
+      "externalId": "Q45426503",
+      "name": "文掞",
+      "citation": "维基百科 / Wikidata Q45426503",
+      "aliases": [
+        "Wen Shan"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1641
+      },
+      "death": {
+        "year": 1701
+      },
+      "bio": "Qing dynasty person CBDB = 34694"
+    },
+    {
+      "externalId": "Q45471670",
+      "name": "马班",
+      "citation": "维基百科 / Wikidata Q45471670",
+      "aliases": [
+        "馬班",
+        "Ma Ban"
+      ],
+      "gender": "male",
+      "bio": "Qing dynasty person CBDB = 135412"
+    },
+    {
+      "externalId": "Q45475584",
+      "name": "文定聪",
+      "citation": "维基百科 / Wikidata Q45475584",
+      "aliases": [
+        "文定聰",
+        "Wen Dingcong"
+      ],
+      "gender": "male",
+      "bio": "Ming dynasty person CBDB = 246547"
+    },
+    {
+      "externalId": "Q45475646",
+      "name": "文惠",
+      "citation": "维基百科 / Wikidata Q45475646",
+      "aliases": [
+        "Wen Hui"
+      ],
+      "gender": "male",
+      "bio": "Ming dynasty person CBDB = 246548"
+    },
+    {
+      "externalId": "Q45667876",
+      "name": "王子美",
+      "citation": "维基百科 / Wikidata Q45667876",
+      "aliases": [
+        "Wang Zimei"
+      ],
+      "gender": "male",
+      "bio": "Ming dynasty person CBDB = 123150"
+    },
+    {
+      "externalId": "Q45702564",
+      "name": "释德隐",
+      "citation": "维基百科 / Wikidata Q45702564",
+      "aliases": [
+        "釋德隱",
+        "Shi Deyin"
+      ],
+      "gender": "female",
+      "bio": "Qing dynasty person CBDB = 118002"
+    },
+    {
+      "externalId": "Q45702646",
+      "name": "赵灵均",
+      "citation": "维基百科 / Wikidata Q45702646",
+      "aliases": [
+        "趙靈均",
+        "Zhao Lingjun"
+      ],
+      "gender": "male",
+      "bio": "Qing dynasty person CBDB = 118006"
+    },
+    {
+      "externalId": "Q65800604",
+      "name": "文氏",
+      "citation": "维基百科 / Wikidata Q65800604",
+      "aliases": [
+        "Wen Shi"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1500
+      },
+      "bio": "王子美妻，明人﹐女﹐號博洽﹐長洲人(今江蘇蘇州)。名媛詩緯初編有著錄"
+    },
+    {
+      "externalId": "Q65800705",
+      "name": "丁某",
+      "citation": "维基百科 / Wikidata Q65800705",
+      "aliases": [
+        "Ding mou"
+      ],
+      "gender": "male",
+      "bio": "釋德隱夫"
+    },
+    {
+      "externalId": "Q65850200",
+      "name": "陈氏",
+      "citation": "维基百科 / Wikidata Q65850200",
+      "aliases": [
+        "陳氏",
+        "Chen Shi"
+      ],
+      "gender": "female",
+      "bio": "文林母"
+    },
+    {
+      "externalId": "Q65850214",
+      "name": "祁氏",
+      "citation": "维基百科 / Wikidata Q65850214",
+      "aliases": [
+        "Qi Shi"
+      ],
+      "gender": "female",
+      "bio": "文林妻"
+    },
+    {
+      "externalId": "Q65865074",
+      "name": "谈氏",
+      "citation": "维基百科 / Wikidata Q65865074",
+      "aliases": [
+        "談氏",
+        "Tan Shi"
+      ],
+      "gender": "female",
+      "bio": "文森妻"
+    },
+    {
+      "externalId": "Q7982258",
+      "name": "文震孟",
+      "citation": "维基百科 / Wikidata Q7982258",
+      "aliases": [
+        "Wen Zhenmeng"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1574
+      },
+      "death": {
+        "year": 1636
+      },
+      "bio": "Chinese artist (1574-1636)",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/%E6%96%87%E9%9C%87%E5%AD%9F.jpg",
+      "photoCredit": "作者：清孔继尧绘，石蕴玉正书赞，谭松坡镌 · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q835818",
+      "name": "文震亨",
+      "citation": "维基百科 / Wikidata Q835818",
+      "aliases": [
+        "Wen Zhenheng"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1585
+      },
+      "death": {
+        "year": 1645
+      },
+      "bio": "画家、诗人、园林设计师",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Wenzhenheng.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q865938",
+      "name": "文嘉",
+      "citation": "维基百科 / Wikidata Q865938",
+      "aliases": [
+        "Wen Jia"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1499
+      },
+      "death": {
+        "year": 1582
+      },
+      "bio": "Chinese painter (1501-1583)"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q19825633",
+      "child": "Q306673"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45426033",
+      "child": "Q835818"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q306673",
+      "child": "Q865938"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45426417",
+      "child": "Q3567210"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45426033",
+      "child": "Q7982258"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q306673",
+      "child": "Q10300427"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q7982258",
+      "child": "Q11080108"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45425684",
+      "child": "Q19825633"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45475646",
+      "child": "Q45425684"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45425684",
+      "child": "Q45425767"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q306673",
+      "child": "Q45425990"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q10300427",
+      "child": "Q45426033"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q865938",
+      "child": "Q45426075"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q7982258",
+      "child": "Q45426140"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q11080108",
+      "child": "Q45426180"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45426075",
+      "child": "Q45426417"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45426417",
+      "child": "Q45426458"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45426458",
+      "child": "Q45426503"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45475584",
+      "child": "Q45475646"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45702646",
+      "child": "Q45702564"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q306673",
+      "child": "Q65800604"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q19825633",
+      "child": "Q117088953"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q65850200",
+      "child": "Q19825633"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q3567210",
+      "child": "Q45702564"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q3567210",
+      "b": "Q45702646"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q19825633",
+      "b": "Q65850214"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45425767",
+      "b": "Q65865074"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45471670",
+      "b": "Q45702564"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45667876",
+      "b": "Q65800604"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45702564",
+      "b": "Q65800705"
+    }
+  ]
+}

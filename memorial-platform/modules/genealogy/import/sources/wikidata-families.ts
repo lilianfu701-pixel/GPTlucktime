@@ -59,6 +59,32 @@ import tanyankai from "./tanyankai.data.json";
 import huangxing from "./huangxing.data.json";
 import liaozhongkai from "./liaozhongkai.data.json";
 import xubeihong from "./xubeihong.data.json";
+// Wave 4 — more clans (唐宋文人世家、明清、近代实业外交)。
+import dumu from "./dumu.data.json";
+import baijuyi from "./baijuyi.data.json";
+import huangtingjian from "./huangtingjian.data.json";
+import zenggong from "./zenggong.data.json";
+import zhoudunyi from "./zhoudunyi.data.json";
+import chengyi from "./chengyi.data.json";
+import yanshu from "./yanshu.data.json";
+import lvmengzheng from "./lvmengzheng.data.json";
+import shenkuo from "./shenkuo.data.json";
+import liuji from "./liuji.data.json";
+import songlian from "./songlian.data.json";
+import fangxiaoru from "./fangxiaoru.data.json";
+import wenzhengming from "./wenzhengming.data.json";
+import tangxianzu from "./tangxianzu.data.json";
+import qianqianyi from "./qianqianyi.data.json";
+import gongzizhen from "./gongzizhen.data.json";
+import ruanyuan from "./ruanyuan.data.json";
+import wangniansun from "./wangniansun.data.json";
+import shengxuanhuai from "./shengxuanhuai.data.json";
+import zhouxuexi from "./zhouxuexi.data.json";
+import fengyoulan from "./fengyoulan.data.json";
+import caoyu from "./caoyu.data.json";
+import zhangjiasen from "./zhangjiasen.data.json";
+import guweijun from "./guweijun.data.json";
+import tangshaoyi from "./tangshaoyi.data.json";
 
 /**
  * Every Wikidata-sourced family in one registry, so wiring a new one is a single
@@ -131,6 +157,32 @@ const FAMILIES: { key: string; label: string; dataset: GenealogyDataset }[] = [
   { key: "huangxing", label: "黄兴家族", dataset: huangxing as GenealogyDataset },
   { key: "liaozhongkai", label: "廖仲恺家族（何香凝）", dataset: liaozhongkai as GenealogyDataset },
   { key: "xubeihong", label: "徐悲鸿家族", dataset: xubeihong as GenealogyDataset },
+  // 第四批：唐宋文人世家、明清、近代实业外交。
+  { key: "dumu", label: "杜牧家族（京兆杜氏）", dataset: dumu as GenealogyDataset },
+  { key: "baijuyi", label: "白居易家族", dataset: baijuyi as GenealogyDataset },
+  { key: "huangtingjian", label: "黄庭坚家族（分宁黄氏）", dataset: huangtingjian as GenealogyDataset },
+  { key: "zenggong", label: "曾巩家族（南丰曾氏）", dataset: zenggong as GenealogyDataset },
+  { key: "zhoudunyi", label: "周敦颐家族", dataset: zhoudunyi as GenealogyDataset },
+  { key: "chengyi", label: "二程家族（程颢程颐）", dataset: chengyi as GenealogyDataset },
+  { key: "yanshu", label: "晏殊家族（晏几道）", dataset: yanshu as GenealogyDataset },
+  { key: "lvmengzheng", label: "吕蒙正家族（北宋相门）", dataset: lvmengzheng as GenealogyDataset },
+  { key: "shenkuo", label: "沈括家族（钱塘沈氏）", dataset: shenkuo as GenealogyDataset },
+  { key: "liuji", label: "刘基家族（刘伯温）", dataset: liuji as GenealogyDataset },
+  { key: "songlian", label: "宋濂家族（浦江宋氏）", dataset: songlian as GenealogyDataset },
+  { key: "fangxiaoru", label: "方孝孺家族", dataset: fangxiaoru as GenealogyDataset },
+  { key: "wenzhengming", label: "文徵明家族（苏州文氏）", dataset: wenzhengming as GenealogyDataset },
+  { key: "tangxianzu", label: "汤显祖家族", dataset: tangxianzu as GenealogyDataset },
+  { key: "qianqianyi", label: "钱谦益家族（柳如是）", dataset: qianqianyi as GenealogyDataset },
+  { key: "gongzizhen", label: "龚自珍家族（段玉裁外家）", dataset: gongzizhen as GenealogyDataset },
+  { key: "ruanyuan", label: "阮元家族", dataset: ruanyuan as GenealogyDataset },
+  { key: "wangniansun", label: "王念孙家族（高邮王氏）", dataset: wangniansun as GenealogyDataset },
+  { key: "shengxuanhuai", label: "盛宣怀家族", dataset: shengxuanhuai as GenealogyDataset },
+  { key: "zhouxuexi", label: "周学熙家族（建德周氏）", dataset: zhouxuexi as GenealogyDataset },
+  { key: "fengyoulan", label: "冯友兰家族（唐河冯氏）", dataset: fengyoulan as GenealogyDataset },
+  { key: "caoyu", label: "曹禺家族", dataset: caoyu as GenealogyDataset },
+  { key: "zhangjiasen", label: "张君劢家族（宝山张氏）", dataset: zhangjiasen as GenealogyDataset },
+  { key: "guweijun", label: "顾维钧家族", dataset: guweijun as GenealogyDataset },
+  { key: "tangshaoyi", label: "唐绍仪家族", dataset: tangshaoyi as GenealogyDataset },
   // 清皇室（溥仪）：完整世系，多为封号名，绝嗣线，人数最大——放在末尾。
   { key: "puyi", label: "清皇室（溥仪）", dataset: puyi as GenealogyDataset },
 ];

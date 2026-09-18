@@ -1,0 +1,233 @@
+{
+  "key": "wikidata:shenkuo",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q16076318",
+      "name": "许洞",
+      "citation": "维基百科 / Wikidata Q16076318",
+      "aliases": [
+        "Xu Dong"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 976
+      },
+      "death": {
+        "year": 1015
+      },
+      "bio": "Song dynasty person CBDB=18654"
+    },
+    {
+      "externalId": "Q270085",
+      "name": "沈括",
+      "citation": "维基百科 / Wikidata Q270085",
+      "aliases": [
+        "Shen Kuo"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1031
+      },
+      "death": {
+        "year": 1095
+      },
+      "bio": "北宋官員 (1031-1095)",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Beijing%20Ancient%20Observatory%2020090715-19%20%28cropped%29.jpg",
+      "photoCredit": "作者：Hans A. Rosbach · CC BY-SA 3.0 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q45358557",
+      "name": "沈披",
+      "citation": "维基百科 / Wikidata Q45358557",
+      "aliases": [
+        "Shen Pi"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person (CBDB = 1456)"
+    },
+    {
+      "externalId": "Q45362336",
+      "name": "沈B",
+      "citation": "维基百科 / Wikidata Q45362336",
+      "aliases": [
+        "Shen B"
+      ],
+      "gender": "male",
+      "bio": "Tang dynasty person CBDB = 3731"
+    },
+    {
+      "externalId": "Q45362348",
+      "name": "沈同",
+      "citation": "维基百科 / Wikidata Q45362348",
+      "aliases": [
+        "Shen Tong"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person (CBDB = 3736)"
+    },
+    {
+      "externalId": "Q45363992",
+      "name": "许氏",
+      "citation": "维基百科 / Wikidata Q45363992",
+      "aliases": [
+        "許氏",
+        "Xu Shi"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 986
+      },
+      "death": {
+        "year": 1068
+      },
+      "bio": "Song dynasty person (CBDB = 5100)"
+    },
+    {
+      "externalId": "Q45365681",
+      "name": "许仲容",
+      "citation": "维基百科 / Wikidata Q45365681",
+      "aliases": [
+        "許仲容",
+        "Xu Zhongrong"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB=7244"
+    },
+    {
+      "externalId": "Q45365915",
+      "name": "沈周",
+      "citation": "维基百科 / Wikidata Q45365915",
+      "aliases": [
+        "Shen Zhou"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 978
+      },
+      "death": {
+        "year": 1051
+      },
+      "bio": "Song dynasty person (CBDB = 7323)"
+    },
+    {
+      "externalId": "Q45390061",
+      "name": "许延祚",
+      "citation": "维基百科 / Wikidata Q45390061",
+      "aliases": [
+        "許延祚",
+        "Xu Yanzuo"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person (CBDB = 18651)"
+    },
+    {
+      "externalId": "Q45390063",
+      "name": "许仲庄",
+      "citation": "维基百科 / Wikidata Q45390063",
+      "aliases": [
+        "許仲莊",
+        "Xu Zhongzhuang"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person (CBDB = 18652)"
+    },
+    {
+      "externalId": "Q45390230",
+      "name": "沈H",
+      "citation": "维基百科 / Wikidata Q45390230",
+      "aliases": [
+        "Shen H"
+      ],
+      "gender": "male",
+      "bio": "Wuyue person CBDB = 18702"
+    },
+    {
+      "externalId": "Q45390233",
+      "name": "沈J",
+      "citation": "维基百科 / Wikidata Q45390233",
+      "aliases": [
+        "Shen J"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person (CBDB = 18703)"
+    },
+    {
+      "externalId": "Q45390235",
+      "name": "沈英",
+      "citation": "维基百科 / Wikidata Q45390235",
+      "aliases": [
+        "Shen Ying"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 18704"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q45363992",
+      "child": "Q270085"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45365915",
+      "child": "Q270085"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45365681",
+      "child": "Q16076318"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45365915",
+      "child": "Q45358557"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45390235",
+      "child": "Q45362348"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45365681",
+      "child": "Q45363992"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45390061",
+      "child": "Q45365681"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45390235",
+      "child": "Q45365915"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45390061",
+      "child": "Q45390063"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45362336",
+      "child": "Q45390230"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45390230",
+      "child": "Q45390233"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45390233",
+      "child": "Q45390235"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45363992",
+      "b": "Q45365915"
+    }
+  ]
+}

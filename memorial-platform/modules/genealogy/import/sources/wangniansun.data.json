@@ -1,0 +1,258 @@
+{
+  "key": "wikidata:wangniansun",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q11091415",
+      "name": "曾兆鼇",
+      "citation": "维基百科 / Wikidata Q11091415",
+      "aliases": [
+        "Zeng Zhaoao"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1816
+      },
+      "bio": "person, CBDB ID = 374642"
+    },
+    {
+      "externalId": "Q11091465",
+      "name": "曾宗彦",
+      "citation": "维基百科 / Wikidata Q11091465",
+      "aliases": [
+        "曾宗彥",
+        "Zeng Zongyan"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1850
+      },
+      "bio": "Qing dynasty person CBDB = 90393"
+    },
+    {
+      "externalId": "Q11573061",
+      "name": "王引之",
+      "citation": "维基百科 / Wikidata Q11573061",
+      "aliases": [
+        "Wang Yinzhi"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1766
+      },
+      "death": {
+        "year": 1834
+      },
+      "bio": "Qing dynasty scholar (1766–1834)",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/%E7%8E%8B%E5%BC%95%E4%B9%8B.jpg",
+      "photoCredit": "作者：清叶衍兰辑摹，黄小泉绘。 · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q13687946",
+      "name": "朱联奎",
+      "citation": "维基百科 / Wikidata Q13687946",
+      "aliases": [
+        "朱聯奎",
+        "Zhu Liankui"
+      ],
+      "gender": "male",
+      "bio": "Qing dynasty person CBDB = 29713"
+    },
+    {
+      "externalId": "Q13688035",
+      "name": "王安国",
+      "citation": "维基百科 / Wikidata Q13688035",
+      "aliases": [
+        "王安國",
+        "Wang Anguo"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1694
+      },
+      "death": {
+        "year": 1757
+      },
+      "bio": "Qing dynasty politician (1694-1757; jin shi 1724)",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/%E7%8E%8B%E5%AE%89%E5%9C%8B.jpg",
+      "photoCredit": "作者：清叶衍兰辑摹，黄小泉绘。 · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q13688262",
+      "name": "王寿昌",
+      "citation": "维基百科 / Wikidata Q13688262",
+      "aliases": [
+        "Wang Shouchang"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1792
+      },
+      "death": {
+        "year": 1845
+      },
+      "bio": "Qing dynasty person CBDB = 61944"
+    },
+    {
+      "externalId": "Q13688427",
+      "name": "王彦和",
+      "citation": "维基百科 / Wikidata Q13688427",
+      "aliases": [
+        "王彥和",
+        "Wang Yanhe"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1794
+      },
+      "death": {
+        "year": 1855
+      },
+      "bio": "Qing dynasty person CBDB = 71902"
+    },
+    {
+      "externalId": "Q13688548",
+      "name": "沈氏",
+      "citation": "维基百科 / Wikidata Q13688548",
+      "gender": "female"
+    },
+    {
+      "externalId": "Q13688793",
+      "name": "王寿同",
+      "citation": "维基百科 / Wikidata Q13688793",
+      "aliases": [
+        "王壽同",
+        "Wang Shoutong"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1804
+      },
+      "death": {
+        "year": 1852
+      },
+      "bio": "Qing dynasty person CBDB = 69423"
+    },
+    {
+      "externalId": "Q13688950",
+      "name": "史致蕃",
+      "citation": "维基百科 / Wikidata Q13688950",
+      "aliases": [
+        "Shi Zhifan"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1796
+      },
+      "bio": "Qing dynasty person CBDB = 62775"
+    },
+    {
+      "externalId": "Q45426594",
+      "name": "王曾禄",
+      "citation": "维基百科 / Wikidata Q45426594",
+      "aliases": [
+        "王曾祿",
+        "Wang Zenglu"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1672
+      },
+      "death": {
+        "year": 1743
+      },
+      "bio": "Qing dynasty person CBDB=34192"
+    },
+    {
+      "externalId": "Q45426635",
+      "name": "王式耜",
+      "citation": "维基百科 / Wikidata Q45426635",
+      "aliases": [
+        "Wang Shisi"
+      ],
+      "gender": "male",
+      "bio": "Qing dynasty person CBDB = 34193"
+    },
+    {
+      "externalId": "Q45426678",
+      "name": "王开运",
+      "citation": "维基百科 / Wikidata Q45426678",
+      "aliases": [
+        "王開運",
+        "Wang Kaiyun"
+      ],
+      "gender": "male",
+      "bio": "Qing dynasty person CBDB = 34194"
+    },
+    {
+      "externalId": "Q697757",
+      "name": "王念孙",
+      "citation": "维基百科 / Wikidata Q697757",
+      "aliases": [
+        "Wang Niansun"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1744
+      },
+      "death": {
+        "year": 1832
+      },
+      "bio": "Chinese linguist (1744–1832)",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/%E7%8E%8B%E5%BF%B5%E5%AD%99.jpg",
+      "photoCredit": "作者：清叶衍兰辑摹，黄小泉绘。 · 公有领域 · 来源：Wikimedia Commons"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q13688035",
+      "child": "Q697757"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q11091415",
+      "child": "Q11091465"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q697757",
+      "child": "Q11573061"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45426594",
+      "child": "Q13688035"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q11573061",
+      "child": "Q13688262"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q11573061",
+      "child": "Q13688427"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q11573061",
+      "child": "Q13688793"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45426635",
+      "child": "Q45426594"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45426678",
+      "child": "Q45426635"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q13688427",
+      "b": "Q13688548"
+    }
+  ]
+}

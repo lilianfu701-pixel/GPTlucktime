@@ -1,0 +1,538 @@
+{
+  "key": "wikidata:ruanyuan",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q132054396",
+      "name": "通智",
+      "citation": "维基百科 / Wikidata Q132054396",
+      "gender": "male",
+      "birth": {
+        "year": 1843
+      },
+      "death": {
+        "year": 1907
+      }
+    },
+    {
+      "externalId": "Q45416382",
+      "name": "阮秉谦",
+      "citation": "维基百科 / Wikidata Q45416382",
+      "aliases": [
+        "阮秉謙",
+        "Ruan Bingqian"
+      ],
+      "gender": "male",
+      "bio": "Qing dynasty person CBDB = 29657"
+    },
+    {
+      "externalId": "Q45416385",
+      "name": "厉太恭人",
+      "citation": "维基百科 / Wikidata Q45416385",
+      "aliases": [
+        "厲太恭人",
+        "Li Taigongren"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1605
+      },
+      "death": {
+        "year": 1667
+      },
+      "bio": "Qing dynasty person CBDB = 29659"
+    },
+    {
+      "externalId": "Q45416388",
+      "name": "阮枢敬",
+      "citation": "维基百科 / Wikidata Q45416388",
+      "aliases": [
+        "阮樞敬",
+        "Ruan Shujing"
+      ],
+      "gender": "male",
+      "bio": "Qing dynasty person CBDB = 29660"
+    },
+    {
+      "externalId": "Q45416391",
+      "name": "阮枢忠",
+      "citation": "维基百科 / Wikidata Q45416391",
+      "aliases": [
+        "阮樞忠",
+        "Ruan Shuzhong"
+      ],
+      "gender": "male",
+      "bio": "Qing dynasty person CBDB = 29661"
+    },
+    {
+      "externalId": "Q45416392",
+      "name": "阮枢良",
+      "citation": "维基百科 / Wikidata Q45416392",
+      "aliases": [
+        "阮樞良",
+        "Ruan Shuliang"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1626
+      },
+      "death": {
+        "year": 1703
+      },
+      "bio": "Qing dynasty person CBDB = 29662"
+    },
+    {
+      "externalId": "Q45416393",
+      "name": "阮枢恭",
+      "citation": "维基百科 / Wikidata Q45416393",
+      "aliases": [
+        "阮樞恭",
+        "Ruan Shugong"
+      ],
+      "gender": "male",
+      "bio": "Qing dynasty person CBDB = 29663"
+    },
+    {
+      "externalId": "Q45416398",
+      "name": "阮时衡",
+      "citation": "维基百科 / Wikidata Q45416398",
+      "aliases": [
+        "阮時衡",
+        "Ruan Shiheng"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1668
+      },
+      "death": {
+        "year": 1727
+      },
+      "bio": "Qing dynasty person CBDB = 29665"
+    },
+    {
+      "externalId": "Q45416400",
+      "name": "阮藻衡",
+      "citation": "维基百科 / Wikidata Q45416400",
+      "aliases": [
+        "Ruan Zaoheng"
+      ],
+      "gender": "male",
+      "bio": "Qing dynasty person CBDB = 29666"
+    },
+    {
+      "externalId": "Q45416403",
+      "name": "阮玉堂",
+      "citation": "维基百科 / Wikidata Q45416403",
+      "aliases": [
+        "Ruan Yutang"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1695
+      },
+      "death": {
+        "year": 1759
+      },
+      "bio": "Qing dynasty person CBDB = 29667"
+    },
+    {
+      "externalId": "Q45416404",
+      "name": "阮锦堂",
+      "citation": "维基百科 / Wikidata Q45416404",
+      "aliases": [
+        "阮錦堂",
+        "Ruan Jintang"
+      ],
+      "gender": "male",
+      "bio": "Qing dynasty person CBDB = 29668"
+    },
+    {
+      "externalId": "Q45416409",
+      "name": "江淑人",
+      "citation": "维基百科 / Wikidata Q45416409",
+      "aliases": [
+        "Jiang Shuren"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1693
+      },
+      "death": {
+        "year": 1756
+      },
+      "bio": "Qing dynasty person CBDB = 29670"
+    },
+    {
+      "externalId": "Q45416412",
+      "name": "汪淑人",
+      "citation": "维基百科 / Wikidata Q45416412",
+      "aliases": [
+        "Wang Shuren"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1694
+      },
+      "death": {
+        "year": 1718
+      },
+      "bio": "Qing dynasty person CBDB = 29672"
+    },
+    {
+      "externalId": "Q45416413",
+      "name": "阮承德",
+      "citation": "维基百科 / Wikidata Q45416413",
+      "aliases": [
+        "Ruan Chengde"
+      ],
+      "gender": "male",
+      "bio": "Qing dynasty person CBDB = 29673"
+    },
+    {
+      "externalId": "Q45416415",
+      "name": "阮承义",
+      "citation": "维基百科 / Wikidata Q45416415",
+      "aliases": [
+        "阮承義",
+        "Ruan Chengyi"
+      ],
+      "gender": "male",
+      "bio": "Qing dynasty person CBDB = 29674"
+    },
+    {
+      "externalId": "Q45416417",
+      "name": "阮承仁",
+      "citation": "维基百科 / Wikidata Q45416417",
+      "aliases": [
+        "Ruan Chengren"
+      ],
+      "gender": "male",
+      "bio": "Qing dynasty person CBDB = 29675"
+    },
+    {
+      "externalId": "Q45416427",
+      "name": "阮承信",
+      "citation": "维基百科 / Wikidata Q45416427",
+      "aliases": [
+        "Ruan Chengxin"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1734
+      },
+      "death": {
+        "year": 1805
+      },
+      "bio": "Qing dynasty person CBDB = 29682"
+    },
+    {
+      "externalId": "Q45416440",
+      "name": "林氏",
+      "citation": "维基百科 / Wikidata Q45416440",
+      "aliases": [
+        "Lin Shi"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1735
+      },
+      "death": {
+        "year": 1781
+      },
+      "bio": "阮承信妻"
+    },
+    {
+      "externalId": "Q45416457",
+      "name": "江氏",
+      "citation": "维基百科 / Wikidata Q45416457",
+      "aliases": [
+        "Jiang Shi"
+      ],
+      "gender": "female",
+      "death": {
+        "year": 1792
+      },
+      "bio": "阮元妻"
+    },
+    {
+      "externalId": "Q45416458",
+      "name": "孔璐华",
+      "citation": "维基百科 / Wikidata Q45416458",
+      "aliases": [
+        "孔璐華",
+        "Kong Luhua"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1777
+      },
+      "death": {
+        "year": 1832
+      },
+      "bio": "Qing dynasty person CBDB = 29699"
+    },
+    {
+      "externalId": "Q45416491",
+      "name": "阮福",
+      "citation": "维基百科 / Wikidata Q45416491",
+      "aliases": [
+        "Ruan Fu"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1802
+      },
+      "bio": "Qing dynasty person CBDB = 29716"
+    },
+    {
+      "externalId": "Q45416516",
+      "name": "许延锦",
+      "citation": "维基百科 / Wikidata Q45416516",
+      "aliases": [
+        "許延錦",
+        "Xu Yanjin"
+      ],
+      "gender": "female",
+      "bio": "Qing dynasty person CBDB = 29728"
+    },
+    {
+      "externalId": "Q45416518",
+      "name": "阮祐",
+      "citation": "维基百科 / Wikidata Q45416518",
+      "aliases": [
+        "Ruan You"
+      ],
+      "gender": "male",
+      "bio": "Qing dynasty person CBDB=29729"
+    },
+    {
+      "externalId": "Q45416520",
+      "name": "阮孔厚",
+      "citation": "维基百科 / Wikidata Q45416520",
+      "aliases": [
+        "Ruan Konghou"
+      ],
+      "gender": "male",
+      "bio": "Qing dynasty person CBDB = 29730"
+    },
+    {
+      "externalId": "Q45416523",
+      "name": "阮孔静",
+      "citation": "维基百科 / Wikidata Q45416523",
+      "aliases": [
+        "阮孔靜",
+        "Ruan Kongjing"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1802
+      },
+      "death": {
+        "year": 1821
+      },
+      "bio": "Qing dynasty person CBDB = 29731"
+    },
+    {
+      "externalId": "Q45416560",
+      "name": "阮荃",
+      "citation": "维基百科 / Wikidata Q45416560",
+      "aliases": [
+        "Ruan Quan"
+      ],
+      "gender": "female",
+      "bio": "Qing dynasty person CBDB = 29747"
+    },
+    {
+      "externalId": "Q45416611",
+      "name": "钱德容",
+      "citation": "维基百科 / Wikidata Q45416611",
+      "aliases": [
+        "錢德容",
+        "Qian Derong"
+      ],
+      "gender": "female",
+      "bio": "Qing dynasty person CBDB = 29771"
+    },
+    {
+      "externalId": "Q45623397",
+      "name": "唐庆云",
+      "citation": "维基百科 / Wikidata Q45623397",
+      "aliases": [
+        "唐慶雲",
+        "Tang  Qingyun"
+      ],
+      "gender": "female",
+      "bio": "Qing dynasty person CBDB = 100235"
+    },
+    {
+      "externalId": "Q716358",
+      "name": "阮元",
+      "citation": "维基百科 / Wikidata Q716358",
+      "aliases": [
+        "Ruan Yuan"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1764
+      },
+      "death": {
+        "year": 1849
+      },
+      "bio": "Chinese historian, politician and writer (1764–1849)",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/%E9%98%AE%E5%85%83.jpg",
+      "photoCredit": "作者：清叶衍兰辑摹，黄小泉绘。 · 公有领域 · 来源：Wikimedia Commons"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q45416458",
+      "child": "Q45416520"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45416458",
+      "child": "Q45416523"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45416427",
+      "child": "Q716358"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45416382",
+      "child": "Q45416388"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45416382",
+      "child": "Q45416391"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45416382",
+      "child": "Q45416392"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45416382",
+      "child": "Q45416393"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45416392",
+      "child": "Q45416398"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45416392",
+      "child": "Q45416400"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45416398",
+      "child": "Q45416403"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45416398",
+      "child": "Q45416404"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45416403",
+      "child": "Q45416413"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45416403",
+      "child": "Q45416415"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45416403",
+      "child": "Q45416417"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45416403",
+      "child": "Q45416427"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q716358",
+      "child": "Q45416491"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q716358",
+      "child": "Q45416518"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q716358",
+      "child": "Q45416520"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q716358",
+      "child": "Q45416523"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q716358",
+      "child": "Q45416560"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q716358",
+      "child": "Q132054396"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45416457",
+      "b": "Q716358"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45416458",
+      "b": "Q716358"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45623397",
+      "b": "Q716358"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45416382",
+      "b": "Q45416385"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45416403",
+      "b": "Q45416409"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45416403",
+      "b": "Q45416412"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45416427",
+      "b": "Q45416440"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45416491",
+      "b": "Q45416516"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45416518",
+      "b": "Q45416611"
+    }
+  ]
+}

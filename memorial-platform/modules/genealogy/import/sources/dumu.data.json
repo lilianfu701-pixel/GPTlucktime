@@ -1,0 +1,302 @@
+{
+  "key": "wikidata:dumu",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q334095",
+      "name": "杜牧",
+      "citation": "维基百科 / Wikidata Q334095",
+      "aliases": [
+        "Du Mu"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 803
+      },
+      "death": {
+        "year": 852
+      },
+      "bio": "晚唐文人与士大夫",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Du%20Mu.jpg",
+      "photoCredit": "公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q45397609",
+      "name": "杜希望",
+      "citation": "维基百科 / Wikidata Q45397609",
+      "aliases": [
+        "Du Xiwang"
+      ],
+      "gender": "male",
+      "bio": "Tang dynasty person CBDB = 21193"
+    },
+    {
+      "externalId": "Q45421637",
+      "name": "杜行敏",
+      "citation": "维基百科 / Wikidata Q45421637",
+      "aliases": [
+        "Du Xingmin"
+      ],
+      "gender": "male",
+      "bio": "Tang dynasty person CBDB = 32480"
+    },
+    {
+      "externalId": "Q45421638",
+      "name": "杜崇懿",
+      "citation": "维基百科 / Wikidata Q45421638",
+      "aliases": [
+        "Du Chongyi"
+      ],
+      "gender": "male",
+      "bio": "Tang dynasty person CBDB = 32481"
+    },
+    {
+      "externalId": "Q45421640",
+      "name": "杜式方",
+      "citation": "维基百科 / Wikidata Q45421640",
+      "aliases": [
+        "Du Shifang"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 822
+      },
+      "bio": "Tang dynasty person CBDB = 32482"
+    },
+    {
+      "externalId": "Q45421643",
+      "name": "杜从郁",
+      "citation": "维基百科 / Wikidata Q45421643",
+      "aliases": [
+        "杜從郁",
+        "Du Congyu"
+      ],
+      "gender": "male",
+      "bio": "Tang dynasty person CBDB = 32484"
+    },
+    {
+      "externalId": "Q45421726",
+      "name": "杜位",
+      "citation": "维基百科 / Wikidata Q45421726",
+      "aliases": [
+        "Du Wei"
+      ],
+      "gender": "male",
+      "bio": "Tang dynasty person CBDB = 32536"
+    },
+    {
+      "externalId": "Q45522398",
+      "name": "杜师损",
+      "citation": "维基百科 / Wikidata Q45522398",
+      "aliases": [
+        "杜師損",
+        "Du Shisun"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 831
+      },
+      "bio": "Tang dynasty person CBDB = 173027"
+    },
+    {
+      "externalId": "Q45523411",
+      "name": "杜承泽",
+      "citation": "维基百科 / Wikidata Q45523411",
+      "aliases": [
+        "杜承澤",
+        "Du Chengze"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 899
+      },
+      "bio": "Tang dynasty person CBDB = 173046"
+    },
+    {
+      "externalId": "Q45523472",
+      "name": "杜晦辞",
+      "citation": "维基百科 / Wikidata Q45523472",
+      "aliases": [
+        "杜晦辭",
+        "Du Huici"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 899
+      },
+      "bio": "Tang dynasty person CBDB = 173047"
+    },
+    {
+      "externalId": "Q45523536",
+      "name": "杜德祥",
+      "citation": "维基百科 / Wikidata Q45523536",
+      "aliases": [
+        "Du Dexiang"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 899
+      },
+      "bio": "Tang dynasty person CBDB = 173048"
+    },
+    {
+      "externalId": "Q45523600",
+      "name": "杜遵",
+      "citation": "维基百科 / Wikidata Q45523600",
+      "aliases": [
+        "Du Zun"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 936
+      },
+      "bio": "person, CBDB = 173049"
+    },
+    {
+      "externalId": "Q45567800",
+      "name": "杜宪祥",
+      "citation": "维基百科 / Wikidata Q45567800",
+      "aliases": [
+        "杜憲祥",
+        "Du Xianxiang"
+      ],
+      "gender": "male",
+      "bio": "Tang dynasty person CBDB = 169056"
+    },
+    {
+      "externalId": "Q45567865",
+      "name": "杜绍孜",
+      "citation": "维基百科 / Wikidata Q45567865",
+      "aliases": [
+        "杜紹孜",
+        "Du Shaozi"
+      ],
+      "gender": "male",
+      "bio": "Tang dynasty person CBDB = 169057"
+    },
+    {
+      "externalId": "Q45637901",
+      "name": "杜某",
+      "citation": "维基百科 / Wikidata Q45637901",
+      "aliases": [
+        "Du Mou"
+      ],
+      "gender": "male",
+      "bio": "Tang dynasty person CBDB = 196324"
+    },
+    {
+      "externalId": "Q712372",
+      "name": "杜佑",
+      "citation": "维基百科 / Wikidata Q712372",
+      "aliases": [
+        "Du You"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 735
+      },
+      "death": {
+        "year": 812
+      },
+      "bio": "Chancellor of Tang Dynasty and historian (735–812)"
+    },
+    {
+      "externalId": "Q712788",
+      "name": "杜荀鹤",
+      "citation": "维基百科 / Wikidata Q712788",
+      "aliases": [
+        "Du Xunhe"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 846
+      },
+      "death": {
+        "year": 904
+      },
+      "bio": "poet"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q45421643",
+      "child": "Q334095"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45397609",
+      "child": "Q712372"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q334095",
+      "child": "Q712788"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45421638",
+      "child": "Q45397609"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45421637",
+      "child": "Q45421638"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q712372",
+      "child": "Q45421640"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q712372",
+      "child": "Q45421643"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45397609",
+      "child": "Q45421726"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q712372",
+      "child": "Q45522398"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q334095",
+      "child": "Q45523411"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q334095",
+      "child": "Q45523472"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q334095",
+      "child": "Q45523536"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45523536",
+      "child": "Q45523600"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q712372",
+      "child": "Q45567800"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q712372",
+      "child": "Q45567865"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q712372",
+      "child": "Q45637901"
+    }
+  ]
+}

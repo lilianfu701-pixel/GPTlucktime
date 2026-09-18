@@ -1,0 +1,431 @@
+{
+  "key": "wikidata:chengyi",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q45360635",
+      "name": "程珫",
+      "citation": "维基百科 / Wikidata Q45360635",
+      "aliases": [
+        "Cheng Chong"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1023
+      },
+      "death": {
+        "year": 1097
+      },
+      "bio": "Song dynasty person CBDB = 3099"
+    },
+    {
+      "externalId": "Q45360640",
+      "name": "程璠",
+      "citation": "维基百科 / Wikidata Q45360640",
+      "aliases": [
+        "Cheng Fan"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1019
+      },
+      "death": {
+        "year": 1075
+      },
+      "bio": "Song dynasty person CBDB = 3101"
+    },
+    {
+      "externalId": "Q45360646",
+      "name": "程珦",
+      "citation": "维基百科 / Wikidata Q45360646",
+      "aliases": [
+        "Cheng Xiang"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1006
+      },
+      "death": {
+        "year": 1090
+      },
+      "bio": "Song dynasty person (CBDB = 3103)"
+    },
+    {
+      "externalId": "Q45363730",
+      "name": "侯氏",
+      "citation": "维基百科 / Wikidata Q45363730",
+      "aliases": [
+        "Hou Shi"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1004
+      },
+      "death": {
+        "year": 1052
+      },
+      "bio": "程珦妻"
+    },
+    {
+      "externalId": "Q45381081",
+      "name": "程羽",
+      "citation": "维基百科 / Wikidata Q45381081",
+      "aliases": [
+        "Cheng Yu"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 913
+      },
+      "death": {
+        "year": 984
+      },
+      "bio": "person, CBDB = 15695"
+    },
+    {
+      "externalId": "Q45381085",
+      "name": "程希振",
+      "citation": "维基百科 / Wikidata Q45381085",
+      "aliases": [
+        "Cheng Xizhen"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person (CBDB = 15698)"
+    },
+    {
+      "externalId": "Q45381086",
+      "name": "程遹",
+      "citation": "维基百科 / Wikidata Q45381086",
+      "aliases": [
+        "Cheng Yu"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person (CBDB = 15699)"
+    },
+    {
+      "externalId": "Q45381087",
+      "name": "侯元",
+      "citation": "维基百科 / Wikidata Q45381087",
+      "aliases": [
+        "Hou Yuan"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 15700"
+    },
+    {
+      "externalId": "Q45381088",
+      "name": "侯暠",
+      "citation": "维基百科 / Wikidata Q45381088",
+      "aliases": [
+        "Hou Gao"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 15701"
+    },
+    {
+      "externalId": "Q45381089",
+      "name": "侯道济",
+      "citation": "维基百科 / Wikidata Q45381089",
+      "aliases": [
+        "侯道濟",
+        "Hou Daoji"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person (CBDB = 15702)"
+    },
+    {
+      "externalId": "Q45381091",
+      "name": "侯可",
+      "citation": "维基百科 / Wikidata Q45381091",
+      "aliases": [
+        "Hou Ke"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1008
+      },
+      "death": {
+        "year": 1079
+      },
+      "bio": "Song dynasty person (CBDB = 15703)"
+    },
+    {
+      "externalId": "Q45381097",
+      "name": "程道",
+      "citation": "维基百科 / Wikidata Q45381097",
+      "aliases": [
+        "Cheng Dao"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person (CBDB = 15708)"
+    },
+    {
+      "externalId": "Q45381100",
+      "name": "程旸",
+      "citation": "维基百科 / Wikidata Q45381100",
+      "aliases": [
+        "程暘",
+        "Cheng Yang"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person (CBDB = 15710)"
+    },
+    {
+      "externalId": "Q45381101",
+      "name": "程谦之",
+      "citation": "维基百科 / Wikidata Q45381101",
+      "aliases": [
+        "程謙之",
+        "Cheng Qianzhi"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 15711"
+    },
+    {
+      "externalId": "Q45381103",
+      "name": "程D",
+      "citation": "维基百科 / Wikidata Q45381103",
+      "aliases": [
+        "Cheng Duanfu"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 15713"
+    },
+    {
+      "externalId": "Q45381112",
+      "name": "程端中",
+      "citation": "维基百科 / Wikidata Q45381112",
+      "aliases": [
+        "Cheng Duanzhong"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person (CBDB = 15719)"
+    },
+    {
+      "externalId": "Q45381163",
+      "name": "程易",
+      "citation": "维基百科 / Wikidata Q45381163",
+      "aliases": [
+        "Cheng Yi"
+      ],
+      "gender": "male",
+      "bio": "Song dynasty person CBDB = 15761"
+    },
+    {
+      "externalId": "Q45387597",
+      "name": "吕大伦",
+      "citation": "维基百科 / Wikidata Q45387597",
+      "aliases": [
+        "呂大倫",
+        "Lv Dalun"
+      ],
+      "gender": "male",
+      "death": {
+        "year": 1155
+      },
+      "bio": "Song dynasty person (CBDB = 17903)"
+    },
+    {
+      "externalId": "Q45694517",
+      "name": "程端悫",
+      "citation": "维基百科 / Wikidata Q45694517",
+      "aliases": [
+        "程端愨",
+        "Cheng Duanque"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1064
+      },
+      "death": {
+        "year": 1068
+      },
+      "bio": "Song dynasty person CBDB = 49192"
+    },
+    {
+      "externalId": "Q558192",
+      "name": "程颢",
+      "citation": "维基百科 / Wikidata Q558192",
+      "aliases": [
+        "Cheng Hao"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1032
+      },
+      "death": {
+        "year": 1085
+      },
+      "bio": "Chinese philosopher (1032–1085)",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/%E5%AE%8B%E7%9B%91%E5%AF%9F%E5%BE%A1%E5%8F%B2%E7%A8%8B%E9%A2%A2.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q558380",
+      "name": "程颐",
+      "citation": "维基百科 / Wikidata Q558380",
+      "aliases": [
+        "Cheng Yi"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1033
+      },
+      "death": {
+        "year": 1107
+      },
+      "bio": "Chinese philosopher (1033–1107)",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/%E5%AE%8B%E5%B4%87%E6%94%BF%E6%AE%BF%E8%AF%B4%E4%B9%A6%E7%A8%8B%E9%A2%90.jpg",
+      "photoCredit": "作者：Unknown author · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q65798948",
+      "name": "张氏",
+      "citation": "维基百科 / Wikidata Q65798948",
+      "aliases": [
+        "張氏",
+        "Zhang Shi"
+      ],
+      "gender": "female",
+      "bio": "程遹妻"
+    },
+    {
+      "externalId": "Q65816636",
+      "name": "程氏",
+      "citation": "维基百科 / Wikidata Q65816636",
+      "aliases": [
+        "Cheng Shi"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1120
+      },
+      "death": {
+        "year": 1165
+      },
+      "bio": "呂大倫妻"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q45360646",
+      "child": "Q558192"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45360646",
+      "child": "Q558380"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45381086",
+      "child": "Q45360635"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45381086",
+      "child": "Q45360640"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45381086",
+      "child": "Q45360646"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45381089",
+      "child": "Q45363730"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45381081",
+      "child": "Q45381085"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45381085",
+      "child": "Q45381086"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45381087",
+      "child": "Q45381088"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45381088",
+      "child": "Q45381089"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45381089",
+      "child": "Q45381091"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45381085",
+      "child": "Q45381097"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45381112",
+      "child": "Q45381100"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45381100",
+      "child": "Q45381101"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q558380",
+      "child": "Q45381103"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q558380",
+      "child": "Q45381112"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45381112",
+      "child": "Q45381163"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q558380",
+      "child": "Q45694517"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45381163",
+      "child": "Q65816636"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45363730",
+      "child": "Q558192"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45363730",
+      "child": "Q558380"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q65798948",
+      "child": "Q45360646"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45360646",
+      "b": "Q45363730"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45387597",
+      "b": "Q65816636"
+    }
+  ]
+}

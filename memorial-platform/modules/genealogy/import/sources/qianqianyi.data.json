@@ -1,0 +1,197 @@
+{
+  "key": "wikidata:qianqianyi",
+  "namespace": "wikidata",
+  "people": [
+    {
+      "externalId": "Q16925487",
+      "name": "钱顺德",
+      "citation": "维基百科 / Wikidata Q16925487",
+      "aliases": [
+        "Qian Shunde"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1539
+      },
+      "bio": "politician"
+    },
+    {
+      "externalId": "Q45532501",
+      "name": "钱顺时",
+      "citation": "维基百科 / Wikidata Q45532501",
+      "aliases": [
+        "錢順時",
+        "Qian Shunshi"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1532
+      },
+      "bio": "Ming dynasty person CBDB = 204764"
+    },
+    {
+      "externalId": "Q45614016",
+      "name": "钱泰",
+      "citation": "维基百科 / Wikidata Q45614016",
+      "aliases": [
+        "錢泰",
+        "Qian Tai"
+      ],
+      "gender": "male",
+      "bio": "Ming dynasty person CBDB = 323724"
+    },
+    {
+      "externalId": "Q45614080",
+      "name": "钱元祯",
+      "citation": "维基百科 / Wikidata Q45614080",
+      "aliases": [
+        "錢元禎",
+        "Qian Yuanzhen"
+      ],
+      "gender": "male",
+      "bio": "Ming dynasty person CBDB = 323725"
+    },
+    {
+      "externalId": "Q45614120",
+      "name": "钱体仁",
+      "citation": "维基百科 / Wikidata Q45614120",
+      "aliases": [
+        "錢體仁",
+        "Qian Tiren"
+      ],
+      "gender": "male",
+      "bio": "Ming dynasty person CBDB = 323726"
+    },
+    {
+      "externalId": "Q45681007",
+      "name": "钱世扬",
+      "citation": "维基百科 / Wikidata Q45681007",
+      "aliases": [
+        "錢世揚",
+        "Qian Shiyang"
+      ],
+      "gender": "male",
+      "bio": "Ming dynasty person CBDB = 133096"
+    },
+    {
+      "externalId": "Q6146198",
+      "name": "钱谦益",
+      "citation": "维基百科 / Wikidata Q6146198",
+      "aliases": [
+        "Qian Qianyi"
+      ],
+      "gender": "male",
+      "birth": {
+        "year": 1582
+      },
+      "death": {
+        "year": 1664
+      },
+      "bio": "明末清初学者、诗人",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Qian%20Qianyi.png",
+      "photoCredit": "作者：楊鵬秋 · 公有领域 · 来源：Wikimedia Commons"
+    },
+    {
+      "externalId": "Q65849998",
+      "name": "赵氏",
+      "citation": "维基百科 / Wikidata Q65849998",
+      "aliases": [
+        "趙氏",
+        "Zhao Shi"
+      ],
+      "gender": "female",
+      "bio": "錢順時母"
+    },
+    {
+      "externalId": "Q65850001",
+      "name": "卞氏",
+      "citation": "维基百科 / Wikidata Q65850001",
+      "aliases": [
+        "Bian Shi"
+      ],
+      "gender": "female",
+      "bio": "錢順時妻"
+    },
+    {
+      "externalId": "Q65861792",
+      "name": "赵氏",
+      "citation": "维基百科 / Wikidata Q65861792",
+      "aliases": [
+        "趙氏",
+        "Zhao Shi"
+      ],
+      "gender": "female",
+      "bio": "錢順德妻"
+    },
+    {
+      "externalId": "Q6653701",
+      "name": "柳如是",
+      "citation": "维基百科 / Wikidata Q6653701",
+      "aliases": [
+        "Liu Rushi"
+      ],
+      "gender": "female",
+      "birth": {
+        "year": 1618
+      },
+      "death": {
+        "year": 1664
+      },
+      "bio": "明末清初“秦淮八艳”之首",
+      "photoUrl": "http://commons.wikimedia.org/wiki/Special:FilePath/Portrait%20of%20Liu%20Rushi.jpg",
+      "photoCredit": "作者：Yu Ji, 1738-1823 & Cheng Tinglu, 1796-1858 · 公有领域 · 来源：Wikimedia Commons"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "Q45681007",
+      "child": "Q6146198"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45614120",
+      "child": "Q16925487"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45614120",
+      "child": "Q45532501"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45614016",
+      "child": "Q45614080"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45614080",
+      "child": "Q45614120"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q45532501",
+      "child": "Q45681007"
+    },
+    {
+      "kind": "parent",
+      "parent": "Q65849998",
+      "child": "Q45532501"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q6146198",
+      "b": "Q6653701"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q16925487",
+      "b": "Q65861792"
+    },
+    {
+      "kind": "spouse",
+      "a": "Q45532501",
+      "b": "Q65850001"
+    }
+  ]
+}
