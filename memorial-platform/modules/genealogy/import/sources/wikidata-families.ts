@@ -194,6 +194,9 @@ import ouyang_xun from "./ouyang_xun.data.json";
 import qin_guan from "./qin_guan.data.json";
 import shen_congwen from "./shen_congwen.data.json";
 import jia_yi from "./jia_yi.data.json";
+// CBDB（中国历代人物传记资料库）— namespace "cbdb"，与 wikidata 各自去重。
+// 补维基稀薄的深世系官宦/学术世家；数据源为繁体，见各数据集 citation。
+import luyijian from "./luyijian.data.json";
 
 /**
  * Every Wikidata-sourced family in one registry, so wiring a new one is a single
@@ -403,6 +406,8 @@ const FAMILIES: { key: string; label: string; dataset: GenealogyDataset }[] = [
   { key: "qin_guan", label: "秦观家族（秦湛·苏门四学士）", dataset: qin_guan as GenealogyDataset },
   { key: "shen_congwen", label: "沈从文家族（张兆和）", dataset: shen_congwen as GenealogyDataset },
   { key: "jia_yi", label: "贾谊家族（西汉政论）", dataset: jia_yi as GenealogyDataset },
+  // CBDB 批次（namespace "cbdb"）：深世系官宦/学术世家，补维基之缺。
+  { key: "luyijian", label: "东莱吕氏（吕夷简·吕公著·吕祖谦·北宋相门）", dataset: luyijian as GenealogyDataset },
 ];
 
 export type WikidataFamilyMeta = {

@@ -1,0 +1,1321 @@
+{
+  "key": "cbdb:luyijian",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "8100",
+      "name": "呂夷簡",
+      "citation": "CBDB 中国历代人物传记资料库 person 8100",
+      "gender": "male",
+      "birth": {
+        "year": 979
+      },
+      "death": {
+        "year": 1044
+      }
+    },
+    {
+      "externalId": "7054",
+      "name": "呂蒙亨",
+      "citation": "CBDB 中国历代人物传记资料库 person 7054",
+      "gender": "male"
+    },
+    {
+      "externalId": "7304",
+      "name": "呂公綽",
+      "citation": "CBDB 中国历代人物传记资料库 person 7304",
+      "gender": "male",
+      "birth": {
+        "year": 999
+      },
+      "death": {
+        "year": 1055
+      }
+    },
+    {
+      "externalId": "1316",
+      "name": "呂公弼",
+      "citation": "CBDB 中国历代人物传记资料库 person 1316",
+      "gender": "male",
+      "birth": {
+        "year": 1007
+      },
+      "death": {
+        "year": 1073
+      }
+    },
+    {
+      "externalId": "1314",
+      "name": "呂公著",
+      "citation": "CBDB 中国历代人物传记资料库 person 1314",
+      "gender": "male",
+      "birth": {
+        "year": 1018
+      },
+      "death": {
+        "year": 1089
+      }
+    },
+    {
+      "externalId": "118916",
+      "name": "魯氏(呂公著妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 118916",
+      "gender": "female"
+    },
+    {
+      "externalId": "1315",
+      "name": "呂公孺",
+      "citation": "CBDB 中国历代人物传记资料库 person 1315",
+      "gender": "male"
+    },
+    {
+      "externalId": "13096",
+      "name": "呂龜祥",
+      "citation": "CBDB 中国历代人物传记资料库 person 13096",
+      "gender": "male"
+    },
+    {
+      "externalId": "7303",
+      "name": "呂希傑",
+      "citation": "CBDB 中国历代人物传记资料库 person 7303",
+      "gender": "male"
+    },
+    {
+      "externalId": "1306",
+      "name": "呂希道",
+      "citation": "CBDB 中国历代人物传记资料库 person 1306",
+      "gender": "male",
+      "birth": {
+        "year": 1025
+      },
+      "death": {
+        "year": 1091
+      }
+    },
+    {
+      "externalId": "3647",
+      "name": "呂希俊",
+      "citation": "CBDB 中国历代人物传记资料库 person 3647",
+      "gender": "male"
+    },
+    {
+      "externalId": "17941",
+      "name": "呂希彥",
+      "citation": "CBDB 中国历代人物传记资料库 person 17941",
+      "gender": "male"
+    },
+    {
+      "externalId": "5036",
+      "name": "呂氏(韓忠彥妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 5036",
+      "gender": "female",
+      "birth": {
+        "year": 1039
+      },
+      "death": {
+        "year": 1065
+      }
+    },
+    {
+      "externalId": "644",
+      "name": "韓忠彥",
+      "citation": "CBDB 中国历代人物传记资料库 person 644",
+      "gender": "male",
+      "birth": {
+        "year": 1038
+      },
+      "death": {
+        "year": 1109
+      }
+    },
+    {
+      "externalId": "689508",
+      "name": "呂氏(韓忠彥妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 689508",
+      "gender": "female",
+      "birth": {
+        "year": 1042
+      },
+      "death": {
+        "year": 1090
+      }
+    },
+    {
+      "externalId": "7052",
+      "name": "呂希哲",
+      "citation": "CBDB 中国历代人物传记资料库 person 7052",
+      "gender": "male"
+    },
+    {
+      "externalId": "41954",
+      "name": "張氏(呂希哲妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 41954",
+      "gender": "female"
+    },
+    {
+      "externalId": "1305",
+      "name": "呂希績",
+      "citation": "CBDB 中国历代人物传记资料库 person 1305",
+      "gender": "male"
+    },
+    {
+      "externalId": "1304",
+      "name": "呂希純",
+      "citation": "CBDB 中国历代人物传记资料库 person 1304",
+      "gender": "male"
+    },
+    {
+      "externalId": "13093",
+      "name": "呂蒙奇",
+      "citation": "CBDB 中国历代人物传记资料库 person 13093",
+      "gender": "male"
+    },
+    {
+      "externalId": "3645",
+      "name": "呂之問",
+      "citation": "CBDB 中国历代人物传记资料库 person 3645",
+      "gender": "male"
+    },
+    {
+      "externalId": "18249",
+      "name": "呂延問",
+      "citation": "CBDB 中国历代人物传记资料库 person 18249",
+      "gender": "male"
+    },
+    {
+      "externalId": "530228",
+      "name": "呂君問",
+      "citation": "CBDB 中国历代人物传记资料库 person 530228",
+      "gender": "male"
+    },
+    {
+      "externalId": "13099",
+      "name": "呂昭問",
+      "citation": "CBDB 中国历代人物传记资料库 person 13099",
+      "gender": "male"
+    },
+    {
+      "externalId": "563234",
+      "name": "呂榮問",
+      "citation": "CBDB 中国历代人物传记资料库 person 563234",
+      "gender": "male"
+    },
+    {
+      "externalId": "563235",
+      "name": "呂徽問",
+      "citation": "CBDB 中国历代人物传记资料库 person 563235",
+      "gender": "male"
+    },
+    {
+      "externalId": "563236",
+      "name": "呂舜問",
+      "citation": "CBDB 中国历代人物传记资料库 person 563236",
+      "gender": "male"
+    },
+    {
+      "externalId": "563237",
+      "name": "呂芻問",
+      "citation": "CBDB 中国历代人物传记资料库 person 563237",
+      "gender": "male"
+    },
+    {
+      "externalId": "689457",
+      "name": "韓錦孫",
+      "citation": "CBDB 中国历代人物传记资料库 person 689457",
+      "gender": "male",
+      "birth": {
+        "year": 1055
+      }
+    },
+    {
+      "externalId": "689507",
+      "name": "韓密孫",
+      "citation": "CBDB 中国历代人物传记资料库 person 689507",
+      "gender": "male",
+      "birth": {
+        "year": 1056
+      }
+    },
+    {
+      "externalId": "3320",
+      "name": "韓治",
+      "citation": "CBDB 中国历代人物传记资料库 person 3320",
+      "gender": "male",
+      "birth": {
+        "year": 1059
+      },
+      "death": {
+        "year": 1125
+      }
+    },
+    {
+      "externalId": "52530",
+      "name": "文氏(韓治妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 52530",
+      "gender": "female",
+      "birth": {
+        "year": 1058
+      },
+      "death": {
+        "year": 1090
+      }
+    },
+    {
+      "externalId": "34114",
+      "name": "韓澡",
+      "citation": "CBDB 中国历代人物传记资料库 person 34114",
+      "gender": "male"
+    },
+    {
+      "externalId": "17799",
+      "name": "韓浩",
+      "citation": "CBDB 中国历代人物传记资料库 person 17799",
+      "gender": "male",
+      "death": {
+        "year": 1128
+      }
+    },
+    {
+      "externalId": "34115",
+      "name": "韓澄",
+      "citation": "CBDB 中国历代人物传记资料库 person 34115",
+      "gender": "male"
+    },
+    {
+      "externalId": "7302",
+      "name": "呂切問",
+      "citation": "CBDB 中国历代人物传记资料库 person 7302",
+      "gender": "male"
+    },
+    {
+      "externalId": "8099",
+      "name": "呂好問",
+      "citation": "CBDB 中国历代人物传记资料库 person 8099",
+      "gender": "male",
+      "birth": {
+        "year": 1064
+      },
+      "death": {
+        "year": 1131
+      }
+    },
+    {
+      "externalId": "41922",
+      "name": "王氏(呂好問妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 41922",
+      "gender": "female"
+    },
+    {
+      "externalId": "17947",
+      "name": "呂聰問",
+      "citation": "CBDB 中国历代人物传记资料库 person 17947",
+      "gender": "male"
+    },
+    {
+      "externalId": "7231",
+      "name": "韓膺冑",
+      "citation": "CBDB 中国历代人物传记资料库 person 7231",
+      "gender": "male"
+    },
+    {
+      "externalId": "17782",
+      "name": "韓膚冑",
+      "citation": "CBDB 中国历代人物传记资料库 person 17782",
+      "gender": "male"
+    },
+    {
+      "externalId": "646",
+      "name": "韓肖胄",
+      "citation": "CBDB 中国历代人物传记资料库 person 646",
+      "gender": "male"
+    },
+    {
+      "externalId": "52532",
+      "name": "王氏(韓肖冑妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 52532",
+      "gender": "female"
+    },
+    {
+      "externalId": "53954",
+      "name": "文氏(韓肖冑妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 53954",
+      "gender": "female"
+    },
+    {
+      "externalId": "34116",
+      "name": "韓肯冑",
+      "citation": "CBDB 中国历代人物传记资料库 person 34116",
+      "gender": "male"
+    },
+    {
+      "externalId": "10703",
+      "name": "呂本中",
+      "citation": "CBDB 中国历代人物传记资料库 person 10703",
+      "gender": "male",
+      "birth": {
+        "year": 1084
+      },
+      "death": {
+        "year": 1145
+      }
+    },
+    {
+      "externalId": "120039",
+      "name": "呂揆中",
+      "citation": "CBDB 中国历代人物传记资料库 person 120039",
+      "gender": "male"
+    },
+    {
+      "externalId": "1320",
+      "name": "呂弸中",
+      "citation": "CBDB 中国历代人物传记资料库 person 1320",
+      "gender": "male",
+      "birth": {
+        "year": 1090
+      },
+      "death": {
+        "year": 1146
+      }
+    },
+    {
+      "externalId": "1333",
+      "name": "呂用中",
+      "citation": "CBDB 中国历代人物传记资料库 person 1333",
+      "gender": "male",
+      "birth": {
+        "year": 1091
+      },
+      "death": {
+        "year": 1162
+      }
+    },
+    {
+      "externalId": "1322",
+      "name": "呂忱中",
+      "citation": "CBDB 中国历代人物传记资料库 person 1322",
+      "gender": "male",
+      "birth": {
+        "year": 1098
+      },
+      "death": {
+        "year": 1162
+      }
+    },
+    {
+      "externalId": "385305",
+      "name": "李氏 (呂忱中妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 385305",
+      "gender": "female",
+      "birth": {
+        "year": 1102
+      },
+      "death": {
+        "year": 1176
+      }
+    },
+    {
+      "externalId": "5292",
+      "name": "呂氏(錢受之妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 5292",
+      "gender": "female",
+      "birth": {
+        "year": 1101
+      },
+      "death": {
+        "year": 1148
+      }
+    },
+    {
+      "externalId": "17946",
+      "name": "錢受之",
+      "citation": "CBDB 中国历代人物传记资料库 person 17946",
+      "gender": "male"
+    },
+    {
+      "externalId": "52524",
+      "name": "韓恊",
+      "citation": "CBDB 中国历代人物传记资料库 person 52524",
+      "gender": "male"
+    },
+    {
+      "externalId": "17904",
+      "name": "呂大猷",
+      "citation": "CBDB 中国历代人物传记资料库 person 17904",
+      "gender": "male"
+    },
+    {
+      "externalId": "3653",
+      "name": "呂大同",
+      "citation": "CBDB 中国历代人物传记资料库 person 3653",
+      "gender": "male"
+    },
+    {
+      "externalId": "5086",
+      "name": "方氏(呂大同妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 5086",
+      "gender": "female",
+      "birth": {
+        "year": 1128
+      },
+      "death": {
+        "year": 1176
+      }
+    },
+    {
+      "externalId": "3652",
+      "name": "呂大器",
+      "citation": "CBDB 中国历代人物传记资料库 person 3652",
+      "gender": "male",
+      "birth": {
+        "year": 1113
+      },
+      "death": {
+        "year": 1172
+      }
+    },
+    {
+      "externalId": "44808",
+      "name": "曾氏(呂大器妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 44808",
+      "gender": "female",
+      "birth": {
+        "year": 1115
+      },
+      "death": {
+        "year": 1166
+      }
+    },
+    {
+      "externalId": "17903",
+      "name": "呂大倫",
+      "citation": "CBDB 中国历代人物传记资料库 person 17903",
+      "gender": "male",
+      "death": {
+        "year": 1155
+      }
+    },
+    {
+      "externalId": "385263",
+      "name": "程氏(呂大倫妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 385263",
+      "gender": "female",
+      "birth": {
+        "year": 1120
+      },
+      "death": {
+        "year": 1165
+      }
+    },
+    {
+      "externalId": "42153",
+      "name": "呂大麟",
+      "citation": "CBDB 中国历代人物传记资料库 person 42153",
+      "gender": "male"
+    },
+    {
+      "externalId": "385247",
+      "name": "薛南英",
+      "citation": "CBDB 中国历代人物传记资料库 person 385247",
+      "gender": "female",
+      "birth": {
+        "year": 1131
+      },
+      "death": {
+        "year": 1163
+      }
+    },
+    {
+      "externalId": "385257",
+      "name": "呂大虬",
+      "citation": "CBDB 中国历代人物传记资料库 person 385257",
+      "gender": "male"
+    },
+    {
+      "externalId": "17793",
+      "name": "韓同卿",
+      "citation": "CBDB 中国历代人物传记资料库 person 17793",
+      "gender": "male",
+      "death": {
+        "year": 1199
+      }
+    },
+    {
+      "externalId": "52526",
+      "name": "莊氏(韓同卿妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 52526",
+      "gender": "female"
+    },
+    {
+      "externalId": "385279",
+      "name": "呂祖義",
+      "citation": "CBDB 中国历代人物传记资料库 person 385279",
+      "gender": "male"
+    },
+    {
+      "externalId": "96012",
+      "name": "呂祖平",
+      "citation": "CBDB 中国历代人物传记资料库 person 96012",
+      "gender": "male"
+    },
+    {
+      "externalId": "7055",
+      "name": "呂祖謙",
+      "citation": "CBDB 中国历代人物传记资料库 person 7055",
+      "gender": "male",
+      "birth": {
+        "year": 1137
+      },
+      "death": {
+        "year": 1181
+      }
+    },
+    {
+      "externalId": "5087",
+      "name": "韓復",
+      "citation": "CBDB 中国历代人物传记资料库 person 5087",
+      "gender": "female",
+      "birth": {
+        "year": 1136
+      },
+      "death": {
+        "year": 1162
+      }
+    },
+    {
+      "externalId": "386195",
+      "name": "韓氏(呂祖謙妻2)",
+      "citation": "CBDB 中国历代人物传记资料库 person 386195",
+      "gender": "female",
+      "death": {
+        "year": 1171
+      }
+    },
+    {
+      "externalId": "5088",
+      "name": "芮氏(呂祖謙妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 5088",
+      "gender": "female",
+      "birth": {
+        "year": 1162
+      },
+      "death": {
+        "year": 1179
+      }
+    },
+    {
+      "externalId": "3655",
+      "name": "呂祖儉",
+      "citation": "CBDB 中国历代人物传记资料库 person 3655",
+      "gender": "male",
+      "death": {
+        "year": 1198
+      }
+    },
+    {
+      "externalId": "385261",
+      "name": "呂祖節",
+      "citation": "CBDB 中国历代人物传记资料库 person 385261",
+      "gender": "male"
+    },
+    {
+      "externalId": "385262",
+      "name": "呂祖烈",
+      "citation": "CBDB 中国历代人物传记资料库 person 385262",
+      "gender": "male"
+    },
+    {
+      "externalId": "385264",
+      "name": "呂祖永",
+      "citation": "CBDB 中国历代人物传记资料库 person 385264",
+      "gender": "male"
+    },
+    {
+      "externalId": "385265",
+      "name": "呂祖慈",
+      "citation": "CBDB 中国历代人物传记资料库 person 385265",
+      "gender": "male"
+    },
+    {
+      "externalId": "7305",
+      "name": "呂祖恕",
+      "citation": "CBDB 中国历代人物传记资料库 person 7305",
+      "gender": "male"
+    },
+    {
+      "externalId": "385245",
+      "name": "呂祖慤",
+      "citation": "CBDB 中国历代人物传记资料库 person 385245",
+      "gender": "male"
+    },
+    {
+      "externalId": "42110",
+      "name": "呂祖憲",
+      "citation": "CBDB 中国历代人物传记资料库 person 42110",
+      "gender": "male"
+    },
+    {
+      "externalId": "385246",
+      "name": "呂祖志",
+      "citation": "CBDB 中国历代人物传记资料库 person 385246",
+      "gender": "male"
+    },
+    {
+      "externalId": "385268",
+      "name": "呂祖忞",
+      "citation": "CBDB 中国历代人物传记资料库 person 385268",
+      "gender": "male",
+      "birth": {
+        "year": 1166
+      },
+      "death": {
+        "year": 1240
+      }
+    },
+    {
+      "externalId": "52540",
+      "name": "韓氏(趙擴皇后)",
+      "citation": "CBDB 中国历代人物传记资料库 person 52540",
+      "gender": "female",
+      "death": {
+        "year": 1200
+      }
+    },
+    {
+      "externalId": "9013",
+      "name": "趙擴",
+      "citation": "CBDB 中国历代人物传记资料库 person 9013",
+      "gender": "male",
+      "birth": {
+        "year": 1168
+      },
+      "death": {
+        "year": 1224
+      }
+    },
+    {
+      "externalId": "120154",
+      "name": "韓竢",
+      "citation": "CBDB 中国历代人物传记资料库 person 120154",
+      "gender": "male"
+    },
+    {
+      "externalId": "385280",
+      "name": "呂嵩年",
+      "citation": "CBDB 中国历代人物传记资料库 person 385280",
+      "gender": "male"
+    },
+    {
+      "externalId": "45258",
+      "name": "呂華年",
+      "citation": "CBDB 中国历代人物传记资料库 person 45258",
+      "gender": "female",
+      "birth": {
+        "year": 1159
+      }
+    },
+    {
+      "externalId": "45259",
+      "name": "潘景良",
+      "citation": "CBDB 中国历代人物传记资料库 person 45259",
+      "gender": "male"
+    },
+    {
+      "externalId": "11652",
+      "name": "呂延年",
+      "citation": "CBDB 中国历代人物传记资料库 person 11652",
+      "gender": "male",
+      "birth": {
+        "year": 1178
+      }
+    },
+    {
+      "externalId": "11651",
+      "name": "呂康年",
+      "citation": "CBDB 中国历代人物传记资料库 person 11651",
+      "gender": "male"
+    },
+    {
+      "externalId": "385292",
+      "name": "劉幼敏",
+      "citation": "CBDB 中国历代人物传记资料库 person 385292",
+      "gender": "male",
+      "birth": {
+        "year": 1181
+      },
+      "death": {
+        "year": 1234
+      }
+    },
+    {
+      "externalId": "10321",
+      "name": "呂喬年",
+      "citation": "CBDB 中国历代人物传记资料库 person 10321",
+      "gender": "male"
+    },
+    {
+      "externalId": "385299",
+      "name": "呂榮年",
+      "citation": "CBDB 中国历代人物传记资料库 person 385299",
+      "gender": "male",
+      "birth": {
+        "year": 1183
+      },
+      "death": {
+        "year": 1204
+      }
+    },
+    {
+      "externalId": "385302",
+      "name": "呂袤年",
+      "citation": "CBDB 中国历代人物传记资料库 person 385302",
+      "gender": "male"
+    },
+    {
+      "externalId": "385281",
+      "name": "呂宜之",
+      "citation": "CBDB 中国历代人物传记资料库 person 385281",
+      "gender": "male",
+      "birth": {
+        "year": 1231
+      },
+      "death": {
+        "year": 1284
+      }
+    },
+    {
+      "externalId": "385282",
+      "name": "田氏(呂宜之妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 385282",
+      "gender": "female"
+    },
+    {
+      "externalId": "385303",
+      "name": "呂習之",
+      "citation": "CBDB 中国历代人物传记资料库 person 385303",
+      "gender": "male",
+      "birth": {
+        "year": 1240
+      }
+    },
+    {
+      "externalId": "385283",
+      "name": "呂克莊",
+      "citation": "CBDB 中国历代人物传记资料库 person 385283",
+      "gender": "male"
+    },
+    {
+      "externalId": "385284",
+      "name": "呂克開",
+      "citation": "CBDB 中国历代人物传记资料库 person 385284",
+      "gender": "male"
+    },
+    {
+      "externalId": "385285",
+      "name": "呂克昌",
+      "citation": "CBDB 中国历代人物传记资料库 person 385285",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "7054",
+      "child": "8100"
+    },
+    {
+      "kind": "parent",
+      "parent": "8100",
+      "child": "7304"
+    },
+    {
+      "kind": "parent",
+      "parent": "8100",
+      "child": "1316"
+    },
+    {
+      "kind": "parent",
+      "parent": "8100",
+      "child": "1314"
+    },
+    {
+      "kind": "parent",
+      "parent": "8100",
+      "child": "1315"
+    },
+    {
+      "kind": "parent",
+      "parent": "13096",
+      "child": "7054"
+    },
+    {
+      "kind": "parent",
+      "parent": "7304",
+      "child": "7303"
+    },
+    {
+      "kind": "parent",
+      "parent": "7304",
+      "child": "1306"
+    },
+    {
+      "kind": "parent",
+      "parent": "7304",
+      "child": "3647"
+    },
+    {
+      "kind": "parent",
+      "parent": "1316",
+      "child": "17941"
+    },
+    {
+      "kind": "parent",
+      "parent": "1316",
+      "child": "5036"
+    },
+    {
+      "kind": "parent",
+      "parent": "1316",
+      "child": "689508"
+    },
+    {
+      "kind": "spouse",
+      "a": "118916",
+      "b": "1314"
+    },
+    {
+      "kind": "parent",
+      "parent": "1314",
+      "child": "7052"
+    },
+    {
+      "kind": "parent",
+      "parent": "1314",
+      "child": "1305"
+    },
+    {
+      "kind": "parent",
+      "parent": "1314",
+      "child": "1304"
+    },
+    {
+      "kind": "parent",
+      "parent": "13093",
+      "child": "13096"
+    },
+    {
+      "kind": "parent",
+      "parent": "1306",
+      "child": "3645"
+    },
+    {
+      "kind": "parent",
+      "parent": "1306",
+      "child": "18249"
+    },
+    {
+      "kind": "parent",
+      "parent": "1306",
+      "child": "530228"
+    },
+    {
+      "kind": "parent",
+      "parent": "1306",
+      "child": "13099"
+    },
+    {
+      "kind": "parent",
+      "parent": "1306",
+      "child": "563234"
+    },
+    {
+      "kind": "parent",
+      "parent": "1306",
+      "child": "563235"
+    },
+    {
+      "kind": "parent",
+      "parent": "1306",
+      "child": "563236"
+    },
+    {
+      "kind": "parent",
+      "parent": "1306",
+      "child": "563237"
+    },
+    {
+      "kind": "spouse",
+      "a": "5036",
+      "b": "644"
+    },
+    {
+      "kind": "parent",
+      "parent": "5036",
+      "child": "689457"
+    },
+    {
+      "kind": "parent",
+      "parent": "5036",
+      "child": "689507"
+    },
+    {
+      "kind": "parent",
+      "parent": "5036",
+      "child": "3320"
+    },
+    {
+      "kind": "spouse",
+      "a": "644",
+      "b": "689508"
+    },
+    {
+      "kind": "parent",
+      "parent": "689508",
+      "child": "34114"
+    },
+    {
+      "kind": "parent",
+      "parent": "689508",
+      "child": "17799"
+    },
+    {
+      "kind": "parent",
+      "parent": "689508",
+      "child": "34115"
+    },
+    {
+      "kind": "spouse",
+      "a": "41954",
+      "b": "7052"
+    },
+    {
+      "kind": "parent",
+      "parent": "7052",
+      "child": "7302"
+    },
+    {
+      "kind": "parent",
+      "parent": "7052",
+      "child": "8099"
+    },
+    {
+      "kind": "parent",
+      "parent": "1304",
+      "child": "17947"
+    },
+    {
+      "kind": "spouse",
+      "a": "3320",
+      "b": "52530"
+    },
+    {
+      "kind": "parent",
+      "parent": "3320",
+      "child": "7231"
+    },
+    {
+      "kind": "parent",
+      "parent": "3320",
+      "child": "17782"
+    },
+    {
+      "kind": "parent",
+      "parent": "3320",
+      "child": "646"
+    },
+    {
+      "kind": "parent",
+      "parent": "3320",
+      "child": "34116"
+    },
+    {
+      "kind": "spouse",
+      "a": "41922",
+      "b": "8099"
+    },
+    {
+      "kind": "parent",
+      "parent": "8099",
+      "child": "10703"
+    },
+    {
+      "kind": "parent",
+      "parent": "8099",
+      "child": "120039"
+    },
+    {
+      "kind": "parent",
+      "parent": "8099",
+      "child": "1320"
+    },
+    {
+      "kind": "parent",
+      "parent": "8099",
+      "child": "1333"
+    },
+    {
+      "kind": "parent",
+      "parent": "8099",
+      "child": "1322"
+    },
+    {
+      "kind": "parent",
+      "parent": "17947",
+      "child": "5292"
+    },
+    {
+      "kind": "spouse",
+      "a": "52532",
+      "b": "646"
+    },
+    {
+      "kind": "spouse",
+      "a": "53954",
+      "b": "646"
+    },
+    {
+      "kind": "parent",
+      "parent": "646",
+      "child": "52524"
+    },
+    {
+      "kind": "parent",
+      "parent": "10703",
+      "child": "17904"
+    },
+    {
+      "kind": "parent",
+      "parent": "10703",
+      "child": "3653"
+    },
+    {
+      "kind": "parent",
+      "parent": "1320",
+      "child": "3652"
+    },
+    {
+      "kind": "parent",
+      "parent": "1320",
+      "child": "17903"
+    },
+    {
+      "kind": "parent",
+      "parent": "1333",
+      "child": "42153"
+    },
+    {
+      "kind": "parent",
+      "parent": "1333",
+      "child": "385257"
+    },
+    {
+      "kind": "spouse",
+      "a": "1322",
+      "b": "385305"
+    },
+    {
+      "kind": "spouse",
+      "a": "17946",
+      "b": "5292"
+    },
+    {
+      "kind": "parent",
+      "parent": "52524",
+      "child": "17793"
+    },
+    {
+      "kind": "parent",
+      "parent": "17904",
+      "child": "385279"
+    },
+    {
+      "kind": "spouse",
+      "a": "3653",
+      "b": "5086"
+    },
+    {
+      "kind": "parent",
+      "parent": "3653",
+      "child": "96012"
+    },
+    {
+      "kind": "spouse",
+      "a": "3652",
+      "b": "44808"
+    },
+    {
+      "kind": "parent",
+      "parent": "3652",
+      "child": "7055"
+    },
+    {
+      "kind": "parent",
+      "parent": "3652",
+      "child": "3655"
+    },
+    {
+      "kind": "parent",
+      "parent": "3652",
+      "child": "385261"
+    },
+    {
+      "kind": "parent",
+      "parent": "3652",
+      "child": "385262"
+    },
+    {
+      "kind": "spouse",
+      "a": "17903",
+      "b": "385263"
+    },
+    {
+      "kind": "parent",
+      "parent": "17903",
+      "child": "385264"
+    },
+    {
+      "kind": "parent",
+      "parent": "17903",
+      "child": "385265"
+    },
+    {
+      "kind": "spouse",
+      "a": "385247",
+      "b": "42153"
+    },
+    {
+      "kind": "parent",
+      "parent": "42153",
+      "child": "7305"
+    },
+    {
+      "kind": "parent",
+      "parent": "42153",
+      "child": "385245"
+    },
+    {
+      "kind": "parent",
+      "parent": "42153",
+      "child": "42110"
+    },
+    {
+      "kind": "parent",
+      "parent": "42153",
+      "child": "385246"
+    },
+    {
+      "kind": "parent",
+      "parent": "42153",
+      "child": "385268"
+    },
+    {
+      "kind": "spouse",
+      "a": "17793",
+      "b": "52526"
+    },
+    {
+      "kind": "parent",
+      "parent": "17793",
+      "child": "52540"
+    },
+    {
+      "kind": "parent",
+      "parent": "17793",
+      "child": "120154"
+    },
+    {
+      "kind": "parent",
+      "parent": "385279",
+      "child": "385280"
+    },
+    {
+      "kind": "spouse",
+      "a": "5087",
+      "b": "7055"
+    },
+    {
+      "kind": "spouse",
+      "a": "386195",
+      "b": "7055"
+    },
+    {
+      "kind": "parent",
+      "parent": "7055",
+      "child": "45258"
+    },
+    {
+      "kind": "parent",
+      "parent": "7055",
+      "child": "11652"
+    },
+    {
+      "kind": "spouse",
+      "a": "5088",
+      "b": "7055"
+    },
+    {
+      "kind": "parent",
+      "parent": "3655",
+      "child": "11651"
+    },
+    {
+      "kind": "parent",
+      "parent": "3655",
+      "child": "10321"
+    },
+    {
+      "kind": "parent",
+      "parent": "42110",
+      "child": "385299"
+    },
+    {
+      "kind": "parent",
+      "parent": "385268",
+      "child": "385302"
+    },
+    {
+      "kind": "spouse",
+      "a": "52540",
+      "b": "9013"
+    },
+    {
+      "kind": "parent",
+      "parent": "385280",
+      "child": "385281"
+    },
+    {
+      "kind": "spouse",
+      "a": "45258",
+      "b": "45259"
+    },
+    {
+      "kind": "spouse",
+      "a": "11651",
+      "b": "385292"
+    },
+    {
+      "kind": "parent",
+      "parent": "385302",
+      "child": "385303"
+    },
+    {
+      "kind": "spouse",
+      "a": "385281",
+      "b": "385282"
+    },
+    {
+      "kind": "parent",
+      "parent": "385281",
+      "child": "385283"
+    },
+    {
+      "kind": "parent",
+      "parent": "385281",
+      "child": "385284"
+    },
+    {
+      "kind": "parent",
+      "parent": "385281",
+      "child": "385285"
+    }
+  ]
+}
