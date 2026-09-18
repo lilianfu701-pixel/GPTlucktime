@@ -198,6 +198,8 @@ import jia_yi from "./jia_yi.data.json";
 // 补维基稀薄的深世系官宦/学术世家；数据源为繁体，见各数据集 citation。
 import luyijian from "./luyijian.data.json";
 import luyijian2 from "./luyijian2.data.json";
+import cuixuanwei from "./cuixuanwei.data.json";
+import cuiyoufu from "./cuiyoufu.data.json";
 
 /**
  * Every Wikidata-sourced family in one registry, so wiring a new one is a single
@@ -412,6 +414,8 @@ const FAMILIES: { key: string; label: string; dataset: GenealogyDataset }[] = [
   // 两支共享10人、按 CBDB id 去重后自动重连成一棵树。
   { key: "luyijian", label: "东莱吕氏·上（吕夷简·吕公著·吕希哲）", dataset: luyijian as GenealogyDataset },
   { key: "luyijian2", label: "东莱吕氏·下（吕好问·吕本中·吕祖谦）", dataset: luyijian2 as GenealogyDataset },
+  { key: "cuixuanwei", label: "博陵崔氏·崔玄暐支（初唐政治家·崔渙·崔縱）", dataset: cuixuanwei as GenealogyDataset },
+  { key: "cuiyoufu", label: "清河崔氏·崔祐甫支（崔沔·崔植·崔紓）", dataset: cuiyoufu as GenealogyDataset },
 ];
 
 export type WikidataFamilyMeta = {

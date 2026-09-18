@@ -1,0 +1,457 @@
+{
+  "key": "cbdb:cuixuanwei",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "94509",
+      "name": "崔玄暐",
+      "citation": "CBDB 中国历代人物传记资料库 person 94509",
+      "gender": "male",
+      "birth": {
+        "year": 638
+      },
+      "death": {
+        "year": 706
+      }
+    },
+    {
+      "externalId": "177449",
+      "name": "崔慎",
+      "citation": "CBDB 中国历代人物传记资料库 person 177449",
+      "gender": "male",
+      "death": {
+        "year": 655
+      }
+    },
+    {
+      "externalId": "160313",
+      "name": "崔璩",
+      "citation": "CBDB 中国历代人物传记资料库 person 160313",
+      "gender": "male"
+    },
+    {
+      "externalId": "177460",
+      "name": "崔珪",
+      "citation": "CBDB 中国历代人物传记资料库 person 177460",
+      "gender": "male",
+      "death": {
+        "year": 729
+      }
+    },
+    {
+      "externalId": "177466",
+      "name": "崔瑨",
+      "citation": "CBDB 中国历代人物传记资料库 person 177466",
+      "gender": "male",
+      "death": {
+        "year": 729
+      }
+    },
+    {
+      "externalId": "177467",
+      "name": "崔璆",
+      "citation": "CBDB 中国历代人物传记资料库 person 177467",
+      "gender": "male",
+      "death": {
+        "year": 729
+      }
+    },
+    {
+      "externalId": "177448",
+      "name": "崔綜",
+      "citation": "CBDB 中国历代人物传记资料库 person 177448",
+      "gender": "male",
+      "death": {
+        "year": 601
+      }
+    },
+    {
+      "externalId": "145951",
+      "name": "崔渙",
+      "citation": "CBDB 中国历代人物传记资料库 person 145951",
+      "gender": "male",
+      "birth": {
+        "year": 707
+      },
+      "death": {
+        "year": 768
+      }
+    },
+    {
+      "externalId": "177452",
+      "name": "崔震",
+      "citation": "CBDB 中国历代人物传记资料库 person 177452",
+      "gender": "male",
+      "death": {
+        "year": 766
+      }
+    },
+    {
+      "externalId": "177459",
+      "name": "崔賁",
+      "citation": "CBDB 中国历代人物传记资料库 person 177459",
+      "gender": "male",
+      "death": {
+        "year": 775
+      }
+    },
+    {
+      "externalId": "177461",
+      "name": "崔巽",
+      "citation": "CBDB 中国历代人物传记资料库 person 177461",
+      "gender": "male",
+      "death": {
+        "year": 766
+      }
+    },
+    {
+      "externalId": "177463",
+      "name": "崔益",
+      "citation": "CBDB 中国历代人物传记资料库 person 177463",
+      "gender": "male",
+      "death": {
+        "year": 766
+      }
+    },
+    {
+      "externalId": "177464",
+      "name": "崔復",
+      "citation": "CBDB 中国历代人物传记资料库 person 177464",
+      "gender": "male",
+      "death": {
+        "year": 766
+      }
+    },
+    {
+      "externalId": "177465",
+      "name": "崔觀",
+      "citation": "CBDB 中国历代人物传记资料库 person 177465",
+      "gender": "male",
+      "death": {
+        "year": 766
+      }
+    },
+    {
+      "externalId": "177468",
+      "name": "崔解",
+      "citation": "CBDB 中国历代人物传记资料库 person 177468",
+      "gender": "male",
+      "death": {
+        "year": 766
+      }
+    },
+    {
+      "externalId": "177469",
+      "name": "崔頤",
+      "citation": "CBDB 中国历代人物传记资料库 person 177469",
+      "gender": "male",
+      "death": {
+        "year": 766
+      }
+    },
+    {
+      "externalId": "177447",
+      "name": "崔淵",
+      "citation": "CBDB 中国历代人物传记资料库 person 177447",
+      "gender": "male",
+      "death": {
+        "year": 564
+      }
+    },
+    {
+      "externalId": "177453",
+      "name": "崔縱",
+      "citation": "CBDB 中国历代人物传记资料库 person 177453",
+      "gender": "male",
+      "birth": {
+        "year": 729
+      },
+      "death": {
+        "year": 791
+      }
+    },
+    {
+      "externalId": "177457",
+      "name": "崔捷",
+      "citation": "CBDB 中国历代人物传记资料库 person 177457",
+      "gender": "male",
+      "death": {
+        "year": 803
+      }
+    },
+    {
+      "externalId": "177458",
+      "name": "崔揚",
+      "citation": "CBDB 中国历代人物传记资料库 person 177458",
+      "gender": "male",
+      "death": {
+        "year": 803
+      }
+    },
+    {
+      "externalId": "145437",
+      "name": "崔氏(崔賁女)",
+      "citation": "CBDB 中国历代人物传记资料库 person 145437",
+      "gender": "female",
+      "birth": {
+        "year": 753
+      },
+      "death": {
+        "year": 803
+      }
+    },
+    {
+      "externalId": "175470",
+      "name": "王澄",
+      "citation": "CBDB 中国历代人物传记资料库 person 175470",
+      "gender": "male",
+      "death": {
+        "year": 783
+      }
+    },
+    {
+      "externalId": "177462",
+      "name": "崔括",
+      "citation": "CBDB 中国历代人物传记资料库 person 177462",
+      "gender": "male",
+      "death": {
+        "year": 803
+      }
+    },
+    {
+      "externalId": "177470",
+      "name": "崔操",
+      "citation": "CBDB 中国历代人物传记资料库 person 177470",
+      "gender": "male",
+      "death": {
+        "year": 803
+      }
+    },
+    {
+      "externalId": "177471",
+      "name": "崔哲",
+      "citation": "CBDB 中国历代人物传记资料库 person 177471",
+      "gender": "male",
+      "death": {
+        "year": 803
+      }
+    },
+    {
+      "externalId": "177446",
+      "name": "崔伯謙",
+      "citation": "CBDB 中国历代人物传记资料库 person 177446",
+      "gender": "male",
+      "death": {
+        "year": 527
+      }
+    },
+    {
+      "externalId": "177454",
+      "name": "崔元方",
+      "citation": "CBDB 中国历代人物传记资料库 person 177454",
+      "gender": "male",
+      "death": {
+        "year": 826
+      }
+    },
+    {
+      "externalId": "177445",
+      "name": "崔當",
+      "citation": "CBDB 中国历代人物传记资料库 person 177445",
+      "gender": "male",
+      "death": {
+        "year": 490
+      }
+    },
+    {
+      "externalId": "160309",
+      "name": "崔碣",
+      "citation": "CBDB 中国历代人物传记资料库 person 160309",
+      "gender": "male"
+    },
+    {
+      "externalId": "194399",
+      "name": "崔標",
+      "citation": "CBDB 中国历代人物传记资料库 person 194399",
+      "gender": "male",
+      "death": {
+        "year": 482
+      }
+    },
+    {
+      "externalId": "177456",
+      "name": "崔善",
+      "citation": "CBDB 中国历代人物传记资料库 person 177456",
+      "gender": "male",
+      "death": {
+        "year": 900
+      }
+    },
+    {
+      "externalId": "191518",
+      "name": "崔綽",
+      "citation": "CBDB 中国历代人物传记资料库 person 191518",
+      "gender": "male",
+      "death": {
+        "year": 445
+      }
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "177449",
+      "child": "94509"
+    },
+    {
+      "kind": "parent",
+      "parent": "94509",
+      "child": "160313"
+    },
+    {
+      "kind": "parent",
+      "parent": "94509",
+      "child": "177460"
+    },
+    {
+      "kind": "parent",
+      "parent": "94509",
+      "child": "177466"
+    },
+    {
+      "kind": "parent",
+      "parent": "94509",
+      "child": "177467"
+    },
+    {
+      "kind": "parent",
+      "parent": "177448",
+      "child": "177449"
+    },
+    {
+      "kind": "parent",
+      "parent": "160313",
+      "child": "145951"
+    },
+    {
+      "kind": "parent",
+      "parent": "160313",
+      "child": "177452"
+    },
+    {
+      "kind": "parent",
+      "parent": "160313",
+      "child": "177459"
+    },
+    {
+      "kind": "parent",
+      "parent": "177460",
+      "child": "177461"
+    },
+    {
+      "kind": "parent",
+      "parent": "177460",
+      "child": "177463"
+    },
+    {
+      "kind": "parent",
+      "parent": "177460",
+      "child": "177464"
+    },
+    {
+      "kind": "parent",
+      "parent": "177460",
+      "child": "177465"
+    },
+    {
+      "kind": "parent",
+      "parent": "177467",
+      "child": "177468"
+    },
+    {
+      "kind": "parent",
+      "parent": "177467",
+      "child": "177469"
+    },
+    {
+      "kind": "parent",
+      "parent": "177447",
+      "child": "177448"
+    },
+    {
+      "kind": "parent",
+      "parent": "145951",
+      "child": "177453"
+    },
+    {
+      "kind": "parent",
+      "parent": "145951",
+      "child": "177457"
+    },
+    {
+      "kind": "parent",
+      "parent": "145951",
+      "child": "177458"
+    },
+    {
+      "kind": "parent",
+      "parent": "177459",
+      "child": "145437"
+    },
+    {
+      "kind": "parent",
+      "parent": "177461",
+      "child": "177462"
+    },
+    {
+      "kind": "parent",
+      "parent": "177469",
+      "child": "177470"
+    },
+    {
+      "kind": "parent",
+      "parent": "177469",
+      "child": "177471"
+    },
+    {
+      "kind": "parent",
+      "parent": "177446",
+      "child": "177447"
+    },
+    {
+      "kind": "parent",
+      "parent": "177453",
+      "child": "177454"
+    },
+    {
+      "kind": "spouse",
+      "a": "145437",
+      "b": "175470"
+    },
+    {
+      "kind": "parent",
+      "parent": "177445",
+      "child": "177446"
+    },
+    {
+      "kind": "parent",
+      "parent": "177454",
+      "child": "160309"
+    },
+    {
+      "kind": "parent",
+      "parent": "194399",
+      "child": "177445"
+    },
+    {
+      "kind": "parent",
+      "parent": "160309",
+      "child": "177456"
+    },
+    {
+      "kind": "parent",
+      "parent": "191518",
+      "child": "194399"
+    }
+  ]
+}

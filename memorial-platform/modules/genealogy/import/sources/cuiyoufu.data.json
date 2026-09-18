@@ -1,0 +1,171 @@
+{
+  "key": "cbdb:cuiyoufu",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "32279",
+      "name": "崔祐甫",
+      "citation": "CBDB 中国历代人物传记资料库 person 32279",
+      "gender": "male",
+      "birth": {
+        "year": 721
+      },
+      "death": {
+        "year": 780
+      }
+    },
+    {
+      "externalId": "135655",
+      "name": "王氏(崔祐甫妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 135655",
+      "gender": "female"
+    },
+    {
+      "externalId": "155266",
+      "name": "王氏(崔祐甫妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 155266",
+      "gender": "female"
+    },
+    {
+      "externalId": "141212",
+      "name": "王氏(王溫之女)",
+      "citation": "CBDB 中国历代人物传记资料库 person 141212",
+      "gender": "female",
+      "birth": {
+        "year": 685
+      },
+      "death": {
+        "year": 734
+      }
+    },
+    {
+      "externalId": "31703",
+      "name": "崔沔",
+      "citation": "CBDB 中国历代人物传记资料库 person 31703",
+      "gender": "male",
+      "birth": {
+        "year": 673
+      },
+      "death": {
+        "year": 739
+      }
+    },
+    {
+      "externalId": "32281",
+      "name": "崔植",
+      "citation": "CBDB 中国历代人物传记资料库 person 32281",
+      "gender": "male",
+      "birth": {
+        "year": 772
+      },
+      "death": {
+        "year": 829
+      }
+    },
+    {
+      "externalId": "155092",
+      "name": "王溫之",
+      "citation": "CBDB 中国历代人物传记资料库 person 155092",
+      "gender": "male"
+    },
+    {
+      "externalId": "160954",
+      "name": "崔柔",
+      "citation": "CBDB 中国历代人物传记资料库 person 160954",
+      "gender": "male"
+    },
+    {
+      "externalId": "193820",
+      "name": "崔某",
+      "citation": "CBDB 中国历代人物传记资料库 person 193820",
+      "gender": "male",
+      "death": {
+        "year": 854
+      }
+    },
+    {
+      "externalId": "155091",
+      "name": "王惠子",
+      "citation": "CBDB 中国历代人物传记资料库 person 155091",
+      "gender": "male"
+    },
+    {
+      "externalId": "142054",
+      "name": "崔紓",
+      "citation": "CBDB 中国历代人物传记资料库 person 142054",
+      "gender": "male",
+      "birth": {
+        "year": 824
+      },
+      "death": {
+        "year": 872
+      }
+    },
+    {
+      "externalId": "193821",
+      "name": "崔延輝",
+      "citation": "CBDB 中国历代人物传记资料库 person 193821",
+      "gender": "male",
+      "death": {
+        "year": 891
+      }
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "141212",
+      "child": "32279"
+    },
+    {
+      "kind": "spouse",
+      "a": "135655",
+      "b": "32279"
+    },
+    {
+      "kind": "spouse",
+      "a": "155266",
+      "b": "32279"
+    },
+    {
+      "kind": "parent",
+      "parent": "32279",
+      "child": "32281"
+    },
+    {
+      "kind": "parent",
+      "parent": "155092",
+      "child": "141212"
+    },
+    {
+      "kind": "spouse",
+      "a": "141212",
+      "b": "31703"
+    },
+    {
+      "kind": "parent",
+      "parent": "32281",
+      "child": "160954"
+    },
+    {
+      "kind": "parent",
+      "parent": "32281",
+      "child": "193820"
+    },
+    {
+      "kind": "parent",
+      "parent": "155091",
+      "child": "155092"
+    },
+    {
+      "kind": "parent",
+      "parent": "160954",
+      "child": "142054"
+    },
+    {
+      "kind": "parent",
+      "parent": "193820",
+      "child": "193821"
+    }
+  ]
+}
