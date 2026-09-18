@@ -25,6 +25,11 @@ export function SignOutButton(props: { locale: string }) {
       // claiming an ending that did not happen.
     } finally {
       setSending(false);
+      // The nav reads its signed-in state on the client and stays mounted across
+      // this navigation, so tell it to re-read the session now the cookie is
+      // cleared — otherwise it keeps showing the signed-in cluster until the tab
+      // is refocused, and the button looks unresponsive.
+      window.dispatchEvent(new Event("auth-changed"));
       // Home rather than the current page: whatever they were looking at may
       // need a session to render, and being bounced to a 404 is a poor way to
       // find out you have signed out.

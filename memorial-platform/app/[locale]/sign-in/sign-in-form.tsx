@@ -153,9 +153,12 @@ export function SignInForm(props: {
       }
 
       const destination = safeNext(params.get("next"), props.locale);
+      // The nav's signed-in state is fetched on the client and the layout stays
+      // mounted across this navigation, so a plain push/refresh would leave it
+      // showing "sign in". Tell it to re-read the session now that the cookie
+      // is set.
+      window.dispatchEvent(new Event("auth-changed"));
       router.push(destination);
-      // The header renders from the session cookie on the server, so the tree
-      // above this page has to be re-fetched or it keeps offering "sign in".
       router.refresh();
     } catch {
       setFailure("DEPENDENCY_UNAVAILABLE");

@@ -21,7 +21,7 @@ export function NavSession(props: { locale: string }) {
   useEffect(() => {
     let alive = true;
     const load = (): void => {
-      fetch("/api/nav-state", { credentials: "include" })
+      fetch("/api/nav-state", { credentials: "include", cache: "no-store" })
         .then((r) => (r.ok ? (r.json() as Promise<NavState>) : null))
         .then((data) => {
           if (alive && data) {
@@ -33,13 +33,16 @@ export function NavSession(props: { locale: string }) {
         });
     };
     load();
-    // The layout stays mounted across client navigations, so the badge would
-    // otherwise never update. Refresh it when the inbox marks something read,
-    // and when the tab regains focus.
+    // The layout stays mounted across client navigations, so the nav would
+    // otherwise never update. Refresh it when auth changes (sign in / sign out
+    // dispatch "auth-changed"), when the inbox marks something read, and when
+    // the tab regains focus.
+    window.addEventListener("auth-changed", load);
     window.addEventListener("inbox-read", load);
     window.addEventListener("focus", load);
     return () => {
       alive = false;
+      window.removeEventListener("auth-changed", load);
       window.removeEventListener("inbox-read", load);
       window.removeEventListener("focus", load);
     };
