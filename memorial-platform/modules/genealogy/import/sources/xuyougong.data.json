@@ -1,0 +1,314 @@
+{
+  "key": "cbdb:xuyougong",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "184656",
+      "name": "徐有功",
+      "citation": "CBDB 中国历代人物传记资料库 person 184656",
+      "gender": "male",
+      "death": {
+        "year": 702
+      }
+    },
+    {
+      "externalId": "184655",
+      "name": "徐士安",
+      "citation": "CBDB 中国历代人物传记资料库 person 184655",
+      "gender": "male",
+      "death": {
+        "year": 665
+      }
+    },
+    {
+      "externalId": "184657",
+      "name": "徐倫",
+      "citation": "CBDB 中国历代人物传记资料库 person 184657",
+      "gender": "male",
+      "death": {
+        "year": 717
+      }
+    },
+    {
+      "externalId": "184672",
+      "name": "徐殷",
+      "citation": "CBDB 中国历代人物传记资料库 person 184672",
+      "gender": "male",
+      "death": {
+        "year": 739
+      }
+    },
+    {
+      "externalId": "184673",
+      "name": "徐毅",
+      "citation": "CBDB 中国历代人物传记资料库 person 184673",
+      "gender": "male",
+      "death": {
+        "year": 739
+      }
+    },
+    {
+      "externalId": "184654",
+      "name": "徐文遠",
+      "citation": "CBDB 中国历代人物传记资料库 person 184654",
+      "gender": "male",
+      "death": {
+        "year": 628
+      }
+    },
+    {
+      "externalId": "184658",
+      "name": "徐瑴",
+      "citation": "CBDB 中国历代人物传记资料库 person 184658",
+      "gender": "male",
+      "death": {
+        "year": 754
+      }
+    },
+    {
+      "externalId": "184653",
+      "name": "徐澈",
+      "citation": "CBDB 中国历代人物传记资料库 person 184653",
+      "gender": "male",
+      "death": {
+        "year": 591
+      }
+    },
+    {
+      "externalId": "145732",
+      "name": "徐氏(徐瑴女)",
+      "citation": "CBDB 中国历代人物传记资料库 person 145732",
+      "gender": "female",
+      "birth": {
+        "year": 732
+      },
+      "death": {
+        "year": 786
+      }
+    },
+    {
+      "externalId": "191024",
+      "name": "韋某",
+      "citation": "CBDB 中国历代人物传记资料库 person 191024",
+      "gender": "male",
+      "death": {
+        "year": 784
+      }
+    },
+    {
+      "externalId": "184659",
+      "name": "徐濤",
+      "citation": "CBDB 中国历代人物传记资料库 person 184659",
+      "gender": "male",
+      "death": {
+        "year": 791
+      }
+    },
+    {
+      "externalId": "184661",
+      "name": "徐宰",
+      "citation": "CBDB 中国历代人物传记资料库 person 184661",
+      "gender": "male",
+      "death": {
+        "year": 833
+      }
+    },
+    {
+      "externalId": "184671",
+      "name": "徐單",
+      "citation": "CBDB 中国历代人物传记资料库 person 184671",
+      "gender": "male",
+      "death": {
+        "year": 791
+      }
+    },
+    {
+      "externalId": "184652",
+      "name": "徐君賓",
+      "citation": "CBDB 中国历代人物传记资料库 person 184652",
+      "gender": "male",
+      "death": {
+        "year": 554
+      }
+    },
+    {
+      "externalId": "184660",
+      "name": "徐杜",
+      "citation": "CBDB 中国历代人物传记资料库 person 184660",
+      "gender": "male",
+      "death": {
+        "year": 828
+      }
+    },
+    {
+      "externalId": "184669",
+      "name": "徐宮",
+      "citation": "CBDB 中国历代人物传记资料库 person 184669",
+      "gender": "male",
+      "death": {
+        "year": 870
+      }
+    },
+    {
+      "externalId": "184610",
+      "name": "徐緄",
+      "citation": "CBDB 中国历代人物传记资料库 person 184610",
+      "gender": "male",
+      "death": {
+        "year": 517
+      }
+    },
+    {
+      "externalId": "184670",
+      "name": "徐仁規",
+      "citation": "CBDB 中国历代人物传记资料库 person 184670",
+      "gender": "male",
+      "death": {
+        "year": 907
+      }
+    },
+    {
+      "externalId": "193924",
+      "name": "徐孝嗣",
+      "citation": "CBDB 中国历代人物传记资料库 person 193924",
+      "gender": "male",
+      "death": {
+        "year": 480
+      }
+    },
+    {
+      "externalId": "193925",
+      "name": "徐聿之",
+      "citation": "CBDB 中国历代人物传记资料库 person 193925",
+      "gender": "male",
+      "death": {
+        "year": 443
+      }
+    },
+    {
+      "externalId": "193926",
+      "name": "徐湛之",
+      "citation": "CBDB 中国历代人物传记资料库 person 193926",
+      "gender": "male",
+      "death": {
+        "year": 406
+      }
+    },
+    {
+      "externalId": "193927",
+      "name": "徐逵之",
+      "citation": "CBDB 中国历代人物传记资料库 person 193927",
+      "gender": "male",
+      "death": {
+        "year": 369
+      }
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "184655",
+      "child": "184656"
+    },
+    {
+      "kind": "parent",
+      "parent": "184656",
+      "child": "184657"
+    },
+    {
+      "kind": "parent",
+      "parent": "184656",
+      "child": "184672"
+    },
+    {
+      "kind": "parent",
+      "parent": "184656",
+      "child": "184673"
+    },
+    {
+      "kind": "parent",
+      "parent": "184654",
+      "child": "184655"
+    },
+    {
+      "kind": "parent",
+      "parent": "184657",
+      "child": "184658"
+    },
+    {
+      "kind": "parent",
+      "parent": "184653",
+      "child": "184654"
+    },
+    {
+      "kind": "parent",
+      "parent": "184658",
+      "child": "145732"
+    },
+    {
+      "kind": "parent",
+      "parent": "184658",
+      "child": "184659"
+    },
+    {
+      "kind": "parent",
+      "parent": "184658",
+      "child": "184661"
+    },
+    {
+      "kind": "parent",
+      "parent": "184658",
+      "child": "184671"
+    },
+    {
+      "kind": "parent",
+      "parent": "184652",
+      "child": "184653"
+    },
+    {
+      "kind": "spouse",
+      "a": "145732",
+      "b": "191024"
+    },
+    {
+      "kind": "parent",
+      "parent": "184659",
+      "child": "184660"
+    },
+    {
+      "kind": "parent",
+      "parent": "184661",
+      "child": "184669"
+    },
+    {
+      "kind": "parent",
+      "parent": "184610",
+      "child": "184652"
+    },
+    {
+      "kind": "parent",
+      "parent": "184669",
+      "child": "184670"
+    },
+    {
+      "kind": "parent",
+      "parent": "193924",
+      "child": "184610"
+    },
+    {
+      "kind": "parent",
+      "parent": "193925",
+      "child": "193924"
+    },
+    {
+      "kind": "parent",
+      "parent": "193926",
+      "child": "193925"
+    },
+    {
+      "kind": "parent",
+      "parent": "193927",
+      "child": "193926"
+    }
+  ]
+}

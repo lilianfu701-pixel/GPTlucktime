@@ -1,0 +1,261 @@
+{
+  "key": "cbdb:xujingzong",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "18636",
+      "name": "許敬宗",
+      "citation": "CBDB 中国历代人物传记资料库 person 18636",
+      "gender": "male",
+      "birth": {
+        "year": 592
+      },
+      "death": {
+        "year": 672
+      }
+    },
+    {
+      "externalId": "18635",
+      "name": "許善心",
+      "citation": "CBDB 中国历代人物传记资料库 person 18635",
+      "gender": "male"
+    },
+    {
+      "externalId": "178589",
+      "name": "許昱",
+      "citation": "CBDB 中国历代人物传记资料库 person 178589",
+      "gender": "male",
+      "death": {
+        "year": 697
+      }
+    },
+    {
+      "externalId": "178590",
+      "name": "許昪",
+      "citation": "CBDB 中国历代人物传记资料库 person 178590",
+      "gender": "male",
+      "death": {
+        "year": 697
+      }
+    },
+    {
+      "externalId": "178591",
+      "name": "許果",
+      "citation": "CBDB 中国历代人物传记资料库 person 178591",
+      "gender": "male",
+      "death": {
+        "year": 697
+      }
+    },
+    {
+      "externalId": "178592",
+      "name": "許景",
+      "citation": "CBDB 中国历代人物传记资料库 person 178592",
+      "gender": "male",
+      "death": {
+        "year": 697
+      }
+    },
+    {
+      "externalId": "18637",
+      "name": "許昂",
+      "citation": "CBDB 中国历代人物传记资料库 person 18637",
+      "gender": "male"
+    },
+    {
+      "externalId": "18634",
+      "name": "許亨",
+      "citation": "CBDB 中国历代人物传记资料库 person 18634",
+      "gender": "male"
+    },
+    {
+      "externalId": "30589",
+      "name": "范氏(許亨妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 30589",
+      "gender": "female"
+    },
+    {
+      "externalId": "178580",
+      "name": "許亨",
+      "citation": "CBDB 中国历代人物传记资料库 person 178580",
+      "gender": "male",
+      "death": {
+        "year": 586
+      }
+    },
+    {
+      "externalId": "178588",
+      "name": "許韶伯",
+      "citation": "CBDB 中国历代人物传记资料库 person 178588",
+      "gender": "male",
+      "death": {
+        "year": 734
+      }
+    },
+    {
+      "externalId": "18638",
+      "name": "許彥伯",
+      "citation": "CBDB 中国历代人物传记资料库 person 18638",
+      "gender": "male"
+    },
+    {
+      "externalId": "18633",
+      "name": "許懋",
+      "citation": "CBDB 中国历代人物传记资料库 person 18633",
+      "gender": "male"
+    },
+    {
+      "externalId": "18639",
+      "name": "許望",
+      "citation": "CBDB 中国历代人物传记资料库 person 18639",
+      "gender": "male"
+    },
+    {
+      "externalId": "18632",
+      "name": "許勇慧",
+      "citation": "CBDB 中国历代人物传记资料库 person 18632",
+      "gender": "male"
+    },
+    {
+      "externalId": "18640",
+      "name": "許遠",
+      "citation": "CBDB 中国历代人物传记资料库 person 18640",
+      "gender": "male",
+      "birth": {
+        "year": 709
+      },
+      "death": {
+        "year": 757
+      }
+    },
+    {
+      "externalId": "18631",
+      "name": "許珪",
+      "citation": "CBDB 中国历代人物传记资料库 person 18631",
+      "gender": "male"
+    },
+    {
+      "externalId": "178587",
+      "name": "許峴",
+      "citation": "CBDB 中国历代人物传记资料库 person 178587",
+      "gender": "male",
+      "death": {
+        "year": 845
+      }
+    },
+    {
+      "externalId": "18630",
+      "name": "許季之",
+      "citation": "CBDB 中国历代人物传记资料库 person 18630",
+      "gender": "male"
+    },
+    {
+      "externalId": "18629",
+      "name": "許詢",
+      "citation": "CBDB 中国历代人物传记资料库 person 18629",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "18635",
+      "child": "18636"
+    },
+    {
+      "kind": "parent",
+      "parent": "18636",
+      "child": "178589"
+    },
+    {
+      "kind": "parent",
+      "parent": "18636",
+      "child": "178590"
+    },
+    {
+      "kind": "parent",
+      "parent": "18636",
+      "child": "178591"
+    },
+    {
+      "kind": "parent",
+      "parent": "18636",
+      "child": "178592"
+    },
+    {
+      "kind": "parent",
+      "parent": "18636",
+      "child": "18637"
+    },
+    {
+      "kind": "parent",
+      "parent": "18634",
+      "child": "18635"
+    },
+    {
+      "kind": "parent",
+      "parent": "178580",
+      "child": "18635"
+    },
+    {
+      "kind": "parent",
+      "parent": "30589",
+      "child": "18635"
+    },
+    {
+      "kind": "parent",
+      "parent": "18637",
+      "child": "178588"
+    },
+    {
+      "kind": "parent",
+      "parent": "18637",
+      "child": "18638"
+    },
+    {
+      "kind": "parent",
+      "parent": "18633",
+      "child": "18634"
+    },
+    {
+      "kind": "spouse",
+      "a": "18634",
+      "b": "30589"
+    },
+    {
+      "kind": "parent",
+      "parent": "18638",
+      "child": "18639"
+    },
+    {
+      "kind": "parent",
+      "parent": "18632",
+      "child": "18633"
+    },
+    {
+      "kind": "parent",
+      "parent": "18639",
+      "child": "18640"
+    },
+    {
+      "kind": "parent",
+      "parent": "18631",
+      "child": "18632"
+    },
+    {
+      "kind": "parent",
+      "parent": "18640",
+      "child": "178587"
+    },
+    {
+      "kind": "parent",
+      "parent": "18630",
+      "child": "18631"
+    },
+    {
+      "kind": "parent",
+      "parent": "18629",
+      "child": "18630"
+    }
+  ]
+}

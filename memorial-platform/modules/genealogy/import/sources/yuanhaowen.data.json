@@ -1,0 +1,189 @@
+{
+  "key": "cbdb:yuanhaowen",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "10074",
+      "name": "元好問",
+      "citation": "CBDB 中国历代人物传记资料库 person 10074",
+      "gender": "male",
+      "birth": {
+        "year": 1190
+      },
+      "death": {
+        "year": 1257
+      }
+    },
+    {
+      "externalId": "28961",
+      "name": "張氏(元好問妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 28961",
+      "gender": "female",
+      "death": {
+        "year": 1231
+      }
+    },
+    {
+      "externalId": "28922",
+      "name": "元德明",
+      "citation": "CBDB 中国历代人物传记资料库 person 28922",
+      "gender": "male",
+      "death": {
+        "year": 1205
+      }
+    },
+    {
+      "externalId": "28942",
+      "name": "元振",
+      "citation": "CBDB 中国历代人物传记资料库 person 28942",
+      "gender": "male"
+    },
+    {
+      "externalId": "28943",
+      "name": "元摠",
+      "citation": "CBDB 中国历代人物传记资料库 person 28943",
+      "gender": "male"
+    },
+    {
+      "externalId": "28936",
+      "name": "元嚴",
+      "citation": "CBDB 中国历代人物传记资料库 person 28936",
+      "gender": "female"
+    },
+    {
+      "externalId": "28924",
+      "name": "元真",
+      "citation": "CBDB 中国历代人物传记资料库 person 28924",
+      "gender": "female",
+      "birth": {
+        "year": 1208
+      }
+    },
+    {
+      "externalId": "28926",
+      "name": "程思溫",
+      "citation": "CBDB 中国历代人物传记资料库 person 28926",
+      "gender": "male"
+    },
+    {
+      "externalId": "28937",
+      "name": "元順",
+      "citation": "CBDB 中国历代人物传记资料库 person 28937",
+      "gender": "female",
+      "birth": {
+        "year": 1219
+      },
+      "death": {
+        "year": 1231
+      }
+    },
+    {
+      "externalId": "28938",
+      "name": "元氏(元好問女)",
+      "citation": "CBDB 中国历代人物传记资料库 person 28938",
+      "gender": "female"
+    },
+    {
+      "externalId": "28939",
+      "name": "崔國才",
+      "citation": "CBDB 中国历代人物传记资料库 person 28939",
+      "gender": "male"
+    },
+    {
+      "externalId": "28940",
+      "name": "元氏(元好問女)",
+      "citation": "CBDB 中国历代人物传记资料库 person 28940",
+      "gender": "female"
+    },
+    {
+      "externalId": "28941",
+      "name": "霍繼祖",
+      "citation": "CBDB 中国历代人物传记资料库 person 28941",
+      "gender": "male"
+    },
+    {
+      "externalId": "28920",
+      "name": "元滋",
+      "citation": "CBDB 中国历代人物传记资料库 person 28920",
+      "gender": "male"
+    },
+    {
+      "externalId": "28921",
+      "name": "元春忠",
+      "citation": "CBDB 中国历代人物传记资料库 person 28921",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "28922",
+      "child": "10074"
+    },
+    {
+      "kind": "spouse",
+      "a": "10074",
+      "b": "28961"
+    },
+    {
+      "kind": "parent",
+      "parent": "10074",
+      "child": "28942"
+    },
+    {
+      "kind": "parent",
+      "parent": "10074",
+      "child": "28943"
+    },
+    {
+      "kind": "parent",
+      "parent": "10074",
+      "child": "28936"
+    },
+    {
+      "kind": "parent",
+      "parent": "10074",
+      "child": "28924"
+    },
+    {
+      "kind": "parent",
+      "parent": "10074",
+      "child": "28937"
+    },
+    {
+      "kind": "parent",
+      "parent": "10074",
+      "child": "28938"
+    },
+    {
+      "kind": "parent",
+      "parent": "10074",
+      "child": "28940"
+    },
+    {
+      "kind": "parent",
+      "parent": "28920",
+      "child": "28922"
+    },
+    {
+      "kind": "spouse",
+      "a": "28924",
+      "b": "28926"
+    },
+    {
+      "kind": "spouse",
+      "a": "28938",
+      "b": "28939"
+    },
+    {
+      "kind": "spouse",
+      "a": "28940",
+      "b": "28941"
+    },
+    {
+      "kind": "parent",
+      "parent": "28921",
+      "child": "28920"
+    }
+  ]
+}

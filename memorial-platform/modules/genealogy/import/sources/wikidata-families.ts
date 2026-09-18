@@ -212,6 +212,22 @@ import suweidao from "./suweidao.data.json";
 import liufen from "./liufen.data.json";
 import liugong from "./liugong.data.json";
 import xiaoying from "./xiaoying.data.json";
+// CBDB 第三批（唐代世家 + 吴郡陆氏 + 兰陵萧氏二支 + 宋金文人）
+import peiyaoqing from "./peiyaoqing.data.json";
+import luguimeng from "./luguimeng.data.json";
+import xiaosong from "./xiaosong.data.json";
+import miaojinqing from "./miaojinqing.data.json";
+import duanwenchang from "./duanwenchang.data.json";
+import liuzhiji from "./liuzhiji.data.json";
+import zhangjiazheng from "./zhangjiazheng.data.json";
+import xujingzong from "./xujingzong.data.json";
+import doudeyin from "./doudeyin.data.json";
+import shangguan from "./shangguan.data.json";
+import xuyougong from "./xuyougong.data.json";
+import songqi from "./songqi.data.json";
+import baozheng from "./baozheng.data.json";
+import yuanhaowen from "./yuanhaowen.data.json";
+import yujing from "./yujing.data.json";
 // CBDB 第二批（宋元明宋代理学 + 唐代令狐氏 + 太原王氏）
 import huangan from "./huangan.data.json";
 import weiliao from "./weiliao.data.json";
@@ -451,6 +467,22 @@ const FAMILIES: { key: string; label: string; dataset: GenealogyDataset }[] = [
   { key: "liufen", label: "河东柳氏·柳芬支（柳懿·柳均·南北朝到唐）", dataset: liufen as GenealogyDataset },
   { key: "liugong", label: "河东柳氏·柳公权支（书法家·柳瑗·柳仲憲）", dataset: liugong as GenealogyDataset },
   { key: "xiaoying", label: "兰陵萧氏·萧颖士支（萧道赐·萧恢·南朝到唐）", dataset: xiaoying as GenealogyDataset },
+  // CBDB 第三批：唐代世家 + 吴郡陆氏 + 兰陵萧氏二支 + 宋金文人
+  { key: "peiyaoqing", label: "河东裴氏·裴耀卿支（另支·北魏到晚唐·包含多支裴氏）", dataset: peiyaoqing as GenealogyDataset },
+  { key: "luguimeng", label: "吴郡陆氏·陆龟蒙支（陆玩278→晚唐·追溯东晋六朝）", dataset: luguimeng as GenealogyDataset },
+  { key: "xiaosong", label: "兰陵萧氏·蕭嵩支（西梁蕭詧519-562→唐代·第二支）", dataset: xiaosong as GenealogyDataset },
+  { key: "miaojinqing", label: "苗氏·苗晋卿支（唐肃宗朝宰相·苗丕·苗绲）", dataset: miaojinqing as GenealogyDataset },
+  { key: "duanwenchang", label: "段氏·段文昌支（段成式《酉阳杂俎》·段志玄）", dataset: duanwenchang as GenealogyDataset },
+  { key: "liuzhiji", label: "彭城刘氏·刘知幾支（《史通》·南北朝到唐）", dataset: liuzhiji as GenealogyDataset },
+  { key: "zhangjiazheng", label: "张氏·张嘉贞支（张彦远《历代名画记》）", dataset: zhangjiazheng as GenealogyDataset },
+  { key: "xujingzong", label: "许氏·许敬宗支（许远睢阳守将·539-907）", dataset: xujingzong as GenealogyDataset },
+  { key: "doudeyin", label: "扶风窦氏·竇德玄支（唐太宗皇后族·竇良矩等）", dataset: doudeyin as GenealogyDataset },
+  { key: "shangguan", label: "上官氏·上官仪支（上官婉儿664-710·才女宰相）", dataset: shangguan as GenealogyDataset },
+  { key: "xuyougong", label: "东海徐氏·徐有功支（追溯南北朝369年·徐逵之等）", dataset: xuyougong as GenealogyDataset },
+  { key: "songqi", label: "宋氏·宋祁支（《新唐书》共撰者·998-1061）", dataset: songqi as GenealogyDataset },
+  { key: "baozheng", label: "庐州包氏·包拯支（包青天·999-1062）", dataset: baozheng as GenealogyDataset },
+  { key: "yuanhaowen", label: "金代元氏·元好问支（遗山先生·1190-1257）", dataset: yuanhaowen as GenealogyDataset },
+  { key: "yujing", label: "南宋余氏·余靖支（庆历四谏·1000-1064）", dataset: yujing as GenealogyDataset },
   // CBDB 第二批：宋代理学/文学 + 明代文人 + 元代四大家 + 唐代贵族
   { key: "huangan", label: "湖湘胡氏·胡安国支（《春秋传》·胡宏·胡寅，1074-1138）", dataset: huangan as GenealogyDataset },
   { key: "weiliao", label: "眉山魏氏·魏了翁支（鹤山先生·南宋理学，1178-1237）", dataset: weiliao as GenealogyDataset },

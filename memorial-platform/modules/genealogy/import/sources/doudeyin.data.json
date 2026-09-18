@@ -1,0 +1,633 @@
+{
+  "key": "cbdb:doudeyin",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "171896",
+      "name": "竇德玄",
+      "citation": "CBDB 中国历代人物传记资料库 person 171896",
+      "gender": "male",
+      "death": {
+        "year": 649
+      }
+    },
+    {
+      "externalId": "171763",
+      "name": "竇彥",
+      "citation": "CBDB 中国历代人物传记资料库 person 171763",
+      "gender": "male",
+      "death": {
+        "year": 612
+      }
+    },
+    {
+      "externalId": "171897",
+      "name": "竇懷讓",
+      "citation": "CBDB 中国历代人物传记资料库 person 171897",
+      "gender": "male",
+      "death": {
+        "year": 686
+      }
+    },
+    {
+      "externalId": "171936",
+      "name": "竇懷道",
+      "citation": "CBDB 中国历代人物传记资料库 person 171936",
+      "gender": "male",
+      "death": {
+        "year": 686
+      }
+    },
+    {
+      "externalId": "171946",
+      "name": "竇懷武",
+      "citation": "CBDB 中国历代人物传记资料库 person 171946",
+      "gender": "male",
+      "death": {
+        "year": 686
+      }
+    },
+    {
+      "externalId": "171954",
+      "name": "竇懷恪",
+      "citation": "CBDB 中国历代人物传记资料库 person 171954",
+      "gender": "male",
+      "death": {
+        "year": 686
+      }
+    },
+    {
+      "externalId": "171958",
+      "name": "竇懷貞",
+      "citation": "CBDB 中国历代人物传记资料库 person 171958",
+      "gender": "male",
+      "death": {
+        "year": 686
+      }
+    },
+    {
+      "externalId": "171762",
+      "name": "竇照",
+      "citation": "CBDB 中国历代人物传记资料库 person 171762",
+      "gender": "male",
+      "death": {
+        "year": 587
+      }
+    },
+    {
+      "externalId": "171898",
+      "name": "竇思仁",
+      "citation": "CBDB 中国历代人物传记资料库 person 171898",
+      "gender": "male",
+      "death": {
+        "year": 723
+      }
+    },
+    {
+      "externalId": "171904",
+      "name": "竇思純",
+      "citation": "CBDB 中国历代人物传记资料库 person 171904",
+      "gender": "male",
+      "death": {
+        "year": 723
+      }
+    },
+    {
+      "externalId": "171909",
+      "name": "竇思亮",
+      "citation": "CBDB 中国历代人物传记资料库 person 171909",
+      "gender": "male",
+      "death": {
+        "year": 723
+      }
+    },
+    {
+      "externalId": "171923",
+      "name": "竇思光",
+      "citation": "CBDB 中国历代人物传记资料库 person 171923",
+      "gender": "male",
+      "death": {
+        "year": 723
+      }
+    },
+    {
+      "externalId": "171937",
+      "name": "竇崇喜",
+      "citation": "CBDB 中国历代人物传记资料库 person 171937",
+      "gender": "male",
+      "death": {
+        "year": 723
+      }
+    },
+    {
+      "externalId": "171938",
+      "name": "竇崇道",
+      "citation": "CBDB 中国历代人物传记资料库 person 171938",
+      "gender": "male",
+      "death": {
+        "year": 723
+      }
+    },
+    {
+      "externalId": "171944",
+      "name": "竇崇敏",
+      "citation": "CBDB 中国历代人物传记资料库 person 171944",
+      "gender": "male",
+      "death": {
+        "year": 723
+      }
+    },
+    {
+      "externalId": "171947",
+      "name": "竇庭玉",
+      "citation": "CBDB 中国历代人物传记资料库 person 171947",
+      "gender": "male",
+      "death": {
+        "year": 723
+      }
+    },
+    {
+      "externalId": "171948",
+      "name": "竇庭瑜",
+      "citation": "CBDB 中国历代人物传记资料库 person 171948",
+      "gender": "male",
+      "death": {
+        "year": 723
+      }
+    },
+    {
+      "externalId": "171953",
+      "name": "竇庭璠",
+      "citation": "CBDB 中国历代人物传记资料库 person 171953",
+      "gender": "male",
+      "death": {
+        "year": 723
+      }
+    },
+    {
+      "externalId": "171955",
+      "name": "竇延宗",
+      "citation": "CBDB 中国历代人物传记资料库 person 171955",
+      "gender": "male",
+      "death": {
+        "year": 723
+      }
+    },
+    {
+      "externalId": "171956",
+      "name": "竇延祚",
+      "citation": "CBDB 中国历代人物传记资料库 person 171956",
+      "gender": "male",
+      "death": {
+        "year": 723
+      }
+    },
+    {
+      "externalId": "171957",
+      "name": "竇延福",
+      "citation": "CBDB 中国历代人物传记资料库 person 171957",
+      "gender": "male",
+      "death": {
+        "year": 723
+      }
+    },
+    {
+      "externalId": "171959",
+      "name": "竇鼎",
+      "citation": "CBDB 中国历代人物传记资料库 person 171959",
+      "gender": "male",
+      "death": {
+        "year": 723
+      }
+    },
+    {
+      "externalId": "171761",
+      "name": "竇毅",
+      "citation": "CBDB 中国历代人物传记资料库 person 171761",
+      "gender": "male",
+      "death": {
+        "year": 550
+      }
+    },
+    {
+      "externalId": "171899",
+      "name": "竇津",
+      "citation": "CBDB 中国历代人物传记资料库 person 171899",
+      "gender": "male",
+      "death": {
+        "year": 760
+      }
+    },
+    {
+      "externalId": "171905",
+      "name": "竇潔",
+      "citation": "CBDB 中国历代人物传记资料库 person 171905",
+      "gender": "male",
+      "death": {
+        "year": 760
+      }
+    },
+    {
+      "externalId": "171906",
+      "name": "竇汲",
+      "citation": "CBDB 中国历代人物传记资料库 person 171906",
+      "gender": "male",
+      "death": {
+        "year": 760
+      }
+    },
+    {
+      "externalId": "171907",
+      "name": "竇溫",
+      "citation": "CBDB 中国历代人物传记资料库 person 171907",
+      "gender": "male",
+      "death": {
+        "year": 760
+      }
+    },
+    {
+      "externalId": "171908",
+      "name": "竇渟",
+      "citation": "CBDB 中国历代人物传记资料库 person 171908",
+      "gender": "male",
+      "death": {
+        "year": 760
+      }
+    },
+    {
+      "externalId": "171910",
+      "name": "竇詳",
+      "citation": "CBDB 中国历代人物传记资料库 person 171910",
+      "gender": "male",
+      "death": {
+        "year": 760
+      }
+    },
+    {
+      "externalId": "171914",
+      "name": "竇漢",
+      "citation": "CBDB 中国历代人物传记资料库 person 171914",
+      "gender": "male",
+      "death": {
+        "year": 760
+      }
+    },
+    {
+      "externalId": "171924",
+      "name": "竇漼",
+      "citation": "CBDB 中国历代人物传记资料库 person 171924",
+      "gender": "male",
+      "death": {
+        "year": 760
+      }
+    },
+    {
+      "externalId": "171925",
+      "name": "竇渾",
+      "citation": "CBDB 中国历代人物传记资料库 person 171925",
+      "gender": "male",
+      "death": {
+        "year": 760
+      }
+    },
+    {
+      "externalId": "171927",
+      "name": "竇液",
+      "citation": "CBDB 中国历代人物传记资料库 person 171927",
+      "gender": "male",
+      "death": {
+        "year": 760
+      }
+    },
+    {
+      "externalId": "171928",
+      "name": "竇泌",
+      "citation": "CBDB 中国历代人物传记资料库 person 171928",
+      "gender": "male",
+      "death": {
+        "year": 760
+      }
+    },
+    {
+      "externalId": "171935",
+      "name": "竇溥",
+      "citation": "CBDB 中国历代人物传记资料库 person 171935",
+      "gender": "male",
+      "death": {
+        "year": 760
+      }
+    },
+    {
+      "externalId": "171939",
+      "name": "竇況",
+      "citation": "CBDB 中国历代人物传记资料库 person 171939",
+      "gender": "male",
+      "death": {
+        "year": 760
+      }
+    },
+    {
+      "externalId": "171940",
+      "name": "竇泳",
+      "citation": "CBDB 中国历代人物传记资料库 person 171940",
+      "gender": "male",
+      "death": {
+        "year": 760
+      }
+    },
+    {
+      "externalId": "171942",
+      "name": "竇凜",
+      "citation": "CBDB 中国历代人物传记资料库 person 171942",
+      "gender": "male",
+      "death": {
+        "year": 760
+      }
+    },
+    {
+      "externalId": "171945",
+      "name": "竇凝",
+      "citation": "CBDB 中国历代人物传记资料库 person 171945",
+      "gender": "male",
+      "death": {
+        "year": 760
+      }
+    },
+    {
+      "externalId": "171949",
+      "name": "竇采",
+      "citation": "CBDB 中国历代人物传记资料库 person 171949",
+      "gender": "male",
+      "death": {
+        "year": 760
+      }
+    },
+    {
+      "externalId": "171835",
+      "name": "竇岳",
+      "citation": "CBDB 中国历代人物传记资料库 person 171835",
+      "gender": "male",
+      "death": {
+        "year": 723
+      }
+    },
+    {
+      "externalId": "171900",
+      "name": "竇良矩",
+      "citation": "CBDB 中国历代人物传记资料库 person 171900",
+      "gender": "male",
+      "death": {
+        "year": 797
+      }
+    },
+    {
+      "externalId": "171901",
+      "name": "竇良緯",
+      "citation": "CBDB 中国历代人物传记资料库 person 171901",
+      "gender": "male",
+      "death": {
+        "year": 797
+      }
+    },
+    {
+      "externalId": "171902",
+      "name": "竇良輔",
+      "citation": "CBDB 中国历代人物传记资料库 person 171902",
+      "gender": "male",
+      "death": {
+        "year": 797
+      }
+    },
+    {
+      "externalId": "171903",
+      "name": "竇良逸",
+      "citation": "CBDB 中国历代人物传记资料库 person 171903",
+      "gender": "male",
+      "death": {
+        "year": 797
+      }
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "171763",
+      "child": "171896"
+    },
+    {
+      "kind": "parent",
+      "parent": "171896",
+      "child": "171897"
+    },
+    {
+      "kind": "parent",
+      "parent": "171896",
+      "child": "171936"
+    },
+    {
+      "kind": "parent",
+      "parent": "171896",
+      "child": "171946"
+    },
+    {
+      "kind": "parent",
+      "parent": "171896",
+      "child": "171954"
+    },
+    {
+      "kind": "parent",
+      "parent": "171896",
+      "child": "171958"
+    },
+    {
+      "kind": "parent",
+      "parent": "171762",
+      "child": "171763"
+    },
+    {
+      "kind": "parent",
+      "parent": "171897",
+      "child": "171898"
+    },
+    {
+      "kind": "parent",
+      "parent": "171897",
+      "child": "171904"
+    },
+    {
+      "kind": "parent",
+      "parent": "171897",
+      "child": "171909"
+    },
+    {
+      "kind": "parent",
+      "parent": "171897",
+      "child": "171923"
+    },
+    {
+      "kind": "parent",
+      "parent": "171936",
+      "child": "171937"
+    },
+    {
+      "kind": "parent",
+      "parent": "171936",
+      "child": "171938"
+    },
+    {
+      "kind": "parent",
+      "parent": "171936",
+      "child": "171944"
+    },
+    {
+      "kind": "parent",
+      "parent": "171946",
+      "child": "171947"
+    },
+    {
+      "kind": "parent",
+      "parent": "171946",
+      "child": "171948"
+    },
+    {
+      "kind": "parent",
+      "parent": "171946",
+      "child": "171953"
+    },
+    {
+      "kind": "parent",
+      "parent": "171954",
+      "child": "171955"
+    },
+    {
+      "kind": "parent",
+      "parent": "171954",
+      "child": "171956"
+    },
+    {
+      "kind": "parent",
+      "parent": "171954",
+      "child": "171957"
+    },
+    {
+      "kind": "parent",
+      "parent": "171958",
+      "child": "171959"
+    },
+    {
+      "kind": "parent",
+      "parent": "171761",
+      "child": "171762"
+    },
+    {
+      "kind": "parent",
+      "parent": "171898",
+      "child": "171899"
+    },
+    {
+      "kind": "parent",
+      "parent": "171904",
+      "child": "171905"
+    },
+    {
+      "kind": "parent",
+      "parent": "171904",
+      "child": "171906"
+    },
+    {
+      "kind": "parent",
+      "parent": "171904",
+      "child": "171907"
+    },
+    {
+      "kind": "parent",
+      "parent": "171904",
+      "child": "171908"
+    },
+    {
+      "kind": "parent",
+      "parent": "171909",
+      "child": "171910"
+    },
+    {
+      "kind": "parent",
+      "parent": "171909",
+      "child": "171914"
+    },
+    {
+      "kind": "parent",
+      "parent": "171923",
+      "child": "171924"
+    },
+    {
+      "kind": "parent",
+      "parent": "171923",
+      "child": "171925"
+    },
+    {
+      "kind": "parent",
+      "parent": "171923",
+      "child": "171927"
+    },
+    {
+      "kind": "parent",
+      "parent": "171923",
+      "child": "171928"
+    },
+    {
+      "kind": "parent",
+      "parent": "171923",
+      "child": "171935"
+    },
+    {
+      "kind": "parent",
+      "parent": "171938",
+      "child": "171939"
+    },
+    {
+      "kind": "parent",
+      "parent": "171938",
+      "child": "171940"
+    },
+    {
+      "kind": "parent",
+      "parent": "171938",
+      "child": "171942"
+    },
+    {
+      "kind": "parent",
+      "parent": "171944",
+      "child": "171945"
+    },
+    {
+      "kind": "parent",
+      "parent": "171948",
+      "child": "171949"
+    },
+    {
+      "kind": "parent",
+      "parent": "171835",
+      "child": "171761"
+    },
+    {
+      "kind": "parent",
+      "parent": "171899",
+      "child": "171900"
+    },
+    {
+      "kind": "parent",
+      "parent": "171899",
+      "child": "171901"
+    },
+    {
+      "kind": "parent",
+      "parent": "171899",
+      "child": "171902"
+    },
+    {
+      "kind": "parent",
+      "parent": "171899",
+      "child": "171903"
+    }
+  ]
+}

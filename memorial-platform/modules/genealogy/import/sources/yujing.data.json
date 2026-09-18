@@ -1,0 +1,97 @@
+{
+  "key": "cbdb:yujing",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "12319",
+      "name": "余靖",
+      "citation": "CBDB 中国历代人物传记资料库 person 12319",
+      "gender": "male",
+      "birth": {
+        "year": 1000
+      },
+      "death": {
+        "year": 1064
+      }
+    },
+    {
+      "externalId": "12318",
+      "name": "余慶",
+      "citation": "CBDB 中国历代人物传记资料库 person 12318",
+      "gender": "male"
+    },
+    {
+      "externalId": "37608",
+      "name": "余伯莊",
+      "citation": "CBDB 中国历代人物传记资料库 person 37608",
+      "gender": "male"
+    },
+    {
+      "externalId": "12320",
+      "name": "余仲詢",
+      "citation": "CBDB 中国历代人物传记资料库 person 12320",
+      "gender": "male"
+    },
+    {
+      "externalId": "37609",
+      "name": "余叔英",
+      "citation": "CBDB 中国历代人物传记资料库 person 37609",
+      "gender": "male"
+    },
+    {
+      "externalId": "12317",
+      "name": "余榮",
+      "citation": "CBDB 中国历代人物传记资料库 person 12317",
+      "gender": "male"
+    },
+    {
+      "externalId": "12316",
+      "name": "余從",
+      "citation": "CBDB 中国历代人物传记资料库 person 12316",
+      "gender": "male"
+    },
+    {
+      "externalId": "12315",
+      "name": "余A",
+      "citation": "CBDB 中国历代人物传记资料库 person 12315",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "12318",
+      "child": "12319"
+    },
+    {
+      "kind": "parent",
+      "parent": "12319",
+      "child": "37608"
+    },
+    {
+      "kind": "parent",
+      "parent": "12319",
+      "child": "12320"
+    },
+    {
+      "kind": "parent",
+      "parent": "12319",
+      "child": "37609"
+    },
+    {
+      "kind": "parent",
+      "parent": "12317",
+      "child": "12318"
+    },
+    {
+      "kind": "parent",
+      "parent": "12316",
+      "child": "12317"
+    },
+    {
+      "kind": "parent",
+      "parent": "12315",
+      "child": "12316"
+    }
+  ]
+}

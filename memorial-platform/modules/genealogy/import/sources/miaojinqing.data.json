@@ -1,0 +1,224 @@
+{
+  "key": "cbdb:miaojinqing",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "32562",
+      "name": "苗晉卿",
+      "citation": "CBDB 中国历代人物传记资料库 person 32562",
+      "gender": "male",
+      "birth": {
+        "year": 689
+      },
+      "death": {
+        "year": 765
+      }
+    },
+    {
+      "externalId": "32563",
+      "name": "苗殆庶",
+      "citation": "CBDB 中国历代人物传记资料库 person 32563",
+      "gender": "male"
+    },
+    {
+      "externalId": "93671",
+      "name": "苗發",
+      "citation": "CBDB 中国历代人物传记资料库 person 93671",
+      "gender": "male",
+      "death": {
+        "year": 786
+      }
+    },
+    {
+      "externalId": "184101",
+      "name": "苗收",
+      "citation": "CBDB 中国历代人物传记资料库 person 184101",
+      "gender": "male",
+      "death": {
+        "year": 785
+      }
+    },
+    {
+      "externalId": "184103",
+      "name": "苗丕",
+      "citation": "CBDB 中国历代人物传记资料库 person 184103",
+      "gender": "male",
+      "death": {
+        "year": 785
+      }
+    },
+    {
+      "externalId": "184104",
+      "name": "苗堅",
+      "citation": "CBDB 中国历代人物传记资料库 person 184104",
+      "gender": "male",
+      "death": {
+        "year": 785
+      }
+    },
+    {
+      "externalId": "184105",
+      "name": "苗粲",
+      "citation": "CBDB 中国历代人物传记资料库 person 184105",
+      "gender": "male",
+      "death": {
+        "year": 785
+      }
+    },
+    {
+      "externalId": "184109",
+      "name": "苗垂",
+      "citation": "CBDB 中国历代人物传记资料库 person 184109",
+      "gender": "male",
+      "death": {
+        "year": 785
+      }
+    },
+    {
+      "externalId": "184110",
+      "name": "苗向",
+      "citation": "CBDB 中国历代人物传记资料库 person 184110",
+      "gender": "male",
+      "death": {
+        "year": 785
+      }
+    },
+    {
+      "externalId": "184111",
+      "name": "苗昌",
+      "citation": "CBDB 中国历代人物传记资料库 person 184111",
+      "gender": "male",
+      "death": {
+        "year": 785
+      }
+    },
+    {
+      "externalId": "32561",
+      "name": "苗襲夔",
+      "citation": "CBDB 中国历代人物传记资料库 person 32561",
+      "gender": "male"
+    },
+    {
+      "externalId": "184106",
+      "name": "苗眈",
+      "citation": "CBDB 中国历代人物传记资料库 person 184106",
+      "gender": "male",
+      "death": {
+        "year": 822
+      }
+    },
+    {
+      "externalId": "184112",
+      "name": "苗繘",
+      "citation": "CBDB 中国历代人物传记资料库 person 184112",
+      "gender": "male",
+      "death": {
+        "year": 822
+      }
+    },
+    {
+      "externalId": "184114",
+      "name": "苗約",
+      "citation": "CBDB 中国历代人物传记资料库 person 184114",
+      "gender": "male",
+      "death": {
+        "year": 822
+      }
+    },
+    {
+      "externalId": "184115",
+      "name": "苗纘",
+      "citation": "CBDB 中国历代人物传记资料库 person 184115",
+      "gender": "male",
+      "death": {
+        "year": 822
+      }
+    },
+    {
+      "externalId": "184113",
+      "name": "苗澥",
+      "citation": "CBDB 中国历代人物传记资料库 person 184113",
+      "gender": "male",
+      "death": {
+        "year": 859
+      }
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "32563",
+      "child": "32562"
+    },
+    {
+      "kind": "parent",
+      "parent": "32562",
+      "child": "93671"
+    },
+    {
+      "kind": "parent",
+      "parent": "32562",
+      "child": "184101"
+    },
+    {
+      "kind": "parent",
+      "parent": "32562",
+      "child": "184103"
+    },
+    {
+      "kind": "parent",
+      "parent": "32562",
+      "child": "184104"
+    },
+    {
+      "kind": "parent",
+      "parent": "32562",
+      "child": "184105"
+    },
+    {
+      "kind": "parent",
+      "parent": "32562",
+      "child": "184109"
+    },
+    {
+      "kind": "parent",
+      "parent": "32562",
+      "child": "184110"
+    },
+    {
+      "kind": "parent",
+      "parent": "32562",
+      "child": "184111"
+    },
+    {
+      "kind": "parent",
+      "parent": "32561",
+      "child": "32563"
+    },
+    {
+      "kind": "parent",
+      "parent": "184105",
+      "child": "184106"
+    },
+    {
+      "kind": "parent",
+      "parent": "184111",
+      "child": "184112"
+    },
+    {
+      "kind": "parent",
+      "parent": "184111",
+      "child": "184114"
+    },
+    {
+      "kind": "parent",
+      "parent": "184111",
+      "child": "184115"
+    },
+    {
+      "kind": "parent",
+      "parent": "184112",
+      "child": "184113"
+    }
+  ]
+}

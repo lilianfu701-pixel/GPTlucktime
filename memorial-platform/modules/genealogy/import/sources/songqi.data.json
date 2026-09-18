@@ -1,0 +1,199 @@
+{
+  "key": "cbdb:songqi",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "1558",
+      "name": "宋祁",
+      "citation": "CBDB 中国历代人物传记资料库 person 1558",
+      "gender": "male",
+      "birth": {
+        "year": 998
+      },
+      "death": {
+        "year": 1061
+      }
+    },
+    {
+      "externalId": "10166",
+      "name": "宋玘",
+      "citation": "CBDB 中国历代人物传记资料库 person 10166",
+      "gender": "male",
+      "death": {
+        "year": 1017
+      }
+    },
+    {
+      "externalId": "40048",
+      "name": "韓氏(宋玘妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 40048",
+      "gender": "female"
+    },
+    {
+      "externalId": "18307",
+      "name": "宋準",
+      "citation": "CBDB 中国历代人物传记资料库 person 18307",
+      "gender": "male",
+      "birth": {
+        "year": 938
+      },
+      "death": {
+        "year": 989
+      }
+    },
+    {
+      "externalId": "3796",
+      "name": "宋俊國",
+      "citation": "CBDB 中国历代人物传记资料库 person 3796",
+      "gender": "male"
+    },
+    {
+      "externalId": "40084",
+      "name": "宋廣國",
+      "citation": "CBDB 中国历代人物传记资料库 person 40084",
+      "gender": "male"
+    },
+    {
+      "externalId": "3809",
+      "name": "宋彥國",
+      "citation": "CBDB 中国历代人物传记资料库 person 3809",
+      "gender": "male"
+    },
+    {
+      "externalId": "3797",
+      "name": "宋惠國",
+      "citation": "CBDB 中国历代人物传记资料库 person 3797",
+      "gender": "male"
+    },
+    {
+      "externalId": "18409",
+      "name": "宋輔國",
+      "citation": "CBDB 中国历代人物传记资料库 person 18409",
+      "gender": "male"
+    },
+    {
+      "externalId": "7344",
+      "name": "宋奉國",
+      "citation": "CBDB 中国历代人物传记资料库 person 7344",
+      "gender": "male"
+    },
+    {
+      "externalId": "3799",
+      "name": "宋保國",
+      "citation": "CBDB 中国历代人物传记资料库 person 3799",
+      "gender": "male"
+    },
+    {
+      "externalId": "18303",
+      "name": "宋耀",
+      "citation": "CBDB 中国历代人物传记资料库 person 18303",
+      "gender": "male"
+    },
+    {
+      "externalId": "18306",
+      "name": "宋鵬",
+      "citation": "CBDB 中国历代人物传记资料库 person 18306",
+      "gender": "male"
+    },
+    {
+      "externalId": "18302",
+      "name": "宋駢",
+      "citation": "CBDB 中国历代人物传记资料库 person 18302",
+      "gender": "male"
+    },
+    {
+      "externalId": "18305",
+      "name": "宋彥升",
+      "citation": "CBDB 中国历代人物传记资料库 person 18305",
+      "gender": "male"
+    },
+    {
+      "externalId": "18301",
+      "name": "宋紳",
+      "citation": "CBDB 中国历代人物传记资料库 person 18301",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "10166",
+      "child": "1558"
+    },
+    {
+      "kind": "parent",
+      "parent": "18307",
+      "child": "1558"
+    },
+    {
+      "kind": "parent",
+      "parent": "1558",
+      "child": "3796"
+    },
+    {
+      "kind": "parent",
+      "parent": "1558",
+      "child": "40084"
+    },
+    {
+      "kind": "parent",
+      "parent": "1558",
+      "child": "3809"
+    },
+    {
+      "kind": "parent",
+      "parent": "1558",
+      "child": "3797"
+    },
+    {
+      "kind": "parent",
+      "parent": "1558",
+      "child": "18409"
+    },
+    {
+      "kind": "parent",
+      "parent": "1558",
+      "child": "7344"
+    },
+    {
+      "kind": "parent",
+      "parent": "1558",
+      "child": "3799"
+    },
+    {
+      "kind": "parent",
+      "parent": "18303",
+      "child": "10166"
+    },
+    {
+      "kind": "spouse",
+      "a": "10166",
+      "b": "40048"
+    },
+    {
+      "kind": "parent",
+      "parent": "18306",
+      "child": "18307"
+    },
+    {
+      "kind": "parent",
+      "parent": "18302",
+      "child": "18303"
+    },
+    {
+      "kind": "parent",
+      "parent": "18305",
+      "child": "18306"
+    },
+    {
+      "kind": "parent",
+      "parent": "18301",
+      "child": "18302"
+    },
+    {
+      "kind": "parent",
+      "parent": "18301",
+      "child": "18305"
+    }
+  ]
+}

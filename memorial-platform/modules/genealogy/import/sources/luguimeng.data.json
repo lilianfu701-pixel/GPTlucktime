@@ -1,0 +1,374 @@
+{
+  "key": "cbdb:luguimeng",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "33753",
+      "name": "陸龜蒙",
+      "citation": "CBDB 中国历代人物传记资料库 person 33753",
+      "gender": "male",
+      "death": {
+        "year": 881
+      }
+    },
+    {
+      "externalId": "33752",
+      "name": "陸賓虞",
+      "citation": "CBDB 中国历代人物传记资料库 person 33752",
+      "gender": "male"
+    },
+    {
+      "externalId": "33751",
+      "name": "陸正興",
+      "citation": "CBDB 中国历代人物传记资料库 person 33751",
+      "gender": "male"
+    },
+    {
+      "externalId": "33750",
+      "name": "陸康",
+      "citation": "CBDB 中国历代人物传记资料库 person 33750",
+      "gender": "male"
+    },
+    {
+      "externalId": "33749",
+      "name": "陸溥",
+      "citation": "CBDB 中国历代人物传记资料库 person 33749",
+      "gender": "male"
+    },
+    {
+      "externalId": "20533",
+      "name": "陸景倩",
+      "citation": "CBDB 中国历代人物传记资料库 person 20533",
+      "gender": "male"
+    },
+    {
+      "externalId": "20530",
+      "name": "陸元方",
+      "citation": "CBDB 中国历代人物传记资料库 person 20530",
+      "gender": "male"
+    },
+    {
+      "externalId": "33740",
+      "name": "陸玄之",
+      "citation": "CBDB 中国历代人物传记资料库 person 33740",
+      "gender": "male"
+    },
+    {
+      "externalId": "33738",
+      "name": "陸琛",
+      "citation": "CBDB 中国历代人物传记资料库 person 33738",
+      "gender": "male",
+      "birth": {
+        "year": 542
+      },
+      "death": {
+        "year": 583
+      }
+    },
+    {
+      "externalId": "194003",
+      "name": "陸山仁",
+      "citation": "CBDB 中国历代人物传记资料库 person 194003",
+      "gender": "male",
+      "death": {
+        "year": 624
+      }
+    },
+    {
+      "externalId": "33734",
+      "name": "陸丘公",
+      "citation": "CBDB 中国历代人物传记资料库 person 33734",
+      "gender": "male"
+    },
+    {
+      "externalId": "179787",
+      "name": "陸琛",
+      "citation": "CBDB 中国历代人物传记资料库 person 179787",
+      "gender": "male",
+      "death": {
+        "year": 587
+      }
+    },
+    {
+      "externalId": "33733",
+      "name": "陸完",
+      "citation": "CBDB 中国历代人物传记资料库 person 33733",
+      "gender": "male"
+    },
+    {
+      "externalId": "179786",
+      "name": "陸丘公",
+      "citation": "CBDB 中国历代人物传记资料库 person 179786",
+      "gender": "male",
+      "death": {
+        "year": 550
+      }
+    },
+    {
+      "externalId": "33731",
+      "name": "陸閑",
+      "citation": "CBDB 中国历代人物传记资料库 person 33731",
+      "gender": "male",
+      "death": {
+        "year": 499
+      }
+    },
+    {
+      "externalId": "179785",
+      "name": "陸完",
+      "citation": "CBDB 中国历代人物传记资料库 person 179785",
+      "gender": "male",
+      "death": {
+        "year": 513
+      }
+    },
+    {
+      "externalId": "33730",
+      "name": "陸惠徹",
+      "citation": "CBDB 中国历代人物传记资料库 person 33730",
+      "gender": "male"
+    },
+    {
+      "externalId": "33729",
+      "name": "陸子真",
+      "citation": "CBDB 中国历代人物传记资料库 person 33729",
+      "gender": "male"
+    },
+    {
+      "externalId": "33728",
+      "name": "陸萬載",
+      "citation": "CBDB 中国历代人物传记资料库 person 33728",
+      "gender": "male"
+    },
+    {
+      "externalId": "33727",
+      "name": "陸始",
+      "citation": "CBDB 中国历代人物传记资料库 person 33727",
+      "gender": "male"
+    },
+    {
+      "externalId": "33718",
+      "name": "陸玩",
+      "citation": "CBDB 中国历代人物传记资料库 person 33718",
+      "gender": "male",
+      "birth": {
+        "year": 278
+      },
+      "death": {
+        "year": 341
+      }
+    },
+    {
+      "externalId": "33666",
+      "name": "陸英",
+      "citation": "CBDB 中国历代人物传记资料库 person 33666",
+      "gender": "male"
+    },
+    {
+      "externalId": "33663",
+      "name": "陸瑁",
+      "citation": "CBDB 中国历代人物传记资料库 person 33663",
+      "gender": "male"
+    },
+    {
+      "externalId": "33660",
+      "name": "陸駿",
+      "citation": "CBDB 中国历代人物传记资料库 person 33660",
+      "gender": "male"
+    },
+    {
+      "externalId": "33659",
+      "name": "陸紆",
+      "citation": "CBDB 中国历代人物传记资料库 person 33659",
+      "gender": "male"
+    },
+    {
+      "externalId": "33658",
+      "name": "陸裒",
+      "citation": "CBDB 中国历代人物传记资料库 person 33658",
+      "gender": "male"
+    },
+    {
+      "externalId": "33657",
+      "name": "陸續",
+      "citation": "CBDB 中国历代人物传记资料库 person 33657",
+      "gender": "male"
+    },
+    {
+      "externalId": "33656",
+      "name": "陸桓",
+      "citation": "CBDB 中国历代人物传记资料库 person 33656",
+      "gender": "male"
+    },
+    {
+      "externalId": "135343",
+      "name": "某氏(陸續母)",
+      "citation": "CBDB 中国历代人物传记资料库 person 135343",
+      "gender": "female"
+    },
+    {
+      "externalId": "33655",
+      "name": "陸閎",
+      "citation": "CBDB 中国历代人物传记资料库 person 33655",
+      "gender": "male"
+    },
+    {
+      "externalId": "22704",
+      "name": "葉酉發",
+      "citation": "CBDB 中国历代人物传记资料库 person 22704",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "33752",
+      "child": "33753"
+    },
+    {
+      "kind": "parent",
+      "parent": "33751",
+      "child": "33752"
+    },
+    {
+      "kind": "parent",
+      "parent": "33750",
+      "child": "33751"
+    },
+    {
+      "kind": "parent",
+      "parent": "33749",
+      "child": "33750"
+    },
+    {
+      "kind": "parent",
+      "parent": "20533",
+      "child": "33749"
+    },
+    {
+      "kind": "parent",
+      "parent": "20530",
+      "child": "20533"
+    },
+    {
+      "kind": "parent",
+      "parent": "33740",
+      "child": "20530"
+    },
+    {
+      "kind": "parent",
+      "parent": "33738",
+      "child": "33740"
+    },
+    {
+      "kind": "parent",
+      "parent": "194003",
+      "child": "33740"
+    },
+    {
+      "kind": "parent",
+      "parent": "33734",
+      "child": "33738"
+    },
+    {
+      "kind": "parent",
+      "parent": "179787",
+      "child": "194003"
+    },
+    {
+      "kind": "parent",
+      "parent": "33733",
+      "child": "33734"
+    },
+    {
+      "kind": "parent",
+      "parent": "179786",
+      "child": "179787"
+    },
+    {
+      "kind": "parent",
+      "parent": "33731",
+      "child": "33733"
+    },
+    {
+      "kind": "parent",
+      "parent": "179785",
+      "child": "179786"
+    },
+    {
+      "kind": "parent",
+      "parent": "33730",
+      "child": "33731"
+    },
+    {
+      "kind": "parent",
+      "parent": "33729",
+      "child": "33730"
+    },
+    {
+      "kind": "parent",
+      "parent": "33728",
+      "child": "33729"
+    },
+    {
+      "kind": "parent",
+      "parent": "33727",
+      "child": "33728"
+    },
+    {
+      "kind": "parent",
+      "parent": "33718",
+      "child": "33727"
+    },
+    {
+      "kind": "parent",
+      "parent": "33666",
+      "child": "33718"
+    },
+    {
+      "kind": "parent",
+      "parent": "33663",
+      "child": "33666"
+    },
+    {
+      "kind": "parent",
+      "parent": "33660",
+      "child": "33663"
+    },
+    {
+      "kind": "parent",
+      "parent": "33659",
+      "child": "33660"
+    },
+    {
+      "kind": "parent",
+      "parent": "33658",
+      "child": "33659"
+    },
+    {
+      "kind": "parent",
+      "parent": "33657",
+      "child": "33658"
+    },
+    {
+      "kind": "parent",
+      "parent": "33656",
+      "child": "33657"
+    },
+    {
+      "kind": "parent",
+      "parent": "135343",
+      "child": "33657"
+    },
+    {
+      "kind": "parent",
+      "parent": "33655",
+      "child": "33656"
+    },
+    {
+      "kind": "parent",
+      "parent": "22704",
+      "child": "33655"
+    }
+  ]
+}

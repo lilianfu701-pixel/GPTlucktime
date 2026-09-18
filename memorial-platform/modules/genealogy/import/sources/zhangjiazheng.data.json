@@ -1,0 +1,267 @@
+{
+  "key": "cbdb:zhangjiazheng",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "32016",
+      "name": "張嘉貞",
+      "citation": "CBDB 中国历代人物传记资料库 person 32016",
+      "gender": "male",
+      "birth": {
+        "year": 666
+      },
+      "death": {
+        "year": 729
+      }
+    },
+    {
+      "externalId": "32015",
+      "name": "張思義",
+      "citation": "CBDB 中国历代人物传记资料库 person 32015",
+      "gender": "male"
+    },
+    {
+      "externalId": "32018",
+      "name": "張延賞",
+      "citation": "CBDB 中国历代人物传记资料库 person 32018",
+      "gender": "male",
+      "birth": {
+        "year": 727
+      },
+      "death": {
+        "year": 787
+      }
+    },
+    {
+      "externalId": "155440",
+      "name": "苗氏(祁國夫人)",
+      "citation": "CBDB 中国历代人物传记资料库 person 155440",
+      "gender": "female"
+    },
+    {
+      "externalId": "32014",
+      "name": "張俊興",
+      "citation": "CBDB 中国历代人物传记资料库 person 32014",
+      "gender": "male"
+    },
+    {
+      "externalId": "93493",
+      "name": "張諗",
+      "citation": "CBDB 中国历代人物传记资料库 person 93493",
+      "gender": "male"
+    },
+    {
+      "externalId": "155443",
+      "name": "張調",
+      "citation": "CBDB 中国历代人物传记资料库 person 155443",
+      "gender": "male"
+    },
+    {
+      "externalId": "32019",
+      "name": "張弘靖",
+      "citation": "CBDB 中国历代人物传记资料库 person 32019",
+      "gender": "male",
+      "birth": {
+        "year": 760
+      },
+      "death": {
+        "year": 824
+      }
+    },
+    {
+      "externalId": "32013",
+      "name": "張長度",
+      "citation": "CBDB 中国历代人物传记资料库 person 32013",
+      "gender": "male"
+    },
+    {
+      "externalId": "176188",
+      "name": "張師質",
+      "citation": "CBDB 中国历代人物传记资料库 person 176188",
+      "gender": "male",
+      "death": {
+        "year": 860
+      }
+    },
+    {
+      "externalId": "32020",
+      "name": "張文規",
+      "citation": "CBDB 中国历代人物传记资料库 person 32020",
+      "gender": "male"
+    },
+    {
+      "externalId": "32021",
+      "name": "張景初",
+      "citation": "CBDB 中国历代人物传记资料库 person 32021",
+      "gender": "male"
+    },
+    {
+      "externalId": "32022",
+      "name": "張嗣慶",
+      "citation": "CBDB 中国历代人物传记资料库 person 32022",
+      "gender": "male"
+    },
+    {
+      "externalId": "32023",
+      "name": "張次宗",
+      "citation": "CBDB 中国历代人物传记资料库 person 32023",
+      "gender": "male"
+    },
+    {
+      "externalId": "32012",
+      "name": "張吒子",
+      "citation": "CBDB 中国历代人物传记资料库 person 32012",
+      "gender": "male"
+    },
+    {
+      "externalId": "32024",
+      "name": "張彥遠",
+      "citation": "CBDB 中国历代人物传记资料库 person 32024",
+      "gender": "male"
+    },
+    {
+      "externalId": "176181",
+      "name": "張天保",
+      "citation": "CBDB 中国历代人物传记资料库 person 176181",
+      "gender": "male",
+      "death": {
+        "year": 893
+      }
+    },
+    {
+      "externalId": "176183",
+      "name": "張彥脩",
+      "citation": "CBDB 中国历代人物传记资料库 person 176183",
+      "gender": "male",
+      "death": {
+        "year": 893
+      }
+    },
+    {
+      "externalId": "93434",
+      "name": "張茂樞",
+      "citation": "CBDB 中国历代人物传记资料库 person 93434",
+      "gender": "male"
+    },
+    {
+      "externalId": "176185",
+      "name": "張曼容",
+      "citation": "CBDB 中国历代人物传记资料库 person 176185",
+      "gender": "male",
+      "death": {
+        "year": 893
+      }
+    },
+    {
+      "externalId": "176186",
+      "name": "張彥回",
+      "citation": "CBDB 中国历代人物传记资料库 person 176186",
+      "gender": "male",
+      "death": {
+        "year": 893
+      }
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "32015",
+      "child": "32016"
+    },
+    {
+      "kind": "parent",
+      "parent": "32016",
+      "child": "32018"
+    },
+    {
+      "kind": "parent",
+      "parent": "32014",
+      "child": "32015"
+    },
+    {
+      "kind": "spouse",
+      "a": "155440",
+      "b": "32018"
+    },
+    {
+      "kind": "parent",
+      "parent": "32018",
+      "child": "93493"
+    },
+    {
+      "kind": "parent",
+      "parent": "32018",
+      "child": "155443"
+    },
+    {
+      "kind": "parent",
+      "parent": "32018",
+      "child": "32019"
+    },
+    {
+      "kind": "parent",
+      "parent": "32013",
+      "child": "32014"
+    },
+    {
+      "kind": "parent",
+      "parent": "93493",
+      "child": "176188"
+    },
+    {
+      "kind": "parent",
+      "parent": "32019",
+      "child": "32020"
+    },
+    {
+      "kind": "parent",
+      "parent": "32019",
+      "child": "32021"
+    },
+    {
+      "kind": "parent",
+      "parent": "32019",
+      "child": "32022"
+    },
+    {
+      "kind": "parent",
+      "parent": "32019",
+      "child": "32023"
+    },
+    {
+      "kind": "parent",
+      "parent": "32012",
+      "child": "32013"
+    },
+    {
+      "kind": "parent",
+      "parent": "32020",
+      "child": "32024"
+    },
+    {
+      "kind": "parent",
+      "parent": "32021",
+      "child": "176181"
+    },
+    {
+      "kind": "parent",
+      "parent": "32022",
+      "child": "176183"
+    },
+    {
+      "kind": "parent",
+      "parent": "32023",
+      "child": "93434"
+    },
+    {
+      "kind": "parent",
+      "parent": "32023",
+      "child": "176185"
+    },
+    {
+      "kind": "parent",
+      "parent": "32023",
+      "child": "176186"
+    }
+  ]
+}

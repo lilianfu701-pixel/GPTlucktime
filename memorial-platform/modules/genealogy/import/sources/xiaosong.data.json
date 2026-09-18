@@ -1,0 +1,616 @@
+{
+  "key": "cbdb:xiaosong",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "12261",
+      "name": "蕭嵩",
+      "citation": "CBDB 中国历代人物传记资料库 person 12261",
+      "gender": "male",
+      "birth": {
+        "year": 670
+      },
+      "death": {
+        "year": 749
+      }
+    },
+    {
+      "externalId": "33102",
+      "name": "蕭瓘",
+      "citation": "CBDB 中国历代人物传记资料库 person 33102",
+      "gender": "male"
+    },
+    {
+      "externalId": "145956",
+      "name": "蕭灌",
+      "citation": "CBDB 中国历代人物传记资料库 person 145956",
+      "gender": "male",
+      "birth": {
+        "year": 626
+      },
+      "death": {
+        "year": 682
+      }
+    },
+    {
+      "externalId": "12262",
+      "name": "蕭華",
+      "citation": "CBDB 中国历代人物传记资料库 person 12262",
+      "gender": "male",
+      "death": {
+        "year": 764
+      }
+    },
+    {
+      "externalId": "12263",
+      "name": "蕭衡",
+      "citation": "CBDB 中国历代人物传记资料库 person 12263",
+      "gender": "male"
+    },
+    {
+      "externalId": "194433",
+      "name": "李氏",
+      "citation": "CBDB 中国历代人物传记资料库 person 194433",
+      "gender": "female",
+      "death": {
+        "year": 771
+      }
+    },
+    {
+      "externalId": "12260",
+      "name": "蕭鈞",
+      "citation": "CBDB 中国历代人物传记资料库 person 12260",
+      "gender": "male"
+    },
+    {
+      "externalId": "33111",
+      "name": "蕭恆",
+      "citation": "CBDB 中国历代人物传记资料库 person 33111",
+      "gender": "male"
+    },
+    {
+      "externalId": "33112",
+      "name": "蕭悟",
+      "citation": "CBDB 中国历代人物传记资料库 person 33112",
+      "gender": "male"
+    },
+    {
+      "externalId": "33117",
+      "name": "蕭升",
+      "citation": "CBDB 中国历代人物传记资料库 person 33117",
+      "gender": "male"
+    },
+    {
+      "externalId": "194228",
+      "name": "李氏(郜國公主)",
+      "citation": "CBDB 中国历代人物传记资料库 person 194228",
+      "gender": "female",
+      "death": {
+        "year": 797
+      }
+    },
+    {
+      "externalId": "171718",
+      "name": "蕭戡",
+      "citation": "CBDB 中国历代人物传记资料库 person 171718",
+      "gender": "male",
+      "death": {
+        "year": 791
+      }
+    },
+    {
+      "externalId": "171727",
+      "name": "蕭巽",
+      "citation": "CBDB 中国历代人物传记资料库 person 171727",
+      "gender": "male",
+      "death": {
+        "year": 791
+      }
+    },
+    {
+      "externalId": "171733",
+      "name": "蕭鼎",
+      "citation": "CBDB 中国历代人物传记资料库 person 171733",
+      "gender": "male",
+      "death": {
+        "year": 791
+      }
+    },
+    {
+      "externalId": "12264",
+      "name": "蕭復",
+      "citation": "CBDB 中国历代人物传记资料库 person 12264",
+      "gender": "male",
+      "birth": {
+        "year": 732
+      },
+      "death": {
+        "year": 788
+      }
+    },
+    {
+      "externalId": "33101",
+      "name": "蕭珣",
+      "citation": "CBDB 中国历代人物传记资料库 person 33101",
+      "gender": "male"
+    },
+    {
+      "externalId": "33109",
+      "name": "蕭俛",
+      "citation": "CBDB 中国历代人物传记资料库 person 33109",
+      "gender": "male",
+      "death": {
+        "year": 837
+      }
+    },
+    {
+      "externalId": "33113",
+      "name": "蕭傑",
+      "citation": "CBDB 中国历代人物传记资料库 person 33113",
+      "gender": "male"
+    },
+    {
+      "externalId": "33114",
+      "name": "蕭俶",
+      "citation": "CBDB 中国历代人物传记资料库 person 33114",
+      "gender": "male",
+      "death": {
+        "year": 858
+      }
+    },
+    {
+      "externalId": "700128",
+      "name": "蕭徵",
+      "citation": "CBDB 中国历代人物传记资料库 person 700128",
+      "gender": "male"
+    },
+    {
+      "externalId": "12265",
+      "name": "蕭倣",
+      "citation": "CBDB 中国历代人物传记资料库 person 12265",
+      "gender": "male",
+      "birth": {
+        "year": 796
+      },
+      "death": {
+        "year": 875
+      }
+    },
+    {
+      "externalId": "171729",
+      "name": "蕭位",
+      "citation": "CBDB 中国历代人物传记资料库 person 171729",
+      "gender": "male",
+      "death": {
+        "year": 825
+      }
+    },
+    {
+      "externalId": "171730",
+      "name": "蕭佩",
+      "citation": "CBDB 中国历代人物传记资料库 person 171730",
+      "gender": "male",
+      "death": {
+        "year": 825
+      }
+    },
+    {
+      "externalId": "171731",
+      "name": "蕭儒",
+      "citation": "CBDB 中国历代人物传记资料库 person 171731",
+      "gender": "male",
+      "death": {
+        "year": 825
+      }
+    },
+    {
+      "externalId": "171732",
+      "name": "蕭偲",
+      "citation": "CBDB 中国历代人物传记资料库 person 171732",
+      "gender": "male",
+      "death": {
+        "year": 825
+      }
+    },
+    {
+      "externalId": "12266",
+      "name": "蕭儉",
+      "citation": "CBDB 中国历代人物传记资料库 person 12266",
+      "gender": "male"
+    },
+    {
+      "externalId": "12267",
+      "name": "蕭湛",
+      "citation": "CBDB 中国历代人物传记资料库 person 12267",
+      "gender": "male"
+    },
+    {
+      "externalId": "12257",
+      "name": "蕭巋",
+      "citation": "CBDB 中国历代人物传记资料库 person 12257",
+      "gender": "male",
+      "birth": {
+        "year": 542
+      },
+      "death": {
+        "year": 585
+      }
+    },
+    {
+      "externalId": "152897",
+      "name": "蕭巋",
+      "citation": "CBDB 中国历代人物传记资料库 person 152897",
+      "gender": "male"
+    },
+    {
+      "externalId": "171716",
+      "name": "蕭庸",
+      "citation": "CBDB 中国历代人物传记资料库 person 171716",
+      "gender": "male",
+      "death": {
+        "year": 895
+      }
+    },
+    {
+      "externalId": "700130",
+      "name": "蕭益",
+      "citation": "CBDB 中国历代人物传记资料库 person 700130",
+      "gender": "male"
+    },
+    {
+      "externalId": "33115",
+      "name": "蕭廩",
+      "citation": "CBDB 中国历代人物传记资料库 person 33115",
+      "gender": "male",
+      "death": {
+        "year": 900
+      }
+    },
+    {
+      "externalId": "146313",
+      "name": "蕭氏(蕭佩女)",
+      "citation": "CBDB 中国历代人物传记资料库 person 146313",
+      "gender": "female",
+      "birth": {
+        "year": 825
+      },
+      "death": {
+        "year": 852
+      }
+    },
+    {
+      "externalId": "144976",
+      "name": "庾游方",
+      "citation": "CBDB 中国历代人物传记资料库 person 144976",
+      "gender": "male",
+      "birth": {
+        "year": 818
+      },
+      "death": {
+        "year": 859
+      }
+    },
+    {
+      "externalId": "171721",
+      "name": "蕭騫",
+      "citation": "CBDB 中国历代人物传记资料库 person 171721",
+      "gender": "male",
+      "death": {
+        "year": 865
+      }
+    },
+    {
+      "externalId": "171725",
+      "name": "蕭宥",
+      "citation": "CBDB 中国历代人物传记资料库 person 171725",
+      "gender": "male",
+      "death": {
+        "year": 865
+      }
+    },
+    {
+      "externalId": "12268",
+      "name": "蕭寘",
+      "citation": "CBDB 中国历代人物传记资料库 person 12268",
+      "gender": "male"
+    },
+    {
+      "externalId": "12256",
+      "name": "蕭詧(西梁宣帝)",
+      "citation": "CBDB 中国历代人物传记资料库 person 12256",
+      "gender": "male",
+      "birth": {
+        "year": 519
+      },
+      "death": {
+        "year": 562
+      }
+    },
+    {
+      "externalId": "444996",
+      "name": "王氏(蕭詧之妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 444996",
+      "gender": "female"
+    },
+    {
+      "externalId": "700134",
+      "name": "蕭漼",
+      "citation": "CBDB 中国历代人物传记资料库 person 700134",
+      "gender": "male"
+    },
+    {
+      "externalId": "33116",
+      "name": "蕭頎",
+      "citation": "CBDB 中国历代人物传记资料库 person 33116",
+      "gender": "male"
+    },
+    {
+      "externalId": "171711",
+      "name": "蕭須",
+      "citation": "CBDB 中国历代人物传记资料库 person 171711",
+      "gender": "male",
+      "death": {
+        "year": 937
+      }
+    },
+    {
+      "externalId": "171713",
+      "name": "蕭益",
+      "citation": "CBDB 中国历代人物传记资料库 person 171713",
+      "gender": "male",
+      "death": {
+        "year": 937
+      }
+    },
+    {
+      "externalId": "171714",
+      "name": "蕭熲",
+      "citation": "CBDB 中国历代人物传记资料库 person 171714",
+      "gender": "male",
+      "death": {
+        "year": 937
+      }
+    },
+    {
+      "externalId": "171726",
+      "name": "蕭邁",
+      "citation": "CBDB 中国历代人物传记资料库 person 171726",
+      "gender": "male",
+      "death": {
+        "year": 902
+      }
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "33102",
+      "child": "12261"
+    },
+    {
+      "kind": "parent",
+      "parent": "145956",
+      "child": "12261"
+    },
+    {
+      "kind": "parent",
+      "parent": "12261",
+      "child": "12262"
+    },
+    {
+      "kind": "parent",
+      "parent": "12261",
+      "child": "12263"
+    },
+    {
+      "kind": "parent",
+      "parent": "12260",
+      "child": "33102"
+    },
+    {
+      "kind": "parent",
+      "parent": "12260",
+      "child": "145956"
+    },
+    {
+      "kind": "parent",
+      "parent": "12262",
+      "child": "33111"
+    },
+    {
+      "kind": "parent",
+      "parent": "12262",
+      "child": "33112"
+    },
+    {
+      "kind": "spouse",
+      "a": "12263",
+      "b": "194433"
+    },
+    {
+      "kind": "parent",
+      "parent": "12263",
+      "child": "33117"
+    },
+    {
+      "kind": "parent",
+      "parent": "12263",
+      "child": "171718"
+    },
+    {
+      "kind": "parent",
+      "parent": "12263",
+      "child": "171727"
+    },
+    {
+      "kind": "parent",
+      "parent": "12263",
+      "child": "171733"
+    },
+    {
+      "kind": "parent",
+      "parent": "12263",
+      "child": "12264"
+    },
+    {
+      "kind": "parent",
+      "parent": "33101",
+      "child": "12260"
+    },
+    {
+      "kind": "parent",
+      "parent": "33111",
+      "child": "33109"
+    },
+    {
+      "kind": "parent",
+      "parent": "33111",
+      "child": "33113"
+    },
+    {
+      "kind": "parent",
+      "parent": "33111",
+      "child": "33114"
+    },
+    {
+      "kind": "parent",
+      "parent": "33112",
+      "child": "33114"
+    },
+    {
+      "kind": "parent",
+      "parent": "33112",
+      "child": "700128"
+    },
+    {
+      "kind": "parent",
+      "parent": "33112",
+      "child": "12265"
+    },
+    {
+      "kind": "spouse",
+      "a": "194228",
+      "b": "33117"
+    },
+    {
+      "kind": "parent",
+      "parent": "33117",
+      "child": "171729"
+    },
+    {
+      "kind": "parent",
+      "parent": "33117",
+      "child": "171730"
+    },
+    {
+      "kind": "parent",
+      "parent": "33117",
+      "child": "171731"
+    },
+    {
+      "kind": "parent",
+      "parent": "33117",
+      "child": "171732"
+    },
+    {
+      "kind": "parent",
+      "parent": "12264",
+      "child": "12266"
+    },
+    {
+      "kind": "parent",
+      "parent": "12264",
+      "child": "12267"
+    },
+    {
+      "kind": "parent",
+      "parent": "12257",
+      "child": "33101"
+    },
+    {
+      "kind": "parent",
+      "parent": "152897",
+      "child": "33101"
+    },
+    {
+      "kind": "parent",
+      "parent": "33114",
+      "child": "171716"
+    },
+    {
+      "kind": "parent",
+      "parent": "700128",
+      "child": "700130"
+    },
+    {
+      "kind": "parent",
+      "parent": "12265",
+      "child": "33115"
+    },
+    {
+      "kind": "parent",
+      "parent": "171730",
+      "child": "146313"
+    },
+    {
+      "kind": "parent",
+      "parent": "12266",
+      "child": "171721"
+    },
+    {
+      "kind": "parent",
+      "parent": "12267",
+      "child": "171725"
+    },
+    {
+      "kind": "parent",
+      "parent": "12267",
+      "child": "12268"
+    },
+    {
+      "kind": "parent",
+      "parent": "12256",
+      "child": "12257"
+    },
+    {
+      "kind": "parent",
+      "parent": "700130",
+      "child": "700134"
+    },
+    {
+      "kind": "parent",
+      "parent": "33115",
+      "child": "33116"
+    },
+    {
+      "kind": "parent",
+      "parent": "33115",
+      "child": "171711"
+    },
+    {
+      "kind": "parent",
+      "parent": "33115",
+      "child": "171713"
+    },
+    {
+      "kind": "parent",
+      "parent": "33115",
+      "child": "171714"
+    },
+    {
+      "kind": "spouse",
+      "a": "144976",
+      "b": "146313"
+    },
+    {
+      "kind": "parent",
+      "parent": "171725",
+      "child": "171726"
+    },
+    {
+      "kind": "spouse",
+      "a": "12256",
+      "b": "444996"
+    }
+  ]
+}

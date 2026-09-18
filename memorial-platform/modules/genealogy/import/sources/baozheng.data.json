@@ -1,0 +1,75 @@
+{
+  "key": "cbdb:baozheng",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "1411",
+      "name": "包拯",
+      "citation": "CBDB 中国历代人物传记资料库 person 1411",
+      "gender": "male",
+      "birth": {
+        "year": 999
+      },
+      "death": {
+        "year": 1062
+      }
+    },
+    {
+      "externalId": "39278",
+      "name": "董氏(包拯妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 39278",
+      "gender": "female"
+    },
+    {
+      "externalId": "19337",
+      "name": "包令儀",
+      "citation": "CBDB 中国历代人物传记资料库 person 19337",
+      "gender": "male"
+    },
+    {
+      "externalId": "19335",
+      "name": "包繶",
+      "citation": "CBDB 中国历代人物传记资料库 person 19335",
+      "gender": "male"
+    },
+    {
+      "externalId": "39295",
+      "name": "崔氏(包繶妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 39295",
+      "gender": "female"
+    },
+    {
+      "externalId": "39296",
+      "name": "包綖",
+      "citation": "CBDB 中国历代人物传记资料库 person 39296",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "19337",
+      "child": "1411"
+    },
+    {
+      "kind": "spouse",
+      "a": "1411",
+      "b": "39278"
+    },
+    {
+      "kind": "parent",
+      "parent": "1411",
+      "child": "19335"
+    },
+    {
+      "kind": "parent",
+      "parent": "1411",
+      "child": "39296"
+    },
+    {
+      "kind": "spouse",
+      "a": "19335",
+      "b": "39295"
+    }
+  ]
+}

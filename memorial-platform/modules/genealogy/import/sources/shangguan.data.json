@@ -1,0 +1,185 @@
+{
+  "key": "cbdb:shangguan",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "91930",
+      "name": "上官儀",
+      "citation": "CBDB 中国历代人物传记资料库 person 91930",
+      "gender": "male",
+      "birth": {
+        "year": 607
+      },
+      "death": {
+        "year": 664
+      }
+    },
+    {
+      "externalId": "179439",
+      "name": "上官弘",
+      "citation": "CBDB 中国历代人物传记资料库 person 179439",
+      "gender": "male",
+      "death": {
+        "year": 655
+      }
+    },
+    {
+      "externalId": "134615",
+      "name": "上官庭芝",
+      "citation": "CBDB 中国历代人物传记资料库 person 134615",
+      "gender": "male"
+    },
+    {
+      "externalId": "93817",
+      "name": "鄭氏(上官庭芝妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 93817",
+      "gender": "female"
+    },
+    {
+      "externalId": "179441",
+      "name": "上官庭芝",
+      "citation": "CBDB 中国历代人物传记资料库 person 179441",
+      "gender": "male",
+      "death": {
+        "year": 715
+      }
+    },
+    {
+      "externalId": "179442",
+      "name": "上官庭璋",
+      "citation": "CBDB 中国历代人物传记资料库 person 179442",
+      "gender": "male",
+      "death": {
+        "year": 715
+      }
+    },
+    {
+      "externalId": "179438",
+      "name": "上官某",
+      "citation": "CBDB 中国历代人物传记资料库 person 179438",
+      "gender": "male",
+      "death": {
+        "year": 625
+      }
+    },
+    {
+      "externalId": "91931",
+      "name": "上官婉兒",
+      "citation": "CBDB 中国历代人物传记资料库 person 91931",
+      "gender": "female",
+      "birth": {
+        "year": 664
+      },
+      "death": {
+        "year": 710
+      }
+    },
+    {
+      "externalId": "179443",
+      "name": "上官經野",
+      "citation": "CBDB 中国历代人物传记资料库 person 179443",
+      "gender": "male",
+      "death": {
+        "year": 745
+      }
+    },
+    {
+      "externalId": "179444",
+      "name": "上官經國",
+      "citation": "CBDB 中国历代人物传记资料库 person 179444",
+      "gender": "male",
+      "death": {
+        "year": 745
+      }
+    },
+    {
+      "externalId": "179445",
+      "name": "上官經緯",
+      "citation": "CBDB 中国历代人物传记资料库 person 179445",
+      "gender": "male",
+      "death": {
+        "year": 745
+      }
+    },
+    {
+      "externalId": "179437",
+      "name": "上官回",
+      "citation": "CBDB 中国历代人物传记资料库 person 179437",
+      "gender": "male",
+      "death": {
+        "year": 595
+      }
+    },
+    {
+      "externalId": "179446",
+      "name": "上官詔",
+      "citation": "CBDB 中国历代人物传记资料库 person 179446",
+      "gender": "male",
+      "death": {
+        "year": 775
+      }
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "179439",
+      "child": "91930"
+    },
+    {
+      "kind": "parent",
+      "parent": "91930",
+      "child": "134615"
+    },
+    {
+      "kind": "parent",
+      "parent": "91930",
+      "child": "179441"
+    },
+    {
+      "kind": "parent",
+      "parent": "91930",
+      "child": "179442"
+    },
+    {
+      "kind": "parent",
+      "parent": "179438",
+      "child": "179439"
+    },
+    {
+      "kind": "spouse",
+      "a": "134615",
+      "b": "93817"
+    },
+    {
+      "kind": "parent",
+      "parent": "134615",
+      "child": "91931"
+    },
+    {
+      "kind": "parent",
+      "parent": "179442",
+      "child": "179443"
+    },
+    {
+      "kind": "parent",
+      "parent": "179442",
+      "child": "179444"
+    },
+    {
+      "kind": "parent",
+      "parent": "179442",
+      "child": "179445"
+    },
+    {
+      "kind": "parent",
+      "parent": "179437",
+      "child": "179438"
+    },
+    {
+      "kind": "parent",
+      "parent": "179445",
+      "child": "179446"
+    }
+  ]
+}

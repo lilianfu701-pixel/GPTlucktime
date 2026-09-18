@@ -1,0 +1,94 @@
+{
+  "key": "cbdb:duanwenchang",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "21750",
+      "name": "段文昌",
+      "citation": "CBDB 中国历代人物传记资料库 person 21750",
+      "gender": "male"
+    },
+    {
+      "externalId": "21749",
+      "name": "段諤",
+      "citation": "CBDB 中国历代人物传记资料库 person 21749",
+      "gender": "male"
+    },
+    {
+      "externalId": "21751",
+      "name": "段成式",
+      "citation": "CBDB 中国历代人物传记资料库 person 21751",
+      "gender": "male",
+      "death": {
+        "year": 863
+      }
+    },
+    {
+      "externalId": "21748",
+      "name": "段懷昶",
+      "citation": "CBDB 中国历代人物传记资料库 person 21748",
+      "gender": "male"
+    },
+    {
+      "externalId": "35002",
+      "name": "段公路",
+      "citation": "CBDB 中国历代人物传记资料库 person 35002",
+      "gender": "male"
+    },
+    {
+      "externalId": "21747",
+      "name": "段瓘",
+      "citation": "CBDB 中国历代人物传记资料库 person 21747",
+      "gender": "male"
+    },
+    {
+      "externalId": "21746",
+      "name": "段志玄",
+      "citation": "CBDB 中国历代人物传记资料库 person 21746",
+      "gender": "male"
+    },
+    {
+      "externalId": "21745",
+      "name": "段偃師",
+      "citation": "CBDB 中国历代人物传记资料库 person 21745",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "21749",
+      "child": "21750"
+    },
+    {
+      "kind": "parent",
+      "parent": "21750",
+      "child": "21751"
+    },
+    {
+      "kind": "parent",
+      "parent": "21748",
+      "child": "21749"
+    },
+    {
+      "kind": "parent",
+      "parent": "21751",
+      "child": "35002"
+    },
+    {
+      "kind": "parent",
+      "parent": "21747",
+      "child": "21748"
+    },
+    {
+      "kind": "parent",
+      "parent": "21746",
+      "child": "21747"
+    },
+    {
+      "kind": "parent",
+      "parent": "21745",
+      "child": "21746"
+    }
+  ]
+}
