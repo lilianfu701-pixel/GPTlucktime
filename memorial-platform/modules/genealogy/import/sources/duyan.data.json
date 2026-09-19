@@ -1,0 +1,157 @@
+{
+  "key": "cbdb:duyan",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "1730",
+      "name": "杜衍",
+      "citation": "CBDB 中国历代人物传记资料库 person 1730",
+      "gender": "male",
+      "birth": {
+        "year": 978
+      },
+      "death": {
+        "year": 1057
+      }
+    },
+    {
+      "externalId": "5127",
+      "name": "相里氏(相里A女)",
+      "citation": "CBDB 中国历代人物传记资料库 person 5127",
+      "gender": "female",
+      "birth": {
+        "year": 988
+      },
+      "death": {
+        "year": 1065
+      }
+    },
+    {
+      "externalId": "10675",
+      "name": "杜遂良",
+      "citation": "CBDB 中国历代人物传记资料库 person 10675",
+      "gender": "male",
+      "death": {
+        "year": 979
+      }
+    },
+    {
+      "externalId": "1723",
+      "name": "某氏(杜衍母)",
+      "citation": "CBDB 中国历代人物传记资料库 person 1723",
+      "gender": "female"
+    },
+    {
+      "externalId": "135497",
+      "name": "杜氏(蘇舜欽妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 135497",
+      "gender": "female"
+    },
+    {
+      "externalId": "7064",
+      "name": "蘇舜欽",
+      "citation": "CBDB 中国历代人物传记资料库 person 7064",
+      "gender": "male",
+      "birth": {
+        "year": 1008
+      },
+      "death": {
+        "year": 1048
+      }
+    },
+    {
+      "externalId": "3921",
+      "name": "杜詵",
+      "citation": "CBDB 中国历代人物传记资料库 person 3921",
+      "gender": "male",
+      "birth": {
+        "year": 1017
+      },
+      "death": {
+        "year": 1041
+      }
+    },
+    {
+      "externalId": "10681",
+      "name": "杜訢",
+      "citation": "CBDB 中国历代人物传记资料库 person 10681",
+      "gender": "male"
+    },
+    {
+      "externalId": "5175",
+      "name": "張氏(杜訢妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 5175",
+      "gender": "female",
+      "birth": {
+        "year": 1021
+      },
+      "death": {
+        "year": 1041
+      }
+    },
+    {
+      "externalId": "10674",
+      "name": "杜叔詹",
+      "citation": "CBDB 中国历代人物传记资料库 person 10674",
+      "gender": "male"
+    },
+    {
+      "externalId": "10665",
+      "name": "杜輦",
+      "citation": "CBDB 中国历代人物传记资料库 person 10665",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "10675",
+      "child": "1730"
+    },
+    {
+      "kind": "parent",
+      "parent": "1723",
+      "child": "1730"
+    },
+    {
+      "kind": "spouse",
+      "a": "1730",
+      "b": "5127"
+    },
+    {
+      "kind": "parent",
+      "parent": "1730",
+      "child": "135497"
+    },
+    {
+      "kind": "parent",
+      "parent": "1730",
+      "child": "3921"
+    },
+    {
+      "kind": "parent",
+      "parent": "1730",
+      "child": "10681"
+    },
+    {
+      "kind": "parent",
+      "parent": "10674",
+      "child": "10675"
+    },
+    {
+      "kind": "spouse",
+      "a": "135497",
+      "b": "7064"
+    },
+    {
+      "kind": "spouse",
+      "a": "10681",
+      "b": "5175"
+    },
+    {
+      "kind": "parent",
+      "parent": "10665",
+      "child": "10674"
+    }
+  ]
+}

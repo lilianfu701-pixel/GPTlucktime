@@ -1,0 +1,171 @@
+{
+  "key": "cbdb:wuyuanheng",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "24654",
+      "name": "武元衡",
+      "citation": "CBDB 中国历代人物传记资料库 person 24654",
+      "gender": "male",
+      "birth": {
+        "year": 758
+      },
+      "death": {
+        "year": 815
+      }
+    },
+    {
+      "externalId": "24652",
+      "name": "武就",
+      "citation": "CBDB 中国历代人物传记资料库 person 24652",
+      "gender": "male",
+      "birth": {
+        "year": 713
+      },
+      "death": {
+        "year": 790
+      }
+    },
+    {
+      "externalId": "93665",
+      "name": "武翊黃",
+      "citation": "CBDB 中国历代人物传记资料库 person 93665",
+      "gender": "male"
+    },
+    {
+      "externalId": "24651",
+      "name": "武震",
+      "citation": "CBDB 中国历代人物传记资料库 person 24651",
+      "gender": "male",
+      "death": {
+        "year": 741
+      }
+    },
+    {
+      "externalId": "93661",
+      "name": "武甄",
+      "citation": "CBDB 中国历代人物传记资料库 person 93661",
+      "gender": "male"
+    },
+    {
+      "externalId": "24648",
+      "name": "武懿宗",
+      "citation": "CBDB 中国历代人物传记资料库 person 24648",
+      "gender": "male"
+    },
+    {
+      "externalId": "24650",
+      "name": "武載德",
+      "citation": "CBDB 中国历代人物传记资料库 person 24650",
+      "gender": "male"
+    },
+    {
+      "externalId": "24647",
+      "name": "武志元",
+      "citation": "CBDB 中国历代人物传记资料库 person 24647",
+      "gender": "male"
+    },
+    {
+      "externalId": "24649",
+      "name": "武仁範",
+      "citation": "CBDB 中国历代人物传记资料库 person 24649",
+      "gender": "male"
+    },
+    {
+      "externalId": "24635",
+      "name": "武士逸",
+      "citation": "CBDB 中国历代人物传记资料库 person 24635",
+      "gender": "male"
+    },
+    {
+      "externalId": "24632",
+      "name": "武華",
+      "citation": "CBDB 中国历代人物传记资料库 person 24632",
+      "gender": "male"
+    },
+    {
+      "externalId": "196270",
+      "name": "武儉",
+      "citation": "CBDB 中国历代人物传记资料库 person 196270",
+      "gender": "male"
+    },
+    {
+      "externalId": "196271",
+      "name": "武居常",
+      "citation": "CBDB 中国历代人物传记资料库 person 196271",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "24652",
+      "child": "24654"
+    },
+    {
+      "kind": "parent",
+      "parent": "24654",
+      "child": "93665"
+    },
+    {
+      "kind": "parent",
+      "parent": "24651",
+      "child": "24652"
+    },
+    {
+      "kind": "parent",
+      "parent": "93661",
+      "child": "24652"
+    },
+    {
+      "kind": "parent",
+      "parent": "24648",
+      "child": "24651"
+    },
+    {
+      "kind": "parent",
+      "parent": "24650",
+      "child": "24651"
+    },
+    {
+      "kind": "parent",
+      "parent": "24650",
+      "child": "93661"
+    },
+    {
+      "kind": "parent",
+      "parent": "24647",
+      "child": "24648"
+    },
+    {
+      "kind": "parent",
+      "parent": "24649",
+      "child": "24650"
+    },
+    {
+      "kind": "parent",
+      "parent": "24635",
+      "child": "24647"
+    },
+    {
+      "kind": "parent",
+      "parent": "24635",
+      "child": "24649"
+    },
+    {
+      "kind": "parent",
+      "parent": "24632",
+      "child": "24635"
+    },
+    {
+      "kind": "parent",
+      "parent": "196270",
+      "child": "24632"
+    },
+    {
+      "kind": "parent",
+      "parent": "196271",
+      "child": "196270"
+    }
+  ]
+}

@@ -1,0 +1,114 @@
+{
+  "key": "cbdb:suixin",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "11605",
+      "name": "蘇頲",
+      "citation": "CBDB 中国历代人物传记资料库 person 11605",
+      "gender": "male",
+      "birth": {
+        "year": 670
+      },
+      "death": {
+        "year": 727
+      }
+    },
+    {
+      "externalId": "92832",
+      "name": "蘇瓌",
+      "citation": "CBDB 中国历代人物传记资料库 person 92832",
+      "gender": "male",
+      "birth": {
+        "year": 639
+      },
+      "death": {
+        "year": 710
+      }
+    },
+    {
+      "externalId": "11603",
+      "name": "蘇亶",
+      "citation": "CBDB 中国历代人物传记资料库 person 11603",
+      "gender": "male"
+    },
+    {
+      "externalId": "11600",
+      "name": "蘇夔",
+      "citation": "CBDB 中国历代人物传记资料库 person 11600",
+      "gender": "male"
+    },
+    {
+      "externalId": "11599",
+      "name": "蘇威",
+      "citation": "CBDB 中国历代人物传记资料库 person 11599",
+      "gender": "male"
+    },
+    {
+      "externalId": "11597",
+      "name": "蘇綽",
+      "citation": "CBDB 中国历代人物传记资料库 person 11597",
+      "gender": "male"
+    },
+    {
+      "externalId": "196268",
+      "name": "蘇綽",
+      "citation": "CBDB 中国历代人物传记资料库 person 196268",
+      "gender": "male"
+    },
+    {
+      "externalId": "11593",
+      "name": "蘇協",
+      "citation": "CBDB 中国历代人物传记资料库 person 11593",
+      "gender": "male"
+    },
+    {
+      "externalId": "11591",
+      "name": "蘇",
+      "citation": "CBDB 中国历代人物传记资料库 person 11591",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "92832",
+      "child": "11605"
+    },
+    {
+      "kind": "parent",
+      "parent": "11603",
+      "child": "92832"
+    },
+    {
+      "kind": "parent",
+      "parent": "11600",
+      "child": "11603"
+    },
+    {
+      "kind": "parent",
+      "parent": "11599",
+      "child": "11600"
+    },
+    {
+      "kind": "parent",
+      "parent": "11597",
+      "child": "11599"
+    },
+    {
+      "kind": "parent",
+      "parent": "196268",
+      "child": "11599"
+    },
+    {
+      "kind": "parent",
+      "parent": "11593",
+      "child": "11597"
+    },
+    {
+      "kind": "parent",
+      "parent": "11591",
+      "child": "11593"
+    }
+  ]
+}

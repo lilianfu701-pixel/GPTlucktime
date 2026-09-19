@@ -1,0 +1,135 @@
+{
+  "key": "cbdb:zhangdun",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "333",
+      "name": "章惇",
+      "citation": "CBDB 中国历代人物传记资料库 person 333",
+      "gender": "male",
+      "birth": {
+        "year": 1035
+      },
+      "death": {
+        "year": 1105
+      }
+    },
+    {
+      "externalId": "45075",
+      "name": "張氏(章惇妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 45075",
+      "gender": "female"
+    },
+    {
+      "externalId": "3191",
+      "name": "章俞",
+      "citation": "CBDB 中国历代人物传记资料库 person 3191",
+      "gender": "male"
+    },
+    {
+      "externalId": "45073",
+      "name": "羅氏(章俞妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 45073",
+      "gender": "female"
+    },
+    {
+      "externalId": "7148",
+      "name": "章持",
+      "citation": "CBDB 中国历代人物传记资料库 person 7148",
+      "gender": "male"
+    },
+    {
+      "externalId": "14105",
+      "name": "章擇",
+      "citation": "CBDB 中国历代人物传记资料库 person 14105",
+      "gender": "male"
+    },
+    {
+      "externalId": "12970",
+      "name": "章授",
+      "citation": "CBDB 中国历代人物传记资料库 person 12970",
+      "gender": "male"
+    },
+    {
+      "externalId": "12969",
+      "name": "章援",
+      "citation": "CBDB 中国历代人物传记资料库 person 12969",
+      "gender": "male"
+    },
+    {
+      "externalId": "14096",
+      "name": "章倧",
+      "citation": "CBDB 中国历代人物传记资料库 person 14096",
+      "gender": "male"
+    },
+    {
+      "externalId": "16355",
+      "name": "章深",
+      "citation": "CBDB 中国历代人物传记资料库 person 16355",
+      "gender": "male"
+    },
+    {
+      "externalId": "16356",
+      "name": "章泳",
+      "citation": "CBDB 中国历代人物传记资料库 person 16356",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "3191",
+      "child": "333"
+    },
+    {
+      "kind": "parent",
+      "parent": "45073",
+      "child": "333"
+    },
+    {
+      "kind": "spouse",
+      "a": "333",
+      "b": "45075"
+    },
+    {
+      "kind": "parent",
+      "parent": "333",
+      "child": "7148"
+    },
+    {
+      "kind": "parent",
+      "parent": "333",
+      "child": "14105"
+    },
+    {
+      "kind": "parent",
+      "parent": "333",
+      "child": "12970"
+    },
+    {
+      "kind": "parent",
+      "parent": "333",
+      "child": "12969"
+    },
+    {
+      "kind": "spouse",
+      "a": "3191",
+      "b": "45073"
+    },
+    {
+      "kind": "parent",
+      "parent": "14105",
+      "child": "14096"
+    },
+    {
+      "kind": "parent",
+      "parent": "14096",
+      "child": "16355"
+    },
+    {
+      "kind": "parent",
+      "parent": "14096",
+      "child": "16356"
+    }
+  ]
+}

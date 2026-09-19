@@ -212,6 +212,16 @@ import suweidao from "./suweidao.data.json";
 import liufen from "./liufen.data.json";
 import liugong from "./liugong.data.json";
 import xiaoying from "./xiaoying.data.json";
+// CBDB 第七批（唐宋宰相/东汉将领/元初儒士）
+import suixin from "./suixin.data.json";
+import duyan from "./duyan.data.json";
+import wuyuanheng from "./wuyuanheng.data.json";
+import niusenru from "./niusenru.data.json";
+import zhaopuchu from "./zhaopuchu.data.json";
+import jiachangchao from "./jiachangchao.data.json";
+import maayuan from "./maayuan.data.json";
+import yaoshu from "./yaoshu.data.json";
+import zhangdun from "./zhangdun.data.json";
 // CBDB 第六批（北宋名臣/南宋将相/词人 + 邵雍家族）
 import honghao from "./honghao.data.json";
 import chengda from "./chengda.data.json";
@@ -498,6 +508,16 @@ const FAMILIES: { key: string; label: string; dataset: GenealogyDataset }[] = [
   { key: "liufen", label: "河东柳氏·柳芬支（柳懿·柳均·南北朝到唐）", dataset: liufen as GenealogyDataset },
   { key: "liugong", label: "河东柳氏·柳公权支（书法家·柳瑗·柳仲憲）", dataset: liugong as GenealogyDataset },
   { key: "xiaoying", label: "兰陵萧氏·萧颖士支（萧道赐·萧恢·南朝到唐）", dataset: xiaoying as GenealogyDataset },
+  // CBDB 第七批：唐宋宰相 + 东汉将领 + 元初儒士
+  { key: "suixin", label: "武功苏氏·苏颋支（苏威→苏绰→苏颋·隋唐宰相·670-727）", dataset: suixin as GenealogyDataset },
+  { key: "duyan", label: "越州杜氏·杜衍支（北宋宰相·含杜祁公·978-1057）", dataset: duyan as GenealogyDataset },
+  { key: "wuyuanheng", label: "河南武氏·武元衡支（中唐宰相·被刺·758-815）", dataset: wuyuanheng as GenealogyDataset },
+  { key: "niusenru", label: "安定牛氏·牛僧孺支（牛李党争·牛峤祖·779-848）", dataset: niusenru as GenealogyDataset },
+  { key: "zhaopuchu", label: "幽州赵氏·赵普支（宋初宰相·半部论语治天下·922-992）", dataset: zhaopuchu as GenealogyDataset },
+  { key: "jiachangchao", label: "沧州贾氏·贾昌朝支（北宋宰相·997-1065）", dataset: jiachangchao as GenealogyDataset },
+  { key: "maayuan", label: "茂陵马氏·马援支（东汉伏波将军·马革裹尸·14BCE-49CE）", dataset: maayuan as GenealogyDataset },
+  { key: "yaoshu", label: "营州姚氏·姚枢支（元初儒士·1201-1278）", dataset: yaoshu as GenealogyDataset },
+  { key: "zhangdun", label: "浦城章氏·章惇支（北宋宰相·绍圣改革·1035-1105）", dataset: zhangdun as GenealogyDataset },
   // CBDB 第六批：北宋名臣/南宋将相/词人 + 邵雍家族
   { key: "honghao", label: "鄱阳洪氏·洪皓支（南宋使金·洪适洪迈父·1088-1155）", dataset: honghao as GenealogyDataset },
   { key: "chengda", label: "休宁程氏·程大昌支（宋代文学家·1123-1195）", dataset: chengda as GenealogyDataset },

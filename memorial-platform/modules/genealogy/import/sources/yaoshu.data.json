@@ -1,0 +1,89 @@
+{
+  "key": "cbdb:yaoshu",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "27889",
+      "name": "姚樞",
+      "citation": "CBDB 中国历代人物传记资料库 person 27889",
+      "gender": "male",
+      "birth": {
+        "year": 1203
+      },
+      "death": {
+        "year": 1280
+      }
+    },
+    {
+      "externalId": "27890",
+      "name": "梁仲宏",
+      "citation": "CBDB 中国历代人物传记资料库 person 27890",
+      "gender": "male"
+    },
+    {
+      "externalId": "35144",
+      "name": "姚仲宏",
+      "citation": "CBDB 中国历代人物传记资料库 person 35144",
+      "gender": "male"
+    },
+    {
+      "externalId": "35145",
+      "name": "姚煒",
+      "citation": "CBDB 中国历代人物传记资料库 person 35145",
+      "gender": "male",
+      "birth": {
+        "year": 1266
+      }
+    },
+    {
+      "externalId": "27891",
+      "name": "梁錡",
+      "citation": "CBDB 中国历代人物传记资料库 person 27891",
+      "gender": "male"
+    },
+    {
+      "externalId": "35147",
+      "name": "姚騎",
+      "citation": "CBDB 中国历代人物传记资料库 person 35147",
+      "gender": "male"
+    },
+    {
+      "externalId": "35146",
+      "name": "姚堉",
+      "citation": "CBDB 中国历代人物传记资料库 person 35146",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "27890",
+      "child": "27889"
+    },
+    {
+      "kind": "parent",
+      "parent": "35144",
+      "child": "27889"
+    },
+    {
+      "kind": "parent",
+      "parent": "27889",
+      "child": "35145"
+    },
+    {
+      "kind": "parent",
+      "parent": "27891",
+      "child": "27890"
+    },
+    {
+      "kind": "parent",
+      "parent": "35147",
+      "child": "35144"
+    },
+    {
+      "kind": "parent",
+      "parent": "35145",
+      "child": "35146"
+    }
+  ]
+}

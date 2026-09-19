@@ -1,0 +1,241 @@
+{
+  "key": "cbdb:jiachangchao",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "8031",
+      "name": "賈昌朝",
+      "citation": "CBDB 中国历代人物传记资料库 person 8031",
+      "gender": "male",
+      "birth": {
+        "year": 998
+      },
+      "death": {
+        "year": 1065
+      }
+    },
+    {
+      "externalId": "5393",
+      "name": "陳氏(賈昌朝妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 5393",
+      "gender": "female",
+      "birth": {
+        "year": 1005
+      },
+      "death": {
+        "year": 1067
+      }
+    },
+    {
+      "externalId": "3219",
+      "name": "賈注",
+      "citation": "CBDB 中国历代人物传记资料库 person 3219",
+      "gender": "male",
+      "birth": {
+        "year": 962
+      },
+      "death": {
+        "year": 1008
+      }
+    },
+    {
+      "externalId": "562890",
+      "name": "史氏(賈注妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 562890",
+      "gender": "female",
+      "birth": {
+        "year": 972
+      },
+      "death": {
+        "year": 1050
+      }
+    },
+    {
+      "externalId": "11754",
+      "name": "賈章",
+      "citation": "CBDB 中国历代人物传记资料库 person 11754",
+      "gender": "male"
+    },
+    {
+      "externalId": "11753",
+      "name": "賈圭",
+      "citation": "CBDB 中国历代人物传记资料库 person 11753",
+      "gender": "male",
+      "birth": {
+        "year": 1028
+      },
+      "death": {
+        "year": 1072
+      }
+    },
+    {
+      "externalId": "436",
+      "name": "賈青",
+      "citation": "CBDB 中国历代人物传记资料库 person 436",
+      "gender": "male"
+    },
+    {
+      "externalId": "11748",
+      "name": "賈璉",
+      "citation": "CBDB 中国历代人物传记资料库 person 11748",
+      "gender": "male",
+      "death": {
+        "year": 964
+      }
+    },
+    {
+      "externalId": "37486",
+      "name": "賈公定",
+      "citation": "CBDB 中国历代人物传记资料库 person 37486",
+      "gender": "male"
+    },
+    {
+      "externalId": "37487",
+      "name": "賈公盛",
+      "citation": "CBDB 中国历代人物传记资料库 person 37487",
+      "gender": "male"
+    },
+    {
+      "externalId": "37488",
+      "name": "賈公靖",
+      "citation": "CBDB 中国历代人物传记资料库 person 37488",
+      "gender": "male"
+    },
+    {
+      "externalId": "37489",
+      "name": "賈公詠",
+      "citation": "CBDB 中国历代人物传记资料库 person 37489",
+      "gender": "male"
+    },
+    {
+      "externalId": "37490",
+      "name": "賈公正",
+      "citation": "CBDB 中国历代人物传记资料库 person 37490",
+      "gender": "male"
+    },
+    {
+      "externalId": "37491",
+      "name": "賈公迴",
+      "citation": "CBDB 中国历代人物传记资料库 person 37491",
+      "gender": "male"
+    },
+    {
+      "externalId": "11746",
+      "name": "賈緯",
+      "citation": "CBDB 中国历代人物传记资料库 person 11746",
+      "gender": "male",
+      "death": {
+        "year": 952
+      }
+    },
+    {
+      "externalId": "562886",
+      "name": "賈初",
+      "citation": "CBDB 中国历代人物传记资料库 person 562886",
+      "gender": "male"
+    },
+    {
+      "externalId": "562887",
+      "name": "賈瑾",
+      "citation": "CBDB 中国历代人物传记资料库 person 562887",
+      "gender": "male"
+    },
+    {
+      "externalId": "562888",
+      "name": "賈諒",
+      "citation": "CBDB 中国历代人物传记资料库 person 562888"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "3219",
+      "child": "8031"
+    },
+    {
+      "kind": "parent",
+      "parent": "562890",
+      "child": "8031"
+    },
+    {
+      "kind": "spouse",
+      "a": "5393",
+      "b": "8031"
+    },
+    {
+      "kind": "parent",
+      "parent": "8031",
+      "child": "11754"
+    },
+    {
+      "kind": "parent",
+      "parent": "8031",
+      "child": "11753"
+    },
+    {
+      "kind": "parent",
+      "parent": "8031",
+      "child": "436"
+    },
+    {
+      "kind": "parent",
+      "parent": "11748",
+      "child": "3219"
+    },
+    {
+      "kind": "spouse",
+      "a": "3219",
+      "b": "562890"
+    },
+    {
+      "kind": "parent",
+      "parent": "11753",
+      "child": "37486"
+    },
+    {
+      "kind": "parent",
+      "parent": "11753",
+      "child": "37487"
+    },
+    {
+      "kind": "parent",
+      "parent": "11753",
+      "child": "37488"
+    },
+    {
+      "kind": "parent",
+      "parent": "11753",
+      "child": "37489"
+    },
+    {
+      "kind": "parent",
+      "parent": "11753",
+      "child": "37490"
+    },
+    {
+      "kind": "parent",
+      "parent": "11753",
+      "child": "37491"
+    },
+    {
+      "kind": "parent",
+      "parent": "11746",
+      "child": "11748"
+    },
+    {
+      "kind": "parent",
+      "parent": "562886",
+      "child": "11746"
+    },
+    {
+      "kind": "parent",
+      "parent": "562887",
+      "child": "562886"
+    },
+    {
+      "kind": "parent",
+      "parent": "562888",
+      "child": "562887"
+    }
+  ]
+}

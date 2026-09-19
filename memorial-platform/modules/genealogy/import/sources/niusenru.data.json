@@ -1,0 +1,178 @@
+{
+  "key": "cbdb:niusenru",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "32054",
+      "name": "牛僧孺",
+      "citation": "CBDB 中国历代人物传记资料库 person 32054",
+      "gender": "male",
+      "birth": {
+        "year": 780
+      },
+      "death": {
+        "year": 848
+      }
+    },
+    {
+      "externalId": "32053",
+      "name": "牛幼簡",
+      "citation": "CBDB 中国历代人物传记资料库 person 32053",
+      "gender": "male"
+    },
+    {
+      "externalId": "184085",
+      "name": "牛幼聞",
+      "citation": "CBDB 中国历代人物传记资料库 person 184085",
+      "gender": "male",
+      "death": {
+        "year": 802
+      }
+    },
+    {
+      "externalId": "92225",
+      "name": "牛藂",
+      "citation": "CBDB 中国历代人物传记资料库 person 92225",
+      "gender": "male"
+    },
+    {
+      "externalId": "184093",
+      "name": "牛奉倩",
+      "citation": "CBDB 中国历代人物传记资料库 person 184093",
+      "gender": "male",
+      "death": {
+        "year": 876
+      }
+    },
+    {
+      "externalId": "32055",
+      "name": "牛蔚",
+      "citation": "CBDB 中国历代人物传记资料库 person 32055",
+      "gender": "male"
+    },
+    {
+      "externalId": "32056",
+      "name": "牛聚",
+      "citation": "CBDB 中国历代人物传记资料库 person 32056",
+      "gender": "male"
+    },
+    {
+      "externalId": "32052",
+      "name": "牛紹",
+      "citation": "CBDB 中国历代人物传记资料库 person 32052",
+      "gender": "male"
+    },
+    {
+      "externalId": "32057",
+      "name": "牛徽",
+      "citation": "CBDB 中国历代人物传记资料库 person 32057",
+      "gender": "male",
+      "death": {
+        "year": 901
+      }
+    },
+    {
+      "externalId": "32058",
+      "name": "牛嶠",
+      "citation": "CBDB 中国历代人物传记资料库 person 32058",
+      "gender": "male"
+    },
+    {
+      "externalId": "32051",
+      "name": "牛休克",
+      "citation": "CBDB 中国历代人物传记资料库 person 32051",
+      "gender": "male"
+    },
+    {
+      "externalId": "33613",
+      "name": "牛鳳",
+      "citation": "CBDB 中国历代人物传记资料库 person 33613",
+      "gender": "male"
+    },
+    {
+      "externalId": "184081",
+      "name": "牛某",
+      "citation": "CBDB 中国历代人物传记资料库 person 184081",
+      "gender": "male",
+      "death": {
+        "year": 654
+      }
+    },
+    {
+      "externalId": "184080",
+      "name": "牛某",
+      "citation": "CBDB 中国历代人物传记资料库 person 184080",
+      "gender": "male",
+      "death": {
+        "year": 617
+      }
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "32053",
+      "child": "32054"
+    },
+    {
+      "kind": "parent",
+      "parent": "184085",
+      "child": "32054"
+    },
+    {
+      "kind": "parent",
+      "parent": "32054",
+      "child": "92225"
+    },
+    {
+      "kind": "parent",
+      "parent": "32054",
+      "child": "184093"
+    },
+    {
+      "kind": "parent",
+      "parent": "32054",
+      "child": "32055"
+    },
+    {
+      "kind": "parent",
+      "parent": "32054",
+      "child": "32056"
+    },
+    {
+      "kind": "parent",
+      "parent": "32052",
+      "child": "32053"
+    },
+    {
+      "kind": "parent",
+      "parent": "32055",
+      "child": "32057"
+    },
+    {
+      "kind": "parent",
+      "parent": "32056",
+      "child": "32058"
+    },
+    {
+      "kind": "parent",
+      "parent": "32051",
+      "child": "32052"
+    },
+    {
+      "kind": "parent",
+      "parent": "33613",
+      "child": "32051"
+    },
+    {
+      "kind": "parent",
+      "parent": "184081",
+      "child": "33613"
+    },
+    {
+      "kind": "parent",
+      "parent": "184080",
+      "child": "184081"
+    }
+  ]
+}

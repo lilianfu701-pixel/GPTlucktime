@@ -1,0 +1,147 @@
+{
+  "key": "cbdb:maayuan",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "3671",
+      "name": "馬援",
+      "citation": "CBDB 中国历代人物传记资料库 person 3671",
+      "gender": "male",
+      "death": {
+        "year": 49
+      }
+    },
+    {
+      "externalId": "24659",
+      "name": "馬中玄",
+      "citation": "CBDB 中国历代人物传记资料库 person 24659",
+      "gender": "male"
+    },
+    {
+      "externalId": "24663",
+      "name": "馬氏(劉莊妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 24663",
+      "gender": "female",
+      "death": {
+        "year": 79
+      }
+    },
+    {
+      "externalId": "24662",
+      "name": "劉莊",
+      "citation": "CBDB 中国历代人物传记资料库 person 24662",
+      "gender": "male",
+      "birth": {
+        "year": 29
+      },
+      "death": {
+        "year": 76
+      }
+    },
+    {
+      "externalId": "24680",
+      "name": "馬廖",
+      "citation": "CBDB 中国历代人物传记资料库 person 24680",
+      "gender": "male"
+    },
+    {
+      "externalId": "24681",
+      "name": "馬防",
+      "citation": "CBDB 中国历代人物传记资料库 person 24681",
+      "gender": "male"
+    },
+    {
+      "externalId": "24682",
+      "name": "馬光",
+      "citation": "CBDB 中国历代人物传记资料库 person 24682",
+      "gender": "male"
+    },
+    {
+      "externalId": "24660",
+      "name": "馬昌",
+      "citation": "CBDB 中国历代人物传记资料库 person 24660",
+      "gender": "male"
+    },
+    {
+      "externalId": "24683",
+      "name": "馬豫",
+      "citation": "CBDB 中国历代人物传记资料库 person 24683",
+      "gender": "male"
+    },
+    {
+      "externalId": "24658",
+      "name": "馬賓",
+      "citation": "CBDB 中国历代人物传记资料库 person 24658",
+      "gender": "male"
+    },
+    {
+      "externalId": "24674",
+      "name": "馬通",
+      "citation": "CBDB 中国历代人物传记资料库 person 24674",
+      "gender": "male"
+    },
+    {
+      "externalId": "24673",
+      "name": "馬權",
+      "citation": "CBDB 中国历代人物传记资料库 person 24673",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "24659",
+      "child": "3671"
+    },
+    {
+      "kind": "parent",
+      "parent": "3671",
+      "child": "24663"
+    },
+    {
+      "kind": "parent",
+      "parent": "3671",
+      "child": "24680"
+    },
+    {
+      "kind": "parent",
+      "parent": "3671",
+      "child": "24681"
+    },
+    {
+      "kind": "parent",
+      "parent": "3671",
+      "child": "24682"
+    },
+    {
+      "kind": "parent",
+      "parent": "24660",
+      "child": "24659"
+    },
+    {
+      "kind": "spouse",
+      "a": "24662",
+      "b": "24663"
+    },
+    {
+      "kind": "parent",
+      "parent": "24680",
+      "child": "24683"
+    },
+    {
+      "kind": "parent",
+      "parent": "24658",
+      "child": "24660"
+    },
+    {
+      "kind": "parent",
+      "parent": "24674",
+      "child": "24658"
+    },
+    {
+      "kind": "parent",
+      "parent": "24673",
+      "child": "24674"
+    }
+  ]
+}

@@ -1,0 +1,180 @@
+{
+  "key": "cbdb:zhaopuchu",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "8023",
+      "name": "趙普",
+      "citation": "CBDB 中国历代人物传记资料库 person 8023",
+      "gender": "male",
+      "birth": {
+        "year": 922
+      },
+      "death": {
+        "year": 992
+      }
+    },
+    {
+      "externalId": "119336",
+      "name": "魏氏(趙普妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 119336",
+      "gender": "female"
+    },
+    {
+      "externalId": "119439",
+      "name": "和氏(趙普妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 119439",
+      "gender": "female"
+    },
+    {
+      "externalId": "119571",
+      "name": "趙迴",
+      "citation": "CBDB 中国历代人物传记资料库 person 119571",
+      "gender": "male"
+    },
+    {
+      "externalId": "26338",
+      "name": "趙承",
+      "citation": "CBDB 中国历代人物传记资料库 person 26338",
+      "gender": "male"
+    },
+    {
+      "externalId": "50710",
+      "name": "趙承宗",
+      "citation": "CBDB 中国历代人物传记资料库 person 50710",
+      "gender": "male"
+    },
+    {
+      "externalId": "50723",
+      "name": "趙承煦",
+      "citation": "CBDB 中国历代人物传记资料库 person 50723",
+      "gender": "male"
+    },
+    {
+      "externalId": "26339",
+      "name": "趙從約",
+      "citation": "CBDB 中国历代人物传记资料库 person 26339",
+      "gender": "male"
+    },
+    {
+      "externalId": "699462",
+      "name": "華氏(趙從約妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 699462",
+      "gender": "female",
+      "birth": {
+        "year": 998
+      },
+      "death": {
+        "year": 1071
+      }
+    },
+    {
+      "externalId": "26340",
+      "name": "趙思恭",
+      "citation": "CBDB 中国历代人物传记资料库 person 26340",
+      "gender": "male"
+    },
+    {
+      "externalId": "26398",
+      "name": "趙思復",
+      "citation": "CBDB 中国历代人物传记资料库 person 26398",
+      "gender": "male"
+    },
+    {
+      "externalId": "36458",
+      "name": "趙希孟",
+      "citation": "CBDB 中国历代人物传记资料库 person 36458",
+      "gender": "male"
+    },
+    {
+      "externalId": "26468",
+      "name": "趙希旦",
+      "citation": "CBDB 中国历代人物传记资料库 person 26468",
+      "gender": "male"
+    },
+    {
+      "externalId": "36459",
+      "name": "趙希尹",
+      "citation": "CBDB 中国历代人物传记资料库 person 36459",
+      "gender": "male"
+    },
+    {
+      "externalId": "36460",
+      "name": "趙希箴",
+      "citation": "CBDB 中国历代人物传记资料库 person 36460",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "119571",
+      "child": "8023"
+    },
+    {
+      "kind": "spouse",
+      "a": "119336",
+      "b": "8023"
+    },
+    {
+      "kind": "spouse",
+      "a": "119439",
+      "b": "8023"
+    },
+    {
+      "kind": "parent",
+      "parent": "8023",
+      "child": "26338"
+    },
+    {
+      "kind": "parent",
+      "parent": "8023",
+      "child": "50710"
+    },
+    {
+      "kind": "parent",
+      "parent": "8023",
+      "child": "50723"
+    },
+    {
+      "kind": "parent",
+      "parent": "26338",
+      "child": "26339"
+    },
+    {
+      "kind": "spouse",
+      "a": "26339",
+      "b": "699462"
+    },
+    {
+      "kind": "parent",
+      "parent": "26339",
+      "child": "26340"
+    },
+    {
+      "kind": "parent",
+      "parent": "26339",
+      "child": "26398"
+    },
+    {
+      "kind": "parent",
+      "parent": "26340",
+      "child": "36458"
+    },
+    {
+      "kind": "parent",
+      "parent": "26340",
+      "child": "26468"
+    },
+    {
+      "kind": "parent",
+      "parent": "26340",
+      "child": "36459"
+    },
+    {
+      "kind": "parent",
+      "parent": "26340",
+      "child": "36460"
+    }
+  ]
+}
