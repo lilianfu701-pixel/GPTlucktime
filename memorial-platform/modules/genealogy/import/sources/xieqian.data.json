@@ -1,0 +1,64 @@
+{
+  "key": "cbdb:xieqian",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "34576",
+      "name": "謝遷",
+      "citation": "CBDB 中国历代人物传记资料库 person 34576",
+      "gender": "male",
+      "birth": {
+        "year": 1449
+      },
+      "death": {
+        "year": 1531
+      }
+    },
+    {
+      "externalId": "247585",
+      "name": "徐氏(謝遷妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 247585",
+      "gender": "female"
+    },
+    {
+      "externalId": "247583",
+      "name": "謝恩",
+      "citation": "CBDB 中国历代人物传记资料库 person 247583",
+      "gender": "male"
+    },
+    {
+      "externalId": "247584",
+      "name": "鄒氏(謝遷母)",
+      "citation": "CBDB 中国历代人物传记资料库 person 247584",
+      "gender": "female"
+    },
+    {
+      "externalId": "34578",
+      "name": "謝丕",
+      "citation": "CBDB 中国历代人物传记资料库 person 34578",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "247583",
+      "child": "34576"
+    },
+    {
+      "kind": "parent",
+      "parent": "247584",
+      "child": "34576"
+    },
+    {
+      "kind": "spouse",
+      "a": "247585",
+      "b": "34576"
+    },
+    {
+      "kind": "parent",
+      "parent": "34576",
+      "child": "34578"
+    }
+  ]
+}

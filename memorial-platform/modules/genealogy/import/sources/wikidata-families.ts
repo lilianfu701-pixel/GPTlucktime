@@ -212,6 +212,16 @@ import suweidao from "./suweidao.data.json";
 import liufen from "./liufen.data.json";
 import liugong from "./liugong.data.json";
 import xiaoying from "./xiaoying.data.json";
+// CBDB 第十六批（明代官员·学者·前七子·茶陵诗派）
+import chengzhang from "./chengzhang.data.json";
+import shanglu from "./shanglu.data.json";
+import xieqian from "./xieqian.data.json";
+import zousy from "./zousy.data.json";
+import mawensheng from "./mawensheng.data.json";
+import pengshi from "./pengshi.data.json";
+import hejingming from "./hejingming.data.json";
+import limengyang from "./limengyang.data.json";
+import guling from "./guling.data.json";
 // CBDB 第十五批（宋元明·学者官员·跨时代）
 import songci from "./songci.data.json";
 import xieshenfu from "./xieshenfu.data.json";
@@ -594,6 +604,16 @@ const FAMILIES: { key: string; label: string; dataset: GenealogyDataset }[] = [
   { key: "liufen", label: "河东柳氏·柳芬支（柳懿·柳均·南北朝到唐）", dataset: liufen as GenealogyDataset },
   { key: "liugong", label: "河东柳氏·柳公权支（书法家·柳瑗·柳仲憲）", dataset: liugong as GenealogyDataset },
   { key: "xiaoying", label: "兰陵萧氏·萧颖士支（萧道赐·萧恢·南朝到唐）", dataset: xiaoying as GenealogyDataset },
+  // CBDB 第十六批：明代官员·学者·前七子·茶陵诗派
+  { key: "chengzhang", label: "庐陵程氏·程钜夫支（元代官员·翰林学士·1249-1318）", dataset: chengzhang as GenealogyDataset },
+  { key: "shanglu", label: "茶陵商氏·商辂支（明代宰相·三元及第·1414-1486）", dataset: shanglu as GenealogyDataset },
+  { key: "xieqian", label: "余姚谢氏·谢迁支（明代宰相·弘治三君子·1449-1531）", dataset: xieqian as GenealogyDataset },
+  { key: "zousy", label: "安福邹氏·邹守益支（明代学者·王学左派·1491-1562）", dataset: zousy as GenealogyDataset },
+  { key: "mawensheng", label: "钧州马氏·马文升支（明代名臣·成化弘治兵部尚书·1426-1510）", dataset: mawensheng as GenealogyDataset },
+  { key: "pengshi", label: "安福彭氏·彭时支（明代名臣·天顺状元·1416-1475）", dataset: pengshi as GenealogyDataset },
+  { key: "hejingming", label: "信阳何氏·何景明支（明代诗人·前七子·1483-1521）", dataset: hejingming as GenealogyDataset },
+  { key: "limengyang", label: "庆阳李氏·李梦阳支（明代诗人·前七子领袖·1473-1530）", dataset: limengyang as GenealogyDataset },
+  { key: "guling", label: "华亭顾氏·顾璘支（明代诗人·金陵文坛领袖·1476-1545）", dataset: guling as GenealogyDataset },
   // CBDB 第十五批：宋元明学者官员
   { key: "songci", label: "建阳宋氏·宋慈支（南宋法医学家·《洗冤集录》·1186-1249）", dataset: songci as GenealogyDataset },
   { key: "xieshenfu", label: "剡县谢氏·谢深甫支（南宋宰相·谢道清祖父·1139-1204）", dataset: xieshenfu as GenealogyDataset },

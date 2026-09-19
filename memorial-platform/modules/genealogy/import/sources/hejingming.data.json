@@ -1,0 +1,122 @@
+{
+  "key": "cbdb:hejingming",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "34648",
+      "name": "何景明",
+      "citation": "CBDB 中国历代人物传记资料库 person 34648",
+      "gender": "male",
+      "birth": {
+        "year": 1483
+      },
+      "death": {
+        "year": 1521
+      }
+    },
+    {
+      "externalId": "272420",
+      "name": "張氏(何景明妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 272420",
+      "gender": "female"
+    },
+    {
+      "externalId": "272415",
+      "name": "何信",
+      "citation": "CBDB 中国历代人物传记资料库 person 272415",
+      "gender": "male"
+    },
+    {
+      "externalId": "272419",
+      "name": "李氏(何景明母)",
+      "citation": "CBDB 中国历代人物传记资料库 person 272419",
+      "gender": "female"
+    },
+    {
+      "externalId": "216406",
+      "name": "何立",
+      "citation": "CBDB 中国历代人物传记资料库 person 216406",
+      "gender": "male"
+    },
+    {
+      "externalId": "206325",
+      "name": "何洛書",
+      "citation": "CBDB 中国历代人物传记资料库 person 206325",
+      "gender": "male",
+      "birth": {
+        "year": 1548
+      }
+    },
+    {
+      "externalId": "216409",
+      "name": "袁氏(何洛書妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 216409",
+      "gender": "female"
+    },
+    {
+      "externalId": "557423",
+      "name": "何氏(王鳳徵妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 557423",
+      "gender": "female"
+    },
+    {
+      "externalId": "557421",
+      "name": "王鳳徵",
+      "citation": "CBDB 中国历代人物传记资料库 person 557421",
+      "gender": "male"
+    },
+    {
+      "externalId": "557424",
+      "name": "王嗣祖",
+      "citation": "CBDB 中国历代人物传记资料库 person 557424",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "272415",
+      "child": "34648"
+    },
+    {
+      "kind": "parent",
+      "parent": "272419",
+      "child": "34648"
+    },
+    {
+      "kind": "spouse",
+      "a": "272420",
+      "b": "34648"
+    },
+    {
+      "kind": "parent",
+      "parent": "34648",
+      "child": "216406"
+    },
+    {
+      "kind": "parent",
+      "parent": "216406",
+      "child": "206325"
+    },
+    {
+      "kind": "spouse",
+      "a": "206325",
+      "b": "216409"
+    },
+    {
+      "kind": "parent",
+      "parent": "206325",
+      "child": "557423"
+    },
+    {
+      "kind": "spouse",
+      "a": "557421",
+      "b": "557423"
+    },
+    {
+      "kind": "parent",
+      "parent": "557423",
+      "child": "557424"
+    }
+  ]
+}

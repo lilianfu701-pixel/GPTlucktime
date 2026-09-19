@@ -1,0 +1,100 @@
+{
+  "key": "cbdb:shanglu",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "226627",
+      "name": "商輅",
+      "citation": "CBDB 中国历代人物传记资料库 person 226627",
+      "gender": "male"
+    },
+    {
+      "externalId": "238839",
+      "name": "盧氏(商輅妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 238839",
+      "gender": "female"
+    },
+    {
+      "externalId": "238837",
+      "name": "商仲瑄",
+      "citation": "CBDB 中国历代人物传记资料库 person 238837",
+      "gender": "male"
+    },
+    {
+      "externalId": "525204",
+      "name": "商霖",
+      "citation": "CBDB 中国历代人物传记资料库 person 525204"
+    },
+    {
+      "externalId": "238838",
+      "name": "解氏(商輅母)",
+      "citation": "CBDB 中国历代人物传记资料库 person 238838",
+      "gender": "female"
+    },
+    {
+      "externalId": "34799",
+      "name": "商良臣",
+      "citation": "CBDB 中国历代人物传记资料库 person 34799",
+      "gender": "male"
+    },
+    {
+      "externalId": "226649",
+      "name": "蔣氏(商良臣妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 226649",
+      "gender": "female"
+    },
+    {
+      "externalId": "226661",
+      "name": "齊氏(商良臣繼妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 226661",
+      "gender": "female"
+    },
+    {
+      "externalId": "525201",
+      "name": "商良年",
+      "citation": "CBDB 中国历代人物传记资料库 person 525201"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "238837",
+      "child": "226627"
+    },
+    {
+      "kind": "parent",
+      "parent": "525204",
+      "child": "226627"
+    },
+    {
+      "kind": "parent",
+      "parent": "238838",
+      "child": "226627"
+    },
+    {
+      "kind": "spouse",
+      "a": "226627",
+      "b": "238839"
+    },
+    {
+      "kind": "parent",
+      "parent": "226627",
+      "child": "34799"
+    },
+    {
+      "kind": "parent",
+      "parent": "226627",
+      "child": "525201"
+    },
+    {
+      "kind": "spouse",
+      "a": "226649",
+      "b": "34799"
+    },
+    {
+      "kind": "spouse",
+      "a": "226661",
+      "b": "34799"
+    }
+  ]
+}

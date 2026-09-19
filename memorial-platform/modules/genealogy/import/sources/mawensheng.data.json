@@ -1,0 +1,64 @@
+{
+  "key": "cbdb:mawensheng",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "33862",
+      "name": "馬文升",
+      "citation": "CBDB 中国历代人物传记资料库 person 33862",
+      "gender": "male",
+      "birth": {
+        "year": 1426
+      },
+      "death": {
+        "year": 1510
+      }
+    },
+    {
+      "externalId": "246397",
+      "name": "項氏(馬文升妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 246397",
+      "gender": "female"
+    },
+    {
+      "externalId": "246364",
+      "name": "馬榮",
+      "citation": "CBDB 中国历代人物传记资料库 person 246364",
+      "gender": "male"
+    },
+    {
+      "externalId": "246386",
+      "name": "王氏(馬文升母)",
+      "citation": "CBDB 中国历代人物传记资料库 person 246386",
+      "gender": "female"
+    },
+    {
+      "externalId": "33863",
+      "name": "馬璁",
+      "citation": "CBDB 中国历代人物传记资料库 person 33863",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "246364",
+      "child": "33862"
+    },
+    {
+      "kind": "parent",
+      "parent": "246386",
+      "child": "33862"
+    },
+    {
+      "kind": "spouse",
+      "a": "246397",
+      "b": "33862"
+    },
+    {
+      "kind": "parent",
+      "parent": "33862",
+      "child": "33863"
+    }
+  ]
+}

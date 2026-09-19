@@ -1,0 +1,75 @@
+{
+  "key": "cbdb:guling",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "34631",
+      "name": "顧璘",
+      "citation": "CBDB 中国历代人物传记资料库 person 34631",
+      "gender": "male",
+      "birth": {
+        "year": 1476
+      },
+      "death": {
+        "year": 1545
+      }
+    },
+    {
+      "externalId": "269338",
+      "name": "沈氏(顧璘妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 269338",
+      "gender": "female"
+    },
+    {
+      "externalId": "34630",
+      "name": "顧紋",
+      "citation": "CBDB 中国历代人物传记资料库 person 34630",
+      "gender": "male"
+    },
+    {
+      "externalId": "269336",
+      "name": "顧紋",
+      "citation": "CBDB 中国历代人物传记资料库 person 269336",
+      "gender": "male"
+    },
+    {
+      "externalId": "269337",
+      "name": "楊氏(顧璘母)",
+      "citation": "CBDB 中国历代人物传记资料库 person 269337",
+      "gender": "female"
+    },
+    {
+      "externalId": "34629",
+      "name": "顧誠",
+      "citation": "CBDB 中国历代人物传记资料库 person 34629",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "34630",
+      "child": "34631"
+    },
+    {
+      "kind": "parent",
+      "parent": "269336",
+      "child": "34631"
+    },
+    {
+      "kind": "parent",
+      "parent": "269337",
+      "child": "34631"
+    },
+    {
+      "kind": "spouse",
+      "a": "269338",
+      "b": "34631"
+    },
+    {
+      "kind": "parent",
+      "parent": "34629",
+      "child": "34630"
+    }
+  ]
+}

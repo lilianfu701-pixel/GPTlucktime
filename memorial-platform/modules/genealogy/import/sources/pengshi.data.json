@@ -1,0 +1,73 @@
+{
+  "key": "cbdb:pengshi",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "33919",
+      "name": "彭時",
+      "citation": "CBDB 中国历代人物传记资料库 person 33919",
+      "gender": "male",
+      "birth": {
+        "year": 1416
+      },
+      "death": {
+        "year": 1475
+      }
+    },
+    {
+      "externalId": "240187",
+      "name": "李氏(彭時妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 240187",
+      "gender": "female"
+    },
+    {
+      "externalId": "240183",
+      "name": "彭毓義",
+      "citation": "CBDB 中国历代人物传记资料库 person 240183",
+      "gender": "male"
+    },
+    {
+      "externalId": "240184",
+      "name": "王氏(彭時母)",
+      "citation": "CBDB 中国历代人物传记资料库 person 240184",
+      "gender": "female"
+    },
+    {
+      "externalId": "525182",
+      "name": "彭䪻",
+      "citation": "CBDB 中国历代人物传记资料库 person 525182"
+    },
+    {
+      "externalId": "525189",
+      "name": "彭頤",
+      "citation": "CBDB 中国历代人物传记资料库 person 525189"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "240183",
+      "child": "33919"
+    },
+    {
+      "kind": "parent",
+      "parent": "240184",
+      "child": "33919"
+    },
+    {
+      "kind": "spouse",
+      "a": "240187",
+      "b": "33919"
+    },
+    {
+      "kind": "parent",
+      "parent": "33919",
+      "child": "525182"
+    },
+    {
+      "kind": "parent",
+      "parent": "33919",
+      "child": "525189"
+    }
+  ]
+}

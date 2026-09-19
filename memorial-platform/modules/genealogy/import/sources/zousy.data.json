@@ -1,0 +1,186 @@
+{
+  "key": "cbdb:zousy",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "132043",
+      "name": "鄒守益",
+      "citation": "CBDB 中国历代人物传记资料库 person 132043",
+      "gender": "male",
+      "birth": {
+        "year": 1491
+      },
+      "death": {
+        "year": 1562
+      }
+    },
+    {
+      "externalId": "275738",
+      "name": "王氏(鄒守益妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 275738",
+      "gender": "female"
+    },
+    {
+      "externalId": "132056",
+      "name": "鄒賢",
+      "citation": "CBDB 中国历代人物传记资料库 person 132056",
+      "gender": "male",
+      "birth": {
+        "year": 1454
+      },
+      "death": {
+        "year": 1516
+      }
+    },
+    {
+      "externalId": "269633",
+      "name": "周氏(鄒賢妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 269633",
+      "gender": "female"
+    },
+    {
+      "externalId": "275736",
+      "name": "鄒賢",
+      "citation": "CBDB 中国历代人物传记资料库 person 275736",
+      "gender": "male"
+    },
+    {
+      "externalId": "275737",
+      "name": "周氏(鄒守益母)",
+      "citation": "CBDB 中国历代人物传记资料库 person 275737",
+      "gender": "female"
+    },
+    {
+      "externalId": "132052",
+      "name": "鄒善",
+      "citation": "CBDB 中国历代人物传记资料库 person 132052",
+      "gender": "male"
+    },
+    {
+      "externalId": "319453",
+      "name": "陳氏(鄒善妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 319453",
+      "gender": "female"
+    },
+    {
+      "externalId": "556663",
+      "name": "鄒善嘉",
+      "citation": "CBDB 中国历代人物传记资料库 person 556663",
+      "gender": "male"
+    },
+    {
+      "externalId": "269631",
+      "name": "鄒思傑",
+      "citation": "CBDB 中国历代人物传记资料库 person 269631",
+      "gender": "male"
+    },
+    {
+      "externalId": "269632",
+      "name": "歐陽氏(鄒賢母)",
+      "citation": "CBDB 中国历代人物传记资料库 person 269632",
+      "gender": "female"
+    },
+    {
+      "externalId": "132058",
+      "name": "鄒德涵",
+      "citation": "CBDB 中国历代人物传记资料库 person 132058",
+      "gender": "male",
+      "birth": {
+        "year": 1538
+      },
+      "death": {
+        "year": 1581
+      }
+    },
+    {
+      "externalId": "208777",
+      "name": "賀氏(鄒德涵妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 208777",
+      "gender": "female"
+    },
+    {
+      "externalId": "132059",
+      "name": "鄒德溥",
+      "citation": "CBDB 中国历代人物传记资料库 person 132059",
+      "gender": "male"
+    },
+    {
+      "externalId": "222372",
+      "name": "趙氏(鄒德溥妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 222372",
+      "gender": "female"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "132056",
+      "child": "132043"
+    },
+    {
+      "kind": "parent",
+      "parent": "275736",
+      "child": "132043"
+    },
+    {
+      "kind": "parent",
+      "parent": "275737",
+      "child": "132043"
+    },
+    {
+      "kind": "spouse",
+      "a": "132043",
+      "b": "275738"
+    },
+    {
+      "kind": "parent",
+      "parent": "132043",
+      "child": "132052"
+    },
+    {
+      "kind": "parent",
+      "parent": "132043",
+      "child": "556663"
+    },
+    {
+      "kind": "parent",
+      "parent": "269631",
+      "child": "132056"
+    },
+    {
+      "kind": "parent",
+      "parent": "269632",
+      "child": "132056"
+    },
+    {
+      "kind": "spouse",
+      "a": "132056",
+      "b": "269633"
+    },
+    {
+      "kind": "spouse",
+      "a": "132052",
+      "b": "319453"
+    },
+    {
+      "kind": "parent",
+      "parent": "132052",
+      "child": "132058"
+    },
+    {
+      "kind": "parent",
+      "parent": "132052",
+      "child": "132059"
+    },
+    {
+      "kind": "spouse",
+      "a": "132058",
+      "b": "208777"
+    },
+    {
+      "kind": "spouse",
+      "a": "132059",
+      "b": "222372"
+    }
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "key": "cbdb:limengyang",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "34624",
+      "name": "李夢陽",
+      "citation": "CBDB 中国历代人物传记资料库 person 34624",
+      "gender": "male",
+      "birth": {
+        "year": 1473
+      },
+      "death": {
+        "year": 1529
+      }
+    },
+    {
+      "externalId": "263978",
+      "name": "左氏(李夢陽妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 263978",
+      "gender": "female"
+    },
+    {
+      "externalId": "34625",
+      "name": "李正",
+      "citation": "CBDB 中国历代人物传记资料库 person 34625",
+      "gender": "male"
+    },
+    {
+      "externalId": "263976",
+      "name": "李正",
+      "citation": "CBDB 中国历代人物传记资料库 person 263976",
+      "gender": "male"
+    },
+    {
+      "externalId": "263977",
+      "name": "高氏(李夢陽母)",
+      "citation": "CBDB 中国历代人物传记资料库 person 263977",
+      "gender": "female"
+    },
+    {
+      "externalId": "34626",
+      "name": "李枝",
+      "citation": "CBDB 中国历代人物传记资料库 person 34626",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "34625",
+      "child": "34624"
+    },
+    {
+      "kind": "parent",
+      "parent": "263976",
+      "child": "34624"
+    },
+    {
+      "kind": "parent",
+      "parent": "263977",
+      "child": "34624"
+    },
+    {
+      "kind": "spouse",
+      "a": "263978",
+      "b": "34624"
+    },
+    {
+      "kind": "parent",
+      "parent": "34624",
+      "child": "34626"
+    }
+  ]
+}
