@@ -1,0 +1,70 @@
+{
+  "key": "cbdb:chengju",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "7007",
+      "name": "程俱",
+      "citation": "CBDB 中国历代人物传记资料库 person 7007",
+      "gender": "male",
+      "birth": {
+        "year": 1078
+      },
+      "death": {
+        "year": 1144
+      }
+    },
+    {
+      "externalId": "7136",
+      "name": "程天民",
+      "citation": "CBDB 中国历代人物传记资料库 person 7136",
+      "gender": "male",
+      "birth": {
+        "year": 1055
+      },
+      "death": {
+        "year": 1086
+      }
+    },
+    {
+      "externalId": "49107",
+      "name": "鄧氏(程俱母)",
+      "citation": "CBDB 中国历代人物传记资料库 person 49107",
+      "gender": "female"
+    },
+    {
+      "externalId": "10417",
+      "name": "程迪",
+      "citation": "CBDB 中国历代人物传记资料库 person 10417",
+      "gender": "male"
+    },
+    {
+      "externalId": "15378",
+      "name": "程伯照",
+      "citation": "CBDB 中国历代人物传记资料库 person 15378",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "7136",
+      "child": "7007"
+    },
+    {
+      "kind": "parent",
+      "parent": "49107",
+      "child": "7007"
+    },
+    {
+      "kind": "parent",
+      "parent": "10417",
+      "child": "7136"
+    },
+    {
+      "kind": "parent",
+      "parent": "15378",
+      "child": "10417"
+    }
+  ]
+}

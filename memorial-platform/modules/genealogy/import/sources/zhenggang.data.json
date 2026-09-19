@@ -1,0 +1,181 @@
+{
+  "key": "cbdb:zhenggang",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "14034",
+      "name": "鄭剛中",
+      "citation": "CBDB 中国历代人物传记资料库 person 14034",
+      "gender": "male",
+      "birth": {
+        "year": 1088
+      },
+      "death": {
+        "year": 1154
+      }
+    },
+    {
+      "externalId": "385728",
+      "name": "石柔中",
+      "citation": "CBDB 中国历代人物传记资料库 person 385728",
+      "gender": "female",
+      "birth": {
+        "year": 1098
+      },
+      "death": {
+        "year": 1177
+      }
+    },
+    {
+      "externalId": "14187",
+      "name": "鄭卞",
+      "citation": "CBDB 中国历代人物传记资料库 person 14187",
+      "gender": "male",
+      "birth": {
+        "year": 1031
+      },
+      "death": {
+        "year": 1105
+      }
+    },
+    {
+      "externalId": "385453",
+      "name": "盛氏(鄭卞妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 385453",
+      "gender": "female"
+    },
+    {
+      "externalId": "385731",
+      "name": "鄭良顯",
+      "citation": "CBDB 中国历代人物传记资料库 person 385731",
+      "gender": "male"
+    },
+    {
+      "externalId": "14188",
+      "name": "鄭良嗣",
+      "citation": "CBDB 中国历代人物传记资料库 person 14188",
+      "gender": "male"
+    },
+    {
+      "externalId": "386046",
+      "name": "鄭氏(章服妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 386046",
+      "gender": "female"
+    },
+    {
+      "externalId": "336",
+      "name": "章服",
+      "citation": "CBDB 中国历代人物传记资料库 person 336",
+      "gender": "male",
+      "birth": {
+        "year": 1106
+      },
+      "death": {
+        "year": 1173
+      }
+    },
+    {
+      "externalId": "14185",
+      "name": "鄭諮",
+      "citation": "CBDB 中国历代人物传记资料库 person 14185",
+      "gender": "male"
+    },
+    {
+      "externalId": "385452",
+      "name": "方氏(鄭諮妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 385452",
+      "gender": "female"
+    },
+    {
+      "externalId": "14189",
+      "name": "鄭樞孫",
+      "citation": "CBDB 中国历代人物传记资料库 person 14189",
+      "gender": "male"
+    },
+    {
+      "externalId": "14190",
+      "name": "鄭莊孫",
+      "citation": "CBDB 中国历代人物传记资料库 person 14190",
+      "gender": "male"
+    },
+    {
+      "externalId": "14186",
+      "name": "鄭克允",
+      "citation": "CBDB 中国历代人物传记资料库 person 14186",
+      "gender": "male"
+    },
+    {
+      "externalId": "14178",
+      "name": "鄭百樂",
+      "citation": "CBDB 中国历代人物传记资料库 person 14178",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "14187",
+      "child": "14034"
+    },
+    {
+      "kind": "spouse",
+      "a": "14034",
+      "b": "385728"
+    },
+    {
+      "kind": "parent",
+      "parent": "14034",
+      "child": "385731"
+    },
+    {
+      "kind": "parent",
+      "parent": "14034",
+      "child": "14188"
+    },
+    {
+      "kind": "parent",
+      "parent": "14034",
+      "child": "386046"
+    },
+    {
+      "kind": "parent",
+      "parent": "14185",
+      "child": "14187"
+    },
+    {
+      "kind": "parent",
+      "parent": "385452",
+      "child": "14187"
+    },
+    {
+      "kind": "spouse",
+      "a": "14187",
+      "b": "385453"
+    },
+    {
+      "kind": "parent",
+      "parent": "14188",
+      "child": "14189"
+    },
+    {
+      "kind": "parent",
+      "parent": "14188",
+      "child": "14190"
+    },
+    {
+      "kind": "spouse",
+      "a": "336",
+      "b": "386046"
+    },
+    {
+      "kind": "parent",
+      "parent": "14186",
+      "child": "14185"
+    },
+    {
+      "kind": "parent",
+      "parent": "14178",
+      "child": "14186"
+    }
+  ]
+}

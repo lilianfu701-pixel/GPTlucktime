@@ -1,0 +1,53 @@
+{
+  "key": "cbdb:xuxuan",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "12236",
+      "name": "徐鉉",
+      "citation": "CBDB 中国历代人物传记资料库 person 12236",
+      "gender": "male",
+      "birth": {
+        "year": 916
+      },
+      "death": {
+        "year": 991
+      }
+    },
+    {
+      "externalId": "12235",
+      "name": "徐延休",
+      "citation": "CBDB 中国历代人物传记资料库 person 12235",
+      "gender": "male"
+    },
+    {
+      "externalId": "12234",
+      "name": "徐徽",
+      "citation": "CBDB 中国历代人物传记资料库 person 12234",
+      "gender": "male"
+    },
+    {
+      "externalId": "12233",
+      "name": "徐源",
+      "citation": "CBDB 中国历代人物传记资料库 person 12233",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "12235",
+      "child": "12236"
+    },
+    {
+      "kind": "parent",
+      "parent": "12234",
+      "child": "12235"
+    },
+    {
+      "kind": "parent",
+      "parent": "12233",
+      "child": "12234"
+    }
+  ]
+}

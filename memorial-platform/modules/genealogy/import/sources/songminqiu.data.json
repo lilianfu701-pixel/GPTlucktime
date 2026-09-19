@@ -1,0 +1,165 @@
+{
+  "key": "cbdb:songminqiu",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "1571",
+      "name": "宋敏求",
+      "citation": "CBDB 中国历代人物传记资料库 person 1571",
+      "gender": "male",
+      "birth": {
+        "year": 1019
+      },
+      "death": {
+        "year": 1079
+      }
+    },
+    {
+      "externalId": "1575",
+      "name": "宋綬",
+      "citation": "CBDB 中国历代人物传记资料库 person 1575",
+      "gender": "male",
+      "birth": {
+        "year": 991
+      },
+      "death": {
+        "year": 1040
+      }
+    },
+    {
+      "externalId": "3791",
+      "name": "宋慶曾",
+      "citation": "CBDB 中国历代人物传记资料库 person 3791",
+      "gender": "male",
+      "birth": {
+        "year": 1038
+      },
+      "death": {
+        "year": 1102
+      }
+    },
+    {
+      "externalId": "18410",
+      "name": "宋表微",
+      "citation": "CBDB 中国历代人物传记资料库 person 18410",
+      "gender": "male"
+    },
+    {
+      "externalId": "12940",
+      "name": "宋皋",
+      "citation": "CBDB 中国历代人物传记资料库 person 12940",
+      "gender": "male"
+    },
+    {
+      "externalId": "34044",
+      "name": "宋焞",
+      "citation": "CBDB 中国历代人物传记资料库 person 34044",
+      "gender": "male"
+    },
+    {
+      "externalId": "1568",
+      "name": "宋煇",
+      "citation": "CBDB 中国历代人物传记资料库 person 1568",
+      "gender": "male"
+    },
+    {
+      "externalId": "18411",
+      "name": "宋炤",
+      "citation": "CBDB 中国历代人物传记资料库 person 18411",
+      "gender": "male"
+    },
+    {
+      "externalId": "12939",
+      "name": "宋龜符",
+      "citation": "CBDB 中国历代人物传记资料库 person 12939",
+      "gender": "male"
+    },
+    {
+      "externalId": "18412",
+      "name": "宋坦",
+      "citation": "CBDB 中国历代人物传记资料库 person 18412",
+      "gender": "male"
+    },
+    {
+      "externalId": "18413",
+      "name": "宋紹恭",
+      "citation": "CBDB 中国历代人物传记资料库 person 18413",
+      "gender": "male",
+      "birth": {
+        "year": 1132
+      },
+      "death": {
+        "year": 1216
+      }
+    },
+    {
+      "externalId": "18414",
+      "name": "宋駒",
+      "citation": "CBDB 中国历代人物传记资料库 person 18414",
+      "gender": "male",
+      "birth": {
+        "year": 1159
+      },
+      "death": {
+        "year": 1220
+      }
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "1575",
+      "child": "1571"
+    },
+    {
+      "kind": "parent",
+      "parent": "1571",
+      "child": "3791"
+    },
+    {
+      "kind": "parent",
+      "parent": "1571",
+      "child": "18410"
+    },
+    {
+      "kind": "parent",
+      "parent": "12940",
+      "child": "1575"
+    },
+    {
+      "kind": "parent",
+      "parent": "3791",
+      "child": "34044"
+    },
+    {
+      "kind": "parent",
+      "parent": "3791",
+      "child": "1568"
+    },
+    {
+      "kind": "parent",
+      "parent": "18410",
+      "child": "18411"
+    },
+    {
+      "kind": "parent",
+      "parent": "12939",
+      "child": "12940"
+    },
+    {
+      "kind": "parent",
+      "parent": "18411",
+      "child": "18412"
+    },
+    {
+      "kind": "parent",
+      "parent": "18412",
+      "child": "18413"
+    },
+    {
+      "kind": "parent",
+      "parent": "18413",
+      "child": "18414"
+    }
+  ]
+}

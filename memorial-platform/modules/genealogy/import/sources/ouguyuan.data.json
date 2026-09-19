@@ -1,0 +1,87 @@
+{
+  "key": "cbdb:ouguyuan",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "10815",
+      "name": "歐陽玄",
+      "citation": "CBDB 中国历代人物传记资料库 person 10815",
+      "gender": "male",
+      "birth": {
+        "year": 1283
+      },
+      "death": {
+        "year": 1357
+      }
+    },
+    {
+      "externalId": "10814",
+      "name": "歐陽龍生",
+      "citation": "CBDB 中国历代人物传记资料库 person 10814",
+      "gender": "male",
+      "birth": {
+        "year": 1252
+      },
+      "death": {
+        "year": 1308
+      }
+    },
+    {
+      "externalId": "10816",
+      "name": "歐陽達老",
+      "citation": "CBDB 中国历代人物传记资料库 person 10816",
+      "gender": "male",
+      "birth": {
+        "year": 1319
+      },
+      "death": {
+        "year": 1340
+      }
+    },
+    {
+      "externalId": "10813",
+      "name": "歐陽逢泰",
+      "citation": "CBDB 中国历代人物传记资料库 person 10813",
+      "gender": "male"
+    },
+    {
+      "externalId": "10812",
+      "name": "歐陽新",
+      "citation": "CBDB 中国历代人物传记资料库 person 10812",
+      "gender": "male"
+    },
+    {
+      "externalId": "10811",
+      "name": "歐陽安時",
+      "citation": "CBDB 中国历代人物传记资料库 person 10811",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "10814",
+      "child": "10815"
+    },
+    {
+      "kind": "parent",
+      "parent": "10815",
+      "child": "10816"
+    },
+    {
+      "kind": "parent",
+      "parent": "10813",
+      "child": "10814"
+    },
+    {
+      "kind": "parent",
+      "parent": "10812",
+      "child": "10813"
+    },
+    {
+      "kind": "parent",
+      "parent": "10811",
+      "child": "10812"
+    }
+  ]
+}

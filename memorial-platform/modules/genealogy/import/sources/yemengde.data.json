@@ -1,0 +1,70 @@
+{
+  "key": "cbdb:yemengde",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "2054",
+      "name": "葉夢得",
+      "citation": "CBDB 中国历代人物传记资料库 person 2054",
+      "gender": "male",
+      "birth": {
+        "year": 1077
+      },
+      "death": {
+        "year": 1148
+      }
+    },
+    {
+      "externalId": "22670",
+      "name": "葉助",
+      "citation": "CBDB 中国历代人物传记资料库 person 22670",
+      "gender": "male"
+    },
+    {
+      "externalId": "49852",
+      "name": "晁氏(葉助妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 49852",
+      "gender": "female",
+      "birth": {
+        "year": 1052
+      },
+      "death": {
+        "year": 1081
+      }
+    },
+    {
+      "externalId": "49797",
+      "name": "葉模",
+      "citation": "CBDB 中国历代人物传记资料库 person 49797",
+      "gender": "male"
+    },
+    {
+      "externalId": "4070",
+      "name": "葉義叟",
+      "citation": "CBDB 中国历代人物传记资料库 person 4070",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "22670",
+      "child": "2054"
+    },
+    {
+      "kind": "parent",
+      "parent": "49852",
+      "child": "2054"
+    },
+    {
+      "kind": "parent",
+      "parent": "2054",
+      "child": "49797"
+    },
+    {
+      "kind": "parent",
+      "parent": "4070",
+      "child": "22670"
+    }
+  ]
+}

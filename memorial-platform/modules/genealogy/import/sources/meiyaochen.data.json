@@ -1,0 +1,87 @@
+{
+  "key": "cbdb:meiyaochen",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "7059",
+      "name": "梅堯臣",
+      "citation": "CBDB 中国历代人物传记资料库 person 7059",
+      "gender": "male",
+      "birth": {
+        "year": 1002
+      },
+      "death": {
+        "year": 1060
+      }
+    },
+    {
+      "externalId": "5090",
+      "name": "謝氏(梅堯臣妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 5090",
+      "gender": "female",
+      "birth": {
+        "year": 1008
+      },
+      "death": {
+        "year": 1044
+      }
+    },
+    {
+      "externalId": "18529",
+      "name": "梅讓",
+      "citation": "CBDB 中国历代人物传记资料库 person 18529",
+      "gender": "male",
+      "birth": {
+        "year": 959
+      },
+      "death": {
+        "year": 1049
+      }
+    },
+    {
+      "externalId": "18528",
+      "name": "梅邈",
+      "citation": "CBDB 中国历代人物传记资料库 person 18528",
+      "gender": "male"
+    },
+    {
+      "externalId": "18527",
+      "name": "梅遠",
+      "citation": "CBDB 中国历代人物传记资料库 person 18527",
+      "gender": "male"
+    },
+    {
+      "externalId": "18526",
+      "name": "梅超",
+      "citation": "CBDB 中国历代人物传记资料库 person 18526",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "18529",
+      "child": "7059"
+    },
+    {
+      "kind": "spouse",
+      "a": "5090",
+      "b": "7059"
+    },
+    {
+      "kind": "parent",
+      "parent": "18528",
+      "child": "18529"
+    },
+    {
+      "kind": "parent",
+      "parent": "18527",
+      "child": "18528"
+    },
+    {
+      "kind": "parent",
+      "parent": "18526",
+      "child": "18527"
+    }
+  ]
+}

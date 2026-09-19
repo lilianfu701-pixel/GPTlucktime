@@ -1,0 +1,75 @@
+{
+  "key": "cbdb:kongdaofu",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "15939",
+      "name": "孔道輔",
+      "citation": "CBDB 中国历代人物传记资料库 person 15939",
+      "gender": "male",
+      "birth": {
+        "year": 986
+      },
+      "death": {
+        "year": 1039
+      }
+    },
+    {
+      "externalId": "37743",
+      "name": "孔勗",
+      "citation": "CBDB 中国历代人物传记资料库 person 37743",
+      "gender": "male"
+    },
+    {
+      "externalId": "15940",
+      "name": "孔陶",
+      "citation": "CBDB 中国历代人物传记资料库 person 15940",
+      "gender": "male"
+    },
+    {
+      "externalId": "15941",
+      "name": "孔宗翰",
+      "citation": "CBDB 中国历代人物传记资料库 person 15941",
+      "gender": "male"
+    },
+    {
+      "externalId": "15930",
+      "name": "孔仁玉",
+      "citation": "CBDB 中国历代人物传记资料库 person 15930",
+      "gender": "male"
+    },
+    {
+      "externalId": "15929",
+      "name": "孔光嗣",
+      "citation": "CBDB 中国历代人物传记资料库 person 15929",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "37743",
+      "child": "15939"
+    },
+    {
+      "kind": "parent",
+      "parent": "15939",
+      "child": "15940"
+    },
+    {
+      "kind": "parent",
+      "parent": "15939",
+      "child": "15941"
+    },
+    {
+      "kind": "parent",
+      "parent": "15930",
+      "child": "37743"
+    },
+    {
+      "kind": "parent",
+      "parent": "15929",
+      "child": "15930"
+    }
+  ]
+}

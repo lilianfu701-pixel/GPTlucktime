@@ -1,0 +1,238 @@
+{
+  "key": "cbdb:diaokan",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "3842",
+      "name": "刁衎",
+      "citation": "CBDB 中国历代人物传记资料库 person 3842",
+      "gender": "male",
+      "birth": {
+        "year": 945
+      },
+      "death": {
+        "year": 1013
+      }
+    },
+    {
+      "externalId": "11925",
+      "name": "刁彥能",
+      "citation": "CBDB 中国历代人物传记资料库 person 11925",
+      "gender": "male"
+    },
+    {
+      "externalId": "1634",
+      "name": "刁湛",
+      "citation": "CBDB 中国历代人物传记资料库 person 1634",
+      "gender": "male",
+      "birth": {
+        "year": 971
+      },
+      "death": {
+        "year": 1049
+      }
+    },
+    {
+      "externalId": "3844",
+      "name": "刁湜",
+      "citation": "CBDB 中国历代人物传记资料库 person 3844",
+      "gender": "male"
+    },
+    {
+      "externalId": "11926",
+      "name": "刁渭",
+      "citation": "CBDB 中国历代人物传记资料库 person 11926",
+      "gender": "male"
+    },
+    {
+      "externalId": "43387",
+      "name": "刁氏(胥偃妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 43387",
+      "gender": "female"
+    },
+    {
+      "externalId": "7116",
+      "name": "胥偃",
+      "citation": "CBDB 中国历代人物传记资料库 person 7116",
+      "gender": "male",
+      "birth": {
+        "year": 983
+      },
+      "death": {
+        "year": 1039
+      }
+    },
+    {
+      "externalId": "34130",
+      "name": "刁綈",
+      "citation": "CBDB 中国历代人物传记资料库 person 34130",
+      "gender": "male"
+    },
+    {
+      "externalId": "11941",
+      "name": "刁繹",
+      "citation": "CBDB 中国历代人物传记资料库 person 11941",
+      "gender": "male"
+    },
+    {
+      "externalId": "1635",
+      "name": "刁約",
+      "citation": "CBDB 中国历代人物传记资料库 person 1635",
+      "gender": "male",
+      "birth": {
+        "year": 1004
+      },
+      "death": {
+        "year": 1083
+      }
+    },
+    {
+      "externalId": "11942",
+      "name": "刁紡",
+      "citation": "CBDB 中国历代人物传记资料库 person 11942",
+      "gender": "male"
+    },
+    {
+      "externalId": "3845",
+      "name": "刁綬",
+      "citation": "CBDB 中国历代人物传记资料库 person 3845",
+      "gender": "male"
+    },
+    {
+      "externalId": "11940",
+      "name": "刁A",
+      "citation": "CBDB 中国历代人物传记资料库 person 11940",
+      "gender": "male",
+      "birth": {
+        "year": 1005
+      },
+      "death": {
+        "year": 1065
+      }
+    },
+    {
+      "externalId": "3374",
+      "name": "胥元衡",
+      "citation": "CBDB 中国历代人物传记资料库 person 3374",
+      "gender": "male",
+      "birth": {
+        "year": 1028
+      },
+      "death": {
+        "year": 1066
+      }
+    },
+    {
+      "externalId": "43393",
+      "name": "韓氏(胥元衡妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 43393",
+      "gender": "female"
+    },
+    {
+      "externalId": "7245",
+      "name": "胥茂諶",
+      "citation": "CBDB 中国历代人物传记资料库 person 7245",
+      "gender": "male",
+      "birth": {
+        "year": 1045
+      },
+      "death": {
+        "year": 1075
+      }
+    },
+    {
+      "externalId": "5394",
+      "name": "謝氏(胥茂諶妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 5394",
+      "gender": "female",
+      "birth": {
+        "year": 1045
+      },
+      "death": {
+        "year": 1075
+      }
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "11925",
+      "child": "3842"
+    },
+    {
+      "kind": "parent",
+      "parent": "3842",
+      "child": "1634"
+    },
+    {
+      "kind": "parent",
+      "parent": "3842",
+      "child": "3844"
+    },
+    {
+      "kind": "parent",
+      "parent": "3842",
+      "child": "11926"
+    },
+    {
+      "kind": "parent",
+      "parent": "1634",
+      "child": "43387"
+    },
+    {
+      "kind": "parent",
+      "parent": "1634",
+      "child": "34130"
+    },
+    {
+      "kind": "parent",
+      "parent": "1634",
+      "child": "11941"
+    },
+    {
+      "kind": "parent",
+      "parent": "1634",
+      "child": "1635"
+    },
+    {
+      "kind": "parent",
+      "parent": "1634",
+      "child": "11942"
+    },
+    {
+      "kind": "parent",
+      "parent": "3844",
+      "child": "3845"
+    },
+    {
+      "kind": "parent",
+      "parent": "3844",
+      "child": "11940"
+    },
+    {
+      "kind": "spouse",
+      "a": "43387",
+      "b": "7116"
+    },
+    {
+      "kind": "parent",
+      "parent": "43387",
+      "child": "3374"
+    },
+    {
+      "kind": "spouse",
+      "a": "3374",
+      "b": "43393"
+    },
+    {
+      "kind": "parent",
+      "parent": "3374",
+      "child": "7245"
+    },
+    {
+      "kind": "spouse",
+      "a": "5394",
+      "b": "7245"
+    }
+  ]
+}

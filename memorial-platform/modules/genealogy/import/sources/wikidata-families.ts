@@ -212,6 +212,17 @@ import suweidao from "./suweidao.data.json";
 import liufen from "./liufen.data.json";
 import liugong from "./liugong.data.json";
 import xiaoying from "./xiaoying.data.json";
+// CBDB 第十二批（五代/北宋/南宋/元代·文学官员）
+import songminqiu from "./songminqiu.data.json";
+import meiyaochen from "./meiyaochen.data.json";
+import kongdaofu from "./kongdaofu.data.json";
+import fuzhaochao from "./fuzhaochao.data.json";
+import yemengde from "./yemengde.data.json";
+import zhenggang from "./zhenggang.data.json";
+import xuxuan from "./xuxuan.data.json";
+import ouguyuan from "./ouguyuan.data.json";
+import diaokan from "./diaokan.data.json";
+import chengju from "./chengju.data.json";
 // CBDB 第十一批（五代/北宋宰相 + 北宋名臣）
 import fanzhi from "./fanzhi.data.json";
 import lduoduo from "./lduoduo.data.json";
@@ -554,6 +565,17 @@ const FAMILIES: { key: string; label: string; dataset: GenealogyDataset }[] = [
   { key: "liufen", label: "河东柳氏·柳芬支（柳懿·柳均·南北朝到唐）", dataset: liufen as GenealogyDataset },
   { key: "liugong", label: "河东柳氏·柳公权支（书法家·柳瑗·柳仲憲）", dataset: liugong as GenealogyDataset },
   { key: "xiaoying", label: "兰陵萧氏·萧颖士支（萧道赐·萧恢·南朝到唐）", dataset: xiaoying as GenealogyDataset },
+  // CBDB 第十二批：五代/北宋/南宋/元代文学官员
+  { key: "songminqiu", label: "京兆宋氏·宋敏求支（北宋史学家·档案学家·1019-1079）", dataset: songminqiu as GenealogyDataset },
+  { key: "meiyaochen", label: "宣城梅氏·梅尧臣支（北宋诗人·宛陵先生·1002-1060）", dataset: meiyaochen as GenealogyDataset },
+  { key: "kongdaofu", label: "曲阜孔氏·孔道辅支（北宋官员·孔子后裔·990-1041）", dataset: kongdaofu as GenealogyDataset },
+  { key: "fuzhaochao", label: "遂州傅氏·傅尧俞支（北宋官员·直言敢谏·1024-1091）", dataset: fuzhaochao as GenealogyDataset },
+  { key: "yemengde", label: "丹阳叶氏·叶梦得支（南宋词人·避暑录话·1077-1148）", dataset: yemengde as GenealogyDataset },
+  { key: "zhenggang", label: "浦江郑氏·郑刚中支（南宋官员·书写北事·1088-1154）", dataset: zhenggang as GenealogyDataset },
+  { key: "xuxuan", label: "广陵徐氏·徐铉支（五代/北宋书法家·916-991）", dataset: xuxuan as GenealogyDataset },
+  { key: "ouguyuan", label: "庐陵欧阳氏·欧阳玄支（元代学者/文学家·1283-1357）", dataset: ouguyuan as GenealogyDataset },
+  { key: "diaokan", label: "渤海刁氏·刁衎支（五代/北宋官员·903-970）", dataset: diaokan as GenealogyDataset },
+  { key: "chengju", label: "吴兴程氏·程俱支（南宋官员/文学家·1078-1144）", dataset: chengju as GenealogyDataset },
   // CBDB 第十一批：五代/北宋宰相 + 北宋名臣
   { key: "fanzhi", label: "范阳范氏·范质支（五代/北宋宰相·911-964）", dataset: fanzhi as GenealogyDataset },
   { key: "lduoduo", label: "范阳卢氏·卢多逊支（北宋宰相·934-985）", dataset: lduoduo as GenealogyDataset },

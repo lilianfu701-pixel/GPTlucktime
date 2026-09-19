@@ -1,0 +1,81 @@
+{
+  "key": "cbdb:fuzhaochao",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "627",
+      "name": "傅堯俞",
+      "citation": "CBDB 中国历代人物传记资料库 person 627",
+      "gender": "male"
+    },
+    {
+      "externalId": "3307",
+      "name": "傅立",
+      "citation": "CBDB 中国历代人物传记资料库 person 3307",
+      "gender": "male",
+      "birth": {
+        "year": 994
+      },
+      "death": {
+        "year": 1059
+      }
+    },
+    {
+      "externalId": "3306",
+      "name": "傅珏",
+      "citation": "CBDB 中国历代人物传记资料库 person 3306",
+      "gender": "male",
+      "birth": {
+        "year": 972
+      },
+      "death": {
+        "year": 1032
+      }
+    },
+    {
+      "externalId": "3308",
+      "name": "傅世隆",
+      "citation": "CBDB 中国历代人物传记资料库 person 3308",
+      "gender": "male"
+    },
+    {
+      "externalId": "14440",
+      "name": "傅凝",
+      "citation": "CBDB 中国历代人物传记资料库 person 14440",
+      "gender": "male"
+    },
+    {
+      "externalId": "14439",
+      "name": "傅思進",
+      "citation": "CBDB 中国历代人物传记资料库 person 14439",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "3307",
+      "child": "627"
+    },
+    {
+      "kind": "parent",
+      "parent": "3306",
+      "child": "3307"
+    },
+    {
+      "kind": "parent",
+      "parent": "3308",
+      "child": "3306"
+    },
+    {
+      "kind": "parent",
+      "parent": "14440",
+      "child": "3308"
+    },
+    {
+      "kind": "parent",
+      "parent": "14439",
+      "child": "14440"
+    }
+  ]
+}
