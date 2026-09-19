@@ -1,0 +1,40 @@
+{
+  "key": "cbdb:zhuyizun",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "66032",
+      "name": "朱彝尊",
+      "citation": "CBDB 中国历代人物传记资料库 person 66032",
+      "gender": "male",
+      "birth": {
+        "year": 1629
+      },
+      "death": {
+        "year": 1709
+      }
+    },
+    {
+      "externalId": "522986",
+      "name": "馮福貞",
+      "citation": "CBDB 中国历代人物传记资料库 person 522986"
+    },
+    {
+      "externalId": "522980",
+      "name": "朱茂曙",
+      "citation": "CBDB 中国历代人物传记资料库 person 522980"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "522980",
+      "child": "66032"
+    },
+    {
+      "kind": "spouse",
+      "a": "522986",
+      "b": "66032"
+    }
+  ]
+}

@@ -1,0 +1,184 @@
+{
+  "key": "cbdb:wansitong",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "34178",
+      "name": "萬斯同",
+      "citation": "CBDB 中国历代人物传记资料库 person 34178",
+      "gender": "male",
+      "birth": {
+        "year": 1638
+      },
+      "death": {
+        "year": 1702
+      }
+    },
+    {
+      "externalId": "34161",
+      "name": "萬泰",
+      "citation": "CBDB 中国历代人物传记资料库 person 34161",
+      "gender": "male",
+      "birth": {
+        "year": 1598
+      },
+      "death": {
+        "year": 1657
+      }
+    },
+    {
+      "externalId": "522897",
+      "name": "萬世楷",
+      "citation": "CBDB 中国历代人物传记资料库 person 522897"
+    },
+    {
+      "externalId": "522898",
+      "name": "萬世標",
+      "citation": "CBDB 中国历代人物传记资料库 person 522898"
+    },
+    {
+      "externalId": "34148",
+      "name": "萬邦孚",
+      "citation": "CBDB 中国历代人物传记资料库 person 34148",
+      "gender": "male",
+      "birth": {
+        "year": 1544
+      },
+      "death": {
+        "year": 1628
+      }
+    },
+    {
+      "externalId": "34167",
+      "name": "萬達甫",
+      "citation": "CBDB 中国历代人物传记资料库 person 34167",
+      "gender": "male"
+    },
+    {
+      "externalId": "34166",
+      "name": "萬表",
+      "citation": "CBDB 中国历代人物传记资料库 person 34166",
+      "gender": "male",
+      "birth": {
+        "year": 1498
+      },
+      "death": {
+        "year": 1556
+      }
+    },
+    {
+      "externalId": "122759",
+      "name": "萬椿",
+      "citation": "CBDB 中国历代人物传记资料库 person 122759",
+      "gender": "male"
+    },
+    {
+      "externalId": "703076",
+      "name": "萬禧",
+      "citation": "CBDB 中国历代人物传记资料库 person 703076",
+      "gender": "male"
+    },
+    {
+      "externalId": "703074",
+      "name": "萬全",
+      "citation": "CBDB 中国历代人物传记资料库 person 703074",
+      "gender": "male"
+    },
+    {
+      "externalId": "34164",
+      "name": "萬武",
+      "citation": "CBDB 中国历代人物传记资料库 person 34164",
+      "gender": "male"
+    },
+    {
+      "externalId": "703075",
+      "name": "吳氏(萬全母)",
+      "citation": "CBDB 中国历代人物传记资料库 person 703075",
+      "gender": "female"
+    },
+    {
+      "externalId": "34163",
+      "name": "萬鍾",
+      "citation": "CBDB 中国历代人物传记资料库 person 34163",
+      "gender": "male"
+    },
+    {
+      "externalId": "34162",
+      "name": "萬斌",
+      "citation": "CBDB 中国历代人物传记资料库 person 34162",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "34161",
+      "child": "34178"
+    },
+    {
+      "kind": "parent",
+      "parent": "34178",
+      "child": "522897"
+    },
+    {
+      "kind": "parent",
+      "parent": "34178",
+      "child": "522898"
+    },
+    {
+      "kind": "parent",
+      "parent": "34148",
+      "child": "34161"
+    },
+    {
+      "kind": "parent",
+      "parent": "34167",
+      "child": "34148"
+    },
+    {
+      "kind": "parent",
+      "parent": "34166",
+      "child": "34167"
+    },
+    {
+      "kind": "parent",
+      "parent": "122759",
+      "child": "34166"
+    },
+    {
+      "kind": "parent",
+      "parent": "703076",
+      "child": "122759"
+    },
+    {
+      "kind": "parent",
+      "parent": "703074",
+      "child": "703076"
+    },
+    {
+      "kind": "parent",
+      "parent": "34164",
+      "child": "703074"
+    },
+    {
+      "kind": "parent",
+      "parent": "703075",
+      "child": "703074"
+    },
+    {
+      "kind": "parent",
+      "parent": "34163",
+      "child": "34164"
+    },
+    {
+      "kind": "spouse",
+      "a": "34164",
+      "b": "703075"
+    },
+    {
+      "kind": "parent",
+      "parent": "34162",
+      "child": "34163"
+    }
+  ]
+}

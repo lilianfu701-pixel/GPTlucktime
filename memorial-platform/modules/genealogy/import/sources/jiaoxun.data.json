@@ -1,0 +1,220 @@
+{
+  "key": "cbdb:jiaoxun",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "29794",
+      "name": "焦循",
+      "citation": "CBDB 中国历代人物传记资料库 person 29794",
+      "gender": "male",
+      "birth": {
+        "year": 1763
+      },
+      "death": {
+        "year": 1820
+      }
+    },
+    {
+      "externalId": "29795",
+      "name": "焦蔥",
+      "citation": "CBDB 中国历代人物传记资料库 person 29795",
+      "gender": "male",
+      "birth": {
+        "year": 1722
+      },
+      "death": {
+        "year": 1785
+      }
+    },
+    {
+      "externalId": "29837",
+      "name": "謝氏(謝銓女)",
+      "citation": "CBDB 中国历代人物传记资料库 person 29837",
+      "gender": "female",
+      "birth": {
+        "year": 1720
+      },
+      "death": {
+        "year": 1785
+      }
+    },
+    {
+      "externalId": "29840",
+      "name": "殷孺人",
+      "citation": "CBDB 中国历代人物传记资料库 person 29840",
+      "gender": "female",
+      "birth": {
+        "year": 1740
+      },
+      "death": {
+        "year": 1805
+      }
+    },
+    {
+      "externalId": "522337",
+      "name": "焦葱",
+      "citation": "CBDB 中国历代人物传记资料库 person 522337"
+    },
+    {
+      "externalId": "29829",
+      "name": "焦廷琥",
+      "citation": "CBDB 中国历代人物传记资料库 person 29829",
+      "gender": "male",
+      "birth": {
+        "year": 1783
+      },
+      "death": {
+        "year": 1821
+      }
+    },
+    {
+      "externalId": "29830",
+      "name": "焦廷繡",
+      "citation": "CBDB 中国历代人物传记资料库 person 29830",
+      "gender": "male",
+      "birth": {
+        "year": 1792
+      },
+      "death": {
+        "year": 1795
+      }
+    },
+    {
+      "externalId": "29796",
+      "name": "焦鏡",
+      "citation": "CBDB 中国历代人物传记资料库 person 29796",
+      "gender": "male"
+    },
+    {
+      "externalId": "29831",
+      "name": "焦貴齡",
+      "citation": "CBDB 中国历代人物传记资料库 person 29831",
+      "gender": "male",
+      "birth": {
+        "year": 1802
+      },
+      "death": {
+        "year": 1805
+      }
+    },
+    {
+      "externalId": "29832",
+      "name": "焦授易",
+      "citation": "CBDB 中国历代人物传记资料库 person 29832",
+      "gender": "male"
+    },
+    {
+      "externalId": "29833",
+      "name": "焦授書",
+      "citation": "CBDB 中国历代人物传记资料库 person 29833",
+      "gender": "male"
+    },
+    {
+      "externalId": "29834",
+      "name": "焦授詩",
+      "citation": "CBDB 中国历代人物传记资料库 person 29834",
+      "gender": "male"
+    },
+    {
+      "externalId": "29797",
+      "name": "焦源",
+      "citation": "CBDB 中国历代人物传记资料库 person 29797",
+      "gender": "male"
+    },
+    {
+      "externalId": "29798",
+      "name": "焦明暘",
+      "citation": "CBDB 中国历代人物传记资料库 person 29798",
+      "gender": "male"
+    },
+    {
+      "externalId": "29799",
+      "name": "焦文科",
+      "citation": "CBDB 中国历代人物传记资料库 person 29799",
+      "gender": "male"
+    },
+    {
+      "externalId": "29800",
+      "name": "焦A",
+      "citation": "CBDB 中国历代人物传记资料库 person 29800",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "29795",
+      "child": "29794"
+    },
+    {
+      "kind": "parent",
+      "parent": "522337",
+      "child": "29794"
+    },
+    {
+      "kind": "parent",
+      "parent": "29794",
+      "child": "29829"
+    },
+    {
+      "kind": "parent",
+      "parent": "29794",
+      "child": "29830"
+    },
+    {
+      "kind": "parent",
+      "parent": "29796",
+      "child": "29795"
+    },
+    {
+      "kind": "spouse",
+      "a": "29795",
+      "b": "29837"
+    },
+    {
+      "kind": "spouse",
+      "a": "29795",
+      "b": "29840"
+    },
+    {
+      "kind": "parent",
+      "parent": "29829",
+      "child": "29831"
+    },
+    {
+      "kind": "parent",
+      "parent": "29829",
+      "child": "29832"
+    },
+    {
+      "kind": "parent",
+      "parent": "29829",
+      "child": "29833"
+    },
+    {
+      "kind": "parent",
+      "parent": "29829",
+      "child": "29834"
+    },
+    {
+      "kind": "parent",
+      "parent": "29797",
+      "child": "29796"
+    },
+    {
+      "kind": "parent",
+      "parent": "29798",
+      "child": "29797"
+    },
+    {
+      "kind": "parent",
+      "parent": "29799",
+      "child": "29798"
+    },
+    {
+      "kind": "parent",
+      "parent": "29800",
+      "child": "29799"
+    }
+  ]
+}

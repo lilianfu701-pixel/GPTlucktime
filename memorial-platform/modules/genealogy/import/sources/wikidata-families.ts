@@ -212,6 +212,15 @@ import suweidao from "./suweidao.data.json";
 import liufen from "./liufen.data.json";
 import liugong from "./liugong.data.json";
 import xiaoying from "./xiaoying.data.json";
+// CBDB 第二十七批（北宋新法·南宋理学·清代学术世家）
+import lvhuiqing from "./lvhuiqing.data.json";
+import zhendexiu from "./zhendexiu.data.json";
+import jiangtingxi from "./jiangtingxi.data.json";
+import wansitong from "./wansitong.data.json";
+import jiaoxun from "./jiaoxun.data.json";
+import wangmingsheng from "./wangmingsheng.data.json";
+import zhuyizun from "./zhuyizun.data.json";
+import maoqiling from "./maoqiling.data.json";
 // CBDB 第二十六批（明末清初学人志士·清初遗老）
 import luxiangsheng from "./luxiangsheng.data.json";
 import sunchengzong from "./sunchengzong.data.json";
@@ -676,6 +685,15 @@ const FAMILIES: { key: string; label: string; dataset: GenealogyDataset }[] = [
   { key: "liufen", label: "河东柳氏·柳芬支（柳懿·柳均·南北朝到唐）", dataset: liufen as GenealogyDataset },
   { key: "liugong", label: "河东柳氏·柳公权支（书法家·柳瑗·柳仲憲）", dataset: liugong as GenealogyDataset },
   { key: "xiaoying", label: "兰陵萧氏·萧颖士支（萧道赐·萧恢·南朝到唐）", dataset: xiaoying as GenealogyDataset },
+  // CBDB 第二十七批：北宋新法·南宋理学·清代学术世家
+  { key: "lvhuiqing", label: "泉州吕氏·吕惠卿支（北宋变法派·1032-1111·3人）", dataset: lvhuiqing as GenealogyDataset },
+  { key: "zhendexiu", label: "浦城真氏·真德秀支（南宋理学家·1178-1235·4人）", dataset: zhendexiu as GenealogyDataset },
+  { key: "jiangtingxi", label: "常熟蒋氏·蒋廷锡支（清代画家·蒋棻至蒋赐棨·1598-1802·6人）", dataset: jiangtingxi as GenealogyDataset },
+  { key: "wansitong", label: "鄞县万氏·万斯同支（清初史学·万表至万斯同·1498-1702·14人）", dataset: wansitong as GenealogyDataset },
+  { key: "jiaoxun", label: "甘泉焦氏·焦循支（清代扬州学派·易学家·1763-1820·16人）", dataset: jiaoxun as GenealogyDataset },
+  { key: "wangmingsheng", label: "嘉定王氏·王鸣盛支（清代史学家·十七史商榷·1722-1797·5人）", dataset: wangmingsheng as GenealogyDataset },
+  { key: "zhuyizun", label: "秀水朱氏·朱彝尊支（清代词人·金石学·1629-1709·3人）", dataset: zhuyizun as GenealogyDataset },
+  { key: "maoqiling", label: "萧山毛氏·毛奇龄支（清代经学家·1623-1716·3人）", dataset: maoqiling as GenealogyDataset },
   // CBDB 第二十六批：明末清初学人志士·清初遗老
   { key: "luxiangsheng", label: "宜兴卢氏·卢象升支（明末抗清将领·1600-1638·3人）", dataset: luxiangsheng as GenealogyDataset },
   { key: "sunchengzong", label: "高阳孙氏·孙承宗支（明代督师·1563-1638·4人）", dataset: sunchengzong as GenealogyDataset },

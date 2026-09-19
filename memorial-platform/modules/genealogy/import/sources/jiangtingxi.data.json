@@ -1,0 +1,99 @@
+{
+  "key": "cbdb:jiangtingxi",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "65840",
+      "name": "蔣廷錫",
+      "citation": "CBDB 中国历代人物传记资料库 person 65840",
+      "gender": "male",
+      "birth": {
+        "year": 1669
+      },
+      "death": {
+        "year": 1732
+      }
+    },
+    {
+      "externalId": "89536",
+      "name": "蔣伊",
+      "citation": "CBDB 中国历代人物传记资料库 person 89536",
+      "gender": "male",
+      "birth": {
+        "year": 1631
+      },
+      "death": {
+        "year": 1687
+      }
+    },
+    {
+      "externalId": "57226",
+      "name": "蔣溥",
+      "citation": "CBDB 中国历代人物传记资料库 person 57226",
+      "gender": "male",
+      "birth": {
+        "year": 1708
+      },
+      "death": {
+        "year": 1761
+      }
+    },
+    {
+      "externalId": "89555",
+      "name": "蔣棻",
+      "citation": "CBDB 中国历代人物传记资料库 person 89555",
+      "gender": "male",
+      "birth": {
+        "year": 1598
+      },
+      "death": {
+        "year": 1663
+      }
+    },
+    {
+      "externalId": "58098",
+      "name": "蔣賜棨",
+      "citation": "CBDB 中国历代人物传记资料库 person 58098",
+      "gender": "male",
+      "birth": {
+        "year": 1730
+      },
+      "death": {
+        "year": 1802
+      }
+    },
+    {
+      "externalId": "69653",
+      "name": "蔣檙",
+      "citation": "CBDB 中国历代人物传记资料库 person 69653",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "89536",
+      "child": "65840"
+    },
+    {
+      "kind": "parent",
+      "parent": "65840",
+      "child": "57226"
+    },
+    {
+      "kind": "parent",
+      "parent": "89555",
+      "child": "89536"
+    },
+    {
+      "kind": "parent",
+      "parent": "57226",
+      "child": "58098"
+    },
+    {
+      "kind": "parent",
+      "parent": "57226",
+      "child": "69653"
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "key": "cbdb:zhendexiu",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "10258",
+      "name": "真德秀",
+      "citation": "CBDB 中国历代人物传记资料库 person 10258",
+      "gender": "male",
+      "birth": {
+        "year": 1178
+      },
+      "death": {
+        "year": 1235
+      }
+    },
+    {
+      "externalId": "27461",
+      "name": "真A",
+      "citation": "CBDB 中国历代人物传记资料库 person 27461",
+      "gender": "male"
+    },
+    {
+      "externalId": "118939",
+      "name": "吳氏(真德秀母)",
+      "citation": "CBDB 中国历代人物传记资料库 person 118939",
+      "gender": "female"
+    },
+    {
+      "externalId": "11840",
+      "name": "真志道",
+      "citation": "CBDB 中国历代人物传记资料库 person 11840",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "27461",
+      "child": "10258"
+    },
+    {
+      "kind": "parent",
+      "parent": "118939",
+      "child": "10258"
+    },
+    {
+      "kind": "parent",
+      "parent": "10258",
+      "child": "11840"
+    }
+  ]
+}

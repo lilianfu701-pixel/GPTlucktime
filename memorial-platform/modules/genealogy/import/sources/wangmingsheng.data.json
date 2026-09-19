@@ -1,0 +1,67 @@
+{
+  "key": "cbdb:wangmingsheng",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "29898",
+      "name": "王鳴盛",
+      "citation": "CBDB 中国历代人物传记资料库 person 29898",
+      "gender": "male",
+      "birth": {
+        "year": 1722
+      },
+      "death": {
+        "year": 1797
+      }
+    },
+    {
+      "externalId": "29897",
+      "name": "王爾達",
+      "citation": "CBDB 中国历代人物传记资料库 person 29897",
+      "gender": "male",
+      "birth": {
+        "year": 1693
+      },
+      "death": {
+        "year": 1768
+      }
+    },
+    {
+      "externalId": "522349",
+      "name": "王嗣構",
+      "citation": "CBDB 中国历代人物传记资料库 person 522349"
+    },
+    {
+      "externalId": "522350",
+      "name": "王嗣疇",
+      "citation": "CBDB 中国历代人物传记资料库 person 522350"
+    },
+    {
+      "externalId": "522351",
+      "name": "王嗣穫",
+      "citation": "CBDB 中国历代人物传记资料库 person 522351"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "29897",
+      "child": "29898"
+    },
+    {
+      "kind": "parent",
+      "parent": "29898",
+      "child": "522349"
+    },
+    {
+      "kind": "parent",
+      "parent": "29898",
+      "child": "522350"
+    },
+    {
+      "kind": "parent",
+      "parent": "29898",
+      "child": "522351"
+    }
+  ]
+}

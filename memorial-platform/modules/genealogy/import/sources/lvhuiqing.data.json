@@ -1,0 +1,42 @@
+{
+  "key": "cbdb:lvhuiqing",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "1309",
+      "name": "呂惠卿",
+      "citation": "CBDB 中国历代人物传记资料库 person 1309",
+      "gender": "male",
+      "birth": {
+        "year": 1032
+      },
+      "death": {
+        "year": 1111
+      }
+    },
+    {
+      "externalId": "20649",
+      "name": "呂璹",
+      "citation": "CBDB 中国历代人物传记资料库 person 20649",
+      "gender": "male"
+    },
+    {
+      "externalId": "20651",
+      "name": "呂淵",
+      "citation": "CBDB 中国历代人物传记资料库 person 20651",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "20649",
+      "child": "1309"
+    },
+    {
+      "kind": "parent",
+      "parent": "1309",
+      "child": "20651"
+    }
+  ]
+}

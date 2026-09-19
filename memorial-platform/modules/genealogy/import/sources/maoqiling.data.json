@@ -1,0 +1,41 @@
+{
+  "key": "cbdb:maoqiling",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "33879",
+      "name": "毛奇齡",
+      "citation": "CBDB 中国历代人物传记资料库 person 33879",
+      "gender": "male",
+      "birth": {
+        "year": 1623
+      },
+      "death": {
+        "year": 1716
+      }
+    },
+    {
+      "externalId": "70076",
+      "name": "陳何",
+      "citation": "CBDB 中国历代人物传记资料库 person 70076",
+      "gender": "female"
+    },
+    {
+      "externalId": "522054",
+      "name": "毛秉鏡",
+      "citation": "CBDB 中国历代人物传记资料库 person 522054"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "522054",
+      "child": "33879"
+    },
+    {
+      "kind": "spouse",
+      "a": "33879",
+      "b": "70076"
+    }
+  ]
+}
