@@ -1,0 +1,72 @@
+{
+  "key": "cbdb:chenqi",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "207690",
+      "name": "陳琦",
+      "citation": "CBDB 中国历代人物传记资料库 person 207690",
+      "gender": "male",
+      "birth": {
+        "year": 1579
+      }
+    },
+    {
+      "externalId": "233916",
+      "name": "李氏(陳琦妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 233916",
+      "gender": "female"
+    },
+    {
+      "externalId": "233914",
+      "name": "陳萬邦",
+      "citation": "CBDB 中国历代人物传记资料库 person 233914",
+      "gender": "male"
+    },
+    {
+      "externalId": "233915",
+      "name": "凌氏(陳琦母)",
+      "citation": "CBDB 中国历代人物传记资料库 person 233915",
+      "gender": "female"
+    },
+    {
+      "externalId": "233919",
+      "name": "陳用中",
+      "citation": "CBDB 中国历代人物传记资料库 person 233919",
+      "gender": "male"
+    },
+    {
+      "externalId": "233920",
+      "name": "陳建中",
+      "citation": "CBDB 中国历代人物传记资料库 person 233920",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "233914",
+      "child": "207690"
+    },
+    {
+      "kind": "parent",
+      "parent": "233915",
+      "child": "207690"
+    },
+    {
+      "kind": "spouse",
+      "a": "207690",
+      "b": "233916"
+    },
+    {
+      "kind": "parent",
+      "parent": "207690",
+      "child": "233919"
+    },
+    {
+      "kind": "parent",
+      "parent": "207690",
+      "child": "233920"
+    }
+  ]
+}

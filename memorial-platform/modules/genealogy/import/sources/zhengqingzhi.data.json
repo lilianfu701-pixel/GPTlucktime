@@ -1,0 +1,64 @@
+{
+  "key": "cbdb:zhengqingzhi",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "10363",
+      "name": "鄭清之",
+      "citation": "CBDB 中国历代人物传记资料库 person 10363",
+      "gender": "male",
+      "birth": {
+        "year": 1176
+      },
+      "death": {
+        "year": 1251
+      }
+    },
+    {
+      "externalId": "10360",
+      "name": "鄭若冲",
+      "citation": "CBDB 中国历代人物传记资料库 person 10360",
+      "gender": "male"
+    },
+    {
+      "externalId": "119546",
+      "name": "鄭士昌",
+      "citation": "CBDB 中国历代人物传记资料库 person 119546",
+      "gender": "male"
+    },
+    {
+      "externalId": "10358",
+      "name": "鄭覃",
+      "citation": "CBDB 中国历代人物传记资料库 person 10358",
+      "gender": "male"
+    },
+    {
+      "externalId": "119379",
+      "name": "董氏(鄭覃妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 119379",
+      "gender": "female"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "10360",
+      "child": "10363"
+    },
+    {
+      "kind": "parent",
+      "parent": "10363",
+      "child": "119546"
+    },
+    {
+      "kind": "parent",
+      "parent": "10358",
+      "child": "10360"
+    },
+    {
+      "kind": "spouse",
+      "a": "10358",
+      "b": "119379"
+    }
+  ]
+}

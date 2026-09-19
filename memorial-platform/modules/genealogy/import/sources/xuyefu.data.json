@@ -1,0 +1,87 @@
+{
+  "key": "cbdb:xuyefu",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "28593",
+      "name": "許有孚",
+      "citation": "CBDB 中国历代人物传记资料库 person 28593",
+      "gender": "male"
+    },
+    {
+      "externalId": "28594",
+      "name": "張氏(許有采妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 28594",
+      "gender": "female",
+      "birth": {
+        "year": 1309
+      },
+      "death": {
+        "year": 1334
+      }
+    },
+    {
+      "externalId": "28586",
+      "name": "許熙載",
+      "citation": "CBDB 中国历代人物传记资料库 person 28586",
+      "gender": "male",
+      "birth": {
+        "year": 1261
+      },
+      "death": {
+        "year": 1327
+      }
+    },
+    {
+      "externalId": "28587",
+      "name": "高氏(許熙載妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 28587",
+      "gender": "female",
+      "birth": {
+        "year": 1261
+      },
+      "death": {
+        "year": 1327
+      }
+    },
+    {
+      "externalId": "28590",
+      "name": "許毅",
+      "citation": "CBDB 中国历代人物传记资料库 person 28590",
+      "gender": "male"
+    },
+    {
+      "externalId": "28591",
+      "name": "許信",
+      "citation": "CBDB 中国历代人物传记资料库 person 28591",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "28586",
+      "child": "28593"
+    },
+    {
+      "kind": "spouse",
+      "a": "28593",
+      "b": "28594"
+    },
+    {
+      "kind": "parent",
+      "parent": "28590",
+      "child": "28586"
+    },
+    {
+      "kind": "spouse",
+      "a": "28586",
+      "b": "28587"
+    },
+    {
+      "kind": "parent",
+      "parent": "28591",
+      "child": "28590"
+    }
+  ]
+}

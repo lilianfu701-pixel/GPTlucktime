@@ -1,0 +1,86 @@
+{
+  "key": "cbdb:yangjishi",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "34716",
+      "name": "楊繼盛",
+      "citation": "CBDB 中国历代人物传记资料库 person 34716",
+      "gender": "male",
+      "birth": {
+        "year": 1516
+      },
+      "death": {
+        "year": 1555
+      }
+    },
+    {
+      "externalId": "118497",
+      "name": "張氏(楊繼盛妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 118497",
+      "gender": "female"
+    },
+    {
+      "externalId": "308600",
+      "name": "張氏(楊繼盛妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 308600",
+      "gender": "female"
+    },
+    {
+      "externalId": "308598",
+      "name": "楊富",
+      "citation": "CBDB 中国历代人物传记资料库 person 308598",
+      "gender": "male"
+    },
+    {
+      "externalId": "308599",
+      "name": "曹氏(楊繼盛母)",
+      "citation": "CBDB 中国历代人物传记资料库 person 308599",
+      "gender": "female"
+    },
+    {
+      "externalId": "34816",
+      "name": "楊應尾",
+      "citation": "CBDB 中国历代人物传记资料库 person 34816",
+      "gender": "male"
+    },
+    {
+      "externalId": "34817",
+      "name": "楊應箕",
+      "citation": "CBDB 中国历代人物传记资料库 person 34817",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "308598",
+      "child": "34716"
+    },
+    {
+      "kind": "parent",
+      "parent": "308599",
+      "child": "34716"
+    },
+    {
+      "kind": "spouse",
+      "a": "118497",
+      "b": "34716"
+    },
+    {
+      "kind": "spouse",
+      "a": "308600",
+      "b": "34716"
+    },
+    {
+      "kind": "parent",
+      "parent": "34716",
+      "child": "34816"
+    },
+    {
+      "kind": "parent",
+      "parent": "34716",
+      "child": "34817"
+    }
+  ]
+}

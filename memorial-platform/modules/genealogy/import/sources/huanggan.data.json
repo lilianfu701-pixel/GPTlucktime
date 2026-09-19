@@ -1,0 +1,86 @@
+{
+  "key": "cbdb:huanggan",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "11134",
+      "name": "黃榦",
+      "citation": "CBDB 中国历代人物传记资料库 person 11134",
+      "gender": "male",
+      "birth": {
+        "year": 1152
+      },
+      "death": {
+        "year": 1221
+      }
+    },
+    {
+      "externalId": "11132",
+      "name": "黃瑀",
+      "citation": "CBDB 中国历代人物传记资料库 person 11132",
+      "gender": "male"
+    },
+    {
+      "externalId": "18986",
+      "name": "黃輅",
+      "citation": "CBDB 中国历代人物传记资料库 person 18986",
+      "gender": "male"
+    },
+    {
+      "externalId": "11131",
+      "name": "黃南仲",
+      "citation": "CBDB 中国历代人物传记资料库 person 11131",
+      "gender": "male"
+    },
+    {
+      "externalId": "137892",
+      "name": "黃俊",
+      "citation": "CBDB 中国历代人物传记资料库 person 137892",
+      "gender": "male"
+    },
+    {
+      "externalId": "11130",
+      "name": "黃時",
+      "citation": "CBDB 中国历代人物传记资料库 person 11130",
+      "gender": "male"
+    },
+    {
+      "externalId": "11129",
+      "name": "黃徽",
+      "citation": "CBDB 中国历代人物传记资料库 person 11129",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "11132",
+      "child": "11134"
+    },
+    {
+      "kind": "parent",
+      "parent": "11134",
+      "child": "18986"
+    },
+    {
+      "kind": "parent",
+      "parent": "11131",
+      "child": "11132"
+    },
+    {
+      "kind": "parent",
+      "parent": "137892",
+      "child": "11132"
+    },
+    {
+      "kind": "parent",
+      "parent": "11130",
+      "child": "11131"
+    },
+    {
+      "kind": "parent",
+      "parent": "11129",
+      "child": "11130"
+    }
+  ]
+}

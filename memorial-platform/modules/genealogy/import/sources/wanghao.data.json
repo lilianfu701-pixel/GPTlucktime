@@ -1,0 +1,104 @@
+{
+  "key": "cbdb:wanghao",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "175720",
+      "name": "王翺",
+      "citation": "CBDB 中国历代人物传记资料库 person 175720",
+      "gender": "male",
+      "death": {
+        "year": 769
+      }
+    },
+    {
+      "externalId": "145968",
+      "name": "王光謙",
+      "citation": "CBDB 中国历代人物传记资料库 person 145968",
+      "gender": "male",
+      "birth": {
+        "year": 673
+      },
+      "death": {
+        "year": 741
+      }
+    },
+    {
+      "externalId": "175721",
+      "name": "王勳",
+      "citation": "CBDB 中国历代人物传记资料库 person 175721",
+      "gender": "male",
+      "death": {
+        "year": 806
+      }
+    },
+    {
+      "externalId": "175722",
+      "name": "王堪",
+      "citation": "CBDB 中国历代人物传记资料库 person 175722",
+      "gender": "male",
+      "death": {
+        "year": 806
+      }
+    },
+    {
+      "externalId": "175704",
+      "name": "王慶賢",
+      "citation": "CBDB 中国历代人物传记资料库 person 175704",
+      "gender": "male",
+      "death": {
+        "year": 695
+      }
+    },
+    {
+      "externalId": "175723",
+      "name": "王聰",
+      "citation": "CBDB 中国历代人物传记资料库 person 175723",
+      "gender": "male",
+      "death": {
+        "year": 868
+      }
+    },
+    {
+      "externalId": "175724",
+      "name": "王溥",
+      "citation": "CBDB 中国历代人物传记资料库 person 175724",
+      "gender": "male",
+      "death": {
+        "year": 905
+      }
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "145968",
+      "child": "175720"
+    },
+    {
+      "kind": "parent",
+      "parent": "175720",
+      "child": "175721"
+    },
+    {
+      "kind": "parent",
+      "parent": "175720",
+      "child": "175722"
+    },
+    {
+      "kind": "parent",
+      "parent": "175704",
+      "child": "145968"
+    },
+    {
+      "kind": "parent",
+      "parent": "175722",
+      "child": "175723"
+    },
+    {
+      "kind": "parent",
+      "parent": "175723",
+      "child": "175724"
+    }
+  ]
+}

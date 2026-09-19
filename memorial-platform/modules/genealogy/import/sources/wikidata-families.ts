@@ -212,6 +212,16 @@ import suweidao from "./suweidao.data.json";
 import liufen from "./liufen.data.json";
 import liugong from "./liugong.data.json";
 import xiaoying from "./xiaoying.data.json";
+// CBDB 第十七批（宋明学者·朱子门人·南宋官员·明代忠臣）
+import yangjishi from "./yangjishi.data.json";
+import fangshinju from "./fangshinju.data.json";
+import xuyefu from "./xuyefu.data.json";
+import chenqi from "./chenqi.data.json";
+import liuqing from "./liuqing.data.json";
+import wanghao from "./wanghao.data.json";
+import caiyuanding from "./caiyuanding.data.json";
+import huanggan from "./huanggan.data.json";
+import zhengqingzhi from "./zhengqingzhi.data.json";
 // CBDB 第十六批（明代官员·学者·前七子·茶陵诗派）
 import chengzhang from "./chengzhang.data.json";
 import shanglu from "./shanglu.data.json";
@@ -604,6 +614,16 @@ const FAMILIES: { key: string; label: string; dataset: GenealogyDataset }[] = [
   { key: "liufen", label: "河东柳氏·柳芬支（柳懿·柳均·南北朝到唐）", dataset: liufen as GenealogyDataset },
   { key: "liugong", label: "河东柳氏·柳公权支（书法家·柳瑗·柳仲憲）", dataset: liugong as GenealogyDataset },
   { key: "xiaoying", label: "兰陵萧氏·萧颖士支（萧道赐·萧恢·南朝到唐）", dataset: xiaoying as GenealogyDataset },
+  // CBDB 第十七批：宋明学者·朱子门人·南宋官员·明代忠臣
+  { key: "caiyuanding", label: "建阳蔡氏·蔡元定支（朱子友人·律历学家·1135-1198·16人）", dataset: caiyuanding as GenealogyDataset },
+  { key: "huanggan", label: "闽县黄氏·黄干支（朱子女婿·闽学传人·1152-1221）", dataset: huanggan as GenealogyDataset },
+  { key: "zhengqingzhi", label: "鄞县郑氏·郑清之支（南宋宰相·1176-1251）", dataset: zhengqingzhi as GenealogyDataset },
+  { key: "fangshinju", label: "兴化方氏·方信孺支（南宋外交家·使金名臣·1177-1222）", dataset: fangshinju as GenealogyDataset },
+  { key: "xuyefu", label: "宣城许氏·许有孚支（元代官员·诗人·14世纪）", dataset: xuyefu as GenealogyDataset },
+  { key: "wanghao", label: "锦州王氏·王翺支（明代名臣·成化三朝元老·1384-1467）", dataset: wanghao as GenealogyDataset },
+  { key: "liuqing", label: "明代刘氏·刘清支（明代官员·1432-）", dataset: liuqing as GenealogyDataset },
+  { key: "yangjishi", label: "容城杨氏·杨继盛支（明代忠臣·抗严嵩·1516-1555）", dataset: yangjishi as GenealogyDataset },
+  { key: "chenqi", label: "明代陈氏·陈琦支（明末官员·1579-）", dataset: chenqi as GenealogyDataset },
   // CBDB 第十六批：明代官员·学者·前七子·茶陵诗派
   { key: "chengzhang", label: "庐陵程氏·程钜夫支（元代官员·翰林学士·1249-1318）", dataset: chengzhang as GenealogyDataset },
   { key: "shanglu", label: "茶陵商氏·商辂支（明代宰相·三元及第·1414-1486）", dataset: shanglu as GenealogyDataset },

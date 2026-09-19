@@ -1,0 +1,87 @@
+{
+  "key": "cbdb:fangshinju",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "7029",
+      "name": "方信孺",
+      "citation": "CBDB 中国历代人物传记资料库 person 7029",
+      "gender": "male",
+      "birth": {
+        "year": 1177
+      },
+      "death": {
+        "year": 1222
+      }
+    },
+    {
+      "externalId": "7110",
+      "name": "方崧卿",
+      "citation": "CBDB 中国历代人物传记资料库 person 7110",
+      "gender": "male",
+      "birth": {
+        "year": 1135
+      },
+      "death": {
+        "year": 1194
+      }
+    },
+    {
+      "externalId": "16993",
+      "name": "方左鉞",
+      "citation": "CBDB 中国历代人物传记资料库 person 16993",
+      "gender": "male",
+      "birth": {
+        "year": 1199
+      },
+      "death": {
+        "year": 1223
+      }
+    },
+    {
+      "externalId": "16992",
+      "name": "方憲",
+      "citation": "CBDB 中国历代人物传记资料库 person 16992",
+      "gender": "male"
+    },
+    {
+      "externalId": "16991",
+      "name": "方淵",
+      "citation": "CBDB 中国历代人物传记资料库 person 16991",
+      "gender": "male"
+    },
+    {
+      "externalId": "16990",
+      "name": "方早",
+      "citation": "CBDB 中国历代人物传记资料库 person 16990",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "7110",
+      "child": "7029"
+    },
+    {
+      "kind": "parent",
+      "parent": "7029",
+      "child": "16993"
+    },
+    {
+      "kind": "parent",
+      "parent": "16992",
+      "child": "7110"
+    },
+    {
+      "kind": "parent",
+      "parent": "16991",
+      "child": "16992"
+    },
+    {
+      "kind": "parent",
+      "parent": "16990",
+      "child": "16991"
+    }
+  ]
+}

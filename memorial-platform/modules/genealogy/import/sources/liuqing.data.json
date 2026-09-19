@@ -1,0 +1,97 @@
+{
+  "key": "cbdb:liuqing",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "199862",
+      "name": "劉清",
+      "citation": "CBDB 中国历代人物传记资料库 person 199862",
+      "gender": "male",
+      "birth": {
+        "year": 1432
+      }
+    },
+    {
+      "externalId": "250636",
+      "name": "甯氏(劉清妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 250636",
+      "gender": "female"
+    },
+    {
+      "externalId": "250637",
+      "name": "黃氏(劉清繼妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 250637",
+      "gender": "female"
+    },
+    {
+      "externalId": "207829",
+      "name": "劉彧",
+      "citation": "CBDB 中国历代人物传记资料库 person 207829",
+      "gender": "male",
+      "birth": {
+        "year": 1402
+      }
+    },
+    {
+      "externalId": "236702",
+      "name": "陳氏(劉彧妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 236702",
+      "gender": "female"
+    },
+    {
+      "externalId": "250635",
+      "name": "陳氏(劉清母)",
+      "citation": "CBDB 中国历代人物传记资料库 person 250635",
+      "gender": "female"
+    },
+    {
+      "externalId": "236700",
+      "name": "劉公弼",
+      "citation": "CBDB 中国历代人物传记资料库 person 236700",
+      "gender": "male"
+    },
+    {
+      "externalId": "236701",
+      "name": "孫氏(劉彧母)",
+      "citation": "CBDB 中国历代人物传记资料库 person 236701",
+      "gender": "female"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "207829",
+      "child": "199862"
+    },
+    {
+      "kind": "parent",
+      "parent": "250635",
+      "child": "199862"
+    },
+    {
+      "kind": "spouse",
+      "a": "199862",
+      "b": "250636"
+    },
+    {
+      "kind": "spouse",
+      "a": "199862",
+      "b": "250637"
+    },
+    {
+      "kind": "parent",
+      "parent": "236700",
+      "child": "207829"
+    },
+    {
+      "kind": "parent",
+      "parent": "236701",
+      "child": "207829"
+    },
+    {
+      "kind": "spouse",
+      "a": "207829",
+      "b": "236702"
+    }
+  ]
+}

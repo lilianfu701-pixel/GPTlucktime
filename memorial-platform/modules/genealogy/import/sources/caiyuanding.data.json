@@ -1,0 +1,215 @@
+{
+  "key": "cbdb:caiyuanding",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "10049",
+      "name": "蔡元定",
+      "citation": "CBDB 中国历代人物传记资料库 person 10049",
+      "gender": "male",
+      "birth": {
+        "year": 1135
+      },
+      "death": {
+        "year": 1198
+      }
+    },
+    {
+      "externalId": "10048",
+      "name": "蔡發",
+      "citation": "CBDB 中国历代人物传记资料库 person 10048",
+      "gender": "male",
+      "birth": {
+        "year": 1089
+      },
+      "death": {
+        "year": 1152
+      }
+    },
+    {
+      "externalId": "10051",
+      "name": "蔡淵",
+      "citation": "CBDB 中国历代人物传记资料库 person 10051",
+      "gender": "male",
+      "birth": {
+        "year": 1156
+      },
+      "death": {
+        "year": 1236
+      }
+    },
+    {
+      "externalId": "10055",
+      "name": "蔡沆",
+      "citation": "CBDB 中国历代人物传记资料库 person 10055",
+      "gender": "male"
+    },
+    {
+      "externalId": "119648",
+      "name": "蔡沉",
+      "citation": "CBDB 中国历代人物传记资料库 person 119648",
+      "gender": "male"
+    },
+    {
+      "externalId": "10058",
+      "name": "蔡沈",
+      "citation": "CBDB 中国历代人物传记资料库 person 10058",
+      "gender": "male",
+      "birth": {
+        "year": 1167
+      },
+      "death": {
+        "year": 1230
+      }
+    },
+    {
+      "externalId": "10050",
+      "name": "蔡沇",
+      "citation": "CBDB 中国历代人物传记资料库 person 10050",
+      "gender": "male"
+    },
+    {
+      "externalId": "12038",
+      "name": "蔡諒",
+      "citation": "CBDB 中国历代人物传记资料库 person 12038",
+      "gender": "male"
+    },
+    {
+      "externalId": "10052",
+      "name": "蔡格",
+      "citation": "CBDB 中国历代人物传记资料库 person 10052",
+      "gender": "male"
+    },
+    {
+      "externalId": "10053",
+      "name": "蔡柄",
+      "citation": "CBDB 中国历代人物传记资料库 person 10053",
+      "gender": "male"
+    },
+    {
+      "externalId": "10059",
+      "name": "蔡模",
+      "citation": "CBDB 中国历代人物传记资料库 person 10059",
+      "gender": "male",
+      "birth": {
+        "year": 1188
+      },
+      "death": {
+        "year": 1246
+      }
+    },
+    {
+      "externalId": "10061",
+      "name": "蔡杭",
+      "citation": "CBDB 中国历代人物传记资料库 person 10061",
+      "gender": "male",
+      "birth": {
+        "year": 1193
+      },
+      "death": {
+        "year": 1259
+      }
+    },
+    {
+      "externalId": "10063",
+      "name": "蔡權",
+      "citation": "CBDB 中国历代人物传记资料库 person 10063",
+      "gender": "male"
+    },
+    {
+      "externalId": "10060",
+      "name": "蔡公湛",
+      "citation": "CBDB 中国历代人物传记资料库 person 10060",
+      "gender": "male"
+    },
+    {
+      "externalId": "10062",
+      "name": "蔡公亮",
+      "citation": "CBDB 中国历代人物传记资料库 person 10062",
+      "gender": "male"
+    },
+    {
+      "externalId": "10064",
+      "name": "蔡公度",
+      "citation": "CBDB 中国历代人物传记资料库 person 10064",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "10048",
+      "child": "10049"
+    },
+    {
+      "kind": "parent",
+      "parent": "10049",
+      "child": "10051"
+    },
+    {
+      "kind": "parent",
+      "parent": "10049",
+      "child": "10055"
+    },
+    {
+      "kind": "parent",
+      "parent": "10049",
+      "child": "119648"
+    },
+    {
+      "kind": "parent",
+      "parent": "10049",
+      "child": "10058"
+    },
+    {
+      "kind": "parent",
+      "parent": "10049",
+      "child": "10050"
+    },
+    {
+      "kind": "parent",
+      "parent": "12038",
+      "child": "10048"
+    },
+    {
+      "kind": "parent",
+      "parent": "10051",
+      "child": "10052"
+    },
+    {
+      "kind": "parent",
+      "parent": "10051",
+      "child": "10053"
+    },
+    {
+      "kind": "parent",
+      "parent": "10058",
+      "child": "10059"
+    },
+    {
+      "kind": "parent",
+      "parent": "10058",
+      "child": "10061"
+    },
+    {
+      "kind": "parent",
+      "parent": "10058",
+      "child": "10063"
+    },
+    {
+      "kind": "parent",
+      "parent": "10059",
+      "child": "10060"
+    },
+    {
+      "kind": "parent",
+      "parent": "10061",
+      "child": "10062"
+    },
+    {
+      "kind": "parent",
+      "parent": "10063",
+      "child": "10064"
+    }
+  ]
+}
