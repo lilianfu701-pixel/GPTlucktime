@@ -212,6 +212,15 @@ import suweidao from "./suweidao.data.json";
 import liufen from "./liufen.data.json";
 import liugong from "./liugong.data.json";
 import xiaoying from "./xiaoying.data.json";
+// CBDB 第二十批（唐代诗人将领·南宋词人·明代画家）
+import liqi from "./liqi.data.json";
+import xinjiji from "./xinjiji.data.json";
+import chenziang from "./chenziang.data.json";
+import kongying from "./kongying.data.json";
+import guoyuanzhen from "./guoyuanzhen.data.json";
+import xuwu from "./xuwu.data.json";
+import luzhi from "./luzhi.data.json";
+import yushinan from "./yushinan.data.json";
 // CBDB 第十九批（隋唐薛氏·唐代崔氏·北宋官员）
 import xueshou from "./xueshou.data.json";
 import cuiying from "./cuiying.data.json";
@@ -625,6 +634,15 @@ const FAMILIES: { key: string; label: string; dataset: GenealogyDataset }[] = [
   { key: "liufen", label: "河东柳氏·柳芬支（柳懿·柳均·南北朝到唐）", dataset: liufen as GenealogyDataset },
   { key: "liugong", label: "河东柳氏·柳公权支（书法家·柳瑗·柳仲憲）", dataset: liugong as GenealogyDataset },
   { key: "xiaoying", label: "兰陵萧氏·萧颖士支（萧道赐·萧恢·南朝到唐）", dataset: xiaoying as GenealogyDataset },
+  // CBDB 第二十批：唐代诗人将领·南宋词人·明代画家
+  { key: "liqi", label: "赵郡李氏·李峤支（唐代诗人·官员·645-714·34人）", dataset: liqi as GenealogyDataset },
+  { key: "xinjiji", label: "历城辛氏·辛弃疾支（南宋词人·抗金将领·1140-1207·22人）", dataset: xinjiji as GenealogyDataset },
+  { key: "chenziang", label: "射洪陈氏·陈子昂支（唐代诗人·661-702·10人）", dataset: chenziang as GenealogyDataset },
+  { key: "kongying", label: "冀州孔氏·孔颖达支（唐代经学家·五经正义·574-648·10人）", dataset: kongying as GenealogyDataset },
+  { key: "guoyuanzhen", label: "魏州郭氏·郭元振支（唐代名将·开元功臣·?-722·8人）", dataset: guoyuanzhen as GenealogyDataset },
+  { key: "xuwu", label: "绍兴徐氏·徐渭支（明代画家·文人·1521-1593·6人）", dataset: xuwu as GenealogyDataset },
+  { key: "luzhi", label: "嘉兴陆氏·陆贽支（唐代名相·贞元宰相·754-805·5人）", dataset: luzhi as GenealogyDataset },
+  { key: "yushinan", label: "越州虞氏·虞世南支（唐代书法家·初唐四友·558-638·3人）", dataset: yushinan as GenealogyDataset },
   // CBDB 第十九批：隋唐薛氏·唐代崔氏·北宋官员
   { key: "xueshou", label: "河东薛氏·薛收支（隋末唐初官员·592-624·45人）", dataset: xueshou as GenealogyDataset },
   { key: "cuiying", label: "博陵崔氏·崔瑛支（唐代官员·702-728）", dataset: cuiying as GenealogyDataset },

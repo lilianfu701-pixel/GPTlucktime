@@ -1,0 +1,146 @@
+{
+  "key": "cbdb:kongying",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "92271",
+      "name": "孔穎達",
+      "citation": "CBDB 中国历代人物传记资料库 person 92271",
+      "gender": "male",
+      "birth": {
+        "year": 574
+      },
+      "death": {
+        "year": 648
+      }
+    },
+    {
+      "externalId": "184758",
+      "name": "孔安",
+      "citation": "CBDB 中国历代人物传记资料库 person 184758",
+      "gender": "male",
+      "death": {
+        "year": 625
+      }
+    },
+    {
+      "externalId": "184760",
+      "name": "孔志玄",
+      "citation": "CBDB 中国历代人物传记资料库 person 184760",
+      "gender": "male",
+      "death": {
+        "year": 685
+      }
+    },
+    {
+      "externalId": "184764",
+      "name": "孔志約",
+      "citation": "CBDB 中国历代人物传记资料库 person 184764",
+      "gender": "male",
+      "death": {
+        "year": 685
+      }
+    },
+    {
+      "externalId": "184766",
+      "name": "孔志亮",
+      "citation": "CBDB 中国历代人物传记资料库 person 184766",
+      "gender": "male",
+      "death": {
+        "year": 685
+      }
+    },
+    {
+      "externalId": "184757",
+      "name": "孔碩",
+      "citation": "CBDB 中国历代人物传记资料库 person 184757",
+      "gender": "male",
+      "death": {
+        "year": 595
+      }
+    },
+    {
+      "externalId": "184761",
+      "name": "孔惠元",
+      "citation": "CBDB 中国历代人物传记资料库 person 184761",
+      "gender": "male",
+      "death": {
+        "year": 715
+      }
+    },
+    {
+      "externalId": "184765",
+      "name": "孔琮",
+      "citation": "CBDB 中国历代人物传记资料库 person 184765",
+      "gender": "male",
+      "death": {
+        "year": 715
+      }
+    },
+    {
+      "externalId": "184762",
+      "name": "孔立言",
+      "citation": "CBDB 中国历代人物传记资料库 person 184762",
+      "gender": "male",
+      "death": {
+        "year": 745
+      }
+    },
+    {
+      "externalId": "184763",
+      "name": "孔眘言",
+      "citation": "CBDB 中国历代人物传记资料库 person 184763",
+      "gender": "male",
+      "death": {
+        "year": 745
+      }
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "184758",
+      "child": "92271"
+    },
+    {
+      "kind": "parent",
+      "parent": "92271",
+      "child": "184760"
+    },
+    {
+      "kind": "parent",
+      "parent": "92271",
+      "child": "184764"
+    },
+    {
+      "kind": "parent",
+      "parent": "92271",
+      "child": "184766"
+    },
+    {
+      "kind": "parent",
+      "parent": "184757",
+      "child": "184758"
+    },
+    {
+      "kind": "parent",
+      "parent": "184760",
+      "child": "184761"
+    },
+    {
+      "kind": "parent",
+      "parent": "184764",
+      "child": "184765"
+    },
+    {
+      "kind": "parent",
+      "parent": "184761",
+      "child": "184762"
+    },
+    {
+      "kind": "parent",
+      "parent": "184761",
+      "child": "184763"
+    }
+  ]
+}

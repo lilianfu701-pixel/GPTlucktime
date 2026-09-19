@@ -1,0 +1,42 @@
+{
+  "key": "cbdb:yushinan",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "22793",
+      "name": "虞世南",
+      "citation": "CBDB 中国历代人物传记资料库 person 22793",
+      "gender": "male",
+      "birth": {
+        "year": 558
+      },
+      "death": {
+        "year": 638
+      }
+    },
+    {
+      "externalId": "22790",
+      "name": "虞荔",
+      "citation": "CBDB 中国历代人物传记资料库 person 22790",
+      "gender": "male"
+    },
+    {
+      "externalId": "22789",
+      "name": "虞檢",
+      "citation": "CBDB 中国历代人物传记资料库 person 22789",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "22790",
+      "child": "22793"
+    },
+    {
+      "kind": "parent",
+      "parent": "22789",
+      "child": "22790"
+    }
+  ]
+}

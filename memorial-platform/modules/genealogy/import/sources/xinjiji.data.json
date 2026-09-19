@@ -1,0 +1,272 @@
+{
+  "key": "cbdb:xinjiji",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "30359",
+      "name": "辛棄疾",
+      "citation": "CBDB 中国历代人物传记资料库 person 30359",
+      "gender": "male",
+      "birth": {
+        "year": 1140
+      },
+      "death": {
+        "year": 1207
+      }
+    },
+    {
+      "externalId": "563082",
+      "name": "辛文郁",
+      "citation": "CBDB 中国历代人物传记资料库 person 563082",
+      "gender": "male"
+    },
+    {
+      "externalId": "512481",
+      "name": "辛氏(范炎妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 512481",
+      "gender": "female"
+    },
+    {
+      "externalId": "43507",
+      "name": "范炎",
+      "citation": "CBDB 中国历代人物传记资料库 person 43507",
+      "gender": "male"
+    },
+    {
+      "externalId": "512482",
+      "name": "辛氏(陳成父妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 512482",
+      "gender": "female"
+    },
+    {
+      "externalId": "47841",
+      "name": "陳成父",
+      "citation": "CBDB 中国历代人物传记资料库 person 47841",
+      "gender": "male"
+    },
+    {
+      "externalId": "512493",
+      "name": "辛㔶",
+      "citation": "CBDB 中国历代人物传记资料库 person 512493",
+      "gender": "male",
+      "death": {
+        "year": 1184
+      }
+    },
+    {
+      "externalId": "512485",
+      "name": "辛稹",
+      "citation": "CBDB 中国历代人物传记资料库 person 512485",
+      "gender": "male"
+    },
+    {
+      "externalId": "512486",
+      "name": "辛秬",
+      "citation": "CBDB 中国历代人物传记资料库 person 512486",
+      "gender": "male"
+    },
+    {
+      "externalId": "512487",
+      "name": "辛稏",
+      "citation": "CBDB 中国历代人物传记资料库 person 512487",
+      "gender": "male",
+      "birth": {
+        "year": 1181
+      },
+      "death": {
+        "year": 1242
+      }
+    },
+    {
+      "externalId": "512488",
+      "name": "辛穮",
+      "citation": "CBDB 中国历代人物传记资料库 person 512488",
+      "gender": "male"
+    },
+    {
+      "externalId": "512489",
+      "name": "辛穰",
+      "citation": "CBDB 中国历代人物传记资料库 person 512489",
+      "gender": "male"
+    },
+    {
+      "externalId": "512490",
+      "name": "辛穟",
+      "citation": "CBDB 中国历代人物传记资料库 person 512490",
+      "gender": "male"
+    },
+    {
+      "externalId": "512491",
+      "name": "辛秸",
+      "citation": "CBDB 中国历代人物传记资料库 person 512491",
+      "gender": "male"
+    },
+    {
+      "externalId": "512492",
+      "name": "辛褎",
+      "citation": "CBDB 中国历代人物传记资料库 person 512492",
+      "gender": "male",
+      "birth": {
+        "year": 1205
+      },
+      "death": {
+        "year": 1250
+      }
+    },
+    {
+      "externalId": "512480",
+      "name": "辛贊",
+      "citation": "CBDB 中国历代人物传记资料库 person 512480",
+      "gender": "male"
+    },
+    {
+      "externalId": "563091",
+      "name": "辛鞬",
+      "citation": "CBDB 中国历代人物传记资料库 person 563091",
+      "gender": "male",
+      "birth": {
+        "year": 1209
+      },
+      "death": {
+        "year": 1172
+      }
+    },
+    {
+      "externalId": "563081",
+      "name": "辛寂",
+      "citation": "CBDB 中国历代人物传记资料库 person 563081",
+      "gender": "male"
+    },
+    {
+      "externalId": "563093",
+      "name": "辛衍",
+      "citation": "CBDB 中国历代人物传记资料库 person 563093",
+      "gender": "male"
+    },
+    {
+      "externalId": "563092",
+      "name": "辛衝",
+      "citation": "CBDB 中国历代人物传记资料库 person 563092",
+      "gender": "male"
+    },
+    {
+      "externalId": "563080",
+      "name": "辛師古",
+      "citation": "CBDB 中国历代人物传记资料库 person 563080",
+      "gender": "male"
+    },
+    {
+      "externalId": "563079",
+      "name": "辛維葉",
+      "citation": "CBDB 中国历代人物传记资料库 person 563079",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "563082",
+      "child": "30359"
+    },
+    {
+      "kind": "parent",
+      "parent": "30359",
+      "child": "512481"
+    },
+    {
+      "kind": "parent",
+      "parent": "30359",
+      "child": "512482"
+    },
+    {
+      "kind": "parent",
+      "parent": "30359",
+      "child": "512493"
+    },
+    {
+      "kind": "parent",
+      "parent": "30359",
+      "child": "512485"
+    },
+    {
+      "kind": "parent",
+      "parent": "30359",
+      "child": "512486"
+    },
+    {
+      "kind": "parent",
+      "parent": "30359",
+      "child": "512487"
+    },
+    {
+      "kind": "parent",
+      "parent": "30359",
+      "child": "512488"
+    },
+    {
+      "kind": "parent",
+      "parent": "30359",
+      "child": "512489"
+    },
+    {
+      "kind": "parent",
+      "parent": "30359",
+      "child": "512490"
+    },
+    {
+      "kind": "parent",
+      "parent": "30359",
+      "child": "512491"
+    },
+    {
+      "kind": "parent",
+      "parent": "30359",
+      "child": "512492"
+    },
+    {
+      "kind": "parent",
+      "parent": "512480",
+      "child": "563082"
+    },
+    {
+      "kind": "spouse",
+      "a": "43507",
+      "b": "512481"
+    },
+    {
+      "kind": "spouse",
+      "a": "47841",
+      "b": "512482"
+    },
+    {
+      "kind": "parent",
+      "parent": "512487",
+      "child": "563091"
+    },
+    {
+      "kind": "parent",
+      "parent": "563081",
+      "child": "512480"
+    },
+    {
+      "kind": "parent",
+      "parent": "563091",
+      "child": "563093"
+    },
+    {
+      "kind": "parent",
+      "parent": "563091",
+      "child": "563092"
+    },
+    {
+      "kind": "parent",
+      "parent": "563080",
+      "child": "563081"
+    },
+    {
+      "kind": "parent",
+      "parent": "563079",
+      "child": "563080"
+    }
+  ]
+}

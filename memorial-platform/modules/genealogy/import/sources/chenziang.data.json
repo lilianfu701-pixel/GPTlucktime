@@ -1,0 +1,125 @@
+{
+  "key": "cbdb:chenziang",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "31322",
+      "name": "陳子昂",
+      "citation": "CBDB 中国历代人物传记资料库 person 31322",
+      "gender": "male",
+      "birth": {
+        "year": 661
+      },
+      "death": {
+        "year": 702
+      }
+    },
+    {
+      "externalId": "31323",
+      "name": "陳元敬",
+      "citation": "CBDB 中国历代人物传记资料库 person 31323",
+      "gender": "male",
+      "birth": {
+        "year": 626
+      },
+      "death": {
+        "year": 699
+      }
+    },
+    {
+      "externalId": "31337",
+      "name": "陳易甫",
+      "citation": "CBDB 中国历代人物传记资料库 person 31337",
+      "gender": "male"
+    },
+    {
+      "externalId": "31338",
+      "name": "陳簡甫",
+      "citation": "CBDB 中国历代人物传记资料库 person 31338",
+      "gender": "male"
+    },
+    {
+      "externalId": "31335",
+      "name": "陳辯",
+      "citation": "CBDB 中国历代人物传记资料库 person 31335",
+      "gender": "male"
+    },
+    {
+      "externalId": "31334",
+      "name": "陳通",
+      "citation": "CBDB 中国历代人物传记资料库 person 31334",
+      "gender": "male"
+    },
+    {
+      "externalId": "31332",
+      "name": "陳湯",
+      "citation": "CBDB 中国历代人物传记资料库 person 31332",
+      "gender": "male"
+    },
+    {
+      "externalId": "31331",
+      "name": "陳方慶",
+      "citation": "CBDB 中国历代人物传记资料库 person 31331",
+      "gender": "male"
+    },
+    {
+      "externalId": "31329",
+      "name": "陳太藥",
+      "citation": "CBDB 中国历代人物传记资料库 person 31329",
+      "gender": "male"
+    },
+    {
+      "externalId": "31327",
+      "name": "陳BB",
+      "citation": "CBDB 中国历代人物传记资料库 person 31327",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "31323",
+      "child": "31322"
+    },
+    {
+      "kind": "parent",
+      "parent": "31322",
+      "child": "31337"
+    },
+    {
+      "kind": "parent",
+      "parent": "31322",
+      "child": "31338"
+    },
+    {
+      "kind": "parent",
+      "parent": "31335",
+      "child": "31323"
+    },
+    {
+      "kind": "parent",
+      "parent": "31334",
+      "child": "31335"
+    },
+    {
+      "kind": "parent",
+      "parent": "31332",
+      "child": "31334"
+    },
+    {
+      "kind": "parent",
+      "parent": "31331",
+      "child": "31332"
+    },
+    {
+      "kind": "parent",
+      "parent": "31329",
+      "child": "31331"
+    },
+    {
+      "kind": "parent",
+      "parent": "31327",
+      "child": "31329"
+    }
+  ]
+}

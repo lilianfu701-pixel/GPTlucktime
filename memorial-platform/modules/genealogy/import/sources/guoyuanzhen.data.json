@@ -1,0 +1,112 @@
+{
+  "key": "cbdb:guoyuanzhen",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "32589",
+      "name": "郭元振",
+      "citation": "CBDB 中国历代人物传记资料库 person 32589",
+      "gender": "male",
+      "death": {
+        "year": 722
+      }
+    },
+    {
+      "externalId": "32588",
+      "name": "郭愛",
+      "citation": "CBDB 中国历代人物传记资料库 person 32588",
+      "gender": "male",
+      "death": {
+        "year": 712
+      }
+    },
+    {
+      "externalId": "181431",
+      "name": "郭善愛",
+      "citation": "CBDB 中国历代人物传记资料库 person 181431",
+      "gender": "male",
+      "death": {
+        "year": 685
+      }
+    },
+    {
+      "externalId": "32590",
+      "name": "郭仲翔",
+      "citation": "CBDB 中国历代人物传记资料库 person 32590",
+      "gender": "male"
+    },
+    {
+      "externalId": "181433",
+      "name": "郭晟",
+      "citation": "CBDB 中国历代人物传记资料库 person 181433",
+      "gender": "male",
+      "death": {
+        "year": 745
+      }
+    },
+    {
+      "externalId": "181434",
+      "name": "郭鴻",
+      "citation": "CBDB 中国历代人物传记资料库 person 181434",
+      "gender": "male",
+      "death": {
+        "year": 745
+      }
+    },
+    {
+      "externalId": "181435",
+      "name": "郭鵬",
+      "citation": "CBDB 中国历代人物传记资料库 person 181435",
+      "gender": "male",
+      "death": {
+        "year": 745
+      }
+    },
+    {
+      "externalId": "181436",
+      "name": "郭瑊",
+      "citation": "CBDB 中国历代人物传记资料库 person 181436",
+      "gender": "male",
+      "death": {
+        "year": 775
+      }
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "32588",
+      "child": "32589"
+    },
+    {
+      "kind": "parent",
+      "parent": "181431",
+      "child": "32589"
+    },
+    {
+      "kind": "parent",
+      "parent": "32589",
+      "child": "32590"
+    },
+    {
+      "kind": "parent",
+      "parent": "32589",
+      "child": "181433"
+    },
+    {
+      "kind": "parent",
+      "parent": "32589",
+      "child": "181434"
+    },
+    {
+      "kind": "parent",
+      "parent": "32589",
+      "child": "181435"
+    },
+    {
+      "kind": "parent",
+      "parent": "181435",
+      "child": "181436"
+    }
+  ]
+}

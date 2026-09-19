@@ -1,0 +1,67 @@
+{
+  "key": "cbdb:luzhi",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "33705",
+      "name": "陸贄",
+      "citation": "CBDB 中国历代人物传记资料库 person 33705",
+      "gender": "male",
+      "birth": {
+        "year": 754
+      },
+      "death": {
+        "year": 805
+      }
+    },
+    {
+      "externalId": "33706",
+      "name": "陸侃",
+      "citation": "CBDB 中国历代人物传记资料库 person 33706",
+      "gender": "male"
+    },
+    {
+      "externalId": "179602",
+      "name": "陸灞",
+      "citation": "CBDB 中国历代人物传记资料库 person 179602",
+      "gender": "male",
+      "death": {
+        "year": 776
+      }
+    },
+    {
+      "externalId": "33707",
+      "name": "陸簡禮",
+      "citation": "CBDB 中国历代人物传记资料库 person 33707",
+      "gender": "male"
+    },
+    {
+      "externalId": "33722",
+      "name": "陸齊望",
+      "citation": "CBDB 中国历代人物传记资料库 person 33722",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "33706",
+      "child": "33705"
+    },
+    {
+      "kind": "parent",
+      "parent": "179602",
+      "child": "33705"
+    },
+    {
+      "kind": "parent",
+      "parent": "33705",
+      "child": "33707"
+    },
+    {
+      "kind": "parent",
+      "parent": "33722",
+      "child": "33706"
+    }
+  ]
+}

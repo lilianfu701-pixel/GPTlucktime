@@ -1,0 +1,84 @@
+{
+  "key": "cbdb:xuwu",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "30607",
+      "name": "徐渭",
+      "citation": "CBDB 中国历代人物传记资料库 person 30607",
+      "gender": "male",
+      "birth": {
+        "year": 1521
+      },
+      "death": {
+        "year": 1593
+      }
+    },
+    {
+      "externalId": "30616",
+      "name": "潘似",
+      "citation": "CBDB 中国历代人物传记资料库 person 30616",
+      "gender": "female"
+    },
+    {
+      "externalId": "30608",
+      "name": "徐鏓",
+      "citation": "CBDB 中国历代人物传记资料库 person 30608",
+      "gender": "male",
+      "death": {
+        "year": 1521
+      }
+    },
+    {
+      "externalId": "30613",
+      "name": "苗宜人",
+      "citation": "CBDB 中国历代人物传记资料库 person 30613",
+      "gender": "female",
+      "birth": {
+        "year": 1476
+      },
+      "death": {
+        "year": 1534
+      }
+    },
+    {
+      "externalId": "30611",
+      "name": "徐枚",
+      "citation": "CBDB 中国历代人物传记资料库 person 30611",
+      "gender": "male"
+    },
+    {
+      "externalId": "30612",
+      "name": "徐杜",
+      "citation": "CBDB 中国历代人物传记资料库 person 30612",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "30608",
+      "child": "30607"
+    },
+    {
+      "kind": "spouse",
+      "a": "30607",
+      "b": "30616"
+    },
+    {
+      "kind": "parent",
+      "parent": "30607",
+      "child": "30611"
+    },
+    {
+      "kind": "parent",
+      "parent": "30607",
+      "child": "30612"
+    },
+    {
+      "kind": "spouse",
+      "a": "30608",
+      "b": "30613"
+    }
+  ]
+}

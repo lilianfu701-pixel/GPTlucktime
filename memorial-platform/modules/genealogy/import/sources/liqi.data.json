@@ -1,0 +1,446 @@
+{
+  "key": "cbdb:liqi",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "31575",
+      "name": "李嶠",
+      "citation": "CBDB 中国历代人物传记资料库 person 31575",
+      "gender": "male",
+      "birth": {
+        "year": 645
+      },
+      "death": {
+        "year": 714
+      }
+    },
+    {
+      "externalId": "31574",
+      "name": "李鎮惡",
+      "citation": "CBDB 中国历代人物传记资料库 person 31574",
+      "gender": "male"
+    },
+    {
+      "externalId": "142923",
+      "name": "李暢",
+      "citation": "CBDB 中国历代人物传记资料库 person 142923",
+      "gender": "male",
+      "birth": {
+        "year": 679
+      },
+      "death": {
+        "year": 730
+      }
+    },
+    {
+      "externalId": "174660",
+      "name": "李裕",
+      "citation": "CBDB 中国历代人物传记资料库 person 174660",
+      "gender": "male",
+      "death": {
+        "year": 755
+      }
+    },
+    {
+      "externalId": "174663",
+      "name": "李粲",
+      "citation": "CBDB 中国历代人物传记资料库 person 174663",
+      "gender": "male",
+      "death": {
+        "year": 755
+      }
+    },
+    {
+      "externalId": "174664",
+      "name": "李懿",
+      "citation": "CBDB 中国历代人物传记资料库 person 174664",
+      "gender": "male",
+      "death": {
+        "year": 755
+      }
+    },
+    {
+      "externalId": "31573",
+      "name": "李野工",
+      "citation": "CBDB 中国历代人物传记资料库 person 31573",
+      "gender": "male"
+    },
+    {
+      "externalId": "164061",
+      "name": "李野王",
+      "citation": "CBDB 中国历代人物传记资料库 person 164061",
+      "gender": "male"
+    },
+    {
+      "externalId": "174657",
+      "name": "李惟和",
+      "citation": "CBDB 中国历代人物传记资料库 person 174657",
+      "gender": "male",
+      "death": {
+        "year": 792
+      }
+    },
+    {
+      "externalId": "164064",
+      "name": "李惟知",
+      "citation": "CBDB 中国历代人物传记资料库 person 164064",
+      "gender": "male"
+    },
+    {
+      "externalId": "174661",
+      "name": "李惟寧",
+      "citation": "CBDB 中国历代人物传记资料库 person 174661",
+      "gender": "male",
+      "death": {
+        "year": 792
+      }
+    },
+    {
+      "externalId": "174662",
+      "name": "李惟成",
+      "citation": "CBDB 中国历代人物传记资料库 person 174662",
+      "gender": "male",
+      "death": {
+        "year": 792
+      }
+    },
+    {
+      "externalId": "174665",
+      "name": "李惟岳",
+      "citation": "CBDB 中国历代人物传记资料库 person 174665",
+      "gender": "male",
+      "death": {
+        "year": 792
+      }
+    },
+    {
+      "externalId": "174666",
+      "name": "李惟乂",
+      "citation": "CBDB 中国历代人物传记资料库 person 174666",
+      "gender": "male",
+      "death": {
+        "year": 792
+      }
+    },
+    {
+      "externalId": "31572",
+      "name": "李孝基",
+      "citation": "CBDB 中国历代人物传记资料库 person 31572",
+      "gender": "male"
+    },
+    {
+      "externalId": "174658",
+      "name": "李琰",
+      "citation": "CBDB 中国历代人物传记资料库 person 174658",
+      "gender": "male",
+      "death": {
+        "year": 829
+      }
+    },
+    {
+      "externalId": "31571",
+      "name": "李希禮",
+      "citation": "CBDB 中国历代人物传记资料库 person 31571",
+      "gender": "male"
+    },
+    {
+      "externalId": "145761",
+      "name": "李希禮",
+      "citation": "CBDB 中国历代人物传记资料库 person 145761",
+      "gender": "male",
+      "birth": {
+        "year": 511
+      },
+      "death": {
+        "year": 556
+      }
+    },
+    {
+      "externalId": "174659",
+      "name": "李長倩",
+      "citation": "CBDB 中国历代人物传记资料库 person 174659",
+      "gender": "male",
+      "death": {
+        "year": 866
+      }
+    },
+    {
+      "externalId": "31570",
+      "name": "李慶業",
+      "citation": "CBDB 中国历代人物传记资料库 person 31570",
+      "gender": "male"
+    },
+    {
+      "externalId": "146112",
+      "name": "李憲",
+      "citation": "CBDB 中国历代人物传记资料库 person 146112",
+      "gender": "male",
+      "birth": {
+        "year": 480
+      },
+      "death": {
+        "year": 537
+      }
+    },
+    {
+      "externalId": "31569",
+      "name": "李奕",
+      "citation": "CBDB 中国历代人物传记资料库 person 31569",
+      "gender": "male"
+    },
+    {
+      "externalId": "174198",
+      "name": "李式",
+      "citation": "CBDB 中国历代人物传记资料库 person 174198",
+      "gender": "male",
+      "death": {
+        "year": 502
+      }
+    },
+    {
+      "externalId": "31568",
+      "name": "李順",
+      "citation": "CBDB 中国历代人物传记资料库 person 31568",
+      "gender": "male"
+    },
+    {
+      "externalId": "164060",
+      "name": "李順",
+      "citation": "CBDB 中国历代人物传记资料库 person 164060",
+      "gender": "male"
+    },
+    {
+      "externalId": "31567",
+      "name": "李系",
+      "citation": "CBDB 中国历代人物传记资料库 person 31567",
+      "gender": "male"
+    },
+    {
+      "externalId": "174196",
+      "name": "李系",
+      "citation": "CBDB 中国历代人物传记资料库 person 174196",
+      "gender": "male",
+      "death": {
+        "year": 428
+      }
+    },
+    {
+      "externalId": "31565",
+      "name": "李頤",
+      "citation": "CBDB 中国历代人物传记资料库 person 31565",
+      "gender": "male"
+    },
+    {
+      "externalId": "194408",
+      "name": "李頤",
+      "citation": "CBDB 中国历代人物传记资料库 person 194408",
+      "gender": "male",
+      "death": {
+        "year": 391
+      }
+    },
+    {
+      "externalId": "31564",
+      "name": "李最",
+      "citation": "CBDB 中国历代人物传记资料库 person 31564",
+      "gender": "male"
+    },
+    {
+      "externalId": "194409",
+      "name": "李勗",
+      "citation": "CBDB 中国历代人物传记资料库 person 194409",
+      "gender": "male",
+      "death": {
+        "year": 354
+      }
+    },
+    {
+      "externalId": "31563",
+      "name": "李叡",
+      "citation": "CBDB 中国历代人物传记资料库 person 31563",
+      "gender": "male"
+    },
+    {
+      "externalId": "194410",
+      "name": "李叡",
+      "citation": "CBDB 中国历代人物传记资料库 person 194410",
+      "gender": "male",
+      "death": {
+        "year": 317
+      }
+    },
+    {
+      "externalId": "15156",
+      "name": "李楷",
+      "citation": "CBDB 中国历代人物传记资料库 person 15156",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "31574",
+      "child": "31575"
+    },
+    {
+      "kind": "parent",
+      "parent": "31575",
+      "child": "142923"
+    },
+    {
+      "kind": "parent",
+      "parent": "31575",
+      "child": "174660"
+    },
+    {
+      "kind": "parent",
+      "parent": "31575",
+      "child": "174663"
+    },
+    {
+      "kind": "parent",
+      "parent": "31575",
+      "child": "174664"
+    },
+    {
+      "kind": "parent",
+      "parent": "31573",
+      "child": "31574"
+    },
+    {
+      "kind": "parent",
+      "parent": "164061",
+      "child": "31574"
+    },
+    {
+      "kind": "parent",
+      "parent": "142923",
+      "child": "174657"
+    },
+    {
+      "kind": "parent",
+      "parent": "142923",
+      "child": "164064"
+    },
+    {
+      "kind": "parent",
+      "parent": "174660",
+      "child": "174661"
+    },
+    {
+      "kind": "parent",
+      "parent": "174660",
+      "child": "174662"
+    },
+    {
+      "kind": "parent",
+      "parent": "174664",
+      "child": "174665"
+    },
+    {
+      "kind": "parent",
+      "parent": "174664",
+      "child": "174666"
+    },
+    {
+      "kind": "parent",
+      "parent": "31572",
+      "child": "164061"
+    },
+    {
+      "kind": "parent",
+      "parent": "174657",
+      "child": "174658"
+    },
+    {
+      "kind": "parent",
+      "parent": "31571",
+      "child": "31572"
+    },
+    {
+      "kind": "parent",
+      "parent": "145761",
+      "child": "31572"
+    },
+    {
+      "kind": "parent",
+      "parent": "174658",
+      "child": "174659"
+    },
+    {
+      "kind": "parent",
+      "parent": "31570",
+      "child": "31571"
+    },
+    {
+      "kind": "parent",
+      "parent": "146112",
+      "child": "145761"
+    },
+    {
+      "kind": "parent",
+      "parent": "31569",
+      "child": "31570"
+    },
+    {
+      "kind": "parent",
+      "parent": "174198",
+      "child": "146112"
+    },
+    {
+      "kind": "parent",
+      "parent": "31568",
+      "child": "31569"
+    },
+    {
+      "kind": "parent",
+      "parent": "164060",
+      "child": "174198"
+    },
+    {
+      "kind": "parent",
+      "parent": "31567",
+      "child": "31568"
+    },
+    {
+      "kind": "parent",
+      "parent": "174196",
+      "child": "164060"
+    },
+    {
+      "kind": "parent",
+      "parent": "31565",
+      "child": "31567"
+    },
+    {
+      "kind": "parent",
+      "parent": "194408",
+      "child": "174196"
+    },
+    {
+      "kind": "parent",
+      "parent": "31564",
+      "child": "31565"
+    },
+    {
+      "kind": "parent",
+      "parent": "194409",
+      "child": "194408"
+    },
+    {
+      "kind": "parent",
+      "parent": "31563",
+      "child": "31564"
+    },
+    {
+      "kind": "parent",
+      "parent": "194410",
+      "child": "194409"
+    },
+    {
+      "kind": "parent",
+      "parent": "15156",
+      "child": "31563"
+    }
+  ]
+}
