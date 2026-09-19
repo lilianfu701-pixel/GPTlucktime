@@ -1,0 +1,128 @@
+{
+  "key": "cbdb:sunying",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "156438",
+      "name": "孫應",
+      "citation": "CBDB 中国历代人物传记资料库 person 156438",
+      "gender": "male"
+    },
+    {
+      "externalId": "156439",
+      "name": "孫矩",
+      "citation": "CBDB 中国历代人物传记资料库 person 156439",
+      "gender": "male"
+    },
+    {
+      "externalId": "156441",
+      "name": "孫澄江",
+      "citation": "CBDB 中国历代人物传记资料库 person 156441",
+      "gender": "male"
+    },
+    {
+      "externalId": "141429",
+      "name": "孫杲",
+      "citation": "CBDB 中国历代人物传记资料库 person 141429",
+      "gender": "male",
+      "birth": {
+        "year": 742
+      },
+      "death": {
+        "year": 809
+      }
+    },
+    {
+      "externalId": "141443",
+      "name": "常氏(常愻女)",
+      "citation": "CBDB 中国历代人物传记资料库 person 141443",
+      "gender": "female",
+      "birth": {
+        "year": 772
+      },
+      "death": {
+        "year": 810
+      }
+    },
+    {
+      "externalId": "156437",
+      "name": "常氏(孫杲妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 156437",
+      "gender": "female"
+    },
+    {
+      "externalId": "156442",
+      "name": "孫鎮",
+      "citation": "CBDB 中国历代人物传记资料库 person 156442",
+      "gender": "male"
+    },
+    {
+      "externalId": "156445",
+      "name": "孫錡",
+      "citation": "CBDB 中国历代人物传记资料库 person 156445",
+      "gender": "male"
+    },
+    {
+      "externalId": "189680",
+      "name": "孫鍊",
+      "citation": "CBDB 中国历代人物传记资料库 person 189680",
+      "gender": "male",
+      "death": {
+        "year": 838
+      }
+    },
+    {
+      "externalId": "156444",
+      "name": "孫煉",
+      "citation": "CBDB 中国历代人物传记资料库 person 156444",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "156438",
+      "child": "156439"
+    },
+    {
+      "kind": "parent",
+      "parent": "156439",
+      "child": "156441"
+    },
+    {
+      "kind": "parent",
+      "parent": "156441",
+      "child": "141429"
+    },
+    {
+      "kind": "spouse",
+      "a": "141429",
+      "b": "141443"
+    },
+    {
+      "kind": "spouse",
+      "a": "141429",
+      "b": "156437"
+    },
+    {
+      "kind": "parent",
+      "parent": "141429",
+      "child": "156442"
+    },
+    {
+      "kind": "parent",
+      "parent": "141429",
+      "child": "156445"
+    },
+    {
+      "kind": "parent",
+      "parent": "141429",
+      "child": "189680"
+    },
+    {
+      "kind": "parent",
+      "parent": "141429",
+      "child": "156444"
+    }
+  ]
+}

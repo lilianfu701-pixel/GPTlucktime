@@ -1,0 +1,111 @@
+{
+  "key": "cbdb:menggong",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "22681",
+      "name": "孟珙",
+      "citation": "CBDB 中国历代人物传记资料库 person 22681",
+      "gender": "male",
+      "birth": {
+        "year": 1195
+      },
+      "death": {
+        "year": 1246
+      }
+    },
+    {
+      "externalId": "18613",
+      "name": "孟宗政",
+      "citation": "CBDB 中国历代人物传记资料库 person 18613",
+      "gender": "male"
+    },
+    {
+      "externalId": "22962",
+      "name": "孟之縉",
+      "citation": "CBDB 中国历代人物传记资料库 person 22962",
+      "gender": "male"
+    },
+    {
+      "externalId": "24370",
+      "name": "趙孟桂",
+      "citation": "CBDB 中国历代人物传记资料库 person 24370",
+      "gender": "female"
+    },
+    {
+      "externalId": "24368",
+      "name": "孟之經",
+      "citation": "CBDB 中国历代人物传记资料库 person 24368",
+      "gender": "male"
+    },
+    {
+      "externalId": "13704",
+      "name": "孟林",
+      "citation": "CBDB 中国历代人物传记资料库 person 13704",
+      "gender": "male"
+    },
+    {
+      "externalId": "24371",
+      "name": "孟淳",
+      "citation": "CBDB 中国历代人物传记资料库 person 24371",
+      "gender": "male",
+      "birth": {
+        "year": 1264
+      }
+    },
+    {
+      "externalId": "12103",
+      "name": "孟立",
+      "citation": "CBDB 中国历代人物传记资料库 person 12103",
+      "gender": "male"
+    },
+    {
+      "externalId": "11581",
+      "name": "孟安",
+      "citation": "CBDB 中国历代人物传记资料库 person 11581",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "18613",
+      "child": "22681"
+    },
+    {
+      "kind": "parent",
+      "parent": "22681",
+      "child": "22962"
+    },
+    {
+      "kind": "parent",
+      "parent": "22681",
+      "child": "24368"
+    },
+    {
+      "kind": "parent",
+      "parent": "13704",
+      "child": "18613"
+    },
+    {
+      "kind": "spouse",
+      "a": "22962",
+      "b": "24370"
+    },
+    {
+      "kind": "parent",
+      "parent": "22962",
+      "child": "24371"
+    },
+    {
+      "kind": "parent",
+      "parent": "12103",
+      "child": "13704"
+    },
+    {
+      "kind": "parent",
+      "parent": "11581",
+      "child": "12103"
+    }
+  ]
+}

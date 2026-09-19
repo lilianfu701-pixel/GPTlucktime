@@ -1,0 +1,350 @@
+{
+  "key": "cbdb:zhaohanxiang",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "19405",
+      "name": "趙善湘",
+      "citation": "CBDB 中国历代人物传记资料库 person 19405",
+      "gender": "male"
+    },
+    {
+      "externalId": "19404",
+      "name": "趙不陋",
+      "citation": "CBDB 中国历代人物传记资料库 person 19404",
+      "gender": "male"
+    },
+    {
+      "externalId": "19407",
+      "name": "趙",
+      "citation": "CBDB 中国历代人物传记资料库 person 19407",
+      "gender": "male"
+    },
+    {
+      "externalId": "19408",
+      "name": "趙汝梓",
+      "citation": "CBDB 中国历代人物传记资料库 person 19408",
+      "gender": "male"
+    },
+    {
+      "externalId": "19409",
+      "name": "趙汝榗",
+      "citation": "CBDB 中国历代人物传记资料库 person 19409",
+      "gender": "male"
+    },
+    {
+      "externalId": "19410",
+      "name": "趙汝楳",
+      "citation": "CBDB 中国历代人物传记资料库 person 19410",
+      "gender": "male"
+    },
+    {
+      "externalId": "19399",
+      "name": "趙士街",
+      "citation": "CBDB 中国历代人物传记资料库 person 19399",
+      "gender": "male"
+    },
+    {
+      "externalId": "50264",
+      "name": "張氏(趙士街妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 50264",
+      "gender": "female"
+    },
+    {
+      "externalId": "19398",
+      "name": "趙仲湜",
+      "citation": "CBDB 中国历代人物传记资料库 person 19398",
+      "gender": "male",
+      "death": {
+        "year": 1137
+      }
+    },
+    {
+      "externalId": "10503",
+      "name": "趙宗輔",
+      "citation": "CBDB 中国历代人物传记资料库 person 10503",
+      "gender": "male"
+    },
+    {
+      "externalId": "10502",
+      "name": "趙允讓",
+      "citation": "CBDB 中国历代人物传记资料库 person 10502",
+      "gender": "male",
+      "birth": {
+        "year": 995
+      },
+      "death": {
+        "year": 1059
+      }
+    },
+    {
+      "externalId": "50342",
+      "name": "任氏(趙允讓妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 50342",
+      "gender": "female"
+    },
+    {
+      "externalId": "53915",
+      "name": "耿氏(趙允讓妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 53915",
+      "gender": "female"
+    },
+    {
+      "externalId": "53916",
+      "name": "劉氏(趙允讓妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 53916",
+      "gender": "female"
+    },
+    {
+      "externalId": "53917",
+      "name": "吳氏(趙允讓妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 53917",
+      "gender": "female"
+    },
+    {
+      "externalId": "10495",
+      "name": "趙元份",
+      "citation": "CBDB 中国历代人物传记资料库 person 10495",
+      "gender": "male",
+      "birth": {
+        "year": 968
+      },
+      "death": {
+        "year": 1003
+      }
+    },
+    {
+      "externalId": "119411",
+      "name": "李氏(趙元份妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 119411",
+      "gender": "female"
+    },
+    {
+      "externalId": "9002",
+      "name": "趙炅",
+      "citation": "CBDB 中国历代人物传记资料库 person 9002",
+      "gender": "male",
+      "birth": {
+        "year": 939
+      },
+      "death": {
+        "year": 997
+      }
+    },
+    {
+      "externalId": "40215",
+      "name": "尹氏(趙炅妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 40215",
+      "gender": "female"
+    },
+    {
+      "externalId": "41044",
+      "name": "李氏(趙炅妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 41044",
+      "gender": "female",
+      "birth": {
+        "year": 960
+      },
+      "death": {
+        "year": 1004
+      }
+    },
+    {
+      "externalId": "41723",
+      "name": "李氏(趙炅妃)",
+      "citation": "CBDB 中国历代人物传记资料库 person 41723",
+      "gender": "female",
+      "birth": {
+        "year": 944
+      },
+      "death": {
+        "year": 977
+      }
+    },
+    {
+      "externalId": "48282",
+      "name": "符氏(趙炅皇后)",
+      "citation": "CBDB 中国历代人物传记资料库 person 48282",
+      "gender": "female",
+      "birth": {
+        "year": 942
+      },
+      "death": {
+        "year": 975
+      }
+    },
+    {
+      "externalId": "3198",
+      "name": "趙弘殷",
+      "citation": "CBDB 中国历代人物传记资料库 person 3198",
+      "gender": "male"
+    },
+    {
+      "externalId": "40289",
+      "name": "杜氏(趙弘殷妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 40289",
+      "gender": "female",
+      "birth": {
+        "year": 902
+      },
+      "death": {
+        "year": 961
+      }
+    },
+    {
+      "externalId": "20261",
+      "name": "趙敬",
+      "citation": "CBDB 中国历代人物传记资料库 person 20261",
+      "gender": "male"
+    },
+    {
+      "externalId": "339674",
+      "name": "趙珽",
+      "citation": "CBDB 中国历代人物传记资料库 person 339674",
+      "gender": "male"
+    },
+    {
+      "externalId": "339673",
+      "name": "趙朓",
+      "citation": "CBDB 中国历代人物传记资料库 person 339673",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "19404",
+      "child": "19405"
+    },
+    {
+      "kind": "parent",
+      "parent": "19405",
+      "child": "19407"
+    },
+    {
+      "kind": "parent",
+      "parent": "19405",
+      "child": "19408"
+    },
+    {
+      "kind": "parent",
+      "parent": "19405",
+      "child": "19409"
+    },
+    {
+      "kind": "parent",
+      "parent": "19405",
+      "child": "19410"
+    },
+    {
+      "kind": "parent",
+      "parent": "19399",
+      "child": "19404"
+    },
+    {
+      "kind": "parent",
+      "parent": "19398",
+      "child": "19399"
+    },
+    {
+      "kind": "spouse",
+      "a": "19399",
+      "b": "50264"
+    },
+    {
+      "kind": "parent",
+      "parent": "10503",
+      "child": "19398"
+    },
+    {
+      "kind": "parent",
+      "parent": "10502",
+      "child": "10503"
+    },
+    {
+      "kind": "parent",
+      "parent": "10495",
+      "child": "10502"
+    },
+    {
+      "kind": "spouse",
+      "a": "10502",
+      "b": "50342"
+    },
+    {
+      "kind": "spouse",
+      "a": "10502",
+      "b": "53915"
+    },
+    {
+      "kind": "spouse",
+      "a": "10502",
+      "b": "53916"
+    },
+    {
+      "kind": "spouse",
+      "a": "10502",
+      "b": "53917"
+    },
+    {
+      "kind": "parent",
+      "parent": "9002",
+      "child": "10495"
+    },
+    {
+      "kind": "spouse",
+      "a": "10495",
+      "b": "119411"
+    },
+    {
+      "kind": "parent",
+      "parent": "3198",
+      "child": "9002"
+    },
+    {
+      "kind": "parent",
+      "parent": "40289",
+      "child": "9002"
+    },
+    {
+      "kind": "spouse",
+      "a": "40215",
+      "b": "9002"
+    },
+    {
+      "kind": "spouse",
+      "a": "41044",
+      "b": "9002"
+    },
+    {
+      "kind": "spouse",
+      "a": "41723",
+      "b": "9002"
+    },
+    {
+      "kind": "spouse",
+      "a": "48282",
+      "b": "9002"
+    },
+    {
+      "kind": "parent",
+      "parent": "20261",
+      "child": "3198"
+    },
+    {
+      "kind": "spouse",
+      "a": "3198",
+      "b": "40289"
+    },
+    {
+      "kind": "parent",
+      "parent": "339674",
+      "child": "20261"
+    },
+    {
+      "kind": "parent",
+      "parent": "339673",
+      "child": "339674"
+    }
+  ]
+}

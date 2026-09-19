@@ -1,0 +1,188 @@
+{
+  "key": "cbdb:liuban",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "1220",
+      "name": "劉攽",
+      "citation": "CBDB 中国历代人物传记资料库 person 1220",
+      "gender": "male"
+    },
+    {
+      "externalId": "51724",
+      "name": "韓氏(劉攽妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 51724",
+      "gender": "female"
+    },
+    {
+      "externalId": "1207",
+      "name": "劉立之",
+      "citation": "CBDB 中国历代人物传记资料库 person 1207",
+      "gender": "male"
+    },
+    {
+      "externalId": "51931",
+      "name": "王氏(劉立之妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 51931",
+      "gender": "female"
+    },
+    {
+      "externalId": "7292",
+      "name": "劉方山",
+      "citation": "CBDB 中国历代人物传记资料库 person 7292",
+      "gender": "male"
+    },
+    {
+      "externalId": "1226",
+      "name": "劉式",
+      "citation": "CBDB 中国历代人物传记资料库 person 1226",
+      "gender": "male",
+      "birth": {
+        "year": 949
+      },
+      "death": {
+        "year": 997
+      }
+    },
+    {
+      "externalId": "51688",
+      "name": "陳氏(劉式妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 51688",
+      "gender": "female"
+    },
+    {
+      "externalId": "13246",
+      "name": "劉襄",
+      "citation": "CBDB 中国历代人物传记资料库 person 13246",
+      "gender": "male"
+    },
+    {
+      "externalId": "12232",
+      "name": "劉琠",
+      "citation": "CBDB 中国历代人物传记资料库 person 12232",
+      "gender": "male"
+    },
+    {
+      "externalId": "13247",
+      "name": "劉龜年",
+      "citation": "CBDB 中国历代人物传记资料库 person 13247",
+      "gender": "male",
+      "death": {
+        "year": 1178
+      }
+    },
+    {
+      "externalId": "13248",
+      "name": "劉龜從",
+      "citation": "CBDB 中国历代人物传记资料库 person 13248",
+      "gender": "male"
+    },
+    {
+      "externalId": "13249",
+      "name": "劉龜習",
+      "citation": "CBDB 中国历代人物传记资料库 person 13249",
+      "gender": "male"
+    },
+    {
+      "externalId": "12230",
+      "name": "劉逵",
+      "citation": "CBDB 中国历代人物传记资料库 person 12230",
+      "gender": "male"
+    },
+    {
+      "externalId": "13250",
+      "name": "劉孟容",
+      "citation": "CBDB 中国历代人物传记资料库 person 13250",
+      "gender": "male"
+    },
+    {
+      "externalId": "12231",
+      "name": "劉超",
+      "citation": "CBDB 中国历代人物传记资料库 person 12231",
+      "gender": "male"
+    },
+    {
+      "externalId": "12229",
+      "name": "劉遜",
+      "citation": "CBDB 中国历代人物传记资料库 person 12229",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "1207",
+      "child": "1220"
+    },
+    {
+      "kind": "spouse",
+      "a": "1220",
+      "b": "51724"
+    },
+    {
+      "kind": "parent",
+      "parent": "1220",
+      "child": "7292"
+    },
+    {
+      "kind": "parent",
+      "parent": "1226",
+      "child": "1207"
+    },
+    {
+      "kind": "spouse",
+      "a": "1207",
+      "b": "51931"
+    },
+    {
+      "kind": "parent",
+      "parent": "7292",
+      "child": "13246"
+    },
+    {
+      "kind": "parent",
+      "parent": "12232",
+      "child": "1226"
+    },
+    {
+      "kind": "spouse",
+      "a": "1226",
+      "b": "51688"
+    },
+    {
+      "kind": "parent",
+      "parent": "13246",
+      "child": "13247"
+    },
+    {
+      "kind": "parent",
+      "parent": "13246",
+      "child": "13248"
+    },
+    {
+      "kind": "parent",
+      "parent": "13246",
+      "child": "13249"
+    },
+    {
+      "kind": "parent",
+      "parent": "12230",
+      "child": "12232"
+    },
+    {
+      "kind": "parent",
+      "parent": "13247",
+      "child": "13250"
+    },
+    {
+      "kind": "parent",
+      "parent": "12231",
+      "child": "12230"
+    },
+    {
+      "kind": "parent",
+      "parent": "12229",
+      "child": "12231"
+    }
+  ]
+}

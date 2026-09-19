@@ -212,6 +212,11 @@ import suweidao from "./suweidao.data.json";
 import liufen from "./liufen.data.json";
 import liugong from "./liugong.data.json";
 import xiaoying from "./xiaoying.data.json";
+// CBDB 第十八批（南宋将领·北宋史家·宋皇族支系）
+import sunying from "./sunying.data.json";
+import menggong from "./menggong.data.json";
+import liuban from "./liuban.data.json";
+import zhaohanxiang from "./zhaohanxiang.data.json";
 // CBDB 第十七批（宋明学者·朱子门人·南宋官员·明代忠臣）
 import yangjishi from "./yangjishi.data.json";
 import fangshinju from "./fangshinju.data.json";
@@ -614,6 +619,11 @@ const FAMILIES: { key: string; label: string; dataset: GenealogyDataset }[] = [
   { key: "liufen", label: "河东柳氏·柳芬支（柳懿·柳均·南北朝到唐）", dataset: liufen as GenealogyDataset },
   { key: "liugong", label: "河东柳氏·柳公权支（书法家·柳瑗·柳仲憲）", dataset: liugong as GenealogyDataset },
   { key: "xiaoying", label: "兰陵萧氏·萧颖士支（萧道赐·萧恢·南朝到唐）", dataset: xiaoying as GenealogyDataset },
+  // CBDB 第十八批：南宋将领·北宋史家·宋皇族支系
+  { key: "zhaohanxiang", label: "鄞县赵氏·赵善湘支（南宋官员·宁宗朝宰相·1167-1246·27人）", dataset: zhaohanxiang as GenealogyDataset },
+  { key: "liuban", label: "新喻刘氏·刘攽支（北宋史学家·资治通鉴编者·1023-1089·16人）", dataset: liuban as GenealogyDataset },
+  { key: "menggong", label: "随州孟氏·孟珙支（南宋名将·保卫荆楚·1195-1246）", dataset: menggong as GenealogyDataset },
+  { key: "sunying", label: "宋代孙氏·孙应支（宋代官员·多代记录）", dataset: sunying as GenealogyDataset },
   // CBDB 第十七批：宋明学者·朱子门人·南宋官员·明代忠臣
   { key: "caiyuanding", label: "建阳蔡氏·蔡元定支（朱子友人·律历学家·1135-1198·16人）", dataset: caiyuanding as GenealogyDataset },
   { key: "huanggan", label: "闽县黄氏·黄干支（朱子女婿·闽学传人·1152-1221）", dataset: huanggan as GenealogyDataset },
