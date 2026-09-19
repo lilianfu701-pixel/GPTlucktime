@@ -212,6 +212,13 @@ import suweidao from "./suweidao.data.json";
 import liufen from "./liufen.data.json";
 import liugong from "./liugong.data.json";
 import xiaoying from "./xiaoying.data.json";
+// CBDB 第二十三批（晚唐词人·金元学者·蒙元将领）
+import weizhuang from "./weizhuang.data.json";
+import liuyin from "./liuyin.data.json";
+import chengdunli from "./chengdunli.data.json";
+import haojing from "./haojing.data.json";
+import sutianjiue from "./sutianjiue.data.json";
+import shitianzhuo from "./shitianzhuo.data.json";
 // CBDB 第二十二批（唐代将领·北宋经学·隋唐名臣）
 import wangzhongsi from "./wangzhongsi.data.json";
 import sunshi from "./sunshi.data.json";
@@ -647,6 +654,13 @@ const FAMILIES: { key: string; label: string; dataset: GenealogyDataset }[] = [
   { key: "liufen", label: "河东柳氏·柳芬支（柳懿·柳均·南北朝到唐）", dataset: liufen as GenealogyDataset },
   { key: "liugong", label: "河东柳氏·柳公权支（书法家·柳瑗·柳仲憲）", dataset: liugong as GenealogyDataset },
   { key: "xiaoying", label: "兰陵萧氏·萧颖士支（萧道赐·萧恢·南朝到唐）", dataset: xiaoying as GenealogyDataset },
+  // CBDB 第二十三批：晚唐词人·金元学者·蒙元将领
+  { key: "weizhuang", label: "京兆韦氏·韦庄支（晚唐词人·花间集·836-910·含韦应物·9人）", dataset: weizhuang as GenealogyDataset },
+  { key: "liuyin", label: "蠡州刘氏·刘因支（元代儒学家·静修先生·1249-1293·4人）", dataset: liuyin as GenealogyDataset },
+  { key: "chengdunli", label: "饶州程氏·程端礼支（元代教育家·1271-1345·4人）", dataset: chengdunli as GenealogyDataset },
+  { key: "haojing", label: "陵川郝氏·郝经支（金元之际学者·1223-1275·13人）", dataset: haojing as GenealogyDataset },
+  { key: "sutianjiue", label: "真定苏氏·苏天爵支（元代史学家·1294-1352·8人）", dataset: sutianjiue as GenealogyDataset },
+  { key: "shitianzhuo", label: "真定史氏·史天泽支（蒙元名将·1202-1275·13人）", dataset: shitianzhuo as GenealogyDataset },
   // CBDB 第二十二批：唐代将领·北宋经学·隋唐名臣
   { key: "wangzhongsi", label: "太原王氏·王忠嗣支（唐代名将·节度四镇·731-775·8人）", dataset: wangzhongsi as GenealogyDataset },
   { key: "sunshi", label: "博州孙氏·孙奭支（北宋经学家·962-1033·5人）", dataset: sunshi as GenealogyDataset },

@@ -1,0 +1,182 @@
+{
+  "key": "cbdb:haojing",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "29510",
+      "name": "郝經",
+      "citation": "CBDB 中国历代人物传记资料库 person 29510",
+      "gender": "male",
+      "birth": {
+        "year": 1223
+      },
+      "death": {
+        "year": 1275
+      }
+    },
+    {
+      "externalId": "29512",
+      "name": "郝思溫",
+      "citation": "CBDB 中国历代人物传记资料库 person 29512",
+      "gender": "male",
+      "birth": {
+        "year": 1191
+      },
+      "death": {
+        "year": 1258
+      }
+    },
+    {
+      "externalId": "29513",
+      "name": "許氏",
+      "citation": "CBDB 中国历代人物传记资料库 person 29513",
+      "gender": "female",
+      "birth": {
+        "year": 1198
+      },
+      "death": {
+        "year": 1246
+      }
+    },
+    {
+      "externalId": "29523",
+      "name": "郝阿寶",
+      "citation": "CBDB 中国历代人物传记资料库 person 29523",
+      "gender": "male",
+      "birth": {
+        "year": 1244
+      },
+      "death": {
+        "year": 1246
+      }
+    },
+    {
+      "externalId": "29524",
+      "name": "郝阿長",
+      "citation": "CBDB 中国历代人物传记资料库 person 29524",
+      "gender": "male",
+      "birth": {
+        "year": 1255
+      },
+      "death": {
+        "year": 1259
+      }
+    },
+    {
+      "externalId": "29525",
+      "name": "郝采麟",
+      "citation": "CBDB 中国历代人物传记资料库 person 29525",
+      "gender": "male"
+    },
+    {
+      "externalId": "29519",
+      "name": "郝天挺",
+      "citation": "CBDB 中国历代人物传记资料库 person 29519",
+      "gender": "male",
+      "birth": {
+        "year": 1161
+      },
+      "death": {
+        "year": 1217
+      }
+    },
+    {
+      "externalId": "29526",
+      "name": "郝野",
+      "citation": "CBDB 中国历代人物传记资料库 person 29526",
+      "gender": "male"
+    },
+    {
+      "externalId": "29531",
+      "name": "郝昇",
+      "citation": "CBDB 中国历代人物传记资料库 person 29531",
+      "gender": "male"
+    },
+    {
+      "externalId": "29530",
+      "name": "郝璋",
+      "citation": "CBDB 中国历代人物传记资料库 person 29530",
+      "gender": "male"
+    },
+    {
+      "externalId": "29529",
+      "name": "郝元",
+      "citation": "CBDB 中国历代人物传记资料库 person 29529",
+      "gender": "male"
+    },
+    {
+      "externalId": "29528",
+      "name": "郝善",
+      "citation": "CBDB 中国历代人物传记资料库 person 29528",
+      "gender": "male"
+    },
+    {
+      "externalId": "29527",
+      "name": "郝祚",
+      "citation": "CBDB 中国历代人物传记资料库 person 29527",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "29512",
+      "child": "29510"
+    },
+    {
+      "kind": "parent",
+      "parent": "29510",
+      "child": "29523"
+    },
+    {
+      "kind": "parent",
+      "parent": "29510",
+      "child": "29524"
+    },
+    {
+      "kind": "parent",
+      "parent": "29510",
+      "child": "29525"
+    },
+    {
+      "kind": "parent",
+      "parent": "29519",
+      "child": "29512"
+    },
+    {
+      "kind": "spouse",
+      "a": "29512",
+      "b": "29513"
+    },
+    {
+      "kind": "parent",
+      "parent": "29525",
+      "child": "29526"
+    },
+    {
+      "kind": "parent",
+      "parent": "29531",
+      "child": "29519"
+    },
+    {
+      "kind": "parent",
+      "parent": "29530",
+      "child": "29531"
+    },
+    {
+      "kind": "parent",
+      "parent": "29529",
+      "child": "29530"
+    },
+    {
+      "kind": "parent",
+      "parent": "29528",
+      "child": "29529"
+    },
+    {
+      "kind": "parent",
+      "parent": "29527",
+      "child": "29528"
+    }
+  ]
+}

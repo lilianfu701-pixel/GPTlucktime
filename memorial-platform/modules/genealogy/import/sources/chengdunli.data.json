@@ -1,0 +1,53 @@
+{
+  "key": "cbdb:chengdunli",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "28475",
+      "name": "程端禮",
+      "citation": "CBDB 中国历代人物传记资料库 person 28475",
+      "gender": "male",
+      "birth": {
+        "year": 1271
+      },
+      "death": {
+        "year": 1345
+      }
+    },
+    {
+      "externalId": "28477",
+      "name": "程立",
+      "citation": "CBDB 中国历代人物传记资料库 person 28477",
+      "gender": "male"
+    },
+    {
+      "externalId": "28478",
+      "name": "程在孫",
+      "citation": "CBDB 中国历代人物传记资料库 person 28478",
+      "gender": "male"
+    },
+    {
+      "externalId": "28479",
+      "name": "程振父",
+      "citation": "CBDB 中国历代人物传记资料库 person 28479",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "28477",
+      "child": "28475"
+    },
+    {
+      "kind": "parent",
+      "parent": "28478",
+      "child": "28477"
+    },
+    {
+      "kind": "parent",
+      "parent": "28479",
+      "child": "28478"
+    }
+  ]
+}

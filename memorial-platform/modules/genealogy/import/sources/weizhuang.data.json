@@ -1,0 +1,126 @@
+{
+  "key": "cbdb:weizhuang",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "92161",
+      "name": "韋莊",
+      "citation": "CBDB 中国历代人物传记资料库 person 92161",
+      "gender": "male",
+      "birth": {
+        "year": 836
+      },
+      "death": {
+        "year": 910
+      }
+    },
+    {
+      "externalId": "180929",
+      "name": "韋韞",
+      "citation": "CBDB 中国历代人物传记资料库 person 180929",
+      "gender": "male",
+      "death": {
+        "year": 869
+      }
+    },
+    {
+      "externalId": "180924",
+      "name": "韋徹",
+      "citation": "CBDB 中国历代人物传记资料库 person 180924",
+      "gender": "male",
+      "death": {
+        "year": 865
+      }
+    },
+    {
+      "externalId": "180923",
+      "name": "韋厚復",
+      "citation": "CBDB 中国历代人物传记资料库 person 180923",
+      "gender": "male",
+      "death": {
+        "year": 828
+      }
+    },
+    {
+      "externalId": "32822",
+      "name": "韋應物",
+      "citation": "CBDB 中国历代人物传记资料库 person 32822",
+      "gender": "male",
+      "birth": {
+        "year": 737
+      }
+    },
+    {
+      "externalId": "146280",
+      "name": "元蘋",
+      "citation": "CBDB 中国历代人物传记资料库 person 146280",
+      "gender": "female",
+      "birth": {
+        "year": 740
+      },
+      "death": {
+        "year": 776
+      }
+    },
+    {
+      "externalId": "32821",
+      "name": "韋鑾",
+      "citation": "CBDB 中国历代人物传记资料库 person 32821",
+      "gender": "male"
+    },
+    {
+      "externalId": "32820",
+      "name": "韋令儀",
+      "citation": "CBDB 中国历代人物传记资料库 person 32820",
+      "gender": "male"
+    },
+    {
+      "externalId": "31030",
+      "name": "韋待價",
+      "citation": "CBDB 中国历代人物传记资料库 person 31030",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "180929",
+      "child": "92161"
+    },
+    {
+      "kind": "parent",
+      "parent": "180924",
+      "child": "180929"
+    },
+    {
+      "kind": "parent",
+      "parent": "180923",
+      "child": "180924"
+    },
+    {
+      "kind": "parent",
+      "parent": "32822",
+      "child": "180923"
+    },
+    {
+      "kind": "parent",
+      "parent": "32821",
+      "child": "32822"
+    },
+    {
+      "kind": "spouse",
+      "a": "146280",
+      "b": "32822"
+    },
+    {
+      "kind": "parent",
+      "parent": "32820",
+      "child": "32821"
+    },
+    {
+      "kind": "parent",
+      "parent": "31030",
+      "child": "32820"
+    }
+  ]
+}

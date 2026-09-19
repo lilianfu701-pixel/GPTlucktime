@@ -1,0 +1,53 @@
+{
+  "key": "cbdb:liuyin",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "29001",
+      "name": "劉因",
+      "citation": "CBDB 中国历代人物传记资料库 person 29001",
+      "gender": "male",
+      "birth": {
+        "year": 1249
+      },
+      "death": {
+        "year": 1293
+      }
+    },
+    {
+      "externalId": "29002",
+      "name": "劉述",
+      "citation": "CBDB 中国历代人物传记资料库 person 29002",
+      "gender": "male"
+    },
+    {
+      "externalId": "29003",
+      "name": "劉俁",
+      "citation": "CBDB 中国历代人物传记资料库 person 29003",
+      "gender": "male"
+    },
+    {
+      "externalId": "29004",
+      "name": "劉昉",
+      "citation": "CBDB 中国历代人物传记资料库 person 29004",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "29002",
+      "child": "29001"
+    },
+    {
+      "kind": "parent",
+      "parent": "29003",
+      "child": "29002"
+    },
+    {
+      "kind": "parent",
+      "parent": "29004",
+      "child": "29003"
+    }
+  ]
+}

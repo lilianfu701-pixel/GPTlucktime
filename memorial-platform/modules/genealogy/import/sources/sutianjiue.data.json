@@ -1,0 +1,126 @@
+{
+  "key": "cbdb:sutianjiue",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "10792",
+      "name": "蘇天爵",
+      "citation": "CBDB 中国历代人物传记资料库 person 10792",
+      "gender": "male",
+      "birth": {
+        "year": 1294
+      },
+      "death": {
+        "year": 1352
+      }
+    },
+    {
+      "externalId": "10791",
+      "name": "蘇志道",
+      "citation": "CBDB 中国历代人物传记资料库 person 10791",
+      "gender": "male",
+      "birth": {
+        "year": 1261
+      },
+      "death": {
+        "year": 1320
+      }
+    },
+    {
+      "externalId": "10790",
+      "name": "蘇榮祖",
+      "citation": "CBDB 中国历代人物传记资料库 person 10790",
+      "gender": "male",
+      "birth": {
+        "year": 1239
+      },
+      "death": {
+        "year": 1275
+      }
+    },
+    {
+      "externalId": "10789",
+      "name": "蘇誠",
+      "citation": "CBDB 中国历代人物传记资料库 person 10789",
+      "gender": "male",
+      "birth": {
+        "year": 1221
+      },
+      "death": {
+        "year": 1298
+      }
+    },
+    {
+      "externalId": "386336",
+      "name": "畢氏(蘇誠妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 386336",
+      "gender": "female"
+    },
+    {
+      "externalId": "10788",
+      "name": "蘇元老",
+      "citation": "CBDB 中国历代人物传记资料库 person 10788",
+      "gender": "male",
+      "birth": {
+        "year": 1191
+      },
+      "death": {
+        "year": 1276
+      }
+    },
+    {
+      "externalId": "386335",
+      "name": "孫氏(蘇元老妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 386335",
+      "gender": "female"
+    },
+    {
+      "externalId": "10787",
+      "name": "蘇公彥",
+      "citation": "CBDB 中国历代人物传记资料库 person 10787",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "10791",
+      "child": "10792"
+    },
+    {
+      "kind": "parent",
+      "parent": "10790",
+      "child": "10791"
+    },
+    {
+      "kind": "parent",
+      "parent": "10789",
+      "child": "10790"
+    },
+    {
+      "kind": "parent",
+      "parent": "10788",
+      "child": "10789"
+    },
+    {
+      "kind": "parent",
+      "parent": "386335",
+      "child": "10789"
+    },
+    {
+      "kind": "spouse",
+      "a": "10789",
+      "b": "386336"
+    },
+    {
+      "kind": "parent",
+      "parent": "10787",
+      "child": "10788"
+    },
+    {
+      "kind": "spouse",
+      "a": "10788",
+      "b": "386335"
+    }
+  ]
+}

@@ -1,0 +1,164 @@
+{
+  "key": "cbdb:shitianzhuo",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "29195",
+      "name": "史天澤",
+      "citation": "CBDB 中国历代人物传记资料库 person 29195",
+      "gender": "male",
+      "birth": {
+        "year": 1202
+      },
+      "death": {
+        "year": 1275
+      }
+    },
+    {
+      "externalId": "29141",
+      "name": "史秉直",
+      "citation": "CBDB 中国历代人物传记资料库 person 29141",
+      "gender": "male",
+      "birth": {
+        "year": 1175
+      },
+      "death": {
+        "year": 1245
+      }
+    },
+    {
+      "externalId": "29385",
+      "name": "史格",
+      "citation": "CBDB 中国历代人物传记资料库 person 29385",
+      "gender": "male",
+      "birth": {
+        "year": 1234
+      },
+      "death": {
+        "year": 1291
+      }
+    },
+    {
+      "externalId": "29386",
+      "name": "史樟",
+      "citation": "CBDB 中国历代人物传记资料库 person 29386",
+      "gender": "male"
+    },
+    {
+      "externalId": "29387",
+      "name": "史棣",
+      "citation": "CBDB 中国历代人物传记资料库 person 29387",
+      "gender": "male"
+    },
+    {
+      "externalId": "29388",
+      "name": "史杠",
+      "citation": "CBDB 中国历代人物传记资料库 person 29388",
+      "gender": "male"
+    },
+    {
+      "externalId": "29389",
+      "name": "史杞",
+      "citation": "CBDB 中国历代人物传记资料库 person 29389",
+      "gender": "male"
+    },
+    {
+      "externalId": "29390",
+      "name": "史梓",
+      "citation": "CBDB 中国历代人物传记资料库 person 29390",
+      "gender": "male"
+    },
+    {
+      "externalId": "29391",
+      "name": "史楷",
+      "citation": "CBDB 中国历代人物传记资料库 person 29391",
+      "gender": "male"
+    },
+    {
+      "externalId": "29392",
+      "name": "史彬",
+      "citation": "CBDB 中国历代人物传记资料库 person 29392",
+      "gender": "male"
+    },
+    {
+      "externalId": "29142",
+      "name": "史成珪",
+      "citation": "CBDB 中国历代人物传记资料库 person 29142",
+      "gender": "male"
+    },
+    {
+      "externalId": "29357",
+      "name": "史燮",
+      "citation": "CBDB 中国历代人物传记资料库 person 29357",
+      "gender": "male"
+    },
+    {
+      "externalId": "29143",
+      "name": "史倫",
+      "citation": "CBDB 中国历代人物传记资料库 person 29143",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "29141",
+      "child": "29195"
+    },
+    {
+      "kind": "parent",
+      "parent": "29195",
+      "child": "29385"
+    },
+    {
+      "kind": "parent",
+      "parent": "29195",
+      "child": "29386"
+    },
+    {
+      "kind": "parent",
+      "parent": "29195",
+      "child": "29387"
+    },
+    {
+      "kind": "parent",
+      "parent": "29195",
+      "child": "29388"
+    },
+    {
+      "kind": "parent",
+      "parent": "29195",
+      "child": "29389"
+    },
+    {
+      "kind": "parent",
+      "parent": "29195",
+      "child": "29390"
+    },
+    {
+      "kind": "parent",
+      "parent": "29195",
+      "child": "29391"
+    },
+    {
+      "kind": "parent",
+      "parent": "29195",
+      "child": "29392"
+    },
+    {
+      "kind": "parent",
+      "parent": "29142",
+      "child": "29141"
+    },
+    {
+      "kind": "parent",
+      "parent": "29392",
+      "child": "29357"
+    },
+    {
+      "kind": "parent",
+      "parent": "29143",
+      "child": "29142"
+    }
+  ]
+}
