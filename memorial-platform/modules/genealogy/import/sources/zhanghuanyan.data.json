@@ -1,0 +1,51 @@
+{
+  "key": "cbdb:zhanghuanyan",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "65887",
+      "name": "張煌言",
+      "citation": "CBDB 中国历代人物传记资料库 person 65887",
+      "gender": "male",
+      "birth": {
+        "year": 1620
+      },
+      "death": {
+        "year": 1664
+      }
+    },
+    {
+      "externalId": "522576",
+      "name": "張圭章",
+      "citation": "CBDB 中国历代人物传记资料库 person 522576",
+      "gender": "male"
+    },
+    {
+      "externalId": "522577",
+      "name": "張圭璋",
+      "citation": "CBDB 中国历代人物传记资料库 person 522577"
+    },
+    {
+      "externalId": "522579",
+      "name": "張萬祺",
+      "citation": "CBDB 中国历代人物传记资料库 person 522579"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "522576",
+      "child": "65887"
+    },
+    {
+      "kind": "parent",
+      "parent": "522577",
+      "child": "65887"
+    },
+    {
+      "kind": "parent",
+      "parent": "65887",
+      "child": "522579"
+    }
+  ]
+}

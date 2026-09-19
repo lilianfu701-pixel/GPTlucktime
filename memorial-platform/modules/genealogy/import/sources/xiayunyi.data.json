@@ -1,0 +1,73 @@
+{
+  "key": "cbdb:xiayunyi",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "55107",
+      "name": "夏允彝",
+      "citation": "CBDB 中国历代人物传记资料库 person 55107",
+      "gender": "male",
+      "birth": {
+        "year": 1596
+      },
+      "death": {
+        "year": 1645
+      }
+    },
+    {
+      "externalId": "55103",
+      "name": "夏淑吉",
+      "citation": "CBDB 中国历代人物传记资料库 person 55103",
+      "gender": "female",
+      "death": {
+        "year": 1662
+      }
+    },
+    {
+      "externalId": "55101",
+      "name": "侯洵",
+      "citation": "CBDB 中国历代人物传记资料库 person 55101",
+      "gender": "male"
+    },
+    {
+      "externalId": "55111",
+      "name": "夏惠吉",
+      "citation": "CBDB 中国历代人物传记资料库 person 55111",
+      "gender": "female",
+      "birth": {
+        "year": 1628
+      },
+      "death": {
+        "year": 1661
+      }
+    },
+    {
+      "externalId": "55110",
+      "name": "夏完淳",
+      "citation": "CBDB 中国历代人物传记资料库 person 55110",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "55107",
+      "child": "55103"
+    },
+    {
+      "kind": "parent",
+      "parent": "55107",
+      "child": "55111"
+    },
+    {
+      "kind": "parent",
+      "parent": "55107",
+      "child": "55110"
+    },
+    {
+      "kind": "spouse",
+      "a": "55101",
+      "b": "55103"
+    }
+  ]
+}

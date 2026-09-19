@@ -212,6 +212,17 @@ import suweidao from "./suweidao.data.json";
 import liufen from "./liufen.data.json";
 import liugong from "./liugong.data.json";
 import xiaoying from "./xiaoying.data.json";
+// CBDB 第二十六批（明末清初学人志士·清初遗老）
+import luxiangsheng from "./luxiangsheng.data.json";
+import sunchengzong from "./sunchengzong.data.json";
+import huangdaozhou from "./huangdaozhou.data.json";
+import fushan from "./fushan.data.json";
+// CBDB 第二十五批（明末忠义志士·晚明抗清名臣）
+import niyuanlu from "./niyuanlu.data.json";
+import qibiaojia from "./qibiaojia.data.json";
+import xiayunyi from "./xiayunyi.data.json";
+import shikefa from "./shikefa.data.json";
+import zhanghuanyan from "./zhanghuanyan.data.json";
 // CBDB 第二十四批（南宋权臣·明代将领·清代学者重臣）
 import hantazhou from "./hantazhou.data.json";
 import qijiguang from "./qijiguang.data.json";
@@ -665,6 +676,17 @@ const FAMILIES: { key: string; label: string; dataset: GenealogyDataset }[] = [
   { key: "liufen", label: "河东柳氏·柳芬支（柳懿·柳均·南北朝到唐）", dataset: liufen as GenealogyDataset },
   { key: "liugong", label: "河东柳氏·柳公权支（书法家·柳瑗·柳仲憲）", dataset: liugong as GenealogyDataset },
   { key: "xiaoying", label: "兰陵萧氏·萧颖士支（萧道赐·萧恢·南朝到唐）", dataset: xiaoying as GenealogyDataset },
+  // CBDB 第二十六批：明末清初学人志士·清初遗老
+  { key: "luxiangsheng", label: "宜兴卢氏·卢象升支（明末抗清将领·1600-1638·3人）", dataset: luxiangsheng as GenealogyDataset },
+  { key: "sunchengzong", label: "高阳孙氏·孙承宗支（明代督师·1563-1638·4人）", dataset: sunchengzong as GenealogyDataset },
+  { key: "huangdaozhou", label: "漳浦黄氏·黄道周支（明末忠臣·书法家·1585-1646·3人）", dataset: huangdaozhou as GenealogyDataset },
+  { key: "fushan", label: "阳曲傅氏·傅山支（清初思想家·书画家·1602-1683·3人）", dataset: fushan as GenealogyDataset },
+  // CBDB 第二十五批：明末忠义志士·晚明抗清名臣
+  { key: "niyuanlu", label: "上虞倪氏·倪元璐支（明末忠臣·书画家·1593-1644·14人）", dataset: niyuanlu as GenealogyDataset },
+  { key: "qibiaojia", label: "山阴祁氏·祁彪佳支（明末官员·寓山园·1602-1645·16人）", dataset: qibiaojia as GenealogyDataset },
+  { key: "xiayunyi", label: "松江夏氏·夏允彝支（明末忠臣·夏完淳之父·1596-1645·5人）", dataset: xiayunyi as GenealogyDataset },
+  { key: "shikefa", label: "祥符史氏·史可法支（明末督师·扬州殉国·1602-1645·3人）", dataset: shikefa as GenealogyDataset },
+  { key: "zhanghuanyan", label: "鄞县张氏·张煌言支（明末抗清将领·1620-1664·4人）", dataset: zhanghuanyan as GenealogyDataset },
   // CBDB 第二十四批：南宋权臣·明代将领·清代学者重臣
   { key: "hantazhou", label: "颍川韩氏·韩侂胄支（南宋权臣·1152-1207·3人）", dataset: hantazhou as GenealogyDataset },
   { key: "qijiguang", label: "定远戚氏·戚继光支（明代抗倭名将·1528-1587·3人）", dataset: qijiguang as GenealogyDataset },

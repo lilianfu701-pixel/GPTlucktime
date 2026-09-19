@@ -1,0 +1,177 @@
+{
+  "key": "cbdb:niyuanlu",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "30734",
+      "name": "倪元璐",
+      "citation": "CBDB 中国历代人物传记资料库 person 30734",
+      "gender": "male",
+      "birth": {
+        "year": 1593
+      },
+      "death": {
+        "year": 1644
+      }
+    },
+    {
+      "externalId": "704240",
+      "name": "王氏(倪元璐妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 704240",
+      "gender": "female"
+    },
+    {
+      "externalId": "30754",
+      "name": "倪涷",
+      "citation": "CBDB 中国历代人物传记资料库 person 30754",
+      "gender": "male"
+    },
+    {
+      "externalId": "30757",
+      "name": "倪會鼎",
+      "citation": "CBDB 中国历代人物传记资料库 person 30757",
+      "gender": "male",
+      "birth": {
+        "year": 1620
+      },
+      "death": {
+        "year": 1706
+      }
+    },
+    {
+      "externalId": "123000",
+      "name": "倪之覃",
+      "citation": "CBDB 中国历代人物传记资料库 person 123000",
+      "gender": "male"
+    },
+    {
+      "externalId": "122996",
+      "name": "鄭慧瑩",
+      "citation": "CBDB 中国历代人物传记资料库 person 122996",
+      "gender": "female"
+    },
+    {
+      "externalId": "30758",
+      "name": "倪會覃",
+      "citation": "CBDB 中国历代人物传记资料库 person 30758",
+      "gender": "male",
+      "birth": {
+        "year": 1624
+      }
+    },
+    {
+      "externalId": "30752",
+      "name": "倪鎧領",
+      "citation": "CBDB 中国历代人物传记资料库 person 30752",
+      "gender": "male"
+    },
+    {
+      "externalId": "30751",
+      "name": "倪堂",
+      "citation": "CBDB 中国历代人物传记资料库 person 30751",
+      "gender": "male"
+    },
+    {
+      "externalId": "30750",
+      "name": "倪晏",
+      "citation": "CBDB 中国历代人物传记资料库 person 30750",
+      "gender": "male"
+    },
+    {
+      "externalId": "30749",
+      "name": "倪述初",
+      "citation": "CBDB 中国历代人物传记资料库 person 30749",
+      "gender": "male"
+    },
+    {
+      "externalId": "30748",
+      "name": "倪春",
+      "citation": "CBDB 中国历代人物传记资料库 person 30748",
+      "gender": "male"
+    },
+    {
+      "externalId": "30747",
+      "name": "倪彥忠",
+      "citation": "CBDB 中国历代人物传记资料库 person 30747",
+      "gender": "male"
+    },
+    {
+      "externalId": "30746",
+      "name": "倪文質",
+      "citation": "CBDB 中国历代人物传记资料库 person 30746",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "30754",
+      "child": "30734"
+    },
+    {
+      "kind": "spouse",
+      "a": "30734",
+      "b": "704240"
+    },
+    {
+      "kind": "parent",
+      "parent": "30734",
+      "child": "30757"
+    },
+    {
+      "kind": "parent",
+      "parent": "30734",
+      "child": "123000"
+    },
+    {
+      "kind": "parent",
+      "parent": "30734",
+      "child": "30758"
+    },
+    {
+      "kind": "parent",
+      "parent": "30752",
+      "child": "30754"
+    },
+    {
+      "kind": "spouse",
+      "a": "122996",
+      "b": "123000"
+    },
+    {
+      "kind": "spouse",
+      "a": "122996",
+      "b": "30758"
+    },
+    {
+      "kind": "parent",
+      "parent": "30751",
+      "child": "30752"
+    },
+    {
+      "kind": "parent",
+      "parent": "30750",
+      "child": "30751"
+    },
+    {
+      "kind": "parent",
+      "parent": "30749",
+      "child": "30750"
+    },
+    {
+      "kind": "parent",
+      "parent": "30748",
+      "child": "30749"
+    },
+    {
+      "kind": "parent",
+      "parent": "30747",
+      "child": "30748"
+    },
+    {
+      "kind": "parent",
+      "parent": "30746",
+      "child": "30747"
+    }
+  ]
+}

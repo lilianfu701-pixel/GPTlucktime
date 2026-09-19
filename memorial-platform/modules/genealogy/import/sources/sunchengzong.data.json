@@ -1,0 +1,50 @@
+{
+  "key": "cbdb:sunchengzong",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "63882",
+      "name": "孫承宗",
+      "citation": "CBDB 中国历代人物传记资料库 person 63882",
+      "gender": "male",
+      "birth": {
+        "year": 1563
+      },
+      "death": {
+        "year": 1638
+      }
+    },
+    {
+      "externalId": "521073",
+      "name": "孫鈰",
+      "citation": "CBDB 中国历代人物传记资料库 person 521073"
+    },
+    {
+      "externalId": "521074",
+      "name": "孫鋡",
+      "citation": "CBDB 中国历代人物传记资料库 person 521074"
+    },
+    {
+      "externalId": "521076",
+      "name": "孫鉁",
+      "citation": "CBDB 中国历代人物传记资料库 person 521076"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "63882",
+      "child": "521073"
+    },
+    {
+      "kind": "parent",
+      "parent": "63882",
+      "child": "521074"
+    },
+    {
+      "kind": "parent",
+      "parent": "63882",
+      "child": "521076"
+    }
+  ]
+}

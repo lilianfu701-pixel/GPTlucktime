@@ -1,0 +1,40 @@
+{
+  "key": "cbdb:luxiangsheng",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "33710",
+      "name": "盧象昇",
+      "citation": "CBDB 中国历代人物传记资料库 person 33710",
+      "gender": "male",
+      "birth": {
+        "year": 1600
+      },
+      "death": {
+        "year": 1638
+      }
+    },
+    {
+      "externalId": "520738",
+      "name": "盧國霦",
+      "citation": "CBDB 中国历代人物传记资料库 person 520738"
+    },
+    {
+      "externalId": "520736",
+      "name": "盧天馭",
+      "citation": "CBDB 中国历代人物传记资料库 person 520736"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "520738",
+      "child": "33710"
+    },
+    {
+      "kind": "parent",
+      "parent": "33710",
+      "child": "520736"
+    }
+  ]
+}

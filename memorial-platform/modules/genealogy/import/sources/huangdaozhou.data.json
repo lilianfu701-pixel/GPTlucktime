@@ -1,0 +1,47 @@
+{
+  "key": "cbdb:huangdaozhou",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "65942",
+      "name": "黃道周",
+      "citation": "CBDB 中国历代人物传记资料库 person 65942",
+      "gender": "male",
+      "birth": {
+        "year": 1585
+      },
+      "death": {
+        "year": 1646
+      }
+    },
+    {
+      "externalId": "121013",
+      "name": "蔡潤石",
+      "citation": "CBDB 中国历代人物传记资料库 person 121013",
+      "gender": "female",
+      "birth": {
+        "year": 1616
+      },
+      "death": {
+        "year": 1698
+      }
+    },
+    {
+      "externalId": "522772",
+      "name": "黃嘉卿",
+      "citation": "CBDB 中国历代人物传记资料库 person 522772"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "522772",
+      "child": "65942"
+    },
+    {
+      "kind": "spouse",
+      "a": "121013",
+      "b": "65942"
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "key": "cbdb:shikefa",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "34792",
+      "name": "史可法",
+      "citation": "CBDB 中国历代人物传记资料库 person 34792",
+      "gender": "male",
+      "birth": {
+        "year": 1602
+      },
+      "death": {
+        "year": 1645
+      }
+    },
+    {
+      "externalId": "34793",
+      "name": "史從質",
+      "citation": "CBDB 中国历代人物传记资料库 person 34793",
+      "gender": "male"
+    },
+    {
+      "externalId": "34794",
+      "name": "史應元",
+      "citation": "CBDB 中国历代人物传记资料库 person 34794",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "34793",
+      "child": "34792"
+    },
+    {
+      "kind": "parent",
+      "parent": "34794",
+      "child": "34793"
+    }
+  ]
+}

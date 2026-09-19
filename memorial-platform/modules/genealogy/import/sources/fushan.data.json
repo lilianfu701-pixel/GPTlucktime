@@ -1,0 +1,47 @@
+{
+  "key": "cbdb:fushan",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "30248",
+      "name": "傅山",
+      "citation": "CBDB 中国历代人物传记资料库 person 30248",
+      "gender": "male",
+      "birth": {
+        "year": 1602
+      },
+      "death": {
+        "year": 1683
+      }
+    },
+    {
+      "externalId": "522178",
+      "name": "傅之謨",
+      "citation": "CBDB 中国历代人物传记资料库 person 522178"
+    },
+    {
+      "externalId": "90085",
+      "name": "傅眉",
+      "citation": "CBDB 中国历代人物传记资料库 person 90085",
+      "gender": "male",
+      "birth": {
+        "year": 1628
+      },
+      "death": {
+        "year": 1684
+      }
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "522178",
+      "child": "30248"
+    },
+    {
+      "kind": "parent",
+      "parent": "30248",
+      "child": "90085"
+    }
+  ]
+}

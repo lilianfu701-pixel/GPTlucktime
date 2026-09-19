@@ -1,0 +1,218 @@
+{
+  "key": "cbdb:qibiaojia",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "33172",
+      "name": "祁彪佳",
+      "citation": "CBDB 中国历代人物传记资料库 person 33172",
+      "gender": "male",
+      "birth": {
+        "year": 1602
+      },
+      "death": {
+        "year": 1645
+      }
+    },
+    {
+      "externalId": "55048",
+      "name": "商景蘭",
+      "citation": "CBDB 中国历代人物传记资料库 person 55048",
+      "gender": "female",
+      "birth": {
+        "year": 1605
+      },
+      "death": {
+        "year": 1680
+      }
+    },
+    {
+      "externalId": "33171",
+      "name": "祁承㸁",
+      "citation": "CBDB 中国历代人物传记资料库 person 33171",
+      "gender": "male"
+    },
+    {
+      "externalId": "55941",
+      "name": "祁德淵",
+      "citation": "CBDB 中国历代人物传记资料库 person 55941",
+      "gender": "female"
+    },
+    {
+      "externalId": "55943",
+      "name": "姜廷梧",
+      "citation": "CBDB 中国历代人物传记资料库 person 55943",
+      "gender": "male",
+      "birth": {
+        "year": 1627
+      },
+      "death": {
+        "year": 1668
+      }
+    },
+    {
+      "externalId": "55954",
+      "name": "祁德茝",
+      "citation": "CBDB 中国历代人物传记资料库 person 55954",
+      "gender": "female",
+      "birth": {
+        "year": 1628
+      },
+      "death": {
+        "year": 1661
+      }
+    },
+    {
+      "externalId": "55956",
+      "name": "沈萃祉",
+      "citation": "CBDB 中国历代人物传记资料库 person 55956",
+      "gender": "male"
+    },
+    {
+      "externalId": "69496",
+      "name": "祁德玉",
+      "citation": "CBDB 中国历代人物传记资料库 person 69496",
+      "gender": "female"
+    },
+    {
+      "externalId": "69501",
+      "name": "朱堯日",
+      "citation": "CBDB 中国历代人物传记资料库 person 69501",
+      "gender": "male"
+    },
+    {
+      "externalId": "55962",
+      "name": "祁理孫",
+      "citation": "CBDB 中国历代人物传记资料库 person 55962",
+      "gender": "male",
+      "birth": {
+        "year": 1627
+      },
+      "death": {
+        "year": 1687
+      }
+    },
+    {
+      "externalId": "55959",
+      "name": "張德蕙",
+      "citation": "CBDB 中国历代人物传记资料库 person 55959",
+      "gender": "female"
+    },
+    {
+      "externalId": "33174",
+      "name": "祁班孫",
+      "citation": "CBDB 中国历代人物传记资料库 person 33174",
+      "gender": "male",
+      "death": {
+        "year": 1673
+      }
+    },
+    {
+      "externalId": "55965",
+      "name": "朱德蓉",
+      "citation": "CBDB 中国历代人物传记资料库 person 55965",
+      "gender": "female"
+    },
+    {
+      "externalId": "55950",
+      "name": "祁德瓊",
+      "citation": "CBDB 中国历代人物传记资料库 person 55950",
+      "gender": "female",
+      "birth": {
+        "year": 1628
+      },
+      "death": {
+        "year": 1662
+      }
+    },
+    {
+      "externalId": "55952",
+      "name": "王穀韋",
+      "citation": "CBDB 中国历代人物传记资料库 person 55952",
+      "gender": "male"
+    },
+    {
+      "externalId": "33170",
+      "name": "祁世清",
+      "citation": "CBDB 中国历代人物传记资料库 person 33170",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "33171",
+      "child": "33172"
+    },
+    {
+      "kind": "spouse",
+      "a": "33172",
+      "b": "55048"
+    },
+    {
+      "kind": "parent",
+      "parent": "33172",
+      "child": "55941"
+    },
+    {
+      "kind": "parent",
+      "parent": "33172",
+      "child": "55954"
+    },
+    {
+      "kind": "parent",
+      "parent": "33172",
+      "child": "69496"
+    },
+    {
+      "kind": "parent",
+      "parent": "33172",
+      "child": "55962"
+    },
+    {
+      "kind": "parent",
+      "parent": "33172",
+      "child": "33174"
+    },
+    {
+      "kind": "parent",
+      "parent": "33172",
+      "child": "55950"
+    },
+    {
+      "kind": "parent",
+      "parent": "33170",
+      "child": "33171"
+    },
+    {
+      "kind": "spouse",
+      "a": "55941",
+      "b": "55943"
+    },
+    {
+      "kind": "spouse",
+      "a": "55954",
+      "b": "55956"
+    },
+    {
+      "kind": "spouse",
+      "a": "69496",
+      "b": "69501"
+    },
+    {
+      "kind": "spouse",
+      "a": "55959",
+      "b": "55962"
+    },
+    {
+      "kind": "spouse",
+      "a": "33174",
+      "b": "55965"
+    },
+    {
+      "kind": "spouse",
+      "a": "55950",
+      "b": "55952"
+    }
+  ]
+}
