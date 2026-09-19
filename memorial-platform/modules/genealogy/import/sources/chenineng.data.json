@@ -1,0 +1,97 @@
+{
+  "key": "cbdb:chenineng",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "8004",
+      "name": "陳與義",
+      "citation": "CBDB 中国历代人物传记资料库 person 8004",
+      "gender": "male"
+    },
+    {
+      "externalId": "14537",
+      "name": "陳為",
+      "citation": "CBDB 中国历代人物传记资料库 person 14537",
+      "gender": "male"
+    },
+    {
+      "externalId": "14529",
+      "name": "陳恂",
+      "citation": "CBDB 中国历代人物传记资料库 person 14529",
+      "gender": "male"
+    },
+    {
+      "externalId": "7126",
+      "name": "陳希亮",
+      "citation": "CBDB 中国历代人物传记资料库 person 7126",
+      "gender": "male",
+      "birth": {
+        "year": 1000
+      },
+      "death": {
+        "year": 1065
+      }
+    },
+    {
+      "externalId": "14535",
+      "name": "陳顯忠",
+      "citation": "CBDB 中国历代人物传记资料库 person 14535",
+      "gender": "male"
+    },
+    {
+      "externalId": "14534",
+      "name": "陳廷祿",
+      "citation": "CBDB 中国历代人物传记资料库 person 14534",
+      "gender": "male"
+    },
+    {
+      "externalId": "14533",
+      "name": "陳瓊",
+      "citation": "CBDB 中国历代人物传记资料库 person 14533",
+      "gender": "male"
+    },
+    {
+      "externalId": "14532",
+      "name": "陳F",
+      "citation": "CBDB 中国历代人物传记资料库 person 14532",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "14537",
+      "child": "8004"
+    },
+    {
+      "kind": "parent",
+      "parent": "14529",
+      "child": "14537"
+    },
+    {
+      "kind": "parent",
+      "parent": "7126",
+      "child": "14529"
+    },
+    {
+      "kind": "parent",
+      "parent": "14535",
+      "child": "7126"
+    },
+    {
+      "kind": "parent",
+      "parent": "14534",
+      "child": "14535"
+    },
+    {
+      "kind": "parent",
+      "parent": "14533",
+      "child": "14534"
+    },
+    {
+      "kind": "parent",
+      "parent": "14532",
+      "child": "14533"
+    }
+  ]
+}

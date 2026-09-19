@@ -1,0 +1,151 @@
+{
+  "key": "cbdb:zhaokui",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "15219",
+      "name": "趙葵",
+      "citation": "CBDB 中国历代人物传记资料库 person 15219",
+      "gender": "male",
+      "birth": {
+        "year": 1186
+      },
+      "death": {
+        "year": 1266
+      }
+    },
+    {
+      "externalId": "50155",
+      "name": "李氏(趙葵妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 50155",
+      "gender": "female"
+    },
+    {
+      "externalId": "15217",
+      "name": "趙方",
+      "citation": "CBDB 中国历代人物传记资料库 person 15217",
+      "gender": "male",
+      "death": {
+        "year": 1221
+      }
+    },
+    {
+      "externalId": "36226",
+      "name": "胡氏(趙方妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 36226",
+      "gender": "female",
+      "birth": {
+        "year": 1153
+      },
+      "death": {
+        "year": 1230
+      }
+    },
+    {
+      "externalId": "50026",
+      "name": "胡氏(趙方妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 50026",
+      "gender": "female",
+      "birth": {
+        "year": 1153
+      },
+      "death": {
+        "year": 1230
+      }
+    },
+    {
+      "externalId": "15220",
+      "name": "趙溍",
+      "citation": "CBDB 中国历代人物传记资料库 person 15220",
+      "gender": "male"
+    },
+    {
+      "externalId": "24737",
+      "name": "趙淇",
+      "citation": "CBDB 中国历代人物传记资料库 person 24737",
+      "gender": "male",
+      "birth": {
+        "year": 1239
+      },
+      "death": {
+        "year": 1307
+      }
+    },
+    {
+      "externalId": "15216",
+      "name": "趙棠",
+      "citation": "CBDB 中国历代人物传记资料库 person 15216",
+      "gender": "male"
+    },
+    {
+      "externalId": "50126",
+      "name": "楊氏(趙棠妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 50126",
+      "gender": "female"
+    },
+    {
+      "externalId": "24732",
+      "name": "趙世勣",
+      "citation": "CBDB 中国历代人物传记资料库 person 24732",
+      "gender": "male"
+    },
+    {
+      "externalId": "50125",
+      "name": "某氏(趙世勣妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 50125",
+      "gender": "female"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "15217",
+      "child": "15219"
+    },
+    {
+      "kind": "spouse",
+      "a": "15219",
+      "b": "50155"
+    },
+    {
+      "kind": "parent",
+      "parent": "15219",
+      "child": "15220"
+    },
+    {
+      "kind": "parent",
+      "parent": "15219",
+      "child": "24737"
+    },
+    {
+      "kind": "parent",
+      "parent": "15216",
+      "child": "15217"
+    },
+    {
+      "kind": "spouse",
+      "a": "15217",
+      "b": "36226"
+    },
+    {
+      "kind": "spouse",
+      "a": "15217",
+      "b": "50026"
+    },
+    {
+      "kind": "parent",
+      "parent": "24732",
+      "child": "15216"
+    },
+    {
+      "kind": "parent",
+      "parent": "50125",
+      "child": "15216"
+    },
+    {
+      "kind": "spouse",
+      "a": "15216",
+      "b": "50126"
+    }
+  ]
+}

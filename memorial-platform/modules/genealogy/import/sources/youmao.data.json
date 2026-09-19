@@ -1,0 +1,222 @@
+{
+  "key": "cbdb:youmao",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "14856",
+      "name": "尤袤",
+      "citation": "CBDB 中国历代人物传记资料库 person 14856",
+      "gender": "male",
+      "birth": {
+        "year": 1127
+      },
+      "death": {
+        "year": 1194
+      }
+    },
+    {
+      "externalId": "135685",
+      "name": "唐氏(尤袤妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 135685",
+      "gender": "female"
+    },
+    {
+      "externalId": "14851",
+      "name": "尤時亨",
+      "citation": "CBDB 中国历代人物传记资料库 person 14851",
+      "gender": "male"
+    },
+    {
+      "externalId": "135684",
+      "name": "耿氏(尤袤母)",
+      "citation": "CBDB 中国历代人物传记资料库 person 135684",
+      "gender": "female"
+    },
+    {
+      "externalId": "14857",
+      "name": "尤棐",
+      "citation": "CBDB 中国历代人物传记资料库 person 14857",
+      "gender": "male"
+    },
+    {
+      "externalId": "14859",
+      "name": "尤槩",
+      "citation": "CBDB 中国历代人物传记资料库 person 14859",
+      "gender": "male",
+      "birth": {
+        "year": 1175
+      }
+    },
+    {
+      "externalId": "14849",
+      "name": "尤申",
+      "citation": "CBDB 中国历代人物传记资料库 person 14849",
+      "gender": "male",
+      "birth": {
+        "year": 1074
+      }
+    },
+    {
+      "externalId": "14858",
+      "name": "尤焴",
+      "citation": "CBDB 中国历代人物传记资料库 person 14858",
+      "gender": "male",
+      "birth": {
+        "year": 1182
+      },
+      "death": {
+        "year": 1264
+      }
+    },
+    {
+      "externalId": "14860",
+      "name": "尤爚",
+      "citation": "CBDB 中国历代人物传记资料库 person 14860",
+      "gender": "male"
+    },
+    {
+      "externalId": "14861",
+      "name": "尤燿",
+      "citation": "CBDB 中国历代人物传记资料库 person 14861",
+      "gender": "male",
+      "birth": {
+        "year": 1171
+      },
+      "death": {
+        "year": 1233
+      }
+    },
+    {
+      "externalId": "14847",
+      "name": "尤大成",
+      "citation": "CBDB 中国历代人物传记资料库 person 14847",
+      "gender": "male"
+    },
+    {
+      "externalId": "5227",
+      "name": "范氏(尤大成妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 5227",
+      "gender": "female",
+      "death": {
+        "year": 1075
+      }
+    },
+    {
+      "externalId": "14866",
+      "name": "尤帶",
+      "citation": "CBDB 中国历代人物传记资料库 person 14866",
+      "gender": "male"
+    },
+    {
+      "externalId": "14846",
+      "name": "尤叔保",
+      "citation": "CBDB 中国历代人物传记资料库 person 14846",
+      "gender": "male"
+    },
+    {
+      "externalId": "14867",
+      "name": "尤志",
+      "citation": "CBDB 中国历代人物传记资料库 person 14867",
+      "gender": "male"
+    },
+    {
+      "externalId": "14868",
+      "name": "尤交",
+      "citation": "CBDB 中国历代人物传记资料库 person 14868",
+      "gender": "male"
+    },
+    {
+      "externalId": "14869",
+      "name": "尤玘",
+      "citation": "CBDB 中国历代人物传记资料库 person 14869",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "14851",
+      "child": "14856"
+    },
+    {
+      "kind": "parent",
+      "parent": "135684",
+      "child": "14856"
+    },
+    {
+      "kind": "spouse",
+      "a": "135685",
+      "b": "14856"
+    },
+    {
+      "kind": "parent",
+      "parent": "14856",
+      "child": "14857"
+    },
+    {
+      "kind": "parent",
+      "parent": "14856",
+      "child": "14859"
+    },
+    {
+      "kind": "parent",
+      "parent": "14849",
+      "child": "14851"
+    },
+    {
+      "kind": "parent",
+      "parent": "14857",
+      "child": "14858"
+    },
+    {
+      "kind": "parent",
+      "parent": "14859",
+      "child": "14860"
+    },
+    {
+      "kind": "parent",
+      "parent": "14859",
+      "child": "14861"
+    },
+    {
+      "kind": "parent",
+      "parent": "14847",
+      "child": "14849"
+    },
+    {
+      "kind": "parent",
+      "parent": "5227",
+      "child": "14849"
+    },
+    {
+      "kind": "parent",
+      "parent": "14861",
+      "child": "14866"
+    },
+    {
+      "kind": "parent",
+      "parent": "14846",
+      "child": "14847"
+    },
+    {
+      "kind": "spouse",
+      "a": "14847",
+      "b": "5227"
+    },
+    {
+      "kind": "parent",
+      "parent": "14866",
+      "child": "14867"
+    },
+    {
+      "kind": "parent",
+      "parent": "14867",
+      "child": "14868"
+    },
+    {
+      "kind": "parent",
+      "parent": "14868",
+      "child": "14869"
+    }
+  ]
+}

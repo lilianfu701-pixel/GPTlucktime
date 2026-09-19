@@ -1,0 +1,123 @@
+{
+  "key": "cbdb:wangshipeng",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "10598",
+      "name": "王十朋",
+      "citation": "CBDB 中国历代人物传记资料库 person 10598",
+      "gender": "male",
+      "birth": {
+        "year": 1112
+      },
+      "death": {
+        "year": 1171
+      }
+    },
+    {
+      "externalId": "5173",
+      "name": "賈氏(王十朋妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 5173",
+      "gender": "female",
+      "birth": {
+        "year": 1114
+      },
+      "death": {
+        "year": 1168
+      }
+    },
+    {
+      "externalId": "10597",
+      "name": "王輔",
+      "citation": "CBDB 中国历代人物传记资料库 person 10597",
+      "gender": "male"
+    },
+    {
+      "externalId": "5172",
+      "name": "萬氏(王十朋母)",
+      "citation": "CBDB 中国历代人物传记资料库 person 5172",
+      "gender": "female",
+      "birth": {
+        "year": 1083
+      },
+      "death": {
+        "year": 1149
+      }
+    },
+    {
+      "externalId": "10599",
+      "name": "王聞詩",
+      "citation": "CBDB 中国历代人物传记资料库 person 10599",
+      "gender": "male",
+      "birth": {
+        "year": 1141
+      },
+      "death": {
+        "year": 1197
+      }
+    },
+    {
+      "externalId": "10600",
+      "name": "王聞禮",
+      "citation": "CBDB 中国历代人物传记资料库 person 10600",
+      "gender": "male",
+      "death": {
+        "year": 1206
+      }
+    },
+    {
+      "externalId": "18819",
+      "name": "王格",
+      "citation": "CBDB 中国历代人物传记资料库 person 18819",
+      "gender": "male"
+    },
+    {
+      "externalId": "18818",
+      "name": "王信",
+      "citation": "CBDB 中国历代人物传记资料库 person 18818",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "10597",
+      "child": "10598"
+    },
+    {
+      "kind": "parent",
+      "parent": "5172",
+      "child": "10598"
+    },
+    {
+      "kind": "spouse",
+      "a": "10598",
+      "b": "5173"
+    },
+    {
+      "kind": "parent",
+      "parent": "10598",
+      "child": "10599"
+    },
+    {
+      "kind": "parent",
+      "parent": "10598",
+      "child": "10600"
+    },
+    {
+      "kind": "parent",
+      "parent": "18819",
+      "child": "10597"
+    },
+    {
+      "kind": "spouse",
+      "a": "10597",
+      "b": "5172"
+    },
+    {
+      "kind": "parent",
+      "parent": "18818",
+      "child": "18819"
+    }
+  ]
+}

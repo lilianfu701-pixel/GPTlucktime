@@ -1,0 +1,91 @@
+{
+  "key": "cbdb:jinlv",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "10731",
+      "name": "金履祥",
+      "citation": "CBDB 中国历代人物传记资料库 person 10731",
+      "gender": "male",
+      "birth": {
+        "year": 1232
+      },
+      "death": {
+        "year": 1303
+      }
+    },
+    {
+      "externalId": "386873",
+      "name": "徐氏(金履祥妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 386873",
+      "gender": "female"
+    },
+    {
+      "externalId": "386867",
+      "name": "金夢先",
+      "citation": "CBDB 中国历代人物传记资料库 person 386867",
+      "gender": "male"
+    },
+    {
+      "externalId": "386868",
+      "name": "童氏(金夢先妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 386868",
+      "gender": "female"
+    },
+    {
+      "externalId": "386874",
+      "name": "金頴",
+      "citation": "CBDB 中国历代人物传记资料库 person 386874",
+      "gender": "male"
+    },
+    {
+      "externalId": "386875",
+      "name": "金頖",
+      "citation": "CBDB 中国历代人物传记资料库 person 386875",
+      "gender": "male"
+    },
+    {
+      "externalId": "386876",
+      "name": "金頡",
+      "citation": "CBDB 中国历代人物传记资料库 person 386876",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "386867",
+      "child": "10731"
+    },
+    {
+      "kind": "parent",
+      "parent": "386868",
+      "child": "10731"
+    },
+    {
+      "kind": "spouse",
+      "a": "10731",
+      "b": "386873"
+    },
+    {
+      "kind": "parent",
+      "parent": "10731",
+      "child": "386874"
+    },
+    {
+      "kind": "parent",
+      "parent": "10731",
+      "child": "386875"
+    },
+    {
+      "kind": "parent",
+      "parent": "10731",
+      "child": "386876"
+    },
+    {
+      "kind": "spouse",
+      "a": "386867",
+      "b": "386868"
+    }
+  ]
+}

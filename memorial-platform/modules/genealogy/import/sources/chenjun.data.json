@@ -1,0 +1,251 @@
+{
+  "key": "cbdb:chenjun",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "10884",
+      "name": "陳俊卿",
+      "citation": "CBDB 中国历代人物传记资料库 person 10884",
+      "gender": "male",
+      "birth": {
+        "year": 1113
+      },
+      "death": {
+        "year": 1186
+      }
+    },
+    {
+      "externalId": "47925",
+      "name": "聶氏(陳俊卿妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 47925",
+      "gender": "female",
+      "birth": {
+        "year": 1120
+      },
+      "death": {
+        "year": 1200
+      }
+    },
+    {
+      "externalId": "10883",
+      "name": "陳詵",
+      "citation": "CBDB 中国历代人物传记资料库 person 10883",
+      "gender": "male"
+    },
+    {
+      "externalId": "47923",
+      "name": "陳詵",
+      "citation": "CBDB 中国历代人物传记资料库 person 47923",
+      "gender": "male"
+    },
+    {
+      "externalId": "47924",
+      "name": "卓氏(陳詵妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 47924",
+      "gender": "female",
+      "birth": {
+        "year": 1080
+      },
+      "death": {
+        "year": 1150
+      }
+    },
+    {
+      "externalId": "10889",
+      "name": "陳寔",
+      "citation": "CBDB 中国历代人物传记资料库 person 10889",
+      "gender": "male",
+      "birth": {
+        "year": 1143
+      },
+      "death": {
+        "year": 1212
+      }
+    },
+    {
+      "externalId": "10890",
+      "name": "陳守",
+      "citation": "CBDB 中国历代人物传记资料库 person 10890",
+      "gender": "male",
+      "death": {
+        "year": 1211
+      }
+    },
+    {
+      "externalId": "10891",
+      "name": "陳定",
+      "citation": "CBDB 中国历代人物传记资料库 person 10891",
+      "gender": "male",
+      "death": {
+        "year": 1174
+      }
+    },
+    {
+      "externalId": "10892",
+      "name": "陳宓",
+      "citation": "CBDB 中国历代人物传记资料库 person 10892",
+      "gender": "male",
+      "birth": {
+        "year": 1171
+      },
+      "death": {
+        "year": 1230
+      }
+    },
+    {
+      "externalId": "47403",
+      "name": "梁妙惠",
+      "citation": "CBDB 中国历代人物传记资料库 person 47403",
+      "gender": "male",
+      "birth": {
+        "year": 1169
+      },
+      "death": {
+        "year": 1202
+      }
+    },
+    {
+      "externalId": "10893",
+      "name": "陳宿",
+      "citation": "CBDB 中国历代人物传记资料库 person 10893",
+      "gender": "male",
+      "birth": {
+        "year": 1173
+      },
+      "death": {
+        "year": 1242
+      }
+    },
+    {
+      "externalId": "47487",
+      "name": "聶柔中",
+      "citation": "CBDB 中国历代人物传记资料库 person 47487",
+      "gender": "male",
+      "birth": {
+        "year": 1173
+      },
+      "death": {
+        "year": 1251
+      }
+    },
+    {
+      "externalId": "10894",
+      "name": "陳址",
+      "citation": "CBDB 中国历代人物传记资料库 person 10894",
+      "gender": "male",
+      "death": {
+        "year": 1197
+      }
+    },
+    {
+      "externalId": "14994",
+      "name": "陳圭",
+      "citation": "CBDB 中国历代人物传记资料库 person 14994",
+      "gender": "male",
+      "death": {
+        "year": 1248
+      }
+    },
+    {
+      "externalId": "10895",
+      "name": "陳增",
+      "citation": "CBDB 中国历代人物传记资料库 person 10895",
+      "gender": "male",
+      "birth": {
+        "year": 1200
+      },
+      "death": {
+        "year": 1266
+      }
+    },
+    {
+      "externalId": "5385",
+      "name": "趙汝偕",
+      "citation": "CBDB 中国历代人物传记资料库 person 5385",
+      "gender": "female",
+      "birth": {
+        "year": 1199
+      },
+      "death": {
+        "year": 1249
+      }
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "10883",
+      "child": "10884"
+    },
+    {
+      "kind": "parent",
+      "parent": "47923",
+      "child": "10884"
+    },
+    {
+      "kind": "parent",
+      "parent": "47924",
+      "child": "10884"
+    },
+    {
+      "kind": "spouse",
+      "a": "10884",
+      "b": "47925"
+    },
+    {
+      "kind": "parent",
+      "parent": "10884",
+      "child": "10889"
+    },
+    {
+      "kind": "parent",
+      "parent": "10884",
+      "child": "10890"
+    },
+    {
+      "kind": "parent",
+      "parent": "10884",
+      "child": "10891"
+    },
+    {
+      "kind": "parent",
+      "parent": "10884",
+      "child": "10892"
+    },
+    {
+      "kind": "parent",
+      "parent": "10884",
+      "child": "10893"
+    },
+    {
+      "kind": "parent",
+      "parent": "10889",
+      "child": "10894"
+    },
+    {
+      "kind": "spouse",
+      "a": "10892",
+      "b": "47403"
+    },
+    {
+      "kind": "parent",
+      "parent": "10892",
+      "child": "14994"
+    },
+    {
+      "kind": "spouse",
+      "a": "10893",
+      "b": "47487"
+    },
+    {
+      "kind": "parent",
+      "parent": "10893",
+      "child": "10895"
+    },
+    {
+      "kind": "spouse",
+      "a": "10895",
+      "b": "5385"
+    }
+  ]
+}

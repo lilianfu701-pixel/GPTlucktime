@@ -1,0 +1,119 @@
+{
+  "key": "cbdb:liuci",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "8089",
+      "name": "劉摯",
+      "citation": "CBDB 中国历代人物传记资料库 person 8089",
+      "gender": "male"
+    },
+    {
+      "externalId": "15140",
+      "name": "劉居正",
+      "citation": "CBDB 中国历代人物传记资料库 person 15140",
+      "gender": "male",
+      "birth": {
+        "year": 997
+      },
+      "death": {
+        "year": 1040
+      }
+    },
+    {
+      "externalId": "3583",
+      "name": "劉跂",
+      "citation": "CBDB 中国历代人物传记资料库 person 3583",
+      "gender": "male"
+    },
+    {
+      "externalId": "15162",
+      "name": "劉蹈",
+      "citation": "CBDB 中国历代人物传记资料库 person 15162",
+      "gender": "male"
+    },
+    {
+      "externalId": "15137",
+      "name": "劉格",
+      "citation": "CBDB 中国历代人物传记资料库 person 15137",
+      "gender": "male"
+    },
+    {
+      "externalId": "3581",
+      "name": "劉長福",
+      "citation": "CBDB 中国历代人物传记资料库 person 3581",
+      "gender": "male"
+    },
+    {
+      "externalId": "3582",
+      "name": "劉長歷",
+      "citation": "CBDB 中国历代人物传记资料库 person 3582",
+      "gender": "male"
+    },
+    {
+      "externalId": "15136",
+      "name": "劉溫",
+      "citation": "CBDB 中国历代人物传记资料库 person 15136",
+      "gender": "male"
+    },
+    {
+      "externalId": "15135",
+      "name": "劉盛",
+      "citation": "CBDB 中国历代人物传记资料库 person 15135",
+      "gender": "male"
+    },
+    {
+      "externalId": "15134",
+      "name": "劉崇",
+      "citation": "CBDB 中国历代人物传记资料库 person 15134",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "15140",
+      "child": "8089"
+    },
+    {
+      "kind": "parent",
+      "parent": "8089",
+      "child": "3583"
+    },
+    {
+      "kind": "parent",
+      "parent": "8089",
+      "child": "15162"
+    },
+    {
+      "kind": "parent",
+      "parent": "15137",
+      "child": "15140"
+    },
+    {
+      "kind": "parent",
+      "parent": "3583",
+      "child": "3581"
+    },
+    {
+      "kind": "parent",
+      "parent": "3583",
+      "child": "3582"
+    },
+    {
+      "kind": "parent",
+      "parent": "15136",
+      "child": "15137"
+    },
+    {
+      "kind": "parent",
+      "parent": "15135",
+      "child": "15136"
+    },
+    {
+      "kind": "parent",
+      "parent": "15134",
+      "child": "15135"
+    }
+  ]
+}

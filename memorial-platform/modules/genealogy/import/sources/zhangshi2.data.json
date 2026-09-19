@@ -1,0 +1,197 @@
+{
+  "key": "cbdb:zhangshi2",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "7164",
+      "name": "張栻",
+      "citation": "CBDB 中国历代人物传记资料库 person 7164",
+      "gender": "male",
+      "birth": {
+        "year": 1133
+      },
+      "death": {
+        "year": 1180
+      }
+    },
+    {
+      "externalId": "211",
+      "name": "張浚",
+      "citation": "CBDB 中国历代人物传记资料库 person 211",
+      "gender": "male",
+      "birth": {
+        "year": 1097
+      },
+      "death": {
+        "year": 1164
+      }
+    },
+    {
+      "externalId": "46711",
+      "name": "樂氏(張浚妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 46711",
+      "gender": "female"
+    },
+    {
+      "externalId": "46712",
+      "name": "宇文氏(張浚妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 46712",
+      "gender": "female"
+    },
+    {
+      "externalId": "12396",
+      "name": "張咸",
+      "citation": "CBDB 中国历代人物传记资料库 person 12396",
+      "gender": "male",
+      "birth": {
+        "year": 1048
+      },
+      "death": {
+        "year": 1099
+      }
+    },
+    {
+      "externalId": "46686",
+      "name": "任氏(張咸妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 46686",
+      "gender": "female"
+    },
+    {
+      "externalId": "53882",
+      "name": "趙氏(張咸妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 53882",
+      "gender": "female"
+    },
+    {
+      "externalId": "53883",
+      "name": "計氏(張咸妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 53883",
+      "gender": "female"
+    },
+    {
+      "externalId": "118938",
+      "name": "某氏(張浚母)",
+      "citation": "CBDB 中国历代人物传记资料库 person 118938",
+      "gender": "female"
+    },
+    {
+      "externalId": "12395",
+      "name": "張紘",
+      "citation": "CBDB 中国历代人物传记资料库 person 12395",
+      "gender": "male"
+    },
+    {
+      "externalId": "46731",
+      "name": "趙氏(張紘妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 46731",
+      "gender": "female"
+    },
+    {
+      "externalId": "53884",
+      "name": "王氏(張紘妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 53884",
+      "gender": "female"
+    },
+    {
+      "externalId": "12391",
+      "name": "張文矩",
+      "citation": "CBDB 中国历代人物传记资料库 person 12391",
+      "gender": "male"
+    },
+    {
+      "externalId": "46730",
+      "name": "楊氏(張文矩妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 46730",
+      "gender": "female"
+    },
+    {
+      "externalId": "12390",
+      "name": "張庭堅",
+      "citation": "CBDB 中国历代人物传记资料库 person 12390",
+      "gender": "male"
+    },
+    {
+      "externalId": "12389",
+      "name": "張璘",
+      "citation": "CBDB 中国历代人物传记资料库 person 12389",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "211",
+      "child": "7164"
+    },
+    {
+      "kind": "parent",
+      "parent": "12396",
+      "child": "211"
+    },
+    {
+      "kind": "parent",
+      "parent": "118938",
+      "child": "211"
+    },
+    {
+      "kind": "spouse",
+      "a": "211",
+      "b": "46711"
+    },
+    {
+      "kind": "spouse",
+      "a": "211",
+      "b": "46712"
+    },
+    {
+      "kind": "parent",
+      "parent": "12395",
+      "child": "12396"
+    },
+    {
+      "kind": "spouse",
+      "a": "12396",
+      "b": "46686"
+    },
+    {
+      "kind": "spouse",
+      "a": "12396",
+      "b": "53882"
+    },
+    {
+      "kind": "spouse",
+      "a": "12396",
+      "b": "53883"
+    },
+    {
+      "kind": "parent",
+      "parent": "12391",
+      "child": "12395"
+    },
+    {
+      "kind": "parent",
+      "parent": "46730",
+      "child": "12395"
+    },
+    {
+      "kind": "spouse",
+      "a": "12395",
+      "b": "46731"
+    },
+    {
+      "kind": "spouse",
+      "a": "12395",
+      "b": "53884"
+    },
+    {
+      "kind": "parent",
+      "parent": "12390",
+      "child": "12391"
+    },
+    {
+      "kind": "parent",
+      "parent": "12389",
+      "child": "12390"
+    }
+  ]
+}

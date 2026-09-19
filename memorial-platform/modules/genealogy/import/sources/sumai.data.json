@@ -1,0 +1,165 @@
+{
+  "key": "cbdb:sumai",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "19167",
+      "name": "蘇邁",
+      "citation": "CBDB 中国历代人物传记资料库 person 19167",
+      "gender": "male"
+    },
+    {
+      "externalId": "3767",
+      "name": "蘇軾",
+      "citation": "CBDB 中国历代人物传记资料库 person 3767",
+      "gender": "male",
+      "birth": {
+        "year": 1036
+      },
+      "death": {
+        "year": 1101
+      }
+    },
+    {
+      "externalId": "5108",
+      "name": "王弗",
+      "citation": "CBDB 中国历代人物传记资料库 person 5108",
+      "gender": "female",
+      "birth": {
+        "year": 1039
+      },
+      "death": {
+        "year": 1065
+      }
+    },
+    {
+      "externalId": "5109",
+      "name": "王閏之",
+      "citation": "CBDB 中国历代人物传记资料库 person 5109",
+      "gender": "female",
+      "birth": {
+        "year": 1048
+      },
+      "death": {
+        "year": 1093
+      }
+    },
+    {
+      "externalId": "1499",
+      "name": "蘇符",
+      "citation": "CBDB 中国历代人物传记资料库 person 1499",
+      "gender": "male"
+    },
+    {
+      "externalId": "3762",
+      "name": "蘇洵",
+      "citation": "CBDB 中国历代人物传记资料库 person 3762",
+      "gender": "male",
+      "birth": {
+        "year": 1009
+      },
+      "death": {
+        "year": 1066
+      }
+    },
+    {
+      "externalId": "5106",
+      "name": "程氏(蘇洵妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 5106",
+      "gender": "female",
+      "birth": {
+        "year": 1010
+      },
+      "death": {
+        "year": 1057
+      }
+    },
+    {
+      "externalId": "3761",
+      "name": "蘇序",
+      "citation": "CBDB 中国历代人物传记资料库 person 3761",
+      "gender": "male",
+      "birth": {
+        "year": 973
+      },
+      "death": {
+        "year": 1047
+      }
+    },
+    {
+      "externalId": "19218",
+      "name": "蘇杲",
+      "citation": "CBDB 中国历代人物传记资料库 person 19218",
+      "gender": "male"
+    },
+    {
+      "externalId": "19217",
+      "name": "蘇祜",
+      "citation": "CBDB 中国历代人物传记资料库 person 19217",
+      "gender": "male"
+    },
+    {
+      "externalId": "19216",
+      "name": "蘇釿",
+      "citation": "CBDB 中国历代人物传记资料库 person 19216",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "3767",
+      "child": "19167"
+    },
+    {
+      "kind": "parent",
+      "parent": "19167",
+      "child": "1499"
+    },
+    {
+      "kind": "parent",
+      "parent": "3762",
+      "child": "3767"
+    },
+    {
+      "kind": "parent",
+      "parent": "5106",
+      "child": "3767"
+    },
+    {
+      "kind": "spouse",
+      "a": "3767",
+      "b": "5108"
+    },
+    {
+      "kind": "spouse",
+      "a": "3767",
+      "b": "5109"
+    },
+    {
+      "kind": "parent",
+      "parent": "3761",
+      "child": "3762"
+    },
+    {
+      "kind": "spouse",
+      "a": "3762",
+      "b": "5106"
+    },
+    {
+      "kind": "parent",
+      "parent": "19218",
+      "child": "3761"
+    },
+    {
+      "kind": "parent",
+      "parent": "19217",
+      "child": "19218"
+    },
+    {
+      "kind": "parent",
+      "parent": "19216",
+      "child": "19217"
+    }
+  ]
+}

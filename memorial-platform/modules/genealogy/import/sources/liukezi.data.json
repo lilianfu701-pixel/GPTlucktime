@@ -1,0 +1,160 @@
+{
+  "key": "cbdb:liukezi",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "3595",
+      "name": "劉克莊",
+      "citation": "CBDB 中国历代人物传记资料库 person 3595",
+      "gender": "male",
+      "birth": {
+        "year": 1187
+      },
+      "death": {
+        "year": 1269
+      }
+    },
+    {
+      "externalId": "5074",
+      "name": "林節",
+      "citation": "CBDB 中国历代人物传记资料库 person 5074",
+      "gender": "female",
+      "birth": {
+        "year": 1190
+      },
+      "death": {
+        "year": 1228
+      }
+    },
+    {
+      "externalId": "51967",
+      "name": "林氏(劉克莊繼室)",
+      "citation": "CBDB 中国历代人物传记资料库 person 51967",
+      "gender": "female",
+      "birth": {
+        "year": 1208
+      },
+      "death": {
+        "year": 1262
+      }
+    },
+    {
+      "externalId": "10999",
+      "name": "劉彌正",
+      "citation": "CBDB 中国历代人物传记资料库 person 10999",
+      "gender": "male",
+      "birth": {
+        "year": 1157
+      },
+      "death": {
+        "year": 1213
+      }
+    },
+    {
+      "externalId": "52095",
+      "name": "方氏(劉彌正妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 52095",
+      "gender": "female"
+    },
+    {
+      "externalId": "5183",
+      "name": "林氏(劉彌正妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 5183",
+      "gender": "female",
+      "birth": {
+        "year": 1161
+      },
+      "death": {
+        "year": 1248
+      }
+    },
+    {
+      "externalId": "11333",
+      "name": "劉強甫",
+      "citation": "CBDB 中国历代人物传记资料库 person 11333",
+      "gender": "male"
+    },
+    {
+      "externalId": "37532",
+      "name": "劉明甫",
+      "citation": "CBDB 中国历代人物传记资料库 person 37532",
+      "gender": "male"
+    },
+    {
+      "externalId": "37533",
+      "name": "劉山甫",
+      "citation": "CBDB 中国历代人物传记资料库 person 37533",
+      "gender": "male"
+    },
+    {
+      "externalId": "11003",
+      "name": "劉夙",
+      "citation": "CBDB 中国历代人物传记资料库 person 11003",
+      "gender": "male",
+      "birth": {
+        "year": 1124
+      },
+      "death": {
+        "year": 1171
+      }
+    },
+    {
+      "externalId": "11002",
+      "name": "劉炳",
+      "citation": "CBDB 中国历代人物传记资料库 person 11002",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "10999",
+      "child": "3595"
+    },
+    {
+      "kind": "spouse",
+      "a": "3595",
+      "b": "5074"
+    },
+    {
+      "kind": "spouse",
+      "a": "3595",
+      "b": "51967"
+    },
+    {
+      "kind": "parent",
+      "parent": "3595",
+      "child": "11333"
+    },
+    {
+      "kind": "parent",
+      "parent": "3595",
+      "child": "37532"
+    },
+    {
+      "kind": "parent",
+      "parent": "3595",
+      "child": "37533"
+    },
+    {
+      "kind": "parent",
+      "parent": "11003",
+      "child": "10999"
+    },
+    {
+      "kind": "spouse",
+      "a": "10999",
+      "b": "52095"
+    },
+    {
+      "kind": "spouse",
+      "a": "10999",
+      "b": "5183"
+    },
+    {
+      "kind": "parent",
+      "parent": "11002",
+      "child": "11003"
+    }
+  ]
+}

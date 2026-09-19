@@ -212,6 +212,17 @@ import suweidao from "./suweidao.data.json";
 import liufen from "./liufen.data.json";
 import liugong from "./liugong.data.json";
 import xiaoying from "./xiaoying.data.json";
+// CBDB 第五批（南宋名臣/诗人/元代理学 + 三国张纮支）
+import sumai from "./sumai.data.json";
+import liuci from "./liuci.data.json";
+import liukezi from "./liukezi.data.json";
+import wangshipeng from "./wangshipeng.data.json";
+import chenjun from "./chenjun.data.json";
+import zhaokui from "./zhaokui.data.json";
+import youmao from "./youmao.data.json";
+import zhangshi2 from "./zhangshi2.data.json";
+import chenineng from "./chenineng.data.json";
+import jinlv from "./jinlv.data.json";
 // CBDB 第四批（宋代名臣/元代文人/明清文人 + 欧阳修）
 import shenshixing from "./shenshixing.data.json";
 import yuanhongdao from "./yuanhongdao.data.json";
@@ -477,6 +488,17 @@ const FAMILIES: { key: string; label: string; dataset: GenealogyDataset }[] = [
   { key: "liufen", label: "河东柳氏·柳芬支（柳懿·柳均·南北朝到唐）", dataset: liufen as GenealogyDataset },
   { key: "liugong", label: "河东柳氏·柳公权支（书法家·柳瑗·柳仲憲）", dataset: liugong as GenealogyDataset },
   { key: "xiaoying", label: "兰陵萧氏·萧颖士支（萧道赐·萧恢·南朝到唐）", dataset: xiaoying as GenealogyDataset },
+  // CBDB 第五批：南宋名臣/诗人/元代理学 + 三国张纮支
+  { key: "sumai", label: "眉山苏氏·苏迈支（苏轼长子·眉山到宋末）", dataset: sumai as GenealogyDataset },
+  { key: "liuci", label: "东光刘氏·刘摰支（元祐党人·刘跂·997-1104）", dataset: liuci as GenealogyDataset },
+  { key: "liukezi", label: "莆田刘氏·刘克庄支（后村先生·宋末词人·1187-1269）", dataset: liukezi as GenealogyDataset },
+  { key: "wangshipeng", label: "乐清王氏·王十朋支（梅溪先生·南宋·1112-1171）", dataset: wangshipeng as GenealogyDataset },
+  { key: "chenjun", label: "福清陈氏·陈俊卿支（南宋宰相·含陈圭·1113-1186）", dataset: chenjun as GenealogyDataset },
+  { key: "zhaokui", label: "衡山赵氏·赵葵支（南宋将帅·赵淇·1186-1266）", dataset: zhaokui as GenealogyDataset },
+  { key: "youmao", label: "梁溪尤氏·尤袤支（南宋四大诗人·1127-1194）", dataset: youmao as GenealogyDataset },
+  { key: "zhangshi2", label: "留侯张氏·张纮支（东汉谋臣→宋代·153-1180）", dataset: zhangshi2 as GenealogyDataset },
+  { key: "chenineng", label: "眉山陈氏·陈希亮支（陈慥父·陈与义·1000-1138）", dataset: chenineng as GenealogyDataset },
+  { key: "jinlv", label: "金华金氏·金履祥支（朱子三传·宋末元初·1232-1303）", dataset: jinlv as GenealogyDataset },
   // CBDB 第四批：宋代名臣/元代文人/明清文人 + 欧阳修
   { key: "shihao", label: "明州史氏·史浩支（史弥远先祖·南宋宰相·1106-1194）", dataset: shihao as GenealogyDataset },
   { key: "zhouzhi", label: "庐陵周氏·周必大支（南宋宰相文学·1126-1204）", dataset: zhouzhi as GenealogyDataset },
