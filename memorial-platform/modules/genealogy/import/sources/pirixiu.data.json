@@ -1,0 +1,65 @@
+{
+  "key": "cbdb:pirixiu",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "3702",
+      "name": "皮日休",
+      "citation": "CBDB 中国历代人物传记资料库 person 3702",
+      "gender": "male",
+      "birth": {
+        "year": 834
+      },
+      "death": {
+        "year": 883
+      }
+    },
+    {
+      "externalId": "3703",
+      "name": "皮光業",
+      "citation": "CBDB 中国历代人物传记资料库 person 3703",
+      "gender": "male",
+      "birth": {
+        "year": 877
+      },
+      "death": {
+        "year": 943
+      }
+    },
+    {
+      "externalId": "3704",
+      "name": "皮粲",
+      "citation": "CBDB 中国历代人物传记资料库 person 3704",
+      "gender": "male"
+    },
+    {
+      "externalId": "7314",
+      "name": "皮子良",
+      "citation": "CBDB 中国历代人物传记资料库 person 7314",
+      "gender": "male",
+      "birth": {
+        "year": 962
+      },
+      "death": {
+        "year": 1014
+      }
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "3702",
+      "child": "3703"
+    },
+    {
+      "kind": "parent",
+      "parent": "3703",
+      "child": "3704"
+    },
+    {
+      "kind": "parent",
+      "parent": "3704",
+      "child": "7314"
+    }
+  ]
+}

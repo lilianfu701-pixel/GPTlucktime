@@ -1,0 +1,81 @@
+{
+  "key": "cbdb:gongkui",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "28443",
+      "name": "貢奎",
+      "citation": "CBDB 中国历代人物传记资料库 person 28443",
+      "gender": "male",
+      "birth": {
+        "year": 1269
+      },
+      "death": {
+        "year": 1329
+      }
+    },
+    {
+      "externalId": "28444",
+      "name": "貢士濬",
+      "citation": "CBDB 中国历代人物传记资料库 person 28444",
+      "gender": "male"
+    },
+    {
+      "externalId": "28460",
+      "name": "貢師泰",
+      "citation": "CBDB 中国历代人物传记资料库 person 28460",
+      "gender": "male",
+      "birth": {
+        "year": 1298
+      },
+      "death": {
+        "year": 1362
+      }
+    },
+    {
+      "externalId": "28449",
+      "name": "貢師謙",
+      "citation": "CBDB 中国历代人物传记资料库 person 28449",
+      "gender": "male"
+    },
+    {
+      "externalId": "28445",
+      "name": "貢應霆",
+      "citation": "CBDB 中国历代人物传记资料库 person 28445",
+      "gender": "male"
+    },
+    {
+      "externalId": "28447",
+      "name": "貢大用",
+      "citation": "CBDB 中国历代人物传记资料库 person 28447",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "28444",
+      "child": "28443"
+    },
+    {
+      "kind": "parent",
+      "parent": "28443",
+      "child": "28460"
+    },
+    {
+      "kind": "parent",
+      "parent": "28443",
+      "child": "28449"
+    },
+    {
+      "kind": "parent",
+      "parent": "28445",
+      "child": "28444"
+    },
+    {
+      "kind": "parent",
+      "parent": "28447",
+      "child": "28445"
+    }
+  ]
+}

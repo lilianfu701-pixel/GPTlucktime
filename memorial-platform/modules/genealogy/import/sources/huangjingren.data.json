@@ -1,0 +1,57 @@
+{
+  "key": "cbdb:huangjingren",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "65936",
+      "name": "黃景仁",
+      "citation": "CBDB 中国历代人物传记资料库 person 65936",
+      "gender": "male",
+      "birth": {
+        "year": 1749
+      },
+      "death": {
+        "year": 1783
+      }
+    },
+    {
+      "externalId": "522737",
+      "name": "黃之炎",
+      "citation": "CBDB 中国历代人物传记资料库 person 522737"
+    },
+    {
+      "externalId": "522738",
+      "name": "黃之掞",
+      "citation": "CBDB 中国历代人物传记资料库 person 522738"
+    },
+    {
+      "externalId": "88038",
+      "name": "黃乙生",
+      "citation": "CBDB 中国历代人物传记资料库 person 88038",
+      "gender": "male",
+      "birth": {
+        "year": 1769
+      },
+      "death": {
+        "year": 1821
+      }
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "522737",
+      "child": "65936"
+    },
+    {
+      "kind": "parent",
+      "parent": "522738",
+      "child": "65936"
+    },
+    {
+      "kind": "parent",
+      "parent": "65936",
+      "child": "88038"
+    }
+  ]
+}

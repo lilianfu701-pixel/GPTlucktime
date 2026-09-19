@@ -1,0 +1,59 @@
+{
+  "key": "cbdb:wangyucheng",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "3997",
+      "name": "王禹偁",
+      "citation": "CBDB 中国历代人物传记资料库 person 3997",
+      "gender": "male",
+      "birth": {
+        "year": 954
+      },
+      "death": {
+        "year": 1001
+      }
+    },
+    {
+      "externalId": "7371",
+      "name": "王嘉祐",
+      "citation": "CBDB 中国历代人物传记资料库 person 7371",
+      "gender": "male"
+    },
+    {
+      "externalId": "17915",
+      "name": "王嘉言",
+      "citation": "CBDB 中国历代人物传记资料库 person 17915",
+      "gender": "male",
+      "birth": {
+        "year": 991
+      },
+      "death": {
+        "year": 1037
+      }
+    },
+    {
+      "externalId": "17916",
+      "name": "王延禧",
+      "citation": "CBDB 中国历代人物传记资料库 person 17916",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "3997",
+      "child": "7371"
+    },
+    {
+      "kind": "parent",
+      "parent": "3997",
+      "child": "17915"
+    },
+    {
+      "kind": "parent",
+      "parent": "17915",
+      "child": "17916"
+    }
+  ]
+}

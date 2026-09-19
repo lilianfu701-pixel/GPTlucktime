@@ -1,0 +1,81 @@
+{
+  "key": "cbdb:ligou",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "3513",
+      "name": "李覯",
+      "citation": "CBDB 中国历代人物传记资料库 person 3513",
+      "gender": "male",
+      "birth": {
+        "year": 1009
+      },
+      "death": {
+        "year": 1059
+      }
+    },
+    {
+      "externalId": "41281",
+      "name": "陳氏(李覯妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 41281",
+      "gender": "female",
+      "birth": {
+        "year": 1015
+      },
+      "death": {
+        "year": 1047
+      }
+    },
+    {
+      "externalId": "19791",
+      "name": "李T",
+      "citation": "CBDB 中国历代人物传记资料库 person 19791",
+      "gender": "male"
+    },
+    {
+      "externalId": "5329",
+      "name": "鄭氏(李覯母)",
+      "citation": "CBDB 中国历代人物传记资料库 person 5329",
+      "gender": "female",
+      "birth": {
+        "year": 983
+      },
+      "death": {
+        "year": 1051
+      }
+    },
+    {
+      "externalId": "45979",
+      "name": "李氏(陳汝翼妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 45979",
+      "gender": "female"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "19791",
+      "child": "3513"
+    },
+    {
+      "kind": "parent",
+      "parent": "5329",
+      "child": "3513"
+    },
+    {
+      "kind": "spouse",
+      "a": "3513",
+      "b": "41281"
+    },
+    {
+      "kind": "parent",
+      "parent": "3513",
+      "child": "45979"
+    },
+    {
+      "kind": "spouse",
+      "a": "19791",
+      "b": "5329"
+    }
+  ]
+}

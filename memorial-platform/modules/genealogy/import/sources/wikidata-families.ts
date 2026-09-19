@@ -212,6 +212,14 @@ import suweidao from "./suweidao.data.json";
 import liufen from "./liufen.data.json";
 import liugong from "./liugong.data.json";
 import xiaoying from "./xiaoying.data.json";
+// CBDB 第三十二批（唐代诗人·元代名士·北宋教育家·清代诗人）
+import huangjingren from "./huangjingren.data.json";
+import gongkui from "./gongkui.data.json";
+import songzhiwen from "./songzhiwen.data.json";
+import pirixiu from "./pirixiu.data.json";
+import huyuan from "./huyuan.data.json";
+import wangyucheng from "./wangyucheng.data.json";
+import ligou from "./ligou.data.json";
 // CBDB 第三十一批（晚明文人·清初诗人·清代学者）
 import tulong from "./tulong.data.json";
 import pengsunyi from "./pengsunyi.data.json";
@@ -713,6 +721,14 @@ const FAMILIES: { key: string; label: string; dataset: GenealogyDataset }[] = [
   { key: "liufen", label: "河东柳氏·柳芬支（柳懿·柳均·南北朝到唐）", dataset: liufen as GenealogyDataset },
   { key: "liugong", label: "河东柳氏·柳公权支（书法家·柳瑗·柳仲憲）", dataset: liugong as GenealogyDataset },
   { key: "xiaoying", label: "兰陵萧氏·萧颖士支（萧道赐·萧恢·南朝到唐）", dataset: xiaoying as GenealogyDataset },
+  // CBDB 第三十二批：唐代诗人·元代名士·北宋教育家·清代诗人
+  { key: "huangjingren", label: "常州黄氏·黄景仁支（清代诗人·乾嘉期·1749-1783·4人）", dataset: huangjingren as GenealogyDataset },
+  { key: "gongkui", label: "无锡贡氏·贡奎支（元代官员·贡师泰祖·1269-1329·6人）", dataset: gongkui as GenealogyDataset },
+  { key: "songzhiwen", label: "汾州宋氏·宋之问支（唐代宫廷诗人·656-712·3人）", dataset: songzhiwen as GenealogyDataset },
+  { key: "pirixiu", label: "竟陵皮氏·皮日休支（唐末诗人·皮光业至皮子良·834-1014·4人）", dataset: pirixiu as GenealogyDataset },
+  { key: "huyuan", label: "泰州胡氏·胡瑗支（北宋教育家·安定先生·993-1059·6人）", dataset: huyuan as GenealogyDataset },
+  { key: "wangyucheng", label: "济州王氏·王禹偁支（北宋诗文革新·954-1001·4人）", dataset: wangyucheng as GenealogyDataset },
+  { key: "ligou", label: "建昌李氏·李觏支（北宋新儒学·直讲·1009-1059·5人）", dataset: ligou as GenealogyDataset },
   // CBDB 第三十一批：晚明文人·清初诗人·清代学者
   { key: "tulong", label: "鄞县屠氏·屠隆支（明代文人·博学才子·1542-1605·9人）", dataset: tulong as GenealogyDataset },
   { key: "pengsunyi", label: "海盐彭氏·彭孙贻支（明遗民诗人·彭期生父·1615-1673·9人）", dataset: pengsunyi as GenealogyDataset },

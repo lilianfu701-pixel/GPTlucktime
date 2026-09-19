@@ -1,0 +1,75 @@
+{
+  "key": "cbdb:huyuan",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "3404",
+      "name": "胡瑗",
+      "citation": "CBDB 中国历代人物传记资料库 person 3404",
+      "gender": "male",
+      "birth": {
+        "year": 993
+      },
+      "death": {
+        "year": 1059
+      }
+    },
+    {
+      "externalId": "18894",
+      "name": "胡訥",
+      "citation": "CBDB 中国历代人物传记资料库 person 18894",
+      "gender": "male"
+    },
+    {
+      "externalId": "18890",
+      "name": "胡志康",
+      "citation": "CBDB 中国历代人物传记资料库 person 18890",
+      "gender": "male"
+    },
+    {
+      "externalId": "27697",
+      "name": "胡志寧",
+      "citation": "CBDB 中国历代人物传记资料库 person 27697",
+      "gender": "male"
+    },
+    {
+      "externalId": "18893",
+      "name": "胡脩",
+      "citation": "CBDB 中国历代人物传记资料库 person 18893",
+      "gender": "male"
+    },
+    {
+      "externalId": "18892",
+      "name": "胡韜",
+      "citation": "CBDB 中国历代人物传记资料库 person 18892",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "18894",
+      "child": "3404"
+    },
+    {
+      "kind": "parent",
+      "parent": "3404",
+      "child": "18890"
+    },
+    {
+      "kind": "parent",
+      "parent": "3404",
+      "child": "27697"
+    },
+    {
+      "kind": "parent",
+      "parent": "18893",
+      "child": "18894"
+    },
+    {
+      "kind": "parent",
+      "parent": "18892",
+      "child": "18893"
+    }
+  ]
+}

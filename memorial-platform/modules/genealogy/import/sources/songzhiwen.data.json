@@ -1,0 +1,45 @@
+{
+  "key": "cbdb:songzhiwen",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "31560",
+      "name": "宋之問",
+      "citation": "CBDB 中国历代人物传记资料库 person 31560",
+      "gender": "male",
+      "birth": {
+        "year": 656
+      },
+      "death": {
+        "year": 712
+      }
+    },
+    {
+      "externalId": "31559",
+      "name": "宋令文",
+      "citation": "CBDB 中国历代人物传记资料库 person 31559",
+      "gender": "male"
+    },
+    {
+      "externalId": "190454",
+      "name": "宋昌藻",
+      "citation": "CBDB 中国历代人物传记资料库 person 190454",
+      "gender": "male",
+      "death": {
+        "year": 778
+      }
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "31559",
+      "child": "31560"
+    },
+    {
+      "kind": "parent",
+      "parent": "31560",
+      "child": "190454"
+    }
+  ]
+}
