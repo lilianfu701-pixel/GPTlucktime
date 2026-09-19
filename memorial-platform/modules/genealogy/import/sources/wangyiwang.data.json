@@ -1,0 +1,208 @@
+{
+  "key": "cbdb:wangyiwang",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "1787",
+      "name": "王之望",
+      "citation": "CBDB 中国历代人物传记资料库 person 1787",
+      "gender": "male",
+      "birth": {
+        "year": 1103
+      },
+      "death": {
+        "year": 1170
+      }
+    },
+    {
+      "externalId": "45892",
+      "name": "張氏(王之望妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 45892",
+      "gender": "female"
+    },
+    {
+      "externalId": "21993",
+      "name": "王綱",
+      "citation": "CBDB 中国历代人物传记资料库 person 21993",
+      "gender": "male",
+      "birth": {
+        "year": 1073
+      },
+      "death": {
+        "year": 1127
+      }
+    },
+    {
+      "externalId": "37848",
+      "name": "張氏(王之望母)",
+      "citation": "CBDB 中国历代人物传记资料库 person 37848",
+      "gender": "female"
+    },
+    {
+      "externalId": "3984",
+      "name": "王鐸",
+      "citation": "CBDB 中国历代人物传记资料库 person 3984",
+      "gender": "male"
+    },
+    {
+      "externalId": "21994",
+      "name": "王鏞",
+      "citation": "CBDB 中国历代人物传记资料库 person 21994",
+      "gender": "male"
+    },
+    {
+      "externalId": "21996",
+      "name": "王銘",
+      "citation": "CBDB 中国历代人物传记资料库 person 21996",
+      "gender": "male"
+    },
+    {
+      "externalId": "22257",
+      "name": "王學可",
+      "citation": "CBDB 中国历代人物传记资料库 person 22257",
+      "gender": "male"
+    },
+    {
+      "externalId": "22204",
+      "name": "王",
+      "citation": "CBDB 中国历代人物传记资料库 person 22204",
+      "gender": "male"
+    },
+    {
+      "externalId": "21992",
+      "name": "王文",
+      "citation": "CBDB 中国历代人物传记资料库 person 21992",
+      "gender": "male"
+    },
+    {
+      "externalId": "38478",
+      "name": "黃氏(王文妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 38478",
+      "gender": "female"
+    },
+    {
+      "externalId": "22205",
+      "name": "王洤",
+      "citation": "CBDB 中国历代人物传记资料库 person 22205",
+      "gender": "male",
+      "birth": {
+        "year": 1190
+      },
+      "death": {
+        "year": 1237
+      }
+    },
+    {
+      "externalId": "21991",
+      "name": "王遷",
+      "citation": "CBDB 中国历代人物传记资料库 person 21991",
+      "gender": "male"
+    },
+    {
+      "externalId": "21990",
+      "name": "王允中",
+      "citation": "CBDB 中国历代人物传记资料库 person 21990",
+      "gender": "male"
+    },
+    {
+      "externalId": "24513",
+      "name": "王崇遇",
+      "citation": "CBDB 中国历代人物传记资料库 person 24513",
+      "gender": "male"
+    },
+    {
+      "externalId": "24512",
+      "name": "王居能",
+      "citation": "CBDB 中国历代人物传记资料库 person 24512",
+      "gender": "male"
+    },
+    {
+      "externalId": "24511",
+      "name": "王公達",
+      "citation": "CBDB 中国历代人物传记资料库 person 24511",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "21993",
+      "child": "1787"
+    },
+    {
+      "kind": "spouse",
+      "a": "1787",
+      "b": "45892"
+    },
+    {
+      "kind": "parent",
+      "parent": "1787",
+      "child": "3984"
+    },
+    {
+      "kind": "parent",
+      "parent": "1787",
+      "child": "21994"
+    },
+    {
+      "kind": "parent",
+      "parent": "1787",
+      "child": "21996"
+    },
+    {
+      "kind": "parent",
+      "parent": "1787",
+      "child": "22257"
+    },
+    {
+      "kind": "parent",
+      "parent": "1787",
+      "child": "22204"
+    },
+    {
+      "kind": "parent",
+      "parent": "21992",
+      "child": "21993"
+    },
+    {
+      "kind": "spouse",
+      "a": "21993",
+      "b": "37848"
+    },
+    {
+      "kind": "parent",
+      "parent": "22204",
+      "child": "22205"
+    },
+    {
+      "kind": "parent",
+      "parent": "21991",
+      "child": "21992"
+    },
+    {
+      "kind": "spouse",
+      "a": "21992",
+      "b": "38478"
+    },
+    {
+      "kind": "parent",
+      "parent": "21990",
+      "child": "21991"
+    },
+    {
+      "kind": "parent",
+      "parent": "24513",
+      "child": "21990"
+    },
+    {
+      "kind": "parent",
+      "parent": "24512",
+      "child": "24513"
+    },
+    {
+      "kind": "parent",
+      "parent": "24511",
+      "child": "24512"
+    }
+  ]
+}

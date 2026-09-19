@@ -212,6 +212,15 @@ import suweidao from "./suweidao.data.json";
 import liufen from "./liufen.data.json";
 import liugong from "./liugong.data.json";
 import xiaoying from "./xiaoying.data.json";
+// CBDB 第十四批（南宋官员·将领·学者）
+import luodian from "./luodian.data.json";
+import wangyiwang from "./wangyiwang.data.json";
+import chenkui from "./chenkui.data.json";
+import penggui from "./penggui.data.json";
+import zengjun from "./zengjun.data.json";
+import qiaoxing from "./qiaoxing.data.json";
+import linchao from "./linchao.data.json";
+import shijian from "./shijian.data.json";
 // CBDB 第十三批（北宋/南宋官员·文学家）
 import liuziyu from "./liuziyu.data.json";
 import hexuzhong from "./hexuzhong.data.json";
@@ -575,6 +584,15 @@ const FAMILIES: { key: string; label: string; dataset: GenealogyDataset }[] = [
   { key: "liufen", label: "河东柳氏·柳芬支（柳懿·柳均·南北朝到唐）", dataset: liufen as GenealogyDataset },
   { key: "liugong", label: "河东柳氏·柳公权支（书法家·柳瑗·柳仲憲）", dataset: liugong as GenealogyDataset },
   { key: "xiaoying", label: "兰陵萧氏·萧颖士支（萧道赐·萧恢·南朝到唐）", dataset: xiaoying as GenealogyDataset },
+  // CBDB 第十四批：南宋官员·将领·学者
+  { key: "luodian", label: "豫章罗氏·罗点支（南宋官员·直言进谏·1150-1194）", dataset: luodian as GenealogyDataset },
+  { key: "wangyiwang", label: "开封王氏·王之望支（南宋官员·和戎大臣·1102-1170）", dataset: wangyiwang as GenealogyDataset },
+  { key: "chenkui", label: "温州陈氏·陈骙支（南宋宰相·文史学家·1128-1203）", dataset: chenkui as GenealogyDataset },
+  { key: "penggui", label: "安福彭氏·彭龟年支（南宋官员·道学家·1142-1206）", dataset: penggui as GenealogyDataset },
+  { key: "zengjun", label: "赣州曾氏·曾几支（南宋诗人·茶山先生·1084-1166）", dataset: zengjun as GenealogyDataset },
+  { key: "qiaoxing", label: "天台乔氏·乔行简支（南宋宰相·1156-1241）", dataset: qiaoxing as GenealogyDataset },
+  { key: "linchao", label: "莆田林氏·林光朝支（南宋学者·澹轩先生·1114-1178）", dataset: linchao as GenealogyDataset },
+  { key: "shijian", label: "明州史氏·史渐支（南宋官员·史嵩之曾祖·38人）", dataset: shijian as GenealogyDataset },
   // CBDB 第十三批：北宋/南宋官员·文学家
   { key: "liuziyu", label: "崇安刘氏·刘子羽支（南宋将领·刘珙之父·1096-1146）", dataset: liuziyu as GenealogyDataset },
   { key: "hexuzhong", label: "仙游何氏·何执中支（北宋宰相·1044-1117）", dataset: hexuzhong as GenealogyDataset },

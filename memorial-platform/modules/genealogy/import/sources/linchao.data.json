@@ -1,0 +1,75 @@
+{
+  "key": "cbdb:linchao",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "10612",
+      "name": "林光朝",
+      "citation": "CBDB 中国历代人物传记资料库 person 10612",
+      "gender": "male",
+      "birth": {
+        "year": 1114
+      },
+      "death": {
+        "year": 1178
+      }
+    },
+    {
+      "externalId": "20128",
+      "name": "林勉",
+      "citation": "CBDB 中国历代人物传记资料库 person 20128",
+      "gender": "male"
+    },
+    {
+      "externalId": "20148",
+      "name": "林某",
+      "citation": "CBDB 中国历代人物传记资料库 person 20148",
+      "gender": "male"
+    },
+    {
+      "externalId": "43886",
+      "name": "林同季",
+      "citation": "CBDB 中国历代人物传记资料库 person 43886",
+      "gender": "male"
+    },
+    {
+      "externalId": "20127",
+      "name": "林繁",
+      "citation": "CBDB 中国历代人物传记资料库 person 20127",
+      "gender": "male"
+    },
+    {
+      "externalId": "20126",
+      "name": "林南一",
+      "citation": "CBDB 中国历代人物传记资料库 person 20126",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "20128",
+      "child": "10612"
+    },
+    {
+      "kind": "parent",
+      "parent": "10612",
+      "child": "20148"
+    },
+    {
+      "kind": "parent",
+      "parent": "10612",
+      "child": "43886"
+    },
+    {
+      "kind": "parent",
+      "parent": "20127",
+      "child": "20128"
+    },
+    {
+      "kind": "parent",
+      "parent": "20126",
+      "child": "20127"
+    }
+  ]
+}

@@ -1,0 +1,130 @@
+{
+  "key": "cbdb:luodian",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "10915",
+      "name": "羅點",
+      "citation": "CBDB 中国历代人物传记资料库 person 10915",
+      "gender": "male",
+      "birth": {
+        "year": 1150
+      },
+      "death": {
+        "year": 1194
+      }
+    },
+    {
+      "externalId": "52815",
+      "name": "黃氏(羅點妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 52815",
+      "gender": "female"
+    },
+    {
+      "externalId": "53956",
+      "name": "陳氏(羅點妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 53956",
+      "gender": "female"
+    },
+    {
+      "externalId": "35880",
+      "name": "羅朝俊",
+      "citation": "CBDB 中国历代人物传记资料库 person 35880",
+      "gender": "male"
+    },
+    {
+      "externalId": "52814",
+      "name": "繆氏(羅朝俊妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 52814",
+      "gender": "female"
+    },
+    {
+      "externalId": "35881",
+      "name": "羅端立",
+      "citation": "CBDB 中国历代人物传记资料库 person 35881",
+      "gender": "male"
+    },
+    {
+      "externalId": "35882",
+      "name": "羅思",
+      "citation": "CBDB 中国历代人物传记资料库 person 35882",
+      "gender": "male"
+    },
+    {
+      "externalId": "35883",
+      "name": "羅愈",
+      "citation": "CBDB 中国历代人物传记资料库 person 35883",
+      "gender": "male"
+    },
+    {
+      "externalId": "10916",
+      "name": "羅愚",
+      "citation": "CBDB 中国历代人物传记资料库 person 10916",
+      "gender": "male"
+    },
+    {
+      "externalId": "35879",
+      "name": "羅琢",
+      "citation": "CBDB 中国历代人物传记资料库 person 35879",
+      "gender": "male"
+    },
+    {
+      "externalId": "10914",
+      "name": "羅起",
+      "citation": "CBDB 中国历代人物传记资料库 person 10914",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "35880",
+      "child": "10915"
+    },
+    {
+      "kind": "parent",
+      "parent": "52814",
+      "child": "10915"
+    },
+    {
+      "kind": "spouse",
+      "a": "10915",
+      "b": "52815"
+    },
+    {
+      "kind": "spouse",
+      "a": "10915",
+      "b": "53956"
+    },
+    {
+      "kind": "parent",
+      "parent": "10915",
+      "child": "35881"
+    },
+    {
+      "kind": "parent",
+      "parent": "10915",
+      "child": "35882"
+    },
+    {
+      "kind": "parent",
+      "parent": "10915",
+      "child": "35883"
+    },
+    {
+      "kind": "parent",
+      "parent": "10915",
+      "child": "10916"
+    },
+    {
+      "kind": "parent",
+      "parent": "35879",
+      "child": "35880"
+    },
+    {
+      "kind": "parent",
+      "parent": "10914",
+      "child": "35879"
+    }
+  ]
+}

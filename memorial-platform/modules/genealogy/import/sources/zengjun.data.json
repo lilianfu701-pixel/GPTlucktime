@@ -1,0 +1,131 @@
+{
+  "key": "cbdb:zengjun",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "1692",
+      "name": "曾幾",
+      "citation": "CBDB 中国历代人物传记资料库 person 1692",
+      "gender": "male",
+      "birth": {
+        "year": 1084
+      },
+      "death": {
+        "year": 1166
+      }
+    },
+    {
+      "externalId": "3901",
+      "name": "曾準",
+      "citation": "CBDB 中国历代人物传记资料库 person 3901",
+      "gender": "male"
+    },
+    {
+      "externalId": "44808",
+      "name": "曾氏(呂大器妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 44808",
+      "gender": "female",
+      "birth": {
+        "year": 1115
+      },
+      "death": {
+        "year": 1166
+      }
+    },
+    {
+      "externalId": "3652",
+      "name": "呂大器",
+      "citation": "CBDB 中国历代人物传记资料库 person 3652",
+      "gender": "male",
+      "birth": {
+        "year": 1113
+      },
+      "death": {
+        "year": 1172
+      }
+    },
+    {
+      "externalId": "17599",
+      "name": "曾逢",
+      "citation": "CBDB 中国历代人物传记资料库 person 17599",
+      "gender": "male"
+    },
+    {
+      "externalId": "3910",
+      "name": "曾逮",
+      "citation": "CBDB 中国历代人物传记资料库 person 3910",
+      "gender": "male"
+    },
+    {
+      "externalId": "17603",
+      "name": "曾平",
+      "citation": "CBDB 中国历代人物传记资料库 person 17603",
+      "gender": "male"
+    },
+    {
+      "externalId": "7365",
+      "name": "曾槃",
+      "citation": "CBDB 中国历代人物传记资料库 person 7365",
+      "gender": "male"
+    },
+    {
+      "externalId": "17602",
+      "name": "曾識",
+      "citation": "CBDB 中国历代人物传记资料库 person 17602",
+      "gender": "male"
+    },
+    {
+      "externalId": "14928",
+      "name": "曾黯",
+      "citation": "CBDB 中国历代人物传记资料库 person 14928",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "3901",
+      "child": "1692"
+    },
+    {
+      "kind": "parent",
+      "parent": "1692",
+      "child": "44808"
+    },
+    {
+      "kind": "parent",
+      "parent": "1692",
+      "child": "17599"
+    },
+    {
+      "kind": "parent",
+      "parent": "1692",
+      "child": "3910"
+    },
+    {
+      "kind": "parent",
+      "parent": "17603",
+      "child": "3901"
+    },
+    {
+      "kind": "spouse",
+      "a": "3652",
+      "b": "44808"
+    },
+    {
+      "kind": "parent",
+      "parent": "17599",
+      "child": "7365"
+    },
+    {
+      "kind": "parent",
+      "parent": "17602",
+      "child": "17603"
+    },
+    {
+      "kind": "parent",
+      "parent": "7365",
+      "child": "14928"
+    }
+  ]
+}

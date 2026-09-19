@@ -1,0 +1,113 @@
+{
+  "key": "cbdb:chenkui",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "11582",
+      "name": "陳騤",
+      "citation": "CBDB 中国历代人物传记资料库 person 11582",
+      "gender": "male"
+    },
+    {
+      "externalId": "47664",
+      "name": "宣氏(陳騤妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 47664",
+      "gender": "female"
+    },
+    {
+      "externalId": "26771",
+      "name": "陳讜",
+      "citation": "CBDB 中国历代人物传记资料库 person 26771",
+      "gender": "male"
+    },
+    {
+      "externalId": "47662",
+      "name": "成氏(陳讜妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 47662",
+      "gender": "female"
+    },
+    {
+      "externalId": "47663",
+      "name": "王氏(陳讜妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 47663",
+      "gender": "female"
+    },
+    {
+      "externalId": "137584",
+      "name": "陳廣孫",
+      "citation": "CBDB 中国历代人物传记资料库 person 137584",
+      "gender": "male"
+    },
+    {
+      "externalId": "26770",
+      "name": "陳策",
+      "citation": "CBDB 中国历代人物传记资料库 person 26770",
+      "gender": "male"
+    },
+    {
+      "externalId": "136693",
+      "name": "陳繹",
+      "citation": "CBDB 中国历代人物传记资料库 person 136693",
+      "gender": "male"
+    },
+    {
+      "externalId": "138597",
+      "name": "戈氏(陳繹妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 138597",
+      "gender": "female"
+    },
+    {
+      "externalId": "26769",
+      "name": "陳斅",
+      "citation": "CBDB 中国历代人物传记资料库 person 26769",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "26771",
+      "child": "11582"
+    },
+    {
+      "kind": "parent",
+      "parent": "47662",
+      "child": "11582"
+    },
+    {
+      "kind": "parent",
+      "parent": "47663",
+      "child": "11582"
+    },
+    {
+      "kind": "spouse",
+      "a": "11582",
+      "b": "47664"
+    },
+    {
+      "kind": "parent",
+      "parent": "11582",
+      "child": "137584"
+    },
+    {
+      "kind": "parent",
+      "parent": "26770",
+      "child": "26771"
+    },
+    {
+      "kind": "parent",
+      "parent": "137584",
+      "child": "136693"
+    },
+    {
+      "kind": "parent",
+      "parent": "26769",
+      "child": "26770"
+    },
+    {
+      "kind": "spouse",
+      "a": "136693",
+      "b": "138597"
+    }
+  ]
+}

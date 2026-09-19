@@ -1,0 +1,92 @@
+{
+  "key": "cbdb:penggui",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "14833",
+      "name": "彭龜年",
+      "citation": "CBDB 中国历代人物传记资料库 person 14833",
+      "gender": "male",
+      "birth": {
+        "year": 1142
+      },
+      "death": {
+        "year": 1206
+      }
+    },
+    {
+      "externalId": "14832",
+      "name": "彭文通",
+      "citation": "CBDB 中国历代人物传记资料库 person 14832",
+      "gender": "male"
+    },
+    {
+      "externalId": "14834",
+      "name": "彭欽",
+      "citation": "CBDB 中国历代人物传记资料库 person 14834",
+      "gender": "male",
+      "birth": {
+        "year": 1164
+      },
+      "death": {
+        "year": 1228
+      }
+    },
+    {
+      "externalId": "35635",
+      "name": "彭鉅",
+      "citation": "CBDB 中国历代人物传记资料库 person 35635",
+      "gender": "male"
+    },
+    {
+      "externalId": "14835",
+      "name": "彭鉉",
+      "citation": "CBDB 中国历代人物传记资料库 person 14835",
+      "gender": "male"
+    },
+    {
+      "externalId": "14831",
+      "name": "彭愈",
+      "citation": "CBDB 中国历代人物传记资料库 person 14831",
+      "gender": "male"
+    },
+    {
+      "externalId": "14830",
+      "name": "彭廣",
+      "citation": "CBDB 中国历代人物传记资料库 person 14830",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "14832",
+      "child": "14833"
+    },
+    {
+      "kind": "parent",
+      "parent": "14833",
+      "child": "14834"
+    },
+    {
+      "kind": "parent",
+      "parent": "14833",
+      "child": "35635"
+    },
+    {
+      "kind": "parent",
+      "parent": "14833",
+      "child": "14835"
+    },
+    {
+      "kind": "parent",
+      "parent": "14831",
+      "child": "14832"
+    },
+    {
+      "kind": "parent",
+      "parent": "14830",
+      "child": "14831"
+    }
+  ]
+}

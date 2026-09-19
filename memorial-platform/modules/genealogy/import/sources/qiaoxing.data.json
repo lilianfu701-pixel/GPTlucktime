@@ -1,0 +1,108 @@
+{
+  "key": "cbdb:qiaoxing",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "15259",
+      "name": "喬行簡",
+      "citation": "CBDB 中国历代人物传记资料库 person 15259",
+      "gender": "male",
+      "birth": {
+        "year": 1156
+      },
+      "death": {
+        "year": 1241
+      }
+    },
+    {
+      "externalId": "49018",
+      "name": "呂氏(喬行簡妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 49018",
+      "gender": "female"
+    },
+    {
+      "externalId": "49019",
+      "name": "樓氏(喬行簡繼室)",
+      "citation": "CBDB 中国历代人物传记资料库 person 49019",
+      "gender": "female"
+    },
+    {
+      "externalId": "15258",
+      "name": "喬森",
+      "citation": "CBDB 中国历代人物传记资料库 person 15258",
+      "gender": "male"
+    },
+    {
+      "externalId": "5234",
+      "name": "俞氏(喬森妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 5234",
+      "gender": "female",
+      "birth": {
+        "year": 1121
+      },
+      "death": {
+        "year": 1194
+      }
+    },
+    {
+      "externalId": "15260",
+      "name": "喬元龍",
+      "citation": "CBDB 中国历代人物传记资料库 person 15260",
+      "gender": "male"
+    },
+    {
+      "externalId": "15257",
+      "name": "喬堯",
+      "citation": "CBDB 中国历代人物传记资料库 person 15257",
+      "gender": "male"
+    },
+    {
+      "externalId": "15255",
+      "name": "喬勝之",
+      "citation": "CBDB 中国历代人物传记资料库 person 15255",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "15258",
+      "child": "15259"
+    },
+    {
+      "kind": "parent",
+      "parent": "5234",
+      "child": "15259"
+    },
+    {
+      "kind": "spouse",
+      "a": "15259",
+      "b": "49018"
+    },
+    {
+      "kind": "spouse",
+      "a": "15259",
+      "b": "49019"
+    },
+    {
+      "kind": "parent",
+      "parent": "15259",
+      "child": "15260"
+    },
+    {
+      "kind": "parent",
+      "parent": "15257",
+      "child": "15258"
+    },
+    {
+      "kind": "spouse",
+      "a": "15258",
+      "b": "5234"
+    },
+    {
+      "kind": "parent",
+      "parent": "15255",
+      "child": "15257"
+    }
+  ]
+}
