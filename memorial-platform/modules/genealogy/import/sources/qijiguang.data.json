@@ -1,0 +1,41 @@
+{
+  "key": "cbdb:qijiguang",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "29605",
+      "name": "戚繼光",
+      "citation": "CBDB 中国历代人物传记资料库 person 29605",
+      "gender": "male",
+      "birth": {
+        "year": 1528
+      },
+      "death": {
+        "year": 1587
+      }
+    },
+    {
+      "externalId": "29604",
+      "name": "戚景通",
+      "citation": "CBDB 中国历代人物传记资料库 person 29604",
+      "gender": "male"
+    },
+    {
+      "externalId": "526294",
+      "name": "戚昌",
+      "citation": "CBDB 中国历代人物传记资料库 person 526294"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "29604",
+      "child": "29605"
+    },
+    {
+      "kind": "parent",
+      "parent": "29605",
+      "child": "526294"
+    }
+  ]
+}

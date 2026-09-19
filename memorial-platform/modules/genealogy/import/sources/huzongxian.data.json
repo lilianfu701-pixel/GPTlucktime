@@ -1,0 +1,60 @@
+{
+  "key": "cbdb:huzongxian",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "68363",
+      "name": "胡宗憲",
+      "citation": "CBDB 中国历代人物传记资料库 person 68363",
+      "gender": "male",
+      "death": {
+        "year": 1565
+      }
+    },
+    {
+      "externalId": "301666",
+      "name": "章氏(胡宗憲妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 301666",
+      "gender": "female"
+    },
+    {
+      "externalId": "301664",
+      "name": "胡尚仁",
+      "citation": "CBDB 中国历代人物传记资料库 person 301664",
+      "gender": "male"
+    },
+    {
+      "externalId": "301665",
+      "name": "方氏(胡宗憲母)",
+      "citation": "CBDB 中国历代人物传记资料库 person 301665",
+      "gender": "female"
+    },
+    {
+      "externalId": "526198",
+      "name": "胡桂奇",
+      "citation": "CBDB 中国历代人物传记资料库 person 526198"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "301664",
+      "child": "68363"
+    },
+    {
+      "kind": "parent",
+      "parent": "301665",
+      "child": "68363"
+    },
+    {
+      "kind": "spouse",
+      "a": "301666",
+      "b": "68363"
+    },
+    {
+      "kind": "parent",
+      "parent": "68363",
+      "child": "526198"
+    }
+  ]
+}

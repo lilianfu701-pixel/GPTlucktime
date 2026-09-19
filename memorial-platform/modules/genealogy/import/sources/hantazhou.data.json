@@ -1,0 +1,42 @@
+{
+  "key": "cbdb:hantazhou",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "3326",
+      "name": "韓侂胄",
+      "citation": "CBDB 中国历代人物传记资料库 person 3326",
+      "gender": "male",
+      "birth": {
+        "year": 1152
+      },
+      "death": {
+        "year": 1207
+      }
+    },
+    {
+      "externalId": "17804",
+      "name": "韓誠",
+      "citation": "CBDB 中国历代人物传记资料库 person 17804",
+      "gender": "male"
+    },
+    {
+      "externalId": "385328",
+      "name": "吳氏(韓誠妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 385328",
+      "gender": "female"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "17804",
+      "child": "3326"
+    },
+    {
+      "kind": "spouse",
+      "a": "17804",
+      "b": "385328"
+    }
+  ]
+}

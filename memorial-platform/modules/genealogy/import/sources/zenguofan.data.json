@@ -1,0 +1,65 @@
+{
+  "key": "cbdb:zenguofan",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "34344",
+      "name": "曾國藩",
+      "citation": "CBDB 中国历代人物传记资料库 person 34344",
+      "gender": "male",
+      "birth": {
+        "year": 1811
+      },
+      "death": {
+        "year": 1872
+      }
+    },
+    {
+      "externalId": "34343",
+      "name": "曾A",
+      "citation": "CBDB 中国历代人物传记资料库 person 34343",
+      "gender": "male"
+    },
+    {
+      "externalId": "34348",
+      "name": "曾紀澤",
+      "citation": "CBDB 中国历代人物传记资料库 person 34348",
+      "gender": "male",
+      "birth": {
+        "year": 1839
+      },
+      "death": {
+        "year": 1890
+      }
+    },
+    {
+      "externalId": "34349",
+      "name": "曾紀鴻",
+      "citation": "CBDB 中国历代人物传记资料库 person 34349",
+      "gender": "male",
+      "birth": {
+        "year": 1848
+      },
+      "death": {
+        "year": 1881
+      }
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "34343",
+      "child": "34344"
+    },
+    {
+      "kind": "parent",
+      "parent": "34344",
+      "child": "34348"
+    },
+    {
+      "kind": "parent",
+      "parent": "34344",
+      "child": "34349"
+    }
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "key": "cbdb:quanzuwang",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "30192",
+      "name": "全祖望",
+      "citation": "CBDB 中国历代人物传记资料库 person 30192",
+      "gender": "male",
+      "birth": {
+        "year": 1705
+      },
+      "death": {
+        "year": 1755
+      }
+    },
+    {
+      "externalId": "74620",
+      "name": "全書",
+      "citation": "CBDB 中国历代人物传记资料库 person 74620",
+      "gender": "male",
+      "birth": {
+        "year": 1663
+      },
+      "death": {
+        "year": 1738
+      }
+    },
+    {
+      "externalId": "522923",
+      "name": "全昭德",
+      "citation": "CBDB 中国历代人物传记资料库 person 522923"
+    },
+    {
+      "externalId": "522922",
+      "name": "全吾騏",
+      "citation": "CBDB 中国历代人物传记资料库 person 522922",
+      "gender": "male"
+    },
+    {
+      "externalId": "522921",
+      "name": "全大程",
+      "citation": "CBDB 中国历代人物传记资料库 person 522921"
+    },
+    {
+      "externalId": "230809",
+      "name": "全天授",
+      "citation": "CBDB 中国历代人物传记资料库 person 230809",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "74620",
+      "child": "30192"
+    },
+    {
+      "kind": "parent",
+      "parent": "30192",
+      "child": "522923"
+    },
+    {
+      "kind": "parent",
+      "parent": "522922",
+      "child": "74620"
+    },
+    {
+      "kind": "parent",
+      "parent": "522921",
+      "child": "522922"
+    },
+    {
+      "kind": "parent",
+      "parent": "230809",
+      "child": "522921"
+    }
+  ]
+}

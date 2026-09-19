@@ -1,0 +1,54 @@
+{
+  "key": "cbdb:liangtungshu",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "33558",
+      "name": "梁同書",
+      "citation": "CBDB 中国历代人物传记资料库 person 33558",
+      "gender": "male",
+      "birth": {
+        "year": 1723
+      },
+      "death": {
+        "year": 1815
+      }
+    },
+    {
+      "externalId": "58587",
+      "name": "梁詩正",
+      "citation": "CBDB 中国历代人物传记资料库 person 58587",
+      "gender": "male",
+      "birth": {
+        "year": 1697
+      },
+      "death": {
+        "year": 1763
+      }
+    },
+    {
+      "externalId": "33553",
+      "name": "梁文濂",
+      "citation": "CBDB 中国历代人物传记资料库 person 33553",
+      "gender": "male",
+      "birth": {
+        "year": 1672
+      },
+      "death": {
+        "year": 1758
+      }
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "58587",
+      "child": "33558"
+    },
+    {
+      "kind": "parent",
+      "parent": "33553",
+      "child": "58587"
+    }
+  ]
+}

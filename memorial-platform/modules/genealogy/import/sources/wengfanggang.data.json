@@ -1,0 +1,71 @@
+{
+  "key": "cbdb:wengfanggang",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "33848",
+      "name": "翁方綱",
+      "citation": "CBDB 中国历代人物传记资料库 person 33848",
+      "gender": "male",
+      "birth": {
+        "year": 1733
+      },
+      "death": {
+        "year": 1818
+      }
+    },
+    {
+      "externalId": "513686",
+      "name": "翁大德",
+      "citation": "CBDB 中国历代人物传记资料库 person 513686"
+    },
+    {
+      "externalId": "33849",
+      "name": "翁樹培",
+      "citation": "CBDB 中国历代人物传记资料库 person 33849",
+      "gender": "male"
+    },
+    {
+      "externalId": "513689",
+      "name": "翁芸",
+      "citation": "CBDB 中国历代人物传记资料库 person 513689"
+    },
+    {
+      "externalId": "513692",
+      "name": "翁穎",
+      "citation": "CBDB 中国历代人物传记资料库 person 513692"
+    },
+    {
+      "externalId": "513690",
+      "name": "翁樹訓",
+      "citation": "CBDB 中国历代人物传记资料库 person 513690"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "513686",
+      "child": "33848"
+    },
+    {
+      "kind": "parent",
+      "parent": "33848",
+      "child": "33849"
+    },
+    {
+      "kind": "parent",
+      "parent": "33848",
+      "child": "513689"
+    },
+    {
+      "kind": "parent",
+      "parent": "33848",
+      "child": "513692"
+    },
+    {
+      "kind": "parent",
+      "parent": "33848",
+      "child": "513690"
+    }
+  ]
+}

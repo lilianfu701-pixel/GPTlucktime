@@ -212,6 +212,17 @@ import suweidao from "./suweidao.data.json";
 import liufen from "./liufen.data.json";
 import liugong from "./liugong.data.json";
 import xiaoying from "./xiaoying.data.json";
+// CBDB 第二十四批（南宋权臣·明代将领·清代学者重臣）
+import hantazhou from "./hantazhou.data.json";
+import qijiguang from "./qijiguang.data.json";
+import yuqian from "./yuqian.data.json";
+import quanzuwang from "./quanzuwang.data.json";
+import zenguofan from "./zenguofan.data.json";
+import wengfanggang from "./wengfanggang.data.json";
+import yudayou from "./yudayou.data.json";
+import liangtungshu from "./liangtungshu.data.json";
+import huzongxian from "./huzongxian.data.json";
+import caozhengyong from "./caozhengyong.data.json";
 // CBDB 第二十三批（晚唐词人·金元学者·蒙元将领）
 import weizhuang from "./weizhuang.data.json";
 import liuyin from "./liuyin.data.json";
@@ -654,6 +665,17 @@ const FAMILIES: { key: string; label: string; dataset: GenealogyDataset }[] = [
   { key: "liufen", label: "河东柳氏·柳芬支（柳懿·柳均·南北朝到唐）", dataset: liufen as GenealogyDataset },
   { key: "liugong", label: "河东柳氏·柳公权支（书法家·柳瑗·柳仲憲）", dataset: liugong as GenealogyDataset },
   { key: "xiaoying", label: "兰陵萧氏·萧颖士支（萧道赐·萧恢·南朝到唐）", dataset: xiaoying as GenealogyDataset },
+  // CBDB 第二十四批：南宋权臣·明代将领·清代学者重臣
+  { key: "hantazhou", label: "颍川韩氏·韩侂胄支（南宋权臣·1152-1207·3人）", dataset: hantazhou as GenealogyDataset },
+  { key: "qijiguang", label: "定远戚氏·戚继光支（明代抗倭名将·1528-1587·3人）", dataset: qijiguang as GenealogyDataset },
+  { key: "yuqian", label: "钱塘于氏·于谦支（明代名臣·北京保卫战·1398-1457·3人）", dataset: yuqian as GenealogyDataset },
+  { key: "quanzuwang", label: "鄞县全氏·全祖望支（清代史学家·1705-1755·6人）", dataset: quanzuwang as GenealogyDataset },
+  { key: "zenguofan", label: "湘乡曾氏·曾国藩支（晚清重臣·1811-1872·4人）", dataset: zenguofan as GenealogyDataset },
+  { key: "wengfanggang", label: "大兴翁氏·翁方纲支（清代书法家·金石学家·1733-1818·6人）", dataset: wengfanggang as GenealogyDataset },
+  { key: "yudayou", label: "晋江俞氏·俞大猷支（明代抗倭将领·1503-1579·3人）", dataset: yudayou as GenealogyDataset },
+  { key: "liangtungshu", label: "钱塘梁氏·梁同书支（清代书法家·1723-1815·3人）", dataset: liangtungshu as GenealogyDataset },
+  { key: "huzongxian", label: "绩溪胡氏·胡宗宪支（明代抗倭总督·?-1565·5人）", dataset: huzongxian as GenealogyDataset },
+  { key: "caozhengyong", label: "歙县曹氏·曹振镛支（清代宰相·1755-1835·5人）", dataset: caozhengyong as GenealogyDataset },
   // CBDB 第二十三批：晚唐词人·金元学者·蒙元将领
   { key: "weizhuang", label: "京兆韦氏·韦庄支（晚唐词人·花间集·836-910·含韦应物·9人）", dataset: weizhuang as GenealogyDataset },
   { key: "liuyin", label: "蠡州刘氏·刘因支（元代儒学家·静修先生·1249-1293·4人）", dataset: liuyin as GenealogyDataset },

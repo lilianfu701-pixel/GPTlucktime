@@ -1,0 +1,47 @@
+{
+  "key": "cbdb:yuqian",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "34504",
+      "name": "于謙",
+      "citation": "CBDB 中国历代人物传记资料库 person 34504",
+      "gender": "male",
+      "birth": {
+        "year": 1398
+      },
+      "death": {
+        "year": 1457
+      }
+    },
+    {
+      "externalId": "525139",
+      "name": "于彥昭",
+      "citation": "CBDB 中国历代人物传记资料库 person 525139"
+    },
+    {
+      "externalId": "34505",
+      "name": "于冕",
+      "citation": "CBDB 中国历代人物传记资料库 person 34505",
+      "gender": "male",
+      "birth": {
+        "year": 1424
+      },
+      "death": {
+        "year": 1500
+      }
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "525139",
+      "child": "34504"
+    },
+    {
+      "kind": "parent",
+      "parent": "34504",
+      "child": "34505"
+    }
+  ]
+}

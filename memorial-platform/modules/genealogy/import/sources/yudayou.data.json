@@ -1,0 +1,40 @@
+{
+  "key": "cbdb:yudayou",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "129206",
+      "name": "俞大猷",
+      "citation": "CBDB 中国历代人物传记资料库 person 129206",
+      "gender": "male",
+      "birth": {
+        "year": 1503
+      },
+      "death": {
+        "year": 1579
+      }
+    },
+    {
+      "externalId": "526292",
+      "name": "俞原瓚",
+      "citation": "CBDB 中国历代人物传记资料库 person 526292"
+    },
+    {
+      "externalId": "526291",
+      "name": "俞咨皐",
+      "citation": "CBDB 中国历代人物传记资料库 person 526291"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "526292",
+      "child": "129206"
+    },
+    {
+      "kind": "parent",
+      "parent": "129206",
+      "child": "526291"
+    }
+  ]
+}
