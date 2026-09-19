@@ -1,0 +1,50 @@
+{
+  "key": "cbdb:hulinyi",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "56825",
+      "name": "胡林翼",
+      "citation": "CBDB 中国历代人物传记资料库 person 56825",
+      "gender": "male",
+      "birth": {
+        "year": 1812
+      },
+      "death": {
+        "year": 1861
+      }
+    },
+    {
+      "externalId": "513416",
+      "name": "陶靜娟",
+      "citation": "CBDB 中国历代人物传记资料库 person 513416"
+    },
+    {
+      "externalId": "513398",
+      "name": "胡子勛",
+      "citation": "CBDB 中国历代人物传记资料库 person 513398"
+    },
+    {
+      "externalId": "513399",
+      "name": "胡子勳",
+      "citation": "CBDB 中国历代人物传记资料库 person 513399"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "spouse",
+      "a": "513416",
+      "b": "56825"
+    },
+    {
+      "kind": "parent",
+      "parent": "56825",
+      "child": "513398"
+    },
+    {
+      "kind": "parent",
+      "parent": "56825",
+      "child": "513399"
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "key": "cbdb:wangyoudun",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "59002",
+      "name": "汪由敦",
+      "citation": "CBDB 中国历代人物传记资料库 person 59002",
+      "gender": "male",
+      "birth": {
+        "year": 1692
+      },
+      "death": {
+        "year": 1758
+      }
+    },
+    {
+      "externalId": "59004",
+      "name": "汪承霈",
+      "citation": "CBDB 中国历代人物传记资料库 person 59004",
+      "gender": "male",
+      "death": {
+        "year": 1805
+      }
+    },
+    {
+      "externalId": "518207",
+      "name": "汪本申",
+      "citation": "CBDB 中国历代人物传记资料库 person 518207"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "59002",
+      "child": "59004"
+    },
+    {
+      "kind": "parent",
+      "parent": "59004",
+      "child": "518207"
+    }
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "key": "cbdb:pengyuanrui",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "33923",
+      "name": "彭元瑞",
+      "citation": "CBDB 中国历代人物传记资料库 person 33923",
+      "gender": "male",
+      "birth": {
+        "year": 1731
+      },
+      "death": {
+        "year": 1803
+      }
+    },
+    {
+      "externalId": "33924",
+      "name": "彭廷訓",
+      "citation": "CBDB 中国历代人物传记资料库 person 33924",
+      "gender": "male"
+    },
+    {
+      "externalId": "33928",
+      "name": "彭翔履",
+      "citation": "CBDB 中国历代人物传记资料库 person 33928",
+      "gender": "male"
+    },
+    {
+      "externalId": "513608",
+      "name": "彭習恒",
+      "citation": "CBDB 中国历代人物传记资料库 person 513608"
+    },
+    {
+      "externalId": "33927",
+      "name": "彭祐",
+      "citation": "CBDB 中国历代人物传记资料库 person 33927",
+      "gender": "male"
+    },
+    {
+      "externalId": "33925",
+      "name": "彭燠",
+      "citation": "CBDB 中国历代人物传记资料库 person 33925",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "33924",
+      "child": "33923"
+    },
+    {
+      "kind": "parent",
+      "parent": "33923",
+      "child": "33928"
+    },
+    {
+      "kind": "parent",
+      "parent": "33923",
+      "child": "513608"
+    },
+    {
+      "kind": "parent",
+      "parent": "33927",
+      "child": "33924"
+    },
+    {
+      "kind": "parent",
+      "parent": "33925",
+      "child": "33927"
+    }
+  ]
+}

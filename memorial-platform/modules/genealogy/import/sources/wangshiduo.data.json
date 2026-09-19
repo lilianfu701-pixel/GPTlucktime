@@ -1,0 +1,80 @@
+{
+  "key": "cbdb:wangshiduo",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "65756",
+      "name": "汪士鐸",
+      "citation": "CBDB 中国历代人物传记资料库 person 65756",
+      "gender": "male",
+      "birth": {
+        "year": 1802
+      },
+      "death": {
+        "year": 1889
+      }
+    },
+    {
+      "externalId": "522250",
+      "name": "宗繼蘭",
+      "citation": "CBDB 中国历代人物传记资料库 person 522250"
+    },
+    {
+      "externalId": "522245",
+      "name": "汪均",
+      "citation": "CBDB 中国历代人物传记资料库 person 522245"
+    },
+    {
+      "externalId": "522246",
+      "name": "汪淑苓",
+      "citation": "CBDB 中国历代人物传记资料库 person 522246"
+    },
+    {
+      "externalId": "522247",
+      "name": "汪淑苹",
+      "citation": "CBDB 中国历代人物传记资料库 person 522247"
+    },
+    {
+      "externalId": "522248",
+      "name": "汪淑蘋",
+      "citation": "CBDB 中国历代人物传记资料库 person 522248"
+    },
+    {
+      "externalId": "522249",
+      "name": "汪淑菦",
+      "citation": "CBDB 中国历代人物传记资料库 person 522249"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "522245",
+      "child": "65756"
+    },
+    {
+      "kind": "spouse",
+      "a": "522250",
+      "b": "65756"
+    },
+    {
+      "kind": "parent",
+      "parent": "65756",
+      "child": "522246"
+    },
+    {
+      "kind": "parent",
+      "parent": "65756",
+      "child": "522247"
+    },
+    {
+      "kind": "parent",
+      "parent": "65756",
+      "child": "522248"
+    },
+    {
+      "kind": "parent",
+      "parent": "65756",
+      "child": "522249"
+    }
+  ]
+}

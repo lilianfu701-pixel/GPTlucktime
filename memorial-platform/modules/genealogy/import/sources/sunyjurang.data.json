@@ -1,0 +1,110 @@
+{
+  "key": "cbdb:sunyjurang",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "64265",
+      "name": "孫詒讓",
+      "citation": "CBDB 中国历代人物传记资料库 person 64265",
+      "gender": "male",
+      "birth": {
+        "year": 1848
+      },
+      "death": {
+        "year": 1908
+      }
+    },
+    {
+      "externalId": "521211",
+      "name": "孫延甸",
+      "citation": "CBDB 中国历代人物传记资料库 person 521211"
+    },
+    {
+      "externalId": "521212",
+      "name": "孫延炯",
+      "citation": "CBDB 中国历代人物传记资料库 person 521212"
+    },
+    {
+      "externalId": "521213",
+      "name": "孫延釗",
+      "citation": "CBDB 中国历代人物传记资料库 person 521213"
+    },
+    {
+      "externalId": "521214",
+      "name": "孫延箸",
+      "citation": "CBDB 中国历代人物传记资料库 person 521214"
+    },
+    {
+      "externalId": "521215",
+      "name": "孫延撰",
+      "citation": "CBDB 中国历代人物传记资料库 person 521215"
+    },
+    {
+      "externalId": "521216",
+      "name": "孫延鍇",
+      "citation": "CBDB 中国历代人物传记资料库 person 521216"
+    },
+    {
+      "externalId": "521217",
+      "name": "孫延瀚",
+      "citation": "CBDB 中国历代人物传记资料库 person 521217"
+    },
+    {
+      "externalId": "521218",
+      "name": "孫延疇",
+      "citation": "CBDB 中国历代人物传记资料库 person 521218"
+    },
+    {
+      "externalId": "521219",
+      "name": "孫延灝",
+      "citation": "CBDB 中国历代人物传记资料库 person 521219"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "64265",
+      "child": "521211"
+    },
+    {
+      "kind": "parent",
+      "parent": "64265",
+      "child": "521212"
+    },
+    {
+      "kind": "parent",
+      "parent": "64265",
+      "child": "521213"
+    },
+    {
+      "kind": "parent",
+      "parent": "64265",
+      "child": "521214"
+    },
+    {
+      "kind": "parent",
+      "parent": "64265",
+      "child": "521215"
+    },
+    {
+      "kind": "parent",
+      "parent": "64265",
+      "child": "521216"
+    },
+    {
+      "kind": "parent",
+      "parent": "64265",
+      "child": "521217"
+    },
+    {
+      "kind": "parent",
+      "parent": "64265",
+      "child": "521218"
+    },
+    {
+      "kind": "parent",
+      "parent": "64265",
+      "child": "521219"
+    }
+  ]
+}

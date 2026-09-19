@@ -212,6 +212,14 @@ import suweidao from "./suweidao.data.json";
 import liufen from "./liufen.data.json";
 import liugong from "./liugong.data.json";
 import xiaoying from "./xiaoying.data.json";
+// CBDB 第二十八批（唐代将领·晚清重臣·清代学人）
+import peixingjian from "./peixingjian.data.json";
+import wangyoudun from "./wangyoudun.data.json";
+import pengyuanrui from "./pengyuanrui.data.json";
+import lingtingkan from "./lingtingkan.data.json";
+import hulinyi from "./hulinyi.data.json";
+import wangshiduo from "./wangshiduo.data.json";
+import sunyjurang from "./sunyjurang.data.json";
 // CBDB 第二十七批（北宋新法·南宋理学·清代学术世家）
 import lvhuiqing from "./lvhuiqing.data.json";
 import zhendexiu from "./zhendexiu.data.json";
@@ -685,6 +693,14 @@ const FAMILIES: { key: string; label: string; dataset: GenealogyDataset }[] = [
   { key: "liufen", label: "河东柳氏·柳芬支（柳懿·柳均·南北朝到唐）", dataset: liufen as GenealogyDataset },
   { key: "liugong", label: "河东柳氏·柳公权支（书法家·柳瑗·柳仲憲）", dataset: liugong as GenealogyDataset },
   { key: "xiaoying", label: "兰陵萧氏·萧颖士支（萧道赐·萧恢·南朝到唐）", dataset: xiaoying as GenealogyDataset },
+  // CBDB 第二十八批：唐代将领·晚清重臣·清代学人
+  { key: "peixingjian", label: "河东裴氏·裴行俭支（唐代名将·619-682·含裴光庭/裴均·40人）", dataset: peixingjian as GenealogyDataset },
+  { key: "wangyoudun", label: "休宁汪氏·汪由敦支（清代重臣·书法家·1692-1758·3人）", dataset: wangyoudun as GenealogyDataset },
+  { key: "pengyuanrui", label: "庐陵彭氏·彭元瑞支（清代重臣·经学家·1731-1803·6人）", dataset: pengyuanrui as GenealogyDataset },
+  { key: "lingtingkan", label: "滁州凌氏·凌廷堪支（清代礼学家·扬州学派·1755-1809·4人）", dataset: lingtingkan as GenealogyDataset },
+  { key: "hulinyi", label: "益阳胡氏·胡林翼支（湘军将领·1812-1861·4人）", dataset: hulinyi as GenealogyDataset },
+  { key: "wangshiduo", label: "江宁汪氏·汪士铎支（清代学者·幕客·1802-1889·7人）", dataset: wangshiduo as GenealogyDataset },
+  { key: "sunyjurang", label: "瑞安孙氏·孙诒让支（清代经学·墨学·1848-1908·10人）", dataset: sunyjurang as GenealogyDataset },
   // CBDB 第二十七批：北宋新法·南宋理学·清代学术世家
   { key: "lvhuiqing", label: "泉州吕氏·吕惠卿支（北宋变法派·1032-1111·3人）", dataset: lvhuiqing as GenealogyDataset },
   { key: "zhendexiu", label: "浦城真氏·真德秀支（南宋理学家·1178-1235·4人）", dataset: zhendexiu as GenealogyDataset },

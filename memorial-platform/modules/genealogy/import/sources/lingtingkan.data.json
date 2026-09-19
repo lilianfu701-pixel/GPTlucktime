@@ -1,0 +1,61 @@
+{
+  "key": "cbdb:lingtingkan",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "33562",
+      "name": "凌廷堪",
+      "citation": "CBDB 中国历代人物传记资料库 person 33562",
+      "gender": "male",
+      "birth": {
+        "year": 1755
+      },
+      "death": {
+        "year": 1809
+      }
+    },
+    {
+      "externalId": "576936",
+      "name": "華氏(凌廷堪妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 576936",
+      "gender": "female"
+    },
+    {
+      "externalId": "33563",
+      "name": "凌文焻",
+      "citation": "CBDB 中国历代人物传记资料库 person 33563",
+      "gender": "male",
+      "death": {
+        "year": 1760
+      }
+    },
+    {
+      "externalId": "576934",
+      "name": "王氏(凌文焻妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 576934",
+      "gender": "female"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "33563",
+      "child": "33562"
+    },
+    {
+      "kind": "parent",
+      "parent": "576934",
+      "child": "33562"
+    },
+    {
+      "kind": "spouse",
+      "a": "33562",
+      "b": "576936"
+    },
+    {
+      "kind": "spouse",
+      "a": "33563",
+      "b": "576934"
+    }
+  ]
+}
