@@ -1,0 +1,53 @@
+{
+  "key": "cbdb:wuguolun",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "35112",
+      "name": "吳國倫",
+      "citation": "CBDB 中国历代人物传记资料库 person 35112",
+      "gender": "male",
+      "birth": {
+        "year": 1524
+      },
+      "death": {
+        "year": 1593
+      }
+    },
+    {
+      "externalId": "314524",
+      "name": "陳氏(吳國倫妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 314524",
+      "gender": "female"
+    },
+    {
+      "externalId": "314522",
+      "name": "吳顏",
+      "citation": "CBDB 中国历代人物传记资料库 person 314522",
+      "gender": "male"
+    },
+    {
+      "externalId": "314523",
+      "name": "李氏(吳國倫母)",
+      "citation": "CBDB 中国历代人物传记资料库 person 314523",
+      "gender": "female"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "314522",
+      "child": "35112"
+    },
+    {
+      "kind": "parent",
+      "parent": "314523",
+      "child": "35112"
+    },
+    {
+      "kind": "spouse",
+      "a": "314524",
+      "b": "35112"
+    }
+  ]
+}

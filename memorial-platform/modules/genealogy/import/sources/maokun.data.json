@@ -1,0 +1,53 @@
+{
+  "key": "cbdb:maokun",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "118816",
+      "name": "茅坤",
+      "citation": "CBDB 中国历代人物传记资料库 person 118816",
+      "gender": "male",
+      "birth": {
+        "year": 1512
+      },
+      "death": {
+        "year": 1601
+      }
+    },
+    {
+      "externalId": "301472",
+      "name": "姚氏(茅坤妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 301472",
+      "gender": "female"
+    },
+    {
+      "externalId": "301469",
+      "name": "茅遷",
+      "citation": "CBDB 中国历代人物传记资料库 person 301469",
+      "gender": "male"
+    },
+    {
+      "externalId": "301470",
+      "name": "李氏(茅坤母)",
+      "citation": "CBDB 中国历代人物传记资料库 person 301470",
+      "gender": "female"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "301469",
+      "child": "118816"
+    },
+    {
+      "kind": "parent",
+      "parent": "301470",
+      "child": "118816"
+    },
+    {
+      "kind": "spouse",
+      "a": "118816",
+      "b": "301472"
+    }
+  ]
+}

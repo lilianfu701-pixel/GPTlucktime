@@ -1,0 +1,53 @@
+{
+  "key": "cbdb:lipanlong",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "34714",
+      "name": "李攀龍",
+      "citation": "CBDB 中国历代人物传记资料库 person 34714",
+      "gender": "male",
+      "birth": {
+        "year": 1514
+      },
+      "death": {
+        "year": 1570
+      }
+    },
+    {
+      "externalId": "308425",
+      "name": "徐氏(李攀龍妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 308425",
+      "gender": "female"
+    },
+    {
+      "externalId": "308422",
+      "name": "李寶",
+      "citation": "CBDB 中国历代人物传记资料库 person 308422",
+      "gender": "male"
+    },
+    {
+      "externalId": "308424",
+      "name": "張氏(李攀龍母)",
+      "citation": "CBDB 中国历代人物传记资料库 person 308424",
+      "gender": "female"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "308422",
+      "child": "34714"
+    },
+    {
+      "kind": "parent",
+      "parent": "308424",
+      "child": "34714"
+    },
+    {
+      "kind": "spouse",
+      "a": "308425",
+      "b": "34714"
+    }
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "key": "cbdb:huangfuchong",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "30679",
+      "name": "皇甫冲",
+      "citation": "CBDB 中国历代人物传记资料库 person 30679",
+      "gender": "male",
+      "birth": {
+        "year": 1490
+      },
+      "death": {
+        "year": 1558
+      }
+    },
+    {
+      "externalId": "30676",
+      "name": "皇甫錄",
+      "citation": "CBDB 中国历代人物传记资料库 person 30676",
+      "gender": "male"
+    },
+    {
+      "externalId": "266977",
+      "name": "黃氏(皇甫錄妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 266977",
+      "gender": "female"
+    },
+    {
+      "externalId": "290227",
+      "name": "皇甫信",
+      "citation": "CBDB 中国历代人物传记资料库 person 290227",
+      "gender": "male"
+    },
+    {
+      "externalId": "266976",
+      "name": "彭氏(皇甫錄母)",
+      "citation": "CBDB 中国历代人物传记资料库 person 266976",
+      "gender": "female"
+    },
+    {
+      "externalId": "290226",
+      "name": "皇甫通",
+      "citation": "CBDB 中国历代人物传记资料库 person 290226",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "30676",
+      "child": "30679"
+    },
+    {
+      "kind": "parent",
+      "parent": "290227",
+      "child": "30676"
+    },
+    {
+      "kind": "parent",
+      "parent": "266976",
+      "child": "30676"
+    },
+    {
+      "kind": "spouse",
+      "a": "266977",
+      "b": "30676"
+    },
+    {
+      "kind": "parent",
+      "parent": "290226",
+      "child": "290227"
+    }
+  ]
+}

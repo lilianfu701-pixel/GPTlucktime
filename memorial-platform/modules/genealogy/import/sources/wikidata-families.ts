@@ -212,6 +212,11 @@ import suweidao from "./suweidao.data.json";
 import liufen from "./liufen.data.json";
 import liugong from "./liugong.data.json";
 import xiaoying from "./xiaoying.data.json";
+// CBDB 第三十批（明代后七子·前七子补遗·明代古文家）
+import lipanlong from "./lipanlong.data.json";
+import huangfuchong from "./huangfuchong.data.json";
+import wuguolun from "./wuguolun.data.json";
+import maokun from "./maokun.data.json";
 // CBDB 第二十九批（明代前七子·明代阁臣·明代心学理学）
 import yangshiqi from "./yangshiqi.data.json";
 import zhanruoshui from "./zhanruoshui.data.json";
@@ -701,6 +706,11 @@ const FAMILIES: { key: string; label: string; dataset: GenealogyDataset }[] = [
   { key: "liufen", label: "河东柳氏·柳芬支（柳懿·柳均·南北朝到唐）", dataset: liufen as GenealogyDataset },
   { key: "liugong", label: "河东柳氏·柳公权支（书法家·柳瑗·柳仲憲）", dataset: liugong as GenealogyDataset },
   { key: "xiaoying", label: "兰陵萧氏·萧颖士支（萧道赐·萧恢·南朝到唐）", dataset: xiaoying as GenealogyDataset },
+  // CBDB 第三十批：明代后七子·前七子补遗·明代古文家
+  { key: "lipanlong", label: "历城李氏·李攀龙支（明代后七子·诗人·1514-1570·4人）", dataset: lipanlong as GenealogyDataset },
+  { key: "huangfuchong", label: "长洲皇甫氏·皇甫冲支（明代苏州文人·吴中四才子旁系·1490-1558·6人）", dataset: huangfuchong as GenealogyDataset },
+  { key: "wuguolun", label: "兴国吴氏·吴国伦支（明代后七子·诗人·1524-1593·4人）", dataset: wuguolun as GenealogyDataset },
+  { key: "maokun", label: "归安茅氏·茅坤支（明代古文家·唐宋八大家·1512-1601·4人）", dataset: maokun as GenealogyDataset },
   // CBDB 第二十九批：明代前七子·明代阁臣·明代心学理学
   { key: "yangshiqi", label: "吉水杨氏·杨士奇支（明代三杨·内阁首辅·1365-1444·3人）", dataset: yangshiqi as GenealogyDataset },
   { key: "zhanruoshui", label: "增城湛氏·湛若水支（明代心学·甘泉学派·1466-1560·4人）", dataset: zhanruoshui as GenealogyDataset },
