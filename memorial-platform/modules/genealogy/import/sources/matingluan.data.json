@@ -1,0 +1,90 @@
+{
+  "key": "cbdb:matingluan",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "15501",
+      "name": "馬廷鸞",
+      "citation": "CBDB 中国历代人物传记资料库 person 15501",
+      "gender": "male",
+      "birth": {
+        "year": 1222
+      },
+      "death": {
+        "year": 1289
+      }
+    },
+    {
+      "externalId": "44634",
+      "name": "張氏(馬廷鸞妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 44634",
+      "gender": "female",
+      "birth": {
+        "year": 1228
+      },
+      "death": {
+        "year": 1285
+      }
+    },
+    {
+      "externalId": "15500",
+      "name": "馬灼",
+      "citation": "CBDB 中国历代人物传记资料库 person 15500",
+      "gender": "male"
+    },
+    {
+      "externalId": "44630",
+      "name": "段氏(馬廷鸞母)",
+      "citation": "CBDB 中国历代人物传记资料库 person 44630",
+      "gender": "female",
+      "birth": {
+        "year": 1192
+      },
+      "death": {
+        "year": 1265
+      }
+    },
+    {
+      "externalId": "15511",
+      "name": "馬端復",
+      "citation": "CBDB 中国历代人物传记资料库 person 15511",
+      "gender": "male"
+    },
+    {
+      "externalId": "15512",
+      "name": "馬端臨",
+      "citation": "CBDB 中国历代人物传记资料库 person 15512",
+      "gender": "male",
+      "birth": {
+        "year": 1254
+      }
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "15500",
+      "child": "15501"
+    },
+    {
+      "kind": "parent",
+      "parent": "44630",
+      "child": "15501"
+    },
+    {
+      "kind": "spouse",
+      "a": "15501",
+      "b": "44634"
+    },
+    {
+      "kind": "parent",
+      "parent": "15501",
+      "child": "15511"
+    },
+    {
+      "kind": "parent",
+      "parent": "15501",
+      "child": "15512"
+    }
+  ]
+}

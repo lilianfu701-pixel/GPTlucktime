@@ -1,0 +1,92 @@
+{
+  "key": "cbdb:chenfuliang",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "10585",
+      "name": "陳傅良",
+      "citation": "CBDB 中国历代人物传记资料库 person 10585",
+      "gender": "male",
+      "birth": {
+        "year": 1137
+      },
+      "death": {
+        "year": 1203
+      }
+    },
+    {
+      "externalId": "35628",
+      "name": "張幼昭",
+      "citation": "CBDB 中国历代人物传记资料库 person 35628",
+      "gender": "female",
+      "birth": {
+        "year": 1146
+      },
+      "death": {
+        "year": 1195
+      }
+    },
+    {
+      "externalId": "10584",
+      "name": "陳彬",
+      "citation": "CBDB 中国历代人物传记资料库 person 10584",
+      "gender": "male"
+    },
+    {
+      "externalId": "35629",
+      "name": "陳師轍",
+      "citation": "CBDB 中国历代人物传记资料库 person 35629",
+      "gender": "male"
+    },
+    {
+      "externalId": "35630",
+      "name": "陳師樸",
+      "citation": "CBDB 中国历代人物传记资料库 person 35630",
+      "gender": "male"
+    },
+    {
+      "externalId": "14281",
+      "name": "陳邦",
+      "citation": "CBDB 中国历代人物传记资料库 person 14281",
+      "gender": "male"
+    },
+    {
+      "externalId": "14280",
+      "name": "陳靖",
+      "citation": "CBDB 中国历代人物传记资料库 person 14280",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "10584",
+      "child": "10585"
+    },
+    {
+      "kind": "spouse",
+      "a": "10585",
+      "b": "35628"
+    },
+    {
+      "kind": "parent",
+      "parent": "10585",
+      "child": "35629"
+    },
+    {
+      "kind": "parent",
+      "parent": "10585",
+      "child": "35630"
+    },
+    {
+      "kind": "parent",
+      "parent": "14281",
+      "child": "10584"
+    },
+    {
+      "kind": "parent",
+      "parent": "14280",
+      "child": "14281"
+    }
+  ]
+}

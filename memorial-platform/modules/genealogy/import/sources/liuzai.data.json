@@ -1,0 +1,116 @@
+{
+  "key": "cbdb:liuzai",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "11800",
+      "name": "劉宰",
+      "citation": "CBDB 中国历代人物传记资料库 person 11800",
+      "gender": "male",
+      "birth": {
+        "year": 1166
+      },
+      "death": {
+        "year": 1239
+      }
+    },
+    {
+      "externalId": "5192",
+      "name": "陶氏(劉宰妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 5192",
+      "gender": "female",
+      "birth": {
+        "year": 1170
+      },
+      "death": {
+        "year": 1193
+      }
+    },
+    {
+      "externalId": "5193",
+      "name": "梁氏(劉宰妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 5193",
+      "gender": "female",
+      "birth": {
+        "year": 1170
+      },
+      "death": {
+        "year": 1219
+      }
+    },
+    {
+      "externalId": "11799",
+      "name": "劉蒙慶",
+      "citation": "CBDB 中国历代人物传记资料库 person 11799",
+      "gender": "male",
+      "birth": {
+        "year": 1132
+      },
+      "death": {
+        "year": 1203
+      }
+    },
+    {
+      "externalId": "26604",
+      "name": "劉汝遇",
+      "citation": "CBDB 中国历代人物传记资料库 person 26604",
+      "gender": "male"
+    },
+    {
+      "externalId": "11797",
+      "name": "劉祁",
+      "citation": "CBDB 中国历代人物传记资料库 person 11797",
+      "gender": "male",
+      "birth": {
+        "year": 1091
+      },
+      "death": {
+        "year": 1162
+      }
+    },
+    {
+      "externalId": "52073",
+      "name": "劉杞",
+      "citation": "CBDB 中国历代人物传记资料库 person 52073",
+      "gender": "male",
+      "birth": {
+        "year": 1091
+      },
+      "death": {
+        "year": 1162
+      }
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "11799",
+      "child": "11800"
+    },
+    {
+      "kind": "spouse",
+      "a": "11800",
+      "b": "5192"
+    },
+    {
+      "kind": "spouse",
+      "a": "11800",
+      "b": "5193"
+    },
+    {
+      "kind": "parent",
+      "parent": "11800",
+      "child": "26604"
+    },
+    {
+      "kind": "parent",
+      "parent": "11797",
+      "child": "11799"
+    },
+    {
+      "kind": "parent",
+      "parent": "52073",
+      "child": "11799"
+    }
+  ]
+}

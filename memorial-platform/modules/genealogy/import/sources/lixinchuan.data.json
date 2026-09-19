@@ -1,0 +1,107 @@
+{
+  "key": "cbdb:lixinchuan",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "10831",
+      "name": "李心傳",
+      "citation": "CBDB 中国历代人物传记资料库 person 10831",
+      "gender": "male",
+      "birth": {
+        "year": 1167
+      },
+      "death": {
+        "year": 1244
+      }
+    },
+    {
+      "externalId": "10832",
+      "name": "李舜臣",
+      "citation": "CBDB 中国历代人物传记资料库 person 10832",
+      "gender": "male"
+    },
+    {
+      "externalId": "46016",
+      "name": "某氏(李舜臣妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 46016",
+      "gender": "female"
+    },
+    {
+      "externalId": "20031",
+      "name": "李獻可",
+      "citation": "CBDB 中国历代人物传记资料库 person 20031",
+      "gender": "male"
+    },
+    {
+      "externalId": "20010",
+      "name": "李發",
+      "citation": "CBDB 中国历代人物传记资料库 person 20010",
+      "gender": "male"
+    },
+    {
+      "externalId": "41128",
+      "name": "某氏(李性傳祖母)",
+      "citation": "CBDB 中国历代人物传记资料库 person 41128",
+      "gender": "female"
+    },
+    {
+      "externalId": "20009",
+      "name": "李錫",
+      "citation": "CBDB 中国历代人物传记资料库 person 20009",
+      "gender": "male"
+    },
+    {
+      "externalId": "41118",
+      "name": "某氏(李性傳曾祖母)",
+      "citation": "CBDB 中国历代人物传记资料库 person 41118",
+      "gender": "female"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "10832",
+      "child": "10831"
+    },
+    {
+      "kind": "parent",
+      "parent": "10831",
+      "child": "20031"
+    },
+    {
+      "kind": "parent",
+      "parent": "20010",
+      "child": "10832"
+    },
+    {
+      "kind": "parent",
+      "parent": "41128",
+      "child": "10832"
+    },
+    {
+      "kind": "spouse",
+      "a": "10832",
+      "b": "46016"
+    },
+    {
+      "kind": "parent",
+      "parent": "20009",
+      "child": "20010"
+    },
+    {
+      "kind": "parent",
+      "parent": "41118",
+      "child": "20010"
+    },
+    {
+      "kind": "spouse",
+      "a": "20010",
+      "b": "41128"
+    },
+    {
+      "kind": "spouse",
+      "a": "20009",
+      "b": "41118"
+    }
+  ]
+}

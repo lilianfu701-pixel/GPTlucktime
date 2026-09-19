@@ -212,6 +212,18 @@ import suweidao from "./suweidao.data.json";
 import liufen from "./liufen.data.json";
 import liugong from "./liugong.data.json";
 import xiaoying from "./xiaoying.data.json";
+// CBDB 第十批（南宋将领/学者/宰相 + 明代文学/北宋史学）
+import zhangfen from "./zhangfen.data.json";
+import jiasidao from "./jiasidao.data.json";
+import lixinchuan from "./lixinchuan.data.json";
+import yuanxie from "./yuanxie.data.json";
+import liuzai from "./liuzai.data.json";
+import zhuyunming from "./zhuyunming.data.json";
+import sunfu from "./sunfu.data.json";
+import matingluan from "./matingluan.data.json";
+import chenfuliang from "./chenfuliang.data.json";
+import zhengzhong from "./zhengzhong.data.json";
+import liguang from "./liguang.data.json";
 // CBDB 第九批（唐宋官员/元代文人/北宋宰相）
 import cuiri from "./cuiri.data.json";
 import zhangyangzhao from "./zhangyangzhao.data.json";
@@ -528,6 +540,18 @@ const FAMILIES: { key: string; label: string; dataset: GenealogyDataset }[] = [
   { key: "liufen", label: "河东柳氏·柳芬支（柳懿·柳均·南北朝到唐）", dataset: liufen as GenealogyDataset },
   { key: "liugong", label: "河东柳氏·柳公权支（书法家·柳瑗·柳仲憲）", dataset: liugong as GenealogyDataset },
   { key: "xiaoying", label: "兰陵萧氏·萧颖士支（萧道赐·萧恢·南朝到唐）", dataset: xiaoying as GenealogyDataset },
+  // CBDB 第十批：南宋将领/学者/宰相 + 明代文学 + 北宋史学
+  { key: "zhangfen", label: "建安章氏·章楶支（北宋将领·边防官员·1027-1102）", dataset: zhangfen as GenealogyDataset },
+  { key: "jiasidao", label: "天水贾氏·贾似道支（南宋宰相·1213-1275）", dataset: jiasidao as GenealogyDataset },
+  { key: "lixinchuan", label: "井研李氏·李心传支（南宋史学家·《建炎以来朝野杂记》）", dataset: lixinchuan as GenealogyDataset },
+  { key: "yuanxie", label: "四明袁氏·袁燮支（南宋理学家·象山弟子·1144-1224）", dataset: yuanxie as GenealogyDataset },
+  { key: "liuzai", label: "金坛刘氏·刘宰支（南宋学者·1167-1240）", dataset: liuzai as GenealogyDataset },
+  { key: "zhuyunming", label: "长洲祝氏·祝允明支（明代书法家·吴中四才子·1461-1527）", dataset: zhuyunming as GenealogyDataset },
+  { key: "sunfu", label: "深州孙氏·孙甫支（北宋史学家·992-1057）", dataset: sunfu as GenealogyDataset },
+  { key: "matingluan", label: "饶州马氏·马廷鸾支（南宋宰相·马端临之父·1223-1289）", dataset: matingluan as GenealogyDataset },
+  { key: "chenfuliang", label: "瑞安陈氏·陈傅良支（南宋学者·永嘉学派·1137-1203）", dataset: chenfuliang as GenealogyDataset },
+  { key: "zhengzhong", label: "郑州郑氏·郑居中支（北宋宰相·1059-1123）", dataset: zhengzhong as GenealogyDataset },
+  { key: "liguang", label: "越州李氏·李光支（南宋官员·抗金大臣·1078-1159）", dataset: liguang as GenealogyDataset },
   // CBDB 第九批：唐宋官员 + 元代文人 + 北宋宰相
   { key: "cuiri", label: "博陵崔氏·崔日用支（唐代宰相·官至工部尚书·？-716）", dataset: cuiri as GenealogyDataset },
   { key: "zhangyangzhao", label: "济南张氏·张养浩支（元代散曲大家·1269-1329）", dataset: zhangyangzhao as GenealogyDataset },

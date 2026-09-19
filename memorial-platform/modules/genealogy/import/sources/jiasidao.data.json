@@ -1,0 +1,130 @@
+{
+  "key": "cbdb:jiasidao",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "10374",
+      "name": "賈似道",
+      "citation": "CBDB 中国历代人物传记资料库 person 10374",
+      "gender": "male",
+      "birth": {
+        "year": 1213
+      },
+      "death": {
+        "year": 1275
+      }
+    },
+    {
+      "externalId": "49279",
+      "name": "綦氏(賈似道妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 49279",
+      "gender": "female"
+    },
+    {
+      "externalId": "10376",
+      "name": "賈涉",
+      "citation": "CBDB 中国历代人物传记资料库 person 10376",
+      "gender": "male"
+    },
+    {
+      "externalId": "49255",
+      "name": "史氏(賈涉妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 49255",
+      "gender": "female"
+    },
+    {
+      "externalId": "49256",
+      "name": "胡氏(史氏妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 49256",
+      "gender": "female"
+    },
+    {
+      "externalId": "119381",
+      "name": "胡氏(賈似道母)",
+      "citation": "CBDB 中国历代人物传记资料库 person 119381",
+      "gender": "female"
+    },
+    {
+      "externalId": "10375",
+      "name": "賈偉",
+      "citation": "CBDB 中国历代人物传记资料库 person 10375",
+      "gender": "male"
+    },
+    {
+      "externalId": "49261",
+      "name": "於氏(賈偉妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 49261",
+      "gender": "female"
+    },
+    {
+      "externalId": "49262",
+      "name": "陸氏(賈偉妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 49262",
+      "gender": "female"
+    },
+    {
+      "externalId": "49259",
+      "name": "賈嗣業",
+      "citation": "CBDB 中国历代人物传记资料库 person 49259",
+      "gender": "male"
+    },
+    {
+      "externalId": "49260",
+      "name": "於氏(賈嗣業妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 49260",
+      "gender": "female"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "10376",
+      "child": "10374"
+    },
+    {
+      "kind": "parent",
+      "parent": "119381",
+      "child": "10374"
+    },
+    {
+      "kind": "spouse",
+      "a": "10374",
+      "b": "49279"
+    },
+    {
+      "kind": "parent",
+      "parent": "10375",
+      "child": "10376"
+    },
+    {
+      "kind": "spouse",
+      "a": "10376",
+      "b": "49255"
+    },
+    {
+      "kind": "spouse",
+      "a": "10376",
+      "b": "49256"
+    },
+    {
+      "kind": "parent",
+      "parent": "49259",
+      "child": "10375"
+    },
+    {
+      "kind": "parent",
+      "parent": "49260",
+      "child": "10375"
+    },
+    {
+      "kind": "spouse",
+      "a": "10375",
+      "b": "49261"
+    },
+    {
+      "kind": "spouse",
+      "a": "10375",
+      "b": "49262"
+    }
+  ]
+}

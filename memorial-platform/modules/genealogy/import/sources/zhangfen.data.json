@@ -1,0 +1,139 @@
+{
+  "key": "cbdb:zhangfen",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "345",
+      "name": "章楶",
+      "citation": "CBDB 中国历代人物传记资料库 person 345",
+      "gender": "male"
+    },
+    {
+      "externalId": "45110",
+      "name": "和氏(章楶妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 45110",
+      "gender": "female"
+    },
+    {
+      "externalId": "3184",
+      "name": "章訪",
+      "citation": "CBDB 中国历代人物传记资料库 person 3184",
+      "gender": "male"
+    },
+    {
+      "externalId": "3189",
+      "name": "章縡",
+      "citation": "CBDB 中国历代人物传记资料库 person 3189",
+      "gender": "male",
+      "birth": {
+        "year": 1054
+      },
+      "death": {
+        "year": 1119
+      }
+    },
+    {
+      "externalId": "12967",
+      "name": "章綜",
+      "citation": "CBDB 中国历代人物传记资料库 person 12967",
+      "gender": "male"
+    },
+    {
+      "externalId": "7159",
+      "name": "章綡",
+      "citation": "CBDB 中国历代人物传记资料库 person 7159",
+      "gender": "male",
+      "birth": {
+        "year": 1062
+      },
+      "death": {
+        "year": 1125
+      }
+    },
+    {
+      "externalId": "12968",
+      "name": "章綰",
+      "citation": "CBDB 中国历代人物传记资料库 person 12968",
+      "gender": "male"
+    },
+    {
+      "externalId": "3190",
+      "name": "章綖",
+      "citation": "CBDB 中国历代人物传记资料库 person 3190",
+      "gender": "male"
+    },
+    {
+      "externalId": "12966",
+      "name": "章縯",
+      "citation": "CBDB 中国历代人物传记资料库 person 12966",
+      "gender": "male"
+    },
+    {
+      "externalId": "342",
+      "name": "章頻",
+      "citation": "CBDB 中国历代人物传记资料库 person 342",
+      "gender": "male",
+      "death": {
+        "year": 1033
+      }
+    },
+    {
+      "externalId": "3185",
+      "name": "章谷者",
+      "citation": "CBDB 中国历代人物传记资料库 person 3185",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "3184",
+      "child": "345"
+    },
+    {
+      "kind": "spouse",
+      "a": "345",
+      "b": "45110"
+    },
+    {
+      "kind": "parent",
+      "parent": "345",
+      "child": "3189"
+    },
+    {
+      "kind": "parent",
+      "parent": "345",
+      "child": "12967"
+    },
+    {
+      "kind": "parent",
+      "parent": "345",
+      "child": "7159"
+    },
+    {
+      "kind": "parent",
+      "parent": "345",
+      "child": "12968"
+    },
+    {
+      "kind": "parent",
+      "parent": "345",
+      "child": "3190"
+    },
+    {
+      "kind": "parent",
+      "parent": "345",
+      "child": "12966"
+    },
+    {
+      "kind": "parent",
+      "parent": "342",
+      "child": "3184"
+    },
+    {
+      "kind": "parent",
+      "parent": "3185",
+      "child": "342"
+    }
+  ]
+}

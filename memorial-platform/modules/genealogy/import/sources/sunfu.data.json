@@ -1,0 +1,86 @@
+{
+  "key": "cbdb:sunfu",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "15744",
+      "name": "孫甫",
+      "citation": "CBDB 中国历代人物传记资料库 person 15744",
+      "gender": "male",
+      "birth": {
+        "year": 998
+      },
+      "death": {
+        "year": 1057
+      }
+    },
+    {
+      "externalId": "15743",
+      "name": "孫從革",
+      "citation": "CBDB 中国历代人物传记资料库 person 15743",
+      "gender": "male"
+    },
+    {
+      "externalId": "339479",
+      "name": "孫宜",
+      "citation": "CBDB 中国历代人物传记资料库 person 339479",
+      "gender": "male"
+    },
+    {
+      "externalId": "7411",
+      "name": "孫寔",
+      "citation": "CBDB 中国历代人物传记资料库 person 7411",
+      "gender": "male"
+    },
+    {
+      "externalId": "339480",
+      "name": "孫寘",
+      "citation": "CBDB 中国历代人物传记资料库 person 339480",
+      "gender": "male"
+    },
+    {
+      "externalId": "15741",
+      "name": "孫賁",
+      "citation": "CBDB 中国历代人物传记资料库 person 15741",
+      "gender": "male"
+    },
+    {
+      "externalId": "15740",
+      "name": "孫恕",
+      "citation": "CBDB 中国历代人物传记资料库 person 15740",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "15743",
+      "child": "15744"
+    },
+    {
+      "kind": "parent",
+      "parent": "15744",
+      "child": "339479"
+    },
+    {
+      "kind": "parent",
+      "parent": "15744",
+      "child": "7411"
+    },
+    {
+      "kind": "parent",
+      "parent": "15744",
+      "child": "339480"
+    },
+    {
+      "kind": "parent",
+      "parent": "15741",
+      "child": "15743"
+    },
+    {
+      "kind": "parent",
+      "parent": "15740",
+      "child": "15741"
+    }
+  ]
+}

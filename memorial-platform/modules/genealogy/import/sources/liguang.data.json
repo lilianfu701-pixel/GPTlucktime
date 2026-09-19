@@ -1,0 +1,118 @@
+{
+  "key": "cbdb:liguang",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "169872",
+      "name": "李光",
+      "citation": "CBDB 中国历代人物传记资料库 person 169872",
+      "gender": "male",
+      "death": {
+        "year": 777
+      }
+    },
+    {
+      "externalId": "169458",
+      "name": "李璘",
+      "citation": "CBDB 中国历代人物传记资料库 person 169458",
+      "gender": "male",
+      "death": {
+        "year": 814
+      }
+    },
+    {
+      "externalId": "145036",
+      "name": "李榮",
+      "citation": "CBDB 中国历代人物传记资料库 person 145036",
+      "gender": "male",
+      "birth": {
+        "year": 792
+      },
+      "death": {
+        "year": 857
+      }
+    },
+    {
+      "externalId": "184502",
+      "name": "李少清",
+      "citation": "CBDB 中国历代人物传记资料库 person 184502",
+      "gender": "male",
+      "death": {
+        "year": 888
+      }
+    },
+    {
+      "externalId": "184503",
+      "name": "李少平",
+      "citation": "CBDB 中国历代人物传记资料库 person 184503",
+      "gender": "male",
+      "death": {
+        "year": 888
+      }
+    },
+    {
+      "externalId": "184504",
+      "name": "李少誠",
+      "citation": "CBDB 中国历代人物传记资料库 person 184504",
+      "gender": "male",
+      "death": {
+        "year": 888
+      }
+    },
+    {
+      "externalId": "184505",
+      "name": "李少程",
+      "citation": "CBDB 中国历代人物传记资料库 person 184505",
+      "gender": "male",
+      "death": {
+        "year": 888
+      }
+    },
+    {
+      "externalId": "184506",
+      "name": "李少恆",
+      "citation": "CBDB 中国历代人物传记资料库 person 184506",
+      "gender": "male",
+      "death": {
+        "year": 888
+      }
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "169872",
+      "child": "169458"
+    },
+    {
+      "kind": "parent",
+      "parent": "169458",
+      "child": "145036"
+    },
+    {
+      "kind": "parent",
+      "parent": "145036",
+      "child": "184502"
+    },
+    {
+      "kind": "parent",
+      "parent": "145036",
+      "child": "184503"
+    },
+    {
+      "kind": "parent",
+      "parent": "145036",
+      "child": "184504"
+    },
+    {
+      "kind": "parent",
+      "parent": "145036",
+      "child": "184505"
+    },
+    {
+      "kind": "parent",
+      "parent": "145036",
+      "child": "184506"
+    }
+  ]
+}

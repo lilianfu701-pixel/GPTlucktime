@@ -1,0 +1,243 @@
+{
+  "key": "cbdb:yuanxie",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "10289",
+      "name": "袁燮",
+      "citation": "CBDB 中国历代人物传记资料库 person 10289",
+      "gender": "male",
+      "birth": {
+        "year": 1144
+      },
+      "death": {
+        "year": 1224
+      }
+    },
+    {
+      "externalId": "5163",
+      "name": "邊氏(袁燮妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 5163",
+      "gender": "female",
+      "birth": {
+        "year": 1175
+      },
+      "death": {
+        "year": 1203
+      }
+    },
+    {
+      "externalId": "10259",
+      "name": "袁文",
+      "citation": "CBDB 中国历代人物传记资料库 person 10259",
+      "gender": "male",
+      "birth": {
+        "year": 1119
+      },
+      "death": {
+        "year": 1190
+      }
+    },
+    {
+      "externalId": "5162",
+      "name": "戴氏(袁文妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 5162",
+      "gender": "female",
+      "birth": {
+        "year": 1105
+      },
+      "death": {
+        "year": 1176
+      }
+    },
+    {
+      "externalId": "10295",
+      "name": "袁肅",
+      "citation": "CBDB 中国历代人物传记资料库 person 10295",
+      "gender": "male"
+    },
+    {
+      "externalId": "10294",
+      "name": "袁喬",
+      "citation": "CBDB 中国历代人物传记资料库 person 10294",
+      "gender": "male"
+    },
+    {
+      "externalId": "10296",
+      "name": "袁甫",
+      "citation": "CBDB 中国历代人物传记资料库 person 10296",
+      "gender": "male",
+      "birth": {
+        "year": 1174
+      },
+      "death": {
+        "year": 1240
+      }
+    },
+    {
+      "externalId": "5164",
+      "name": "趙希怡",
+      "citation": "CBDB 中国历代人物传记资料库 person 5164",
+      "gender": "female",
+      "birth": {
+        "year": 1177
+      },
+      "death": {
+        "year": 1235
+      }
+    },
+    {
+      "externalId": "10297",
+      "name": "袁商",
+      "citation": "CBDB 中国历代人物传记资料库 person 10297",
+      "gender": "male"
+    },
+    {
+      "externalId": "10235",
+      "name": "袁坰",
+      "citation": "CBDB 中国历代人物传记资料库 person 10235",
+      "gender": "male"
+    },
+    {
+      "externalId": "10298",
+      "name": "袁從",
+      "citation": "CBDB 中国历代人物传记资料库 person 10298",
+      "gender": "male"
+    },
+    {
+      "externalId": "10299",
+      "name": "袁徯",
+      "citation": "CBDB 中国历代人物传记资料库 person 10299",
+      "gender": "male"
+    },
+    {
+      "externalId": "10231",
+      "name": "袁灼",
+      "citation": "CBDB 中国历代人物传记资料库 person 10231",
+      "gender": "male"
+    },
+    {
+      "externalId": "10300",
+      "name": "袁裒",
+      "citation": "CBDB 中国历代人物传记资料库 person 10300",
+      "gender": "male",
+      "birth": {
+        "year": 1260
+      },
+      "death": {
+        "year": 1320
+      }
+    },
+    {
+      "externalId": "10229",
+      "name": "袁轂",
+      "citation": "CBDB 中国历代人物传记资料库 person 10229",
+      "gender": "male"
+    },
+    {
+      "externalId": "10293",
+      "name": "袁斐",
+      "citation": "CBDB 中国历代人物传记资料库 person 10293",
+      "gender": "male"
+    },
+    {
+      "externalId": "10292",
+      "name": "袁志",
+      "citation": "CBDB 中国历代人物传记资料库 person 10292",
+      "gender": "male"
+    },
+    {
+      "externalId": "10291",
+      "name": "袁謐",
+      "citation": "CBDB 中国历代人物传记资料库 person 10291",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "10259",
+      "child": "10289"
+    },
+    {
+      "kind": "spouse",
+      "a": "10289",
+      "b": "5163"
+    },
+    {
+      "kind": "parent",
+      "parent": "10289",
+      "child": "10295"
+    },
+    {
+      "kind": "parent",
+      "parent": "10289",
+      "child": "10294"
+    },
+    {
+      "kind": "parent",
+      "parent": "10289",
+      "child": "10296"
+    },
+    {
+      "kind": "parent",
+      "parent": "10289",
+      "child": "10297"
+    },
+    {
+      "kind": "parent",
+      "parent": "10235",
+      "child": "10259"
+    },
+    {
+      "kind": "spouse",
+      "a": "10259",
+      "b": "5162"
+    },
+    {
+      "kind": "spouse",
+      "a": "10296",
+      "b": "5164"
+    },
+    {
+      "kind": "parent",
+      "parent": "10296",
+      "child": "10298"
+    },
+    {
+      "kind": "parent",
+      "parent": "10296",
+      "child": "10299"
+    },
+    {
+      "kind": "parent",
+      "parent": "10231",
+      "child": "10235"
+    },
+    {
+      "kind": "parent",
+      "parent": "10299",
+      "child": "10300"
+    },
+    {
+      "kind": "parent",
+      "parent": "10229",
+      "child": "10231"
+    },
+    {
+      "kind": "parent",
+      "parent": "10293",
+      "child": "10229"
+    },
+    {
+      "kind": "parent",
+      "parent": "10292",
+      "child": "10293"
+    },
+    {
+      "kind": "parent",
+      "parent": "10291",
+      "child": "10292"
+    }
+  ]
+}

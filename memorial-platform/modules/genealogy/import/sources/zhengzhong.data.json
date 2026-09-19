@@ -1,0 +1,125 @@
+{
+  "key": "cbdb:zhengzhong",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "8027",
+      "name": "鄭居中",
+      "citation": "CBDB 中国历代人物传记资料库 person 8027",
+      "gender": "male",
+      "birth": {
+        "year": 1059
+      },
+      "death": {
+        "year": 1123
+      }
+    },
+    {
+      "externalId": "385324",
+      "name": "王氏(鄭居中妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 385324",
+      "gender": "female"
+    },
+    {
+      "externalId": "385325",
+      "name": "鄭鄭氏(王?妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 385325",
+      "gender": "female"
+    },
+    {
+      "externalId": "1820",
+      "name": "王㬇",
+      "citation": "CBDB 中国历代人物传记资料库 person 1820",
+      "gender": "male",
+      "death": {
+        "year": 1147
+      }
+    },
+    {
+      "externalId": "407",
+      "name": "鄭僑年",
+      "citation": "CBDB 中国历代人物传记资料库 person 407",
+      "gender": "male"
+    },
+    {
+      "externalId": "15273",
+      "name": "鄭橋年",
+      "citation": "CBDB 中国历代人物传记资料库 person 15273",
+      "gender": "male"
+    },
+    {
+      "externalId": "15274",
+      "name": "鄭億年",
+      "citation": "CBDB 中国历代人物传记资料库 person 15274",
+      "gender": "male"
+    },
+    {
+      "externalId": "119541",
+      "name": "鄭脩年",
+      "citation": "CBDB 中国历代人物传记资料库 person 119541",
+      "gender": "male"
+    },
+    {
+      "externalId": "385326",
+      "name": "鄭氏(秦???妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 385326",
+      "gender": "female"
+    },
+    {
+      "externalId": "8007",
+      "name": "秦熺",
+      "citation": "CBDB 中国历代人物传记资料库 person 8007",
+      "gender": "male",
+      "death": {
+        "year": 1161
+      }
+    }
+  ],
+  "relations": [
+    {
+      "kind": "spouse",
+      "a": "385324",
+      "b": "8027"
+    },
+    {
+      "kind": "parent",
+      "parent": "8027",
+      "child": "385325"
+    },
+    {
+      "kind": "parent",
+      "parent": "8027",
+      "child": "407"
+    },
+    {
+      "kind": "parent",
+      "parent": "8027",
+      "child": "15273"
+    },
+    {
+      "kind": "parent",
+      "parent": "8027",
+      "child": "15274"
+    },
+    {
+      "kind": "parent",
+      "parent": "8027",
+      "child": "119541"
+    },
+    {
+      "kind": "spouse",
+      "a": "1820",
+      "b": "385325"
+    },
+    {
+      "kind": "parent",
+      "parent": "119541",
+      "child": "385326"
+    },
+    {
+      "kind": "spouse",
+      "a": "385326",
+      "b": "8007"
+    }
+  ]
+}

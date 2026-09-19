@@ -1,0 +1,97 @@
+{
+  "key": "cbdb:zhuyunming",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "276535",
+      "name": "祝允明",
+      "citation": "CBDB 中国历代人物传记资料库 person 276535",
+      "gender": "male",
+      "birth": {
+        "year": 1461
+      },
+      "death": {
+        "year": 1527
+      }
+    },
+    {
+      "externalId": "34603",
+      "name": "祝A",
+      "citation": "CBDB 中国历代人物传记资料库 person 34603",
+      "gender": "male"
+    },
+    {
+      "externalId": "30181",
+      "name": "祝續",
+      "citation": "CBDB 中国历代人物传记资料库 person 30181",
+      "gender": "male"
+    },
+    {
+      "externalId": "276537",
+      "name": "沈氏(祝續妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 276537",
+      "gender": "female"
+    },
+    {
+      "externalId": "30179",
+      "name": "祝顥",
+      "citation": "CBDB 中国历代人物传记资料库 person 30179",
+      "gender": "male"
+    },
+    {
+      "externalId": "236645",
+      "name": "錢氏(祝顥妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 236645",
+      "gender": "female"
+    },
+    {
+      "externalId": "236643",
+      "name": "祝煥文",
+      "citation": "CBDB 中国历代人物传记资料库 person 236643",
+      "gender": "male"
+    },
+    {
+      "externalId": "236644",
+      "name": "王氏(祝顥母)",
+      "citation": "CBDB 中国历代人物传记资料库 person 236644",
+      "gender": "female"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "34603",
+      "child": "276535"
+    },
+    {
+      "kind": "parent",
+      "parent": "276535",
+      "child": "30181"
+    },
+    {
+      "kind": "parent",
+      "parent": "30179",
+      "child": "34603"
+    },
+    {
+      "kind": "spouse",
+      "a": "276537",
+      "b": "30181"
+    },
+    {
+      "kind": "parent",
+      "parent": "236643",
+      "child": "30179"
+    },
+    {
+      "kind": "parent",
+      "parent": "236644",
+      "child": "30179"
+    },
+    {
+      "kind": "spouse",
+      "a": "236645",
+      "b": "30179"
+    }
+  ]
+}
