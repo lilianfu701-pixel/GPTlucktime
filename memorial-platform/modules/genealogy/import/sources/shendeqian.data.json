@@ -1,0 +1,48 @@
+{
+  "key": "cbdb:shendeqian",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "54319",
+      "name": "沈德潛",
+      "citation": "CBDB 中国历代人物传记资料库 person 54319",
+      "gender": "male",
+      "birth": {
+        "year": 1673
+      },
+      "death": {
+        "year": 1769
+      }
+    },
+    {
+      "externalId": "79703",
+      "name": "沈鍾彥",
+      "citation": "CBDB 中国历代人物传记资料库 person 79703",
+      "gender": "male",
+      "birth": {
+        "year": 1654
+      },
+      "death": {
+        "year": 1719
+      }
+    },
+    {
+      "externalId": "702735",
+      "name": "沈欽圻",
+      "citation": "CBDB 中国历代人物传记资料库 person 702735",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "79703",
+      "child": "54319"
+    },
+    {
+      "kind": "parent",
+      "parent": "702735",
+      "child": "79703"
+    }
+  ]
+}

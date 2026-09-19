@@ -1,0 +1,51 @@
+{
+  "key": "cbdb:wuweiye",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "35118",
+      "name": "吳偉業",
+      "citation": "CBDB 中国历代人物传记资料库 person 35118",
+      "gender": "male",
+      "birth": {
+        "year": 1609
+      },
+      "death": {
+        "year": 1671
+      }
+    },
+    {
+      "externalId": "54124",
+      "name": "吳水蒼",
+      "citation": "CBDB 中国历代人物传记资料库 person 54124",
+      "gender": "male"
+    },
+    {
+      "externalId": "517976",
+      "name": "朱淑人",
+      "citation": "CBDB 中国历代人物传记资料库 person 517976"
+    },
+    {
+      "externalId": "517977",
+      "name": "吳暽",
+      "citation": "CBDB 中国历代人物传记资料库 person 517977"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "54124",
+      "child": "35118"
+    },
+    {
+      "kind": "parent",
+      "parent": "517976",
+      "child": "35118"
+    },
+    {
+      "kind": "parent",
+      "parent": "35118",
+      "child": "517977"
+    }
+  ]
+}

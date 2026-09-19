@@ -1,0 +1,121 @@
+{
+  "key": "cbdb:pengsunyi",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "65711",
+      "name": "彭孫貽",
+      "citation": "CBDB 中国历代人物传记资料库 person 65711",
+      "gender": "male",
+      "birth": {
+        "year": 1615
+      },
+      "death": {
+        "year": 1673
+      }
+    },
+    {
+      "externalId": "55706",
+      "name": "彭期生",
+      "citation": "CBDB 中国历代人物传记资料库 person 55706",
+      "gender": "male",
+      "death": {
+        "year": 1645
+      }
+    },
+    {
+      "externalId": "55705",
+      "name": "彭宗孟",
+      "citation": "CBDB 中国历代人物传记资料库 person 55705",
+      "gender": "male"
+    },
+    {
+      "externalId": "695634",
+      "name": "朱氏(彭宗孟妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 695634",
+      "gender": "female"
+    },
+    {
+      "externalId": "565506",
+      "name": "彭紹賢",
+      "citation": "CBDB 中国历代人物传记资料库 person 565506",
+      "gender": "male"
+    },
+    {
+      "externalId": "695594",
+      "name": "鄭氏(鄭曉女)",
+      "citation": "CBDB 中国历代人物传记资料库 person 695594",
+      "gender": "female"
+    },
+    {
+      "externalId": "695635",
+      "name": "李氏(彭紹賢妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 695635",
+      "gender": "female"
+    },
+    {
+      "externalId": "695596",
+      "name": "彭大年",
+      "citation": "CBDB 中国历代人物传记资料库 person 695596",
+      "gender": "male"
+    },
+    {
+      "externalId": "695598",
+      "name": "談氏(彭大年妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 695598",
+      "gender": "female"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "55706",
+      "child": "65711"
+    },
+    {
+      "kind": "parent",
+      "parent": "55705",
+      "child": "55706"
+    },
+    {
+      "kind": "parent",
+      "parent": "565506",
+      "child": "55705"
+    },
+    {
+      "kind": "parent",
+      "parent": "695594",
+      "child": "55705"
+    },
+    {
+      "kind": "spouse",
+      "a": "55705",
+      "b": "695634"
+    },
+    {
+      "kind": "parent",
+      "parent": "695596",
+      "child": "565506"
+    },
+    {
+      "kind": "parent",
+      "parent": "695598",
+      "child": "565506"
+    },
+    {
+      "kind": "spouse",
+      "a": "565506",
+      "b": "695594"
+    },
+    {
+      "kind": "spouse",
+      "a": "565506",
+      "b": "695635"
+    },
+    {
+      "kind": "spouse",
+      "a": "695596",
+      "b": "695598"
+    }
+  ]
+}

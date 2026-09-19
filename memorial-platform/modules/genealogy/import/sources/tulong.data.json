@@ -1,0 +1,114 @@
+{
+  "key": "cbdb:tulong",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "34919",
+      "name": "屠隆",
+      "citation": "CBDB 中国历代人物传记资料库 person 34919",
+      "gender": "male",
+      "birth": {
+        "year": 1542
+      },
+      "death": {
+        "year": 1605
+      }
+    },
+    {
+      "externalId": "123278",
+      "name": "屠夫人",
+      "citation": "CBDB 中国历代人物传记资料库 person 123278",
+      "gender": "female"
+    },
+    {
+      "externalId": "217243",
+      "name": "楊氏(屠隆妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 217243",
+      "gender": "female"
+    },
+    {
+      "externalId": "217241",
+      "name": "屠濬",
+      "citation": "CBDB 中国历代人物传记资料库 person 217241",
+      "gender": "male"
+    },
+    {
+      "externalId": "217242",
+      "name": "趙氏(屠隆母)",
+      "citation": "CBDB 中国历代人物传记资料库 person 217242",
+      "gender": "female"
+    },
+    {
+      "externalId": "34921",
+      "name": "屠瑤瑟",
+      "citation": "CBDB 中国历代人物传记资料库 person 34921",
+      "gender": "female",
+      "birth": {
+        "year": 1572
+      },
+      "death": {
+        "year": 1600
+      }
+    },
+    {
+      "externalId": "34922",
+      "name": "黃振古",
+      "citation": "CBDB 中国历代人物传记资料库 person 34922",
+      "gender": "male"
+    },
+    {
+      "externalId": "34920",
+      "name": "屠金樞",
+      "citation": "CBDB 中国历代人物传记资料库 person 34920",
+      "gender": "male"
+    },
+    {
+      "externalId": "34925",
+      "name": "沈天孫",
+      "citation": "CBDB 中国历代人物传记资料库 person 34925",
+      "gender": "female"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "217241",
+      "child": "34919"
+    },
+    {
+      "kind": "parent",
+      "parent": "217242",
+      "child": "34919"
+    },
+    {
+      "kind": "spouse",
+      "a": "123278",
+      "b": "34919"
+    },
+    {
+      "kind": "spouse",
+      "a": "217243",
+      "b": "34919"
+    },
+    {
+      "kind": "parent",
+      "parent": "34919",
+      "child": "34921"
+    },
+    {
+      "kind": "parent",
+      "parent": "34919",
+      "child": "34920"
+    },
+    {
+      "kind": "spouse",
+      "a": "34921",
+      "b": "34922"
+    },
+    {
+      "kind": "spouse",
+      "a": "34920",
+      "b": "34925"
+    }
+  ]
+}

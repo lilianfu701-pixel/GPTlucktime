@@ -1,0 +1,86 @@
+{
+  "key": "cbdb:wanghuizu",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "35043",
+      "name": "汪輝祖",
+      "citation": "CBDB 中国历代人物传记资料库 person 35043",
+      "gender": "male",
+      "birth": {
+        "year": 1730
+      },
+      "death": {
+        "year": 1807
+      }
+    },
+    {
+      "externalId": "35044",
+      "name": "汪楷",
+      "citation": "CBDB 中国历代人物传记资料库 person 35044",
+      "gender": "male",
+      "birth": {
+        "year": 1695
+      },
+      "death": {
+        "year": 1740
+      }
+    },
+    {
+      "externalId": "570746",
+      "name": "王氏(汪楷妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 570746",
+      "gender": "female"
+    },
+    {
+      "externalId": "570798",
+      "name": "徐氏(汪楷妾)",
+      "citation": "CBDB 中国历代人物传记资料库 person 570798",
+      "gender": "female"
+    },
+    {
+      "externalId": "35045",
+      "name": "汪繼芳",
+      "citation": "CBDB 中国历代人物传记资料库 person 35045",
+      "gender": "male"
+    },
+    {
+      "externalId": "35046",
+      "name": "汪繼培",
+      "citation": "CBDB 中国历代人物传记资料库 person 35046",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "35044",
+      "child": "35043"
+    },
+    {
+      "kind": "parent",
+      "parent": "570798",
+      "child": "35043"
+    },
+    {
+      "kind": "parent",
+      "parent": "35043",
+      "child": "35045"
+    },
+    {
+      "kind": "parent",
+      "parent": "35043",
+      "child": "35046"
+    },
+    {
+      "kind": "spouse",
+      "a": "35044",
+      "b": "570746"
+    },
+    {
+      "kind": "spouse",
+      "a": "35044",
+      "b": "570798"
+    }
+  ]
+}

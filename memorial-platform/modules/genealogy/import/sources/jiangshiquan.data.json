@@ -1,0 +1,73 @@
+{
+  "key": "cbdb:jiangshiquan",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "55833",
+      "name": "蔣士銓",
+      "citation": "CBDB 中国历代人物传记资料库 person 55833",
+      "gender": "male",
+      "birth": {
+        "year": 1724
+      },
+      "death": {
+        "year": 1784
+      }
+    },
+    {
+      "externalId": "55831",
+      "name": "蔣堅",
+      "citation": "CBDB 中国历代人物传记资料库 person 55831",
+      "gender": "male"
+    },
+    {
+      "externalId": "55829",
+      "name": "鍾令嘉",
+      "citation": "CBDB 中国历代人物传记资料库 person 55829",
+      "gender": "female",
+      "birth": {
+        "year": 1705
+      },
+      "death": {
+        "year": 1774
+      }
+    },
+    {
+      "externalId": "522308",
+      "name": "蔣知重",
+      "citation": "CBDB 中国历代人物传记资料库 person 522308"
+    },
+    {
+      "externalId": "522310",
+      "name": "蔣知簡",
+      "citation": "CBDB 中国历代人物传记资料库 person 522310"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "55831",
+      "child": "55833"
+    },
+    {
+      "kind": "parent",
+      "parent": "55829",
+      "child": "55833"
+    },
+    {
+      "kind": "parent",
+      "parent": "55833",
+      "child": "522308"
+    },
+    {
+      "kind": "parent",
+      "parent": "55833",
+      "child": "522310"
+    },
+    {
+      "kind": "spouse",
+      "a": "55829",
+      "b": "55831"
+    }
+  ]
+}

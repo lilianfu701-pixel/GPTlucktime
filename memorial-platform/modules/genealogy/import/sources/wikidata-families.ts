@@ -212,6 +212,13 @@ import suweidao from "./suweidao.data.json";
 import liufen from "./liufen.data.json";
 import liugong from "./liugong.data.json";
 import xiaoying from "./xiaoying.data.json";
+// CBDB 第三十一批（晚明文人·清初诗人·清代学者）
+import tulong from "./tulong.data.json";
+import pengsunyi from "./pengsunyi.data.json";
+import wuweiye from "./wuweiye.data.json";
+import jiangshiquan from "./jiangshiquan.data.json";
+import shendeqian from "./shendeqian.data.json";
+import wanghuizu from "./wanghuizu.data.json";
 // CBDB 第三十批（明代后七子·前七子补遗·明代古文家）
 import lipanlong from "./lipanlong.data.json";
 import huangfuchong from "./huangfuchong.data.json";
@@ -706,6 +713,13 @@ const FAMILIES: { key: string; label: string; dataset: GenealogyDataset }[] = [
   { key: "liufen", label: "河东柳氏·柳芬支（柳懿·柳均·南北朝到唐）", dataset: liufen as GenealogyDataset },
   { key: "liugong", label: "河东柳氏·柳公权支（书法家·柳瑗·柳仲憲）", dataset: liugong as GenealogyDataset },
   { key: "xiaoying", label: "兰陵萧氏·萧颖士支（萧道赐·萧恢·南朝到唐）", dataset: xiaoying as GenealogyDataset },
+  // CBDB 第三十一批：晚明文人·清初诗人·清代学者
+  { key: "tulong", label: "鄞县屠氏·屠隆支（明代文人·博学才子·1542-1605·9人）", dataset: tulong as GenealogyDataset },
+  { key: "pengsunyi", label: "海盐彭氏·彭孙贻支（明遗民诗人·彭期生父·1615-1673·9人）", dataset: pengsunyi as GenealogyDataset },
+  { key: "wuweiye", label: "太仓吴氏·吴伟业支（清初诗人·梅村体·1609-1671·4人）", dataset: wuweiye as GenealogyDataset },
+  { key: "jiangshiquan", label: "铅山蒋氏·蒋士铨支（清代剧作家·钟令嘉之子·1724-1784·5人）", dataset: jiangshiquan as GenealogyDataset },
+  { key: "shendeqian", label: "长洲沈氏·沈德潜支（清代诗人·格调派·1673-1769·3人）", dataset: shendeqian as GenealogyDataset },
+  { key: "wanghuizu", label: "萧山汪氏·汪辉祖支（清代幕学家·法律学者·1730-1807·6人）", dataset: wanghuizu as GenealogyDataset },
   // CBDB 第三十批：明代后七子·前七子补遗·明代古文家
   { key: "lipanlong", label: "历城李氏·李攀龙支（明代后七子·诗人·1514-1570·4人）", dataset: lipanlong as GenealogyDataset },
   { key: "huangfuchong", label: "长洲皇甫氏·皇甫冲支（明代苏州文人·吴中四才子旁系·1490-1558·6人）", dataset: huangfuchong as GenealogyDataset },
