@@ -1,0 +1,90 @@
+{
+  "key": "cbdb:laiji",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "93208",
+      "name": "來濟",
+      "citation": "CBDB 中国历代人物传记资料库 person 93208",
+      "gender": "male",
+      "birth": {
+        "year": 610
+      },
+      "death": {
+        "year": 662
+      }
+    },
+    {
+      "externalId": "178574",
+      "name": "來護兒",
+      "citation": "CBDB 中国历代人物传记资料库 person 178574",
+      "gender": "male",
+      "death": {
+        "year": 655
+      }
+    },
+    {
+      "externalId": "178578",
+      "name": "來敬業",
+      "citation": "CBDB 中国历代人物传记资料库 person 178578",
+      "gender": "male",
+      "death": {
+        "year": 715
+      }
+    },
+    {
+      "externalId": "178579",
+      "name": "來慶遠",
+      "citation": "CBDB 中国历代人物传记资料库 person 178579",
+      "gender": "male",
+      "death": {
+        "year": 715
+      }
+    },
+    {
+      "externalId": "178573",
+      "name": "來繪",
+      "citation": "CBDB 中国历代人物传记资料库 person 178573",
+      "gender": "male",
+      "death": {
+        "year": 625
+      }
+    },
+    {
+      "externalId": "178572",
+      "name": "來崱",
+      "citation": "CBDB 中国历代人物传记资料库 person 178572",
+      "gender": "male",
+      "death": {
+        "year": 595
+      }
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "178574",
+      "child": "93208"
+    },
+    {
+      "kind": "parent",
+      "parent": "93208",
+      "child": "178578"
+    },
+    {
+      "kind": "parent",
+      "parent": "93208",
+      "child": "178579"
+    },
+    {
+      "kind": "parent",
+      "parent": "178573",
+      "child": "178574"
+    },
+    {
+      "kind": "parent",
+      "parent": "178572",
+      "child": "178573"
+    }
+  ]
+}

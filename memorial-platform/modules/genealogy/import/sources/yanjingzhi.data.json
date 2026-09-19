@@ -1,0 +1,104 @@
+{
+  "key": "cbdb:yanjingzhi",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "195685",
+      "name": "嚴挺之",
+      "citation": "CBDB 中国历代人物传记资料库 person 195685",
+      "gender": "male",
+      "death": {
+        "year": 748
+      }
+    },
+    {
+      "externalId": "194800",
+      "name": "嚴方約",
+      "citation": "CBDB 中国历代人物传记资料库 person 194800",
+      "gender": "male",
+      "death": {
+        "year": 711
+      }
+    },
+    {
+      "externalId": "195688",
+      "name": "嚴武",
+      "citation": "CBDB 中国历代人物传记资料库 person 195688",
+      "gender": "male",
+      "birth": {
+        "year": 725
+      },
+      "death": {
+        "year": 765
+      }
+    },
+    {
+      "externalId": "195695",
+      "name": "嚴協",
+      "citation": "CBDB 中国历代人物传记资料库 person 195695",
+      "gender": "male",
+      "death": {
+        "year": 674
+      }
+    },
+    {
+      "externalId": "195689",
+      "name": "嚴楚卿",
+      "citation": "CBDB 中国历代人物传记资料库 person 195689",
+      "gender": "male",
+      "death": {
+        "year": 822
+      }
+    },
+    {
+      "externalId": "195690",
+      "name": "嚴越卿",
+      "citation": "CBDB 中国历代人物传记资料库 person 195690",
+      "gender": "male",
+      "death": {
+        "year": 822
+      }
+    },
+    {
+      "externalId": "195691",
+      "name": "嚴鄭卿",
+      "citation": "CBDB 中国历代人物传记资料库 person 195691",
+      "gender": "male",
+      "death": {
+        "year": 822
+      }
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "194800",
+      "child": "195685"
+    },
+    {
+      "kind": "parent",
+      "parent": "195685",
+      "child": "195688"
+    },
+    {
+      "kind": "parent",
+      "parent": "195695",
+      "child": "194800"
+    },
+    {
+      "kind": "parent",
+      "parent": "195688",
+      "child": "195689"
+    },
+    {
+      "kind": "parent",
+      "parent": "195688",
+      "child": "195690"
+    },
+    {
+      "kind": "parent",
+      "parent": "195688",
+      "child": "195691"
+    }
+  ]
+}

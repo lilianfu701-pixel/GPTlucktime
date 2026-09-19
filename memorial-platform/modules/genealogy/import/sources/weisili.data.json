@@ -1,0 +1,301 @@
+{
+  "key": "cbdb:weisili",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "31082",
+      "name": "韋嗣立",
+      "citation": "CBDB 中国历代人物传记资料库 person 31082",
+      "gender": "male",
+      "birth": {
+        "year": 654
+      },
+      "death": {
+        "year": 719
+      }
+    },
+    {
+      "externalId": "31080",
+      "name": "韋思謙",
+      "citation": "CBDB 中国历代人物传记资料库 person 31080",
+      "gender": "male"
+    },
+    {
+      "externalId": "142690",
+      "name": "王婉",
+      "citation": "CBDB 中国历代人物传记资料库 person 142690",
+      "gender": "female",
+      "birth": {
+        "year": 604
+      },
+      "death": {
+        "year": 682
+      }
+    },
+    {
+      "externalId": "31086",
+      "name": "韋孚",
+      "citation": "CBDB 中国历代人物传记资料库 person 31086",
+      "gender": "male"
+    },
+    {
+      "externalId": "31087",
+      "name": "韋恆",
+      "citation": "CBDB 中国历代人物传记资料库 person 31087",
+      "gender": "male",
+      "death": {
+        "year": 741
+      }
+    },
+    {
+      "externalId": "181257",
+      "name": "韋史",
+      "citation": "CBDB 中国历代人物传记资料库 person 181257",
+      "gender": "male",
+      "death": {
+        "year": 736
+      }
+    },
+    {
+      "externalId": "31088",
+      "name": "韋濟",
+      "citation": "CBDB 中国历代人物传记资料库 person 31088",
+      "gender": "male",
+      "birth": {
+        "year": 688
+      },
+      "death": {
+        "year": 754
+      }
+    },
+    {
+      "externalId": "164935",
+      "name": "劉氏(韋濟妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 164935",
+      "gender": "female"
+    },
+    {
+      "externalId": "31079",
+      "name": "韋德倫",
+      "citation": "CBDB 中国历代人物传记资料库 person 31079",
+      "gender": "male"
+    },
+    {
+      "externalId": "181249",
+      "name": "韋懿",
+      "citation": "CBDB 中国历代人物传记资料库 person 181249",
+      "gender": "male",
+      "death": {
+        "year": 773
+      }
+    },
+    {
+      "externalId": "32938",
+      "name": "韋逢",
+      "citation": "CBDB 中国历代人物传记资料库 person 32938",
+      "gender": "male"
+    },
+    {
+      "externalId": "181251",
+      "name": "韋士模",
+      "citation": "CBDB 中国历代人物传记资料库 person 181251",
+      "gender": "male",
+      "death": {
+        "year": 783
+      }
+    },
+    {
+      "externalId": "181255",
+      "name": "韋士勛",
+      "citation": "CBDB 中国历代人物传记资料库 person 181255",
+      "gender": "male",
+      "death": {
+        "year": 783
+      }
+    },
+    {
+      "externalId": "181256",
+      "name": "韋涵",
+      "citation": "CBDB 中国历代人物传记资料库 person 181256",
+      "gender": "male",
+      "death": {
+        "year": 783
+      }
+    },
+    {
+      "externalId": "31078",
+      "name": "韋弘瑗",
+      "citation": "CBDB 中国历代人物传记资料库 person 31078",
+      "gender": "male"
+    },
+    {
+      "externalId": "143301",
+      "name": "韋某",
+      "citation": "CBDB 中国历代人物传记资料库 person 143301",
+      "gender": "male",
+      "birth": {
+        "year": 761
+      },
+      "death": {
+        "year": 819
+      }
+    },
+    {
+      "externalId": "181254",
+      "name": "韋成季",
+      "citation": "CBDB 中国历代人物传记资料库 person 181254",
+      "gender": "male",
+      "death": {
+        "year": 820
+      }
+    },
+    {
+      "externalId": "32939",
+      "name": "韋貞伯",
+      "citation": "CBDB 中国历代人物传记资料库 person 32939",
+      "gender": "male"
+    },
+    {
+      "externalId": "166289",
+      "name": "韋氣子",
+      "citation": "CBDB 中国历代人物传记资料库 person 166289",
+      "gender": "female"
+    },
+    {
+      "externalId": "166285",
+      "name": "韋公宿",
+      "citation": "CBDB 中国历代人物传记资料库 person 166285",
+      "gender": "male"
+    },
+    {
+      "externalId": "166286",
+      "name": "韋宥",
+      "citation": "CBDB 中国历代人物传记资料库 person 166286",
+      "gender": "male"
+    },
+    {
+      "externalId": "166287",
+      "name": "韋泰來",
+      "citation": "CBDB 中国历代人物传记资料库 person 166287",
+      "gender": "male"
+    },
+    {
+      "externalId": "166288",
+      "name": "韋小泰",
+      "citation": "CBDB 中国历代人物传记资料库 person 166288",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "31080",
+      "child": "31082"
+    },
+    {
+      "kind": "parent",
+      "parent": "31082",
+      "child": "31086"
+    },
+    {
+      "kind": "parent",
+      "parent": "31082",
+      "child": "31087"
+    },
+    {
+      "kind": "parent",
+      "parent": "31082",
+      "child": "181257"
+    },
+    {
+      "kind": "parent",
+      "parent": "31082",
+      "child": "31088"
+    },
+    {
+      "kind": "parent",
+      "parent": "31079",
+      "child": "31080"
+    },
+    {
+      "kind": "spouse",
+      "a": "142690",
+      "b": "31080"
+    },
+    {
+      "kind": "parent",
+      "parent": "31087",
+      "child": "181249"
+    },
+    {
+      "kind": "spouse",
+      "a": "164935",
+      "b": "31088"
+    },
+    {
+      "kind": "parent",
+      "parent": "31088",
+      "child": "32938"
+    },
+    {
+      "kind": "parent",
+      "parent": "31088",
+      "child": "181251"
+    },
+    {
+      "kind": "parent",
+      "parent": "31088",
+      "child": "181255"
+    },
+    {
+      "kind": "parent",
+      "parent": "31088",
+      "child": "181256"
+    },
+    {
+      "kind": "parent",
+      "parent": "31078",
+      "child": "31079"
+    },
+    {
+      "kind": "parent",
+      "parent": "32938",
+      "child": "143301"
+    },
+    {
+      "kind": "parent",
+      "parent": "32938",
+      "child": "181254"
+    },
+    {
+      "kind": "parent",
+      "parent": "32938",
+      "child": "32939"
+    },
+    {
+      "kind": "parent",
+      "parent": "143301",
+      "child": "166289"
+    },
+    {
+      "kind": "parent",
+      "parent": "143301",
+      "child": "166285"
+    },
+    {
+      "kind": "parent",
+      "parent": "143301",
+      "child": "166286"
+    },
+    {
+      "kind": "parent",
+      "parent": "143301",
+      "child": "166287"
+    },
+    {
+      "kind": "parent",
+      "parent": "143301",
+      "child": "166288"
+    }
+  ]
+}

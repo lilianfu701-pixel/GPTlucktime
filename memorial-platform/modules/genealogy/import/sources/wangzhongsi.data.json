@@ -1,0 +1,121 @@
+{
+  "key": "cbdb:wangzhongsi",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "32662",
+      "name": "王忠嗣",
+      "citation": "CBDB 中国历代人物传记资料库 person 32662",
+      "gender": "male",
+      "birth": {
+        "year": 731
+      },
+      "death": {
+        "year": 775
+      }
+    },
+    {
+      "externalId": "32661",
+      "name": "王海賓",
+      "citation": "CBDB 中国历代人物传记资料库 person 32661",
+      "gender": "male",
+      "death": {
+        "year": 714
+      }
+    },
+    {
+      "externalId": "92099",
+      "name": "王韞秀",
+      "citation": "CBDB 中国历代人物传记资料库 person 92099",
+      "gender": "female",
+      "birth": {
+        "year": 724
+      },
+      "death": {
+        "year": 777
+      }
+    },
+    {
+      "externalId": "32672",
+      "name": "元載",
+      "citation": "CBDB 中国历代人物传记资料库 person 32672",
+      "gender": "male",
+      "death": {
+        "year": 777
+      }
+    },
+    {
+      "externalId": "155951",
+      "name": "王震",
+      "citation": "CBDB 中国历代人物传记资料库 person 155951",
+      "gender": "male"
+    },
+    {
+      "externalId": "141350",
+      "name": "王永",
+      "citation": "CBDB 中国历代人物传记资料库 person 141350",
+      "gender": "male",
+      "birth": {
+        "year": 749
+      },
+      "death": {
+        "year": 800
+      }
+    },
+    {
+      "externalId": "141770",
+      "name": "張氏(張憑女)",
+      "citation": "CBDB 中国历代人物传记资料库 person 141770",
+      "gender": "female",
+      "birth": {
+        "year": 761
+      },
+      "death": {
+        "year": 817
+      }
+    },
+    {
+      "externalId": "155949",
+      "name": "張氏(王永妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 155949",
+      "gender": "female"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "32661",
+      "child": "32662"
+    },
+    {
+      "kind": "parent",
+      "parent": "32662",
+      "child": "92099"
+    },
+    {
+      "kind": "parent",
+      "parent": "32662",
+      "child": "155951"
+    },
+    {
+      "kind": "spouse",
+      "a": "32672",
+      "b": "92099"
+    },
+    {
+      "kind": "parent",
+      "parent": "155951",
+      "child": "141350"
+    },
+    {
+      "kind": "spouse",
+      "a": "141350",
+      "b": "141770"
+    },
+    {
+      "kind": "spouse",
+      "a": "141350",
+      "b": "155949"
+    }
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "key": "cbdb:sunshi",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "21382",
+      "name": "孫奭",
+      "citation": "CBDB 中国历代人物传记资料库 person 21382",
+      "gender": "male",
+      "birth": {
+        "year": 962
+      },
+      "death": {
+        "year": 1033
+      }
+    },
+    {
+      "externalId": "21381",
+      "name": "孫翌",
+      "citation": "CBDB 中国历代人物传记资料库 person 21381",
+      "gender": "male"
+    },
+    {
+      "externalId": "1552",
+      "name": "孫瑜",
+      "citation": "CBDB 中国历代人物传记资料库 person 1552",
+      "gender": "male"
+    },
+    {
+      "externalId": "21380",
+      "name": "孫練",
+      "citation": "CBDB 中国历代人物传记资料库 person 21380",
+      "gender": "male"
+    },
+    {
+      "externalId": "21379",
+      "name": "孫霸",
+      "citation": "CBDB 中国历代人物传记资料库 person 21379",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "21381",
+      "child": "21382"
+    },
+    {
+      "kind": "parent",
+      "parent": "21382",
+      "child": "1552"
+    },
+    {
+      "kind": "parent",
+      "parent": "21380",
+      "child": "21381"
+    },
+    {
+      "kind": "parent",
+      "parent": "21379",
+      "child": "21380"
+    }
+  ]
+}
