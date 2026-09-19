@@ -212,6 +212,16 @@ import suweidao from "./suweidao.data.json";
 import liufen from "./liufen.data.json";
 import liugong from "./liugong.data.json";
 import xiaoying from "./xiaoying.data.json";
+// CBDB 第六批（北宋名臣/南宋将相/词人 + 邵雍家族）
+import honghao from "./honghao.data.json";
+import chengda from "./chengda.data.json";
+import limixi from "./limixi.data.json";
+import wangdayou from "./wangdayou.data.json";
+import chenyaozuo from "./chenyaozuo.data.json";
+import pangjian from "./pangjian.data.json";
+import shaobowen from "./shaobowen.data.json";
+import zhangshou from "./zhangshou.data.json";
+import xiangziyin from "./xiangziyin.data.json";
 // CBDB 第五批（南宋名臣/诗人/元代理学 + 三国张纮支）
 import sumai from "./sumai.data.json";
 import liuci from "./liuci.data.json";
@@ -488,6 +498,16 @@ const FAMILIES: { key: string; label: string; dataset: GenealogyDataset }[] = [
   { key: "liufen", label: "河东柳氏·柳芬支（柳懿·柳均·南北朝到唐）", dataset: liufen as GenealogyDataset },
   { key: "liugong", label: "河东柳氏·柳公权支（书法家·柳瑗·柳仲憲）", dataset: liugong as GenealogyDataset },
   { key: "xiaoying", label: "兰陵萧氏·萧颖士支（萧道赐·萧恢·南朝到唐）", dataset: xiaoying as GenealogyDataset },
+  // CBDB 第六批：北宋名臣/南宋将相/词人 + 邵雍家族
+  { key: "honghao", label: "鄱阳洪氏·洪皓支（南宋使金·洪适洪迈父·1088-1155）", dataset: honghao as GenealogyDataset },
+  { key: "chengda", label: "休宁程氏·程大昌支（宋代文学家·1123-1195）", dataset: chengda as GenealogyDataset },
+  { key: "limixi", label: "连江李氏·李弥逊支（南宋词人官员·1085-1153）", dataset: limixi as GenealogyDataset },
+  { key: "wangdayou", label: "鄞县汪氏·汪大猷支（南宋官员·1138-1201）", dataset: wangdayou as GenealogyDataset },
+  { key: "chenyaozuo", label: "阆中陈氏·陈尧佐支（北宋宰相·含陈尧咨·963-1044）", dataset: chenyaozuo as GenealogyDataset },
+  { key: "pangjian", label: "单州庞氏·庞籍支（北宋宰相·庞谦孺·988-1063）", dataset: pangjian as GenealogyDataset },
+  { key: "shaobowen", label: "共城邵氏·邵伯温支（含邵雍北宋五子·1011-1134）", dataset: shaobowen as GenealogyDataset },
+  { key: "zhangshou", label: "庆元张氏·张守支（南宋官员·1084-1145）", dataset: zhangshou as GenealogyDataset },
+  { key: "xiangziyin", label: "开封向氏·向子諲支（南宋词人·含向敏中·1085-1152）", dataset: xiangziyin as GenealogyDataset },
   // CBDB 第五批：南宋名臣/诗人/元代理学 + 三国张纮支
   { key: "sumai", label: "眉山苏氏·苏迈支（苏轼长子·眉山到宋末）", dataset: sumai as GenealogyDataset },
   { key: "liuci", label: "东光刘氏·刘摰支（元祐党人·刘跂·997-1104）", dataset: liuci as GenealogyDataset },

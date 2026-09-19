@@ -1,0 +1,188 @@
+{
+  "key": "cbdb:honghao",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "10156",
+      "name": "洪皓",
+      "citation": "CBDB 中国历代人物传记资料库 person 10156",
+      "gender": "male",
+      "birth": {
+        "year": 1088
+      },
+      "death": {
+        "year": 1155
+      }
+    },
+    {
+      "externalId": "5404",
+      "name": "沈氏(洪皓妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 5404",
+      "gender": "female",
+      "birth": {
+        "year": 1089
+      },
+      "death": {
+        "year": 1138
+      }
+    },
+    {
+      "externalId": "10155",
+      "name": "洪彥先",
+      "citation": "CBDB 中国历代人物传记资料库 person 10155",
+      "gender": "male"
+    },
+    {
+      "externalId": "870",
+      "name": "洪适",
+      "citation": "CBDB 中国历代人物传记资料库 person 870",
+      "gender": "male",
+      "birth": {
+        "year": 1117
+      },
+      "death": {
+        "year": 1184
+      }
+    },
+    {
+      "externalId": "42895",
+      "name": "沈氏(洪适妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 42895",
+      "gender": "female",
+      "birth": {
+        "year": 1119
+      },
+      "death": {
+        "year": 1179
+      }
+    },
+    {
+      "externalId": "8067",
+      "name": "洪遵",
+      "citation": "CBDB 中国历代人物传记资料库 person 8067",
+      "gender": "male",
+      "birth": {
+        "year": 1120
+      },
+      "death": {
+        "year": 1174
+      }
+    },
+    {
+      "externalId": "10157",
+      "name": "洪邁",
+      "citation": "CBDB 中国历代人物传记资料库 person 10157",
+      "gender": "male",
+      "birth": {
+        "year": 1123
+      },
+      "death": {
+        "year": 1202
+      }
+    },
+    {
+      "externalId": "13936",
+      "name": "洪炳",
+      "citation": "CBDB 中国历代人物传记资料库 person 13936",
+      "gender": "male"
+    },
+    {
+      "externalId": "10160",
+      "name": "洪槻",
+      "citation": "CBDB 中国历代人物传记资料库 person 10160",
+      "gender": "male"
+    },
+    {
+      "externalId": "10161",
+      "name": "洪柲",
+      "citation": "CBDB 中国历代人物传记资料库 person 10161",
+      "gender": "male",
+      "birth": {
+        "year": 1139
+      },
+      "death": {
+        "year": 1209
+      }
+    },
+    {
+      "externalId": "119774",
+      "name": "洪槢",
+      "citation": "CBDB 中国历代人物传记资料库 person 119774",
+      "gender": "male"
+    },
+    {
+      "externalId": "562747",
+      "name": "洪𣘘",
+      "citation": "CBDB 中国历代人物传记资料库 person 562747",
+      "gender": "male"
+    },
+    {
+      "externalId": "13935",
+      "name": "洪士良",
+      "citation": "CBDB 中国历代人物传记资料库 person 13935",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "10155",
+      "child": "10156"
+    },
+    {
+      "kind": "spouse",
+      "a": "10156",
+      "b": "5404"
+    },
+    {
+      "kind": "parent",
+      "parent": "10156",
+      "child": "870"
+    },
+    {
+      "kind": "parent",
+      "parent": "10156",
+      "child": "8067"
+    },
+    {
+      "kind": "parent",
+      "parent": "10156",
+      "child": "10157"
+    },
+    {
+      "kind": "parent",
+      "parent": "13936",
+      "child": "10155"
+    },
+    {
+      "kind": "spouse",
+      "a": "42895",
+      "b": "870"
+    },
+    {
+      "kind": "parent",
+      "parent": "870",
+      "child": "10160"
+    },
+    {
+      "kind": "parent",
+      "parent": "870",
+      "child": "10161"
+    },
+    {
+      "kind": "parent",
+      "parent": "870",
+      "child": "119774"
+    },
+    {
+      "kind": "parent",
+      "parent": "10157",
+      "child": "562747"
+    },
+    {
+      "kind": "parent",
+      "parent": "13935",
+      "child": "13936"
+    }
+  ]
+}

@@ -1,0 +1,256 @@
+{
+  "key": "cbdb:pangjian",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "1391",
+      "name": "龐籍",
+      "citation": "CBDB 中国历代人物传记资料库 person 1391",
+      "gender": "male",
+      "birth": {
+        "year": 988
+      },
+      "death": {
+        "year": 1063
+      }
+    },
+    {
+      "externalId": "52758",
+      "name": "劉氏(龐籍妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 52758",
+      "gender": "female"
+    },
+    {
+      "externalId": "20791",
+      "name": "龐格",
+      "citation": "CBDB 中国历代人物传记资料库 person 20791",
+      "gender": "male"
+    },
+    {
+      "externalId": "52757",
+      "name": "邢氏(龐格妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 52757",
+      "gender": "female"
+    },
+    {
+      "externalId": "5006",
+      "name": "龐氏(陳琪妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 5006",
+      "gender": "female",
+      "birth": {
+        "year": 1019
+      },
+      "death": {
+        "year": 1095
+      }
+    },
+    {
+      "externalId": "3051",
+      "name": "陳琪",
+      "citation": "CBDB 中国历代人物传记资料库 person 3051",
+      "gender": "male",
+      "birth": {
+        "year": 1017
+      },
+      "death": {
+        "year": 1076
+      }
+    },
+    {
+      "externalId": "3700",
+      "name": "龐元魯",
+      "citation": "CBDB 中国历代人物传记资料库 person 3700",
+      "gender": "male",
+      "birth": {
+        "year": 1016
+      },
+      "death": {
+        "year": 1047
+      }
+    },
+    {
+      "externalId": "1393",
+      "name": "龐元英",
+      "citation": "CBDB 中国历代人物传记资料库 person 1393",
+      "gender": "male"
+    },
+    {
+      "externalId": "20786",
+      "name": "龐元常",
+      "citation": "CBDB 中国历代人物传记资料库 person 20786",
+      "gender": "male"
+    },
+    {
+      "externalId": "7313",
+      "name": "龐元中",
+      "citation": "CBDB 中国历代人物传记资料库 person 7313",
+      "gender": "male"
+    },
+    {
+      "externalId": "20790",
+      "name": "龐文進",
+      "citation": "CBDB 中国历代人物传记资料库 person 20790",
+      "gender": "male"
+    },
+    {
+      "externalId": "20788",
+      "name": "龐恭孫",
+      "citation": "CBDB 中国历代人物传记资料库 person 20788",
+      "gender": "male",
+      "death": {
+        "year": 1122
+      }
+    },
+    {
+      "externalId": "20785",
+      "name": "龐敏孫",
+      "citation": "CBDB 中国历代人物传记资料库 person 20785",
+      "gender": "male"
+    },
+    {
+      "externalId": "20787",
+      "name": "龐莊孫",
+      "citation": "CBDB 中国历代人物传记资料库 person 20787",
+      "gender": "male"
+    },
+    {
+      "externalId": "20789",
+      "name": "龐武",
+      "citation": "CBDB 中国历代人物传记资料库 person 20789",
+      "gender": "male"
+    },
+    {
+      "externalId": "3699",
+      "name": "龐謙孺",
+      "citation": "CBDB 中国历代人物传记资料库 person 3699",
+      "gender": "male",
+      "birth": {
+        "year": 1117
+      },
+      "death": {
+        "year": 1167
+      }
+    },
+    {
+      "externalId": "37252",
+      "name": "龐師憲",
+      "citation": "CBDB 中国历代人物传记资料库 person 37252",
+      "gender": "male"
+    },
+    {
+      "externalId": "37253",
+      "name": "龐師亮",
+      "citation": "CBDB 中国历代人物传记资料库 person 37253",
+      "gender": "male"
+    },
+    {
+      "externalId": "37254",
+      "name": "龐師潛",
+      "citation": "CBDB 中国历代人物传记资料库 person 37254",
+      "gender": "male"
+    },
+    {
+      "externalId": "37255",
+      "name": "龐師易",
+      "citation": "CBDB 中国历代人物传记资料库 person 37255",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "20791",
+      "child": "1391"
+    },
+    {
+      "kind": "parent",
+      "parent": "52757",
+      "child": "1391"
+    },
+    {
+      "kind": "spouse",
+      "a": "1391",
+      "b": "52758"
+    },
+    {
+      "kind": "parent",
+      "parent": "1391",
+      "child": "5006"
+    },
+    {
+      "kind": "parent",
+      "parent": "1391",
+      "child": "3700"
+    },
+    {
+      "kind": "parent",
+      "parent": "1391",
+      "child": "1393"
+    },
+    {
+      "kind": "parent",
+      "parent": "1391",
+      "child": "20786"
+    },
+    {
+      "kind": "parent",
+      "parent": "1391",
+      "child": "7313"
+    },
+    {
+      "kind": "parent",
+      "parent": "20790",
+      "child": "20791"
+    },
+    {
+      "kind": "spouse",
+      "a": "3051",
+      "b": "5006"
+    },
+    {
+      "kind": "parent",
+      "parent": "1393",
+      "child": "20788"
+    },
+    {
+      "kind": "parent",
+      "parent": "7313",
+      "child": "20785"
+    },
+    {
+      "kind": "parent",
+      "parent": "7313",
+      "child": "20787"
+    },
+    {
+      "kind": "parent",
+      "parent": "20789",
+      "child": "20790"
+    },
+    {
+      "kind": "parent",
+      "parent": "20785",
+      "child": "3699"
+    },
+    {
+      "kind": "parent",
+      "parent": "3699",
+      "child": "37252"
+    },
+    {
+      "kind": "parent",
+      "parent": "3699",
+      "child": "37253"
+    },
+    {
+      "kind": "parent",
+      "parent": "3699",
+      "child": "37254"
+    },
+    {
+      "kind": "parent",
+      "parent": "3699",
+      "child": "37255"
+    }
+  ]
+}

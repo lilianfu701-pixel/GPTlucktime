@@ -1,0 +1,242 @@
+{
+  "key": "cbdb:xiangziyin",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "715",
+      "name": "向子諲",
+      "citation": "CBDB 中国历代人物传记资料库 person 715",
+      "gender": "male",
+      "birth": {
+        "year": 1086
+      },
+      "death": {
+        "year": 1153
+      }
+    },
+    {
+      "externalId": "17294",
+      "name": "向宗明",
+      "citation": "CBDB 中国历代人物传记资料库 person 17294",
+      "gender": "male"
+    },
+    {
+      "externalId": "39618",
+      "name": "李氏(向宗明妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 39618",
+      "gender": "female"
+    },
+    {
+      "externalId": "37047",
+      "name": "向洺",
+      "citation": "CBDB 中国历代人物传记资料库 person 37047",
+      "gender": "male"
+    },
+    {
+      "externalId": "17827",
+      "name": "向浯",
+      "citation": "CBDB 中国历代人物传记资料库 person 17827",
+      "gender": "male"
+    },
+    {
+      "externalId": "17836",
+      "name": "向澹",
+      "citation": "CBDB 中国历代人物传记资料库 person 17836",
+      "gender": "male",
+      "birth": {
+        "year": 1106
+      },
+      "death": {
+        "year": 1173
+      }
+    },
+    {
+      "externalId": "17828",
+      "name": "向涪",
+      "citation": "CBDB 中国历代人物传记资料库 person 17828",
+      "gender": "male",
+      "birth": {
+        "year": 1106
+      },
+      "death": {
+        "year": 1181
+      }
+    },
+    {
+      "externalId": "17293",
+      "name": "向繪",
+      "citation": "CBDB 中国历代人物传记资料库 person 17293",
+      "gender": "male"
+    },
+    {
+      "externalId": "7238",
+      "name": "向傳範",
+      "citation": "CBDB 中国历代人物传记资料库 person 7238",
+      "gender": "male",
+      "birth": {
+        "year": 1010
+      },
+      "death": {
+        "year": 1074
+      }
+    },
+    {
+      "externalId": "5049",
+      "name": "趙氏(向傳範妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 5049",
+      "gender": "female",
+      "birth": {
+        "year": 1009
+      },
+      "death": {
+        "year": 1068
+      }
+    },
+    {
+      "externalId": "705",
+      "name": "向敏中",
+      "citation": "CBDB 中国历代人物传记资料库 person 705",
+      "gender": "male",
+      "birth": {
+        "year": 948
+      },
+      "death": {
+        "year": 1019
+      }
+    },
+    {
+      "externalId": "39730",
+      "name": "梁氏(向敏中妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 39730",
+      "gender": "female"
+    },
+    {
+      "externalId": "39731",
+      "name": "張氏(向敏中妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 39731",
+      "gender": "female"
+    },
+    {
+      "externalId": "39732",
+      "name": "宋氏(向敏中妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 39732",
+      "gender": "female"
+    },
+    {
+      "externalId": "39733",
+      "name": "王氏(向敏中妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 39733",
+      "gender": "female"
+    },
+    {
+      "externalId": "3361",
+      "name": "向瑀",
+      "citation": "CBDB 中国历代人物传记资料库 person 3361",
+      "gender": "male"
+    },
+    {
+      "externalId": "17320",
+      "name": "向載",
+      "citation": "CBDB 中国历代人物传记资料库 person 17320",
+      "gender": "male"
+    },
+    {
+      "externalId": "17319",
+      "name": "向貽孫",
+      "citation": "CBDB 中国历代人物传记资料库 person 17319",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "17294",
+      "child": "715"
+    },
+    {
+      "kind": "parent",
+      "parent": "39618",
+      "child": "715"
+    },
+    {
+      "kind": "parent",
+      "parent": "715",
+      "child": "37047"
+    },
+    {
+      "kind": "parent",
+      "parent": "715",
+      "child": "17827"
+    },
+    {
+      "kind": "parent",
+      "parent": "715",
+      "child": "17836"
+    },
+    {
+      "kind": "parent",
+      "parent": "715",
+      "child": "17828"
+    },
+    {
+      "kind": "parent",
+      "parent": "17293",
+      "child": "17294"
+    },
+    {
+      "kind": "spouse",
+      "a": "17294",
+      "b": "39618"
+    },
+    {
+      "kind": "parent",
+      "parent": "7238",
+      "child": "17293"
+    },
+    {
+      "kind": "parent",
+      "parent": "705",
+      "child": "7238"
+    },
+    {
+      "kind": "spouse",
+      "a": "5049",
+      "b": "7238"
+    },
+    {
+      "kind": "parent",
+      "parent": "3361",
+      "child": "705"
+    },
+    {
+      "kind": "spouse",
+      "a": "39730",
+      "b": "705"
+    },
+    {
+      "kind": "spouse",
+      "a": "39731",
+      "b": "705"
+    },
+    {
+      "kind": "spouse",
+      "a": "39732",
+      "b": "705"
+    },
+    {
+      "kind": "spouse",
+      "a": "39733",
+      "b": "705"
+    },
+    {
+      "kind": "parent",
+      "parent": "17320",
+      "child": "3361"
+    },
+    {
+      "kind": "parent",
+      "parent": "17319",
+      "child": "17320"
+    }
+  ]
+}

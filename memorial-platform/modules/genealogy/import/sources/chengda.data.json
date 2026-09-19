@@ -1,0 +1,114 @@
+{
+  "key": "cbdb:chengda",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "3109",
+      "name": "程大昌",
+      "citation": "CBDB 中国历代人物传记资料库 person 3109",
+      "gender": "male",
+      "birth": {
+        "year": 1123
+      },
+      "death": {
+        "year": 1195
+      }
+    },
+    {
+      "externalId": "15358",
+      "name": "程畎",
+      "citation": "CBDB 中国历代人物传记资料库 person 15358",
+      "gender": "male"
+    },
+    {
+      "externalId": "49146",
+      "name": "陳氏(程大昌母)",
+      "citation": "CBDB 中国历代人物传记资料库 person 49146",
+      "gender": "female",
+      "birth": {
+        "year": 1102
+      },
+      "death": {
+        "year": 1163
+      }
+    },
+    {
+      "externalId": "15359",
+      "name": "程準",
+      "citation": "CBDB 中国历代人物传记资料库 person 15359",
+      "gender": "male"
+    },
+    {
+      "externalId": "15360",
+      "name": "程阜",
+      "citation": "CBDB 中国历代人物传记资料库 person 15360",
+      "gender": "male"
+    },
+    {
+      "externalId": "15729",
+      "name": "程覃",
+      "citation": "CBDB 中国历代人物传记资料库 person 15729",
+      "gender": "male"
+    },
+    {
+      "externalId": "15357",
+      "name": "程士彥",
+      "citation": "CBDB 中国历代人物传记资料库 person 15357",
+      "gender": "male"
+    },
+    {
+      "externalId": "15730",
+      "name": "程端升",
+      "citation": "CBDB 中国历代人物传记资料库 person 15730",
+      "gender": "male"
+    },
+    {
+      "externalId": "15356",
+      "name": "程晟",
+      "citation": "CBDB 中国历代人物传记资料库 person 15356",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "15358",
+      "child": "3109"
+    },
+    {
+      "kind": "parent",
+      "parent": "49146",
+      "child": "3109"
+    },
+    {
+      "kind": "parent",
+      "parent": "3109",
+      "child": "15359"
+    },
+    {
+      "kind": "parent",
+      "parent": "3109",
+      "child": "15360"
+    },
+    {
+      "kind": "parent",
+      "parent": "3109",
+      "child": "15729"
+    },
+    {
+      "kind": "parent",
+      "parent": "15357",
+      "child": "15358"
+    },
+    {
+      "kind": "parent",
+      "parent": "15729",
+      "child": "15730"
+    },
+    {
+      "kind": "parent",
+      "parent": "15356",
+      "child": "15357"
+    }
+  ]
+}

@@ -1,0 +1,186 @@
+{
+  "key": "cbdb:limixi",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "1062",
+      "name": "李彌遜",
+      "citation": "CBDB 中国历代人物传记资料库 person 1062",
+      "gender": "male",
+      "birth": {
+        "year": 1089
+      },
+      "death": {
+        "year": 1153
+      }
+    },
+    {
+      "externalId": "3489",
+      "name": "李撰",
+      "citation": "CBDB 中国历代人物传记资料库 person 3489",
+      "gender": "male",
+      "birth": {
+        "year": 1043
+      },
+      "death": {
+        "year": 1109
+      }
+    },
+    {
+      "externalId": "12730",
+      "name": "李松",
+      "citation": "CBDB 中国历代人物传记资料库 person 12730",
+      "gender": "male"
+    },
+    {
+      "externalId": "5208",
+      "name": "鄭和悟",
+      "citation": "CBDB 中国历代人物传记资料库 person 5208",
+      "gender": "female",
+      "birth": {
+        "year": 1136
+      },
+      "death": {
+        "year": 1219
+      }
+    },
+    {
+      "externalId": "7271",
+      "name": "李處常",
+      "citation": "CBDB 中国历代人物传记资料库 person 7271",
+      "gender": "male"
+    },
+    {
+      "externalId": "12731",
+      "name": "李珏",
+      "citation": "CBDB 中国历代人物传记资料库 person 12731",
+      "gender": "male"
+    },
+    {
+      "externalId": "3473",
+      "name": "李琪",
+      "citation": "CBDB 中国历代人物传记资料库 person 3473",
+      "gender": "male"
+    },
+    {
+      "externalId": "3554",
+      "name": "李餘慶",
+      "citation": "CBDB 中国历代人物传记资料库 person 3554",
+      "gender": "male"
+    },
+    {
+      "externalId": "3523",
+      "name": "李寧之",
+      "citation": "CBDB 中国历代人物传记资料库 person 3523",
+      "gender": "male"
+    },
+    {
+      "externalId": "12742",
+      "name": "李任",
+      "citation": "CBDB 中国历代人物传记资料库 person 12742",
+      "gender": "male"
+    },
+    {
+      "externalId": "12743",
+      "name": "李鑑",
+      "citation": "CBDB 中国历代人物传记资料库 person 12743",
+      "gender": "male"
+    },
+    {
+      "externalId": "19591",
+      "name": "李慕玢",
+      "citation": "CBDB 中国历代人物传记资料库 person 19591",
+      "gender": "male"
+    },
+    {
+      "externalId": "19590",
+      "name": "李郁",
+      "citation": "CBDB 中国历代人物传记资料库 person 19590",
+      "gender": "male"
+    },
+    {
+      "externalId": "19592",
+      "name": "李周",
+      "citation": "CBDB 中国历代人物传记资料库 person 19592",
+      "gender": "male"
+    },
+    {
+      "externalId": "3477",
+      "name": "李澄",
+      "citation": "CBDB 中国历代人物传记资料库 person 3477",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "3489",
+      "child": "1062"
+    },
+    {
+      "kind": "parent",
+      "parent": "1062",
+      "child": "12730"
+    },
+    {
+      "kind": "parent",
+      "parent": "7271",
+      "child": "3489"
+    },
+    {
+      "kind": "spouse",
+      "a": "12730",
+      "b": "5208"
+    },
+    {
+      "kind": "parent",
+      "parent": "12730",
+      "child": "12731"
+    },
+    {
+      "kind": "parent",
+      "parent": "12730",
+      "child": "3473"
+    },
+    {
+      "kind": "parent",
+      "parent": "3554",
+      "child": "7271"
+    },
+    {
+      "kind": "parent",
+      "parent": "12731",
+      "child": "3523"
+    },
+    {
+      "kind": "parent",
+      "parent": "12731",
+      "child": "12742"
+    },
+    {
+      "kind": "parent",
+      "parent": "12731",
+      "child": "12743"
+    },
+    {
+      "kind": "parent",
+      "parent": "19591",
+      "child": "3554"
+    },
+    {
+      "kind": "parent",
+      "parent": "19590",
+      "child": "19591"
+    },
+    {
+      "kind": "parent",
+      "parent": "19592",
+      "child": "19590"
+    },
+    {
+      "kind": "parent",
+      "parent": "3477",
+      "child": "19592"
+    }
+  ]
+}

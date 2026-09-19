@@ -1,0 +1,180 @@
+{
+  "key": "cbdb:zhangshou",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "8017",
+      "name": "張守",
+      "citation": "CBDB 中国历代人物传记资料库 person 8017",
+      "gender": "male"
+    },
+    {
+      "externalId": "46629",
+      "name": "姚氏(張守妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 46629",
+      "gender": "female"
+    },
+    {
+      "externalId": "3174",
+      "name": "張彥直",
+      "citation": "CBDB 中国历代人物传记资料库 person 3174",
+      "gender": "male"
+    },
+    {
+      "externalId": "5391",
+      "name": "王氏(張守母)",
+      "citation": "CBDB 中国历代人物传记资料库 person 5391",
+      "gender": "female",
+      "birth": {
+        "year": 1037
+      },
+      "death": {
+        "year": 1125
+      }
+    },
+    {
+      "externalId": "46627",
+      "name": "張彥直",
+      "citation": "CBDB 中国历代人物传记资料库 person 46627",
+      "gender": "male"
+    },
+    {
+      "externalId": "46628",
+      "name": "王氏(張彥直妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 46628",
+      "gender": "female",
+      "birth": {
+        "year": 1037
+      },
+      "death": {
+        "year": 1125
+      }
+    },
+    {
+      "externalId": "13663",
+      "name": "張杲",
+      "citation": "CBDB 中国历代人物传记资料库 person 13663",
+      "gender": "male"
+    },
+    {
+      "externalId": "4146",
+      "name": "張處仁",
+      "citation": "CBDB 中国历代人物传记资料库 person 4146",
+      "gender": "male"
+    },
+    {
+      "externalId": "13662",
+      "name": "張先軫",
+      "citation": "CBDB 中国历代人物传记资料库 person 13662",
+      "gender": "male"
+    },
+    {
+      "externalId": "13661",
+      "name": "張直",
+      "citation": "CBDB 中国历代人物传记资料库 person 13661",
+      "gender": "male"
+    },
+    {
+      "externalId": "13658",
+      "name": "張爰卿",
+      "citation": "CBDB 中国历代人物传记资料库 person 13658",
+      "gender": "male"
+    },
+    {
+      "externalId": "4147",
+      "name": "張",
+      "citation": "CBDB 中国历代人物传记资料库 person 4147",
+      "gender": "male"
+    },
+    {
+      "externalId": "12245",
+      "name": "張約",
+      "citation": "CBDB 中国历代人物传记资料库 person 12245",
+      "gender": "male"
+    },
+    {
+      "externalId": "12244",
+      "name": "張簡",
+      "citation": "CBDB 中国历代人物传记资料库 person 12244",
+      "gender": "male"
+    },
+    {
+      "externalId": "12243",
+      "name": "張",
+      "citation": "CBDB 中国历代人物传记资料库 person 12243",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "3174",
+      "child": "8017"
+    },
+    {
+      "kind": "parent",
+      "parent": "46627",
+      "child": "8017"
+    },
+    {
+      "kind": "parent",
+      "parent": "46628",
+      "child": "8017"
+    },
+    {
+      "kind": "spouse",
+      "a": "46629",
+      "b": "8017"
+    },
+    {
+      "kind": "parent",
+      "parent": "13663",
+      "child": "3174"
+    },
+    {
+      "kind": "spouse",
+      "a": "3174",
+      "b": "5391"
+    },
+    {
+      "kind": "parent",
+      "parent": "4146",
+      "child": "13663"
+    },
+    {
+      "kind": "parent",
+      "parent": "13662",
+      "child": "4146"
+    },
+    {
+      "kind": "parent",
+      "parent": "13661",
+      "child": "13662"
+    },
+    {
+      "kind": "parent",
+      "parent": "13658",
+      "child": "13661"
+    },
+    {
+      "kind": "parent",
+      "parent": "4147",
+      "child": "13658"
+    },
+    {
+      "kind": "parent",
+      "parent": "12245",
+      "child": "4147"
+    },
+    {
+      "kind": "parent",
+      "parent": "12244",
+      "child": "12245"
+    },
+    {
+      "kind": "parent",
+      "parent": "12243",
+      "child": "12244"
+    }
+  ]
+}

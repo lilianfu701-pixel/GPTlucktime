@@ -1,0 +1,114 @@
+{
+  "key": "cbdb:wangdayou",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "10349",
+      "name": "汪大猷",
+      "citation": "CBDB 中国历代人物传记资料库 person 10349",
+      "gender": "male",
+      "birth": {
+        "year": 1120
+      },
+      "death": {
+        "year": 1200
+      }
+    },
+    {
+      "externalId": "1758",
+      "name": "汪思溫",
+      "citation": "CBDB 中国历代人物传记资料库 person 1758",
+      "gender": "male",
+      "birth": {
+        "year": 1077
+      },
+      "death": {
+        "year": 1157
+      }
+    },
+    {
+      "externalId": "39888",
+      "name": "汪履道",
+      "citation": "CBDB 中国历代人物传记资料库 person 39888",
+      "gender": "male"
+    },
+    {
+      "externalId": "10351",
+      "name": "汪端中",
+      "citation": "CBDB 中国历代人物传记资料库 person 10351",
+      "gender": "male"
+    },
+    {
+      "externalId": "10352",
+      "name": "汪立中",
+      "citation": "CBDB 中国历代人物传记资料库 person 10352",
+      "gender": "male"
+    },
+    {
+      "externalId": "10353",
+      "name": "汪礒中",
+      "citation": "CBDB 中国历代人物传记资料库 person 10353",
+      "gender": "male"
+    },
+    {
+      "externalId": "10347",
+      "name": "汪洙",
+      "citation": "CBDB 中国历代人物传记资料库 person 10347",
+      "gender": "male"
+    },
+    {
+      "externalId": "10346",
+      "name": "汪元吉",
+      "citation": "CBDB 中国历代人物传记资料库 person 10346",
+      "gender": "male"
+    },
+    {
+      "externalId": "15686",
+      "name": "汪順",
+      "citation": "CBDB 中国历代人物传记资料库 person 15686",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "1758",
+      "child": "10349"
+    },
+    {
+      "kind": "parent",
+      "parent": "10349",
+      "child": "39888"
+    },
+    {
+      "kind": "parent",
+      "parent": "10349",
+      "child": "10351"
+    },
+    {
+      "kind": "parent",
+      "parent": "10349",
+      "child": "10352"
+    },
+    {
+      "kind": "parent",
+      "parent": "10349",
+      "child": "10353"
+    },
+    {
+      "kind": "parent",
+      "parent": "10347",
+      "child": "1758"
+    },
+    {
+      "kind": "parent",
+      "parent": "10346",
+      "child": "10347"
+    },
+    {
+      "kind": "parent",
+      "parent": "15686",
+      "child": "10346"
+    }
+  ]
+}

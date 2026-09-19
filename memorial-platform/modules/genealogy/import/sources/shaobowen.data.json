@@ -1,0 +1,126 @@
+{
+  "key": "cbdb:shaobowen",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "20864",
+      "name": "邵伯溫",
+      "citation": "CBDB 中国历代人物传记资料库 person 20864",
+      "gender": "male",
+      "birth": {
+        "year": 1057
+      },
+      "death": {
+        "year": 1134
+      }
+    },
+    {
+      "externalId": "3718",
+      "name": "邵雍",
+      "citation": "CBDB 中国历代人物传记资料库 person 3718",
+      "gender": "male",
+      "birth": {
+        "year": 1011
+      },
+      "death": {
+        "year": 1077
+      }
+    },
+    {
+      "externalId": "2122",
+      "name": "邵溥",
+      "citation": "CBDB 中国历代人物传记资料库 person 2122",
+      "gender": "male",
+      "death": {
+        "year": 1148
+      }
+    },
+    {
+      "externalId": "20866",
+      "name": "邵博",
+      "citation": "CBDB 中国历代人物传记资料库 person 20866",
+      "gender": "male",
+      "death": {
+        "year": 1158
+      }
+    },
+    {
+      "externalId": "119561",
+      "name": "邵傅",
+      "citation": "CBDB 中国历代人物传记资料库 person 119561",
+      "gender": "male"
+    },
+    {
+      "externalId": "20862",
+      "name": "邵古",
+      "citation": "CBDB 中国历代人物传记资料库 person 20862",
+      "gender": "male",
+      "birth": {
+        "year": 986
+      },
+      "death": {
+        "year": 1064
+      }
+    },
+    {
+      "externalId": "20865",
+      "name": "邵少微",
+      "citation": "CBDB 中国历代人物传记资料库 person 20865",
+      "gender": "male"
+    },
+    {
+      "externalId": "20861",
+      "name": "邵德新",
+      "citation": "CBDB 中国历代人物传记资料库 person 20861",
+      "gender": "male"
+    },
+    {
+      "externalId": "20860",
+      "name": "邵令進",
+      "citation": "CBDB 中国历代人物传记资料库 person 20860",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "3718",
+      "child": "20864"
+    },
+    {
+      "kind": "parent",
+      "parent": "20864",
+      "child": "2122"
+    },
+    {
+      "kind": "parent",
+      "parent": "20864",
+      "child": "20866"
+    },
+    {
+      "kind": "parent",
+      "parent": "20864",
+      "child": "119561"
+    },
+    {
+      "kind": "parent",
+      "parent": "20862",
+      "child": "3718"
+    },
+    {
+      "kind": "parent",
+      "parent": "2122",
+      "child": "20865"
+    },
+    {
+      "kind": "parent",
+      "parent": "20861",
+      "child": "20862"
+    },
+    {
+      "kind": "parent",
+      "parent": "20860",
+      "child": "20861"
+    }
+  ]
+}
