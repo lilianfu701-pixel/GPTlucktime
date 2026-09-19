@@ -1,0 +1,106 @@
+{
+  "key": "cbdb:weisguo",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "28022",
+      "name": "危素",
+      "citation": "CBDB 中国历代人物传记资料库 person 28022",
+      "gender": "male",
+      "birth": {
+        "year": 1303
+      },
+      "death": {
+        "year": 1372
+      }
+    },
+    {
+      "externalId": "28023",
+      "name": "危永吉",
+      "citation": "CBDB 中国历代人物传记资料库 person 28023",
+      "gender": "male",
+      "birth": {
+        "year": 1272
+      },
+      "death": {
+        "year": 1328
+      }
+    },
+    {
+      "externalId": "28035",
+      "name": "危㫃",
+      "citation": "CBDB 中国历代人物传记资料库 person 28035",
+      "gender": "male"
+    },
+    {
+      "externalId": "28036",
+      "name": "危游",
+      "citation": "CBDB 中国历代人物传记资料库 person 28036",
+      "gender": "male"
+    },
+    {
+      "externalId": "28024",
+      "name": "危龍友",
+      "citation": "CBDB 中国历代人物传记资料库 person 28024",
+      "gender": "male",
+      "birth": {
+        "year": 1247
+      }
+    },
+    {
+      "externalId": "28025",
+      "name": "危炎震",
+      "citation": "CBDB 中国历代人物传记资料库 person 28025",
+      "gender": "male"
+    },
+    {
+      "externalId": "28026",
+      "name": "危時發",
+      "citation": "CBDB 中国历代人物传记资料库 person 28026",
+      "gender": "male"
+    },
+    {
+      "externalId": "28027",
+      "name": "危鼎某",
+      "citation": "CBDB 中国历代人物传记资料库 person 28027",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "28023",
+      "child": "28022"
+    },
+    {
+      "kind": "parent",
+      "parent": "28022",
+      "child": "28035"
+    },
+    {
+      "kind": "parent",
+      "parent": "28022",
+      "child": "28036"
+    },
+    {
+      "kind": "parent",
+      "parent": "28024",
+      "child": "28023"
+    },
+    {
+      "kind": "parent",
+      "parent": "28025",
+      "child": "28024"
+    },
+    {
+      "kind": "parent",
+      "parent": "28026",
+      "child": "28025"
+    },
+    {
+      "kind": "parent",
+      "parent": "28027",
+      "child": "28026"
+    }
+  ]
+}

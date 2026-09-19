@@ -1,0 +1,146 @@
+{
+  "key": "cbdb:huangjin",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "10740",
+      "name": "黃溍",
+      "citation": "CBDB 中国历代人物传记资料库 person 10740",
+      "gender": "male",
+      "birth": {
+        "year": 1277
+      },
+      "death": {
+        "year": 1357
+      }
+    },
+    {
+      "externalId": "386287",
+      "name": "王氏(王桂女)",
+      "citation": "CBDB 中国历代人物传记资料库 person 386287",
+      "gender": "female"
+    },
+    {
+      "externalId": "10739",
+      "name": "黃鑄",
+      "citation": "CBDB 中国历代人物传记资料库 person 10739",
+      "gender": "male",
+      "birth": {
+        "year": 1257
+      },
+      "death": {
+        "year": 1331
+      }
+    },
+    {
+      "externalId": "386284",
+      "name": "童氏(童泊永女)",
+      "citation": "CBDB 中国历代人物传记资料库 person 386284",
+      "gender": "female"
+    },
+    {
+      "externalId": "386263",
+      "name": "黃氏(陳克讓妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 386263",
+      "gender": "female"
+    },
+    {
+      "externalId": "386264",
+      "name": "陳克讓",
+      "citation": "CBDB 中国历代人物传记资料库 person 386264",
+      "gender": "male"
+    },
+    {
+      "externalId": "10741",
+      "name": "黃梓",
+      "citation": "CBDB 中国历代人物传记资料库 person 10741",
+      "gender": "male"
+    },
+    {
+      "externalId": "386280",
+      "name": "丁應復",
+      "citation": "CBDB 中国历代人物传记资料库 person 386280",
+      "gender": "male"
+    },
+    {
+      "externalId": "386279",
+      "name": "王氏(王囦金女)",
+      "citation": "CBDB 中国历代人物传记资料库 person 386279",
+      "gender": "female"
+    },
+    {
+      "externalId": "386281",
+      "name": "丁伯虎",
+      "citation": "CBDB 中国历代人物传记资料库 person 386281",
+      "gender": "male"
+    },
+    {
+      "externalId": "386282",
+      "name": "丁曄",
+      "citation": "CBDB 中国历代人物传记资料库 person 386282",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "10739",
+      "child": "10740"
+    },
+    {
+      "kind": "parent",
+      "parent": "386284",
+      "child": "10740"
+    },
+    {
+      "kind": "spouse",
+      "a": "10740",
+      "b": "386287"
+    },
+    {
+      "kind": "parent",
+      "parent": "10740",
+      "child": "386263"
+    },
+    {
+      "kind": "parent",
+      "parent": "10740",
+      "child": "10741"
+    },
+    {
+      "kind": "parent",
+      "parent": "386280",
+      "child": "10739"
+    },
+    {
+      "kind": "parent",
+      "parent": "386279",
+      "child": "10739"
+    },
+    {
+      "kind": "spouse",
+      "a": "10739",
+      "b": "386284"
+    },
+    {
+      "kind": "spouse",
+      "a": "386263",
+      "b": "386264"
+    },
+    {
+      "kind": "parent",
+      "parent": "386281",
+      "child": "386280"
+    },
+    {
+      "kind": "spouse",
+      "a": "386279",
+      "b": "386280"
+    },
+    {
+      "kind": "parent",
+      "parent": "386282",
+      "child": "386281"
+    }
+  ]
+}

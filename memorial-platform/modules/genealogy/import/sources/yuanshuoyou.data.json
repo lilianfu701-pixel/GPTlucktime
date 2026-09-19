@@ -1,0 +1,81 @@
+{
+  "key": "cbdb:yuanshuoyou",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "14881",
+      "name": "袁說友",
+      "citation": "CBDB 中国历代人物传记资料库 person 14881",
+      "gender": "male",
+      "birth": {
+        "year": 1140
+      },
+      "death": {
+        "year": 1204
+      }
+    },
+    {
+      "externalId": "5228",
+      "name": "惠道素(袁說友妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 5228",
+      "gender": "female",
+      "birth": {
+        "year": 1143
+      },
+      "death": {
+        "year": 1173
+      }
+    },
+    {
+      "externalId": "14878",
+      "name": "袁延儒",
+      "citation": "CBDB 中国历代人物传记资料库 person 14878",
+      "gender": "male"
+    },
+    {
+      "externalId": "14884",
+      "name": "袁申儒",
+      "citation": "CBDB 中国历代人物传记资料库 person 14884",
+      "gender": "male"
+    },
+    {
+      "externalId": "14875",
+      "name": "袁符",
+      "citation": "CBDB 中国历代人物传记资料库 person 14875",
+      "gender": "male"
+    },
+    {
+      "externalId": "14874",
+      "name": "袁禫",
+      "citation": "CBDB 中国历代人物传记资料库 person 14874",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "14878",
+      "child": "14881"
+    },
+    {
+      "kind": "spouse",
+      "a": "14881",
+      "b": "5228"
+    },
+    {
+      "kind": "parent",
+      "parent": "14881",
+      "child": "14884"
+    },
+    {
+      "kind": "parent",
+      "parent": "14875",
+      "child": "14878"
+    },
+    {
+      "kind": "parent",
+      "parent": "14874",
+      "child": "14875"
+    }
+  ]
+}

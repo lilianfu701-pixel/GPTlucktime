@@ -1,0 +1,191 @@
+{
+  "key": "cbdb:xieshenfu",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "17100",
+      "name": "謝深甫",
+      "citation": "CBDB 中国历代人物传记资料库 person 17100",
+      "gender": "male"
+    },
+    {
+      "externalId": "52437",
+      "name": "林氏(謝深甫妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 52437",
+      "gender": "female"
+    },
+    {
+      "externalId": "53949",
+      "name": "林氏(謝深甫妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 53949",
+      "gender": "female"
+    },
+    {
+      "externalId": "17099",
+      "name": "謝景之",
+      "citation": "CBDB 中国历代人物传记资料库 person 17099",
+      "gender": "male"
+    },
+    {
+      "externalId": "52436",
+      "name": "胡氏(謝景之妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 52436",
+      "gender": "female"
+    },
+    {
+      "externalId": "684327",
+      "name": "謝氏(張次賢妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 684327",
+      "gender": "female"
+    },
+    {
+      "externalId": "47061",
+      "name": "張次賢",
+      "citation": "CBDB 中国历代人物传记资料库 person 47061",
+      "gender": "male"
+    },
+    {
+      "externalId": "17101",
+      "name": "謝棐伯",
+      "citation": "CBDB 中国历代人物传记资料库 person 17101",
+      "gender": "male"
+    },
+    {
+      "externalId": "17102",
+      "name": "謝采伯",
+      "citation": "CBDB 中国历代人物传记资料库 person 17102",
+      "gender": "male"
+    },
+    {
+      "externalId": "17103",
+      "name": "謝渠伯",
+      "citation": "CBDB 中国历代人物传记资料库 person 17103",
+      "gender": "male"
+    },
+    {
+      "externalId": "52435",
+      "name": "謝道清(趙昀皇后)",
+      "citation": "CBDB 中国历代人物传记资料库 person 52435",
+      "gender": "female"
+    },
+    {
+      "externalId": "9014",
+      "name": "趙昀",
+      "citation": "CBDB 中国历代人物传记资料库 person 9014",
+      "gender": "male",
+      "birth": {
+        "year": 1205
+      },
+      "death": {
+        "year": 1264
+      }
+    },
+    {
+      "externalId": "17104",
+      "name": "謝奕昌",
+      "citation": "CBDB 中国历代人物传记资料库 person 17104",
+      "gender": "male"
+    },
+    {
+      "externalId": "52431",
+      "name": "吳氏(謝奕昌妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 52431",
+      "gender": "female"
+    },
+    {
+      "externalId": "18222",
+      "name": "謝塈",
+      "citation": "CBDB 中国历代人物传记资料库 person 18222",
+      "gender": "male"
+    },
+    {
+      "externalId": "18223",
+      "name": "謝晟孫",
+      "citation": "CBDB 中国历代人物传记资料库 person 18223",
+      "gender": "male",
+      "birth": {
+        "year": 1257
+      },
+      "death": {
+        "year": 1342
+      }
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "17099",
+      "child": "17100"
+    },
+    {
+      "kind": "parent",
+      "parent": "52436",
+      "child": "17100"
+    },
+    {
+      "kind": "spouse",
+      "a": "17100",
+      "b": "52437"
+    },
+    {
+      "kind": "spouse",
+      "a": "17100",
+      "b": "53949"
+    },
+    {
+      "kind": "parent",
+      "parent": "17100",
+      "child": "684327"
+    },
+    {
+      "kind": "parent",
+      "parent": "17100",
+      "child": "17101"
+    },
+    {
+      "kind": "parent",
+      "parent": "17100",
+      "child": "17102"
+    },
+    {
+      "kind": "parent",
+      "parent": "17100",
+      "child": "17103"
+    },
+    {
+      "kind": "spouse",
+      "a": "47061",
+      "b": "684327"
+    },
+    {
+      "kind": "parent",
+      "parent": "17103",
+      "child": "52435"
+    },
+    {
+      "kind": "parent",
+      "parent": "17103",
+      "child": "17104"
+    },
+    {
+      "kind": "spouse",
+      "a": "52435",
+      "b": "9014"
+    },
+    {
+      "kind": "spouse",
+      "a": "17104",
+      "b": "52431"
+    },
+    {
+      "kind": "parent",
+      "parent": "17104",
+      "child": "18222"
+    },
+    {
+      "kind": "parent",
+      "parent": "18222",
+      "child": "18223"
+    }
+  ]
+}

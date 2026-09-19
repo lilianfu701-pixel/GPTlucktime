@@ -1,0 +1,105 @@
+{
+  "key": "cbdb:qiujun",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "33202",
+      "name": "丘濬",
+      "citation": "CBDB 中国历代人物传记资料库 person 33202",
+      "gender": "male",
+      "birth": {
+        "year": 1420
+      },
+      "death": {
+        "year": 1495
+      }
+    },
+    {
+      "externalId": "248321",
+      "name": "金氏(丘濬妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 248321",
+      "gender": "female"
+    },
+    {
+      "externalId": "248332",
+      "name": "吳氏(丘濬繼妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 248332",
+      "gender": "female"
+    },
+    {
+      "externalId": "248299",
+      "name": "丘傳",
+      "citation": "CBDB 中国历代人物传记资料库 person 248299",
+      "gender": "male"
+    },
+    {
+      "externalId": "248310",
+      "name": "李氏(丘濬母)",
+      "citation": "CBDB 中国历代人物传记资料库 person 248310",
+      "gender": "female"
+    },
+    {
+      "externalId": "33206",
+      "name": "丘敦",
+      "citation": "CBDB 中国历代人物传记资料库 person 33206",
+      "gender": "male"
+    },
+    {
+      "externalId": "525525",
+      "name": "丘京",
+      "citation": "CBDB 中国历代人物传记资料库 person 525525"
+    },
+    {
+      "externalId": "525526",
+      "name": "丘崑",
+      "citation": "CBDB 中国历代人物传记资料库 person 525526"
+    },
+    {
+      "externalId": "525527",
+      "name": "丘崙",
+      "citation": "CBDB 中国历代人物传记资料库 person 525527"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "248299",
+      "child": "33202"
+    },
+    {
+      "kind": "parent",
+      "parent": "248310",
+      "child": "33202"
+    },
+    {
+      "kind": "spouse",
+      "a": "248321",
+      "b": "33202"
+    },
+    {
+      "kind": "spouse",
+      "a": "248332",
+      "b": "33202"
+    },
+    {
+      "kind": "parent",
+      "parent": "33202",
+      "child": "33206"
+    },
+    {
+      "kind": "parent",
+      "parent": "33202",
+      "child": "525525"
+    },
+    {
+      "kind": "parent",
+      "parent": "33202",
+      "child": "525526"
+    },
+    {
+      "kind": "parent",
+      "parent": "33202",
+      "child": "525527"
+    }
+  ]
+}

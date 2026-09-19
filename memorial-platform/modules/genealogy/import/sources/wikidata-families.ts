@@ -212,6 +212,16 @@ import suweidao from "./suweidao.data.json";
 import liufen from "./liufen.data.json";
 import liugong from "./liugong.data.json";
 import xiaoying from "./xiaoying.data.json";
+// CBDB 第十五批（宋元明·学者官员·跨时代）
+import songci from "./songci.data.json";
+import xieshenfu from "./xieshenfu.data.json";
+import xujingheng from "./xujingheng.data.json";
+import huangjin from "./huangjin.data.json";
+import weisguo from "./weisguo.data.json";
+import yuanshuoyou from "./yuanshuoyou.data.json";
+import qiujun from "./qiujun.data.json";
+import shenyguan from "./shenyguan.data.json";
+import liuyuan from "./liuyuan.data.json";
 // CBDB 第十四批（南宋官员·将领·学者）
 import luodian from "./luodian.data.json";
 import wangyiwang from "./wangyiwang.data.json";
@@ -584,6 +594,16 @@ const FAMILIES: { key: string; label: string; dataset: GenealogyDataset }[] = [
   { key: "liufen", label: "河东柳氏·柳芬支（柳懿·柳均·南北朝到唐）", dataset: liufen as GenealogyDataset },
   { key: "liugong", label: "河东柳氏·柳公权支（书法家·柳瑗·柳仲憲）", dataset: liugong as GenealogyDataset },
   { key: "xiaoying", label: "兰陵萧氏·萧颖士支（萧道赐·萧恢·南朝到唐）", dataset: xiaoying as GenealogyDataset },
+  // CBDB 第十五批：宋元明学者官员
+  { key: "songci", label: "建阳宋氏·宋慈支（南宋法医学家·《洗冤集录》·1186-1249）", dataset: songci as GenealogyDataset },
+  { key: "xieshenfu", label: "剡县谢氏·谢深甫支（南宋宰相·谢道清祖父·1139-1204）", dataset: xieshenfu as GenealogyDataset },
+  { key: "xujingheng", label: "瑞安许氏·许景衡支（北宋/南宋官员·1072-1128）", dataset: xujingheng as GenealogyDataset },
+  { key: "huangjin", label: "义乌黄氏·黄溍支（元代史学家·文学家·1277-1357）", dataset: huangjin as GenealogyDataset },
+  { key: "weisguo", label: "抚州危氏·危素支（元代官员·文学家·1303-1372）", dataset: weisguo as GenealogyDataset },
+  { key: "yuanshuoyou", label: "建安袁氏·袁说友支（南宋官员·1140-1204）", dataset: yuanshuoyou as GenealogyDataset },
+  { key: "qiujun", label: "琼山丘氏·丘濬支（明代学者·《大学衍义补》·1418-1495）", dataset: qiujun as GenealogyDataset },
+  { key: "shenyguan", label: "鄞县沈氏·沈一贯支（明代宰相·1531-1615）", dataset: shenyguan as GenealogyDataset },
+  { key: "liuyuan", label: "唐代刘氏·刘源支（唐代官员·多代记录）", dataset: liuyuan as GenealogyDataset },
   // CBDB 第十四批：南宋官员·将领·学者
   { key: "luodian", label: "豫章罗氏·罗点支（南宋官员·直言进谏·1150-1194）", dataset: luodian as GenealogyDataset },
   { key: "wangyiwang", label: "开封王氏·王之望支（南宋官员·和戎大臣·1102-1170）", dataset: wangyiwang as GenealogyDataset },

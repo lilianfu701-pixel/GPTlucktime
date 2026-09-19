@@ -1,0 +1,113 @@
+{
+  "key": "cbdb:shenyguan",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "124055",
+      "name": "沈一貫",
+      "citation": "CBDB 中国历代人物传记资料库 person 124055",
+      "gender": "male",
+      "death": {
+        "year": 1615
+      }
+    },
+    {
+      "externalId": "334973",
+      "name": "張氏(沈一貫妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 334973",
+      "gender": "female"
+    },
+    {
+      "externalId": "334971",
+      "name": "沈仁佶",
+      "citation": "CBDB 中国历代人物传记资料库 person 334971",
+      "gender": "male"
+    },
+    {
+      "externalId": "334972",
+      "name": "洪氏(沈一貫母)",
+      "citation": "CBDB 中国历代人物传记资料库 person 334972",
+      "gender": "female"
+    },
+    {
+      "externalId": "527543",
+      "name": "沈大涿",
+      "citation": "CBDB 中国历代人物传记资料库 person 527543"
+    },
+    {
+      "externalId": "703540",
+      "name": "沈泰鴻",
+      "citation": "CBDB 中国历代人物传记资料库 person 703540",
+      "gender": "male"
+    },
+    {
+      "externalId": "527544",
+      "name": "沈太泳",
+      "citation": "CBDB 中国历代人物传记资料库 person 527544"
+    },
+    {
+      "externalId": "527545",
+      "name": "沈延賞",
+      "citation": "CBDB 中国历代人物传记资料库 person 527545"
+    },
+    {
+      "externalId": "703545",
+      "name": "沈延禧",
+      "citation": "CBDB 中国历代人物传记资料库 person 703545",
+      "gender": "male"
+    },
+    {
+      "externalId": "703546",
+      "name": "沈光融",
+      "citation": "CBDB 中国历代人物传记资料库 person 703546",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "334971",
+      "child": "124055"
+    },
+    {
+      "kind": "parent",
+      "parent": "334972",
+      "child": "124055"
+    },
+    {
+      "kind": "spouse",
+      "a": "124055",
+      "b": "334973"
+    },
+    {
+      "kind": "parent",
+      "parent": "124055",
+      "child": "527543"
+    },
+    {
+      "kind": "parent",
+      "parent": "124055",
+      "child": "703540"
+    },
+    {
+      "kind": "parent",
+      "parent": "124055",
+      "child": "527544"
+    },
+    {
+      "kind": "parent",
+      "parent": "703540",
+      "child": "527545"
+    },
+    {
+      "kind": "parent",
+      "parent": "703540",
+      "child": "703545"
+    },
+    {
+      "kind": "parent",
+      "parent": "527545",
+      "child": "703546"
+    }
+  ]
+}

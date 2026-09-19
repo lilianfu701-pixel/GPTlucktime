@@ -1,0 +1,86 @@
+{
+  "key": "cbdb:liuyuan",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "141687",
+      "name": "劉源",
+      "citation": "CBDB 中国历代人物传记资料库 person 141687",
+      "gender": "male",
+      "birth": {
+        "year": 775
+      },
+      "death": {
+        "year": 836
+      }
+    },
+    {
+      "externalId": "158196",
+      "name": "司徒氏(劉源妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 158196",
+      "gender": "female"
+    },
+    {
+      "externalId": "158198",
+      "name": "劉興",
+      "citation": "CBDB 中国历代人物传记资料库 person 158198",
+      "gender": "male"
+    },
+    {
+      "externalId": "158199",
+      "name": "劉少平",
+      "citation": "CBDB 中国历代人物传记资料库 person 158199",
+      "gender": "male"
+    },
+    {
+      "externalId": "158200",
+      "name": "劉少怦",
+      "citation": "CBDB 中国历代人物传记资料库 person 158200",
+      "gender": "male"
+    },
+    {
+      "externalId": "158201",
+      "name": "劉少通",
+      "citation": "CBDB 中国历代人物传记资料库 person 158201",
+      "gender": "male"
+    },
+    {
+      "externalId": "158197",
+      "name": "劉壹",
+      "citation": "CBDB 中国历代人物传记资料库 person 158197",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "158198",
+      "child": "141687"
+    },
+    {
+      "kind": "spouse",
+      "a": "141687",
+      "b": "158196"
+    },
+    {
+      "kind": "parent",
+      "parent": "141687",
+      "child": "158199"
+    },
+    {
+      "kind": "parent",
+      "parent": "141687",
+      "child": "158200"
+    },
+    {
+      "kind": "parent",
+      "parent": "141687",
+      "child": "158201"
+    },
+    {
+      "kind": "parent",
+      "parent": "158197",
+      "child": "158198"
+    }
+  ]
+}

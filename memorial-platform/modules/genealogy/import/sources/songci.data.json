@@ -1,0 +1,81 @@
+{
+  "key": "cbdb:songci",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "33118",
+      "name": "宋慈",
+      "citation": "CBDB 中国历代人物传记资料库 person 33118",
+      "gender": "male",
+      "birth": {
+        "year": 1183
+      },
+      "death": {
+        "year": 1246
+      }
+    },
+    {
+      "externalId": "33123",
+      "name": "宋鞏",
+      "citation": "CBDB 中国历代人物传记资料库 person 33123",
+      "gender": "male",
+      "birth": {
+        "year": 1145
+      },
+      "death": {
+        "year": 1219
+      }
+    },
+    {
+      "externalId": "33124",
+      "name": "宋秉孫",
+      "citation": "CBDB 中国历代人物传记资料库 person 33124",
+      "gender": "male"
+    },
+    {
+      "externalId": "33122",
+      "name": "宋華",
+      "citation": "CBDB 中国历代人物传记资料库 person 33122",
+      "gender": "male"
+    },
+    {
+      "externalId": "33121",
+      "name": "宋安民",
+      "citation": "CBDB 中国历代人物传记资料库 person 33121",
+      "gender": "male"
+    },
+    {
+      "externalId": "33120",
+      "name": "宋翔",
+      "citation": "CBDB 中国历代人物传记资料库 person 33120",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "33123",
+      "child": "33118"
+    },
+    {
+      "kind": "parent",
+      "parent": "33118",
+      "child": "33124"
+    },
+    {
+      "kind": "parent",
+      "parent": "33122",
+      "child": "33123"
+    },
+    {
+      "kind": "parent",
+      "parent": "33121",
+      "child": "33122"
+    },
+    {
+      "kind": "parent",
+      "parent": "33120",
+      "child": "33121"
+    }
+  ]
+}

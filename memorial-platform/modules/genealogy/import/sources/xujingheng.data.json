@@ -1,0 +1,92 @@
+{
+  "key": "cbdb:xujingheng",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "8061",
+      "name": "許景衡",
+      "citation": "CBDB 中国历代人物传记资料库 person 8061",
+      "gender": "male",
+      "birth": {
+        "year": 1072
+      },
+      "death": {
+        "year": 1128
+      }
+    },
+    {
+      "externalId": "5053",
+      "name": "陳氏(許景衡妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 5053",
+      "gender": "female",
+      "birth": {
+        "year": 1075
+      },
+      "death": {
+        "year": 1108
+      }
+    },
+    {
+      "externalId": "18678",
+      "name": "許球",
+      "citation": "CBDB 中国历代人物传记资料库 person 18678",
+      "gender": "male"
+    },
+    {
+      "externalId": "18681",
+      "name": "許B",
+      "citation": "CBDB 中国历代人物传记资料库 person 18681",
+      "gender": "male"
+    },
+    {
+      "externalId": "18680",
+      "name": "許世厚",
+      "citation": "CBDB 中国历代人物传记资料库 person 18680",
+      "gender": "male"
+    },
+    {
+      "externalId": "18677",
+      "name": "許薄",
+      "citation": "CBDB 中国历代人物传记资料库 person 18677",
+      "gender": "male"
+    },
+    {
+      "externalId": "18676",
+      "name": "許",
+      "citation": "CBDB 中国历代人物传记资料库 person 18676",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "18678",
+      "child": "8061"
+    },
+    {
+      "kind": "spouse",
+      "a": "5053",
+      "b": "8061"
+    },
+    {
+      "kind": "parent",
+      "parent": "8061",
+      "child": "18681"
+    },
+    {
+      "kind": "parent",
+      "parent": "8061",
+      "child": "18680"
+    },
+    {
+      "kind": "parent",
+      "parent": "18677",
+      "child": "18678"
+    },
+    {
+      "kind": "parent",
+      "parent": "18676",
+      "child": "18677"
+    }
+  ]
+}
