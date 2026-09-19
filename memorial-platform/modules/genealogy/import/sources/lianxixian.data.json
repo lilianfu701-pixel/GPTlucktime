@@ -1,0 +1,86 @@
+{
+  "key": "cbdb:lianxixian",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "109293",
+      "name": "廉希憲",
+      "citation": "CBDB 中国历代人物传记资料库 person 109293",
+      "gender": "male",
+      "birth": {
+        "year": 1231
+      },
+      "death": {
+        "year": 1280
+      }
+    },
+    {
+      "externalId": "109273",
+      "name": "廉孚",
+      "citation": "CBDB 中国历代人物传记资料库 person 109273",
+      "gender": "male"
+    },
+    {
+      "externalId": "109277",
+      "name": "廉恪",
+      "citation": "CBDB 中国历代人物传记资料库 person 109277",
+      "gender": "male"
+    },
+    {
+      "externalId": "109275",
+      "name": "廉恂",
+      "citation": "CBDB 中国历代人物传记资料库 person 109275",
+      "gender": "male"
+    },
+    {
+      "externalId": "109274",
+      "name": "廉忱",
+      "citation": "CBDB 中国历代人物传记资料库 person 109274",
+      "gender": "male"
+    },
+    {
+      "externalId": "109276",
+      "name": "廉恆",
+      "citation": "CBDB 中国历代人物传记资料库 person 109276",
+      "gender": "male"
+    },
+    {
+      "externalId": "109278",
+      "name": "廉惇",
+      "citation": "CBDB 中国历代人物传记资料库 person 109278",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "109293",
+      "child": "109273"
+    },
+    {
+      "kind": "parent",
+      "parent": "109293",
+      "child": "109277"
+    },
+    {
+      "kind": "parent",
+      "parent": "109293",
+      "child": "109275"
+    },
+    {
+      "kind": "parent",
+      "parent": "109293",
+      "child": "109274"
+    },
+    {
+      "kind": "parent",
+      "parent": "109293",
+      "child": "109276"
+    },
+    {
+      "kind": "parent",
+      "parent": "109293",
+      "child": "109278"
+    }
+  ]
+}

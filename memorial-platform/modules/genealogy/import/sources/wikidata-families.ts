@@ -212,6 +212,17 @@ import suweidao from "./suweidao.data.json";
 import liufen from "./liufen.data.json";
 import liugong from "./liugong.data.json";
 import xiaoying from "./xiaoying.data.json";
+// CBDB 第九批（唐宋官员/元代文人/北宋宰相）
+import cuiri from "./cuiri.data.json";
+import zhangyangzhao from "./zhangyangzhao.data.json";
+import baipu from "./baipu.data.json";
+import lianxixian from "./lianxixian.data.json";
+import liangshi from "./liangshi.data.json";
+import chenzhizhong from "./chenzhizhong.data.json";
+import weicheng from "./weicheng.data.json";
+import lvdafang from "./lvdafang.data.json";
+import gaorounne from "./gaorounne.data.json";
+import chengrong from "./chengrong.data.json";
 // CBDB 第八批（唐宋官员/南宋词人/南宋将领/明代学者）
 import quandeyu from "./quandeyu.data.json";
 import hanhang from "./hanhang.data.json";
@@ -517,6 +528,17 @@ const FAMILIES: { key: string; label: string; dataset: GenealogyDataset }[] = [
   { key: "liufen", label: "河东柳氏·柳芬支（柳懿·柳均·南北朝到唐）", dataset: liufen as GenealogyDataset },
   { key: "liugong", label: "河东柳氏·柳公权支（书法家·柳瑗·柳仲憲）", dataset: liugong as GenealogyDataset },
   { key: "xiaoying", label: "兰陵萧氏·萧颖士支（萧道赐·萧恢·南朝到唐）", dataset: xiaoying as GenealogyDataset },
+  // CBDB 第九批：唐宋官员 + 元代文人 + 北宋宰相
+  { key: "cuiri", label: "博陵崔氏·崔日用支（唐代宰相·官至工部尚书·？-716）", dataset: cuiri as GenealogyDataset },
+  { key: "zhangyangzhao", label: "济南张氏·张养浩支（元代散曲大家·1269-1329）", dataset: zhangyangzhao as GenealogyDataset },
+  { key: "baipu", label: "金元白氏·白朴支（元曲四大家·1226-1306）", dataset: baipu as GenealogyDataset },
+  { key: "lianxixian", label: "维吾尔廉氏·廉希宪支（元代宰相·布鲁海牙之后·1231-1280）", dataset: lianxixian as GenealogyDataset },
+  { key: "liangshi", label: "郓州梁氏·梁适支（北宋宰相·979-1052）", dataset: liangshi as GenealogyDataset },
+  { key: "chenzhizhong", label: "沧州陈氏·陈执中支（北宋宰相·990-1059）", dataset: chenzhizhong as GenealogyDataset },
+  { key: "weicheng", label: "京兆韦氏·韦澄支（唐代官员·韦承彦后裔·45人）", dataset: weicheng as GenealogyDataset },
+  { key: "lvdafang", label: "冯翊吕氏·吕大防支（北宋宰相·1027-1097）", dataset: lvdafang as GenealogyDataset },
+  { key: "gaorounne", label: "幽州高氏·高若讷支（北宋官员·997-1055）", dataset: gaorounne as GenealogyDataset },
+  { key: "chengrong", label: "博野程氏·程琳支（北宋官员·988-1056）", dataset: chengrong as GenealogyDataset },
   // CBDB 第八批：唐宋官员 + 南宋将领 + 明代学者 + 北宋宰相
   { key: "quandeyu", label: "天水权氏·权德舆支（唐代宰相/文学家·759-818）", dataset: quandeyu as GenealogyDataset },
   { key: "hanhang", label: "京兆韩氏·韩滉支（唐代官员·韩休之子·723-787）", dataset: hanhang as GenealogyDataset },

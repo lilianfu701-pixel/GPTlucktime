@@ -1,0 +1,101 @@
+{
+  "key": "cbdb:baipu",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "10777",
+      "name": "白樸",
+      "citation": "CBDB 中国历代人物传记资料库 person 10777",
+      "gender": "male",
+      "birth": {
+        "year": 1228
+      },
+      "death": {
+        "year": 1307
+      }
+    },
+    {
+      "externalId": "10776",
+      "name": "白華",
+      "citation": "CBDB 中国历代人物传记资料库 person 10776",
+      "gender": "male"
+    },
+    {
+      "externalId": "10775",
+      "name": "白宗完",
+      "citation": "CBDB 中国历代人物传记资料库 person 10775",
+      "gender": "male",
+      "birth": {
+        "year": 1144
+      },
+      "death": {
+        "year": 1212
+      }
+    },
+    {
+      "externalId": "29169",
+      "name": "李氏(白宗完妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 29169",
+      "gender": "female",
+      "birth": {
+        "year": 1156
+      },
+      "death": {
+        "year": 1211
+      }
+    },
+    {
+      "externalId": "10774",
+      "name": "白仲溫",
+      "citation": "CBDB 中国历代人物传记资料库 person 10774",
+      "gender": "male",
+      "death": {
+        "year": 1155
+      }
+    },
+    {
+      "externalId": "29165",
+      "name": "白玉",
+      "citation": "CBDB 中国历代人物传记资料库 person 29165",
+      "gender": "male"
+    },
+    {
+      "externalId": "29166",
+      "name": "白重信",
+      "citation": "CBDB 中国历代人物传记资料库 person 29166",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "10776",
+      "child": "10777"
+    },
+    {
+      "kind": "parent",
+      "parent": "10775",
+      "child": "10776"
+    },
+    {
+      "kind": "parent",
+      "parent": "10774",
+      "child": "10775"
+    },
+    {
+      "kind": "spouse",
+      "a": "10775",
+      "b": "29169"
+    },
+    {
+      "kind": "parent",
+      "parent": "29165",
+      "child": "10774"
+    },
+    {
+      "kind": "parent",
+      "parent": "29166",
+      "child": "29165"
+    }
+  ]
+}

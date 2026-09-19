@@ -1,0 +1,171 @@
+{
+  "key": "cbdb:chengrong",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "118",
+      "name": "程琳",
+      "citation": "CBDB 中国历代人物传记资料库 person 118",
+      "gender": "male",
+      "birth": {
+        "year": 988
+      },
+      "death": {
+        "year": 1056
+      }
+    },
+    {
+      "externalId": "5009",
+      "name": "陳氏(程琳妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 5009",
+      "gender": "female",
+      "birth": {
+        "year": 992
+      },
+      "death": {
+        "year": 1062
+      }
+    },
+    {
+      "externalId": "15697",
+      "name": "程元白",
+      "citation": "CBDB 中国历代人物传记资料库 person 15697",
+      "gender": "male",
+      "birth": {
+        "year": 944
+      },
+      "death": {
+        "year": 992
+      }
+    },
+    {
+      "externalId": "49150",
+      "name": "楚氏(程元白妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 49150",
+      "gender": "female"
+    },
+    {
+      "externalId": "5038",
+      "name": "程氏(韓縝妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 5038",
+      "gender": "female",
+      "birth": {
+        "year": 1020
+      },
+      "death": {
+        "year": 1068
+      }
+    },
+    {
+      "externalId": "634",
+      "name": "韓縝",
+      "citation": "CBDB 中国历代人物传记资料库 person 634",
+      "gender": "male",
+      "birth": {
+        "year": 1019
+      },
+      "death": {
+        "year": 1097
+      }
+    },
+    {
+      "externalId": "7134",
+      "name": "程嗣隆",
+      "citation": "CBDB 中国历代人物传记资料库 person 7134",
+      "gender": "male"
+    },
+    {
+      "externalId": "3107",
+      "name": "程嗣弼",
+      "citation": "CBDB 中国历代人物传记资料库 person 3107",
+      "gender": "male",
+      "birth": {
+        "year": 1027
+      },
+      "death": {
+        "year": 1086
+      }
+    },
+    {
+      "externalId": "123",
+      "name": "程嗣恭",
+      "citation": "CBDB 中国历代人物传记资料库 person 123",
+      "gender": "male"
+    },
+    {
+      "externalId": "15696",
+      "name": "程贊明",
+      "citation": "CBDB 中国历代人物传记资料库 person 15696",
+      "gender": "male"
+    },
+    {
+      "externalId": "49149",
+      "name": "吳氏(程贊明妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 49149",
+      "gender": "female"
+    },
+    {
+      "externalId": "15694",
+      "name": "程新",
+      "citation": "CBDB 中国历代人物传记资料库 person 15694",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "15697",
+      "child": "118"
+    },
+    {
+      "kind": "spouse",
+      "a": "118",
+      "b": "5009"
+    },
+    {
+      "kind": "parent",
+      "parent": "118",
+      "child": "5038"
+    },
+    {
+      "kind": "parent",
+      "parent": "118",
+      "child": "7134"
+    },
+    {
+      "kind": "parent",
+      "parent": "118",
+      "child": "3107"
+    },
+    {
+      "kind": "parent",
+      "parent": "118",
+      "child": "123"
+    },
+    {
+      "kind": "parent",
+      "parent": "15696",
+      "child": "15697"
+    },
+    {
+      "kind": "parent",
+      "parent": "49149",
+      "child": "15697"
+    },
+    {
+      "kind": "spouse",
+      "a": "15697",
+      "b": "49150"
+    },
+    {
+      "kind": "spouse",
+      "a": "5038",
+      "b": "634"
+    },
+    {
+      "kind": "parent",
+      "parent": "15694",
+      "child": "15696"
+    }
+  ]
+}

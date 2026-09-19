@@ -1,0 +1,115 @@
+{
+  "key": "cbdb:zhangyangzhao",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "27993",
+      "name": "張養浩",
+      "citation": "CBDB 中国历代人物传记资料库 person 27993",
+      "gender": "male",
+      "birth": {
+        "year": 1270
+      },
+      "death": {
+        "year": 1329
+      }
+    },
+    {
+      "externalId": "27994",
+      "name": "張郁",
+      "citation": "CBDB 中国历代人物传记资料库 person 27994",
+      "gender": "male",
+      "birth": {
+        "year": 1242
+      },
+      "death": {
+        "year": 1321
+      }
+    },
+    {
+      "externalId": "27999",
+      "name": "張彊",
+      "citation": "CBDB 中国历代人物传记资料库 person 27999",
+      "gender": "male",
+      "birth": {
+        "year": 1281
+      },
+      "death": {
+        "year": 1302
+      }
+    },
+    {
+      "externalId": "28000",
+      "name": "張引",
+      "citation": "CBDB 中国历代人物传记资料库 person 28000",
+      "gender": "male"
+    },
+    {
+      "externalId": "28001",
+      "name": "張澤",
+      "citation": "CBDB 中国历代人物传记资料库 person 28001",
+      "gender": "male"
+    },
+    {
+      "externalId": "28002",
+      "name": "張鑄山",
+      "citation": "CBDB 中国历代人物传记资料库 person 28002",
+      "gender": "male",
+      "birth": {
+        "year": 1235
+      },
+      "death": {
+        "year": 1283
+      }
+    },
+    {
+      "externalId": "28003",
+      "name": "張福",
+      "citation": "CBDB 中国历代人物传记资料库 person 28003",
+      "gender": "male"
+    },
+    {
+      "externalId": "28004",
+      "name": "張迪",
+      "citation": "CBDB 中国历代人物传记资料库 person 28004",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "27994",
+      "child": "27993"
+    },
+    {
+      "kind": "parent",
+      "parent": "27993",
+      "child": "27999"
+    },
+    {
+      "kind": "parent",
+      "parent": "27993",
+      "child": "28000"
+    },
+    {
+      "kind": "parent",
+      "parent": "27993",
+      "child": "28001"
+    },
+    {
+      "kind": "parent",
+      "parent": "28002",
+      "child": "27994"
+    },
+    {
+      "kind": "parent",
+      "parent": "28003",
+      "child": "28002"
+    },
+    {
+      "kind": "parent",
+      "parent": "28004",
+      "child": "28003"
+    }
+  ]
+}

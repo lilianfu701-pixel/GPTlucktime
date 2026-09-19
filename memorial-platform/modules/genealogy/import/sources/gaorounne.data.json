@@ -1,0 +1,128 @@
+{
+  "key": "cbdb:gaorounne",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "911",
+      "name": "高若訥",
+      "citation": "CBDB 中国历代人物传记资料库 person 911",
+      "gender": "male",
+      "birth": {
+        "year": 997
+      },
+      "death": {
+        "year": 1055
+      }
+    },
+    {
+      "externalId": "11696",
+      "name": "高懷諲",
+      "citation": "CBDB 中国历代人物传记资料库 person 11696",
+      "gender": "male",
+      "birth": {
+        "year": 969
+      },
+      "death": {
+        "year": 1007
+      }
+    },
+    {
+      "externalId": "43577",
+      "name": "閻氏(高懷諲妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 43577",
+      "gender": "female"
+    },
+    {
+      "externalId": "11695",
+      "name": "高審釗",
+      "citation": "CBDB 中国历代人物传记资料库 person 11695",
+      "gender": "male",
+      "birth": {
+        "year": 935
+      },
+      "death": {
+        "year": 989
+      }
+    },
+    {
+      "externalId": "44074",
+      "name": "馬氏(高審釗妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 44074",
+      "gender": "female"
+    },
+    {
+      "externalId": "11694",
+      "name": "高諭",
+      "citation": "CBDB 中国历代人物传记资料库 person 11694",
+      "gender": "male",
+      "death": {
+        "year": 938
+      }
+    },
+    {
+      "externalId": "44070",
+      "name": "王氏(高諭妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 44070",
+      "gender": "female"
+    },
+    {
+      "externalId": "11693",
+      "name": "高淵",
+      "citation": "CBDB 中国历代人物传记资料库 person 11693",
+      "gender": "male"
+    },
+    {
+      "externalId": "11692",
+      "name": "高偉",
+      "citation": "CBDB 中国历代人物传记资料库 person 11692",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "11696",
+      "child": "911"
+    },
+    {
+      "kind": "parent",
+      "parent": "11695",
+      "child": "11696"
+    },
+    {
+      "kind": "spouse",
+      "a": "11696",
+      "b": "43577"
+    },
+    {
+      "kind": "parent",
+      "parent": "11694",
+      "child": "11695"
+    },
+    {
+      "kind": "parent",
+      "parent": "44070",
+      "child": "11695"
+    },
+    {
+      "kind": "spouse",
+      "a": "11695",
+      "b": "44074"
+    },
+    {
+      "kind": "parent",
+      "parent": "11693",
+      "child": "11694"
+    },
+    {
+      "kind": "spouse",
+      "a": "11694",
+      "b": "44070"
+    },
+    {
+      "kind": "parent",
+      "parent": "11692",
+      "child": "11693"
+    }
+  ]
+}

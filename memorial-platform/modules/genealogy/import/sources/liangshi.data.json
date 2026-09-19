@@ -1,0 +1,353 @@
+{
+  "key": "cbdb:liangshi",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "1137",
+      "name": "梁適",
+      "citation": "CBDB 中国历代人物传记资料库 person 1137",
+      "gender": "male",
+      "birth": {
+        "year": 1000
+      },
+      "death": {
+        "year": 1069
+      }
+    },
+    {
+      "externalId": "46400",
+      "name": "任氏(梁適妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 46400",
+      "gender": "female"
+    },
+    {
+      "externalId": "1133",
+      "name": "梁顥",
+      "citation": "CBDB 中国历代人物传记资料库 person 1133",
+      "gender": "male",
+      "birth": {
+        "year": 963
+      },
+      "death": {
+        "year": 1004
+      }
+    },
+    {
+      "externalId": "46409",
+      "name": "閻氏(梁顥妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 46409",
+      "gender": "female"
+    },
+    {
+      "externalId": "4145",
+      "name": "梁彥昌",
+      "citation": "CBDB 中国历代人物传记资料库 person 4145",
+      "gender": "male",
+      "birth": {
+        "year": 1021
+      },
+      "death": {
+        "year": 1068
+      }
+    },
+    {
+      "externalId": "5072",
+      "name": "張氏(梁彥昌妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 5072",
+      "gender": "female",
+      "birth": {
+        "year": 1023
+      },
+      "death": {
+        "year": 1078
+      }
+    },
+    {
+      "externalId": "18251",
+      "name": "梁彥明",
+      "citation": "CBDB 中国历代人物传记资料库 person 18251",
+      "gender": "male"
+    },
+    {
+      "externalId": "18246",
+      "name": "梁彥回",
+      "citation": "CBDB 中国历代人物传记资料库 person 18246",
+      "gender": "male",
+      "birth": {
+        "year": 1026
+      },
+      "death": {
+        "year": 1066
+      }
+    },
+    {
+      "externalId": "18250",
+      "name": "梁彥通",
+      "citation": "CBDB 中国历代人物传记资料库 person 18250",
+      "gender": "male",
+      "birth": {
+        "year": 1031
+      },
+      "death": {
+        "year": 1098
+      }
+    },
+    {
+      "externalId": "3565",
+      "name": "梁彥深",
+      "citation": "CBDB 中国历代人物传记资料库 person 3565",
+      "gender": "male",
+      "birth": {
+        "year": 1044
+      },
+      "death": {
+        "year": 1116
+      }
+    },
+    {
+      "externalId": "3564",
+      "name": "梁文度",
+      "citation": "CBDB 中国历代人物传记资料库 person 3564",
+      "gender": "male"
+    },
+    {
+      "externalId": "46408",
+      "name": "衛氏(梁文度妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 46408",
+      "gender": "female"
+    },
+    {
+      "externalId": "1142",
+      "name": "梁子美",
+      "citation": "CBDB 中国历代人物传记资料库 person 1142",
+      "gender": "male"
+    },
+    {
+      "externalId": "46411",
+      "name": "宋氏(梁子美妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 46411",
+      "gender": "female"
+    },
+    {
+      "externalId": "3560",
+      "name": "梁子博",
+      "citation": "CBDB 中国历代人物传记资料库 person 3560",
+      "gender": "male"
+    },
+    {
+      "externalId": "3562",
+      "name": "梁子挺",
+      "citation": "CBDB 中国历代人物传记资料库 person 3562",
+      "gender": "male"
+    },
+    {
+      "externalId": "18252",
+      "name": "梁子直",
+      "citation": "CBDB 中国历代人物传记资料库 person 18252",
+      "gender": "male"
+    },
+    {
+      "externalId": "1141",
+      "name": "梁子諒",
+      "citation": "CBDB 中国历代人物传记资料库 person 1141",
+      "gender": "male"
+    },
+    {
+      "externalId": "3563",
+      "name": "梁子雅",
+      "citation": "CBDB 中国历代人物传记资料库 person 3563",
+      "gender": "male"
+    },
+    {
+      "externalId": "18253",
+      "name": "梁子誨",
+      "citation": "CBDB 中国历代人物传记资料库 person 18253",
+      "gender": "male"
+    },
+    {
+      "externalId": "3561",
+      "name": "梁子恕",
+      "citation": "CBDB 中国历代人物传记资料库 person 3561",
+      "gender": "male"
+    },
+    {
+      "externalId": "36832",
+      "name": "梁子是",
+      "citation": "CBDB 中国历代人物传记资料库 person 36832",
+      "gender": "male"
+    },
+    {
+      "externalId": "37348",
+      "name": "梁子晉",
+      "citation": "CBDB 中国历代人物传记资料库 person 37348",
+      "gender": "male"
+    },
+    {
+      "externalId": "37349",
+      "name": "梁子罕",
+      "citation": "CBDB 中国历代人物传记资料库 person 37349",
+      "gender": "male"
+    },
+    {
+      "externalId": "37350",
+      "name": "梁子約",
+      "citation": "CBDB 中国历代人物传记资料库 person 37350",
+      "gender": "male"
+    },
+    {
+      "externalId": "37351",
+      "name": "梁子簡",
+      "citation": "CBDB 中国历代人物传记资料库 person 37351",
+      "gender": "male"
+    },
+    {
+      "externalId": "37352",
+      "name": "梁子坦",
+      "citation": "CBDB 中国历代人物传记资料库 person 37352",
+      "gender": "male"
+    },
+    {
+      "externalId": "20071",
+      "name": "梁惟忠",
+      "citation": "CBDB 中国历代人物传记资料库 person 20071",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "1133",
+      "child": "1137"
+    },
+    {
+      "kind": "spouse",
+      "a": "1137",
+      "b": "46400"
+    },
+    {
+      "kind": "parent",
+      "parent": "1137",
+      "child": "4145"
+    },
+    {
+      "kind": "parent",
+      "parent": "1137",
+      "child": "18251"
+    },
+    {
+      "kind": "parent",
+      "parent": "1137",
+      "child": "18246"
+    },
+    {
+      "kind": "parent",
+      "parent": "1137",
+      "child": "18250"
+    },
+    {
+      "kind": "parent",
+      "parent": "1137",
+      "child": "3565"
+    },
+    {
+      "kind": "parent",
+      "parent": "3564",
+      "child": "1133"
+    },
+    {
+      "kind": "parent",
+      "parent": "46408",
+      "child": "1133"
+    },
+    {
+      "kind": "spouse",
+      "a": "1133",
+      "b": "46409"
+    },
+    {
+      "kind": "spouse",
+      "a": "4145",
+      "b": "5072"
+    },
+    {
+      "kind": "parent",
+      "parent": "4145",
+      "child": "1142"
+    },
+    {
+      "kind": "parent",
+      "parent": "18251",
+      "child": "3560"
+    },
+    {
+      "kind": "parent",
+      "parent": "18251",
+      "child": "3562"
+    },
+    {
+      "kind": "parent",
+      "parent": "18251",
+      "child": "18252"
+    },
+    {
+      "kind": "parent",
+      "parent": "18246",
+      "child": "1141"
+    },
+    {
+      "kind": "parent",
+      "parent": "18246",
+      "child": "3563"
+    },
+    {
+      "kind": "parent",
+      "parent": "18250",
+      "child": "18253"
+    },
+    {
+      "kind": "parent",
+      "parent": "18250",
+      "child": "3561"
+    },
+    {
+      "kind": "parent",
+      "parent": "18250",
+      "child": "36832"
+    },
+    {
+      "kind": "parent",
+      "parent": "3565",
+      "child": "37348"
+    },
+    {
+      "kind": "parent",
+      "parent": "3565",
+      "child": "37349"
+    },
+    {
+      "kind": "parent",
+      "parent": "3565",
+      "child": "37350"
+    },
+    {
+      "kind": "parent",
+      "parent": "3565",
+      "child": "37351"
+    },
+    {
+      "kind": "parent",
+      "parent": "3565",
+      "child": "37352"
+    },
+    {
+      "kind": "parent",
+      "parent": "20071",
+      "child": "3564"
+    },
+    {
+      "kind": "spouse",
+      "a": "1142",
+      "b": "46411"
+    }
+  ]
+}

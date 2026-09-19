@@ -1,0 +1,597 @@
+{
+  "key": "cbdb:weicheng",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "31021",
+      "name": "韋澄",
+      "citation": "CBDB 中国历代人物传记资料库 person 31021",
+      "gender": "male"
+    },
+    {
+      "externalId": "31019",
+      "name": "韋鴻冑",
+      "citation": "CBDB 中国历代人物传记资料库 person 31019",
+      "gender": "male"
+    },
+    {
+      "externalId": "179881",
+      "name": "韋鴻胄",
+      "citation": "CBDB 中国历代人物传记资料库 person 179881",
+      "gender": "male",
+      "death": {
+        "year": 592
+      }
+    },
+    {
+      "externalId": "31194",
+      "name": "韋慶嗣",
+      "citation": "CBDB 中国历代人物传记资料库 person 31194",
+      "gender": "male"
+    },
+    {
+      "externalId": "146275",
+      "name": "韋慶本",
+      "citation": "CBDB 中国历代人物传记资料库 person 146275",
+      "gender": "male",
+      "birth": {
+        "year": 607
+      },
+      "death": {
+        "year": 670
+      }
+    },
+    {
+      "externalId": "165358",
+      "name": "韋慶祚",
+      "citation": "CBDB 中国历代人物传记资料库 person 165358",
+      "gender": "male"
+    },
+    {
+      "externalId": "180004",
+      "name": "韋慶餘",
+      "citation": "CBDB 中国历代人物传记资料库 person 180004",
+      "gender": "male",
+      "death": {
+        "year": 666
+      }
+    },
+    {
+      "externalId": "180772",
+      "name": "韋慶暕",
+      "citation": "CBDB 中国历代人物传记资料库 person 180772",
+      "gender": "male",
+      "death": {
+        "year": 666
+      }
+    },
+    {
+      "externalId": "31195",
+      "name": "韋慶植",
+      "citation": "CBDB 中国历代人物传记资料库 person 31195",
+      "gender": "male"
+    },
+    {
+      "externalId": "31319",
+      "name": "韋兢",
+      "citation": "CBDB 中国历代人物传记资料库 person 31319",
+      "gender": "male"
+    },
+    {
+      "externalId": "31020",
+      "name": "韋邕",
+      "citation": "CBDB 中国历代人物传记资料库 person 31020",
+      "gender": "male"
+    },
+    {
+      "externalId": "192764",
+      "name": "韋邕",
+      "citation": "CBDB 中国历代人物传记资料库 person 192764",
+      "gender": "male",
+      "death": {
+        "year": 555
+      }
+    },
+    {
+      "externalId": "179884",
+      "name": "韋正禮",
+      "citation": "CBDB 中国历代人物传记资料库 person 179884",
+      "gender": "male",
+      "death": {
+        "year": 703
+      }
+    },
+    {
+      "externalId": "179886",
+      "name": "韋正德",
+      "citation": "CBDB 中国历代人物传记资料库 person 179886",
+      "gender": "male",
+      "death": {
+        "year": 703
+      }
+    },
+    {
+      "externalId": "179891",
+      "name": "韋正名",
+      "citation": "CBDB 中国历代人物传记资料库 person 179891",
+      "gender": "male",
+      "death": {
+        "year": 703
+      }
+    },
+    {
+      "externalId": "179904",
+      "name": "韋正道",
+      "citation": "CBDB 中国历代人物传记资料库 person 179904",
+      "gender": "male",
+      "death": {
+        "year": 703
+      }
+    },
+    {
+      "externalId": "179905",
+      "name": "韋正己",
+      "citation": "CBDB 中国历代人物传记资料库 person 179905",
+      "gender": "male",
+      "death": {
+        "year": 703
+      }
+    },
+    {
+      "externalId": "179911",
+      "name": "韋正象",
+      "citation": "CBDB 中国历代人物传记资料库 person 179911",
+      "gender": "male",
+      "death": {
+        "year": 703
+      }
+    },
+    {
+      "externalId": "179916",
+      "name": "韋正履",
+      "citation": "CBDB 中国历代人物传记资料库 person 179916",
+      "gender": "male",
+      "death": {
+        "year": 703
+      }
+    },
+    {
+      "externalId": "179926",
+      "name": "韋正矩",
+      "citation": "CBDB 中国历代人物传记资料库 person 179926",
+      "gender": "male",
+      "death": {
+        "year": 703
+      }
+    },
+    {
+      "externalId": "180042",
+      "name": "韋潁",
+      "citation": "CBDB 中国历代人物传记资料库 person 180042",
+      "gender": "male",
+      "death": {
+        "year": 703
+      }
+    },
+    {
+      "externalId": "180005",
+      "name": "韋玄真",
+      "citation": "CBDB 中国历代人物传记资料库 person 180005",
+      "gender": "male",
+      "death": {
+        "year": 703
+      }
+    },
+    {
+      "externalId": "180007",
+      "name": "韋玄昱",
+      "citation": "CBDB 中国历代人物传记资料库 person 180007",
+      "gender": "male",
+      "death": {
+        "year": 703
+      }
+    },
+    {
+      "externalId": "180013",
+      "name": "韋玄符",
+      "citation": "CBDB 中国历代人物传记资料库 person 180013",
+      "gender": "male",
+      "death": {
+        "year": 703
+      }
+    },
+    {
+      "externalId": "180014",
+      "name": "韋玄直",
+      "citation": "CBDB 中国历代人物传记资料库 person 180014",
+      "gender": "male",
+      "death": {
+        "year": 703
+      }
+    },
+    {
+      "externalId": "180017",
+      "name": "韋玄胤",
+      "citation": "CBDB 中国历代人物传记资料库 person 180017",
+      "gender": "male",
+      "death": {
+        "year": 703
+      }
+    },
+    {
+      "externalId": "180019",
+      "name": "韋玄寶",
+      "citation": "CBDB 中国历代人物传记资料库 person 180019",
+      "gender": "male",
+      "death": {
+        "year": 703
+      }
+    },
+    {
+      "externalId": "180024",
+      "name": "韋玄錫",
+      "citation": "CBDB 中国历代人物传记资料库 person 180024",
+      "gender": "male",
+      "death": {
+        "year": 703
+      }
+    },
+    {
+      "externalId": "180773",
+      "name": "韋昇",
+      "citation": "CBDB 中国历代人物传记资料库 person 180773",
+      "gender": "male",
+      "death": {
+        "year": 703
+      }
+    },
+    {
+      "externalId": "31851",
+      "name": "韋琳",
+      "citation": "CBDB 中国历代人物传记资料库 person 31851",
+      "gender": "male"
+    },
+    {
+      "externalId": "140346",
+      "name": "韋頊",
+      "citation": "CBDB 中国历代人物传记资料库 person 140346",
+      "gender": "male",
+      "birth": {
+        "year": 636
+      },
+      "death": {
+        "year": 716
+      }
+    },
+    {
+      "externalId": "151359",
+      "name": "裴氏(韋頊妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 151359",
+      "gender": "female"
+    },
+    {
+      "externalId": "179928",
+      "name": "韋璠",
+      "citation": "CBDB 中国历代人物传记资料库 person 179928",
+      "gender": "male",
+      "death": {
+        "year": 682
+      }
+    },
+    {
+      "externalId": "179960",
+      "name": "韋瑾",
+      "citation": "CBDB 中国历代人物传记资料库 person 179960",
+      "gender": "male",
+      "death": {
+        "year": 703
+      }
+    },
+    {
+      "externalId": "179961",
+      "name": "韋琇",
+      "citation": "CBDB 中国历代人物传记资料库 person 179961",
+      "gender": "male",
+      "death": {
+        "year": 703
+      }
+    },
+    {
+      "externalId": "179962",
+      "name": "韋珽",
+      "citation": "CBDB 中国历代人物传记资料库 person 179962",
+      "gender": "male",
+      "death": {
+        "year": 703
+      }
+    },
+    {
+      "externalId": "179973",
+      "name": "韋璿",
+      "citation": "CBDB 中国历代人物传记资料库 person 179973",
+      "gender": "male",
+      "death": {
+        "year": 703
+      }
+    },
+    {
+      "externalId": "180001",
+      "name": "韋琰",
+      "citation": "CBDB 中国历代人物传记资料库 person 180001",
+      "gender": "male",
+      "death": {
+        "year": 703
+      }
+    },
+    {
+      "externalId": "31850",
+      "name": "韋瑤",
+      "citation": "CBDB 中国历代人物传记资料库 person 31850",
+      "gender": "male"
+    },
+    {
+      "externalId": "31852",
+      "name": "韋珣",
+      "citation": "CBDB 中国历代人物传记资料库 person 31852",
+      "gender": "male"
+    },
+    {
+      "externalId": "31196",
+      "name": "韋",
+      "citation": "CBDB 中国历代人物传记资料库 person 31196",
+      "gender": "male"
+    },
+    {
+      "externalId": "31320",
+      "name": "韋巨山",
+      "citation": "CBDB 中国历代人物传记资料库 person 31320",
+      "gender": "male"
+    },
+    {
+      "externalId": "31003",
+      "name": "韋道珍",
+      "citation": "CBDB 中国历代人物传记资料库 person 31003",
+      "gender": "male"
+    },
+    {
+      "externalId": "192761",
+      "name": "韋道珍",
+      "citation": "CBDB 中国历代人物传记资料库 person 192761",
+      "gender": "male",
+      "death": {
+        "year": 518
+      }
+    },
+    {
+      "externalId": "179885",
+      "name": "韋承彥",
+      "citation": "CBDB 中国历代人物传记资料库 person 179885",
+      "gender": "male",
+      "death": {
+        "year": 740
+      }
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "31019",
+      "child": "31021"
+    },
+    {
+      "kind": "parent",
+      "parent": "179881",
+      "child": "31021"
+    },
+    {
+      "kind": "parent",
+      "parent": "31021",
+      "child": "31194"
+    },
+    {
+      "kind": "parent",
+      "parent": "31021",
+      "child": "146275"
+    },
+    {
+      "kind": "parent",
+      "parent": "31021",
+      "child": "165358"
+    },
+    {
+      "kind": "parent",
+      "parent": "31021",
+      "child": "180004"
+    },
+    {
+      "kind": "parent",
+      "parent": "31021",
+      "child": "180772"
+    },
+    {
+      "kind": "parent",
+      "parent": "31021",
+      "child": "31195"
+    },
+    {
+      "kind": "parent",
+      "parent": "31021",
+      "child": "31319"
+    },
+    {
+      "kind": "parent",
+      "parent": "31020",
+      "child": "31019"
+    },
+    {
+      "kind": "parent",
+      "parent": "192764",
+      "child": "179881"
+    },
+    {
+      "kind": "parent",
+      "parent": "31194",
+      "child": "179884"
+    },
+    {
+      "kind": "parent",
+      "parent": "31194",
+      "child": "179886"
+    },
+    {
+      "kind": "parent",
+      "parent": "31194",
+      "child": "179891"
+    },
+    {
+      "kind": "parent",
+      "parent": "31194",
+      "child": "179904"
+    },
+    {
+      "kind": "parent",
+      "parent": "31194",
+      "child": "179905"
+    },
+    {
+      "kind": "parent",
+      "parent": "31194",
+      "child": "179911"
+    },
+    {
+      "kind": "parent",
+      "parent": "31194",
+      "child": "179916"
+    },
+    {
+      "kind": "parent",
+      "parent": "31194",
+      "child": "179926"
+    },
+    {
+      "kind": "parent",
+      "parent": "165358",
+      "child": "180042"
+    },
+    {
+      "kind": "parent",
+      "parent": "180004",
+      "child": "180005"
+    },
+    {
+      "kind": "parent",
+      "parent": "180004",
+      "child": "180007"
+    },
+    {
+      "kind": "parent",
+      "parent": "180004",
+      "child": "180013"
+    },
+    {
+      "kind": "parent",
+      "parent": "180004",
+      "child": "180014"
+    },
+    {
+      "kind": "parent",
+      "parent": "180004",
+      "child": "180017"
+    },
+    {
+      "kind": "parent",
+      "parent": "180004",
+      "child": "180019"
+    },
+    {
+      "kind": "parent",
+      "parent": "180004",
+      "child": "180024"
+    },
+    {
+      "kind": "parent",
+      "parent": "180772",
+      "child": "180773"
+    },
+    {
+      "kind": "parent",
+      "parent": "31195",
+      "child": "31851"
+    },
+    {
+      "kind": "parent",
+      "parent": "31195",
+      "child": "140346"
+    },
+    {
+      "kind": "parent",
+      "parent": "31195",
+      "child": "179928"
+    },
+    {
+      "kind": "parent",
+      "parent": "31195",
+      "child": "179960"
+    },
+    {
+      "kind": "parent",
+      "parent": "31195",
+      "child": "179961"
+    },
+    {
+      "kind": "parent",
+      "parent": "31195",
+      "child": "179962"
+    },
+    {
+      "kind": "parent",
+      "parent": "31195",
+      "child": "179973"
+    },
+    {
+      "kind": "parent",
+      "parent": "31195",
+      "child": "180001"
+    },
+    {
+      "kind": "parent",
+      "parent": "31195",
+      "child": "31850"
+    },
+    {
+      "kind": "parent",
+      "parent": "31195",
+      "child": "31852"
+    },
+    {
+      "kind": "parent",
+      "parent": "31195",
+      "child": "31196"
+    },
+    {
+      "kind": "parent",
+      "parent": "31319",
+      "child": "31320"
+    },
+    {
+      "kind": "parent",
+      "parent": "31003",
+      "child": "31020"
+    },
+    {
+      "kind": "parent",
+      "parent": "192761",
+      "child": "192764"
+    },
+    {
+      "kind": "parent",
+      "parent": "179884",
+      "child": "179885"
+    },
+    {
+      "kind": "spouse",
+      "a": "140346",
+      "b": "151359"
+    }
+  ]
+}

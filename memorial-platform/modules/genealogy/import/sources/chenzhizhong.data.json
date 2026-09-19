@@ -1,0 +1,108 @@
+{
+  "key": "cbdb:chenzhizhong",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "34",
+      "name": "陳執中",
+      "citation": "CBDB 中国历代人物传记资料库 person 34",
+      "gender": "male",
+      "birth": {
+        "year": 990
+      },
+      "death": {
+        "year": 1059
+      }
+    },
+    {
+      "externalId": "119408",
+      "name": "李氏(陳執中妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 119408",
+      "gender": "female"
+    },
+    {
+      "externalId": "83",
+      "name": "陳恕",
+      "citation": "CBDB 中国历代人物传记资料库 person 83",
+      "gender": "male"
+    },
+    {
+      "externalId": "47480",
+      "name": "李氏(陳恕妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 47480",
+      "gender": "female"
+    },
+    {
+      "externalId": "53887",
+      "name": "王氏(陳恕妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 53887",
+      "gender": "female"
+    },
+    {
+      "externalId": "119533",
+      "name": "陳世儒",
+      "citation": "CBDB 中国历代人物传记资料库 person 119533",
+      "gender": "male"
+    },
+    {
+      "externalId": "14378",
+      "name": "陳光嗣",
+      "citation": "CBDB 中国历代人物传记资料库 person 14378",
+      "gender": "male"
+    },
+    {
+      "externalId": "47479",
+      "name": "孫氏(陳光嗣妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 47479",
+      "gender": "female"
+    },
+    {
+      "externalId": "14377",
+      "name": "陳嵩",
+      "citation": "CBDB 中国历代人物传记资料库 person 14377",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "83",
+      "child": "34"
+    },
+    {
+      "kind": "spouse",
+      "a": "119408",
+      "b": "34"
+    },
+    {
+      "kind": "parent",
+      "parent": "34",
+      "child": "119533"
+    },
+    {
+      "kind": "parent",
+      "parent": "14378",
+      "child": "83"
+    },
+    {
+      "kind": "parent",
+      "parent": "47479",
+      "child": "83"
+    },
+    {
+      "kind": "spouse",
+      "a": "47480",
+      "b": "83"
+    },
+    {
+      "kind": "spouse",
+      "a": "53887",
+      "b": "83"
+    },
+    {
+      "kind": "parent",
+      "parent": "14377",
+      "child": "14378"
+    }
+  ]
+}

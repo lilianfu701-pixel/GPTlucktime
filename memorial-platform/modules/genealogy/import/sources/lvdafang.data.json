@@ -1,0 +1,86 @@
+{
+  "key": "cbdb:lvdafang",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "1327",
+      "name": "呂大防",
+      "citation": "CBDB 中国历代人物传记资料库 person 1327",
+      "gender": "male",
+      "birth": {
+        "year": 1027
+      },
+      "death": {
+        "year": 1097
+      }
+    },
+    {
+      "externalId": "11659",
+      "name": "呂蕡",
+      "citation": "CBDB 中国历代人物传记资料库 person 11659",
+      "gender": "male"
+    },
+    {
+      "externalId": "27591",
+      "name": "呂景山",
+      "citation": "CBDB 中国历代人物传记资料库 person 27591",
+      "gender": "male"
+    },
+    {
+      "externalId": "3651",
+      "name": "呂通",
+      "citation": "CBDB 中国历代人物传记资料库 person 3651",
+      "gender": "male"
+    },
+    {
+      "externalId": "683580",
+      "name": "呂鵠",
+      "citation": "CBDB 中国历代人物传记资料库 person 683580",
+      "gender": "male"
+    },
+    {
+      "externalId": "683579",
+      "name": "呂咸休",
+      "citation": "CBDB 中国历代人物传记资料库 person 683579",
+      "gender": "male"
+    },
+    {
+      "externalId": "683578",
+      "name": "呂珣",
+      "citation": "CBDB 中国历代人物传记资料库 person 683578",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "11659",
+      "child": "1327"
+    },
+    {
+      "kind": "parent",
+      "parent": "1327",
+      "child": "27591"
+    },
+    {
+      "kind": "parent",
+      "parent": "3651",
+      "child": "11659"
+    },
+    {
+      "kind": "parent",
+      "parent": "683580",
+      "child": "3651"
+    },
+    {
+      "kind": "parent",
+      "parent": "683579",
+      "child": "683580"
+    },
+    {
+      "kind": "parent",
+      "parent": "683578",
+      "child": "683579"
+    }
+  ]
+}
