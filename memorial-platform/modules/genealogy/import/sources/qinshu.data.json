@@ -1,0 +1,129 @@
+{
+  "key": "cbdb:qinshu",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "8008",
+      "name": "秦檜",
+      "citation": "CBDB 中国历代人物传记资料库 person 8008",
+      "gender": "male",
+      "birth": {
+        "year": 1090
+      },
+      "death": {
+        "year": 1155
+      }
+    },
+    {
+      "externalId": "44593",
+      "name": "王氏(秦檜妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 44593",
+      "gender": "female"
+    },
+    {
+      "externalId": "52063",
+      "name": "王氏(劉當可母)",
+      "citation": "CBDB 中国历代人物传记资料库 person 52063",
+      "gender": "female"
+    },
+    {
+      "externalId": "13038",
+      "name": "秦敏學",
+      "citation": "CBDB 中国历代人物传记资料库 person 13038",
+      "gender": "male"
+    },
+    {
+      "externalId": "44588",
+      "name": "強氏(秦敏學妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 44588",
+      "gender": "female"
+    },
+    {
+      "externalId": "44589",
+      "name": "王氏(秦敏學妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 44589",
+      "gender": "female"
+    },
+    {
+      "externalId": "16015",
+      "name": "秦仲淹",
+      "citation": "CBDB 中国历代人物传记资料库 person 16015",
+      "gender": "male"
+    },
+    {
+      "externalId": "44583",
+      "name": "喻氏(秦仲淹妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 44583",
+      "gender": "female"
+    },
+    {
+      "externalId": "16014",
+      "name": "秦知古",
+      "citation": "CBDB 中国历代人物传记资料库 person 16014",
+      "gender": "male"
+    },
+    {
+      "externalId": "44569",
+      "name": "王氏(秦知古妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 44569",
+      "gender": "female"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "13038",
+      "child": "8008"
+    },
+    {
+      "kind": "parent",
+      "parent": "44588",
+      "child": "8008"
+    },
+    {
+      "kind": "parent",
+      "parent": "44589",
+      "child": "8008"
+    },
+    {
+      "kind": "spouse",
+      "a": "44593",
+      "b": "8008"
+    },
+    {
+      "kind": "spouse",
+      "a": "52063",
+      "b": "8008"
+    },
+    {
+      "kind": "parent",
+      "parent": "16015",
+      "child": "13038"
+    },
+    {
+      "kind": "spouse",
+      "a": "13038",
+      "b": "44588"
+    },
+    {
+      "kind": "spouse",
+      "a": "13038",
+      "b": "44589"
+    },
+    {
+      "kind": "parent",
+      "parent": "16014",
+      "child": "16015"
+    },
+    {
+      "kind": "spouse",
+      "a": "16015",
+      "b": "44583"
+    },
+    {
+      "kind": "spouse",
+      "a": "16014",
+      "b": "44569"
+    }
+  ]
+}

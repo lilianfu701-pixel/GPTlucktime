@@ -212,6 +212,15 @@ import suweidao from "./suweidao.data.json";
 import liufen from "./liufen.data.json";
 import liugong from "./liugong.data.json";
 import xiaoying from "./xiaoying.data.json";
+// CBDB 第八批（唐宋官员/南宋词人/南宋将领/明代学者）
+import quandeyu from "./quandeyu.data.json";
+import hanhang from "./hanhang.data.json";
+import wujie from "./wujie.data.json";
+import tangshunzhi from "./tangshunzhi.data.json";
+import zhaochaobi from "./zhaochaobi.data.json";
+import qinshu from "./qinshu.data.json";
+import zhangqixian from "./zhangqixian.data.json";
+import zengzhao from "./zengzhao.data.json";
 // CBDB 第七批（唐宋宰相/东汉将领/元初儒士）
 import suixin from "./suixin.data.json";
 import duyan from "./duyan.data.json";
@@ -508,6 +517,15 @@ const FAMILIES: { key: string; label: string; dataset: GenealogyDataset }[] = [
   { key: "liufen", label: "河东柳氏·柳芬支（柳懿·柳均·南北朝到唐）", dataset: liufen as GenealogyDataset },
   { key: "liugong", label: "河东柳氏·柳公权支（书法家·柳瑗·柳仲憲）", dataset: liugong as GenealogyDataset },
   { key: "xiaoying", label: "兰陵萧氏·萧颖士支（萧道赐·萧恢·南朝到唐）", dataset: xiaoying as GenealogyDataset },
+  // CBDB 第八批：唐宋官员 + 南宋将领 + 明代学者 + 北宋宰相
+  { key: "quandeyu", label: "天水权氏·权德舆支（唐代宰相/文学家·759-818）", dataset: quandeyu as GenealogyDataset },
+  { key: "hanhang", label: "京兆韩氏·韩滉支（唐代官员·韩休之子·723-787）", dataset: hanhang as GenealogyDataset },
+  { key: "wujie", label: "德顺吴氏·吴玠支（南宋抗金将领·1093-1139）", dataset: wujie as GenealogyDataset },
+  { key: "tangshunzhi", label: "武进唐氏·唐顺之支（明代学者·荆川先生·1507-1560）", dataset: tangshunzhi as GenealogyDataset },
+  { key: "zhaochaobi", label: "济州晁氏·晁补之支（北宋文人·苏门四学士·1053-1110）", dataset: zhaochaobi as GenealogyDataset },
+  { key: "qinshu", label: "无锡秦氏·秦桧支（南宋宰相·绍兴和议·1090-1155）", dataset: qinshu as GenealogyDataset },
+  { key: "zhangqixian", label: "洛阳张氏·张齐贤支（北宋宰相·942-1014）", dataset: zhangqixian as GenealogyDataset },
+  { key: "zengzhao", label: "南丰曾氏·曾肇支（北宋官员·曾巩之弟·1047-1107）", dataset: zengzhao as GenealogyDataset },
   // CBDB 第七批：唐宋宰相 + 东汉将领 + 元初儒士
   { key: "suixin", label: "武功苏氏·苏颋支（苏威→苏绰→苏颋·隋唐宰相·670-727）", dataset: suixin as GenealogyDataset },
   { key: "duyan", label: "越州杜氏·杜衍支（北宋宰相·含杜祁公·978-1057）", dataset: duyan as GenealogyDataset },

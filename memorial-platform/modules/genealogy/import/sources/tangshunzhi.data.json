@@ -1,0 +1,142 @@
+{
+  "key": "cbdb:tangshunzhi",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "34219",
+      "name": "唐順之",
+      "citation": "CBDB 中国历代人物传记资料库 person 34219",
+      "gender": "male",
+      "birth": {
+        "year": 1507
+      },
+      "death": {
+        "year": 1560
+      }
+    },
+    {
+      "externalId": "208758",
+      "name": "莊氏(唐鶴徵母)",
+      "citation": "CBDB 中国历代人物传记资料库 person 208758",
+      "gender": "female"
+    },
+    {
+      "externalId": "34218",
+      "name": "唐寶",
+      "citation": "CBDB 中国历代人物传记资料库 person 34218",
+      "gender": "male"
+    },
+    {
+      "externalId": "287338",
+      "name": "任氏(唐順之母)",
+      "citation": "CBDB 中国历代人物传记资料库 person 287338",
+      "gender": "female"
+    },
+    {
+      "externalId": "34220",
+      "name": "唐鶴徵",
+      "citation": "CBDB 中国历代人物传记资料库 person 34220",
+      "gender": "male",
+      "birth": {
+        "year": 1538
+      },
+      "death": {
+        "year": 1619
+      }
+    },
+    {
+      "externalId": "208760",
+      "name": "萬氏(唐鶴徵妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 208760",
+      "gender": "female"
+    },
+    {
+      "externalId": "34217",
+      "name": "唐貴",
+      "citation": "CBDB 中国历代人物传记资料库 person 34217",
+      "gender": "male"
+    },
+    {
+      "externalId": "260965",
+      "name": "周氏(唐貴妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 260965",
+      "gender": "female"
+    },
+    {
+      "externalId": "129458",
+      "name": "唐傚純",
+      "citation": "CBDB 中国历代人物传记资料库 person 129458",
+      "gender": "male",
+      "birth": {
+        "year": 1558
+      },
+      "death": {
+        "year": 1589
+      }
+    },
+    {
+      "externalId": "260962",
+      "name": "唐衍",
+      "citation": "CBDB 中国历代人物传记资料库 person 260962",
+      "gender": "male"
+    },
+    {
+      "externalId": "260964",
+      "name": "徐氏(唐貴母)",
+      "citation": "CBDB 中国历代人物传记资料库 person 260964",
+      "gender": "female"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "34218",
+      "child": "34219"
+    },
+    {
+      "kind": "parent",
+      "parent": "287338",
+      "child": "34219"
+    },
+    {
+      "kind": "spouse",
+      "a": "208758",
+      "b": "34219"
+    },
+    {
+      "kind": "parent",
+      "parent": "34219",
+      "child": "34220"
+    },
+    {
+      "kind": "parent",
+      "parent": "34217",
+      "child": "34218"
+    },
+    {
+      "kind": "spouse",
+      "a": "208760",
+      "b": "34220"
+    },
+    {
+      "kind": "parent",
+      "parent": "34220",
+      "child": "129458"
+    },
+    {
+      "kind": "parent",
+      "parent": "260962",
+      "child": "34217"
+    },
+    {
+      "kind": "parent",
+      "parent": "260964",
+      "child": "34217"
+    },
+    {
+      "kind": "spouse",
+      "a": "260965",
+      "b": "34217"
+    }
+  ]
+}

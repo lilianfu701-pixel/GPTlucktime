@@ -1,0 +1,100 @@
+{
+  "key": "cbdb:zhaochaobi",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "13",
+      "name": "晁補之",
+      "citation": "CBDB 中国历代人物传记资料库 person 13",
+      "gender": "male",
+      "birth": {
+        "year": 1049
+      },
+      "death": {
+        "year": 1106
+      }
+    },
+    {
+      "externalId": "3025",
+      "name": "晁端友",
+      "citation": "CBDB 中国历代人物传记资料库 person 3025",
+      "gender": "male"
+    },
+    {
+      "externalId": "3017",
+      "name": "晁公為",
+      "citation": "CBDB 中国历代人物传记资料库 person 3017",
+      "gender": "male"
+    },
+    {
+      "externalId": "3016",
+      "name": "晁公似",
+      "citation": "CBDB 中国历代人物传记资料库 person 3016",
+      "gender": "male"
+    },
+    {
+      "externalId": "13523",
+      "name": "晁仲偃",
+      "citation": "CBDB 中国历代人物传记资料库 person 13523",
+      "gender": "male"
+    },
+    {
+      "externalId": "3021",
+      "name": "晁宗簡",
+      "citation": "CBDB 中国历代人物传记资料库 person 3021",
+      "gender": "male",
+      "death": {
+        "year": 1044
+      }
+    },
+    {
+      "externalId": "3018",
+      "name": "晁迪",
+      "citation": "CBDB 中国历代人物传记资料库 person 3018",
+      "gender": "male"
+    },
+    {
+      "externalId": "3011",
+      "name": "晁佺",
+      "citation": "CBDB 中国历代人物传记资料库 person 3011",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "3025",
+      "child": "13"
+    },
+    {
+      "kind": "parent",
+      "parent": "13",
+      "child": "3017"
+    },
+    {
+      "kind": "parent",
+      "parent": "13",
+      "child": "3016"
+    },
+    {
+      "kind": "parent",
+      "parent": "13523",
+      "child": "3025"
+    },
+    {
+      "kind": "parent",
+      "parent": "3021",
+      "child": "13523"
+    },
+    {
+      "kind": "parent",
+      "parent": "3018",
+      "child": "3021"
+    },
+    {
+      "kind": "parent",
+      "parent": "3011",
+      "child": "3018"
+    }
+  ]
+}

@@ -1,0 +1,296 @@
+{
+  "key": "cbdb:zengzhao",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "7072",
+      "name": "曾肇",
+      "citation": "CBDB 中国历代人物传记资料库 person 7072",
+      "gender": "male",
+      "birth": {
+        "year": 1047
+      },
+      "death": {
+        "year": 1107
+      }
+    },
+    {
+      "externalId": "512471",
+      "name": "強氏(曾肇妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 512471",
+      "gender": "female"
+    },
+    {
+      "externalId": "7363",
+      "name": "曾易占",
+      "citation": "CBDB 中国历代人物传记资料库 person 7363",
+      "gender": "male",
+      "birth": {
+        "year": 969
+      },
+      "death": {
+        "year": 1047
+      }
+    },
+    {
+      "externalId": "48533",
+      "name": "周氏(曾易占妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 48533",
+      "gender": "female"
+    },
+    {
+      "externalId": "5124",
+      "name": "吳氏(曾易占妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 5124",
+      "gender": "female"
+    },
+    {
+      "externalId": "1704",
+      "name": "曾怡",
+      "citation": "CBDB 中国历代人物传记资料库 person 1704",
+      "gender": "male"
+    },
+    {
+      "externalId": "7073",
+      "name": "曾續",
+      "citation": "CBDB 中国历代人物传记资料库 person 7073",
+      "gender": "male"
+    },
+    {
+      "externalId": "7362",
+      "name": "曾纁",
+      "citation": "CBDB 中国历代人物传记资料库 person 7362",
+      "gender": "male",
+      "birth": {
+        "year": 1083
+      },
+      "death": {
+        "year": 1123
+      }
+    },
+    {
+      "externalId": "20315",
+      "name": "曾F",
+      "citation": "CBDB 中国历代人物传记资料库 person 20315",
+      "gender": "male"
+    },
+    {
+      "externalId": "5342",
+      "name": "蘇氏(蘇轍女)",
+      "citation": "CBDB 中国历代人物传记资料库 person 5342",
+      "gender": "female",
+      "birth": {
+        "year": 1072
+      },
+      "death": {
+        "year": 1147
+      }
+    },
+    {
+      "externalId": "15460",
+      "name": "曾統",
+      "citation": "CBDB 中国历代人物传记资料库 person 15460",
+      "gender": "male"
+    },
+    {
+      "externalId": "48492",
+      "name": "張氏(曾統妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 48492",
+      "gender": "female"
+    },
+    {
+      "externalId": "16579",
+      "name": "曾致堯",
+      "citation": "CBDB 中国历代人物传记资料库 person 16579",
+      "gender": "male",
+      "birth": {
+        "year": 947
+      },
+      "death": {
+        "year": 1012
+      }
+    },
+    {
+      "externalId": "5258",
+      "name": "黃氏(曾致堯妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 5258",
+      "gender": "female",
+      "birth": {
+        "year": 953
+      },
+      "death": {
+        "year": 1044
+      }
+    },
+    {
+      "externalId": "3907",
+      "name": "曾協",
+      "citation": "CBDB 中国历代人物传记资料库 person 3907",
+      "gender": "male",
+      "death": {
+        "year": 1173
+      }
+    },
+    {
+      "externalId": "21702",
+      "name": "曾悟",
+      "citation": "CBDB 中国历代人物传记资料库 person 21702",
+      "gender": "male",
+      "birth": {
+        "year": 1095
+      },
+      "death": {
+        "year": 1127
+      }
+    },
+    {
+      "externalId": "15462",
+      "name": "曾愓",
+      "citation": "CBDB 中国历代人物传记资料库 person 15462",
+      "gender": "male"
+    },
+    {
+      "externalId": "16578",
+      "name": "曾仁旺",
+      "citation": "CBDB 中国历代人物传记资料库 person 16578",
+      "gender": "male"
+    },
+    {
+      "externalId": "3912",
+      "name": "曾炎",
+      "citation": "CBDB 中国历代人物传记资料库 person 3912",
+      "gender": "male",
+      "birth": {
+        "year": 1141
+      },
+      "death": {
+        "year": 1211
+      }
+    },
+    {
+      "externalId": "15461",
+      "name": "曾喚",
+      "citation": "CBDB 中国历代人物传记资料库 person 15461",
+      "gender": "male"
+    },
+    {
+      "externalId": "16577",
+      "name": "曾延鐸",
+      "citation": "CBDB 中国历代人物传记资料库 person 16577",
+      "gender": "male"
+    },
+    {
+      "externalId": "16575",
+      "name": "曾可徒",
+      "citation": "CBDB 中国历代人物传记资料库 person 16575",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "7363",
+      "child": "7072"
+    },
+    {
+      "kind": "spouse",
+      "a": "512471",
+      "b": "7072"
+    },
+    {
+      "kind": "parent",
+      "parent": "7072",
+      "child": "1704"
+    },
+    {
+      "kind": "parent",
+      "parent": "7072",
+      "child": "7073"
+    },
+    {
+      "kind": "parent",
+      "parent": "7072",
+      "child": "7362"
+    },
+    {
+      "kind": "parent",
+      "parent": "7072",
+      "child": "20315"
+    },
+    {
+      "kind": "parent",
+      "parent": "7072",
+      "child": "15460"
+    },
+    {
+      "kind": "parent",
+      "parent": "16579",
+      "child": "7363"
+    },
+    {
+      "kind": "spouse",
+      "a": "48533",
+      "b": "7363"
+    },
+    {
+      "kind": "spouse",
+      "a": "5124",
+      "b": "7363"
+    },
+    {
+      "kind": "parent",
+      "parent": "7362",
+      "child": "3907"
+    },
+    {
+      "kind": "spouse",
+      "a": "20315",
+      "b": "5342"
+    },
+    {
+      "kind": "parent",
+      "parent": "20315",
+      "child": "21702"
+    },
+    {
+      "kind": "spouse",
+      "a": "15460",
+      "b": "48492"
+    },
+    {
+      "kind": "parent",
+      "parent": "15460",
+      "child": "15462"
+    },
+    {
+      "kind": "parent",
+      "parent": "16578",
+      "child": "16579"
+    },
+    {
+      "kind": "spouse",
+      "a": "16579",
+      "b": "5258"
+    },
+    {
+      "kind": "parent",
+      "parent": "3907",
+      "child": "3912"
+    },
+    {
+      "kind": "parent",
+      "parent": "15462",
+      "child": "15461"
+    },
+    {
+      "kind": "parent",
+      "parent": "16577",
+      "child": "16578"
+    },
+    {
+      "kind": "parent",
+      "parent": "16575",
+      "child": "16577"
+    }
+  ]
+}

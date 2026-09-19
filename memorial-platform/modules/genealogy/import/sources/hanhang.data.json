@@ -1,0 +1,374 @@
+{
+  "key": "cbdb:hanhang",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "22452",
+      "name": "韓滉",
+      "citation": "CBDB 中国历代人物传记资料库 person 22452",
+      "gender": "male",
+      "birth": {
+        "year": 723
+      },
+      "death": {
+        "year": 787
+      }
+    },
+    {
+      "externalId": "22451",
+      "name": "韓休",
+      "citation": "CBDB 中国历代人物传记资料库 person 22451",
+      "gender": "male",
+      "birth": {
+        "year": 672
+      },
+      "death": {
+        "year": 739
+      }
+    },
+    {
+      "externalId": "178478",
+      "name": "韓羣",
+      "citation": "CBDB 中国历代人物传记资料库 person 178478",
+      "gender": "male",
+      "death": {
+        "year": 819
+      }
+    },
+    {
+      "externalId": "178483",
+      "name": "韓臯",
+      "citation": "CBDB 中国历代人物传记资料库 person 178483",
+      "gender": "male",
+      "birth": {
+        "year": 743
+      },
+      "death": {
+        "year": 822
+      }
+    },
+    {
+      "externalId": "144905",
+      "name": "李溫",
+      "citation": "CBDB 中国历代人物传记资料库 person 144905",
+      "gender": "female",
+      "birth": {
+        "year": 784
+      },
+      "death": {
+        "year": 829
+      }
+    },
+    {
+      "externalId": "22454",
+      "name": "韓皋",
+      "citation": "CBDB 中国历代人物传记资料库 person 22454",
+      "gender": "male",
+      "birth": {
+        "year": 744
+      },
+      "death": {
+        "year": 824
+      }
+    },
+    {
+      "externalId": "22449",
+      "name": "韓大智",
+      "citation": "CBDB 中国历代人物传记资料库 person 22449",
+      "gender": "male"
+    },
+    {
+      "externalId": "94725",
+      "name": "韓察",
+      "citation": "CBDB 中国历代人物传记资料库 person 94725",
+      "gender": "male"
+    },
+    {
+      "externalId": "178481",
+      "name": "韓宥",
+      "citation": "CBDB 中国历代人物传记资料库 person 178481",
+      "gender": "male",
+      "death": {
+        "year": 856
+      }
+    },
+    {
+      "externalId": "178482",
+      "name": "韓寬",
+      "citation": "CBDB 中国历代人物传记资料库 person 178482",
+      "gender": "male",
+      "death": {
+        "year": 856
+      }
+    },
+    {
+      "externalId": "178484",
+      "name": "韓充",
+      "citation": "CBDB 中国历代人物传记资料库 person 178484",
+      "gender": "male",
+      "death": {
+        "year": 840
+      }
+    },
+    {
+      "externalId": "178485",
+      "name": "韓衮",
+      "citation": "CBDB 中国历代人物传记资料库 person 178485",
+      "gender": "male",
+      "death": {
+        "year": 840
+      }
+    },
+    {
+      "externalId": "22448",
+      "name": "韓符",
+      "citation": "CBDB 中国历代人物传记资料库 person 22448",
+      "gender": "male"
+    },
+    {
+      "externalId": "178480",
+      "name": "韓諫師",
+      "citation": "CBDB 中国历代人物传记资料库 person 178480",
+      "gender": "male",
+      "death": {
+        "year": 893
+      }
+    },
+    {
+      "externalId": "178486",
+      "name": "韓紹",
+      "citation": "CBDB 中国历代人物传记资料库 person 178486",
+      "gender": "male",
+      "death": {
+        "year": 877
+      }
+    },
+    {
+      "externalId": "178487",
+      "name": "韓玫",
+      "citation": "CBDB 中国历代人物传记资料库 person 178487",
+      "gender": "male",
+      "death": {
+        "year": 877
+      }
+    },
+    {
+      "externalId": "33244",
+      "name": "韓賢",
+      "citation": "CBDB 中国历代人物传记资料库 person 33244",
+      "gender": "male"
+    },
+    {
+      "externalId": "178488",
+      "name": "韓諷",
+      "citation": "CBDB 中国历代人物传记资料库 person 178488",
+      "gender": "male",
+      "death": {
+        "year": 914
+      }
+    },
+    {
+      "externalId": "33243",
+      "name": "韓護",
+      "citation": "CBDB 中国历代人物传记资料库 person 33243",
+      "gender": "male"
+    },
+    {
+      "externalId": "178401",
+      "name": "韓護",
+      "citation": "CBDB 中国历代人物传记资料库 person 178401",
+      "gender": "male",
+      "death": {
+        "year": 606
+      }
+    },
+    {
+      "externalId": "33242",
+      "name": "韓冑",
+      "citation": "CBDB 中国历代人物传记资料库 person 33242",
+      "gender": "male"
+    },
+    {
+      "externalId": "178400",
+      "name": "韓胄",
+      "citation": "CBDB 中国历代人物传记资料库 person 178400",
+      "gender": "male",
+      "death": {
+        "year": 569
+      }
+    },
+    {
+      "externalId": "33241",
+      "name": "韓紹",
+      "citation": "CBDB 中国历代人物传记资料库 person 33241",
+      "gender": "male"
+    },
+    {
+      "externalId": "22444",
+      "name": "韓播",
+      "citation": "CBDB 中国历代人物传记资料库 person 22444",
+      "gender": "male"
+    },
+    {
+      "externalId": "33240",
+      "name": "韓潁",
+      "citation": "CBDB 中国历代人物传记资料库 person 33240",
+      "gender": "male"
+    },
+    {
+      "externalId": "33239",
+      "name": "韓偃",
+      "citation": "CBDB 中国历代人物传记资料库 person 33239",
+      "gender": "male"
+    },
+    {
+      "externalId": "33238",
+      "name": "韓恬",
+      "citation": "CBDB 中国历代人物传记资料库 person 33238",
+      "gender": "male"
+    },
+    {
+      "externalId": "22443",
+      "name": "韓安之",
+      "citation": "CBDB 中国历代人物传记资料库 person 22443",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "22451",
+      "child": "22452"
+    },
+    {
+      "kind": "parent",
+      "parent": "22452",
+      "child": "178478"
+    },
+    {
+      "kind": "parent",
+      "parent": "22452",
+      "child": "178483"
+    },
+    {
+      "kind": "parent",
+      "parent": "22452",
+      "child": "22454"
+    },
+    {
+      "kind": "parent",
+      "parent": "22449",
+      "child": "22451"
+    },
+    {
+      "kind": "parent",
+      "parent": "178478",
+      "child": "94725"
+    },
+    {
+      "kind": "parent",
+      "parent": "178478",
+      "child": "178481"
+    },
+    {
+      "kind": "parent",
+      "parent": "178478",
+      "child": "178482"
+    },
+    {
+      "kind": "spouse",
+      "a": "144905",
+      "b": "178483"
+    },
+    {
+      "kind": "parent",
+      "parent": "178483",
+      "child": "178484"
+    },
+    {
+      "kind": "parent",
+      "parent": "178483",
+      "child": "178485"
+    },
+    {
+      "kind": "parent",
+      "parent": "22448",
+      "child": "22449"
+    },
+    {
+      "kind": "parent",
+      "parent": "94725",
+      "child": "178480"
+    },
+    {
+      "kind": "parent",
+      "parent": "178485",
+      "child": "178486"
+    },
+    {
+      "kind": "parent",
+      "parent": "178485",
+      "child": "178487"
+    },
+    {
+      "kind": "parent",
+      "parent": "33244",
+      "child": "22448"
+    },
+    {
+      "kind": "parent",
+      "parent": "178487",
+      "child": "178488"
+    },
+    {
+      "kind": "parent",
+      "parent": "33243",
+      "child": "33244"
+    },
+    {
+      "kind": "parent",
+      "parent": "178401",
+      "child": "33244"
+    },
+    {
+      "kind": "parent",
+      "parent": "33242",
+      "child": "33243"
+    },
+    {
+      "kind": "parent",
+      "parent": "178400",
+      "child": "178401"
+    },
+    {
+      "kind": "parent",
+      "parent": "33241",
+      "child": "33242"
+    },
+    {
+      "kind": "parent",
+      "parent": "22444",
+      "child": "33241"
+    },
+    {
+      "kind": "parent",
+      "parent": "33240",
+      "child": "22444"
+    },
+    {
+      "kind": "parent",
+      "parent": "33239",
+      "child": "33240"
+    },
+    {
+      "kind": "parent",
+      "parent": "33238",
+      "child": "33239"
+    },
+    {
+      "kind": "parent",
+      "parent": "22443",
+      "child": "33238"
+    }
+  ]
+}

@@ -1,0 +1,116 @@
+{
+  "key": "cbdb:wujie",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "10245",
+      "name": "吳玠",
+      "citation": "CBDB 中国历代人物传记资料库 person 10245",
+      "gender": "male",
+      "death": {
+        "year": 1139
+      }
+    },
+    {
+      "externalId": "22364",
+      "name": "吳扆",
+      "citation": "CBDB 中国历代人物传记资料库 person 22364",
+      "gender": "male"
+    },
+    {
+      "externalId": "41070",
+      "name": "劉氏(吳扆妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 41070",
+      "gender": "male"
+    },
+    {
+      "externalId": "1975",
+      "name": "吳撝",
+      "citation": "CBDB 中国历代人物传记资料库 person 1975",
+      "gender": "male"
+    },
+    {
+      "externalId": "22365",
+      "name": "吳拱",
+      "citation": "CBDB 中国历代人物传记资料库 person 22365",
+      "gender": "male"
+    },
+    {
+      "externalId": "120048",
+      "name": "吳揔",
+      "citation": "CBDB 中国历代人物传记资料库 person 120048",
+      "gender": "male"
+    },
+    {
+      "externalId": "22363",
+      "name": "吳遂",
+      "citation": "CBDB 中国历代人物传记资料库 person 22363",
+      "gender": "male"
+    },
+    {
+      "externalId": "41589",
+      "name": "齊氏(吳遂妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 41589",
+      "gender": "female"
+    },
+    {
+      "externalId": "22362",
+      "name": "吳謙",
+      "citation": "CBDB 中国历代人物传记资料库 person 22362",
+      "gender": "male"
+    },
+    {
+      "externalId": "41062",
+      "name": "李氏(吳謙妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 41062",
+      "gender": "female"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "22364",
+      "child": "10245"
+    },
+    {
+      "kind": "parent",
+      "parent": "41070",
+      "child": "10245"
+    },
+    {
+      "kind": "parent",
+      "parent": "10245",
+      "child": "1975"
+    },
+    {
+      "kind": "parent",
+      "parent": "10245",
+      "child": "22365"
+    },
+    {
+      "kind": "parent",
+      "parent": "10245",
+      "child": "120048"
+    },
+    {
+      "kind": "parent",
+      "parent": "22363",
+      "child": "22364"
+    },
+    {
+      "kind": "parent",
+      "parent": "22362",
+      "child": "22363"
+    },
+    {
+      "kind": "spouse",
+      "a": "22363",
+      "b": "41589"
+    },
+    {
+      "kind": "spouse",
+      "a": "22362",
+      "b": "41062"
+    }
+  ]
+}

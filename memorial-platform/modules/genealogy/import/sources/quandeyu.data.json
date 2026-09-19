@@ -1,0 +1,257 @@
+{
+  "key": "cbdb:quandeyu",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "13624",
+      "name": "權德輿",
+      "citation": "CBDB 中国历代人物传记资料库 person 13624",
+      "gender": "male",
+      "birth": {
+        "year": 761
+      },
+      "death": {
+        "year": 818
+      }
+    },
+    {
+      "externalId": "13623",
+      "name": "權皋",
+      "citation": "CBDB 中国历代人物传记资料库 person 13623",
+      "gender": "male",
+      "birth": {
+        "year": 725
+      },
+      "death": {
+        "year": 766
+      }
+    },
+    {
+      "externalId": "145946",
+      "name": "權臯",
+      "citation": "CBDB 中国历代人物传记资料库 person 145946",
+      "gender": "male",
+      "birth": {
+        "year": 723
+      },
+      "death": {
+        "year": 768
+      }
+    },
+    {
+      "externalId": "146269",
+      "name": "李氏(李備女)",
+      "citation": "CBDB 中国历代人物传记资料库 person 146269",
+      "gender": "female",
+      "death": {
+        "year": 788
+      }
+    },
+    {
+      "externalId": "145753",
+      "name": "權氏(權德輿女)",
+      "citation": "CBDB 中国历代人物传记资料库 person 145753",
+      "gender": "female",
+      "birth": {
+        "year": 785
+      },
+      "death": {
+        "year": 815
+      }
+    },
+    {
+      "externalId": "32940",
+      "name": "獨孤郁",
+      "citation": "CBDB 中国历代人物传记资料库 person 32940",
+      "gender": "male",
+      "birth": {
+        "year": 776
+      },
+      "death": {
+        "year": 815
+      }
+    },
+    {
+      "externalId": "13625",
+      "name": "權璩",
+      "citation": "CBDB 中国历代人物传记资料库 person 13625",
+      "gender": "male"
+    },
+    {
+      "externalId": "184271",
+      "name": "權珏",
+      "citation": "CBDB 中国历代人物传记资料库 person 184271",
+      "gender": "male",
+      "death": {
+        "year": 855
+      }
+    },
+    {
+      "externalId": "13622",
+      "name": "權倕",
+      "citation": "CBDB 中国历代人物传记资料库 person 13622",
+      "gender": "male"
+    },
+    {
+      "externalId": "145803",
+      "name": "楊氏(楊晏女)",
+      "citation": "CBDB 中国历代人物传记资料库 person 145803",
+      "gender": "female",
+      "death": {
+        "year": 757
+      }
+    },
+    {
+      "externalId": "141502",
+      "name": "權叢",
+      "citation": "CBDB 中国历代人物传记资料库 person 141502",
+      "gender": "female",
+      "birth": {
+        "year": 809
+      },
+      "death": {
+        "year": 817
+      }
+    },
+    {
+      "externalId": "13621",
+      "name": "權無侍",
+      "citation": "CBDB 中国历代人物传记资料库 person 13621",
+      "gender": "male"
+    },
+    {
+      "externalId": "92472",
+      "name": "權無待",
+      "citation": "CBDB 中国历代人物传记资料库 person 92472",
+      "gender": "male"
+    },
+    {
+      "externalId": "13620",
+      "name": "權崇匡",
+      "citation": "CBDB 中国历代人物传记资料库 person 13620",
+      "gender": "male"
+    },
+    {
+      "externalId": "184267",
+      "name": "權崇本",
+      "citation": "CBDB 中国历代人物传记资料库 person 184267",
+      "gender": "male",
+      "death": {
+        "year": 692
+      }
+    },
+    {
+      "externalId": "13619",
+      "name": "權榮",
+      "citation": "CBDB 中国历代人物传记资料库 person 13619",
+      "gender": "male"
+    },
+    {
+      "externalId": "31648",
+      "name": "權文誕",
+      "citation": "CBDB 中国历代人物传记资料库 person 31648",
+      "gender": "male"
+    },
+    {
+      "externalId": "184256",
+      "name": "權榮",
+      "citation": "CBDB 中国历代人物传记资料库 person 184256",
+      "gender": "male",
+      "death": {
+        "year": 618
+      }
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "13623",
+      "child": "13624"
+    },
+    {
+      "kind": "parent",
+      "parent": "145946",
+      "child": "13624"
+    },
+    {
+      "kind": "parent",
+      "parent": "13624",
+      "child": "145753"
+    },
+    {
+      "kind": "parent",
+      "parent": "13624",
+      "child": "13625"
+    },
+    {
+      "kind": "parent",
+      "parent": "13624",
+      "child": "184271"
+    },
+    {
+      "kind": "parent",
+      "parent": "13622",
+      "child": "13623"
+    },
+    {
+      "kind": "parent",
+      "parent": "13622",
+      "child": "145946"
+    },
+    {
+      "kind": "spouse",
+      "a": "145946",
+      "b": "146269"
+    },
+    {
+      "kind": "spouse",
+      "a": "145753",
+      "b": "32940"
+    },
+    {
+      "kind": "parent",
+      "parent": "13625",
+      "child": "141502"
+    },
+    {
+      "kind": "parent",
+      "parent": "13621",
+      "child": "13622"
+    },
+    {
+      "kind": "parent",
+      "parent": "92472",
+      "child": "13622"
+    },
+    {
+      "kind": "spouse",
+      "a": "13622",
+      "b": "145803"
+    },
+    {
+      "kind": "parent",
+      "parent": "13620",
+      "child": "13621"
+    },
+    {
+      "kind": "parent",
+      "parent": "184267",
+      "child": "92472"
+    },
+    {
+      "kind": "parent",
+      "parent": "13619",
+      "child": "13620"
+    },
+    {
+      "kind": "parent",
+      "parent": "31648",
+      "child": "13620"
+    },
+    {
+      "kind": "parent",
+      "parent": "184256",
+      "child": "31648"
+    }
+  ]
+}
