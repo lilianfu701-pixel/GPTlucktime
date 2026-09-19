@@ -1,0 +1,153 @@
+{
+  "key": "cbdb:chenruyin",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "26192",
+      "name": "陳汝言",
+      "citation": "CBDB 中国历代人物传记资料库 person 26192",
+      "gender": "male",
+      "death": {
+        "year": 1371
+      }
+    },
+    {
+      "externalId": "26190",
+      "name": "陳徵",
+      "citation": "CBDB 中国历代人物传记资料库 person 26190",
+      "gender": "male",
+      "birth": {
+        "year": 1297
+      },
+      "death": {
+        "year": 1348
+      }
+    },
+    {
+      "externalId": "26193",
+      "name": "陳繼",
+      "citation": "CBDB 中国历代人物传记资料库 person 26193",
+      "gender": "male",
+      "birth": {
+        "year": 1370
+      },
+      "death": {
+        "year": 1434
+      }
+    },
+    {
+      "externalId": "26189",
+      "name": "陳仝",
+      "citation": "CBDB 中国历代人物传记资料库 person 26189",
+      "gender": "male"
+    },
+    {
+      "externalId": "26194",
+      "name": "陳完",
+      "citation": "CBDB 中国历代人物传记资料库 person 26194",
+      "gender": "male"
+    },
+    {
+      "externalId": "26195",
+      "name": "陳寬",
+      "citation": "CBDB 中国历代人物传记资料库 person 26195",
+      "gender": "male",
+      "death": {
+        "year": 1473
+      }
+    },
+    {
+      "externalId": "26188",
+      "name": "陳洽",
+      "citation": "CBDB 中国历代人物传记资料库 person 26188",
+      "gender": "male"
+    },
+    {
+      "externalId": "26187",
+      "name": "陳霦",
+      "citation": "CBDB 中国历代人物传记资料库 person 26187",
+      "gender": "male"
+    },
+    {
+      "externalId": "26186",
+      "name": "陳哇",
+      "citation": "CBDB 中国历代人物传记资料库 person 26186",
+      "gender": "male"
+    },
+    {
+      "externalId": "10847",
+      "name": "陳秬",
+      "citation": "CBDB 中国历代人物传记资料库 person 10847",
+      "gender": "male"
+    },
+    {
+      "externalId": "10846",
+      "name": "陳準",
+      "citation": "CBDB 中国历代人物传记资料库 person 10846",
+      "gender": "male"
+    },
+    {
+      "externalId": "10845",
+      "name": "陳篆",
+      "citation": "CBDB 中国历代人物传记资料库 person 10845",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "26190",
+      "child": "26192"
+    },
+    {
+      "kind": "parent",
+      "parent": "26192",
+      "child": "26193"
+    },
+    {
+      "kind": "parent",
+      "parent": "26189",
+      "child": "26190"
+    },
+    {
+      "kind": "parent",
+      "parent": "26193",
+      "child": "26194"
+    },
+    {
+      "kind": "parent",
+      "parent": "26193",
+      "child": "26195"
+    },
+    {
+      "kind": "parent",
+      "parent": "26188",
+      "child": "26189"
+    },
+    {
+      "kind": "parent",
+      "parent": "26187",
+      "child": "26188"
+    },
+    {
+      "kind": "parent",
+      "parent": "26186",
+      "child": "26187"
+    },
+    {
+      "kind": "parent",
+      "parent": "10847",
+      "child": "26186"
+    },
+    {
+      "kind": "parent",
+      "parent": "10846",
+      "child": "10847"
+    },
+    {
+      "kind": "parent",
+      "parent": "10845",
+      "child": "10846"
+    }
+  ]
+}

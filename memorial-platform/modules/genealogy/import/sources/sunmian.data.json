@@ -1,0 +1,151 @@
+{
+  "key": "cbdb:sunmian",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "8118",
+      "name": "孫沔",
+      "citation": "CBDB 中国历代人物传记资料库 person 8118",
+      "gender": "male"
+    },
+    {
+      "externalId": "5113",
+      "name": "邊氏(孫沔妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 5113",
+      "gender": "female",
+      "birth": {
+        "year": 1017
+      },
+      "death": {
+        "year": 1081
+      }
+    },
+    {
+      "externalId": "20822",
+      "name": "孫丕",
+      "citation": "CBDB 中国历代人物传记资料库 person 20822",
+      "gender": "male"
+    },
+    {
+      "externalId": "44983",
+      "name": "張氏(孫沔母)",
+      "citation": "CBDB 中国历代人物传记资料库 person 44983",
+      "gender": "female"
+    },
+    {
+      "externalId": "44989",
+      "name": "周氏(孫沔母)",
+      "citation": "CBDB 中国历代人物传记资料库 person 44989",
+      "gender": "female"
+    },
+    {
+      "externalId": "25579",
+      "name": "孫之文",
+      "citation": "CBDB 中国历代人物传记资料库 person 25579",
+      "gender": "male"
+    },
+    {
+      "externalId": "21385",
+      "name": "孫植",
+      "citation": "CBDB 中国历代人物传记资料库 person 21385",
+      "gender": "male"
+    },
+    {
+      "externalId": "44900",
+      "name": "周氏(孫植妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 44900",
+      "gender": "female"
+    },
+    {
+      "externalId": "25580",
+      "name": "孫延直",
+      "citation": "CBDB 中国历代人物传记资料库 person 25580",
+      "gender": "male"
+    },
+    {
+      "externalId": "21384",
+      "name": "孫鶚",
+      "citation": "CBDB 中国历代人物传记资料库 person 21384",
+      "gender": "male"
+    },
+    {
+      "externalId": "44898",
+      "name": "某氏(孫鶚妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 44898",
+      "gender": "female"
+    },
+    {
+      "externalId": "25581",
+      "name": "孫綜",
+      "citation": "CBDB 中国历代人物传记资料库 person 25581",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "20822",
+      "child": "8118"
+    },
+    {
+      "kind": "parent",
+      "parent": "44983",
+      "child": "8118"
+    },
+    {
+      "kind": "parent",
+      "parent": "44989",
+      "child": "8118"
+    },
+    {
+      "kind": "spouse",
+      "a": "5113",
+      "b": "8118"
+    },
+    {
+      "kind": "parent",
+      "parent": "8118",
+      "child": "25579"
+    },
+    {
+      "kind": "parent",
+      "parent": "21385",
+      "child": "20822"
+    },
+    {
+      "kind": "spouse",
+      "a": "20822",
+      "b": "44983"
+    },
+    {
+      "kind": "spouse",
+      "a": "20822",
+      "b": "44989"
+    },
+    {
+      "kind": "parent",
+      "parent": "25579",
+      "child": "25580"
+    },
+    {
+      "kind": "parent",
+      "parent": "21384",
+      "child": "21385"
+    },
+    {
+      "kind": "spouse",
+      "a": "21385",
+      "b": "44900"
+    },
+    {
+      "kind": "parent",
+      "parent": "25580",
+      "child": "25581"
+    },
+    {
+      "kind": "spouse",
+      "a": "21384",
+      "b": "44898"
+    }
+  ]
+}

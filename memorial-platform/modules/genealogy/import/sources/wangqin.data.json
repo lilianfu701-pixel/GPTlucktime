@@ -1,0 +1,97 @@
+{
+  "key": "cbdb:wangqin",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "1768",
+      "name": "王欽若",
+      "citation": "CBDB 中国历代人物传记资料库 person 1768",
+      "gender": "male",
+      "birth": {
+        "year": 962
+      },
+      "death": {
+        "year": 1025
+      }
+    },
+    {
+      "externalId": "119415",
+      "name": "李氏(王欽若妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 119415",
+      "gender": "female"
+    },
+    {
+      "externalId": "21957",
+      "name": "王仲華",
+      "citation": "CBDB 中国历代人物传记资料库 person 21957",
+      "gender": "male"
+    },
+    {
+      "externalId": "37406",
+      "name": "王從益",
+      "citation": "CBDB 中国历代人物传记资料库 person 37406",
+      "gender": "male"
+    },
+    {
+      "externalId": "22256",
+      "name": "王慶之",
+      "citation": "CBDB 中国历代人物传记资料库 person 22256",
+      "gender": "male"
+    },
+    {
+      "externalId": "21956",
+      "name": "王郁",
+      "citation": "CBDB 中国历代人物传记资料库 person 21956",
+      "gender": "male"
+    },
+    {
+      "externalId": "3952",
+      "name": "王遐",
+      "citation": "CBDB 中国历代人物传记资料库 person 3952",
+      "gender": "male"
+    },
+    {
+      "externalId": "3978",
+      "name": "王",
+      "citation": "CBDB 中国历代人物传记资料库 person 3978",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "21957",
+      "child": "1768"
+    },
+    {
+      "kind": "spouse",
+      "a": "119415",
+      "b": "1768"
+    },
+    {
+      "kind": "parent",
+      "parent": "1768",
+      "child": "37406"
+    },
+    {
+      "kind": "parent",
+      "parent": "1768",
+      "child": "22256"
+    },
+    {
+      "kind": "parent",
+      "parent": "21956",
+      "child": "21957"
+    },
+    {
+      "kind": "parent",
+      "parent": "3952",
+      "child": "21956"
+    },
+    {
+      "kind": "parent",
+      "parent": "3978",
+      "child": "3952"
+    }
+  ]
+}

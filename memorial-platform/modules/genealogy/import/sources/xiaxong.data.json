@@ -1,0 +1,64 @@
+{
+  "key": "cbdb:xiaxong",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "703",
+      "name": "夏竦",
+      "citation": "CBDB 中国历代人物传记资料库 person 703",
+      "gender": "male",
+      "birth": {
+        "year": 985
+      },
+      "death": {
+        "year": 1051
+      }
+    },
+    {
+      "externalId": "119404",
+      "name": "楊氏(夏竦妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 119404",
+      "gender": "female"
+    },
+    {
+      "externalId": "18443",
+      "name": "夏承皓",
+      "citation": "CBDB 中国历代人物传记资料库 person 18443",
+      "gender": "male"
+    },
+    {
+      "externalId": "18442",
+      "name": "夏奐",
+      "citation": "CBDB 中国历代人物传记资料库 person 18442",
+      "gender": "male"
+    },
+    {
+      "externalId": "18441",
+      "name": "夏昱",
+      "citation": "CBDB 中国历代人物传记资料库 person 18441",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "18443",
+      "child": "703"
+    },
+    {
+      "kind": "spouse",
+      "a": "119404",
+      "b": "703"
+    },
+    {
+      "kind": "parent",
+      "parent": "18442",
+      "child": "18443"
+    },
+    {
+      "kind": "parent",
+      "parent": "18441",
+      "child": "18442"
+    }
+  ]
+}

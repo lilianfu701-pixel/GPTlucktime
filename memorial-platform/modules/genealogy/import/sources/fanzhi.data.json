@@ -1,0 +1,182 @@
+{
+  "key": "cbdb:fanzhi",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "8041",
+      "name": "范質",
+      "citation": "CBDB 中国历代人物传记资料库 person 8041",
+      "gender": "male",
+      "birth": {
+        "year": 911
+      },
+      "death": {
+        "year": 964
+      }
+    },
+    {
+      "externalId": "16794",
+      "name": "范守愚",
+      "citation": "CBDB 中国历代人物传记资料库 person 16794",
+      "gender": "male"
+    },
+    {
+      "externalId": "119660",
+      "name": "范守遇",
+      "citation": "CBDB 中国历代人物传记资料库 person 119660",
+      "gender": "male"
+    },
+    {
+      "externalId": "577",
+      "name": "范旻",
+      "citation": "CBDB 中国历代人物传记资料库 person 577",
+      "gender": "male",
+      "birth": {
+        "year": 936
+      },
+      "death": {
+        "year": 981
+      }
+    },
+    {
+      "externalId": "3280",
+      "name": "范貽孫",
+      "citation": "CBDB 中国历代人物传记资料库 person 3280",
+      "gender": "male",
+      "birth": {
+        "year": 960
+      },
+      "death": {
+        "year": 1002
+      }
+    },
+    {
+      "externalId": "7025",
+      "name": "范令孫",
+      "citation": "CBDB 中国历代人物传记资料库 person 7025",
+      "gender": "male"
+    },
+    {
+      "externalId": "5035",
+      "name": "范氏(韓絳妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 5035",
+      "gender": "female",
+      "birth": {
+        "year": 1015
+      },
+      "death": {
+        "year": 1067
+      }
+    },
+    {
+      "externalId": "636",
+      "name": "韓絳",
+      "citation": "CBDB 中国历代人物传记资料库 person 636",
+      "gender": "male",
+      "birth": {
+        "year": 1012
+      },
+      "death": {
+        "year": 1088
+      }
+    },
+    {
+      "externalId": "16795",
+      "name": "范禧",
+      "citation": "CBDB 中国历代人物传记资料库 person 16795",
+      "gender": "male"
+    },
+    {
+      "externalId": "3286",
+      "name": "范紳",
+      "citation": "CBDB 中国历代人物传记资料库 person 3286",
+      "gender": "male"
+    },
+    {
+      "externalId": "16796",
+      "name": "范綬",
+      "citation": "CBDB 中国历代人物传记资料库 person 16796",
+      "gender": "male"
+    },
+    {
+      "externalId": "3285",
+      "name": "范世基",
+      "citation": "CBDB 中国历代人物传记资料库 person 3285",
+      "gender": "male"
+    },
+    {
+      "externalId": "3271",
+      "name": "范世德",
+      "citation": "CBDB 中国历代人物传记资料库 person 3271",
+      "gender": "male",
+      "birth": {
+        "year": 1067
+      },
+      "death": {
+        "year": 1098
+      }
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "16794",
+      "child": "8041"
+    },
+    {
+      "kind": "parent",
+      "parent": "119660",
+      "child": "8041"
+    },
+    {
+      "kind": "parent",
+      "parent": "8041",
+      "child": "577"
+    },
+    {
+      "kind": "parent",
+      "parent": "577",
+      "child": "3280"
+    },
+    {
+      "kind": "parent",
+      "parent": "577",
+      "child": "7025"
+    },
+    {
+      "kind": "parent",
+      "parent": "7025",
+      "child": "5035"
+    },
+    {
+      "kind": "parent",
+      "parent": "7025",
+      "child": "16795"
+    },
+    {
+      "kind": "spouse",
+      "a": "5035",
+      "b": "636"
+    },
+    {
+      "kind": "parent",
+      "parent": "16795",
+      "child": "3286"
+    },
+    {
+      "kind": "parent",
+      "parent": "16795",
+      "child": "16796"
+    },
+    {
+      "kind": "parent",
+      "parent": "16796",
+      "child": "3285"
+    },
+    {
+      "kind": "parent",
+      "parent": "16796",
+      "child": "3271"
+    }
+  ]
+}

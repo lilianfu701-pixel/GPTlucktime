@@ -1,0 +1,75 @@
+{
+  "key": "cbdb:shenghao",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "8109",
+      "name": "盛度",
+      "citation": "CBDB 中国历代人物传记资料库 person 8109",
+      "gender": "male",
+      "birth": {
+        "year": 968
+      },
+      "death": {
+        "year": 1041
+      }
+    },
+    {
+      "externalId": "13527",
+      "name": "盛豫",
+      "citation": "CBDB 中国历代人物传记资料库 person 13527",
+      "gender": "male"
+    },
+    {
+      "externalId": "20973",
+      "name": "盛申甫",
+      "citation": "CBDB 中国历代人物传记资料库 person 20973",
+      "gender": "male"
+    },
+    {
+      "externalId": "20968",
+      "name": "盛子謙",
+      "citation": "CBDB 中国历代人物传记资料库 person 20968",
+      "gender": "male"
+    },
+    {
+      "externalId": "13526",
+      "name": "盛嘗",
+      "citation": "CBDB 中国历代人物传记资料库 person 13526",
+      "gender": "male"
+    },
+    {
+      "externalId": "13525",
+      "name": "盛A",
+      "citation": "CBDB 中国历代人物传记资料库 person 13525",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "13527",
+      "child": "8109"
+    },
+    {
+      "kind": "parent",
+      "parent": "8109",
+      "child": "20973"
+    },
+    {
+      "kind": "parent",
+      "parent": "20968",
+      "child": "13527"
+    },
+    {
+      "kind": "parent",
+      "parent": "13526",
+      "child": "20968"
+    },
+    {
+      "kind": "parent",
+      "parent": "13525",
+      "child": "13526"
+    }
+  ]
+}

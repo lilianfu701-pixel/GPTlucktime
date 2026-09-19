@@ -1,0 +1,70 @@
+{
+  "key": "cbdb:zhangfang",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "217",
+      "name": "張方平",
+      "citation": "CBDB 中国历代人物传记资料库 person 217",
+      "gender": "male",
+      "birth": {
+        "year": 1007
+      },
+      "death": {
+        "year": 1091
+      }
+    },
+    {
+      "externalId": "3173",
+      "name": "張堯卿",
+      "citation": "CBDB 中国历代人物传记资料库 person 3173",
+      "gender": "male",
+      "birth": {
+        "year": 985
+      },
+      "death": {
+        "year": 1067
+      }
+    },
+    {
+      "externalId": "3126",
+      "name": "張嶠",
+      "citation": "CBDB 中国历代人物传记资料库 person 3126",
+      "gender": "male"
+    },
+    {
+      "externalId": "13611",
+      "name": "張文熙",
+      "citation": "CBDB 中国历代人物传记资料库 person 13611",
+      "gender": "male"
+    },
+    {
+      "externalId": "13610",
+      "name": "張克",
+      "citation": "CBDB 中国历代人物传记资料库 person 13610",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "3173",
+      "child": "217"
+    },
+    {
+      "kind": "parent",
+      "parent": "3126",
+      "child": "3173"
+    },
+    {
+      "kind": "parent",
+      "parent": "13611",
+      "child": "3126"
+    },
+    {
+      "kind": "parent",
+      "parent": "13610",
+      "child": "13611"
+    }
+  ]
+}

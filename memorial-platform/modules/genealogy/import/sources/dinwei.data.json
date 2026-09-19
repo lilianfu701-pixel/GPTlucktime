@@ -1,0 +1,86 @@
+{
+  "key": "cbdb:dinwei",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "1641",
+      "name": "丁謂",
+      "citation": "CBDB 中国历代人物传记资料库 person 1641",
+      "gender": "male",
+      "birth": {
+        "year": 966
+      },
+      "death": {
+        "year": 1037
+      }
+    },
+    {
+      "externalId": "21625",
+      "name": "丁顥",
+      "citation": "CBDB 中国历代人物传记资料库 person 21625",
+      "gender": "male"
+    },
+    {
+      "externalId": "13102",
+      "name": "丁珙",
+      "citation": "CBDB 中国历代人物传记资料库 person 13102",
+      "gender": "male"
+    },
+    {
+      "externalId": "121433",
+      "name": "丁珷",
+      "citation": "CBDB 中国历代人物传记资料库 person 121433",
+      "gender": "male"
+    },
+    {
+      "externalId": "120128",
+      "name": "丁珝",
+      "citation": "CBDB 中国历代人物传记资料库 person 120128",
+      "gender": "male"
+    },
+    {
+      "externalId": "120130",
+      "name": "丁玘",
+      "citation": "CBDB 中国历代人物传记资料库 person 120130",
+      "gender": "male"
+    },
+    {
+      "externalId": "3848",
+      "name": "丁A",
+      "citation": "CBDB 中国历代人物传记资料库 person 3848",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "21625",
+      "child": "1641"
+    },
+    {
+      "kind": "parent",
+      "parent": "1641",
+      "child": "13102"
+    },
+    {
+      "kind": "parent",
+      "parent": "1641",
+      "child": "121433"
+    },
+    {
+      "kind": "parent",
+      "parent": "1641",
+      "child": "120128"
+    },
+    {
+      "kind": "parent",
+      "parent": "1641",
+      "child": "120130"
+    },
+    {
+      "kind": "parent",
+      "parent": "3848",
+      "child": "21625"
+    }
+  ]
+}

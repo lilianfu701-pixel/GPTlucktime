@@ -1,0 +1,64 @@
+{
+  "key": "cbdb:lvshen",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "30401",
+      "name": "呂申",
+      "citation": "CBDB 中国历代人物传记资料库 person 30401",
+      "gender": "male"
+    },
+    {
+      "externalId": "5084",
+      "name": "胡氏 (呂申妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 5084",
+      "gender": "female",
+      "birth": {
+        "year": 1082
+      },
+      "death": {
+        "year": 1149
+      }
+    },
+    {
+      "externalId": "3646",
+      "name": "呂靖",
+      "citation": "CBDB 中国历代人物传记资料库 person 3646",
+      "gender": "male"
+    },
+    {
+      "externalId": "12459",
+      "name": "呂紘",
+      "citation": "CBDB 中国历代人物传记资料库 person 12459",
+      "gender": "male"
+    },
+    {
+      "externalId": "12579",
+      "name": "呂襲",
+      "citation": "CBDB 中国历代人物传记资料库 person 12579",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "spouse",
+      "a": "30401",
+      "b": "5084"
+    },
+    {
+      "kind": "parent",
+      "parent": "30401",
+      "child": "3646"
+    },
+    {
+      "kind": "parent",
+      "parent": "30401",
+      "child": "12459"
+    },
+    {
+      "kind": "parent",
+      "parent": "3646",
+      "child": "12579"
+    }
+  ]
+}

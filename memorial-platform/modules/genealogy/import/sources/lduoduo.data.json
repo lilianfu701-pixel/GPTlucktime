@@ -1,0 +1,86 @@
+{
+  "key": "cbdb:lduoduo",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "8095",
+      "name": "盧多遜",
+      "citation": "CBDB 中国历代人物传记资料库 person 8095",
+      "gender": "male",
+      "birth": {
+        "year": 934
+      },
+      "death": {
+        "year": 985
+      }
+    },
+    {
+      "externalId": "20492",
+      "name": "盧億",
+      "citation": "CBDB 中国历代人物传记资料库 person 20492",
+      "gender": "male"
+    },
+    {
+      "externalId": "119699",
+      "name": "盧雍",
+      "citation": "CBDB 中国历代人物传记资料库 person 119699",
+      "gender": "male"
+    },
+    {
+      "externalId": "119701",
+      "name": "盧寬",
+      "citation": "CBDB 中国历代人物传记资料库 person 119701",
+      "gender": "male"
+    },
+    {
+      "externalId": "119702",
+      "name": "盧察",
+      "citation": "CBDB 中国历代人物传记资料库 person 119702",
+      "gender": "male"
+    },
+    {
+      "externalId": "20491",
+      "name": "盧貞啟",
+      "citation": "CBDB 中国历代人物传记资料库 person 20491",
+      "gender": "male"
+    },
+    {
+      "externalId": "20490",
+      "name": "盧得一",
+      "citation": "CBDB 中国历代人物传记资料库 person 20490",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "20492",
+      "child": "8095"
+    },
+    {
+      "kind": "parent",
+      "parent": "8095",
+      "child": "119699"
+    },
+    {
+      "kind": "parent",
+      "parent": "8095",
+      "child": "119701"
+    },
+    {
+      "kind": "parent",
+      "parent": "8095",
+      "child": "119702"
+    },
+    {
+      "kind": "parent",
+      "parent": "20491",
+      "child": "20492"
+    },
+    {
+      "kind": "parent",
+      "parent": "20490",
+      "child": "20491"
+    }
+  ]
+}

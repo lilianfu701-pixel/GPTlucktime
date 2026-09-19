@@ -1,0 +1,148 @@
+{
+  "key": "cbdb:zhaobian",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "375",
+      "name": "趙抃",
+      "citation": "CBDB 中国历代人物传记资料库 person 375",
+      "gender": "male",
+      "birth": {
+        "year": 1008
+      },
+      "death": {
+        "year": 1084
+      }
+    },
+    {
+      "externalId": "20706",
+      "name": "趙亞才",
+      "citation": "CBDB 中国历代人物传记资料库 person 20706",
+      "gender": "male"
+    },
+    {
+      "externalId": "7017",
+      "name": "趙㞦",
+      "citation": "CBDB 中国历代人物传记资料库 person 7017",
+      "gender": "male"
+    },
+    {
+      "externalId": "11964",
+      "name": "趙屼",
+      "citation": "CBDB 中国历代人物传记资料库 person 11964",
+      "gender": "male",
+      "birth": {
+        "year": 1035
+      },
+      "death": {
+        "year": 1065
+      }
+    },
+    {
+      "externalId": "360",
+      "name": "趙湘",
+      "citation": "CBDB 中国历代人物传记资料库 person 360",
+      "gender": "male"
+    },
+    {
+      "externalId": "369",
+      "name": "趙霖",
+      "citation": "CBDB 中国历代人物传记资料库 person 369",
+      "gender": "male"
+    },
+    {
+      "externalId": "5089",
+      "name": "趙英",
+      "citation": "CBDB 中国历代人物传记资料库 person 5089",
+      "gender": "female",
+      "birth": {
+        "year": 1062
+      },
+      "death": {
+        "year": 1089
+      }
+    },
+    {
+      "externalId": "3672",
+      "name": "毛滂",
+      "citation": "CBDB 中国历代人物传记资料库 person 3672",
+      "gender": "male"
+    },
+    {
+      "externalId": "119569",
+      "name": "趙雲",
+      "citation": "CBDB 中国历代人物传记资料库 person 119569",
+      "gender": "male"
+    },
+    {
+      "externalId": "20705",
+      "name": "趙曇",
+      "citation": "CBDB 中国历代人物传记资料库 person 20705",
+      "gender": "male"
+    },
+    {
+      "externalId": "362",
+      "name": "趙億",
+      "citation": "CBDB 中国历代人物传记资料库 person 362",
+      "gender": "male",
+      "birth": {
+        "year": 1081
+      },
+      "death": {
+        "year": 1135
+      }
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "20706",
+      "child": "375"
+    },
+    {
+      "kind": "parent",
+      "parent": "375",
+      "child": "7017"
+    },
+    {
+      "kind": "parent",
+      "parent": "375",
+      "child": "11964"
+    },
+    {
+      "kind": "parent",
+      "parent": "360",
+      "child": "20706"
+    },
+    {
+      "kind": "parent",
+      "parent": "7017",
+      "child": "369"
+    },
+    {
+      "kind": "parent",
+      "parent": "11964",
+      "child": "5089"
+    },
+    {
+      "kind": "parent",
+      "parent": "11964",
+      "child": "119569"
+    },
+    {
+      "kind": "parent",
+      "parent": "20705",
+      "child": "360"
+    },
+    {
+      "kind": "parent",
+      "parent": "369",
+      "child": "362"
+    },
+    {
+      "kind": "spouse",
+      "a": "3672",
+      "b": "5089"
+    }
+  ]
+}

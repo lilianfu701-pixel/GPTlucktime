@@ -1,0 +1,64 @@
+{
+  "key": "cbdb:chenzheng",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "77",
+      "name": "陳升之",
+      "citation": "CBDB 中国历代人物传记资料库 person 77",
+      "gender": "male",
+      "birth": {
+        "year": 1011
+      },
+      "death": {
+        "year": 1079
+      }
+    },
+    {
+      "externalId": "14324",
+      "name": "陳儼",
+      "citation": "CBDB 中国历代人物传记资料库 person 14324",
+      "gender": "male"
+    },
+    {
+      "externalId": "14330",
+      "name": "陳閌",
+      "citation": "CBDB 中国历代人物传记资料库 person 14330",
+      "gender": "male"
+    },
+    {
+      "externalId": "14331",
+      "name": "陳閎",
+      "citation": "CBDB 中国历代人物传记资料库 person 14331",
+      "gender": "male"
+    },
+    {
+      "externalId": "14325",
+      "name": "陳曉",
+      "citation": "CBDB 中国历代人物传记资料库 person 14325",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "14324",
+      "child": "77"
+    },
+    {
+      "kind": "parent",
+      "parent": "77",
+      "child": "14330"
+    },
+    {
+      "kind": "parent",
+      "parent": "77",
+      "child": "14331"
+    },
+    {
+      "kind": "parent",
+      "parent": "14325",
+      "child": "14324"
+    }
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "key": "cbdb:caiqi",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "1646",
+      "name": "蔡齊",
+      "citation": "CBDB 中国历代人物传记资料库 person 1646",
+      "gender": "male",
+      "birth": {
+        "year": 988
+      },
+      "death": {
+        "year": 1039
+      }
+    },
+    {
+      "externalId": "12098",
+      "name": "蔡夢臣",
+      "citation": "CBDB 中国历代人物传记资料库 person 12098",
+      "gender": "male"
+    },
+    {
+      "externalId": "119462",
+      "name": "劉氏(蔡齊母)",
+      "citation": "CBDB 中国历代人物传记资料库 person 119462",
+      "gender": "female"
+    },
+    {
+      "externalId": "119649",
+      "name": "蔡延嗣",
+      "citation": "CBDB 中国历代人物传记资料库 person 119649",
+      "gender": "male"
+    },
+    {
+      "externalId": "12096",
+      "name": "蔡鄰",
+      "citation": "CBDB 中国历代人物传记资料库 person 12096",
+      "gender": "male"
+    },
+    {
+      "externalId": "3867",
+      "name": "蔡綰",
+      "citation": "CBDB 中国历代人物传记资料库 person 3867",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "12098",
+      "child": "1646"
+    },
+    {
+      "kind": "parent",
+      "parent": "119462",
+      "child": "1646"
+    },
+    {
+      "kind": "parent",
+      "parent": "1646",
+      "child": "119649"
+    },
+    {
+      "kind": "parent",
+      "parent": "12096",
+      "child": "12098"
+    },
+    {
+      "kind": "parent",
+      "parent": "3867",
+      "child": "12096"
+    }
+  ]
+}
