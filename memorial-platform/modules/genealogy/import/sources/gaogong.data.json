@@ -1,0 +1,53 @@
+{
+  "key": "cbdb:gaogong",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "30847",
+      "name": "高拱",
+      "citation": "CBDB 中国历代人物传记资料库 person 30847",
+      "gender": "male",
+      "birth": {
+        "year": 1510
+      },
+      "death": {
+        "year": 1578
+      }
+    },
+    {
+      "externalId": "302177",
+      "name": "張氏(高拱妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 302177",
+      "gender": "female"
+    },
+    {
+      "externalId": "298235",
+      "name": "高尚賢",
+      "citation": "CBDB 中国历代人物传记资料库 person 298235",
+      "gender": "male"
+    },
+    {
+      "externalId": "302176",
+      "name": "沈氏(高拱母)",
+      "citation": "CBDB 中国历代人物传记资料库 person 302176",
+      "gender": "female"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "298235",
+      "child": "30847"
+    },
+    {
+      "kind": "parent",
+      "parent": "302176",
+      "child": "30847"
+    },
+    {
+      "kind": "spouse",
+      "a": "302177",
+      "b": "30847"
+    }
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "key": "cbdb:hujuren",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "30631",
+      "name": "胡居仁",
+      "citation": "CBDB 中国历代人物传记资料库 person 30631",
+      "gender": "male",
+      "birth": {
+        "year": 1434
+      },
+      "death": {
+        "year": 1484
+      }
+    },
+    {
+      "externalId": "30632",
+      "name": "胡南俊",
+      "citation": "CBDB 中国历代人物传记资料库 person 30632",
+      "gender": "male",
+      "birth": {
+        "year": 1396
+      },
+      "death": {
+        "year": 1466
+      }
+    },
+    {
+      "externalId": "30633",
+      "name": "胡義",
+      "citation": "CBDB 中国历代人物传记资料库 person 30633",
+      "gender": "male"
+    },
+    {
+      "externalId": "30634",
+      "name": "胡伯昂",
+      "citation": "CBDB 中国历代人物传记资料库 person 30634",
+      "gender": "male"
+    },
+    {
+      "externalId": "30635",
+      "name": "胡日升",
+      "citation": "CBDB 中国历代人物传记资料库 person 30635",
+      "gender": "male"
+    },
+    {
+      "externalId": "30636",
+      "name": "胡汝器",
+      "citation": "CBDB 中国历代人物传记资料库 person 30636",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "30632",
+      "child": "30631"
+    },
+    {
+      "kind": "parent",
+      "parent": "30633",
+      "child": "30632"
+    },
+    {
+      "kind": "parent",
+      "parent": "30634",
+      "child": "30633"
+    },
+    {
+      "kind": "parent",
+      "parent": "30635",
+      "child": "30634"
+    },
+    {
+      "kind": "parent",
+      "parent": "30636",
+      "child": "30635"
+    }
+  ]
+}

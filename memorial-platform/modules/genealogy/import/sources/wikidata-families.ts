@@ -212,6 +212,14 @@ import suweidao from "./suweidao.data.json";
 import liufen from "./liufen.data.json";
 import liugong from "./liugong.data.json";
 import xiaoying from "./xiaoying.data.json";
+// CBDB 第二十九批（明代前七子·明代阁臣·明代心学理学）
+import yangshiqi from "./yangshiqi.data.json";
+import zhanruoshui from "./zhanruoshui.data.json";
+import hujuren from "./hujuren.data.json";
+import gaogong from "./gaogong.data.json";
+import kanghai from "./kanghai.data.json";
+import biangong from "./biangong.data.json";
+import xuzhengqing from "./xuzhengqing.data.json";
 // CBDB 第二十八批（唐代将领·晚清重臣·清代学人）
 import peixingjian from "./peixingjian.data.json";
 import wangyoudun from "./wangyoudun.data.json";
@@ -693,6 +701,14 @@ const FAMILIES: { key: string; label: string; dataset: GenealogyDataset }[] = [
   { key: "liufen", label: "河东柳氏·柳芬支（柳懿·柳均·南北朝到唐）", dataset: liufen as GenealogyDataset },
   { key: "liugong", label: "河东柳氏·柳公权支（书法家·柳瑗·柳仲憲）", dataset: liugong as GenealogyDataset },
   { key: "xiaoying", label: "兰陵萧氏·萧颖士支（萧道赐·萧恢·南朝到唐）", dataset: xiaoying as GenealogyDataset },
+  // CBDB 第二十九批：明代前七子·明代阁臣·明代心学理学
+  { key: "yangshiqi", label: "吉水杨氏·杨士奇支（明代三杨·内阁首辅·1365-1444·3人）", dataset: yangshiqi as GenealogyDataset },
+  { key: "zhanruoshui", label: "增城湛氏·湛若水支（明代心学·甘泉学派·1466-1560·4人）", dataset: zhanruoshui as GenealogyDataset },
+  { key: "hujuren", label: "余干胡氏·胡居仁支（明代理学·白鹿洞书院·1434-1484·6人）", dataset: hujuren as GenealogyDataset },
+  { key: "gaogong", label: "新郑高氏·高拱支（明代内阁首辅·张居正师·1510-1578·4人）", dataset: gaogong as GenealogyDataset },
+  { key: "kanghai", label: "武功康氏·康海支（明代前七子·散曲家·1475-1540·12人）", dataset: kanghai as GenealogyDataset },
+  { key: "biangong", label: "历城边氏·边贡支（明代前七子·诗人·1476-1532·8人）", dataset: biangong as GenealogyDataset },
+  { key: "xuzhengqing", label: "常熟徐氏·徐祯卿支（明代前七子·诗人·1479-1511·5人）", dataset: xuzhengqing as GenealogyDataset },
   // CBDB 第二十八批：唐代将领·晚清重臣·清代学人
   { key: "peixingjian", label: "河东裴氏·裴行俭支（唐代名将·619-682·含裴光庭/裴均·40人）", dataset: peixingjian as GenealogyDataset },
   { key: "wangyoudun", label: "休宁汪氏·汪由敦支（清代重臣·书法家·1692-1758·3人）", dataset: wangyoudun as GenealogyDataset },

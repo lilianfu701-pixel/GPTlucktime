@@ -1,0 +1,64 @@
+{
+  "key": "cbdb:xuzhengqing",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "33842",
+      "name": "徐禎卿",
+      "citation": "CBDB 中国历代人物传记资料库 person 33842",
+      "gender": "male",
+      "birth": {
+        "year": 1479
+      },
+      "death": {
+        "year": 1511
+      }
+    },
+    {
+      "externalId": "273609",
+      "name": "高氏(徐禎卿妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 273609",
+      "gender": "female"
+    },
+    {
+      "externalId": "273604",
+      "name": "徐昱",
+      "citation": "CBDB 中国历代人物传记资料库 person 273604",
+      "gender": "male"
+    },
+    {
+      "externalId": "273607",
+      "name": "屠氏(徐禎卿母)",
+      "citation": "CBDB 中国历代人物传记资料库 person 273607",
+      "gender": "female"
+    },
+    {
+      "externalId": "30383",
+      "name": "徐伯虯",
+      "citation": "CBDB 中国历代人物传记资料库 person 30383",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "273604",
+      "child": "33842"
+    },
+    {
+      "kind": "parent",
+      "parent": "273607",
+      "child": "33842"
+    },
+    {
+      "kind": "spouse",
+      "a": "273609",
+      "b": "33842"
+    },
+    {
+      "kind": "parent",
+      "parent": "33842",
+      "child": "30383"
+    }
+  ]
+}

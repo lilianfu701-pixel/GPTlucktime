@@ -1,0 +1,53 @@
+{
+  "key": "cbdb:zhanruoshui",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "131191",
+      "name": "湛若水",
+      "citation": "CBDB 中国历代人物传记资料库 person 131191",
+      "gender": "male",
+      "birth": {
+        "year": 1466
+      },
+      "death": {
+        "year": 1560
+      }
+    },
+    {
+      "externalId": "272737",
+      "name": "袁氏(湛若水妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 272737",
+      "gender": "female"
+    },
+    {
+      "externalId": "272735",
+      "name": "湛瑛",
+      "citation": "CBDB 中国历代人物传记资料库 person 272735",
+      "gender": "male"
+    },
+    {
+      "externalId": "272736",
+      "name": "陳氏(湛若水母)",
+      "citation": "CBDB 中国历代人物传记资料库 person 272736",
+      "gender": "female"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "272735",
+      "child": "131191"
+    },
+    {
+      "kind": "parent",
+      "parent": "272736",
+      "child": "131191"
+    },
+    {
+      "kind": "spouse",
+      "a": "131191",
+      "b": "272737"
+    }
+  ]
+}

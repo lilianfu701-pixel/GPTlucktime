@@ -1,0 +1,97 @@
+{
+  "key": "cbdb:biangong",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "34634",
+      "name": "邊貢",
+      "citation": "CBDB 中国历代人物传记资料库 person 34634",
+      "gender": "male",
+      "birth": {
+        "year": 1476
+      },
+      "death": {
+        "year": 1532
+      }
+    },
+    {
+      "externalId": "269643",
+      "name": "柴氏(邊貢妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 269643",
+      "gender": "female"
+    },
+    {
+      "externalId": "122849",
+      "name": "胡氏(邊貢繼室)",
+      "citation": "CBDB 中国历代人物传记资料库 person 122849",
+      "gender": "female"
+    },
+    {
+      "externalId": "269644",
+      "name": "胡氏(邊貢繼妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 269644",
+      "gender": "female"
+    },
+    {
+      "externalId": "269641",
+      "name": "邊節",
+      "citation": "CBDB 中国历代人物传记资料库 person 269641",
+      "gender": "male"
+    },
+    {
+      "externalId": "269642",
+      "name": "董氏(邊貢母)",
+      "citation": "CBDB 中国历代人物传记资料库 person 269642",
+      "gender": "female"
+    },
+    {
+      "externalId": "34635",
+      "name": "邊節",
+      "citation": "CBDB 中国历代人物传记资料库 person 34635",
+      "gender": "male"
+    },
+    {
+      "externalId": "34636",
+      "name": "邊寧",
+      "citation": "CBDB 中国历代人物传记资料库 person 34636",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "269641",
+      "child": "34634"
+    },
+    {
+      "kind": "parent",
+      "parent": "269642",
+      "child": "34634"
+    },
+    {
+      "kind": "spouse",
+      "a": "269643",
+      "b": "34634"
+    },
+    {
+      "kind": "spouse",
+      "a": "122849",
+      "b": "34634"
+    },
+    {
+      "kind": "spouse",
+      "a": "269644",
+      "b": "34634"
+    },
+    {
+      "kind": "parent",
+      "parent": "34634",
+      "child": "34635"
+    },
+    {
+      "kind": "parent",
+      "parent": "34635",
+      "child": "34636"
+    }
+  ]
+}

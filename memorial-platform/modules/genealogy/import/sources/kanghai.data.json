@@ -1,0 +1,141 @@
+{
+  "key": "cbdb:kanghai",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "34645",
+      "name": "康海",
+      "citation": "CBDB 中国历代人物传记资料库 person 34645",
+      "gender": "male",
+      "birth": {
+        "year": 1475
+      },
+      "death": {
+        "year": 1540
+      }
+    },
+    {
+      "externalId": "269779",
+      "name": "尚氏(康海妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 269779",
+      "gender": "female"
+    },
+    {
+      "externalId": "269777",
+      "name": "康鏞",
+      "citation": "CBDB 中国历代人物传记资料库 person 269777",
+      "gender": "male"
+    },
+    {
+      "externalId": "269778",
+      "name": "張氏(康海母)",
+      "citation": "CBDB 中国历代人物传记资料库 person 269778",
+      "gender": "female"
+    },
+    {
+      "externalId": "123183",
+      "name": "康氏(張之榘妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 123183",
+      "gender": "female"
+    },
+    {
+      "externalId": "123185",
+      "name": "張之榘",
+      "citation": "CBDB 中国历代人物传记资料库 person 123185",
+      "gender": "male"
+    },
+    {
+      "externalId": "531069",
+      "name": "康梣",
+      "citation": "CBDB 中国历代人物传记资料库 person 531069",
+      "gender": "male"
+    },
+    {
+      "externalId": "555037",
+      "name": "康栗",
+      "citation": "CBDB 中国历代人物传记资料库 person 555037",
+      "gender": "male"
+    },
+    {
+      "externalId": "555038",
+      "name": "楊氏(康栗之妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 555038",
+      "gender": "female"
+    },
+    {
+      "externalId": "269776",
+      "name": "康健",
+      "citation": "CBDB 中国历代人物传记资料库 person 269776",
+      "gender": "male"
+    },
+    {
+      "externalId": "269775",
+      "name": "康爵",
+      "citation": "CBDB 中国历代人物传记资料库 person 269775",
+      "gender": "male"
+    },
+    {
+      "externalId": "530936",
+      "name": "康汝楫",
+      "citation": "CBDB 中国历代人物传记资料库 person 530936",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "269777",
+      "child": "34645"
+    },
+    {
+      "kind": "parent",
+      "parent": "269778",
+      "child": "34645"
+    },
+    {
+      "kind": "spouse",
+      "a": "269779",
+      "b": "34645"
+    },
+    {
+      "kind": "parent",
+      "parent": "34645",
+      "child": "123183"
+    },
+    {
+      "kind": "parent",
+      "parent": "34645",
+      "child": "531069"
+    },
+    {
+      "kind": "parent",
+      "parent": "34645",
+      "child": "555037"
+    },
+    {
+      "kind": "parent",
+      "parent": "269776",
+      "child": "269777"
+    },
+    {
+      "kind": "spouse",
+      "a": "123183",
+      "b": "123185"
+    },
+    {
+      "kind": "spouse",
+      "a": "555037",
+      "b": "555038"
+    },
+    {
+      "kind": "parent",
+      "parent": "269775",
+      "child": "269776"
+    },
+    {
+      "kind": "parent",
+      "parent": "530936",
+      "child": "269775"
+    }
+  ]
+}

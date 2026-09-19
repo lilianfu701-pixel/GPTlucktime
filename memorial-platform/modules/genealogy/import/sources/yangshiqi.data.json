@@ -1,0 +1,42 @@
+{
+  "key": "cbdb:yangshiqi",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "28113",
+      "name": "楊士奇",
+      "citation": "CBDB 中国历代人物传记资料库 person 28113",
+      "gender": "male",
+      "birth": {
+        "year": 1365
+      },
+      "death": {
+        "year": 1444
+      }
+    },
+    {
+      "externalId": "28114",
+      "name": "楊稷",
+      "citation": "CBDB 中国历代人物传记资料库 person 28114",
+      "gender": "male"
+    },
+    {
+      "externalId": "28115",
+      "name": "楊",
+      "citation": "CBDB 中国历代人物传记资料库 person 28115",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "28113",
+      "child": "28114"
+    },
+    {
+      "kind": "parent",
+      "parent": "28113",
+      "child": "28115"
+    }
+  ]
+}
