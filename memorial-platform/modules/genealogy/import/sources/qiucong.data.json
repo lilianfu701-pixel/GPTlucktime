@@ -1,0 +1,77 @@
+{
+  "key": "cbdb:qiucong",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "39256",
+      "name": "丘崈",
+      "citation": "CBDB 中国历代人物传记资料库 person 39256",
+      "gender": "male",
+      "birth": {
+        "year": 1101
+      }
+    },
+    {
+      "externalId": "135277",
+      "name": "林氏(丘崈妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 135277",
+      "gender": "female"
+    },
+    {
+      "externalId": "23722",
+      "name": "丘達",
+      "citation": "CBDB 中国历代人物传记资料库 person 23722",
+      "gender": "male"
+    },
+    {
+      "externalId": "135276",
+      "name": "連氏(丘崈母)",
+      "citation": "CBDB 中国历代人物传记资料库 person 135276",
+      "gender": "female"
+    },
+    {
+      "externalId": "23721",
+      "name": "丘筠",
+      "citation": "CBDB 中国历代人物传记资料库 person 23721",
+      "gender": "male"
+    },
+    {
+      "externalId": "23720",
+      "name": "丘延肇",
+      "citation": "CBDB 中国历代人物传记资料库 person 23720",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "23722",
+      "child": "39256"
+    },
+    {
+      "kind": "parent",
+      "parent": "135276",
+      "child": "39256"
+    },
+    {
+      "kind": "spouse",
+      "a": "135277",
+      "b": "39256"
+    },
+    {
+      "kind": "parent",
+      "parent": "23721",
+      "child": "23722"
+    },
+    {
+      "kind": "spouse",
+      "a": "135276",
+      "b": "23722"
+    },
+    {
+      "kind": "parent",
+      "parent": "23720",
+      "child": "23721"
+    }
+  ]
+}

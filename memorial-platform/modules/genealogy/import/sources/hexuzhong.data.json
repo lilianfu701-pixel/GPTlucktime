@@ -1,0 +1,156 @@
+{
+  "key": "cbdb:hexuzhong",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "8053",
+      "name": "何執中",
+      "citation": "CBDB 中国历代人物传记资料库 person 8053",
+      "gender": "male",
+      "birth": {
+        "year": 1044
+      },
+      "death": {
+        "year": 1117
+      }
+    },
+    {
+      "externalId": "3339",
+      "name": "何君平",
+      "citation": "CBDB 中国历代人物传记资料库 person 3339",
+      "gender": "male",
+      "birth": {
+        "year": 1016
+      },
+      "death": {
+        "year": 1082
+      }
+    },
+    {
+      "externalId": "7033",
+      "name": "何志同",
+      "citation": "CBDB 中国历代人物传记资料库 person 7033",
+      "gender": "male",
+      "death": {
+        "year": 1133
+      }
+    },
+    {
+      "externalId": "562753",
+      "name": "何志問",
+      "citation": "CBDB 中国历代人物传记资料库 person 562753",
+      "gender": "male"
+    },
+    {
+      "externalId": "562754",
+      "name": "何志尚",
+      "citation": "CBDB 中国历代人物传记资料库 person 562754",
+      "gender": "male"
+    },
+    {
+      "externalId": "17553",
+      "name": "何咸遂",
+      "citation": "CBDB 中国历代人物传记资料库 person 17553",
+      "gender": "male"
+    },
+    {
+      "externalId": "12733",
+      "name": "何佃",
+      "citation": "CBDB 中国历代人物传记资料库 person 12733",
+      "gender": "male"
+    },
+    {
+      "externalId": "42092",
+      "name": "何德循",
+      "citation": "CBDB 中国历代人物传记资料库 person 42092",
+      "gender": "male"
+    },
+    {
+      "externalId": "17552",
+      "name": "何惟則",
+      "citation": "CBDB 中国历代人物传记资料库 person 17552",
+      "gender": "male"
+    },
+    {
+      "externalId": "12734",
+      "name": "何瀹",
+      "citation": "CBDB 中国历代人物传记资料库 person 12734",
+      "gender": "male",
+      "birth": {
+        "year": 1152
+      },
+      "death": {
+        "year": 1207
+      }
+    },
+    {
+      "externalId": "17551",
+      "name": "何睿",
+      "citation": "CBDB 中国历代人物传记资料库 person 17551",
+      "gender": "male"
+    },
+    {
+      "externalId": "562752",
+      "name": "何謹",
+      "citation": "CBDB 中国历代人物传记资料库 person 562752",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "3339",
+      "child": "8053"
+    },
+    {
+      "kind": "parent",
+      "parent": "8053",
+      "child": "7033"
+    },
+    {
+      "kind": "parent",
+      "parent": "8053",
+      "child": "562753"
+    },
+    {
+      "kind": "parent",
+      "parent": "8053",
+      "child": "562754"
+    },
+    {
+      "kind": "parent",
+      "parent": "17553",
+      "child": "3339"
+    },
+    {
+      "kind": "parent",
+      "parent": "7033",
+      "child": "12733"
+    },
+    {
+      "kind": "parent",
+      "parent": "7033",
+      "child": "42092"
+    },
+    {
+      "kind": "parent",
+      "parent": "17552",
+      "child": "17553"
+    },
+    {
+      "kind": "parent",
+      "parent": "12733",
+      "child": "12734"
+    },
+    {
+      "kind": "parent",
+      "parent": "17551",
+      "child": "17552"
+    },
+    {
+      "kind": "parent",
+      "parent": "562752",
+      "child": "17551"
+    }
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "key": "cbdb:yequingchen",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "2045",
+      "name": "葉清臣",
+      "citation": "CBDB 中国历代人物传记资料库 person 2045",
+      "gender": "male",
+      "birth": {
+        "year": 1000
+      },
+      "death": {
+        "year": 1049
+      }
+    },
+    {
+      "externalId": "7402",
+      "name": "葉參",
+      "citation": "CBDB 中国历代人物传记资料库 person 7402",
+      "gender": "male",
+      "birth": {
+        "year": 964
+      },
+      "death": {
+        "year": 1043
+      }
+    },
+    {
+      "externalId": "2046",
+      "name": "葉均",
+      "citation": "CBDB 中国历代人物传记资料库 person 2046",
+      "gender": "male"
+    },
+    {
+      "externalId": "4071",
+      "name": "葉逵",
+      "citation": "CBDB 中国历代人物传记资料库 person 4071",
+      "gender": "male"
+    },
+    {
+      "externalId": "22679",
+      "name": "葉蠙",
+      "citation": "CBDB 中国历代人物传记资料库 person 22679",
+      "gender": "male"
+    },
+    {
+      "externalId": "22678",
+      "name": "葉彪",
+      "citation": "CBDB 中国历代人物传记资料库 person 22678",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "7402",
+      "child": "2045"
+    },
+    {
+      "kind": "parent",
+      "parent": "2045",
+      "child": "2046"
+    },
+    {
+      "kind": "parent",
+      "parent": "4071",
+      "child": "7402"
+    },
+    {
+      "kind": "parent",
+      "parent": "22679",
+      "child": "4071"
+    },
+    {
+      "kind": "parent",
+      "parent": "22678",
+      "child": "22679"
+    }
+  ]
+}

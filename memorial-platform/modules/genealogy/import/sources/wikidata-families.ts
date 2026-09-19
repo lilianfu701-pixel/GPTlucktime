@@ -212,6 +212,16 @@ import suweidao from "./suweidao.data.json";
 import liufen from "./liufen.data.json";
 import liugong from "./liugong.data.json";
 import xiaoying from "./xiaoying.data.json";
+// CBDB 第十三批（北宋/南宋官员·文学家）
+import liuziyu from "./liuziyu.data.json";
+import hexuzhong from "./hexuzhong.data.json";
+import yequingchen from "./yequingchen.data.json";
+import jiangzhiqi from "./jiangzhiqi.data.json";
+import lizhiyi from "./lizhiyi.data.json";
+import zhangxiaoxiang from "./zhangxiaoxiang.data.json";
+import wudafang from "./wudafang.data.json";
+import liuzheng from "./liuzheng.data.json";
+import qiucong from "./qiucong.data.json";
 // CBDB 第十二批（五代/北宋/南宋/元代·文学官员）
 import songminqiu from "./songminqiu.data.json";
 import meiyaochen from "./meiyaochen.data.json";
@@ -565,6 +575,16 @@ const FAMILIES: { key: string; label: string; dataset: GenealogyDataset }[] = [
   { key: "liufen", label: "河东柳氏·柳芬支（柳懿·柳均·南北朝到唐）", dataset: liufen as GenealogyDataset },
   { key: "liugong", label: "河东柳氏·柳公权支（书法家·柳瑗·柳仲憲）", dataset: liugong as GenealogyDataset },
   { key: "xiaoying", label: "兰陵萧氏·萧颖士支（萧道赐·萧恢·南朝到唐）", dataset: xiaoying as GenealogyDataset },
+  // CBDB 第十三批：北宋/南宋官员·文学家
+  { key: "liuziyu", label: "崇安刘氏·刘子羽支（南宋将领·刘珙之父·1096-1146）", dataset: liuziyu as GenealogyDataset },
+  { key: "hexuzhong", label: "仙游何氏·何执中支（北宋宰相·1044-1117）", dataset: hexuzhong as GenealogyDataset },
+  { key: "yequingchen", label: "苏州叶氏·叶清臣支（北宋官员·1000-1049）", dataset: yequingchen as GenealogyDataset },
+  { key: "jiangzhiqi", label: "宜兴蒋氏·蒋之奇支（北宋官员·1031-1104）", dataset: jiangzhiqi as GenealogyDataset },
+  { key: "lizhiyi", label: "沧州李氏·李之仪支（北宋词人·1038-1117）", dataset: lizhiyi as GenealogyDataset },
+  { key: "zhangxiaoxiang", label: "历阳张氏·张孝祥支（南宋词人·书法家·1132-1170）", dataset: zhangxiaoxiang as GenealogyDataset },
+  { key: "wudafang", label: "台州吴氏·吴芾支（南宋官员·1104-1183）", dataset: wudafang as GenealogyDataset },
+  { key: "liuzheng", label: "泉州留氏·留正支（南宋宰相·1129-1206）", dataset: liuzheng as GenealogyDataset },
+  { key: "qiucong", label: "兴化丘氏·丘崈支（南宋官员·1135-1208）", dataset: qiucong as GenealogyDataset },
   // CBDB 第十二批：五代/北宋/南宋/元代文学官员
   { key: "songminqiu", label: "京兆宋氏·宋敏求支（北宋史学家·档案学家·1019-1079）", dataset: songminqiu as GenealogyDataset },
   { key: "meiyaochen", label: "宣城梅氏·梅尧臣支（北宋诗人·宛陵先生·1002-1060）", dataset: meiyaochen as GenealogyDataset },

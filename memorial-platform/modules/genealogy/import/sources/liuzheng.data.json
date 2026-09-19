@@ -1,0 +1,251 @@
+{
+  "key": "cbdb:liuzheng",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "10927",
+      "name": "留正",
+      "citation": "CBDB 中国历代人物传记资料库 person 10927",
+      "gender": "male",
+      "birth": {
+        "year": 1129
+      },
+      "death": {
+        "year": 1206
+      }
+    },
+    {
+      "externalId": "46119",
+      "name": "徐氏(留正妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 46119",
+      "gender": "female"
+    },
+    {
+      "externalId": "10925",
+      "name": "留鑄",
+      "citation": "CBDB 中国历代人物传记资料库 person 10925",
+      "gender": "male"
+    },
+    {
+      "externalId": "46116",
+      "name": "留鑄",
+      "citation": "CBDB 中国历代人物传记资料库 person 46116",
+      "gender": "male"
+    },
+    {
+      "externalId": "46117",
+      "name": "鄭氏(留正前母)",
+      "citation": "CBDB 中国历代人物传记资料库 person 46117",
+      "gender": "female"
+    },
+    {
+      "externalId": "46118",
+      "name": "劉氏(留正生母)",
+      "citation": "CBDB 中国历代人物传记资料库 person 46118",
+      "gender": "female"
+    },
+    {
+      "externalId": "10928",
+      "name": "留恭",
+      "citation": "CBDB 中国历代人物传记资料库 person 10928",
+      "gender": "male"
+    },
+    {
+      "externalId": "10929",
+      "name": "留筠",
+      "citation": "CBDB 中国历代人物传记资料库 person 10929",
+      "gender": "male"
+    },
+    {
+      "externalId": "98084",
+      "name": "留丙",
+      "citation": "CBDB 中国历代人物传记资料库 person 98084",
+      "gender": "male"
+    },
+    {
+      "externalId": "10930",
+      "name": "留?",
+      "citation": "CBDB 中国历代人物传记资料库 person 10930",
+      "gender": "male"
+    },
+    {
+      "externalId": "119709",
+      "name": "留端",
+      "citation": "CBDB 中国历代人物传记资料库 person 119709",
+      "gender": "male"
+    },
+    {
+      "externalId": "10931",
+      "name": "留碩",
+      "citation": "CBDB 中国历代人物传记资料库 person 10931",
+      "gender": "male"
+    },
+    {
+      "externalId": "10924",
+      "name": "留寔",
+      "citation": "CBDB 中国历代人物传记资料库 person 10924",
+      "gender": "male"
+    },
+    {
+      "externalId": "10932",
+      "name": "留元剛",
+      "citation": "CBDB 中国历代人物传记资料库 person 10932",
+      "gender": "male"
+    },
+    {
+      "externalId": "10935",
+      "name": "留元英",
+      "citation": "CBDB 中国历代人物传记资料库 person 10935",
+      "gender": "male"
+    },
+    {
+      "externalId": "10936",
+      "name": "留元圭",
+      "citation": "CBDB 中国历代人物传记资料库 person 10936",
+      "gender": "male"
+    },
+    {
+      "externalId": "10937",
+      "name": "留元崇",
+      "citation": "CBDB 中国历代人物传记资料库 person 10937",
+      "gender": "male"
+    },
+    {
+      "externalId": "10923",
+      "name": "留耀卿",
+      "citation": "CBDB 中国历代人物传记资料库 person 10923",
+      "gender": "male"
+    },
+    {
+      "externalId": "10933",
+      "name": "留寀",
+      "citation": "CBDB 中国历代人物传记资料库 person 10933",
+      "gender": "male"
+    },
+    {
+      "externalId": "10934",
+      "name": "留",
+      "citation": "CBDB 中国历代人物传记资料库 person 10934",
+      "gender": "male"
+    },
+    {
+      "externalId": "10921",
+      "name": "留紹錤",
+      "citation": "CBDB 中国历代人物传记资料库 person 10921",
+      "gender": "male"
+    },
+    {
+      "externalId": "10917",
+      "name": "留從願",
+      "citation": "CBDB 中国历代人物传记资料库 person 10917",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "10925",
+      "child": "10927"
+    },
+    {
+      "kind": "parent",
+      "parent": "46116",
+      "child": "10927"
+    },
+    {
+      "kind": "parent",
+      "parent": "46117",
+      "child": "10927"
+    },
+    {
+      "kind": "parent",
+      "parent": "46118",
+      "child": "10927"
+    },
+    {
+      "kind": "spouse",
+      "a": "10927",
+      "b": "46119"
+    },
+    {
+      "kind": "parent",
+      "parent": "10927",
+      "child": "10928"
+    },
+    {
+      "kind": "parent",
+      "parent": "10927",
+      "child": "10929"
+    },
+    {
+      "kind": "parent",
+      "parent": "10927",
+      "child": "98084"
+    },
+    {
+      "kind": "parent",
+      "parent": "10927",
+      "child": "10930"
+    },
+    {
+      "kind": "parent",
+      "parent": "10927",
+      "child": "119709"
+    },
+    {
+      "kind": "parent",
+      "parent": "10927",
+      "child": "10931"
+    },
+    {
+      "kind": "parent",
+      "parent": "10924",
+      "child": "10925"
+    },
+    {
+      "kind": "parent",
+      "parent": "10928",
+      "child": "10932"
+    },
+    {
+      "kind": "parent",
+      "parent": "10930",
+      "child": "10935"
+    },
+    {
+      "kind": "parent",
+      "parent": "10930",
+      "child": "10936"
+    },
+    {
+      "kind": "parent",
+      "parent": "10930",
+      "child": "10937"
+    },
+    {
+      "kind": "parent",
+      "parent": "10923",
+      "child": "10924"
+    },
+    {
+      "kind": "parent",
+      "parent": "10932",
+      "child": "10933"
+    },
+    {
+      "kind": "parent",
+      "parent": "10932",
+      "child": "10934"
+    },
+    {
+      "kind": "parent",
+      "parent": "10921",
+      "child": "10923"
+    },
+    {
+      "kind": "parent",
+      "parent": "10917",
+      "child": "10921"
+    }
+  ]
+}

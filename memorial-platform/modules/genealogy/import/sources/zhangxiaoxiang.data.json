@@ -1,0 +1,64 @@
+{
+  "key": "cbdb:zhangxiaoxiang",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "3144",
+      "name": "張孝祥",
+      "citation": "CBDB 中国历代人物传记资料库 person 3144",
+      "gender": "male",
+      "birth": {
+        "year": 1132
+      },
+      "death": {
+        "year": 1170
+      }
+    },
+    {
+      "externalId": "182",
+      "name": "張祁",
+      "citation": "CBDB 中国历代人物传记资料库 person 182",
+      "gender": "male"
+    },
+    {
+      "externalId": "13578",
+      "name": "張幾",
+      "citation": "CBDB 中国历代人物传记资料库 person 13578",
+      "gender": "male"
+    },
+    {
+      "externalId": "13577",
+      "name": "張補",
+      "citation": "CBDB 中国历代人物传记资料库 person 13577",
+      "gender": "male"
+    },
+    {
+      "externalId": "13576",
+      "name": "張延慶",
+      "citation": "CBDB 中国历代人物传记资料库 person 13576",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "182",
+      "child": "3144"
+    },
+    {
+      "kind": "parent",
+      "parent": "13578",
+      "child": "182"
+    },
+    {
+      "kind": "parent",
+      "parent": "13577",
+      "child": "13578"
+    },
+    {
+      "kind": "parent",
+      "parent": "13576",
+      "child": "13577"
+    }
+  ]
+}

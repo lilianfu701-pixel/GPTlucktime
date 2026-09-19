@@ -1,0 +1,64 @@
+{
+  "key": "cbdb:lizhiyi",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "3484",
+      "name": "李之儀",
+      "citation": "CBDB 中国历代人物传记资料库 person 3484",
+      "gender": "male"
+    },
+    {
+      "externalId": "43183",
+      "name": "胡淑脩",
+      "citation": "CBDB 中国历代人物传记资料库 person 43183",
+      "gender": "female"
+    },
+    {
+      "externalId": "14253",
+      "name": "李頎",
+      "citation": "CBDB 中国历代人物传记资料库 person 14253",
+      "gender": "male"
+    },
+    {
+      "externalId": "5221",
+      "name": "田氏(李頎妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 5221",
+      "gender": "female",
+      "birth": {
+        "year": 1011
+      },
+      "death": {
+        "year": 1079
+      }
+    },
+    {
+      "externalId": "26772",
+      "name": "李堯行",
+      "citation": "CBDB 中国历代人物传记资料库 person 26772",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "14253",
+      "child": "3484"
+    },
+    {
+      "kind": "spouse",
+      "a": "3484",
+      "b": "43183"
+    },
+    {
+      "kind": "parent",
+      "parent": "3484",
+      "child": "26772"
+    },
+    {
+      "kind": "spouse",
+      "a": "14253",
+      "b": "5221"
+    }
+  ]
+}

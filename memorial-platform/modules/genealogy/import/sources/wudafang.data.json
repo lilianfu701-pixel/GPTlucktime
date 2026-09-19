@@ -1,0 +1,169 @@
+{
+  "key": "cbdb:wudafang",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "1970",
+      "name": "吳芾",
+      "citation": "CBDB 中国历代人物传记资料库 person 1970",
+      "gender": "male",
+      "birth": {
+        "year": 1104
+      },
+      "death": {
+        "year": 1183
+      }
+    },
+    {
+      "externalId": "17586",
+      "name": "吳師錫",
+      "citation": "CBDB 中国历代人物传记资料库 person 17586",
+      "gender": "male"
+    },
+    {
+      "externalId": "4008",
+      "name": "吳津",
+      "citation": "CBDB 中国历代人物传记资料库 person 4008",
+      "gender": "male",
+      "birth": {
+        "year": 1133
+      },
+      "death": {
+        "year": 1196
+      }
+    },
+    {
+      "externalId": "4015",
+      "name": "吳洪",
+      "citation": "CBDB 中国历代人物传记资料库 person 4015",
+      "gender": "male"
+    },
+    {
+      "externalId": "26850",
+      "name": "吳洎",
+      "citation": "CBDB 中国历代人物传记资料库 person 26850",
+      "gender": "male"
+    },
+    {
+      "externalId": "684033",
+      "name": "吳沃",
+      "citation": "CBDB 中国历代人物传记资料库 person 684033",
+      "gender": "male"
+    },
+    {
+      "externalId": "17585",
+      "name": "吳允昭",
+      "citation": "CBDB 中国历代人物传记资料库 person 17585",
+      "gender": "male"
+    },
+    {
+      "externalId": "18098",
+      "name": "吳機",
+      "citation": "CBDB 中国历代人物传记资料库 person 18098",
+      "gender": "male"
+    },
+    {
+      "externalId": "4003",
+      "name": "吳樸",
+      "citation": "CBDB 中国历代人物传记资料库 person 4003",
+      "gender": "male"
+    },
+    {
+      "externalId": "684326",
+      "name": "史氏(吳樸妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 684326",
+      "gender": "female"
+    },
+    {
+      "externalId": "684208",
+      "name": "吳栻",
+      "citation": "CBDB 中国历代人物传记资料库 person 684208",
+      "gender": "male"
+    },
+    {
+      "externalId": "684209",
+      "name": "吳標",
+      "citation": "CBDB 中国历代人物传记资料库 person 684209",
+      "gender": "male"
+    },
+    {
+      "externalId": "684325",
+      "name": "吳氏(吳樸女)",
+      "citation": "CBDB 中国历代人物传记资料库 person 684325",
+      "gender": "female"
+    },
+    {
+      "externalId": "3614",
+      "name": "樓治",
+      "citation": "CBDB 中国历代人物传记资料库 person 3614",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "17586",
+      "child": "1970"
+    },
+    {
+      "kind": "parent",
+      "parent": "1970",
+      "child": "4008"
+    },
+    {
+      "kind": "parent",
+      "parent": "1970",
+      "child": "4015"
+    },
+    {
+      "kind": "parent",
+      "parent": "1970",
+      "child": "26850"
+    },
+    {
+      "kind": "parent",
+      "parent": "1970",
+      "child": "684033"
+    },
+    {
+      "kind": "parent",
+      "parent": "17585",
+      "child": "17586"
+    },
+    {
+      "kind": "parent",
+      "parent": "4008",
+      "child": "18098"
+    },
+    {
+      "kind": "parent",
+      "parent": "4008",
+      "child": "4003"
+    },
+    {
+      "kind": "parent",
+      "parent": "4008",
+      "child": "684208"
+    },
+    {
+      "kind": "parent",
+      "parent": "4008",
+      "child": "684209"
+    },
+    {
+      "kind": "spouse",
+      "a": "4003",
+      "b": "684326"
+    },
+    {
+      "kind": "parent",
+      "parent": "4003",
+      "child": "684325"
+    },
+    {
+      "kind": "spouse",
+      "a": "3614",
+      "b": "684325"
+    }
+  ]
+}

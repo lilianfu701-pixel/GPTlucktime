@@ -1,0 +1,198 @@
+{
+  "key": "cbdb:liuziyu",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "11826",
+      "name": "劉子羽",
+      "citation": "CBDB 中国历代人物传记资料库 person 11826",
+      "gender": "male",
+      "birth": {
+        "year": 1097
+      },
+      "death": {
+        "year": 1146
+      }
+    },
+    {
+      "externalId": "5195",
+      "name": "熊氏(劉子羽妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 5195",
+      "gender": "female",
+      "birth": {
+        "year": 1095
+      },
+      "death": {
+        "year": 1130
+      }
+    },
+    {
+      "externalId": "11811",
+      "name": "劉韐",
+      "citation": "CBDB 中国历代人物传记资料库 person 11811",
+      "gender": "male",
+      "birth": {
+        "year": 1067
+      },
+      "death": {
+        "year": 1127
+      }
+    },
+    {
+      "externalId": "11829",
+      "name": "劉珙",
+      "citation": "CBDB 中国历代人物传记资料库 person 11829",
+      "gender": "male",
+      "birth": {
+        "year": 1122
+      },
+      "death": {
+        "year": 1178
+      }
+    },
+    {
+      "externalId": "11833",
+      "name": "劉玶",
+      "citation": "CBDB 中国历代人物传记资料库 person 11833",
+      "gender": "male",
+      "birth": {
+        "year": 1138
+      },
+      "death": {
+        "year": 1185
+      }
+    },
+    {
+      "externalId": "11809",
+      "name": "劉民先",
+      "citation": "CBDB 中国历代人物传记资料库 person 11809",
+      "gender": "male"
+    },
+    {
+      "externalId": "11835",
+      "name": "劉學雅",
+      "citation": "CBDB 中国历代人物传记资料库 person 11835",
+      "gender": "male"
+    },
+    {
+      "externalId": "11836",
+      "name": "劉學裘",
+      "citation": "CBDB 中国历代人物传记资料库 person 11836",
+      "gender": "male"
+    },
+    {
+      "externalId": "11837",
+      "name": "劉學古",
+      "citation": "CBDB 中国历代人物传记资料库 person 11837",
+      "gender": "male"
+    },
+    {
+      "externalId": "11838",
+      "name": "劉學箕",
+      "citation": "CBDB 中国历代人物传记资料库 person 11838",
+      "gender": "male"
+    },
+    {
+      "externalId": "11808",
+      "name": "劉太素",
+      "citation": "CBDB 中国历代人物传记资料库 person 11808",
+      "gender": "male"
+    },
+    {
+      "externalId": "20313",
+      "name": "劉文廣",
+      "citation": "CBDB 中国历代人物传记资料库 person 20313",
+      "gender": "male"
+    },
+    {
+      "externalId": "20312",
+      "name": "劉玉",
+      "citation": "CBDB 中国历代人物传记资料库 person 20312",
+      "gender": "male"
+    },
+    {
+      "externalId": "20311",
+      "name": "劉光位",
+      "citation": "CBDB 中国历代人物传记资料库 person 20311",
+      "gender": "male"
+    },
+    {
+      "externalId": "11807",
+      "name": "劉庸",
+      "citation": "CBDB 中国历代人物传记资料库 person 11807",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "11811",
+      "child": "11826"
+    },
+    {
+      "kind": "spouse",
+      "a": "11826",
+      "b": "5195"
+    },
+    {
+      "kind": "parent",
+      "parent": "11826",
+      "child": "11829"
+    },
+    {
+      "kind": "parent",
+      "parent": "11826",
+      "child": "11833"
+    },
+    {
+      "kind": "parent",
+      "parent": "11809",
+      "child": "11811"
+    },
+    {
+      "kind": "parent",
+      "parent": "11829",
+      "child": "11835"
+    },
+    {
+      "kind": "parent",
+      "parent": "11829",
+      "child": "11836"
+    },
+    {
+      "kind": "parent",
+      "parent": "11833",
+      "child": "11837"
+    },
+    {
+      "kind": "parent",
+      "parent": "11833",
+      "child": "11838"
+    },
+    {
+      "kind": "parent",
+      "parent": "11808",
+      "child": "11809"
+    },
+    {
+      "kind": "parent",
+      "parent": "20313",
+      "child": "11808"
+    },
+    {
+      "kind": "parent",
+      "parent": "20312",
+      "child": "20313"
+    },
+    {
+      "kind": "parent",
+      "parent": "20311",
+      "child": "20312"
+    },
+    {
+      "kind": "parent",
+      "parent": "11807",
+      "child": "20311"
+    }
+  ]
+}

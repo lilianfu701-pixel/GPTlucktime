@@ -1,0 +1,75 @@
+{
+  "key": "cbdb:jiangzhiqi",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "461",
+      "name": "蔣之奇",
+      "citation": "CBDB 中国历代人物传记资料库 person 461",
+      "gender": "male",
+      "birth": {
+        "year": 1031
+      },
+      "death": {
+        "year": 1104
+      }
+    },
+    {
+      "externalId": "16120",
+      "name": "蔣滂",
+      "citation": "CBDB 中国历代人物传记资料库 person 16120",
+      "gender": "male"
+    },
+    {
+      "externalId": "3234",
+      "name": "蔣珍",
+      "citation": "CBDB 中国历代人物传记资料库 person 3234",
+      "gender": "male"
+    },
+    {
+      "externalId": "16119",
+      "name": "蔣九皋",
+      "citation": "CBDB 中国历代人物传记资料库 person 16119",
+      "gender": "male"
+    },
+    {
+      "externalId": "16123",
+      "name": "蔣宏謹",
+      "citation": "CBDB 中国历代人物传记资料库 person 16123",
+      "gender": "male"
+    },
+    {
+      "externalId": "16122",
+      "name": "蔣幼蟾",
+      "citation": "CBDB 中国历代人物传记资料库 person 16122",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "16120",
+      "child": "461"
+    },
+    {
+      "kind": "parent",
+      "parent": "461",
+      "child": "3234"
+    },
+    {
+      "kind": "parent",
+      "parent": "16119",
+      "child": "16120"
+    },
+    {
+      "kind": "parent",
+      "parent": "16123",
+      "child": "16119"
+    },
+    {
+      "kind": "parent",
+      "parent": "16122",
+      "child": "16123"
+    }
+  ]
+}
