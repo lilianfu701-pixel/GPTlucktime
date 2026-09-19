@@ -1,0 +1,75 @@
+{
+  "key": "cbdb:menghan",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "288344",
+      "name": "孟漢",
+      "citation": "CBDB 中国历代人物传记资料库 person 288344",
+      "gender": "male"
+    },
+    {
+      "externalId": "202448",
+      "name": "孟雷",
+      "citation": "CBDB 中国历代人物传记资料库 person 202448",
+      "gender": "male",
+      "birth": {
+        "year": 1503
+      }
+    },
+    {
+      "externalId": "288347",
+      "name": "顏氏(孟雷妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 288347",
+      "gender": "female"
+    },
+    {
+      "externalId": "202506",
+      "name": "孟霦",
+      "citation": "CBDB 中国历代人物传记资料库 person 202506",
+      "gender": "male",
+      "birth": {
+        "year": 1501
+      }
+    },
+    {
+      "externalId": "289192",
+      "name": "李氏(孟霦妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 289192",
+      "gender": "female"
+    },
+    {
+      "externalId": "289193",
+      "name": "成氏(孟霦繼妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 289193",
+      "gender": "female"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "288344",
+      "child": "202448"
+    },
+    {
+      "kind": "parent",
+      "parent": "288344",
+      "child": "202506"
+    },
+    {
+      "kind": "spouse",
+      "a": "202448",
+      "b": "288347"
+    },
+    {
+      "kind": "spouse",
+      "a": "202506",
+      "b": "289192"
+    },
+    {
+      "kind": "spouse",
+      "a": "202506",
+      "b": "289193"
+    }
+  ]
+}

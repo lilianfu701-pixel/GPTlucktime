@@ -1,0 +1,126 @@
+{
+  "key": "cbdb:cuiying",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "140647",
+      "name": "崔瑛",
+      "citation": "CBDB 中国历代人物传记资料库 person 140647",
+      "gender": "male",
+      "birth": {
+        "year": 702
+      },
+      "death": {
+        "year": 728
+      }
+    },
+    {
+      "externalId": "177945",
+      "name": "崔恆",
+      "citation": "CBDB 中国历代人物传记资料库 person 177945",
+      "gender": "male",
+      "death": {
+        "year": 724
+      }
+    },
+    {
+      "externalId": "152169",
+      "name": "崔遵業",
+      "citation": "CBDB 中国历代人物传记资料库 person 152169",
+      "gender": "male"
+    },
+    {
+      "externalId": "152168",
+      "name": "崔餘慶",
+      "citation": "CBDB 中国历代人物传记资料库 person 152168",
+      "gender": "male"
+    },
+    {
+      "externalId": "165637",
+      "name": "崔燾",
+      "citation": "CBDB 中国历代人物传记资料库 person 165637",
+      "gender": "male"
+    },
+    {
+      "externalId": "146086",
+      "name": "崔仲方",
+      "citation": "CBDB 中国历代人物传记资料库 person 146086",
+      "gender": "male",
+      "birth": {
+        "year": 539
+      },
+      "death": {
+        "year": 614
+      }
+    },
+    {
+      "externalId": "177930",
+      "name": "崔猷",
+      "citation": "CBDB 中国历代人物传记资料库 person 177930",
+      "gender": "male",
+      "death": {
+        "year": 561
+      }
+    },
+    {
+      "externalId": "177927",
+      "name": "崔孝芬",
+      "citation": "CBDB 中国历代人物传记资料库 person 177927",
+      "gender": "male",
+      "death": {
+        "year": 524
+      }
+    },
+    {
+      "externalId": "177926",
+      "name": "崔挺",
+      "citation": "CBDB 中国历代人物传记资料库 person 177926",
+      "gender": "male",
+      "death": {
+        "year": 493
+      }
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "177945",
+      "child": "140647"
+    },
+    {
+      "kind": "parent",
+      "parent": "152169",
+      "child": "177945"
+    },
+    {
+      "kind": "parent",
+      "parent": "152168",
+      "child": "152169"
+    },
+    {
+      "kind": "parent",
+      "parent": "165637",
+      "child": "152168"
+    },
+    {
+      "kind": "parent",
+      "parent": "146086",
+      "child": "165637"
+    },
+    {
+      "kind": "parent",
+      "parent": "177930",
+      "child": "146086"
+    },
+    {
+      "kind": "parent",
+      "parent": "177927",
+      "child": "177930"
+    },
+    {
+      "kind": "parent",
+      "parent": "177926",
+      "child": "177927"
+    }
+  ]
+}

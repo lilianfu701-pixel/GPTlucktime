@@ -212,6 +212,12 @@ import suweidao from "./suweidao.data.json";
 import liufen from "./liufen.data.json";
 import liugong from "./liugong.data.json";
 import xiaoying from "./xiaoying.data.json";
+// CBDB 第十九批（隋唐薛氏·唐代崔氏·北宋官员）
+import xueshou from "./xueshou.data.json";
+import cuiying from "./cuiying.data.json";
+import zhouqi from "./zhouqi.data.json";
+import chengzhao from "./chengzhao.data.json";
+import menghan from "./menghan.data.json";
 // CBDB 第十八批（南宋将领·北宋史家·宋皇族支系）
 import sunying from "./sunying.data.json";
 import menggong from "./menggong.data.json";
@@ -619,6 +625,12 @@ const FAMILIES: { key: string; label: string; dataset: GenealogyDataset }[] = [
   { key: "liufen", label: "河东柳氏·柳芬支（柳懿·柳均·南北朝到唐）", dataset: liufen as GenealogyDataset },
   { key: "liugong", label: "河东柳氏·柳公权支（书法家·柳瑗·柳仲憲）", dataset: liugong as GenealogyDataset },
   { key: "xiaoying", label: "兰陵萧氏·萧颖士支（萧道赐·萧恢·南朝到唐）", dataset: xiaoying as GenealogyDataset },
+  // CBDB 第十九批：隋唐薛氏·唐代崔氏·北宋官员
+  { key: "xueshou", label: "河东薛氏·薛收支（隋末唐初官员·592-624·45人）", dataset: xueshou as GenealogyDataset },
+  { key: "cuiying", label: "博陵崔氏·崔瑛支（唐代官员·702-728）", dataset: cuiying as GenealogyDataset },
+  { key: "zhouqi", label: "汝南周氏·周起支（北宋官员·970-1028）", dataset: zhouqi as GenealogyDataset },
+  { key: "chengzhao", label: "新安程氏·程昭支（宋代官员·多代记录）", dataset: chengzhao as GenealogyDataset },
+  { key: "menghan", label: "宋代孟氏·孟漢支（宋代官员·多代记录）", dataset: menghan as GenealogyDataset },
   // CBDB 第十八批：南宋将领·北宋史家·宋皇族支系
   { key: "zhaohanxiang", label: "鄞县赵氏·赵善湘支（南宋官员·宁宗朝宰相·1167-1246·27人）", dataset: zhaohanxiang as GenealogyDataset },
   { key: "liuban", label: "新喻刘氏·刘攽支（北宋史学家·资治通鉴编者·1023-1089·16人）", dataset: liuban as GenealogyDataset },

@@ -1,0 +1,86 @@
+{
+  "key": "cbdb:zhouqi",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "8033",
+      "name": "周起",
+      "citation": "CBDB 中国历代人物传记资料库 person 8033",
+      "gender": "male",
+      "birth": {
+        "year": 970
+      },
+      "death": {
+        "year": 1028
+      }
+    },
+    {
+      "externalId": "16328",
+      "name": "周G",
+      "citation": "CBDB 中国历代人物传记资料库 person 16328",
+      "gender": "male"
+    },
+    {
+      "externalId": "16411",
+      "name": "周意",
+      "citation": "CBDB 中国历代人物传记资料库 person 16411",
+      "gender": "male"
+    },
+    {
+      "externalId": "16330",
+      "name": "周延荷",
+      "citation": "CBDB 中国历代人物传记资料库 person 16330",
+      "gender": "male"
+    },
+    {
+      "externalId": "16331",
+      "name": "周延讓",
+      "citation": "CBDB 中国历代人物传记资料库 person 16331",
+      "gender": "male"
+    },
+    {
+      "externalId": "16332",
+      "name": "周延壽",
+      "citation": "CBDB 中国历代人物传记资料库 person 16332",
+      "gender": "male"
+    },
+    {
+      "externalId": "16333",
+      "name": "周延雋",
+      "citation": "CBDB 中国历代人物传记资料库 person 16333",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "16328",
+      "child": "8033"
+    },
+    {
+      "kind": "parent",
+      "parent": "16411",
+      "child": "8033"
+    },
+    {
+      "kind": "parent",
+      "parent": "8033",
+      "child": "16330"
+    },
+    {
+      "kind": "parent",
+      "parent": "8033",
+      "child": "16331"
+    },
+    {
+      "kind": "parent",
+      "parent": "8033",
+      "child": "16332"
+    },
+    {
+      "kind": "parent",
+      "parent": "8033",
+      "child": "16333"
+    }
+  ]
+}

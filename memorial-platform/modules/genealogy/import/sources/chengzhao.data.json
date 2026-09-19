@@ -1,0 +1,97 @@
+{
+  "key": "cbdb:chengzhao",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "26401",
+      "name": "程昭",
+      "citation": "CBDB 中国历代人物传记资料库 person 26401",
+      "gender": "male"
+    },
+    {
+      "externalId": "26400",
+      "name": "程滿",
+      "citation": "CBDB 中国历代人物传记资料库 person 26400",
+      "gender": "male"
+    },
+    {
+      "externalId": "26402",
+      "name": "程叔良",
+      "citation": "CBDB 中国历代人物传记资料库 person 26402",
+      "gender": "male",
+      "birth": {
+        "year": 995
+      },
+      "death": {
+        "year": 1050
+      }
+    },
+    {
+      "externalId": "26399",
+      "name": "程侃",
+      "citation": "CBDB 中国历代人物传记资料库 person 26399",
+      "gender": "male"
+    },
+    {
+      "externalId": "37593",
+      "name": "程大年",
+      "citation": "CBDB 中国历代人物传记资料库 person 37593",
+      "gender": "male"
+    },
+    {
+      "externalId": "37594",
+      "name": "程龜年",
+      "citation": "CBDB 中国历代人物传记资料库 person 37594",
+      "gender": "male"
+    },
+    {
+      "externalId": "37595",
+      "name": "程堯年",
+      "citation": "CBDB 中国历代人物传记资料库 person 37595",
+      "gender": "male"
+    },
+    {
+      "externalId": "37596",
+      "name": "程康年",
+      "citation": "CBDB 中国历代人物传记资料库 person 37596",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "26400",
+      "child": "26401"
+    },
+    {
+      "kind": "parent",
+      "parent": "26401",
+      "child": "26402"
+    },
+    {
+      "kind": "parent",
+      "parent": "26399",
+      "child": "26400"
+    },
+    {
+      "kind": "parent",
+      "parent": "26402",
+      "child": "37593"
+    },
+    {
+      "kind": "parent",
+      "parent": "26402",
+      "child": "37594"
+    },
+    {
+      "kind": "parent",
+      "parent": "26402",
+      "child": "37595"
+    },
+    {
+      "kind": "parent",
+      "parent": "26402",
+      "child": "37596"
+    }
+  ]
+}
