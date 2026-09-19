@@ -1,0 +1,335 @@
+{
+  "key": "cbdb:yanshigu",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "32430",
+      "name": "顏師古",
+      "citation": "CBDB 中国历代人物传记资料库 person 32430",
+      "gender": "male",
+      "birth": {
+        "year": 581
+      },
+      "death": {
+        "year": 645
+      }
+    },
+    {
+      "externalId": "32427",
+      "name": "顏思魯",
+      "citation": "CBDB 中国历代人物传记资料库 person 32427",
+      "gender": "male",
+      "death": {
+        "year": 618
+      }
+    },
+    {
+      "externalId": "145261",
+      "name": "顏頎",
+      "citation": "CBDB 中国历代人物传记资料库 person 145261",
+      "gender": "female",
+      "birth": {
+        "year": 631
+      },
+      "death": {
+        "year": 677
+      }
+    },
+    {
+      "externalId": "31665",
+      "name": "殷仲容",
+      "citation": "CBDB 中国历代人物传记资料库 person 31665",
+      "gender": "male"
+    },
+    {
+      "externalId": "191923",
+      "name": "顏趨庭",
+      "citation": "CBDB 中国历代人物传记资料库 person 191923",
+      "gender": "male",
+      "death": {
+        "year": 690
+      }
+    },
+    {
+      "externalId": "191924",
+      "name": "顏揚庭",
+      "citation": "CBDB 中国历代人物传记资料库 person 191924",
+      "gender": "male",
+      "death": {
+        "year": 690
+      }
+    },
+    {
+      "externalId": "191925",
+      "name": "顏某",
+      "citation": "CBDB 中国历代人物传记资料库 person 191925",
+      "gender": "male",
+      "death": {
+        "year": 690
+      }
+    },
+    {
+      "externalId": "191928",
+      "name": "顏某",
+      "citation": "CBDB 中国历代人物传记资料库 person 191928",
+      "gender": "male",
+      "death": {
+        "year": 690
+      }
+    },
+    {
+      "externalId": "32426",
+      "name": "顏之推",
+      "citation": "CBDB 中国历代人物传记资料库 person 32426",
+      "gender": "male"
+    },
+    {
+      "externalId": "191926",
+      "name": "顏某",
+      "citation": "CBDB 中国历代人物传记资料库 person 191926",
+      "gender": "male",
+      "death": {
+        "year": 727
+      }
+    },
+    {
+      "externalId": "191929",
+      "name": "顏某",
+      "citation": "CBDB 中国历代人物传记资料库 person 191929",
+      "gender": "male",
+      "death": {
+        "year": 727
+      }
+    },
+    {
+      "externalId": "32424",
+      "name": "顏協",
+      "citation": "CBDB 中国历代人物传记资料库 person 32424",
+      "gender": "male",
+      "birth": {
+        "year": 498
+      },
+      "death": {
+        "year": 539
+      }
+    },
+    {
+      "externalId": "191927",
+      "name": "顏迢",
+      "citation": "CBDB 中国历代人物传记资料库 person 191927",
+      "gender": "male",
+      "death": {
+        "year": 764
+      }
+    },
+    {
+      "externalId": "191930",
+      "name": "顏某",
+      "citation": "CBDB 中国历代人物传记资料库 person 191930",
+      "gender": "male",
+      "death": {
+        "year": 764
+      }
+    },
+    {
+      "externalId": "32423",
+      "name": "顏見遠",
+      "citation": "CBDB 中国历代人物传记资料库 person 32423",
+      "gender": "male",
+      "death": {
+        "year": 502
+      }
+    },
+    {
+      "externalId": "191931",
+      "name": "顏庶",
+      "citation": "CBDB 中国历代人物传记资料库 person 191931",
+      "gender": "male",
+      "death": {
+        "year": 801
+      }
+    },
+    {
+      "externalId": "32422",
+      "name": "顏炳之",
+      "citation": "CBDB 中国历代人物传记资料库 person 32422",
+      "gender": "male"
+    },
+    {
+      "externalId": "32421",
+      "name": "顏騰之",
+      "citation": "CBDB 中国历代人物传记资料库 person 32421",
+      "gender": "male"
+    },
+    {
+      "externalId": "32420",
+      "name": "顏靖之",
+      "citation": "CBDB 中国历代人物传记资料库 person 32420",
+      "gender": "male"
+    },
+    {
+      "externalId": "32419",
+      "name": "顏綝",
+      "citation": "CBDB 中国历代人物传记资料库 person 32419",
+      "gender": "male"
+    },
+    {
+      "externalId": "32416",
+      "name": "顏髦",
+      "citation": "CBDB 中国历代人物传记资料库 person 32416",
+      "gender": "male"
+    },
+    {
+      "externalId": "32414",
+      "name": "顏含",
+      "citation": "CBDB 中国历代人物传记资料库 person 32414",
+      "gender": "male",
+      "birth": {
+        "year": 265
+      },
+      "death": {
+        "year": 357
+      }
+    },
+    {
+      "externalId": "32413",
+      "name": "顏默",
+      "citation": "CBDB 中国历代人物传记资料库 person 32413",
+      "gender": "male"
+    },
+    {
+      "externalId": "32412",
+      "name": "顏欽",
+      "citation": "CBDB 中国历代人物传记资料库 person 32412",
+      "gender": "male"
+    },
+    {
+      "externalId": "32411",
+      "name": "顏盛",
+      "citation": "CBDB 中国历代人物传记资料库 person 32411",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "32427",
+      "child": "32430"
+    },
+    {
+      "kind": "parent",
+      "parent": "32430",
+      "child": "145261"
+    },
+    {
+      "kind": "parent",
+      "parent": "32430",
+      "child": "191923"
+    },
+    {
+      "kind": "parent",
+      "parent": "32430",
+      "child": "191924"
+    },
+    {
+      "kind": "parent",
+      "parent": "32430",
+      "child": "191925"
+    },
+    {
+      "kind": "parent",
+      "parent": "32430",
+      "child": "191928"
+    },
+    {
+      "kind": "parent",
+      "parent": "32426",
+      "child": "32427"
+    },
+    {
+      "kind": "spouse",
+      "a": "145261",
+      "b": "31665"
+    },
+    {
+      "kind": "parent",
+      "parent": "191925",
+      "child": "191926"
+    },
+    {
+      "kind": "parent",
+      "parent": "191928",
+      "child": "191929"
+    },
+    {
+      "kind": "parent",
+      "parent": "32424",
+      "child": "32426"
+    },
+    {
+      "kind": "parent",
+      "parent": "191926",
+      "child": "191927"
+    },
+    {
+      "kind": "parent",
+      "parent": "191929",
+      "child": "191930"
+    },
+    {
+      "kind": "parent",
+      "parent": "32423",
+      "child": "32424"
+    },
+    {
+      "kind": "parent",
+      "parent": "191930",
+      "child": "191931"
+    },
+    {
+      "kind": "parent",
+      "parent": "32422",
+      "child": "32423"
+    },
+    {
+      "kind": "parent",
+      "parent": "32421",
+      "child": "32422"
+    },
+    {
+      "kind": "parent",
+      "parent": "32420",
+      "child": "32421"
+    },
+    {
+      "kind": "parent",
+      "parent": "32419",
+      "child": "32420"
+    },
+    {
+      "kind": "parent",
+      "parent": "32416",
+      "child": "32419"
+    },
+    {
+      "kind": "parent",
+      "parent": "32414",
+      "child": "32416"
+    },
+    {
+      "kind": "parent",
+      "parent": "32413",
+      "child": "32414"
+    },
+    {
+      "kind": "parent",
+      "parent": "32412",
+      "child": "32413"
+    },
+    {
+      "kind": "parent",
+      "parent": "32411",
+      "child": "32412"
+    }
+  ]
+}

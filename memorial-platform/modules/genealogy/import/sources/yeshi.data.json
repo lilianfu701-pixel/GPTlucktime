@@ -1,0 +1,71 @@
+{
+  "key": "cbdb:yeshi",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "10749",
+      "name": "葉適",
+      "citation": "CBDB 中国历代人物传记资料库 person 10749",
+      "gender": "male",
+      "birth": {
+        "year": 1150
+      },
+      "death": {
+        "year": 1223
+      }
+    },
+    {
+      "externalId": "5178",
+      "name": "高氏(葉適妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 5178",
+      "gender": "female",
+      "birth": {
+        "year": 1160
+      },
+      "death": {
+        "year": 1211
+      }
+    },
+    {
+      "externalId": "10748",
+      "name": "葉光祖",
+      "citation": "CBDB 中国历代人物传记资料库 person 10748",
+      "gender": "male",
+      "birth": {
+        "year": 1119
+      },
+      "death": {
+        "year": 1203
+      }
+    },
+    {
+      "externalId": "5177",
+      "name": "杜氏(葉光祖妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 5177",
+      "gender": "female",
+      "birth": {
+        "year": 1127
+      },
+      "death": {
+        "year": 1178
+      }
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "10748",
+      "child": "10749"
+    },
+    {
+      "kind": "spouse",
+      "a": "10749",
+      "b": "5178"
+    },
+    {
+      "kind": "spouse",
+      "a": "10748",
+      "b": "5177"
+    }
+  ]
+}

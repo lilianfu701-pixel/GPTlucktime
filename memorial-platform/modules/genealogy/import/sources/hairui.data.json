@@ -1,0 +1,85 @@
+{
+  "key": "cbdb:hairui",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "30284",
+      "name": "海瑞",
+      "citation": "CBDB 中国历代人物传记资料库 person 30284",
+      "gender": "male",
+      "birth": {
+        "year": 1514
+      },
+      "death": {
+        "year": 1587
+      }
+    },
+    {
+      "externalId": "30289",
+      "name": "海瀚",
+      "citation": "CBDB 中国历代人物传记资料库 person 30289",
+      "gender": "male"
+    },
+    {
+      "externalId": "530227",
+      "name": "海翰",
+      "citation": "CBDB 中国历代人物传记资料库 person 530227"
+    },
+    {
+      "externalId": "30292",
+      "name": "海中砥",
+      "citation": "CBDB 中国历代人物传记资料库 person 30292",
+      "gender": "male"
+    },
+    {
+      "externalId": "30293",
+      "name": "海中亮",
+      "citation": "CBDB 中国历代人物传记资料库 person 30293",
+      "gender": "male"
+    },
+    {
+      "externalId": "30294",
+      "name": "海中期",
+      "citation": "CBDB 中国历代人物传记资料库 person 30294",
+      "gender": "male"
+    },
+    {
+      "externalId": "30286",
+      "name": "海寬",
+      "citation": "CBDB 中国历代人物传记资料库 person 30286",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "30289",
+      "child": "30284"
+    },
+    {
+      "kind": "parent",
+      "parent": "530227",
+      "child": "30284"
+    },
+    {
+      "kind": "parent",
+      "parent": "30284",
+      "child": "30292"
+    },
+    {
+      "kind": "parent",
+      "parent": "30284",
+      "child": "30293"
+    },
+    {
+      "kind": "parent",
+      "parent": "30284",
+      "child": "30294"
+    },
+    {
+      "kind": "parent",
+      "parent": "30286",
+      "child": "30289"
+    }
+  ]
+}

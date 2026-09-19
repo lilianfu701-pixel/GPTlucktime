@@ -212,6 +212,13 @@ import suweidao from "./suweidao.data.json";
 import liufen from "./liufen.data.json";
 import liugong from "./liugong.data.json";
 import xiaoying from "./xiaoying.data.json";
+// CBDB 第二十一批（唐代经学家·五代将领·宋代词人·明代名臣）
+import yanshigu from "./yanshigu.data.json";
+import dushenyan from "./dushenyan.data.json";
+import zhangxian from "./zhangxian.data.json";
+import zhangquanyi from "./zhangquanyi.data.json";
+import hairui from "./hairui.data.json";
+import yeshi from "./yeshi.data.json";
 // CBDB 第二十批（唐代诗人将领·南宋词人·明代画家）
 import liqi from "./liqi.data.json";
 import xinjiji from "./xinjiji.data.json";
@@ -634,6 +641,13 @@ const FAMILIES: { key: string; label: string; dataset: GenealogyDataset }[] = [
   { key: "liufen", label: "河东柳氏·柳芬支（柳懿·柳均·南北朝到唐）", dataset: liufen as GenealogyDataset },
   { key: "liugong", label: "河东柳氏·柳公权支（书法家·柳瑗·柳仲憲）", dataset: liugong as GenealogyDataset },
   { key: "xiaoying", label: "兰陵萧氏·萧颖士支（萧道赐·萧恢·南朝到唐）", dataset: xiaoying as GenealogyDataset },
+  // CBDB 第二十一批：唐代经学家·五代将领·宋代词人·明代名臣
+  { key: "yanshigu", label: "京兆颜氏·颜师古支（唐代经学家·颜氏家训家族·581-645·25人）", dataset: yanshigu as GenealogyDataset },
+  { key: "dushenyan", label: "京兆杜氏·杜审言支（唐代诗人·杜甫祖父·645-708·15人）", dataset: dushenyan as GenealogyDataset },
+  { key: "zhangxian", label: "乌程张氏·张先支（北宋词人·影字三绝·990-1078·14人）", dataset: zhangxian as GenealogyDataset },
+  { key: "zhangquanyi", label: "河阳张氏·张全义支（五代名将·洛阳重建者·851-926·9人）", dataset: zhangquanyi as GenealogyDataset },
+  { key: "hairui", label: "琼山海氏·海瑞支（明代清官·1514-1587·7人）", dataset: hairui as GenealogyDataset },
+  { key: "yeshi", label: "永嘉叶氏·叶适支（南宋学者·永嘉学派·1150-1223·4人）", dataset: yeshi as GenealogyDataset },
   // CBDB 第二十批：唐代诗人将领·南宋词人·明代画家
   { key: "liqi", label: "赵郡李氏·李峤支（唐代诗人·官员·645-714·34人）", dataset: liqi as GenealogyDataset },
   { key: "xinjiji", label: "历城辛氏·辛弃疾支（南宋词人·抗金将领·1140-1207·22人）", dataset: xinjiji as GenealogyDataset },

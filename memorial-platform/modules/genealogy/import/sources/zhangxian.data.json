@@ -1,0 +1,166 @@
+{
+  "key": "cbdb:zhangxian",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "159123",
+      "name": "張先",
+      "citation": "CBDB 中国历代人物传记资料库 person 159123",
+      "gender": "male"
+    },
+    {
+      "externalId": "159122",
+      "name": "張崇",
+      "citation": "CBDB 中国历代人物传记资料库 person 159122",
+      "gender": "male"
+    },
+    {
+      "externalId": "159124",
+      "name": "張璋",
+      "citation": "CBDB 中国历代人物传记资料库 person 159124",
+      "gender": "male"
+    },
+    {
+      "externalId": "141849",
+      "name": "成氏(張璋妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 141849",
+      "gender": "female",
+      "death": {
+        "year": 841
+      }
+    },
+    {
+      "externalId": "159131",
+      "name": "張定奴",
+      "citation": "CBDB 中国历代人物传记资料库 person 159131",
+      "gender": "male"
+    },
+    {
+      "externalId": "159126",
+      "name": "張從政",
+      "citation": "CBDB 中国历代人物传记资料库 person 159126",
+      "gender": "male"
+    },
+    {
+      "externalId": "159127",
+      "name": "張從簡",
+      "citation": "CBDB 中国历代人物传记资料库 person 159127",
+      "gender": "male"
+    },
+    {
+      "externalId": "141881",
+      "name": "張汶",
+      "citation": "CBDB 中国历代人物传记资料库 person 141881",
+      "gender": "male",
+      "birth": {
+        "year": 798
+      },
+      "death": {
+        "year": 850
+      }
+    },
+    {
+      "externalId": "159121",
+      "name": "康氏(張汶妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 159121",
+      "gender": "female"
+    },
+    {
+      "externalId": "159132",
+      "name": "張百歲娘子",
+      "citation": "CBDB 中国历代人物传记资料库 person 159132",
+      "gender": "female"
+    },
+    {
+      "externalId": "159133",
+      "name": "張佇郎",
+      "citation": "CBDB 中国历代人物传记资料库 person 159133",
+      "gender": "male"
+    },
+    {
+      "externalId": "159134",
+      "name": "張寅郎",
+      "citation": "CBDB 中国历代人物传记资料库 person 159134",
+      "gender": "male"
+    },
+    {
+      "externalId": "159135",
+      "name": "張彭郎",
+      "citation": "CBDB 中国历代人物传记资料库 person 159135",
+      "gender": "male"
+    },
+    {
+      "externalId": "159136",
+      "name": "張聃郎",
+      "citation": "CBDB 中国历代人物传记资料库 person 159136",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "159122",
+      "child": "159123"
+    },
+    {
+      "kind": "parent",
+      "parent": "159123",
+      "child": "159124"
+    },
+    {
+      "kind": "spouse",
+      "a": "141849",
+      "b": "159124"
+    },
+    {
+      "kind": "parent",
+      "parent": "159124",
+      "child": "159131"
+    },
+    {
+      "kind": "parent",
+      "parent": "159124",
+      "child": "159126"
+    },
+    {
+      "kind": "parent",
+      "parent": "159124",
+      "child": "159127"
+    },
+    {
+      "kind": "parent",
+      "parent": "159124",
+      "child": "141881"
+    },
+    {
+      "kind": "spouse",
+      "a": "141881",
+      "b": "159121"
+    },
+    {
+      "kind": "parent",
+      "parent": "141881",
+      "child": "159132"
+    },
+    {
+      "kind": "parent",
+      "parent": "141881",
+      "child": "159133"
+    },
+    {
+      "kind": "parent",
+      "parent": "141881",
+      "child": "159134"
+    },
+    {
+      "kind": "parent",
+      "parent": "141881",
+      "child": "159135"
+    },
+    {
+      "kind": "parent",
+      "parent": "141881",
+      "child": "159136"
+    }
+  ]
+}

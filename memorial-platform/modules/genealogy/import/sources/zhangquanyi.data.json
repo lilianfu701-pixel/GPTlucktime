@@ -1,0 +1,141 @@
+{
+  "key": "cbdb:zhangquanyi",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "190379",
+      "name": "張全義",
+      "citation": "CBDB 中国历代人物传记资料库 person 190379",
+      "gender": "male",
+      "birth": {
+        "year": 851
+      },
+      "death": {
+        "year": 926
+      }
+    },
+    {
+      "externalId": "190380",
+      "name": "張誠",
+      "citation": "CBDB 中国历代人物传记资料库 person 190380",
+      "gender": "male",
+      "death": {
+        "year": 874
+      }
+    },
+    {
+      "externalId": "144947",
+      "name": "張繼業",
+      "citation": "CBDB 中国历代人物传记资料库 person 144947",
+      "gender": "male",
+      "birth": {
+        "year": 873
+      },
+      "death": {
+        "year": 925
+      }
+    },
+    {
+      "externalId": "185863",
+      "name": "張昌耀",
+      "citation": "CBDB 中国历代人物传记资料库 person 185863",
+      "gender": "male",
+      "death": {
+        "year": 948
+      }
+    },
+    {
+      "externalId": "145251",
+      "name": "櫧氏(櫧賞女)",
+      "citation": "CBDB 中国历代人物传记资料库 person 145251",
+      "gender": "female",
+      "birth": {
+        "year": 900
+      },
+      "death": {
+        "year": 920
+      }
+    },
+    {
+      "externalId": "190490",
+      "name": "張璉",
+      "citation": "CBDB 中国历代人物传记资料库 person 190490",
+      "gender": "male",
+      "death": {
+        "year": 837
+      }
+    },
+    {
+      "externalId": "146339",
+      "name": "張季澄",
+      "citation": "CBDB 中国历代人物传记资料库 person 146339",
+      "gender": "male",
+      "birth": {
+        "year": 898
+      },
+      "death": {
+        "year": 935
+      }
+    },
+    {
+      "externalId": "185836",
+      "name": "張季宣",
+      "citation": "CBDB 中国历代人物传记资料库 person 185836",
+      "gender": "male",
+      "death": {
+        "year": 969
+      }
+    },
+    {
+      "externalId": "144845",
+      "name": "李氏(張季宣妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 144845",
+      "gender": "female",
+      "death": {
+        "year": 940
+      }
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "190380",
+      "child": "190379"
+    },
+    {
+      "kind": "parent",
+      "parent": "190379",
+      "child": "144947"
+    },
+    {
+      "kind": "parent",
+      "parent": "190379",
+      "child": "185863"
+    },
+    {
+      "kind": "parent",
+      "parent": "190490",
+      "child": "190380"
+    },
+    {
+      "kind": "parent",
+      "parent": "144947",
+      "child": "146339"
+    },
+    {
+      "kind": "parent",
+      "parent": "144947",
+      "child": "185836"
+    },
+    {
+      "kind": "spouse",
+      "a": "145251",
+      "b": "185863"
+    },
+    {
+      "kind": "spouse",
+      "a": "144845",
+      "b": "185836"
+    }
+  ]
+}
