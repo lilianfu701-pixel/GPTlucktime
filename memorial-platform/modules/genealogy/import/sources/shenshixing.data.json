@@ -1,0 +1,146 @@
+{
+  "key": "cbdb:shenshixing",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "123973",
+      "name": "申時行",
+      "citation": "CBDB 中国历代人物传记资料库 person 123973",
+      "gender": "male",
+      "birth": {
+        "year": 1535
+      },
+      "death": {
+        "year": 1614
+      }
+    },
+    {
+      "externalId": "120322",
+      "name": "申胤榮",
+      "citation": "CBDB 中国历代人物传记资料库 person 120322",
+      "gender": "male"
+    },
+    {
+      "externalId": "123974",
+      "name": "申用懋",
+      "citation": "CBDB 中国历代人物传记资料库 person 123974",
+      "gender": "male",
+      "birth": {
+        "year": 1560
+      },
+      "death": {
+        "year": 1638
+      }
+    },
+    {
+      "externalId": "222364",
+      "name": "欽氏(申用懋妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 222364",
+      "gender": "female"
+    },
+    {
+      "externalId": "222365",
+      "name": "楊氏(申用懋繼妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 222365",
+      "gender": "female"
+    },
+    {
+      "externalId": "123975",
+      "name": "申用嘉",
+      "citation": "CBDB 中国历代人物传记资料库 person 123975",
+      "gender": "male"
+    },
+    {
+      "externalId": "527445",
+      "name": "申兆虯",
+      "citation": "CBDB 中国历代人物传记资料库 person 527445"
+    },
+    {
+      "externalId": "120311",
+      "name": "申蕙",
+      "citation": "CBDB 中国历代人物传记资料库 person 120311",
+      "gender": "female",
+      "birth": {
+        "year": 1644
+      },
+      "death": {
+        "year": 1691
+      }
+    },
+    {
+      "externalId": "120326",
+      "name": "沈廷植",
+      "citation": "CBDB 中国历代人物传记资料库 person 120326",
+      "gender": "male"
+    },
+    {
+      "externalId": "527456",
+      "name": "申薦芳",
+      "citation": "CBDB 中国历代人物传记资料库 person 527456"
+    },
+    {
+      "externalId": "123976",
+      "name": "申紹芳",
+      "citation": "CBDB 中国历代人物传记资料库 person 123976",
+      "gender": "male",
+      "birth": {
+        "year": 1591
+      },
+      "death": {
+        "year": 1653
+      }
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "123973",
+      "child": "120322"
+    },
+    {
+      "kind": "parent",
+      "parent": "123973",
+      "child": "123974"
+    },
+    {
+      "kind": "parent",
+      "parent": "123973",
+      "child": "123975"
+    },
+    {
+      "kind": "parent",
+      "parent": "123973",
+      "child": "527445"
+    },
+    {
+      "kind": "parent",
+      "parent": "120322",
+      "child": "120311"
+    },
+    {
+      "kind": "spouse",
+      "a": "123974",
+      "b": "222364"
+    },
+    {
+      "kind": "spouse",
+      "a": "123974",
+      "b": "222365"
+    },
+    {
+      "kind": "parent",
+      "parent": "123974",
+      "child": "527456"
+    },
+    {
+      "kind": "parent",
+      "parent": "123975",
+      "child": "123976"
+    },
+    {
+      "kind": "spouse",
+      "a": "120311",
+      "b": "120326"
+    }
+  ]
+}

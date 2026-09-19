@@ -1,0 +1,123 @@
+{
+  "key": "cbdb:zhouzhi",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "7197",
+      "name": "周必大",
+      "citation": "CBDB 中国历代人物传记资料库 person 7197",
+      "gender": "male",
+      "birth": {
+        "year": 1126
+      },
+      "death": {
+        "year": 1204
+      }
+    },
+    {
+      "externalId": "5022",
+      "name": "王氏(周必大妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 5022",
+      "gender": "female",
+      "birth": {
+        "year": 1135
+      },
+      "death": {
+        "year": 1203
+      }
+    },
+    {
+      "externalId": "12131",
+      "name": "周利建",
+      "citation": "CBDB 中国历代人物传记资料库 person 12131",
+      "gender": "male",
+      "birth": {
+        "year": 1092
+      },
+      "death": {
+        "year": 1129
+      }
+    },
+    {
+      "externalId": "5202",
+      "name": "王氏(周利建妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 5202",
+      "gender": "female",
+      "birth": {
+        "year": 1102
+      },
+      "death": {
+        "year": 1138
+      }
+    },
+    {
+      "externalId": "3248",
+      "name": "周詵",
+      "citation": "CBDB 中国历代人物传记资料库 person 3248",
+      "gender": "male",
+      "death": {
+        "year": 1129
+      }
+    },
+    {
+      "externalId": "42723",
+      "name": "潘氏(周詵妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 42723",
+      "gender": "female"
+    },
+    {
+      "externalId": "12130",
+      "name": "周衎",
+      "citation": "CBDB 中国历代人物传记资料库 person 12130",
+      "gender": "male"
+    },
+    {
+      "externalId": "42720",
+      "name": "郭氏(周衎妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 42720",
+      "gender": "female"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "12131",
+      "child": "7197"
+    },
+    {
+      "kind": "parent",
+      "parent": "5202",
+      "child": "7197"
+    },
+    {
+      "kind": "spouse",
+      "a": "5022",
+      "b": "7197"
+    },
+    {
+      "kind": "parent",
+      "parent": "3248",
+      "child": "12131"
+    },
+    {
+      "kind": "spouse",
+      "a": "12131",
+      "b": "5202"
+    },
+    {
+      "kind": "parent",
+      "parent": "12130",
+      "child": "3248"
+    },
+    {
+      "kind": "spouse",
+      "a": "3248",
+      "b": "42723"
+    },
+    {
+      "kind": "spouse",
+      "a": "12130",
+      "b": "42720"
+    }
+  ]
+}

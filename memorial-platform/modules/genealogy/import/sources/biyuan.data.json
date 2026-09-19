@@ -1,0 +1,115 @@
+{
+  "key": "cbdb:biyuan",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "34013",
+      "name": "畢沅",
+      "citation": "CBDB 中国历代人物传记资料库 person 34013",
+      "gender": "male",
+      "birth": {
+        "year": 1730
+      },
+      "death": {
+        "year": 1797
+      }
+    },
+    {
+      "externalId": "54199",
+      "name": "畢禮",
+      "citation": "CBDB 中国历代人物传记资料库 person 54199",
+      "gender": "male"
+    },
+    {
+      "externalId": "54191",
+      "name": "張藻",
+      "citation": "CBDB 中国历代人物传记资料库 person 54191",
+      "gender": "female",
+      "birth": {
+        "year": 1723
+      },
+      "death": {
+        "year": 1778
+      }
+    },
+    {
+      "externalId": "516938",
+      "name": "畢鏞",
+      "citation": "CBDB 中国历代人物传记资料库 person 516938"
+    },
+    {
+      "externalId": "34014",
+      "name": "畢慧",
+      "citation": "CBDB 中国历代人物传记资料库 person 34014",
+      "gender": "female"
+    },
+    {
+      "externalId": "34015",
+      "name": "陳暻",
+      "citation": "CBDB 中国历代人物传记资料库 person 34015",
+      "gender": "male"
+    },
+    {
+      "externalId": "516930",
+      "name": "畢念曾",
+      "citation": "CBDB 中国历代人物传记资料库 person 516930"
+    },
+    {
+      "externalId": "516935",
+      "name": "畢鄂珠",
+      "citation": "CBDB 中国历代人物传记资料库 person 516935"
+    },
+    {
+      "externalId": "516936",
+      "name": "畢嵩珠",
+      "citation": "CBDB 中国历代人物传记资料库 person 516936"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "54199",
+      "child": "34013"
+    },
+    {
+      "kind": "parent",
+      "parent": "516938",
+      "child": "34013"
+    },
+    {
+      "kind": "parent",
+      "parent": "54191",
+      "child": "34013"
+    },
+    {
+      "kind": "parent",
+      "parent": "34013",
+      "child": "34014"
+    },
+    {
+      "kind": "parent",
+      "parent": "34013",
+      "child": "516930"
+    },
+    {
+      "kind": "parent",
+      "parent": "34013",
+      "child": "516935"
+    },
+    {
+      "kind": "parent",
+      "parent": "34013",
+      "child": "516936"
+    },
+    {
+      "kind": "spouse",
+      "a": "54191",
+      "b": "54199"
+    },
+    {
+      "kind": "spouse",
+      "a": "34014",
+      "b": "34015"
+    }
+  ]
+}

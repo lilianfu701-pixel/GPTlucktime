@@ -1,0 +1,293 @@
+{
+  "key": "cbdb:liuguan",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "28143",
+      "name": "柳貫",
+      "citation": "CBDB 中国历代人物传记资料库 person 28143",
+      "gender": "male",
+      "birth": {
+        "year": 1270
+      },
+      "death": {
+        "year": 1342
+      }
+    },
+    {
+      "externalId": "28295",
+      "name": "盛淑",
+      "citation": "CBDB 中国历代人物传记资料库 person 28295",
+      "gender": "female",
+      "birth": {
+        "year": 1270
+      },
+      "death": {
+        "year": 1331
+      }
+    },
+    {
+      "externalId": "28289",
+      "name": "柳金",
+      "citation": "CBDB 中国历代人物传记资料库 person 28289",
+      "gender": "male"
+    },
+    {
+      "externalId": "386327",
+      "name": "俞氏(俞葵女)",
+      "citation": "CBDB 中国历代人物传记资料库 person 386327",
+      "gender": "female"
+    },
+    {
+      "externalId": "28297",
+      "name": "柳卣",
+      "citation": "CBDB 中国历代人物传记资料库 person 28297",
+      "gender": "male",
+      "birth": {
+        "year": 1289
+      },
+      "death": {
+        "year": 1359
+      }
+    },
+    {
+      "externalId": "134037",
+      "name": "潘氏(柳卣妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 134037",
+      "gender": "female"
+    },
+    {
+      "externalId": "28298",
+      "name": "柳同",
+      "citation": "CBDB 中国历代人物传记资料库 person 28298",
+      "gender": "male"
+    },
+    {
+      "externalId": "28299",
+      "name": "柳因",
+      "citation": "CBDB 中国历代人物传记资料库 person 28299",
+      "gender": "male"
+    },
+    {
+      "externalId": "28291",
+      "name": "柳補之",
+      "citation": "CBDB 中国历代人物传记资料库 person 28291",
+      "gender": "male"
+    },
+    {
+      "externalId": "134038",
+      "name": "柳秬",
+      "citation": "CBDB 中国历代人物传记资料库 person 134038",
+      "gender": "male"
+    },
+    {
+      "externalId": "28300",
+      "name": "柳穎",
+      "citation": "CBDB 中国历代人物传记资料库 person 28300",
+      "gender": "male"
+    },
+    {
+      "externalId": "385352",
+      "name": "陳佶",
+      "citation": "CBDB 中国历代人物传记资料库 person 385352",
+      "gender": "female",
+      "death": {
+        "year": 1352
+      }
+    },
+    {
+      "externalId": "28301",
+      "name": "柳穆",
+      "citation": "CBDB 中国历代人物传记资料库 person 28301",
+      "gender": "male"
+    },
+    {
+      "externalId": "134042",
+      "name": "柳穟",
+      "citation": "CBDB 中国历代人物传记资料库 person 134042",
+      "gender": "male"
+    },
+    {
+      "externalId": "134043",
+      "name": "宋㬊",
+      "citation": "CBDB 中国历代人物传记资料库 person 134043",
+      "gender": "female"
+    },
+    {
+      "externalId": "437733",
+      "name": "柳稠",
+      "citation": "CBDB 中国历代人物传记资料库 person 437733",
+      "gender": "male"
+    },
+    {
+      "externalId": "437735",
+      "name": "柳程",
+      "citation": "CBDB 中国历代人物传记资料库 person 437735",
+      "gender": "male"
+    },
+    {
+      "externalId": "28292",
+      "name": "柳蘊",
+      "citation": "CBDB 中国历代人物传记资料库 person 28292",
+      "gender": "male"
+    },
+    {
+      "externalId": "28304",
+      "name": "柳士恕",
+      "citation": "CBDB 中国历代人物传记资料库 person 28304",
+      "gender": "male"
+    },
+    {
+      "externalId": "28305",
+      "name": "柳士魯",
+      "citation": "CBDB 中国历代人物传记资料库 person 28305",
+      "gender": "male"
+    },
+    {
+      "externalId": "28303",
+      "name": "柳士忠",
+      "citation": "CBDB 中国历代人物传记资料库 person 28303",
+      "gender": "male"
+    },
+    {
+      "externalId": "437734",
+      "name": "柳士恭",
+      "citation": "CBDB 中国历代人物传记资料库 person 437734",
+      "gender": "male"
+    },
+    {
+      "externalId": "437732",
+      "name": "柳士禮",
+      "citation": "CBDB 中国历代人物传记资料库 person 437732",
+      "gender": "male"
+    },
+    {
+      "externalId": "134041",
+      "name": "柳本",
+      "citation": "CBDB 中国历代人物传记资料库 person 134041",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "28289",
+      "child": "28143"
+    },
+    {
+      "kind": "parent",
+      "parent": "386327",
+      "child": "28143"
+    },
+    {
+      "kind": "spouse",
+      "a": "28143",
+      "b": "28295"
+    },
+    {
+      "kind": "parent",
+      "parent": "28143",
+      "child": "28297"
+    },
+    {
+      "kind": "parent",
+      "parent": "28143",
+      "child": "28298"
+    },
+    {
+      "kind": "parent",
+      "parent": "28143",
+      "child": "28299"
+    },
+    {
+      "kind": "parent",
+      "parent": "28291",
+      "child": "28289"
+    },
+    {
+      "kind": "spouse",
+      "a": "28289",
+      "b": "386327"
+    },
+    {
+      "kind": "spouse",
+      "a": "134037",
+      "b": "28297"
+    },
+    {
+      "kind": "parent",
+      "parent": "28297",
+      "child": "134038"
+    },
+    {
+      "kind": "parent",
+      "parent": "28297",
+      "child": "28300"
+    },
+    {
+      "kind": "parent",
+      "parent": "28297",
+      "child": "28301"
+    },
+    {
+      "kind": "parent",
+      "parent": "28298",
+      "child": "134042"
+    },
+    {
+      "kind": "parent",
+      "parent": "28298",
+      "child": "437733"
+    },
+    {
+      "kind": "parent",
+      "parent": "28299",
+      "child": "437735"
+    },
+    {
+      "kind": "parent",
+      "parent": "28292",
+      "child": "28291"
+    },
+    {
+      "kind": "spouse",
+      "a": "28300",
+      "b": "385352"
+    },
+    {
+      "kind": "parent",
+      "parent": "28300",
+      "child": "28304"
+    },
+    {
+      "kind": "parent",
+      "parent": "28300",
+      "child": "28305"
+    },
+    {
+      "kind": "parent",
+      "parent": "28301",
+      "child": "28303"
+    },
+    {
+      "kind": "spouse",
+      "a": "134042",
+      "b": "134043"
+    },
+    {
+      "kind": "parent",
+      "parent": "134042",
+      "child": "437734"
+    },
+    {
+      "kind": "parent",
+      "parent": "437735",
+      "child": "437732"
+    },
+    {
+      "kind": "parent",
+      "parent": "28303",
+      "child": "134041"
+    }
+  ]
+}

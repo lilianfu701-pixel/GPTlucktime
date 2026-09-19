@@ -212,6 +212,16 @@ import suweidao from "./suweidao.data.json";
 import liufen from "./liufen.data.json";
 import liugong from "./liugong.data.json";
 import xiaoying from "./xiaoying.data.json";
+// CBDB 第四批（宋代名臣/元代文人/明清文人 + 欧阳修）
+import shenshixing from "./shenshixing.data.json";
+import yuanhongdao from "./yuanhongdao.data.json";
+import sunxingyan from "./sunxingyan.data.json";
+import biyuan from "./biyuan.data.json";
+import yuanjie from "./yuanjie.data.json";
+import hongliang from "./hongliang.data.json";
+import shihao from "./shihao.data.json";
+import liuguan from "./liuguan.data.json";
+import zhouzhi from "./zhouzhi.data.json";
 // CBDB 第三批（唐代世家 + 吴郡陆氏 + 兰陵萧氏二支 + 宋金文人）
 import peiyaoqing from "./peiyaoqing.data.json";
 import luguimeng from "./luguimeng.data.json";
@@ -467,6 +477,16 @@ const FAMILIES: { key: string; label: string; dataset: GenealogyDataset }[] = [
   { key: "liufen", label: "河东柳氏·柳芬支（柳懿·柳均·南北朝到唐）", dataset: liufen as GenealogyDataset },
   { key: "liugong", label: "河东柳氏·柳公权支（书法家·柳瑗·柳仲憲）", dataset: liugong as GenealogyDataset },
   { key: "xiaoying", label: "兰陵萧氏·萧颖士支（萧道赐·萧恢·南朝到唐）", dataset: xiaoying as GenealogyDataset },
+  // CBDB 第四批：宋代名臣/元代文人/明清文人 + 欧阳修
+  { key: "shihao", label: "明州史氏·史浩支（史弥远先祖·南宋宰相·1106-1194）", dataset: shihao as GenealogyDataset },
+  { key: "zhouzhi", label: "庐陵周氏·周必大支（南宋宰相文学·1126-1204）", dataset: zhouzhi as GenealogyDataset },
+  { key: "liuguan", label: "括苍柳氏·柳贯支（柳宗元裔·元代文学·1270-1342）", dataset: liuguan as GenealogyDataset },
+  { key: "yuanjie", label: "河南元氏·元结支（唐代散文家·元稹祖系·719-772）", dataset: yuanjie as GenealogyDataset },
+  { key: "shenshixing", label: "苏州申氏·申时行支（万历宰相·1535-1614）", dataset: shenshixing as GenealogyDataset },
+  { key: "yuanhongdao", label: "公安袁氏·袁宏道支（公安三袁·1568-1610）", dataset: yuanhongdao as GenealogyDataset },
+  { key: "biyuan", label: "苏州毕氏·毕沅支（《续资治通鉴》·1730-1797）", dataset: biyuan as GenealogyDataset },
+  { key: "sunxingyan", label: "苏州孙氏·孙星衍支（含王采薇·乾嘉经学·1753-1818）", dataset: sunxingyan as GenealogyDataset },
+  { key: "hongliang", label: "阳湖洪氏·洪亮吉支（乾嘉学派·人口论·1746-1809）", dataset: hongliang as GenealogyDataset },
   // CBDB 第三批：唐代世家 + 吴郡陆氏 + 兰陵萧氏二支 + 宋金文人
   { key: "peiyaoqing", label: "河东裴氏·裴耀卿支（另支·北魏到晚唐·包含多支裴氏）", dataset: peiyaoqing as GenealogyDataset },
   { key: "luguimeng", label: "吴郡陆氏·陆龟蒙支（陆玩278→晚唐·追溯东晋六朝）", dataset: luguimeng as GenealogyDataset },

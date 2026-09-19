@@ -1,0 +1,103 @@
+{
+  "key": "cbdb:sunxingyan",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "34196",
+      "name": "孫星衍",
+      "citation": "CBDB 中国历代人物传记资料库 person 34196",
+      "gender": "male",
+      "birth": {
+        "year": 1753
+      },
+      "death": {
+        "year": 1818
+      }
+    },
+    {
+      "externalId": "54395",
+      "name": "王采薇",
+      "citation": "CBDB 中国历代人物传记资料库 person 54395",
+      "gender": "female",
+      "birth": {
+        "year": 1753
+      },
+      "death": {
+        "year": 1776
+      }
+    },
+    {
+      "externalId": "34223",
+      "name": "孫勳",
+      "citation": "CBDB 中国历代人物传记资料库 person 34223",
+      "gender": "male",
+      "birth": {
+        "year": 1737
+      }
+    },
+    {
+      "externalId": "521454",
+      "name": "孫漪蕙",
+      "citation": "CBDB 中国历代人物传记资料库 person 521454"
+    },
+    {
+      "externalId": "521453",
+      "name": "孫廷鐻",
+      "citation": "CBDB 中国历代人物传记资料库 person 521453"
+    },
+    {
+      "externalId": "521455",
+      "name": "孫廞",
+      "citation": "CBDB 中国历代人物传记资料库 person 521455"
+    },
+    {
+      "externalId": "34222",
+      "name": "孫枝生",
+      "citation": "CBDB 中国历代人物传记资料库 person 34222",
+      "gender": "male"
+    },
+    {
+      "externalId": "34221",
+      "name": "孫謀",
+      "citation": "CBDB 中国历代人物传记资料库 person 34221",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "34223",
+      "child": "34196"
+    },
+    {
+      "kind": "spouse",
+      "a": "34196",
+      "b": "54395"
+    },
+    {
+      "kind": "parent",
+      "parent": "34196",
+      "child": "521454"
+    },
+    {
+      "kind": "parent",
+      "parent": "34196",
+      "child": "521453"
+    },
+    {
+      "kind": "parent",
+      "parent": "34196",
+      "child": "521455"
+    },
+    {
+      "kind": "parent",
+      "parent": "34222",
+      "child": "34223"
+    },
+    {
+      "kind": "parent",
+      "parent": "34221",
+      "child": "34222"
+    }
+  ]
+}

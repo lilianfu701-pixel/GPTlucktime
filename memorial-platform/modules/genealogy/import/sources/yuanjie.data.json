@@ -1,0 +1,117 @@
+{
+  "key": "cbdb:yuanjie",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "32889",
+      "name": "元結",
+      "citation": "CBDB 中国历代人物传记资料库 person 32889",
+      "gender": "male",
+      "birth": {
+        "year": 719
+      },
+      "death": {
+        "year": 772
+      }
+    },
+    {
+      "externalId": "32893",
+      "name": "元延祖",
+      "citation": "CBDB 中国历代人物传记资料库 person 32893",
+      "gender": "male"
+    },
+    {
+      "externalId": "92129",
+      "name": "元友讓",
+      "citation": "CBDB 中国历代人物传记资料库 person 92129",
+      "gender": "male",
+      "birth": {
+        "year": 767
+      }
+    },
+    {
+      "externalId": "92130",
+      "name": "元友直",
+      "citation": "CBDB 中国历代人物传记资料库 person 92130",
+      "gender": "male"
+    },
+    {
+      "externalId": "196138",
+      "name": "元友正",
+      "citation": "CBDB 中国历代人物传记资料库 person 196138",
+      "gender": "male",
+      "death": {
+        "year": 819
+      }
+    },
+    {
+      "externalId": "32892",
+      "name": "元利貞",
+      "citation": "CBDB 中国历代人物传记资料库 person 32892",
+      "gender": "male"
+    },
+    {
+      "externalId": "32891",
+      "name": "元仁基",
+      "citation": "CBDB 中国历代人物传记资料库 person 32891",
+      "gender": "male"
+    },
+    {
+      "externalId": "32890",
+      "name": "元善褘",
+      "citation": "CBDB 中国历代人物传记资料库 person 32890",
+      "gender": "male"
+    },
+    {
+      "externalId": "196130",
+      "name": "元善禕",
+      "citation": "CBDB 中国历代人物传记资料库 person 196130",
+      "gender": "male",
+      "death": {
+        "year": 634
+      }
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "32893",
+      "child": "32889"
+    },
+    {
+      "kind": "parent",
+      "parent": "32889",
+      "child": "92129"
+    },
+    {
+      "kind": "parent",
+      "parent": "32889",
+      "child": "92130"
+    },
+    {
+      "kind": "parent",
+      "parent": "32889",
+      "child": "196138"
+    },
+    {
+      "kind": "parent",
+      "parent": "32892",
+      "child": "32893"
+    },
+    {
+      "kind": "parent",
+      "parent": "32891",
+      "child": "32892"
+    },
+    {
+      "kind": "parent",
+      "parent": "32890",
+      "child": "32891"
+    },
+    {
+      "kind": "parent",
+      "parent": "196130",
+      "child": "32891"
+    }
+  ]
+}

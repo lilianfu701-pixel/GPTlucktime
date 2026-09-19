@@ -1,0 +1,158 @@
+{
+  "key": "cbdb:hongliang",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "30731",
+      "name": "洪亮吉",
+      "citation": "CBDB 中国历代人物传记资料库 person 30731",
+      "gender": "male",
+      "birth": {
+        "year": 1746
+      },
+      "death": {
+        "year": 1809
+      }
+    },
+    {
+      "externalId": "85310",
+      "name": "洪翹",
+      "citation": "CBDB 中国历代人物传记资料库 person 85310",
+      "gender": "male",
+      "birth": {
+        "year": 1714
+      },
+      "death": {
+        "year": 1751
+      }
+    },
+    {
+      "externalId": "696916",
+      "name": "蔣氏(洪翹妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 696916",
+      "gender": "female"
+    },
+    {
+      "externalId": "85346",
+      "name": "洪符孫",
+      "citation": "CBDB 中国历代人物传记资料库 person 85346",
+      "gender": "male",
+      "birth": {
+        "year": 1784
+      }
+    },
+    {
+      "externalId": "696917",
+      "name": "洪胙孫",
+      "citation": "CBDB 中国历代人物传记资料库 person 696917",
+      "gender": "male"
+    },
+    {
+      "externalId": "30732",
+      "name": "洪飴孫",
+      "citation": "CBDB 中国历代人物传记资料库 person 30732",
+      "gender": "male",
+      "birth": {
+        "year": 1773
+      },
+      "death": {
+        "year": 1816
+      }
+    },
+    {
+      "externalId": "30733",
+      "name": "洪齮孫",
+      "citation": "CBDB 中国历代人物传记资料库 person 30733",
+      "gender": "male",
+      "birth": {
+        "year": 1804
+      },
+      "death": {
+        "year": 1859
+      }
+    },
+    {
+      "externalId": "85320",
+      "name": "洪公寀",
+      "citation": "CBDB 中国历代人物传记资料库 person 85320",
+      "gender": "male",
+      "death": {
+        "year": 1763
+      }
+    },
+    {
+      "externalId": "577048",
+      "name": "趙氏(洪公寀妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 577048",
+      "gender": "female"
+    },
+    {
+      "externalId": "698292",
+      "name": "蔣斆淳",
+      "citation": "CBDB 中国历代人物传记资料库 person 698292",
+      "gender": "male"
+    },
+    {
+      "externalId": "513808",
+      "name": "洪璟",
+      "citation": "CBDB 中国历代人物传记资料库 person 513808"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "85310",
+      "child": "30731"
+    },
+    {
+      "kind": "parent",
+      "parent": "696916",
+      "child": "30731"
+    },
+    {
+      "kind": "parent",
+      "parent": "30731",
+      "child": "85346"
+    },
+    {
+      "kind": "parent",
+      "parent": "30731",
+      "child": "696917"
+    },
+    {
+      "kind": "parent",
+      "parent": "30731",
+      "child": "30732"
+    },
+    {
+      "kind": "parent",
+      "parent": "30731",
+      "child": "30733"
+    },
+    {
+      "kind": "parent",
+      "parent": "85320",
+      "child": "85310"
+    },
+    {
+      "kind": "parent",
+      "parent": "577048",
+      "child": "85310"
+    },
+    {
+      "kind": "parent",
+      "parent": "698292",
+      "child": "696916"
+    },
+    {
+      "kind": "parent",
+      "parent": "513808",
+      "child": "85320"
+    },
+    {
+      "kind": "spouse",
+      "a": "577048",
+      "b": "85320"
+    }
+  ]
+}

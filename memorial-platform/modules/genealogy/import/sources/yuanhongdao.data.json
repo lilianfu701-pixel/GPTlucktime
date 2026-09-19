@@ -1,0 +1,109 @@
+{
+  "key": "cbdb:yuanhongdao",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "35222",
+      "name": "袁宏道",
+      "citation": "CBDB 中国历代人物传记资料库 person 35222",
+      "gender": "male",
+      "birth": {
+        "year": 1568
+      },
+      "death": {
+        "year": 1610
+      }
+    },
+    {
+      "externalId": "572658",
+      "name": "卓氏(袁宏道妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 572658",
+      "gender": "female"
+    },
+    {
+      "externalId": "577693",
+      "name": "李安人",
+      "citation": "CBDB 中国历代人物传记资料库 person 577693",
+      "gender": "female",
+      "death": {
+        "year": 1607
+      }
+    },
+    {
+      "externalId": "232386",
+      "name": "袁仕瑜",
+      "citation": "CBDB 中国历代人物传记资料库 person 232386",
+      "gender": "male"
+    },
+    {
+      "externalId": "578488",
+      "name": "袁禪那",
+      "citation": "CBDB 中国历代人物传记资料库 person 578488",
+      "gender": "female"
+    },
+    {
+      "externalId": "359715",
+      "name": "袁彭年",
+      "citation": "CBDB 中国历代人物传记资料库 person 359715",
+      "gender": "male"
+    },
+    {
+      "externalId": "577692",
+      "name": "袁岳年",
+      "citation": "CBDB 中国历代人物传记资料库 person 577692",
+      "gender": "male",
+      "birth": {
+        "year": 1610
+      }
+    },
+    {
+      "externalId": "577660",
+      "name": "袁開美",
+      "citation": "CBDB 中国历代人物传记资料库 person 577660",
+      "gender": "male",
+      "birth": {
+        "year": 1591
+      },
+      "death": {
+        "year": 1594
+      }
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "232386",
+      "child": "35222"
+    },
+    {
+      "kind": "spouse",
+      "a": "35222",
+      "b": "572658"
+    },
+    {
+      "kind": "spouse",
+      "a": "35222",
+      "b": "577693"
+    },
+    {
+      "kind": "parent",
+      "parent": "35222",
+      "child": "578488"
+    },
+    {
+      "kind": "parent",
+      "parent": "35222",
+      "child": "359715"
+    },
+    {
+      "kind": "parent",
+      "parent": "35222",
+      "child": "577692"
+    },
+    {
+      "kind": "parent",
+      "parent": "35222",
+      "child": "577660"
+    }
+  ]
+}
