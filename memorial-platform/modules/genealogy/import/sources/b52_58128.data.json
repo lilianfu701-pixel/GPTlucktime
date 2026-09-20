@@ -1,0 +1,203 @@
+{
+  "key": "cbdb:b52_58128",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "58128",
+      "name": "劉綸",
+      "citation": "CBDB 中国历代人物传记资料库 person 58128",
+      "gender": "male",
+      "birth": {
+        "year": 1711
+      },
+      "death": {
+        "year": 1773
+      }
+    },
+    {
+      "externalId": "74754",
+      "name": "劉機",
+      "citation": "CBDB 中国历代人物传记资料库 person 74754",
+      "gender": "male",
+      "birth": {
+        "year": 1679
+      },
+      "death": {
+        "year": 1751
+      }
+    },
+    {
+      "externalId": "57817",
+      "name": "劉躍雲",
+      "citation": "CBDB 中国历代人物传记资料库 person 57817",
+      "gender": "male",
+      "birth": {
+        "year": 1736
+      },
+      "death": {
+        "year": 1808
+      }
+    },
+    {
+      "externalId": "74988",
+      "name": "劉召揚",
+      "citation": "CBDB 中国历代人物传记资料库 person 74988",
+      "gender": "male",
+      "birth": {
+        "year": 1746
+      },
+      "death": {
+        "year": 1803
+      }
+    },
+    {
+      "externalId": "516471",
+      "name": "劉驥稱",
+      "citation": "CBDB 中国历代人物传记资料库 person 516471"
+    },
+    {
+      "externalId": "586287",
+      "name": "劉圖南",
+      "citation": "CBDB 中国历代人物传记资料库 person 586287",
+      "gender": "male"
+    },
+    {
+      "externalId": "515700",
+      "name": "劉逢運",
+      "citation": "CBDB 中国历代人物传记资料库 person 515700"
+    },
+    {
+      "externalId": "515701",
+      "name": "劉逢嘉",
+      "citation": "CBDB 中国历代人物传记资料库 person 515701"
+    },
+    {
+      "externalId": "515702",
+      "name": "劉逢慶",
+      "citation": "CBDB 中国历代人物传记资料库 person 515702"
+    },
+    {
+      "externalId": "65739",
+      "name": "劉逢祿",
+      "citation": "CBDB 中国历代人物传记资料库 person 65739",
+      "gender": "male",
+      "birth": {
+        "year": 1774
+      },
+      "death": {
+        "year": 1829
+      }
+    },
+    {
+      "externalId": "75176",
+      "name": "劉承寬",
+      "citation": "CBDB 中国历代人物传记资料库 person 75176",
+      "gender": "male",
+      "birth": {
+        "year": 1796
+      },
+      "death": {
+        "year": 1853
+      }
+    },
+    {
+      "externalId": "522168",
+      "name": "劉承向",
+      "citation": "CBDB 中国历代人物传记资料库 person 522168"
+    },
+    {
+      "externalId": "522169",
+      "name": "劉承安",
+      "citation": "CBDB 中国历代人物传记资料库 person 522169"
+    },
+    {
+      "externalId": "522170",
+      "name": "劉承實",
+      "citation": "CBDB 中国历代人物传记资料库 person 522170"
+    },
+    {
+      "externalId": "75174",
+      "name": "劉承寵",
+      "citation": "CBDB 中国历代人物传记资料库 person 75174",
+      "gender": "male",
+      "birth": {
+        "year": 1798
+      },
+      "death": {
+        "year": 1827
+      }
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "74754",
+      "child": "58128"
+    },
+    {
+      "kind": "parent",
+      "parent": "58128",
+      "child": "57817"
+    },
+    {
+      "kind": "parent",
+      "parent": "58128",
+      "child": "74988"
+    },
+    {
+      "kind": "parent",
+      "parent": "58128",
+      "child": "516471"
+    },
+    {
+      "kind": "parent",
+      "parent": "58128",
+      "child": "586287"
+    },
+    {
+      "kind": "parent",
+      "parent": "57817",
+      "child": "515700"
+    },
+    {
+      "kind": "parent",
+      "parent": "57817",
+      "child": "515701"
+    },
+    {
+      "kind": "parent",
+      "parent": "57817",
+      "child": "515702"
+    },
+    {
+      "kind": "parent",
+      "parent": "74988",
+      "child": "65739"
+    },
+    {
+      "kind": "parent",
+      "parent": "65739",
+      "child": "75176"
+    },
+    {
+      "kind": "parent",
+      "parent": "65739",
+      "child": "522168"
+    },
+    {
+      "kind": "parent",
+      "parent": "65739",
+      "child": "522169"
+    },
+    {
+      "kind": "parent",
+      "parent": "65739",
+      "child": "522170"
+    },
+    {
+      "kind": "parent",
+      "parent": "65739",
+      "child": "75174"
+    }
+  ]
+}

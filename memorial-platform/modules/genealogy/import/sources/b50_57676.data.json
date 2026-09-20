@@ -1,0 +1,16 @@
+{
+  "key": "cbdb:b50_57676",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57676",
+      "name": "佟佳裕瑞",
+      "citation": "CBDB 中国历代人物传记资料库 person 57676",
+      "gender": "male",
+      "death": {
+        "year": 1868
+      }
+    }
+  ],
+  "relations": []
+}

@@ -1,0 +1,19 @@
+{
+  "key": "cbdb:b50_57748",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57748",
+      "name": "愛新覺羅福全",
+      "citation": "CBDB 中国历代人物传记资料库 person 57748",
+      "gender": "male",
+      "birth": {
+        "year": 1653
+      },
+      "death": {
+        "year": 1703
+      }
+    }
+  ],
+  "relations": []
+}

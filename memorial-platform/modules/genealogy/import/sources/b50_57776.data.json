@@ -1,0 +1,16 @@
+{
+  "key": "cbdb:b50_57776",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57776",
+      "name": "覺羅八十",
+      "citation": "CBDB 中国历代人物传记资料库 person 57776",
+      "gender": "male",
+      "death": {
+        "year": 1833
+      }
+    }
+  ],
+  "relations": []
+}

@@ -1,0 +1,19 @@
+{
+  "key": "cbdb:b51_57956",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57956",
+      "name": "薩爾圖克聯捷",
+      "citation": "CBDB 中国历代人物传记资料库 person 57956",
+      "gender": "male",
+      "birth": {
+        "year": 1819
+      },
+      "death": {
+        "year": 1866
+      }
+    }
+  ],
+  "relations": []
+}

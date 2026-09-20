@@ -1,0 +1,16 @@
+{
+  "key": "cbdb:b52_58064",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "58064",
+      "name": "西林覺羅潤祥",
+      "citation": "CBDB 中国历代人物传记资料库 person 58064",
+      "gender": "male",
+      "death": {
+        "year": 1818
+      }
+    }
+  ],
+  "relations": []
+}

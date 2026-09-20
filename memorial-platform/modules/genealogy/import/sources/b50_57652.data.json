@@ -1,0 +1,16 @@
+{
+  "key": "cbdb:b50_57652",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57652",
+      "name": "汪佳海明",
+      "citation": "CBDB 中国历代人物传记资料库 person 57652",
+      "gender": "male",
+      "death": {
+        "year": 1772
+      }
+    }
+  ],
+  "relations": []
+}

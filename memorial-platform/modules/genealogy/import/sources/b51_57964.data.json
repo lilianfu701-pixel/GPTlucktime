@@ -1,0 +1,50 @@
+{
+  "key": "cbdb:b51_57964",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57964",
+      "name": "鮑超",
+      "citation": "CBDB 中国历代人物传记资料库 person 57964",
+      "gender": "male",
+      "birth": {
+        "year": 1828
+      },
+      "death": {
+        "year": 1886
+      }
+    },
+    {
+      "externalId": "516042",
+      "name": "鮑祖恩",
+      "citation": "CBDB 中国历代人物传记资料库 person 516042"
+    },
+    {
+      "externalId": "516043",
+      "name": "鮑祖祥",
+      "citation": "CBDB 中国历代人物传记资料库 person 516043"
+    },
+    {
+      "externalId": "516044",
+      "name": "鮑祖齡",
+      "citation": "CBDB 中国历代人物传记资料库 person 516044"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "57964",
+      "child": "516042"
+    },
+    {
+      "kind": "parent",
+      "parent": "57964",
+      "child": "516043"
+    },
+    {
+      "kind": "parent",
+      "parent": "57964",
+      "child": "516044"
+    }
+  ]
+}

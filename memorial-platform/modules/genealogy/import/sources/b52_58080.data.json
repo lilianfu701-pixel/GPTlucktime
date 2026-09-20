@@ -1,0 +1,16 @@
+{
+  "key": "cbdb:b52_58080",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "58080",
+      "name": "佟佳瑺弼",
+      "citation": "CBDB 中国历代人物传记资料库 person 58080",
+      "gender": "male",
+      "death": {
+        "year": 1821
+      }
+    }
+  ],
+  "relations": []
+}

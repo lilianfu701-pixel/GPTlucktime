@@ -1,0 +1,30 @@
+{
+  "key": "cbdb:b51_57820",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57820",
+      "name": "王可陞",
+      "citation": "CBDB 中国历代人物传记资料库 person 57820",
+      "gender": "male",
+      "birth": {
+        "year": 1825
+      },
+      "death": {
+        "year": 1897
+      }
+    },
+    {
+      "externalId": "515705",
+      "name": "王育桐",
+      "citation": "CBDB 中国历代人物传记资料库 person 515705"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "57820",
+      "child": "515705"
+    }
+  ]
+}

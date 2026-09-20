@@ -1,0 +1,16 @@
+{
+  "key": "cbdb:b50_57640",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57640",
+      "name": "艾元徵",
+      "citation": "CBDB 中国历代人物传记资料库 person 57640",
+      "gender": "male",
+      "death": {
+        "year": 1676
+      }
+    }
+  ],
+  "relations": []
+}

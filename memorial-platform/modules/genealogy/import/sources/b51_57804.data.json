@@ -1,0 +1,40 @@
+{
+  "key": "cbdb:b51_57804",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57804",
+      "name": "李如蘭",
+      "citation": "CBDB 中国历代人物传记资料库 person 57804",
+      "gender": "male",
+      "birth": {
+        "year": 1684
+      },
+      "death": {
+        "year": 1747
+      }
+    },
+    {
+      "externalId": "515652",
+      "name": "李思訓",
+      "citation": "CBDB 中国历代人物传记资料库 person 515652"
+    },
+    {
+      "externalId": "515650",
+      "name": "李念祖",
+      "citation": "CBDB 中国历代人物传记资料库 person 515650"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "57804",
+      "child": "515652"
+    },
+    {
+      "kind": "parent",
+      "parent": "57804",
+      "child": "515650"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "key": "cbdb:b52_58036",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "58036",
+      "name": "恆奇羅穆騰額",
+      "citation": "CBDB 中国历代人物传记资料库 person 58036",
+      "gender": "male",
+      "birth": {
+        "year": 1821
+      },
+      "death": {
+        "year": 1864
+      }
+    }
+  ],
+  "relations": []
+}

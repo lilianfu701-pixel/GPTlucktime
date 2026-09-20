@@ -1,0 +1,27 @@
+{
+  "key": "cbdb:b50_57696",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57696",
+      "name": "富察達洪阿",
+      "citation": "CBDB 中国历代人物传记资料库 person 57696",
+      "gender": "male",
+      "death": {
+        "year": 1854
+      }
+    },
+    {
+      "externalId": "515477",
+      "name": "富察穆克金布",
+      "citation": "CBDB 中国历代人物传记资料库 person 515477"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "57696",
+      "child": "515477"
+    }
+  ]
+}

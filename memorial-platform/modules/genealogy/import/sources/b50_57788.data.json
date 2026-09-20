@@ -1,0 +1,16 @@
+{
+  "key": "cbdb:b50_57788",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57788",
+      "name": "高佳高樸",
+      "citation": "CBDB 中国历代人物传记资料库 person 57788",
+      "gender": "male",
+      "death": {
+        "year": 1778
+      }
+    }
+  ],
+  "relations": []
+}

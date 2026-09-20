@@ -1,0 +1,37 @@
+{
+  "key": "cbdb:b52_58072",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "58072",
+      "name": "彭慶新",
+      "citation": "CBDB 中国历代人物传记资料库 person 58072",
+      "gender": "male",
+      "death": {
+        "year": 1868
+      }
+    },
+    {
+      "externalId": "516360",
+      "name": "彭多英",
+      "citation": "CBDB 中国历代人物传记资料库 person 516360"
+    },
+    {
+      "externalId": "516361",
+      "name": "彭多魁",
+      "citation": "CBDB 中国历代人物传记资料库 person 516361"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "58072",
+      "child": "516360"
+    },
+    {
+      "kind": "parent",
+      "parent": "58072",
+      "child": "516361"
+    }
+  ]
+}

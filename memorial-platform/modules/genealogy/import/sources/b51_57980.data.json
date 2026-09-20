@@ -1,0 +1,30 @@
+{
+  "key": "cbdb:b51_57980",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57980",
+      "name": "瓜爾佳興奎",
+      "citation": "CBDB 中国历代人物传记资料库 person 57980",
+      "gender": "male",
+      "birth": {
+        "year": 1746
+      },
+      "death": {
+        "year": 1824
+      }
+    },
+    {
+      "externalId": "516066",
+      "name": "瓜爾佳額勒德理",
+      "citation": "CBDB 中国历代人物传记资料库 person 516066"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "57980",
+      "child": "516066"
+    }
+  ]
+}

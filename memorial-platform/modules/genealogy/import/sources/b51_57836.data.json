@@ -1,0 +1,19 @@
+{
+  "key": "cbdb:b51_57836",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57836",
+      "name": "嚴正基",
+      "citation": "CBDB 中国历代人物传记资料库 person 57836",
+      "gender": "male",
+      "birth": {
+        "year": 1786
+      },
+      "death": {
+        "year": 1863
+      }
+    }
+  ],
+  "relations": []
+}

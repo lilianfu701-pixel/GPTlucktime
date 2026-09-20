@@ -1,0 +1,65 @@
+{
+  "key": "cbdb:b51_57924",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57924",
+      "name": "潘紹周",
+      "citation": "CBDB 中国历代人物传记资料库 person 57924",
+      "gender": "male",
+      "death": {
+        "year": 1753
+      }
+    },
+    {
+      "externalId": "700763",
+      "name": "潘福",
+      "citation": "CBDB 中国历代人物传记资料库 person 700763",
+      "gender": "male"
+    },
+    {
+      "externalId": "56030",
+      "name": "潘育龍",
+      "citation": "CBDB 中国历代人物传记资料库 person 56030",
+      "gender": "male",
+      "birth": {
+        "year": 1642
+      },
+      "death": {
+        "year": 1719
+      }
+    },
+    {
+      "externalId": "530768",
+      "name": "蒙氏",
+      "citation": "CBDB 中国历代人物传记资料库 person 530768"
+    },
+    {
+      "externalId": "526662",
+      "name": "潘澤溥",
+      "citation": "CBDB 中国历代人物传记资料库 person 526662"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "700763",
+      "child": "57924"
+    },
+    {
+      "kind": "parent",
+      "parent": "56030",
+      "child": "700763"
+    },
+    {
+      "kind": "parent",
+      "parent": "526662",
+      "child": "56030"
+    },
+    {
+      "kind": "spouse",
+      "a": "530768",
+      "b": "56030"
+    }
+  ]
+}

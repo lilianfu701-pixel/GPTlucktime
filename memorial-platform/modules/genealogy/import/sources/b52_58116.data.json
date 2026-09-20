@@ -1,0 +1,27 @@
+{
+  "key": "cbdb:b52_58116",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "58116",
+      "name": "劉起龍",
+      "citation": "CBDB 中国历代人物传记资料库 person 58116",
+      "gender": "male",
+      "death": {
+        "year": 1830
+      }
+    },
+    {
+      "externalId": "516449",
+      "name": "劉重亮",
+      "citation": "CBDB 中国历代人物传记资料库 person 516449"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "58116",
+      "child": "516449"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "key": "cbdb:b50_57768",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57768",
+      "name": "袁敏",
+      "citation": "CBDB 中国历代人物传记资料库 person 57768",
+      "gender": "male",
+      "death": {
+        "year": 1812
+      }
+    }
+  ],
+  "relations": []
+}

@@ -1,0 +1,27 @@
+{
+  "key": "cbdb:b52_58152",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "58152",
+      "name": "卜尼德亮",
+      "citation": "CBDB 中国历代人物传记资料库 person 58152",
+      "gender": "male",
+      "death": {
+        "year": 1857
+      }
+    },
+    {
+      "externalId": "516528",
+      "name": "卜尼常和",
+      "citation": "CBDB 中国历代人物传记资料库 person 516528"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "58152",
+      "child": "516528"
+    }
+  ]
+}

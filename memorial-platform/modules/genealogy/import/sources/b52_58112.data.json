@@ -1,0 +1,19 @@
+{
+  "key": "cbdb:b52_58112",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "58112",
+      "name": "潘鼎立",
+      "citation": "CBDB 中国历代人物传记资料库 person 58112",
+      "gender": "male",
+      "birth": {
+        "year": 1826
+      },
+      "death": {
+        "year": 1884
+      }
+    }
+  ],
+  "relations": []
+}

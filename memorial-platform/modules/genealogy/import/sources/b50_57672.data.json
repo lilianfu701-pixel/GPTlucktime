@@ -1,0 +1,19 @@
+{
+  "key": "cbdb:b50_57672",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57672",
+      "name": "董芳",
+      "citation": "CBDB 中国历代人物传记资料库 person 57672",
+      "gender": "male",
+      "birth": {
+        "year": 1695
+      },
+      "death": {
+        "year": 1757
+      }
+    }
+  ],
+  "relations": []
+}

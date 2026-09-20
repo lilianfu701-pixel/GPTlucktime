@@ -1,0 +1,27 @@
+{
+  "key": "cbdb:b50_57744",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57744",
+      "name": "秦承恩",
+      "citation": "CBDB 中国历代人物传记资料库 person 57744",
+      "gender": "male",
+      "death": {
+        "year": 1809
+      }
+    },
+    {
+      "externalId": "515533",
+      "name": "秦念曾",
+      "citation": "CBDB 中国历代人物传记资料库 person 515533"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "57744",
+      "child": "515533"
+    }
+  ]
+}

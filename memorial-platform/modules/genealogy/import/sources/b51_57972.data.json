@@ -1,0 +1,24 @@
+{
+  "key": "cbdb:b51_57972",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57972",
+      "name": "鄂爾努特錫綸",
+      "citation": "CBDB 中国历代人物传记资料库 person 57972",
+      "gender": "male"
+    },
+    {
+      "externalId": "516052",
+      "name": "鄂爾努特桂清",
+      "citation": "CBDB 中国历代人物传记资料库 person 516052"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "57972",
+      "child": "516052"
+    }
+  ]
+}

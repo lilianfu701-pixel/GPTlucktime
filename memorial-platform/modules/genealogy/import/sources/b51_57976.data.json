@@ -1,0 +1,19 @@
+{
+  "key": "cbdb:b51_57976",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57976",
+      "name": "蘇完呢瓜爾佳興泰",
+      "citation": "CBDB 中国历代人物传记资料库 person 57976",
+      "gender": "male",
+      "birth": {
+        "year": 1797
+      },
+      "death": {
+        "year": 1864
+      }
+    }
+  ],
+  "relations": []
+}

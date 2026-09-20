@@ -1,0 +1,19 @@
+{
+  "key": "cbdb:b50_57732",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57732",
+      "name": "鈕祜祿對哈納",
+      "citation": "CBDB 中国历代人物传记资料库 person 57732",
+      "gender": "male",
+      "birth": {
+        "year": 1619
+      },
+      "death": {
+        "year": 1675
+      }
+    }
+  ],
+  "relations": []
+}

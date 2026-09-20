@@ -1,0 +1,16 @@
+{
+  "key": "cbdb:b50_57736",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57736",
+      "name": "祖澤溥",
+      "citation": "CBDB 中国历代人物传记资料库 person 57736",
+      "gender": "male",
+      "death": {
+        "year": 1679
+      }
+    }
+  ],
+  "relations": []
+}

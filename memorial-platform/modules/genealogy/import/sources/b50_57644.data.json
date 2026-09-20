@@ -1,0 +1,47 @@
+{
+  "key": "cbdb:b50_57644",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57644",
+      "name": "浦霖",
+      "citation": "CBDB 中国历代人物传记资料库 person 57644",
+      "gender": "male",
+      "death": {
+        "year": 1795
+      }
+    },
+    {
+      "externalId": "515389",
+      "name": "浦煦",
+      "citation": "CBDB 中国历代人物传记资料库 person 515389"
+    },
+    {
+      "externalId": "515390",
+      "name": "浦煌",
+      "citation": "CBDB 中国历代人物传记资料库 person 515390"
+    },
+    {
+      "externalId": "515391",
+      "name": "浦焴",
+      "citation": "CBDB 中国历代人物传记资料库 person 515391"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "57644",
+      "child": "515389"
+    },
+    {
+      "kind": "parent",
+      "parent": "57644",
+      "child": "515390"
+    },
+    {
+      "kind": "parent",
+      "parent": "57644",
+      "child": "515391"
+    }
+  ]
+}

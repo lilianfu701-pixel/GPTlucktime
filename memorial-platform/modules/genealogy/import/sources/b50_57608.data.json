@@ -1,0 +1,30 @@
+{
+  "key": "cbdb:b50_57608",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57608",
+      "name": "朱椿",
+      "citation": "CBDB 中国历代人物传记资料库 person 57608",
+      "gender": "male",
+      "birth": {
+        "year": 1710
+      },
+      "death": {
+        "year": 1784
+      }
+    },
+    {
+      "externalId": "515335",
+      "name": "朱毓浤",
+      "citation": "CBDB 中国历代人物传记资料库 person 515335"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "515335",
+      "child": "57608"
+    }
+  ]
+}

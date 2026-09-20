@@ -1,0 +1,16 @@
+{
+  "key": "cbdb:b52_58108",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "58108",
+      "name": "潘汝渭",
+      "citation": "CBDB 中国历代人物传记资料库 person 58108",
+      "gender": "male",
+      "death": {
+        "year": 1829
+      }
+    }
+  ],
+  "relations": []
+}

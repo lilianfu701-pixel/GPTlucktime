@@ -1,0 +1,16 @@
+{
+  "key": "cbdb:b50_57604",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57604",
+      "name": "高佳書麟",
+      "citation": "CBDB 中国历代人物传记资料库 person 57604",
+      "gender": "male",
+      "death": {
+        "year": 1801
+      }
+    }
+  ],
+  "relations": []
+}

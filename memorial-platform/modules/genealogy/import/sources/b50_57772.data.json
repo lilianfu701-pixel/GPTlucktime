@@ -1,0 +1,16 @@
+{
+  "key": "cbdb:b50_57772",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57772",
+      "name": "郝玉麟",
+      "citation": "CBDB 中国历代人物传记资料库 person 57772",
+      "gender": "male",
+      "death": {
+        "year": 1745
+      }
+    }
+  ],
+  "relations": []
+}

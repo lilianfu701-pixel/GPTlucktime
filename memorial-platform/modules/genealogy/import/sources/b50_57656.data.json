@@ -1,0 +1,16 @@
+{
+  "key": "cbdb:b50_57656",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57656",
+      "name": "石爾德特瑞常",
+      "citation": "CBDB 中国历代人物传记资料库 person 57656",
+      "gender": "male",
+      "death": {
+        "year": 1872
+      }
+    }
+  ],
+  "relations": []
+}

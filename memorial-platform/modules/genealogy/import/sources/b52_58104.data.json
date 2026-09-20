@@ -1,0 +1,27 @@
+{
+  "key": "cbdb:b52_58104",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "58104",
+      "name": "趙弘恩",
+      "citation": "CBDB 中国历代人物传记资料库 person 58104",
+      "gender": "male",
+      "death": {
+        "year": 1758
+      }
+    },
+    {
+      "externalId": "516428",
+      "name": "趙世倫",
+      "citation": "CBDB 中国历代人物传记资料库 person 516428"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "516428",
+      "child": "58104"
+    }
+  ]
+}

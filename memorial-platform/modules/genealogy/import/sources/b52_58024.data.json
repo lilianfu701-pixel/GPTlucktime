@@ -1,0 +1,90 @@
+{
+  "key": "cbdb:b52_58024",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "58024",
+      "name": "衛榮光",
+      "citation": "CBDB 中国历代人物传记资料库 person 58024",
+      "gender": "male",
+      "birth": {
+        "year": 1824
+      },
+      "death": {
+        "year": 1890
+      }
+    },
+    {
+      "externalId": "516247",
+      "name": "衛獻玫",
+      "citation": "CBDB 中国历代人物传记资料库 person 516247"
+    },
+    {
+      "externalId": "516248",
+      "name": "衛獻琛",
+      "citation": "CBDB 中国历代人物传记资料库 person 516248"
+    },
+    {
+      "externalId": "516249",
+      "name": "衛獻琨",
+      "citation": "CBDB 中国历代人物传记资料库 person 516249"
+    },
+    {
+      "externalId": "516250",
+      "name": "衛獻琮",
+      "citation": "CBDB 中国历代人物传记资料库 person 516250"
+    },
+    {
+      "externalId": "516251",
+      "name": "衛獻瑤",
+      "citation": "CBDB 中国历代人物传记资料库 person 516251"
+    },
+    {
+      "externalId": "516252",
+      "name": "衛獻瑾",
+      "citation": "CBDB 中国历代人物传记资料库 person 516252"
+    },
+    {
+      "externalId": "516253",
+      "name": "衛獻璜",
+      "citation": "CBDB 中国历代人物传记资料库 person 516253"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "58024",
+      "child": "516247"
+    },
+    {
+      "kind": "parent",
+      "parent": "58024",
+      "child": "516248"
+    },
+    {
+      "kind": "parent",
+      "parent": "58024",
+      "child": "516249"
+    },
+    {
+      "kind": "parent",
+      "parent": "58024",
+      "child": "516250"
+    },
+    {
+      "kind": "parent",
+      "parent": "58024",
+      "child": "516251"
+    },
+    {
+      "kind": "parent",
+      "parent": "58024",
+      "child": "516252"
+    },
+    {
+      "kind": "parent",
+      "parent": "58024",
+      "child": "516253"
+    }
+  ]
+}

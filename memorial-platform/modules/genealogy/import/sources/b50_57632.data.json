@@ -1,0 +1,47 @@
+{
+  "key": "cbdb:b50_57632",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57632",
+      "name": "鈕祜祿毓奇",
+      "citation": "CBDB 中国历代人物传记资料库 person 57632",
+      "gender": "male",
+      "death": {
+        "year": 1791
+      }
+    },
+    {
+      "externalId": "515371",
+      "name": "鈕祜祿圖沁",
+      "citation": "CBDB 中国历代人物传记资料库 person 515371"
+    },
+    {
+      "externalId": "515372",
+      "name": "鈕祜祿圖善",
+      "citation": "CBDB 中国历代人物传记资料库 person 515372"
+    },
+    {
+      "externalId": "515373",
+      "name": "鈕祜祿圖翰",
+      "citation": "CBDB 中国历代人物传记资料库 person 515373"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "57632",
+      "child": "515371"
+    },
+    {
+      "kind": "parent",
+      "parent": "57632",
+      "child": "515372"
+    },
+    {
+      "kind": "parent",
+      "parent": "57632",
+      "child": "515373"
+    }
+  ]
+}

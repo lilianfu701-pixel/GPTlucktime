@@ -1,0 +1,16 @@
+{
+  "key": "cbdb:b51_57916",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57916",
+      "name": "郭博勒達虎里郭貝爾豐陞阿",
+      "citation": "CBDB 中国历代人物传记资料库 person 57916",
+      "gender": "male",
+      "death": {
+        "year": 1909
+      }
+    }
+  ],
+  "relations": []
+}

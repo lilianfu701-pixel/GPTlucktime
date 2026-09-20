@@ -1,0 +1,30 @@
+{
+  "key": "cbdb:b52_58196",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "58196",
+      "name": "蘇穆察廣林",
+      "citation": "CBDB 中国历代人物传记资料库 person 58196",
+      "gender": "male",
+      "birth": {
+        "year": 1790
+      },
+      "death": {
+        "year": 1858
+      }
+    },
+    {
+      "externalId": "516597",
+      "name": "蘇穆察錫恆",
+      "citation": "CBDB 中国历代人物传记资料库 person 516597"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "58196",
+      "child": "516597"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "key": "cbdb:b52_58048",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "58048",
+      "name": "穆緝香阿",
+      "citation": "CBDB 中国历代人物传记资料库 person 58048",
+      "gender": "male",
+      "death": {
+        "year": 1865
+      }
+    }
+  ],
+  "relations": []
+}

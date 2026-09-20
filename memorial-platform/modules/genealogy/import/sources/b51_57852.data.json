@@ -1,0 +1,30 @@
+{
+  "key": "cbdb:b51_57852",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57852",
+      "name": "瓜爾佳蘇清阿",
+      "citation": "CBDB 中国历代人物传记资料库 person 57852",
+      "gender": "male",
+      "birth": {
+        "year": 1773
+      },
+      "death": {
+        "year": 1835
+      }
+    },
+    {
+      "externalId": "515773",
+      "name": "瓜爾佳豐紳",
+      "citation": "CBDB 中国历代人物传记资料库 person 515773"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "57852",
+      "child": "515773"
+    }
+  ]
+}

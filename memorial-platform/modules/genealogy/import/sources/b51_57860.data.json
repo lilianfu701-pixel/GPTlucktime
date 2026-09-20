@@ -1,0 +1,19 @@
+{
+  "key": "cbdb:b51_57860",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57860",
+      "name": "他塔拉蘇淩阿",
+      "citation": "CBDB 中国历代人物传记资料库 person 57860",
+      "gender": "male",
+      "birth": {
+        "year": 1715
+      },
+      "death": {
+        "year": 1799
+      }
+    }
+  ],
+  "relations": []
+}

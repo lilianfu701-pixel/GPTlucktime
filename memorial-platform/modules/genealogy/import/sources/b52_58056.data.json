@@ -1,0 +1,47 @@
+{
+  "key": "cbdb:b52_58056",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "58056",
+      "name": "愛新覺羅增海",
+      "citation": "CBDB 中国历代人物传记资料库 person 58056",
+      "gender": "male",
+      "death": {
+        "year": 1773
+      }
+    },
+    {
+      "externalId": "516336",
+      "name": "愛新覺羅德清阿",
+      "citation": "CBDB 中国历代人物传记资料库 person 516336"
+    },
+    {
+      "externalId": "516337",
+      "name": "愛新覺羅德隆阿",
+      "citation": "CBDB 中国历代人物传记资料库 person 516337"
+    },
+    {
+      "externalId": "516338",
+      "name": "愛新覺羅德襄阿",
+      "citation": "CBDB 中国历代人物传记资料库 person 516338"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "58056",
+      "child": "516336"
+    },
+    {
+      "kind": "parent",
+      "parent": "58056",
+      "child": "516337"
+    },
+    {
+      "kind": "parent",
+      "parent": "58056",
+      "child": "516338"
+    }
+  ]
+}

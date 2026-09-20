@@ -1,0 +1,40 @@
+{
+  "key": "cbdb:b52_58132",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "58132",
+      "name": "劉祥勝",
+      "citation": "CBDB 中国历代人物传记资料库 person 58132",
+      "gender": "male",
+      "birth": {
+        "year": 1828
+      },
+      "death": {
+        "year": 1905
+      }
+    },
+    {
+      "externalId": "516478",
+      "name": "劉榮䨝",
+      "citation": "CBDB 中国历代人物传记资料库 person 516478"
+    },
+    {
+      "externalId": "516480",
+      "name": "劉錩馥",
+      "citation": "CBDB 中国历代人物传记资料库 person 516480"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "516478",
+      "child": "58132"
+    },
+    {
+      "kind": "parent",
+      "parent": "58132",
+      "child": "516480"
+    }
+  ]
+}

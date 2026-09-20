@@ -1,0 +1,47 @@
+{
+  "key": "cbdb:b51_57896",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57896",
+      "name": "他塔拉雙福",
+      "citation": "CBDB 中国历代人物传记资料库 person 57896",
+      "gender": "male",
+      "death": {
+        "year": 1852
+      }
+    },
+    {
+      "externalId": "515889",
+      "name": "他塔拉德森",
+      "citation": "CBDB 中国历代人物传记资料库 person 515889"
+    },
+    {
+      "externalId": "515890",
+      "name": "他塔拉德隆",
+      "citation": "CBDB 中国历代人物传记资料库 person 515890"
+    },
+    {
+      "externalId": "515891",
+      "name": "他塔拉德齡",
+      "citation": "CBDB 中国历代人物传记资料库 person 515891"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "57896",
+      "child": "515889"
+    },
+    {
+      "kind": "parent",
+      "parent": "57896",
+      "child": "515890"
+    },
+    {
+      "kind": "parent",
+      "parent": "57896",
+      "child": "515891"
+    }
+  ]
+}

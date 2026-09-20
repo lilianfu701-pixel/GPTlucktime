@@ -1,0 +1,40 @@
+{
+  "key": "cbdb:b51_57832",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57832",
+      "name": "瓜爾佳觀喜",
+      "citation": "CBDB 中国历代人物传记资料库 person 57832",
+      "gender": "male",
+      "birth": {
+        "year": 1764
+      },
+      "death": {
+        "year": 1829
+      }
+    },
+    {
+      "externalId": "515724",
+      "name": "瓜爾佳同住",
+      "citation": "CBDB 中国历代人物传记资料库 person 515724"
+    },
+    {
+      "externalId": "515725",
+      "name": "瓜爾佳色布徵阿",
+      "citation": "CBDB 中国历代人物传记资料库 person 515725"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "515724",
+      "child": "57832"
+    },
+    {
+      "kind": "parent",
+      "parent": "57832",
+      "child": "515725"
+    }
+  ]
+}

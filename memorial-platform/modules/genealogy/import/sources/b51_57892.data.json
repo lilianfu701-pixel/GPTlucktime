@@ -1,0 +1,30 @@
+{
+  "key": "cbdb:b51_57892",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57892",
+      "name": "哈普齊忒雙齡",
+      "citation": "CBDB 中国历代人物传记资料库 person 57892",
+      "gender": "male",
+      "birth": {
+        "year": 1809
+      },
+      "death": {
+        "year": 1861
+      }
+    },
+    {
+      "externalId": "515873",
+      "name": "哈普齊忒福壽",
+      "citation": "CBDB 中国历代人物传记资料库 person 515873"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "57892",
+      "child": "515873"
+    }
+  ]
+}

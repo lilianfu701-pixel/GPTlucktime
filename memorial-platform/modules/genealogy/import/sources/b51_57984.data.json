@@ -1,0 +1,27 @@
+{
+  "key": "cbdb:b51_57984",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57984",
+      "name": "顧德慶",
+      "citation": "CBDB 中国历代人物传记资料库 person 57984",
+      "gender": "male",
+      "death": {
+        "year": 1830
+      }
+    },
+    {
+      "externalId": "516067",
+      "name": "顧蘭徵",
+      "citation": "CBDB 中国历代人物传记资料库 person 516067"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "57984",
+      "child": "516067"
+    }
+  ]
+}

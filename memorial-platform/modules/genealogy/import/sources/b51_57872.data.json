@@ -1,0 +1,30 @@
+{
+  "key": "cbdb:b51_57872",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57872",
+      "name": "那拉麒慶",
+      "citation": "CBDB 中国历代人物传记资料库 person 57872",
+      "gender": "male",
+      "birth": {
+        "year": 1811
+      },
+      "death": {
+        "year": 1869
+      }
+    },
+    {
+      "externalId": "515806",
+      "name": "那拉續廉",
+      "citation": "CBDB 中国历代人物传记资料库 person 515806"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "57872",
+      "child": "515806"
+    }
+  ]
+}

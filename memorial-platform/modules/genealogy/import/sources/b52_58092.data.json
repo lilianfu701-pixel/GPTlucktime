@@ -1,0 +1,80 @@
+{
+  "key": "cbdb:b52_58092",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "58092",
+      "name": "陳慶德",
+      "citation": "CBDB 中国历代人物传记资料库 person 58092",
+      "gender": "male",
+      "birth": {
+        "year": 1791
+      },
+      "death": {
+        "year": 1854
+      }
+    },
+    {
+      "externalId": "516391",
+      "name": "陳佳福格",
+      "citation": "CBDB 中国历代人物传记资料库 person 516391"
+    },
+    {
+      "externalId": "516395",
+      "name": "陳福格",
+      "citation": "CBDB 中国历代人物传记资料库 person 516395"
+    },
+    {
+      "externalId": "516389",
+      "name": "陳佳明序",
+      "citation": "CBDB 中国历代人物传记资料库 person 516389"
+    },
+    {
+      "externalId": "516390",
+      "name": "陳佳明康",
+      "citation": "CBDB 中国历代人物传记资料库 person 516390"
+    },
+    {
+      "externalId": "516392",
+      "name": "陳明序",
+      "citation": "CBDB 中国历代人物传记资料库 person 516392"
+    },
+    {
+      "externalId": "516393",
+      "name": "陳明康",
+      "citation": "CBDB 中国历代人物传记资料库 person 516393"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "516391",
+      "child": "58092"
+    },
+    {
+      "kind": "parent",
+      "parent": "516395",
+      "child": "58092"
+    },
+    {
+      "kind": "parent",
+      "parent": "58092",
+      "child": "516389"
+    },
+    {
+      "kind": "parent",
+      "parent": "58092",
+      "child": "516390"
+    },
+    {
+      "kind": "parent",
+      "parent": "58092",
+      "child": "516392"
+    },
+    {
+      "kind": "parent",
+      "parent": "58092",
+      "child": "516393"
+    }
+  ]
+}

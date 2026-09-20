@@ -1,0 +1,40 @@
+{
+  "key": "cbdb:b51_57992",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57992",
+      "name": "羅源漢",
+      "citation": "CBDB 中国历代人物传记资料库 person 57992",
+      "gender": "male",
+      "birth": {
+        "year": 1707
+      },
+      "death": {
+        "year": 1782
+      }
+    },
+    {
+      "externalId": "516085",
+      "name": "羅䎙遠",
+      "citation": "CBDB 中国历代人物传记资料库 person 516085"
+    },
+    {
+      "externalId": "516086",
+      "name": "羅樹遠",
+      "citation": "CBDB 中国历代人物传记资料库 person 516086"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "57992",
+      "child": "516085"
+    },
+    {
+      "kind": "parent",
+      "parent": "57992",
+      "child": "516086"
+    }
+  ]
+}

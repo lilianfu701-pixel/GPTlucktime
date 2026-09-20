@@ -1,0 +1,50 @@
+{
+  "key": "cbdb:b52_58052",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "58052",
+      "name": "蔡新",
+      "citation": "CBDB 中国历代人物传记资料库 person 58052",
+      "gender": "male",
+      "birth": {
+        "year": 1707
+      },
+      "death": {
+        "year": 1796
+      }
+    },
+    {
+      "externalId": "516332",
+      "name": "蔡本份",
+      "citation": "CBDB 中国历代人物传记资料库 person 516332"
+    },
+    {
+      "externalId": "516333",
+      "name": "蔡本俶",
+      "citation": "CBDB 中国历代人物传记资料库 person 516333"
+    },
+    {
+      "externalId": "516334",
+      "name": "蔡本淑",
+      "citation": "CBDB 中国历代人物传记资料库 person 516334"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "58052",
+      "child": "516332"
+    },
+    {
+      "kind": "parent",
+      "parent": "58052",
+      "child": "516333"
+    },
+    {
+      "kind": "parent",
+      "parent": "58052",
+      "child": "516334"
+    }
+  ]
+}

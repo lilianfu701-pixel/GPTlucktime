@@ -1,0 +1,50 @@
+{
+  "key": "cbdb:b51_57816",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57816",
+      "name": "左寶貴",
+      "citation": "CBDB 中国历代人物传记资料库 person 57816",
+      "gender": "male",
+      "birth": {
+        "year": 1837
+      },
+      "death": {
+        "year": 1894
+      }
+    },
+    {
+      "externalId": "515690",
+      "name": "左國棟",
+      "citation": "CBDB 中国历代人物传记资料库 person 515690"
+    },
+    {
+      "externalId": "515691",
+      "name": "左國楫",
+      "citation": "CBDB 中国历代人物传记资料库 person 515691"
+    },
+    {
+      "externalId": "515692",
+      "name": "左國璋",
+      "citation": "CBDB 中国历代人物传记资料库 person 515692"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "57816",
+      "child": "515690"
+    },
+    {
+      "kind": "parent",
+      "parent": "57816",
+      "child": "515691"
+    },
+    {
+      "kind": "parent",
+      "parent": "57816",
+      "child": "515692"
+    }
+  ]
+}

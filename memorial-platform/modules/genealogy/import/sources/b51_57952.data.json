@@ -1,0 +1,16 @@
+{
+  "key": "cbdb:b51_57952",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57952",
+      "name": "劉光明",
+      "citation": "CBDB 中国历代人物传记资料库 person 57952",
+      "gender": "male",
+      "death": {
+        "year": 1664
+      }
+    }
+  ],
+  "relations": []
+}

@@ -1,0 +1,30 @@
+{
+  "key": "cbdb:b52_58012",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "58012",
+      "name": "錢鼎銘",
+      "citation": "CBDB 中国历代人物传记资料库 person 58012",
+      "gender": "male",
+      "birth": {
+        "year": 1824
+      },
+      "death": {
+        "year": 1875
+      }
+    },
+    {
+      "externalId": "516188",
+      "name": "錢溯灝",
+      "citation": "CBDB 中国历代人物传记资料库 person 516188"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "58012",
+      "child": "516188"
+    }
+  ]
+}

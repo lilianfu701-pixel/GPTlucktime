@@ -1,0 +1,30 @@
+{
+  "key": "cbdb:b52_58184",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "58184",
+      "name": "劉鳳山",
+      "citation": "CBDB 中国历代人物传记资料库 person 58184",
+      "gender": "male",
+      "birth": {
+        "year": 1859
+      },
+      "death": {
+        "year": 1911
+      }
+    },
+    {
+      "externalId": "516566",
+      "name": "劉錫綿",
+      "citation": "CBDB 中国历代人物传记资料库 person 516566"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "58184",
+      "child": "516566"
+    }
+  ]
+}

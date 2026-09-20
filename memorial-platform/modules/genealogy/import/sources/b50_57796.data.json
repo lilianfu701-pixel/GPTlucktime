@@ -1,0 +1,40 @@
+{
+  "key": "cbdb:b50_57796",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57796",
+      "name": "吳進義",
+      "citation": "CBDB 中国历代人物传记资料库 person 57796",
+      "gender": "male",
+      "birth": {
+        "year": 1679
+      },
+      "death": {
+        "year": 1762
+      }
+    },
+    {
+      "externalId": "515639",
+      "name": "吳本澄",
+      "citation": "CBDB 中国历代人物传记资料库 person 515639"
+    },
+    {
+      "externalId": "515640",
+      "name": "吳本澂",
+      "citation": "CBDB 中国历代人物传记资料库 person 515640"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "57796",
+      "child": "515639"
+    },
+    {
+      "kind": "parent",
+      "parent": "57796",
+      "child": "515640"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "key": "cbdb:b52_58028",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "58028",
+      "name": "烏雅穆和藺",
+      "citation": "CBDB 中国历代人物传记资料库 person 58028",
+      "gender": "male",
+      "death": {
+        "year": 1796
+      }
+    }
+  ],
+  "relations": []
+}

@@ -1,0 +1,16 @@
+{
+  "key": "cbdb:b52_58176",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "58176",
+      "name": "博爾濟吉特德勒克多爾濟",
+      "citation": "CBDB 中国历代人物传记资料库 person 58176",
+      "gender": "male",
+      "death": {
+        "year": 1868
+      }
+    }
+  ],
+  "relations": []
+}

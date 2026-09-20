@@ -1,0 +1,16 @@
+{
+  "key": "cbdb:b50_57668",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57668",
+      "name": "覺羅海齡",
+      "citation": "CBDB 中国历代人物传记资料库 person 57668",
+      "gender": "male",
+      "death": {
+        "year": 1835
+      }
+    }
+  ],
+  "relations": []
+}

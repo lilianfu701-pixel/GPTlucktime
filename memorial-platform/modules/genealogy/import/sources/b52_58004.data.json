@@ -1,0 +1,19 @@
+{
+  "key": "cbdb:b52_58004",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "58004",
+      "name": "錢塘",
+      "citation": "CBDB 中国历代人物传记资料库 person 58004",
+      "gender": "male",
+      "birth": {
+        "year": 1735
+      },
+      "death": {
+        "year": 1790
+      }
+    }
+  ],
+  "relations": []
+}

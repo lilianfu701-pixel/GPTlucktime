@@ -1,0 +1,30 @@
+{
+  "key": "cbdb:b50_57760",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57760",
+      "name": "翁叔元",
+      "citation": "CBDB 中国历代人物传记资料库 person 57760",
+      "gender": "male",
+      "birth": {
+        "year": 1633
+      },
+      "death": {
+        "year": 1701
+      }
+    },
+    {
+      "externalId": "515582",
+      "name": "翁毓芳",
+      "citation": "CBDB 中国历代人物传记资料库 person 515582"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "515582",
+      "child": "57760"
+    }
+  ]
+}

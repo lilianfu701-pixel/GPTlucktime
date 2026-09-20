@@ -1,0 +1,41 @@
+{
+  "key": "cbdb:b51_57828",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57828",
+      "name": "龔鏜",
+      "citation": "CBDB 中国历代人物传记资料库 person 57828",
+      "gender": "male",
+      "birth": {
+        "year": 1782
+      },
+      "death": {
+        "year": 1835
+      }
+    },
+    {
+      "externalId": "683139",
+      "name": "龔詒安",
+      "citation": "CBDB 中国历代人物传记资料库 person 683139",
+      "gender": "male"
+    },
+    {
+      "externalId": "515708",
+      "name": "龔淦",
+      "citation": "CBDB 中国历代人物传记资料库 person 515708"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "683139",
+      "child": "57828"
+    },
+    {
+      "kind": "parent",
+      "parent": "57828",
+      "child": "515708"
+    }
+  ]
+}

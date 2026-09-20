@@ -1,0 +1,19 @@
+{
+  "key": "cbdb:b50_57756",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57756",
+      "name": "阿畢魯勒索費英阿",
+      "citation": "CBDB 中国历代人物传记资料库 person 57756",
+      "gender": "male",
+      "birth": {
+        "year": 1711
+      },
+      "death": {
+        "year": 1810
+      }
+    }
+  ],
+  "relations": []
+}

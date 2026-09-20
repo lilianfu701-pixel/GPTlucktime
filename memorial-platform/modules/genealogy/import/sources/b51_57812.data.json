@@ -1,0 +1,16 @@
+{
+  "key": "cbdb:b51_57812",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57812",
+      "name": "王一鳳",
+      "citation": "CBDB 中国历代人物传记资料库 person 57812",
+      "gender": "male",
+      "death": {
+        "year": 1848
+      }
+    }
+  ],
+  "relations": []
+}

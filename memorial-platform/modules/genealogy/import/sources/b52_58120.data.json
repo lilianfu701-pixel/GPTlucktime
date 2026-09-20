@@ -1,0 +1,16 @@
+{
+  "key": "cbdb:b52_58120",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "58120",
+      "name": "焦安民",
+      "citation": "CBDB 中国历代人物传记资料库 person 58120",
+      "gender": "male",
+      "death": {
+        "year": 1646
+      }
+    }
+  ],
+  "relations": []
+}

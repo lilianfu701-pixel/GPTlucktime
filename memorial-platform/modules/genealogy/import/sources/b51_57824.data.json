@@ -1,0 +1,19 @@
+{
+  "key": "cbdb:b51_57824",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57824",
+      "name": "索綽絡觀保",
+      "citation": "CBDB 中国历代人物传记资料库 person 57824",
+      "gender": "male",
+      "birth": {
+        "year": 1711
+      },
+      "death": {
+        "year": 1776
+      }
+    }
+  ],
+  "relations": []
+}

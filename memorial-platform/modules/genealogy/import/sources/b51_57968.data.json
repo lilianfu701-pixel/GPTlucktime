@@ -1,0 +1,30 @@
+{
+  "key": "cbdb:b51_57968",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57968",
+      "name": "額爾德特錫珍",
+      "citation": "CBDB 中国历代人物传记资料库 person 57968",
+      "gender": "male",
+      "birth": {
+        "year": 1847
+      },
+      "death": {
+        "year": 1889
+      }
+    },
+    {
+      "externalId": "516047",
+      "name": "額爾德特仲燊",
+      "citation": "CBDB 中国历代人物传记资料库 person 516047"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "57968",
+      "child": "516047"
+    }
+  ]
+}

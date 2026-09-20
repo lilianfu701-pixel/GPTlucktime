@@ -1,0 +1,37 @@
+{
+  "key": "cbdb:b51_57848",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57848",
+      "name": "額哲忒蘇蘇勒通阿",
+      "citation": "CBDB 中国历代人物传记资料库 person 57848",
+      "gender": "male",
+      "death": {
+        "year": 1838
+      }
+    },
+    {
+      "externalId": "515769",
+      "name": "額哲忒約遜",
+      "citation": "CBDB 中国历代人物传记资料库 person 515769"
+    },
+    {
+      "externalId": "515770",
+      "name": "額哲忒約齡",
+      "citation": "CBDB 中国历代人物传记资料库 person 515770"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "57848",
+      "child": "515769"
+    },
+    {
+      "kind": "parent",
+      "parent": "57848",
+      "child": "515770"
+    }
+  ]
+}

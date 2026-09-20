@@ -1,0 +1,30 @@
+{
+  "key": "cbdb:b52_58016",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "58016",
+      "name": "錢臻",
+      "citation": "CBDB 中国历代人物传记资料库 person 58016",
+      "gender": "male",
+      "birth": {
+        "year": 1754
+      },
+      "death": {
+        "year": 1839
+      }
+    },
+    {
+      "externalId": "516195",
+      "name": "錢慶康",
+      "citation": "CBDB 中国历代人物传记资料库 person 516195"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "58016",
+      "child": "516195"
+    }
+  ]
+}

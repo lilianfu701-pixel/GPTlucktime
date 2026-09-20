@@ -1,0 +1,19 @@
+{
+  "key": "cbdb:b50_57636",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57636",
+      "name": "張百齡",
+      "citation": "CBDB 中国历代人物传记资料库 person 57636",
+      "gender": "male",
+      "birth": {
+        "year": 1748
+      },
+      "death": {
+        "year": 1816
+      }
+    }
+  ],
+  "relations": []
+}

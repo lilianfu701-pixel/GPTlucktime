@@ -1,0 +1,30 @@
+{
+  "key": "cbdb:b50_57704",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57704",
+      "name": "瓜爾佳特登額",
+      "citation": "CBDB 中国历代人物传记资料库 person 57704",
+      "gender": "male",
+      "birth": {
+        "year": 1778
+      },
+      "death": {
+        "year": 1854
+      }
+    },
+    {
+      "externalId": "515487",
+      "name": "瓜爾佳英恆",
+      "citation": "CBDB 中国历代人物传记资料库 person 515487"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "57704",
+      "child": "515487"
+    }
+  ]
+}

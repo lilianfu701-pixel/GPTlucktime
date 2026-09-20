@@ -1,0 +1,16 @@
+{
+  "key": "cbdb:b50_57708",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57708",
+      "name": "何天培",
+      "citation": "CBDB 中国历代人物传记资料库 person 57708",
+      "gender": "male",
+      "death": {
+        "year": 1736
+      }
+    }
+  ],
+  "relations": []
+}

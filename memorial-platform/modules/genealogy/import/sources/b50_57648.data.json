@@ -1,0 +1,30 @@
+{
+  "key": "cbdb:b50_57648",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57648",
+      "name": "巴岳忒瑚松額",
+      "citation": "CBDB 中国历代人物传记资料库 person 57648",
+      "gender": "male",
+      "birth": {
+        "year": 1772
+      },
+      "death": {
+        "year": 1847
+      }
+    },
+    {
+      "externalId": "515392",
+      "name": "巴岳忒伊金布",
+      "citation": "CBDB 中国历代人物传记资料库 person 515392"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "57648",
+      "child": "515392"
+    }
+  ]
+}

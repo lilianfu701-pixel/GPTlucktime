@@ -1,0 +1,16 @@
+{
+  "key": "cbdb:b50_57740",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57740",
+      "name": "秦世禎",
+      "citation": "CBDB 中国历代人物传记资料库 person 57740",
+      "gender": "male",
+      "death": {
+        "year": 1657
+      }
+    }
+  ],
+  "relations": []
+}

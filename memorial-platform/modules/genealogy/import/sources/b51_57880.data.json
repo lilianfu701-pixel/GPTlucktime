@@ -1,0 +1,60 @@
+{
+  "key": "cbdb:b51_57880",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57880",
+      "name": "羅光炤",
+      "citation": "CBDB 中国历代人物传记资料库 person 57880",
+      "gender": "male",
+      "birth": {
+        "year": 1755
+      },
+      "death": {
+        "year": 1834
+      }
+    },
+    {
+      "externalId": "515834",
+      "name": "羅若桐",
+      "citation": "CBDB 中国历代人物传记资料库 person 515834"
+    },
+    {
+      "externalId": "515836",
+      "name": "羅景含",
+      "citation": "CBDB 中国历代人物传记资料库 person 515836"
+    },
+    {
+      "externalId": "515837",
+      "name": "羅景恬",
+      "citation": "CBDB 中国历代人物传记资料库 person 515837"
+    },
+    {
+      "externalId": "515838",
+      "name": "羅景鄂",
+      "citation": "CBDB 中国历代人物传记资料库 person 515838"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "515834",
+      "child": "57880"
+    },
+    {
+      "kind": "parent",
+      "parent": "57880",
+      "child": "515836"
+    },
+    {
+      "kind": "parent",
+      "parent": "57880",
+      "child": "515837"
+    },
+    {
+      "kind": "parent",
+      "parent": "57880",
+      "child": "515838"
+    }
+  ]
+}

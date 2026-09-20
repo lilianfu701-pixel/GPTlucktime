@@ -1,0 +1,24 @@
+{
+  "key": "cbdb:b50_57616",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57616",
+      "name": "楊遇明",
+      "citation": "CBDB 中国历代人物传记资料库 person 57616",
+      "gender": "male"
+    },
+    {
+      "externalId": "515348",
+      "name": "楊寶蔭",
+      "citation": "CBDB 中国历代人物传记资料库 person 515348"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "57616",
+      "child": "515348"
+    }
+  ]
+}

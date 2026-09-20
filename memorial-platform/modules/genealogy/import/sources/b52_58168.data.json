@@ -1,0 +1,30 @@
+{
+  "key": "cbdb:b52_58168",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "58168",
+      "name": "愛新覺羅德誠",
+      "citation": "CBDB 中国历代人物传记资料库 person 58168",
+      "gender": "male",
+      "birth": {
+        "year": 1801
+      },
+      "death": {
+        "year": 1850
+      }
+    },
+    {
+      "externalId": "516551",
+      "name": "愛新覺羅來山",
+      "citation": "CBDB 中国历代人物传记资料库 person 516551"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "58168",
+      "child": "516551"
+    }
+  ]
+}

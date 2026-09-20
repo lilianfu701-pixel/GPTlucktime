@@ -1,0 +1,50 @@
+{
+  "key": "cbdb:b50_57600",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57600",
+      "name": "朱軾",
+      "citation": "CBDB 中国历代人物传记资料库 person 57600",
+      "gender": "male",
+      "birth": {
+        "year": 1665
+      },
+      "death": {
+        "year": 1736
+      }
+    },
+    {
+      "externalId": "515325",
+      "name": "朱極光",
+      "citation": "CBDB 中国历代人物传记资料库 person 515325"
+    },
+    {
+      "externalId": "515321",
+      "name": "朱必坦",
+      "citation": "CBDB 中国历代人物传记资料库 person 515321"
+    },
+    {
+      "externalId": "515322",
+      "name": "朱必堦",
+      "citation": "CBDB 中国历代人物传记资料库 person 515322"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "515325",
+      "child": "57600"
+    },
+    {
+      "kind": "parent",
+      "parent": "57600",
+      "child": "515321"
+    },
+    {
+      "kind": "parent",
+      "parent": "57600",
+      "child": "515322"
+    }
+  ]
+}

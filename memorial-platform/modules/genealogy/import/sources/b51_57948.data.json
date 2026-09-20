@@ -1,0 +1,16 @@
+{
+  "key": "cbdb:b51_57948",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57948",
+      "name": "謝寶勝",
+      "citation": "CBDB 中国历代人物传记资料库 person 57948",
+      "gender": "male",
+      "death": {
+        "year": 1911
+      }
+    }
+  ],
+  "relations": []
+}

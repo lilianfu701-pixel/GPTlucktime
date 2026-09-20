@@ -1,0 +1,39 @@
+{
+  "key": "cbdb:b50_57628",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57628",
+      "name": "江蘭",
+      "citation": "CBDB 中国历代人物传记资料库 person 57628",
+      "gender": "male",
+      "death": {
+        "year": 1807
+      }
+    },
+    {
+      "externalId": "100091",
+      "name": "江秀瓊",
+      "citation": "CBDB 中国历代人物传记资料库 person 100091",
+      "gender": "female"
+    },
+    {
+      "externalId": "100092",
+      "name": "張壽泰",
+      "citation": "CBDB 中国历代人物传记资料库 person 100092",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "57628",
+      "child": "100091"
+    },
+    {
+      "kind": "spouse",
+      "a": "100091",
+      "b": "100092"
+    }
+  ]
+}

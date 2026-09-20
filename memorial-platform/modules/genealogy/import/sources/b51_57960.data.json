@@ -1,0 +1,40 @@
+{
+  "key": "cbdb:b51_57960",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57960",
+      "name": "閻敬銘",
+      "citation": "CBDB 中国历代人物传记资料库 person 57960",
+      "gender": "male",
+      "birth": {
+        "year": 1817
+      },
+      "death": {
+        "year": 1892
+      }
+    },
+    {
+      "externalId": "516026",
+      "name": "閻迺竹",
+      "citation": "CBDB 中国历代人物传记资料库 person 516026"
+    },
+    {
+      "externalId": "516027",
+      "name": "閻迺林",
+      "citation": "CBDB 中国历代人物传记资料库 person 516027"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "57960",
+      "child": "516026"
+    },
+    {
+      "kind": "parent",
+      "parent": "57960",
+      "child": "516027"
+    }
+  ]
+}

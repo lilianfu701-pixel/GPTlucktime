@@ -1,0 +1,30 @@
+{
+  "key": "cbdb:b50_57612",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57612",
+      "name": "楊超曾",
+      "citation": "CBDB 中国历代人物传记资料库 person 57612",
+      "gender": "male",
+      "birth": {
+        "year": 1693
+      },
+      "death": {
+        "year": 1742
+      }
+    },
+    {
+      "externalId": "515343",
+      "name": "楊植秉",
+      "citation": "CBDB 中国历代人物传记资料库 person 515343"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "57612",
+      "child": "515343"
+    }
+  ]
+}

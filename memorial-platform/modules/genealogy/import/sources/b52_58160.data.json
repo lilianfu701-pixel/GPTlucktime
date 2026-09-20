@@ -1,0 +1,16 @@
+{
+  "key": "cbdb:b52_58160",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "58160",
+      "name": "陳大用",
+      "citation": "CBDB 中国历代人物传记资料库 person 58160",
+      "gender": "male",
+      "death": {
+        "year": 1803
+      }
+    }
+  ],
+  "relations": []
+}

@@ -1,0 +1,70 @@
+{
+  "key": "cbdb:b51_57900",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57900",
+      "name": "瞿鴻禨",
+      "citation": "CBDB 中国历代人物传记资料库 person 57900",
+      "gender": "male",
+      "birth": {
+        "year": 1850
+      },
+      "death": {
+        "year": 1918
+      }
+    },
+    {
+      "externalId": "515902",
+      "name": "瞿宣治",
+      "citation": "CBDB 中国历代人物传记资料库 person 515902"
+    },
+    {
+      "externalId": "515903",
+      "name": "瞿宣芬",
+      "citation": "CBDB 中国历代人物传记资料库 person 515903"
+    },
+    {
+      "externalId": "515904",
+      "name": "瞿宣樸",
+      "citation": "CBDB 中国历代人物传记资料库 person 515904"
+    },
+    {
+      "externalId": "515905",
+      "name": "瞿宣穎",
+      "citation": "CBDB 中国历代人物传记资料库 person 515905"
+    },
+    {
+      "externalId": "515906",
+      "name": "瞿宣聰",
+      "citation": "CBDB 中国历代人物传记资料库 person 515906"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "57900",
+      "child": "515902"
+    },
+    {
+      "kind": "parent",
+      "parent": "57900",
+      "child": "515903"
+    },
+    {
+      "kind": "parent",
+      "parent": "57900",
+      "child": "515904"
+    },
+    {
+      "kind": "parent",
+      "parent": "57900",
+      "child": "515905"
+    },
+    {
+      "kind": "parent",
+      "parent": "57900",
+      "child": "515906"
+    }
+  ]
+}

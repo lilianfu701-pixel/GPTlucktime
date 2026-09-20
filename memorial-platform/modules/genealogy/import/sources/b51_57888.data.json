@@ -1,0 +1,40 @@
+{
+  "key": "cbdb:b51_57888",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57888",
+      "name": "關天培",
+      "citation": "CBDB 中国历代人物传记资料库 person 57888",
+      "gender": "male",
+      "birth": {
+        "year": 1780
+      },
+      "death": {
+        "year": 1841
+      }
+    },
+    {
+      "externalId": "515855",
+      "name": "關奎龍",
+      "citation": "CBDB 中国历代人物传记资料库 person 515855"
+    },
+    {
+      "externalId": "515856",
+      "name": "關從龍",
+      "citation": "CBDB 中国历代人物传记资料库 person 515856"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "57888",
+      "child": "515855"
+    },
+    {
+      "kind": "parent",
+      "parent": "57888",
+      "child": "515856"
+    }
+  ]
+}

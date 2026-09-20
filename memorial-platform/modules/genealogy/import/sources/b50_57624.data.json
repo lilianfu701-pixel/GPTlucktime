@@ -1,0 +1,40 @@
+{
+  "key": "cbdb:b50_57624",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57624",
+      "name": "覺羅桂芳",
+      "citation": "CBDB 中国历代人物传记资料库 person 57624",
+      "gender": "male",
+      "birth": {
+        "year": 1773
+      },
+      "death": {
+        "year": 1814
+      }
+    },
+    {
+      "externalId": "515353",
+      "name": "覺羅炳文",
+      "citation": "CBDB 中国历代人物传记资料库 person 515353"
+    },
+    {
+      "externalId": "515354",
+      "name": "覺羅炳奎",
+      "citation": "CBDB 中国历代人物传记资料库 person 515354"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "57624",
+      "child": "515353"
+    },
+    {
+      "kind": "parent",
+      "parent": "57624",
+      "child": "515354"
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "key": "cbdb:b50_57664",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57664",
+      "name": "萬正色",
+      "citation": "CBDB 中国历代人物传记资料库 person 57664",
+      "gender": "male",
+      "death": {
+        "year": 1691
+      }
+    },
+    {
+      "externalId": "515422",
+      "name": "萬吉祥",
+      "citation": "CBDB 中国历代人物传记资料库 person 515422"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "57664",
+      "child": "515422"
+    }
+  ]
+}

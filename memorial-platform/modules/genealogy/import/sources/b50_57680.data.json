@@ -1,0 +1,16 @@
+{
+  "key": "cbdb:b50_57680",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57680",
+      "name": "富察誠端",
+      "citation": "CBDB 中国历代人物传记资料库 person 57680",
+      "gender": "male",
+      "death": {
+        "year": 1843
+      }
+    }
+  ],
+  "relations": []
+}

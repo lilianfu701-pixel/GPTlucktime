@@ -1,0 +1,27 @@
+{
+  "key": "cbdb:b51_57912",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57912",
+      "name": "烏蘇豐陞額",
+      "citation": "CBDB 中国历代人物传记资料库 person 57912",
+      "gender": "male",
+      "death": {
+        "year": 1863
+      }
+    },
+    {
+      "externalId": "515952",
+      "name": "烏蘇祿全",
+      "citation": "CBDB 中国历代人物传记资料库 person 515952"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "57912",
+      "child": "515952"
+    }
+  ]
+}

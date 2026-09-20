@@ -1,0 +1,47 @@
+{
+  "key": "cbdb:b51_57920",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57920",
+      "name": "博爾濟吉特薩炳阿",
+      "citation": "CBDB 中国历代人物传记资料库 person 57920",
+      "gender": "male",
+      "death": {
+        "year": 1854
+      }
+    },
+    {
+      "externalId": "515966",
+      "name": "博爾濟吉特貴忠",
+      "citation": "CBDB 中国历代人物传记资料库 person 515966"
+    },
+    {
+      "externalId": "515967",
+      "name": "博爾濟吉特繼良",
+      "citation": "CBDB 中国历代人物传记资料库 person 515967"
+    },
+    {
+      "externalId": "515968",
+      "name": "博爾濟吉特繼莊",
+      "citation": "CBDB 中国历代人物传记资料库 person 515968"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "57920",
+      "child": "515966"
+    },
+    {
+      "kind": "parent",
+      "parent": "57920",
+      "child": "515967"
+    },
+    {
+      "kind": "parent",
+      "parent": "57920",
+      "child": "515968"
+    }
+  ]
+}

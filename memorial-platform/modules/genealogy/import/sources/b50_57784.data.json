@@ -1,0 +1,80 @@
+{
+  "key": "cbdb:b50_57784",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57784",
+      "name": "張允隨",
+      "citation": "CBDB 中国历代人物传记资料库 person 57784",
+      "gender": "male",
+      "birth": {
+        "year": 1693
+      },
+      "death": {
+        "year": 1751
+      }
+    },
+    {
+      "externalId": "515620",
+      "name": "張惟遠",
+      "citation": "CBDB 中国历代人物传记资料库 person 515620"
+    },
+    {
+      "externalId": "515617",
+      "name": "張光宗",
+      "citation": "CBDB 中国历代人物传记资料库 person 515617"
+    },
+    {
+      "externalId": "515618",
+      "name": "張岱宗",
+      "citation": "CBDB 中国历代人物传记资料库 person 515618"
+    },
+    {
+      "externalId": "515619",
+      "name": "張崑玉",
+      "citation": "CBDB 中国历代人物传记资料库 person 515619"
+    },
+    {
+      "externalId": "515621",
+      "name": "張景宗",
+      "citation": "CBDB 中国历代人物传记资料库 person 515621"
+    },
+    {
+      "externalId": "515622",
+      "name": "張朝宗",
+      "citation": "CBDB 中国历代人物传记资料库 person 515622"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "515620",
+      "child": "57784"
+    },
+    {
+      "kind": "parent",
+      "parent": "57784",
+      "child": "515617"
+    },
+    {
+      "kind": "parent",
+      "parent": "57784",
+      "child": "515618"
+    },
+    {
+      "kind": "parent",
+      "parent": "57784",
+      "child": "515619"
+    },
+    {
+      "kind": "parent",
+      "parent": "57784",
+      "child": "515621"
+    },
+    {
+      "kind": "parent",
+      "parent": "57784",
+      "child": "515622"
+    }
+  ]
+}

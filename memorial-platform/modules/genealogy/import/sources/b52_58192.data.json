@@ -1,0 +1,40 @@
+{
+  "key": "cbdb:b52_58192",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "58192",
+      "name": "博爾吉濟特廣泰",
+      "citation": "CBDB 中国历代人物传记资料库 person 58192",
+      "gender": "male",
+      "birth": {
+        "year": 1756
+      },
+      "death": {
+        "year": 1833
+      }
+    },
+    {
+      "externalId": "516585",
+      "name": "博爾吉濟特四達塞",
+      "citation": "CBDB 中国历代人物传记资料库 person 516585"
+    },
+    {
+      "externalId": "516584",
+      "name": "博爾吉濟特文桂",
+      "citation": "CBDB 中国历代人物传记资料库 person 516584"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "516585",
+      "child": "58192"
+    },
+    {
+      "kind": "parent",
+      "parent": "58192",
+      "child": "516584"
+    }
+  ]
+}

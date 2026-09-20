@@ -1,0 +1,58 @@
+{
+  "key": "cbdb:b52_58032",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "58032",
+      "name": "劉藻",
+      "citation": "CBDB 中国历代人物传记资料库 person 58032",
+      "gender": "male",
+      "birth": {
+        "year": 1701
+      },
+      "death": {
+        "year": 1766
+      }
+    },
+    {
+      "externalId": "516277",
+      "name": "劉澄清",
+      "citation": "CBDB 中国历代人物传记资料库 person 516277",
+      "gender": "male"
+    },
+    {
+      "externalId": "698537",
+      "name": "劉拱辰",
+      "citation": "CBDB 中国历代人物传记资料库 person 698537",
+      "gender": "male"
+    },
+    {
+      "externalId": "698538",
+      "name": "袁氏( 劉澄清母)",
+      "citation": "CBDB 中国历代人物传记资料库 person 698538",
+      "gender": "female"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "516277",
+      "child": "58032"
+    },
+    {
+      "kind": "parent",
+      "parent": "698537",
+      "child": "516277"
+    },
+    {
+      "kind": "parent",
+      "parent": "698538",
+      "child": "516277"
+    },
+    {
+      "kind": "spouse",
+      "a": "698537",
+      "b": "698538"
+    }
+  ]
+}

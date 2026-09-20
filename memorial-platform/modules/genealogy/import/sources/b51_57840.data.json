@@ -1,0 +1,40 @@
+{
+  "key": "cbdb:b51_57840",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57840",
+      "name": "蘇元春",
+      "citation": "CBDB 中国历代人物传记资料库 person 57840",
+      "gender": "male",
+      "birth": {
+        "year": 1846
+      },
+      "death": {
+        "year": 1908
+      }
+    },
+    {
+      "externalId": "515745",
+      "name": "蘇德保",
+      "citation": "CBDB 中国历代人物传记资料库 person 515745"
+    },
+    {
+      "externalId": "515744",
+      "name": "蘇承賜",
+      "citation": "CBDB 中国历代人物传记资料库 person 515744"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "515745",
+      "child": "57840"
+    },
+    {
+      "kind": "parent",
+      "parent": "57840",
+      "child": "515744"
+    }
+  ]
+}

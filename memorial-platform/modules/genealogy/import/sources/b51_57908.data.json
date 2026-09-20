@@ -1,0 +1,50 @@
+{
+  "key": "cbdb:b51_57908",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57908",
+      "name": "顏伯燾",
+      "citation": "CBDB 中国历代人物传记资料库 person 57908",
+      "gender": "male",
+      "birth": {
+        "year": 1788
+      },
+      "death": {
+        "year": 1855
+      }
+    },
+    {
+      "externalId": "515941",
+      "name": "顏培成",
+      "citation": "CBDB 中国历代人物传记资料库 person 515941"
+    },
+    {
+      "externalId": "515942",
+      "name": "顏培恆",
+      "citation": "CBDB 中国历代人物传记资料库 person 515942"
+    },
+    {
+      "externalId": "515943",
+      "name": "顏培豫",
+      "citation": "CBDB 中国历代人物传记资料库 person 515943"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "57908",
+      "child": "515941"
+    },
+    {
+      "kind": "parent",
+      "parent": "57908",
+      "child": "515942"
+    },
+    {
+      "kind": "parent",
+      "parent": "57908",
+      "child": "515943"
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "key": "cbdb:b52_58100",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "58100",
+      "name": "戴佳慧成",
+      "citation": "CBDB 中国历代人物传记资料库 person 58100",
+      "gender": "male",
+      "birth": {
+        "year": 1798
+      },
+      "death": {
+        "year": 1864
+      }
+    },
+    {
+      "externalId": "516423",
+      "name": "戴佳晉翼",
+      "citation": "CBDB 中国历代人物传记资料库 person 516423"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "58100",
+      "child": "516423"
+    }
+  ]
+}

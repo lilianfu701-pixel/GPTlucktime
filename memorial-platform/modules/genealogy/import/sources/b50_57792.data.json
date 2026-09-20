@@ -1,0 +1,19 @@
+{
+  "key": "cbdb:b50_57792",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57792",
+      "name": "黃庭桂",
+      "citation": "CBDB 中国历代人物传记资料库 person 57792",
+      "gender": "male",
+      "birth": {
+        "year": 1691
+      },
+      "death": {
+        "year": 1759
+      }
+    }
+  ],
+  "relations": []
+}

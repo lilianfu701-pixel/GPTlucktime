@@ -1,0 +1,27 @@
+{
+  "key": "cbdb:b51_57868",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57868",
+      "name": "吳雅齡鑑",
+      "citation": "CBDB 中国历代人物传记资料库 person 57868",
+      "gender": "male",
+      "death": {
+        "year": 1848
+      }
+    },
+    {
+      "externalId": "515797",
+      "name": "吳雅瑞琳",
+      "citation": "CBDB 中国历代人物传记资料库 person 515797"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "57868",
+      "child": "515797"
+    }
+  ]
+}

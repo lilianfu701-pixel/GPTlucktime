@@ -1,0 +1,50 @@
+{
+  "key": "cbdb:b50_57712",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57712",
+      "name": "赫舍里嘉謨",
+      "citation": "CBDB 中国历代人物传记资料库 person 57712",
+      "gender": "male",
+      "birth": {
+        "year": 1711
+      },
+      "death": {
+        "year": 1777
+      }
+    },
+    {
+      "externalId": "515491",
+      "name": "赫舍里明保",
+      "citation": "CBDB 中国历代人物传记资料库 person 515491"
+    },
+    {
+      "externalId": "515492",
+      "name": "赫舍里明祥",
+      "citation": "CBDB 中国历代人物传记资料库 person 515492"
+    },
+    {
+      "externalId": "515493",
+      "name": "赫舍里福勒敏",
+      "citation": "CBDB 中国历代人物传记资料库 person 515493"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "57712",
+      "child": "515491"
+    },
+    {
+      "kind": "parent",
+      "parent": "57712",
+      "child": "515492"
+    },
+    {
+      "kind": "parent",
+      "parent": "57712",
+      "child": "515493"
+    }
+  ]
+}

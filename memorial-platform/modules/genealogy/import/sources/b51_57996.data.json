@@ -1,0 +1,50 @@
+{
+  "key": "cbdb:b51_57996",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57996",
+      "name": "羅逢元",
+      "citation": "CBDB 中国历代人物传记资料库 person 57996",
+      "gender": "male",
+      "birth": {
+        "year": 1823
+      },
+      "death": {
+        "year": 1878
+      }
+    },
+    {
+      "externalId": "516118",
+      "name": "羅世棐",
+      "citation": "CBDB 中国历代人物传记资料库 person 516118"
+    },
+    {
+      "externalId": "516119",
+      "name": "羅承恩",
+      "citation": "CBDB 中国历代人物传记资料库 person 516119"
+    },
+    {
+      "externalId": "516120",
+      "name": "羅承澤",
+      "citation": "CBDB 中国历代人物传记资料库 person 516120"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "516118",
+      "child": "57996"
+    },
+    {
+      "kind": "parent",
+      "parent": "57996",
+      "child": "516119"
+    },
+    {
+      "kind": "parent",
+      "parent": "57996",
+      "child": "516120"
+    }
+  ]
+}

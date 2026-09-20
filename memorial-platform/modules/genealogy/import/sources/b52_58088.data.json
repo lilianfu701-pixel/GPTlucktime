@@ -1,0 +1,27 @@
+{
+  "key": "cbdb:b52_58088",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "58088",
+      "name": "嚴穆吉慶常",
+      "citation": "CBDB 中国历代人物传记资料库 person 58088",
+      "gender": "male",
+      "death": {
+        "year": 1860
+      }
+    },
+    {
+      "externalId": "516379",
+      "name": "嚴穆吉富爾虎",
+      "citation": "CBDB 中国历代人物传记资料库 person 516379"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "58088",
+      "child": "516379"
+    }
+  ]
+}

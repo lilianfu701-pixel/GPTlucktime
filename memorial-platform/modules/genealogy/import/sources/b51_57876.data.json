@@ -1,0 +1,19 @@
+{
+  "key": "cbdb:b51_57876",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57876",
+      "name": "龐鍾璐",
+      "citation": "CBDB 中国历代人物传记资料库 person 57876",
+      "gender": "male",
+      "birth": {
+        "year": 1822
+      },
+      "death": {
+        "year": 1875
+      }
+    }
+  ],
+  "relations": []
+}

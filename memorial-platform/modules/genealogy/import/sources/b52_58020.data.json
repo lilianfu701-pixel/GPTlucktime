@@ -1,0 +1,91 @@
+{
+  "key": "cbdb:b52_58020",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "58020",
+      "name": "盧蔭溥",
+      "citation": "CBDB 中国历代人物传记资料库 person 58020",
+      "gender": "male",
+      "birth": {
+        "year": 1760
+      },
+      "death": {
+        "year": 1839
+      }
+    },
+    {
+      "externalId": "58022",
+      "name": "盧見曾",
+      "citation": "CBDB 中国历代人物传记资料库 person 58022",
+      "gender": "male",
+      "birth": {
+        "year": 1690
+      },
+      "death": {
+        "year": 1768
+      }
+    },
+    {
+      "externalId": "70340",
+      "name": "盧介祺",
+      "citation": "CBDB 中国历代人物传记资料库 person 70340",
+      "gender": "female"
+    },
+    {
+      "externalId": "70341",
+      "name": "焦家麟",
+      "citation": "CBDB 中国历代人物传记资料库 person 70341",
+      "gender": "male"
+    },
+    {
+      "externalId": "516201",
+      "name": "盧本",
+      "citation": "CBDB 中国历代人物传记资料库 person 516201"
+    },
+    {
+      "externalId": "70360",
+      "name": "焦希淑",
+      "citation": "CBDB 中国历代人物传记资料库 person 70360",
+      "gender": "female"
+    },
+    {
+      "externalId": "70359",
+      "name": "焦學漪",
+      "citation": "CBDB 中国历代人物传记资料库 person 70359",
+      "gender": "female"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "58022",
+      "child": "58020"
+    },
+    {
+      "kind": "parent",
+      "parent": "58020",
+      "child": "70340"
+    },
+    {
+      "kind": "parent",
+      "parent": "58020",
+      "child": "516201"
+    },
+    {
+      "kind": "spouse",
+      "a": "70340",
+      "b": "70341"
+    },
+    {
+      "kind": "parent",
+      "parent": "70340",
+      "child": "70360"
+    },
+    {
+      "kind": "parent",
+      "parent": "70340",
+      "child": "70359"
+    }
+  ]
+}

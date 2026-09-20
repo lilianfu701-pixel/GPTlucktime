@@ -1,0 +1,19 @@
+{
+  "key": "cbdb:b51_57944",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57944",
+      "name": "謝朝恩",
+      "citation": "CBDB 中国历代人物传记资料库 person 57944",
+      "gender": "male",
+      "birth": {
+        "year": 1771
+      },
+      "death": {
+        "year": 1841
+      }
+    }
+  ],
+  "relations": []
+}

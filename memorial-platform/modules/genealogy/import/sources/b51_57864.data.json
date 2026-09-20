@@ -1,0 +1,19 @@
+{
+  "key": "cbdb:b51_57864",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57864",
+      "name": "馬佳寶珣",
+      "citation": "CBDB 中国历代人物传记资料库 person 57864",
+      "gender": "male",
+      "birth": {
+        "year": 1815
+      },
+      "death": {
+        "year": 1878
+      }
+    }
+  ],
+  "relations": []
+}

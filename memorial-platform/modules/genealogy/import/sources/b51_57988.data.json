@@ -1,0 +1,30 @@
+{
+  "key": "cbdb:b51_57988",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57988",
+      "name": "鄭佳續齡",
+      "citation": "CBDB 中国历代人物传记资料库 person 57988",
+      "gender": "male",
+      "birth": {
+        "year": 1773
+      },
+      "death": {
+        "year": 1845
+      }
+    },
+    {
+      "externalId": "516076",
+      "name": "鄭佳奎麟",
+      "citation": "CBDB 中国历代人物传记资料库 person 516076"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "57988",
+      "child": "516076"
+    }
+  ]
+}

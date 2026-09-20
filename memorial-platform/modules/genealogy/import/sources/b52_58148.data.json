@@ -1,0 +1,27 @@
+{
+  "key": "cbdb:b52_58148",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "58148",
+      "name": "富察德亮",
+      "citation": "CBDB 中国历代人物传记资料库 person 58148",
+      "gender": "male",
+      "death": {
+        "year": 1854
+      }
+    },
+    {
+      "externalId": "516526",
+      "name": "富察春齡",
+      "citation": "CBDB 中国历代人物传记资料库 person 516526"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "58148",
+      "child": "516526"
+    }
+  ]
+}

@@ -1,0 +1,87 @@
+{
+  "key": "cbdb:b50_57660",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57660",
+      "name": "葉赫那喇瑞麟",
+      "citation": "CBDB 中国历代人物传记资料库 person 57660",
+      "gender": "male",
+      "birth": {
+        "year": 1809
+      },
+      "death": {
+        "year": 1874
+      }
+    },
+    {
+      "externalId": "515418",
+      "name": "葉赫那喇慶泰",
+      "citation": "CBDB 中国历代人物传记资料库 person 515418"
+    },
+    {
+      "externalId": "58000",
+      "name": "葉赫那拉懷塔布",
+      "citation": "CBDB 中国历代人物传记资料库 person 58000",
+      "gender": "male",
+      "birth": {
+        "year": 1831
+      },
+      "death": {
+        "year": 1900
+      }
+    },
+    {
+      "externalId": "515413",
+      "name": "葉赫那喇佛呢音布",
+      "citation": "CBDB 中国历代人物传记资料库 person 515413"
+    },
+    {
+      "externalId": "515414",
+      "name": "葉赫那喇花沙布",
+      "citation": "CBDB 中国历代人物传记资料库 person 515414"
+    },
+    {
+      "externalId": "515415",
+      "name": "葉赫那喇哈芬布",
+      "citation": "CBDB 中国历代人物传记资料库 person 515415"
+    },
+    {
+      "externalId": "516139",
+      "name": "葉赫那拉耆年",
+      "citation": "CBDB 中国历代人物传记资料库 person 516139"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "515418",
+      "child": "57660"
+    },
+    {
+      "kind": "parent",
+      "parent": "57660",
+      "child": "58000"
+    },
+    {
+      "kind": "parent",
+      "parent": "57660",
+      "child": "515413"
+    },
+    {
+      "kind": "parent",
+      "parent": "57660",
+      "child": "515414"
+    },
+    {
+      "kind": "parent",
+      "parent": "57660",
+      "child": "515415"
+    },
+    {
+      "kind": "parent",
+      "parent": "58000",
+      "child": "516139"
+    }
+  ]
+}

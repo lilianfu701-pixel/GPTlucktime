@@ -1,0 +1,50 @@
+{
+  "key": "cbdb:b50_57764",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57764",
+      "name": "荊道乾",
+      "citation": "CBDB 中国历代人物传记资料库 person 57764",
+      "gender": "male",
+      "birth": {
+        "year": 1731
+      },
+      "death": {
+        "year": 1802
+      }
+    },
+    {
+      "externalId": "515589",
+      "name": "荊德志",
+      "citation": "CBDB 中国历代人物传记资料库 person 515589"
+    },
+    {
+      "externalId": "515591",
+      "name": "荊澤桓",
+      "citation": "CBDB 中国历代人物传记资料库 person 515591"
+    },
+    {
+      "externalId": "515592",
+      "name": "荊澤棈",
+      "citation": "CBDB 中国历代人物传记资料库 person 515592"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "515589",
+      "child": "57764"
+    },
+    {
+      "kind": "parent",
+      "parent": "57764",
+      "child": "515591"
+    },
+    {
+      "kind": "parent",
+      "parent": "57764",
+      "child": "515592"
+    }
+  ]
+}

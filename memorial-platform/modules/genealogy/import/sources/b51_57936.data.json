@@ -1,0 +1,60 @@
+{
+  "key": "cbdb:b51_57936",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57936",
+      "name": "薛陞",
+      "citation": "CBDB 中国历代人物传记资料库 person 57936",
+      "gender": "male",
+      "birth": {
+        "year": 1766
+      },
+      "death": {
+        "year": 1851
+      }
+    },
+    {
+      "externalId": "515983",
+      "name": "薛文康",
+      "citation": "CBDB 中国历代人物传记资料库 person 515983"
+    },
+    {
+      "externalId": "515984",
+      "name": "薛文清",
+      "citation": "CBDB 中国历代人物传记资料库 person 515984"
+    },
+    {
+      "externalId": "515985",
+      "name": "薛文燡",
+      "citation": "CBDB 中国历代人物传记资料库 person 515985"
+    },
+    {
+      "externalId": "515986",
+      "name": "薛萬清",
+      "citation": "CBDB 中国历代人物传记资料库 person 515986"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "57936",
+      "child": "515983"
+    },
+    {
+      "kind": "parent",
+      "parent": "57936",
+      "child": "515984"
+    },
+    {
+      "kind": "parent",
+      "parent": "57936",
+      "child": "515985"
+    },
+    {
+      "kind": "parent",
+      "parent": "57936",
+      "child": "515986"
+    }
+  ]
+}

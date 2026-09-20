@@ -1,0 +1,70 @@
+{
+  "key": "cbdb:b51_57844",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57844",
+      "name": "蘇廷玉",
+      "citation": "CBDB 中国历代人物传记资料库 person 57844",
+      "gender": "male",
+      "birth": {
+        "year": 1783
+      },
+      "death": {
+        "year": 1853
+      }
+    },
+    {
+      "externalId": "515753",
+      "name": "蘇光彩",
+      "citation": "CBDB 中国历代人物传记资料库 person 515753"
+    },
+    {
+      "externalId": "515751",
+      "name": "蘇士準",
+      "citation": "CBDB 中国历代人物传记资料库 person 515751"
+    },
+    {
+      "externalId": "515749",
+      "name": "蘇士芳",
+      "citation": "CBDB 中国历代人物传记资料库 person 515749"
+    },
+    {
+      "externalId": "515750",
+      "name": "蘇士廉",
+      "citation": "CBDB 中国历代人物传记资料库 person 515750"
+    },
+    {
+      "externalId": "515752",
+      "name": "蘇士徵",
+      "citation": "CBDB 中国历代人物传记资料库 person 515752"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "515753",
+      "child": "57844"
+    },
+    {
+      "kind": "parent",
+      "parent": "57844",
+      "child": "515751"
+    },
+    {
+      "kind": "parent",
+      "parent": "57844",
+      "child": "515749"
+    },
+    {
+      "kind": "parent",
+      "parent": "57844",
+      "child": "515750"
+    },
+    {
+      "kind": "parent",
+      "parent": "57844",
+      "child": "515752"
+    }
+  ]
+}

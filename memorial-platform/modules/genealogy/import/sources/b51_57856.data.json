@@ -1,0 +1,37 @@
+{
+  "key": "cbdb:b51_57856",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57856",
+      "name": "喜塔臘慶裕",
+      "citation": "CBDB 中国历代人物传记资料库 person 57856",
+      "gender": "male",
+      "death": {
+        "year": 1894
+      }
+    },
+    {
+      "externalId": "515779",
+      "name": "喜塔臘恒文",
+      "citation": "CBDB 中国历代人物传记资料库 person 515779"
+    },
+    {
+      "externalId": "515782",
+      "name": "喜塔臘堃厚",
+      "citation": "CBDB 中国历代人物传记资料库 person 515782"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "57856",
+      "child": "515779"
+    },
+    {
+      "kind": "parent",
+      "parent": "57856",
+      "child": "515782"
+    }
+  ]
+}

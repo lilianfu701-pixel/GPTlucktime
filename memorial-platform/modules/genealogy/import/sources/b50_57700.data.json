@@ -1,0 +1,16 @@
+{
+  "key": "cbdb:b50_57700",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57700",
+      "name": "郭勒沁齊穆克特克慎",
+      "citation": "CBDB 中国历代人物传记资料库 person 57700",
+      "gender": "male",
+      "death": {
+        "year": 1810
+      }
+    }
+  ],
+  "relations": []
+}

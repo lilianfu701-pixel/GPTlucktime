@@ -1,0 +1,19 @@
+{
+  "key": "cbdb:b52_58084",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "58084",
+      "name": "愛新覺羅慶祺",
+      "citation": "CBDB 中国历代人物传记资料库 person 58084",
+      "gender": "male",
+      "birth": {
+        "year": 1804
+      },
+      "death": {
+        "year": 1859
+      }
+    }
+  ],
+  "relations": []
+}

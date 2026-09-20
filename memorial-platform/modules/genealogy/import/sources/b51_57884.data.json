@@ -1,0 +1,27 @@
+{
+  "key": "cbdb:b51_57884",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57884",
+      "name": "蕭孚泗",
+      "citation": "CBDB 中国历代人物传记资料库 person 57884",
+      "gender": "male",
+      "death": {
+        "year": 1884
+      }
+    },
+    {
+      "externalId": "515853",
+      "name": "蕭有名",
+      "citation": "CBDB 中国历代人物传记资料库 person 515853"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "57884",
+      "child": "515853"
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "key": "cbdb:b51_57928",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57928",
+      "name": "佟佳額勒錦",
+      "citation": "CBDB 中国历代人物传记资料库 person 57928",
+      "gender": "male",
+      "death": {
+        "year": 1849
+      }
+    },
+    {
+      "externalId": "515974",
+      "name": "佟佳德山",
+      "citation": "CBDB 中国历代人物传记资料库 person 515974"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "57928",
+      "child": "515974"
+    }
+  ]
+}

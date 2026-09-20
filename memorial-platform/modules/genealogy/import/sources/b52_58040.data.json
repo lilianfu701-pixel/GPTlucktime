@@ -1,0 +1,50 @@
+{
+  "key": "cbdb:b52_58040",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "58040",
+      "name": "穆爾扎穆克登布",
+      "citation": "CBDB 中国历代人物传记资料库 person 58040",
+      "gender": "male",
+      "birth": {
+        "year": 1743
+      },
+      "death": {
+        "year": 1824
+      }
+    },
+    {
+      "externalId": "516296",
+      "name": "穆爾扎雅倫泰",
+      "citation": "CBDB 中国历代人物传记资料库 person 516296"
+    },
+    {
+      "externalId": "516299",
+      "name": "穆爾扎蘇勒法",
+      "citation": "CBDB 中国历代人物传记资料库 person 516299"
+    },
+    {
+      "externalId": "516300",
+      "name": "穆爾扎蘇普棟阿",
+      "citation": "CBDB 中国历代人物传记资料库 person 516300"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "516296",
+      "child": "58040"
+    },
+    {
+      "kind": "parent",
+      "parent": "58040",
+      "child": "516299"
+    },
+    {
+      "kind": "parent",
+      "parent": "58040",
+      "child": "516300"
+    }
+  ]
+}

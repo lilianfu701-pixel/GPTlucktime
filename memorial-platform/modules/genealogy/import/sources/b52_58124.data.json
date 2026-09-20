@@ -1,0 +1,37 @@
+{
+  "key": "cbdb:b52_58124",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "58124",
+      "name": "劉之仁",
+      "citation": "CBDB 中国历代人物传记资料库 person 58124",
+      "gender": "male",
+      "death": {
+        "year": 1801
+      }
+    },
+    {
+      "externalId": "516455",
+      "name": "劉如瑛",
+      "citation": "CBDB 中国历代人物传记资料库 person 516455"
+    },
+    {
+      "externalId": "516456",
+      "name": "劉廷勛",
+      "citation": "CBDB 中国历代人物传记资料库 person 516456"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "58124",
+      "child": "516455"
+    },
+    {
+      "kind": "parent",
+      "parent": "58124",
+      "child": "516456"
+    }
+  ]
+}

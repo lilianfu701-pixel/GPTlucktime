@@ -1,0 +1,19 @@
+{
+  "key": "cbdb:b51_57932",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57932",
+      "name": "薛福成",
+      "citation": "CBDB 中国历代人物传记资料库 person 57932",
+      "gender": "male",
+      "birth": {
+        "year": 1838
+      },
+      "death": {
+        "year": 1894
+      }
+    }
+  ],
+  "relations": []
+}

@@ -1,0 +1,67 @@
+{
+  "key": "cbdb:b52_58140",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "58140",
+      "name": "陳大文",
+      "citation": "CBDB 中国历代人物传记资料库 person 58140",
+      "gender": "male",
+      "death": {
+        "year": 1815
+      }
+    },
+    {
+      "externalId": "516508",
+      "name": "陳得佺",
+      "citation": "CBDB 中国历代人物传记资料库 person 516508"
+    },
+    {
+      "externalId": "516509",
+      "name": "陳德銓",
+      "citation": "CBDB 中国历代人物传记资料库 person 516509"
+    },
+    {
+      "externalId": "516510",
+      "name": "陳慶儀",
+      "citation": "CBDB 中国历代人物传记资料库 person 516510"
+    },
+    {
+      "externalId": "516511",
+      "name": "陳慶儒",
+      "citation": "CBDB 中国历代人物传记资料库 person 516511"
+    },
+    {
+      "externalId": "516512",
+      "name": "陳慶倈",
+      "citation": "CBDB 中国历代人物传记资料库 person 516512"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "58140",
+      "child": "516508"
+    },
+    {
+      "kind": "parent",
+      "parent": "58140",
+      "child": "516509"
+    },
+    {
+      "kind": "parent",
+      "parent": "58140",
+      "child": "516510"
+    },
+    {
+      "kind": "parent",
+      "parent": "58140",
+      "child": "516511"
+    },
+    {
+      "kind": "parent",
+      "parent": "58140",
+      "child": "516512"
+    }
+  ]
+}

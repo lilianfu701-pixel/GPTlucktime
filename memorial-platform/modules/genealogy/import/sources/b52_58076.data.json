@@ -1,0 +1,40 @@
+{
+  "key": "cbdb:b52_58076",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "58076",
+      "name": "奇塔拉慶瑞",
+      "citation": "CBDB 中国历代人物传记资料库 person 58076",
+      "gender": "male",
+      "birth": {
+        "year": 1818
+      },
+      "death": {
+        "year": 1866
+      }
+    },
+    {
+      "externalId": "516373",
+      "name": "奇塔拉額勒德克",
+      "citation": "CBDB 中国历代人物传记资料库 person 516373"
+    },
+    {
+      "externalId": "516370",
+      "name": "奇塔拉忠祥",
+      "citation": "CBDB 中国历代人物传记资料库 person 516370"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "516373",
+      "child": "58076"
+    },
+    {
+      "kind": "parent",
+      "parent": "58076",
+      "child": "516370"
+    }
+  ]
+}

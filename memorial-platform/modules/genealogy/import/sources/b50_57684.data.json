@@ -1,0 +1,57 @@
+{
+  "key": "cbdb:b50_57684",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57684",
+      "name": "烏大經",
+      "citation": "CBDB 中国历代人物传记资料库 person 57684",
+      "gender": "male",
+      "death": {
+        "year": 1804
+      }
+    },
+    {
+      "externalId": "515466",
+      "name": "烏承恩",
+      "citation": "CBDB 中国历代人物传记资料库 person 515466"
+    },
+    {
+      "externalId": "515467",
+      "name": "烏承勳",
+      "citation": "CBDB 中国历代人物传记资料库 person 515467"
+    },
+    {
+      "externalId": "515468",
+      "name": "烏承錫",
+      "citation": "CBDB 中国历代人物传记资料库 person 515468"
+    },
+    {
+      "externalId": "515469",
+      "name": "烏承緖",
+      "citation": "CBDB 中国历代人物传记资料库 person 515469"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "57684",
+      "child": "515466"
+    },
+    {
+      "kind": "parent",
+      "parent": "57684",
+      "child": "515467"
+    },
+    {
+      "kind": "parent",
+      "parent": "57684",
+      "child": "515468"
+    },
+    {
+      "kind": "parent",
+      "parent": "57684",
+      "child": "515469"
+    }
+  ]
+}

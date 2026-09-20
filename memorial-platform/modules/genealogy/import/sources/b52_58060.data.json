@@ -1,0 +1,16 @@
+{
+  "key": "cbdb:b52_58060",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "58060",
+      "name": "蘇完呢瓜爾佳熙敬",
+      "citation": "CBDB 中国历代人物传记资料库 person 58060",
+      "gender": "male",
+      "death": {
+        "year": 1900
+      }
+    }
+  ],
+  "relations": []
+}

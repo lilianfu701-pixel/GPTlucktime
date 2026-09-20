@@ -1,0 +1,40 @@
+{
+  "key": "cbdb:b51_57808",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57808",
+      "name": "于式枚",
+      "citation": "CBDB 中国历代人物传记资料库 person 57808",
+      "gender": "male",
+      "birth": {
+        "year": 1853
+      },
+      "death": {
+        "year": 1915
+      }
+    },
+    {
+      "externalId": "515668",
+      "name": "于廷碩",
+      "citation": "CBDB 中国历代人物传记资料库 person 515668"
+    },
+    {
+      "externalId": "515669",
+      "name": "于景炘",
+      "citation": "CBDB 中国历代人物传记资料库 person 515669"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "57808",
+      "child": "515668"
+    },
+    {
+      "kind": "parent",
+      "parent": "57808",
+      "child": "515669"
+    }
+  ]
+}

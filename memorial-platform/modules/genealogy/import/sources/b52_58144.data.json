@@ -1,0 +1,16 @@
+{
+  "key": "cbdb:b52_58144",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "58144",
+      "name": "愛新覺羅德隆",
+      "citation": "CBDB 中国历代人物传记资料库 person 58144",
+      "gender": "male",
+      "death": {
+        "year": 1894
+      }
+    }
+  ],
+  "relations": []
+}

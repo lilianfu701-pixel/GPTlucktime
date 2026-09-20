@@ -1,0 +1,37 @@
+{
+  "key": "cbdb:b52_58164",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "58164",
+      "name": "喬佳德興阿",
+      "citation": "CBDB 中国历代人物传记资料库 person 58164",
+      "gender": "male",
+      "death": {
+        "year": 1867
+      }
+    },
+    {
+      "externalId": "516543",
+      "name": "喬佳富慶",
+      "citation": "CBDB 中国历代人物传记资料库 person 516543"
+    },
+    {
+      "externalId": "516544",
+      "name": "喬佳福亮",
+      "citation": "CBDB 中国历代人物传记资料库 person 516544"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "58164",
+      "child": "516543"
+    },
+    {
+      "kind": "parent",
+      "parent": "58164",
+      "child": "516544"
+    }
+  ]
+}

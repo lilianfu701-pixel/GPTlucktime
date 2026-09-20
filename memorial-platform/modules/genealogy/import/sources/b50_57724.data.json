@@ -1,0 +1,16 @@
+{
+  "key": "cbdb:b50_57724",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57724",
+      "name": "祖大壽",
+      "citation": "CBDB 中国历代人物传记资料库 person 57724",
+      "gender": "male",
+      "death": {
+        "year": 1656
+      }
+    }
+  ],
+  "relations": []
+}

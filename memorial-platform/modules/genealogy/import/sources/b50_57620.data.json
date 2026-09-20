@@ -1,0 +1,40 @@
+{
+  "key": "cbdb:b50_57620",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57620",
+      "name": "朱嶟",
+      "citation": "CBDB 中国历代人物传记资料库 person 57620",
+      "gender": "male",
+      "birth": {
+        "year": 1791
+      },
+      "death": {
+        "year": 1862
+      }
+    },
+    {
+      "externalId": "515350",
+      "name": "朱咸章",
+      "citation": "CBDB 中国历代人物传记资料库 person 515350"
+    },
+    {
+      "externalId": "515351",
+      "name": "朱鈐章",
+      "citation": "CBDB 中国历代人物传记资料库 person 515351"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "57620",
+      "child": "515350"
+    },
+    {
+      "kind": "parent",
+      "parent": "57620",
+      "child": "515351"
+    }
+  ]
+}
