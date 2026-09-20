@@ -1,0 +1,41 @@
+{
+  "key": "cbdb:lizicheng",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "65627",
+      "name": "李自成",
+      "citation": "CBDB 中国历代人物传记资料库 person 65627",
+      "gender": "male",
+      "birth": {
+        "year": 1606
+      },
+      "death": {
+        "year": 1645
+      }
+    },
+    {
+      "externalId": "522012",
+      "name": "李守忠",
+      "citation": "CBDB 中国历代人物传记资料库 person 522012"
+    },
+    {
+      "externalId": "122802",
+      "name": "李翠微",
+      "citation": "CBDB 中国历代人物传记资料库 person 122802",
+      "gender": "female"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "522012",
+      "child": "65627"
+    },
+    {
+      "kind": "parent",
+      "parent": "65627",
+      "child": "122802"
+    }
+  ]
+}

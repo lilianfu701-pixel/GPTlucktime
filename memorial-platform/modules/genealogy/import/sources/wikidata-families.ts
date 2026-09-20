@@ -212,6 +212,10 @@ import suweidao from "./suweidao.data.json";
 import liufen from "./liufen.data.json";
 import liugong from "./liugong.data.json";
 import xiaoying from "./xiaoying.data.json";
+// CBDB 第三十七批（Ming帝系·李自成·清初摄政）
+import jianwendi from "./jianwendi.data.json";
+import lizicheng from "./lizicheng.data.json";
+import doergon from "./doergon.data.json";
 // CBDB 第三十六批（辽国皇族·元朝蒙古皇帝·五代冯道）
 import yeluabaoji from "./yeluabaoji.data.json";
 import yeludegang from "./yeludegang.data.json";
@@ -750,6 +754,10 @@ const FAMILIES: { key: string; label: string; dataset: GenealogyDataset }[] = [
   { key: "liufen", label: "河东柳氏·柳芬支（柳懿·柳均·南北朝到唐）", dataset: liufen as GenealogyDataset },
   { key: "liugong", label: "河东柳氏·柳公权支（书法家·柳瑗·柳仲憲）", dataset: liugong as GenealogyDataset },
   { key: "xiaoying", label: "兰陵萧氏·萧颖士支（萧道赐·萧恢·南朝到唐）", dataset: xiaoying as GenealogyDataset },
+  // CBDB 第三十七批：Ming帝系·李自成·清初摄政
+  { key: "jianwendi", label: "朱氏·建文帝支（明皇帝·1377-1402·朱元璋後裔·9人）", dataset: jianwendi as GenealogyDataset },
+  { key: "lizicheng", label: "李氏·李自成支（晚明农民起义·1606-1645·李守忠等·3人）", dataset: lizicheng as GenealogyDataset },
+  { key: "doergon", label: "爱新觉罗氏·多尔衮支（清初摄政·1612-1650·满洲贵族·1人）", dataset: doergon as GenealogyDataset },
   // CBDB 第三十六批：辽国皇族·元朝蒙古皇帝·五代冯道
   { key: "yeluabaoji", label: "契丹耶律氏·阿保機支（辽国开国·872-926·耶律德光至耶律賢·46人）", dataset: yeluabaoji as GenealogyDataset },
   { key: "yeludegang", label: "契丹耶律氏·德光支（辽国皇帝·902-947·三代聯系·26人）", dataset: yeludegang as GenealogyDataset },

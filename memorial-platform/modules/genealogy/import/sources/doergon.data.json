@@ -1,0 +1,19 @@
+{
+  "key": "cbdb:doergon",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "65991",
+      "name": "愛新覺羅多爾袞",
+      "citation": "CBDB 中国历代人物传记资料库 person 65991",
+      "gender": "male",
+      "birth": {
+        "year": 1612
+      },
+      "death": {
+        "year": 1650
+      }
+    }
+  ],
+  "relations": []
+}

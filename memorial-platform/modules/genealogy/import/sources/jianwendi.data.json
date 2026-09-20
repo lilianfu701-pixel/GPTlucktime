@@ -1,0 +1,118 @@
+{
+  "key": "cbdb:jianwendi",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "30150",
+      "name": "朱允炆",
+      "citation": "CBDB 中国历代人物传记资料库 person 30150",
+      "gender": "male",
+      "birth": {
+        "year": 1377
+      },
+      "death": {
+        "year": 1402
+      }
+    },
+    {
+      "externalId": "129561",
+      "name": "馬皇后",
+      "citation": "CBDB 中国历代人物传记资料库 person 129561",
+      "gender": "female"
+    },
+    {
+      "externalId": "67200",
+      "name": "朱標",
+      "citation": "CBDB 中国历代人物传记资料库 person 67200",
+      "gender": "male",
+      "birth": {
+        "year": 1355
+      },
+      "death": {
+        "year": 1392
+      }
+    },
+    {
+      "externalId": "30148",
+      "name": "朱元璋",
+      "citation": "CBDB 中国历代人物传记资料库 person 30148",
+      "gender": "male",
+      "birth": {
+        "year": 1328
+      },
+      "death": {
+        "year": 1398
+      }
+    },
+    {
+      "externalId": "118451",
+      "name": "馬氏(朱元璋妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 118451",
+      "gender": "female"
+    },
+    {
+      "externalId": "129560",
+      "name": "馬皇后",
+      "citation": "CBDB 中国历代人物传记资料库 person 129560",
+      "gender": "female"
+    },
+    {
+      "externalId": "523250",
+      "name": "馬氏(朱元璋皇后)",
+      "citation": "CBDB 中国历代人物传记资料库 person 523250"
+    },
+    {
+      "externalId": "572995",
+      "name": "孫氏(朱元璋貴妃)",
+      "citation": "CBDB 中国历代人物传记资料库 person 572995",
+      "gender": "female"
+    },
+    {
+      "externalId": "524299",
+      "name": "高氏(皇后)",
+      "citation": "CBDB 中国历代人物传记资料库 person 524299"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "67200",
+      "child": "30150"
+    },
+    {
+      "kind": "spouse",
+      "a": "129561",
+      "b": "30150"
+    },
+    {
+      "kind": "parent",
+      "parent": "30148",
+      "child": "67200"
+    },
+    {
+      "kind": "parent",
+      "parent": "524299",
+      "child": "67200"
+    },
+    {
+      "kind": "spouse",
+      "a": "118451",
+      "b": "30148"
+    },
+    {
+      "kind": "spouse",
+      "a": "129560",
+      "b": "30148"
+    },
+    {
+      "kind": "spouse",
+      "a": "30148",
+      "b": "523250"
+    },
+    {
+      "kind": "spouse",
+      "a": "30148",
+      "b": "572995"
+    }
+  ]
+}
