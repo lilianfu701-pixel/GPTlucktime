@@ -1,0 +1,19 @@
+{
+  "key": "cbdb:b48_57324",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57324",
+      "name": "胡世安",
+      "citation": "CBDB 中国历代人物传记资料库 person 57324",
+      "gender": "male",
+      "birth": {
+        "year": 1593
+      },
+      "death": {
+        "year": 1663
+      }
+    }
+  ],
+  "relations": []
+}

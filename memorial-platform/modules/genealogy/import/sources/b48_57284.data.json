@@ -1,0 +1,16 @@
+{
+  "key": "cbdb:b48_57284",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57284",
+      "name": "甯完我",
+      "citation": "CBDB 中国历代人物传记资料库 person 57284",
+      "gender": "male",
+      "death": {
+        "year": 1665
+      }
+    }
+  ],
+  "relations": []
+}

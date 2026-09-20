@@ -1,0 +1,27 @@
+{
+  "key": "cbdb:b48_57296",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57296",
+      "name": "納喇查郎阿",
+      "citation": "CBDB 中国历代人物传记资料库 person 57296",
+      "gender": "male",
+      "death": {
+        "year": 1747
+      }
+    },
+    {
+      "externalId": "514649",
+      "name": "納喇邁拉遜",
+      "citation": "CBDB 中国历代人物传记资料库 person 514649"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "57296",
+      "child": "514649"
+    }
+  ]
+}

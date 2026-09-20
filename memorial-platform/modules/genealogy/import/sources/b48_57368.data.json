@@ -1,0 +1,16 @@
+{
+  "key": "cbdb:b48_57368",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57368",
+      "name": "趙廷臣",
+      "citation": "CBDB 中国历代人物传记资料库 person 57368",
+      "gender": "male",
+      "death": {
+        "year": 1669
+      }
+    }
+  ],
+  "relations": []
+}

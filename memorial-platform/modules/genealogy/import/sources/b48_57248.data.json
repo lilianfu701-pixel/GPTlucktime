@@ -1,0 +1,40 @@
+{
+  "key": "cbdb:b48_57248",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57248",
+      "name": "焦毓瑞",
+      "citation": "CBDB 中国历代人物传记资料库 person 57248",
+      "gender": "male",
+      "birth": {
+        "year": 1627
+      },
+      "death": {
+        "year": 1685
+      }
+    },
+    {
+      "externalId": "514538",
+      "name": "焦舜同",
+      "citation": "CBDB 中国历代人物传记资料库 person 514538"
+    },
+    {
+      "externalId": "514539",
+      "name": "焦舜年",
+      "citation": "CBDB 中国历代人物传记资料库 person 514539"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "57248",
+      "child": "514538"
+    },
+    {
+      "kind": "parent",
+      "parent": "57248",
+      "child": "514539"
+    }
+  ]
+}

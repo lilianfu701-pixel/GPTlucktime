@@ -1,0 +1,19 @@
+{
+  "key": "cbdb:b48_57328",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57328",
+      "name": "胡全才",
+      "citation": "CBDB 中国历代人物传记资料库 person 57328",
+      "gender": "male",
+      "birth": {
+        "year": 1605
+      },
+      "death": {
+        "year": 1656
+      }
+    }
+  ],
+  "relations": []
+}

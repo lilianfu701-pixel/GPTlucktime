@@ -1,0 +1,30 @@
+{
+  "key": "cbdb:b48_57280",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57280",
+      "name": "施世綸",
+      "citation": "CBDB 中国历代人物传记资料库 person 57280",
+      "gender": "male",
+      "birth": {
+        "year": 1658
+      },
+      "death": {
+        "year": 1722
+      }
+    },
+    {
+      "externalId": "514630",
+      "name": "施廷祥",
+      "citation": "CBDB 中国历代人物传记资料库 person 514630"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "57280",
+      "child": "514630"
+    }
+  ]
+}

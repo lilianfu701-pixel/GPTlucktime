@@ -1,0 +1,19 @@
+{
+  "key": "cbdb:b48_57340",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57340",
+      "name": "富察福敏",
+      "citation": "CBDB 中国历代人物传记资料库 person 57340",
+      "gender": "male",
+      "birth": {
+        "year": 1673
+      },
+      "death": {
+        "year": 1756
+      }
+    }
+  ],
+  "relations": []
+}

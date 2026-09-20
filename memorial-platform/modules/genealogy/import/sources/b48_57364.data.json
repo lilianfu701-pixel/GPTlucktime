@@ -1,0 +1,19 @@
+{
+  "key": "cbdb:b48_57364",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57364",
+      "name": "石文晟",
+      "citation": "CBDB 中国历代人物传记资料库 person 57364",
+      "gender": "male",
+      "birth": {
+        "year": 1643
+      },
+      "death": {
+        "year": 1720
+      }
+    }
+  ],
+  "relations": []
+}

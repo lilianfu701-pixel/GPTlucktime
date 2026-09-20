@@ -1,0 +1,37 @@
+{
+  "key": "cbdb:b48_57252",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57252",
+      "name": "拜都布蘭泰",
+      "citation": "CBDB 中国历代人物传记资料库 person 57252",
+      "gender": "male",
+      "death": {
+        "year": 1752
+      }
+    },
+    {
+      "externalId": "514559",
+      "name": "拜都克什圖",
+      "citation": "CBDB 中国历代人物传记资料库 person 514559"
+    },
+    {
+      "externalId": "514558",
+      "name": "拜都永亮",
+      "citation": "CBDB 中国历代人物传记资料库 person 514558"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "514559",
+      "child": "57252"
+    },
+    {
+      "kind": "parent",
+      "parent": "57252",
+      "child": "514558"
+    }
+  ]
+}

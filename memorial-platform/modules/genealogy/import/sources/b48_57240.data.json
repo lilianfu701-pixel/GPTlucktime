@@ -1,0 +1,47 @@
+{
+  "key": "cbdb:b48_57240",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57240",
+      "name": "索綽羅台隆阿",
+      "citation": "CBDB 中国历代人物传记资料库 person 57240",
+      "gender": "male",
+      "death": {
+        "year": 1813
+      }
+    },
+    {
+      "externalId": "514500",
+      "name": "索綽羅常永",
+      "citation": "CBDB 中国历代人物传记资料库 person 514500"
+    },
+    {
+      "externalId": "514501",
+      "name": "索綽羅常昇",
+      "citation": "CBDB 中国历代人物传记资料库 person 514501"
+    },
+    {
+      "externalId": "514502",
+      "name": "索綽羅常興",
+      "citation": "CBDB 中国历代人物传记资料库 person 514502"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "57240",
+      "child": "514500"
+    },
+    {
+      "kind": "parent",
+      "parent": "57240",
+      "child": "514501"
+    },
+    {
+      "kind": "parent",
+      "parent": "57240",
+      "child": "514502"
+    }
+  ]
+}

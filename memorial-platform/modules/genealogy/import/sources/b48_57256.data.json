@@ -1,0 +1,19 @@
+{
+  "key": "cbdb:b48_57256",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57256",
+      "name": "愛新覺羅弘晝",
+      "citation": "CBDB 中国历代人物传记资料库 person 57256",
+      "gender": "male",
+      "birth": {
+        "year": 1711
+      },
+      "death": {
+        "year": 1770
+      }
+    }
+  ],
+  "relations": []
+}

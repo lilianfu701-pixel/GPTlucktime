@@ -1,0 +1,16 @@
+{
+  "key": "cbdb:b48_57292",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57292",
+      "name": "楊方興",
+      "citation": "CBDB 中国历代人物传记资料库 person 57292",
+      "gender": "male",
+      "death": {
+        "year": 1665
+      }
+    }
+  ],
+  "relations": []
+}

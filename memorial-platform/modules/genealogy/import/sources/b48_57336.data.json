@@ -1,0 +1,16 @@
+{
+  "key": "cbdb:b48_57336",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57336",
+      "name": "馬佳圖海",
+      "citation": "CBDB 中国历代人物传记资料库 person 57336",
+      "gender": "male",
+      "death": {
+        "year": 1681
+      }
+    }
+  ],
+  "relations": []
+}

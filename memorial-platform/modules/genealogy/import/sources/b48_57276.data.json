@@ -1,0 +1,27 @@
+{
+  "key": "cbdb:b48_57276",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57276",
+      "name": "董鄂永常",
+      "citation": "CBDB 中国历代人物传记资料库 person 57276",
+      "gender": "male",
+      "death": {
+        "year": 1755
+      }
+    },
+    {
+      "externalId": "514603",
+      "name": "董鄂額騰額",
+      "citation": "CBDB 中国历代人物传记资料库 person 514603"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "57276",
+      "child": "514603"
+    }
+  ]
+}

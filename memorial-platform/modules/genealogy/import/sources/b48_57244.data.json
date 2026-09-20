@@ -1,0 +1,80 @@
+{
+  "key": "cbdb:b48_57244",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57244",
+      "name": "盧焯",
+      "citation": "CBDB 中国历代人物传记资料库 person 57244",
+      "gender": "male",
+      "birth": {
+        "year": 1693
+      },
+      "death": {
+        "year": 1767
+      }
+    },
+    {
+      "externalId": "514513",
+      "name": "盧承倫",
+      "citation": "CBDB 中国历代人物传记资料库 person 514513"
+    },
+    {
+      "externalId": "514510",
+      "name": "盧㠈",
+      "citation": "CBDB 中国历代人物传记资料库 person 514510"
+    },
+    {
+      "externalId": "514511",
+      "name": "盧㞳",
+      "citation": "CBDB 中国历代人物传记资料库 person 514511"
+    },
+    {
+      "externalId": "514512",
+      "name": "盧山",
+      "citation": "CBDB 中国历代人物传记资料库 person 514512"
+    },
+    {
+      "externalId": "514515",
+      "name": "盧崧",
+      "citation": "CBDB 中国历代人物传记资料库 person 514515"
+    },
+    {
+      "externalId": "514523",
+      "name": "盧嶠",
+      "citation": "CBDB 中国历代人物传记资料库 person 514523"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "514513",
+      "child": "57244"
+    },
+    {
+      "kind": "parent",
+      "parent": "57244",
+      "child": "514510"
+    },
+    {
+      "kind": "parent",
+      "parent": "57244",
+      "child": "514511"
+    },
+    {
+      "kind": "parent",
+      "parent": "57244",
+      "child": "514512"
+    },
+    {
+      "kind": "parent",
+      "parent": "57244",
+      "child": "514515"
+    },
+    {
+      "kind": "parent",
+      "parent": "57244",
+      "child": "514523"
+    }
+  ]
+}

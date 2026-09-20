@@ -1,0 +1,16 @@
+{
+  "key": "cbdb:b48_57312",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57312",
+      "name": "洪蕃鏘",
+      "citation": "CBDB 中国历代人物传记资料库 person 57312",
+      "gender": "male",
+      "death": {
+        "year": 1822
+      }
+    }
+  ],
+  "relations": []
+}

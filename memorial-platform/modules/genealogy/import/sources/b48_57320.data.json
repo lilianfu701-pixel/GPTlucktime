@@ -1,0 +1,16 @@
+{
+  "key": "cbdb:b48_57320",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57320",
+      "name": "胡天格",
+      "citation": "CBDB 中国历代人物传记资料库 person 57320",
+      "gender": "male",
+      "death": {
+        "year": 1814
+      }
+    }
+  ],
+  "relations": []
+}

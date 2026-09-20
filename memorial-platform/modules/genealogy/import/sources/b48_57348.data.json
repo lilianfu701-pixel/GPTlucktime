@@ -1,0 +1,19 @@
+{
+  "key": "cbdb:b48_57348",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57348",
+      "name": "范文程",
+      "citation": "CBDB 中国历代人物传记资料库 person 57348",
+      "gender": "male",
+      "birth": {
+        "year": 1597
+      },
+      "death": {
+        "year": 1666
+      }
+    }
+  ],
+  "relations": []
+}

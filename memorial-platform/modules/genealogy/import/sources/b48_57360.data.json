@@ -1,0 +1,19 @@
+{
+  "key": "cbdb:b48_57360",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57360",
+      "name": "白潢",
+      "citation": "CBDB 中国历代人物传记资料库 person 57360",
+      "gender": "male",
+      "birth": {
+        "year": 1660
+      },
+      "death": {
+        "year": 1737
+      }
+    }
+  ],
+  "relations": []
+}

@@ -1,0 +1,30 @@
+{
+  "key": "cbdb:b48_57272",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57272",
+      "name": "馮溥",
+      "citation": "CBDB 中国历代人物传记资料库 person 57272",
+      "gender": "male",
+      "birth": {
+        "year": 1609
+      },
+      "death": {
+        "year": 1691
+      }
+    },
+    {
+      "externalId": "514596",
+      "name": "馮士衡",
+      "citation": "CBDB 中国历代人物传记资料库 person 514596"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "514596",
+      "child": "57272"
+    }
+  ]
+}

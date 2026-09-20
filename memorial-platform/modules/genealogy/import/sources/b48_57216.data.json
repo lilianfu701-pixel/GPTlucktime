@@ -1,0 +1,40 @@
+{
+  "key": "cbdb:b48_57216",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57216",
+      "name": "索綽絡奎照",
+      "citation": "CBDB 中国历代人物传记资料库 person 57216",
+      "gender": "male",
+      "birth": {
+        "year": 1790
+      },
+      "death": {
+        "year": 1843
+      }
+    },
+    {
+      "externalId": "514436",
+      "name": "索綽絡錫茀",
+      "citation": "CBDB 中国历代人物传记资料库 person 514436"
+    },
+    {
+      "externalId": "514437",
+      "name": "索綽絡錫晉",
+      "citation": "CBDB 中国历代人物传记资料库 person 514437"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "57216",
+      "child": "514436"
+    },
+    {
+      "kind": "parent",
+      "parent": "57216",
+      "child": "514437"
+    }
+  ]
+}

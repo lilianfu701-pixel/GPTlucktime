@@ -1,0 +1,19 @@
+{
+  "key": "cbdb:b48_57344",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57344",
+      "name": "田文鏡",
+      "citation": "CBDB 中国历代人物传记资料库 person 57344",
+      "gender": "male",
+      "birth": {
+        "year": 1662
+      },
+      "death": {
+        "year": 1732
+      }
+    }
+  ],
+  "relations": []
+}

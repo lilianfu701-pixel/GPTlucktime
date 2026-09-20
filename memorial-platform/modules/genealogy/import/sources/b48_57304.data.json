@@ -1,0 +1,19 @@
+{
+  "key": "cbdb:b48_57304",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57304",
+      "name": "愛新覺羅永璇",
+      "citation": "CBDB 中国历代人物传记资料库 person 57304",
+      "gender": "male",
+      "birth": {
+        "year": 1745
+      },
+      "death": {
+        "year": 1832
+      }
+    }
+  ],
+  "relations": []
+}

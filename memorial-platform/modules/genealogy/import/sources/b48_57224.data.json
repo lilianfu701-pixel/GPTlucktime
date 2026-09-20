@@ -1,0 +1,16 @@
+{
+  "key": "cbdb:b48_57224",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57224",
+      "name": "姚三辰",
+      "citation": "CBDB 中国历代人物传记资料库 person 57224",
+      "gender": "male",
+      "death": {
+        "year": 1737
+      }
+    }
+  ],
+  "relations": []
+}

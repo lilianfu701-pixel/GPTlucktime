@@ -1,0 +1,19 @@
+{
+  "key": "cbdb:b48_57356",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57356",
+      "name": "范承謨",
+      "citation": "CBDB 中国历代人物传记资料库 person 57356",
+      "gender": "male",
+      "birth": {
+        "year": 1635
+      },
+      "death": {
+        "year": 1676
+      }
+    }
+  ],
+  "relations": []
+}

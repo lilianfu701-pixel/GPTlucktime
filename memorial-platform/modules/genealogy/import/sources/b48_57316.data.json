@@ -1,0 +1,16 @@
+{
+  "key": "cbdb:b48_57316",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57316",
+      "name": "瓜爾佳玉德",
+      "citation": "CBDB 中国历代人物传记资料库 person 57316",
+      "gender": "male",
+      "death": {
+        "year": 1808
+      }
+    }
+  ],
+  "relations": []
+}

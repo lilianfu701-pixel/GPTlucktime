@@ -1,0 +1,61 @@
+{
+  "key": "cbdb:b48_57220",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57220",
+      "name": "姜希轍",
+      "citation": "CBDB 中国历代人物传记资料库 person 57220",
+      "gender": "male",
+      "birth": {
+        "year": 1621
+      },
+      "death": {
+        "year": 1698
+      }
+    },
+    {
+      "externalId": "514443",
+      "name": "姜紫環",
+      "citation": "CBDB 中国历代人物传记资料库 person 514443"
+    },
+    {
+      "externalId": "555265",
+      "name": "姜天樞",
+      "citation": "CBDB 中国历代人物传记资料库 person 555265",
+      "gender": "male"
+    },
+    {
+      "externalId": "514442",
+      "name": "姜垚",
+      "citation": "CBDB 中国历代人物传记资料库 person 514442"
+    },
+    {
+      "externalId": "514444",
+      "name": "姜塽",
+      "citation": "CBDB 中国历代人物传记资料库 person 514444"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "514443",
+      "child": "57220"
+    },
+    {
+      "kind": "parent",
+      "parent": "555265",
+      "child": "57220"
+    },
+    {
+      "kind": "parent",
+      "parent": "57220",
+      "child": "514442"
+    },
+    {
+      "kind": "parent",
+      "parent": "57220",
+      "child": "514444"
+    }
+  ]
+}

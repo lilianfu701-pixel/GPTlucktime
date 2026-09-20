@@ -1,0 +1,19 @@
+{
+  "key": "cbdb:b48_57228",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57228",
+      "name": "姚立德",
+      "citation": "CBDB 中国历代人物传记资料库 person 57228",
+      "gender": "male",
+      "birth": {
+        "year": 1725
+      },
+      "death": {
+        "year": 1783
+      }
+    }
+  ],
+  "relations": []
+}

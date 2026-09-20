@@ -1,0 +1,51 @@
+{
+  "key": "cbdb:b48_57236",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57236",
+      "name": "史致儼",
+      "citation": "CBDB 中国历代人物传记资料库 person 57236",
+      "gender": "male",
+      "birth": {
+        "year": 1760
+      },
+      "death": {
+        "year": 1838
+      }
+    },
+    {
+      "externalId": "514491",
+      "name": "史元善",
+      "citation": "CBDB 中国历代人物传记资料库 person 514491"
+    },
+    {
+      "externalId": "70030",
+      "name": "史璞瑩",
+      "citation": "CBDB 中国历代人物传记资料库 person 70030",
+      "gender": "female"
+    },
+    {
+      "externalId": "514495",
+      "name": "史璜",
+      "citation": "CBDB 中国历代人物传记资料库 person 514495"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "514491",
+      "child": "57236"
+    },
+    {
+      "kind": "parent",
+      "parent": "57236",
+      "child": "70030"
+    },
+    {
+      "kind": "parent",
+      "parent": "57236",
+      "child": "514495"
+    }
+  ]
+}

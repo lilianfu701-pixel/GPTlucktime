@@ -1,0 +1,27 @@
+{
+  "key": "cbdb:b48_57264",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57264",
+      "name": "費莫永保",
+      "citation": "CBDB 中国历代人物传记资料库 person 57264",
+      "gender": "male",
+      "death": {
+        "year": 1808
+      }
+    },
+    {
+      "externalId": "514583",
+      "name": "費莫英華",
+      "citation": "CBDB 中国历代人物传记资料库 person 514583"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "57264",
+      "child": "514583"
+    }
+  ]
+}

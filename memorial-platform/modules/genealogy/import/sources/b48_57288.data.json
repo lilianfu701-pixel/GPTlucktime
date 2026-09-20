@@ -1,0 +1,19 @@
+{
+  "key": "cbdb:b48_57288",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57288",
+      "name": "愛新覺羅永瑆",
+      "citation": "CBDB 中国历代人物传记资料库 person 57288",
+      "gender": "male",
+      "birth": {
+        "year": 1752
+      },
+      "death": {
+        "year": 1823
+      }
+    }
+  ],
+  "relations": []
+}

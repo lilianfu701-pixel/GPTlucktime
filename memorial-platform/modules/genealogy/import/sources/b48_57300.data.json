@@ -1,0 +1,30 @@
+{
+  "key": "cbdb:b48_57300",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57300",
+      "name": "覺羅永德",
+      "citation": "CBDB 中国历代人物传记资料库 person 57300",
+      "gender": "male",
+      "birth": {
+        "year": 1713
+      },
+      "death": {
+        "year": 1784
+      }
+    },
+    {
+      "externalId": "514657",
+      "name": "覺羅哈克秦",
+      "citation": "CBDB 中国历代人物传记资料库 person 514657"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "514657",
+      "child": "57300"
+    }
+  ]
+}

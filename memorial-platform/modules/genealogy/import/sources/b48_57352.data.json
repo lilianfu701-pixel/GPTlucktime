@@ -1,0 +1,19 @@
+{
+  "key": "cbdb:b48_57352",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57352",
+      "name": "申甫",
+      "citation": "CBDB 中国历代人物传记资料库 person 57352",
+      "gender": "male",
+      "birth": {
+        "year": 1706
+      },
+      "death": {
+        "year": 1778
+      }
+    }
+  ],
+  "relations": []
+}
