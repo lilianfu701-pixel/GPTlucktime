@@ -1,0 +1,63 @@
+{
+  "key": "cbdb:qing_56355",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "56355",
+      "name": "郝文則",
+      "citation": "CBDB 中国历代人物传记资料库 person 56355",
+      "gender": "female"
+    },
+    {
+      "externalId": "30309",
+      "name": "郝懿行",
+      "citation": "CBDB 中国历代人物传记资料库 person 30309",
+      "gender": "male",
+      "birth": {
+        "year": 1755
+      },
+      "death": {
+        "year": 1823
+      }
+    },
+    {
+      "externalId": "34233",
+      "name": "王照圓",
+      "citation": "CBDB 中国历代人物传记资料库 person 34233",
+      "gender": "female",
+      "birth": {
+        "year": 1763
+      },
+      "death": {
+        "year": 1851
+      }
+    },
+    {
+      "externalId": "522279",
+      "name": "郝培元",
+      "citation": "CBDB 中国历代人物传记资料库 person 522279"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "30309",
+      "child": "56355"
+    },
+    {
+      "kind": "parent",
+      "parent": "34233",
+      "child": "56355"
+    },
+    {
+      "kind": "parent",
+      "parent": "522279",
+      "child": "30309"
+    },
+    {
+      "kind": "spouse",
+      "a": "30309",
+      "b": "34233"
+    }
+  ]
+}

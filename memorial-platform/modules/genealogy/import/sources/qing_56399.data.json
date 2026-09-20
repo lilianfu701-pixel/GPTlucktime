@@ -1,0 +1,42 @@
+{
+  "key": "cbdb:qing_56399",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "56399",
+      "name": "方氏(方式濟女)",
+      "citation": "CBDB 中国历代人物传记资料库 person 56399",
+      "gender": "female"
+    },
+    {
+      "externalId": "56397",
+      "name": "方式濟",
+      "citation": "CBDB 中国历代人物传记资料库 person 56397",
+      "gender": "male",
+      "birth": {
+        "year": 1676
+      },
+      "death": {
+        "year": 1717
+      }
+    },
+    {
+      "externalId": "56400",
+      "name": "方登嶧",
+      "citation": "CBDB 中国历代人物传记资料库 person 56400",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "56397",
+      "child": "56399"
+    },
+    {
+      "kind": "parent",
+      "parent": "56400",
+      "child": "56397"
+    }
+  ]
+}

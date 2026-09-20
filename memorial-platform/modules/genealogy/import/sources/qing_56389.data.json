@@ -1,0 +1,36 @@
+{
+  "key": "cbdb:qing_56389",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "56389",
+      "name": "鮑怡山",
+      "citation": "CBDB 中国历代人物传记资料库 person 56389",
+      "gender": "male"
+    },
+    {
+      "externalId": "56388",
+      "name": "鮑詩",
+      "citation": "CBDB 中国历代人物传记资料库 person 56388",
+      "gender": "female"
+    },
+    {
+      "externalId": "56390",
+      "name": "張鐵珊",
+      "citation": "CBDB 中国历代人物传记资料库 person 56390",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "56389",
+      "child": "56388"
+    },
+    {
+      "kind": "spouse",
+      "a": "56388",
+      "b": "56390"
+    }
+  ]
+}

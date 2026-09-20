@@ -212,10 +212,27 @@ import suweidao from "./suweidao.data.json";
 import liufen from "./liufen.data.json";
 import liugong from "./liugong.data.json";
 import xiaoying from "./xiaoying.data.json";
-// CBDB 第三十七批（Ming帝系·李自成·清初摄政）
+// CBDB 第三十七批（Ming帝系·李自成·清初摄政·Qing官员）
 import jianwendi from "./jianwendi.data.json";
 import lizicheng from "./lizicheng.data.json";
 import doergon from "./doergon.data.json";
+import aobai from "./aobai.data.json";
+import tuhai from "./tuhai.data.json";
+import mingzhu from "./mingzhu.data.json";
+import suoetu from "./suoetu.data.json";
+import huangyongyi from "./huangyongyi.data.json";
+import gubinyan from "./gubinyan.data.json";
+import qing_56355 from "./qing_56355.data.json";
+import qing_56361 from "./qing_56361.data.json";
+import qing_56365 from "./qing_56365.data.json";
+import qing_56374 from "./qing_56374.data.json";
+import qing_56383 from "./qing_56383.data.json";
+import qing_56389 from "./qing_56389.data.json";
+import qing_56393 from "./qing_56393.data.json";
+import qing_56399 from "./qing_56399.data.json";
+import qing_56402 from "./qing_56402.data.json";
+import qing_56408 from "./qing_56408.data.json";
+import qing_56412 from "./qing_56412.data.json";
 // CBDB 第三十六批（辽国皇族·元朝蒙古皇帝·五代冯道）
 import yeluabaoji from "./yeluabaoji.data.json";
 import yeludegang from "./yeludegang.data.json";
@@ -754,10 +771,27 @@ const FAMILIES: { key: string; label: string; dataset: GenealogyDataset }[] = [
   { key: "liufen", label: "河东柳氏·柳芬支（柳懿·柳均·南北朝到唐）", dataset: liufen as GenealogyDataset },
   { key: "liugong", label: "河东柳氏·柳公权支（书法家·柳瑗·柳仲憲）", dataset: liugong as GenealogyDataset },
   { key: "xiaoying", label: "兰陵萧氏·萧颖士支（萧道赐·萧恢·南朝到唐）", dataset: xiaoying as GenealogyDataset },
-  // CBDB 第三十七批：Ming帝系·李自成·清初摄政
+  // CBDB 第三十七批：Ming帝系·李自成·清初摄政·Qing官员20人
   { key: "jianwendi", label: "朱氏·建文帝支（明皇帝·1377-1402·朱元璋後裔·9人）", dataset: jianwendi as GenealogyDataset },
   { key: "lizicheng", label: "李氏·李自成支（晚明农民起义·1606-1645·李守忠等·3人）", dataset: lizicheng as GenealogyDataset },
   { key: "doergon", label: "爱新觉罗氏·多尔衮支（清初摄政·1612-1650·满洲贵族·1人）", dataset: doergon as GenealogyDataset },
+  { key: "aobai", label: "钮祜禄氏·鳌拜支（满洲贵族·1612-1669·辅政大臣·1人）", dataset: aobai as GenealogyDataset },
+  { key: "tuhai", label: "达姓·图海支（清初官员·满洲贵族·2人）", dataset: tuhai as GenealogyDataset },
+  { key: "mingzhu", label: "费莫氏·明珠支（清相·满洲贵族·0人）", dataset: mingzhu as GenealogyDataset },
+  { key: "suoetu", label: "鄂尔德特氏·索额图支（清相·满洲贵族·2人）", dataset: suoetu as GenealogyDataset },
+  { key: "huangyongyi", label: "黄氏·黄宗羲支（明清学者·黄百家·1人）", dataset: huangyongyi as GenealogyDataset },
+  { key: "gubinyan", label: "顾氏·顾炎武支（明清学者·顾光旻·1人）", dataset: gubinyan as GenealogyDataset },
+  { key: "qing_56355", label: "Qing官员集群1（清代诗词学者·4人）", dataset: qing_56355 as GenealogyDataset },
+  { key: "qing_56361", label: "Qing官员集群2（清代官员·4人）", dataset: qing_56361 as GenealogyDataset },
+  { key: "qing_56365", label: "Qing官员集群3（清代学人·3人）", dataset: qing_56365 as GenealogyDataset },
+  { key: "qing_56374", label: "Qing官员集群4（清代官员·2人）", dataset: qing_56374 as GenealogyDataset },
+  { key: "qing_56383", label: "Qing官员集群5（清代官员·6人）", dataset: qing_56383 as GenealogyDataset },
+  { key: "qing_56389", label: "Qing官员集群6（清代官员·3人）", dataset: qing_56389 as GenealogyDataset },
+  { key: "qing_56393", label: "Qing官员集群7（清代官员·3人）", dataset: qing_56393 as GenealogyDataset },
+  { key: "qing_56399", label: "Qing官员集群8（清代官员·3人）", dataset: qing_56399 as GenealogyDataset },
+  { key: "qing_56402", label: "Qing官员集群9（清代官员·2人）", dataset: qing_56402 as GenealogyDataset },
+  { key: "qing_56408", label: "Qing官员集群10（清代官员·2人）", dataset: qing_56408 as GenealogyDataset },
+  { key: "qing_56412", label: "Qing官员集群11（清代官员·1人）", dataset: qing_56412 as GenealogyDataset },
   // CBDB 第三十六批：辽国皇族·元朝蒙古皇帝·五代冯道
   { key: "yeluabaoji", label: "契丹耶律氏·阿保機支（辽国开国·872-926·耶律德光至耶律賢·46人）", dataset: yeluabaoji as GenealogyDataset },
   { key: "yeludegang", label: "契丹耶律氏·德光支（辽国皇帝·902-947·三代聯系·26人）", dataset: yeludegang as GenealogyDataset },

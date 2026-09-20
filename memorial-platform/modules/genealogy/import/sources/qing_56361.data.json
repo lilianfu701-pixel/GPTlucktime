@@ -1,0 +1,58 @@
+{
+  "key": "cbdb:qing_56361",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "56361",
+      "name": "愛新覺羅麟慶",
+      "citation": "CBDB 中国历代人物传记资料库 person 56361",
+      "gender": "male"
+    },
+    {
+      "externalId": "56359",
+      "name": "愛新覺羅崇碩",
+      "citation": "CBDB 中国历代人物传记资料库 person 56359",
+      "gender": "male",
+      "birth": {
+        "year": 1785
+      },
+      "death": {
+        "year": 1816
+      }
+    },
+    {
+      "externalId": "56358",
+      "name": "愛新覺羅書約",
+      "citation": "CBDB 中国历代人物传记资料库 person 56358",
+      "gender": "male"
+    },
+    {
+      "externalId": "56357",
+      "name": "尚福娥",
+      "citation": "CBDB 中国历代人物传记资料库 person 56357",
+      "gender": "female"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "56359",
+      "child": "56361"
+    },
+    {
+      "kind": "parent",
+      "parent": "56358",
+      "child": "56359"
+    },
+    {
+      "kind": "parent",
+      "parent": "56357",
+      "child": "56359"
+    },
+    {
+      "kind": "spouse",
+      "a": "56357",
+      "b": "56358"
+    }
+  ]
+}

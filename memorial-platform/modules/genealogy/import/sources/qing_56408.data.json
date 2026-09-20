@@ -1,0 +1,28 @@
+{
+  "key": "cbdb:qing_56408",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "56408",
+      "name": "汪亮",
+      "citation": "CBDB 中国历代人物传记资料库 person 56408",
+      "gender": "female"
+    },
+    {
+      "externalId": "56410",
+      "name": "費樹楩",
+      "citation": "CBDB 中国历代人物传记资料库 person 56410",
+      "gender": "male",
+      "death": {
+        "year": 1768
+      }
+    }
+  ],
+  "relations": [
+    {
+      "kind": "spouse",
+      "a": "56408",
+      "b": "56410"
+    }
+  ]
+}

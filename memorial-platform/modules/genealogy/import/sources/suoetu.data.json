@@ -1,0 +1,25 @@
+{
+  "key": "cbdb:suoetu",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "56321",
+      "name": "汪濬",
+      "citation": "CBDB 中国历代人物传记资料库 person 56321",
+      "gender": "male"
+    },
+    {
+      "externalId": "56319",
+      "name": "盧氏(汪濬妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 56319",
+      "gender": "female"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "spouse",
+      "a": "56319",
+      "b": "56321"
+    }
+  ]
+}

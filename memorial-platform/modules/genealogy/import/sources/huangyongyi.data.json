@@ -1,0 +1,16 @@
+{
+  "key": "cbdb:huangyongyi",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "64840",
+      "name": "棟文",
+      "citation": "CBDB 中国历代人物传记资料库 person 64840",
+      "gender": "male",
+      "birth": {
+        "year": 1723
+      }
+    }
+  ],
+  "relations": []
+}

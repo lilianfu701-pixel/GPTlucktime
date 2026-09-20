@@ -1,0 +1,74 @@
+{
+  "key": "cbdb:qing_56383",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "56383",
+      "name": "陸耕南",
+      "citation": "CBDB 中国历代人物传记资料库 person 56383",
+      "gender": "male"
+    },
+    {
+      "externalId": "56382",
+      "name": "陸素心",
+      "citation": "CBDB 中国历代人物传记资料库 person 56382",
+      "gender": "female"
+    },
+    {
+      "externalId": "56385",
+      "name": "徐熊飛",
+      "citation": "CBDB 中国历代人物传记资料库 person 56385",
+      "gender": "male"
+    },
+    {
+      "externalId": "56387",
+      "name": "陸荷青",
+      "citation": "CBDB 中国历代人物传记资料库 person 56387",
+      "gender": "female"
+    },
+    {
+      "externalId": "56384",
+      "name": "陸敦倫",
+      "citation": "CBDB 中国历代人物传记资料库 person 56384",
+      "gender": "male"
+    },
+    {
+      "externalId": "56386",
+      "name": "徐金鏡",
+      "citation": "CBDB 中国历代人物传记资料库 person 56386",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "56383",
+      "child": "56382"
+    },
+    {
+      "kind": "parent",
+      "parent": "56383",
+      "child": "56387"
+    },
+    {
+      "kind": "parent",
+      "parent": "56383",
+      "child": "56384"
+    },
+    {
+      "kind": "spouse",
+      "a": "56382",
+      "b": "56385"
+    },
+    {
+      "kind": "parent",
+      "parent": "56382",
+      "child": "56386"
+    },
+    {
+      "kind": "spouse",
+      "a": "56385",
+      "b": "56387"
+    }
+  ]
+}

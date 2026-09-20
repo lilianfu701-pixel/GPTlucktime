@@ -1,0 +1,19 @@
+{
+  "key": "cbdb:gubinyan",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "64841",
+      "name": "胡湘林",
+      "citation": "CBDB 中国历代人物传记资料库 person 64841",
+      "gender": "male",
+      "birth": {
+        "year": 1857
+      },
+      "death": {
+        "year": 1925
+      }
+    }
+  ],
+  "relations": []
+}

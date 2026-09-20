@@ -1,0 +1,42 @@
+{
+  "key": "cbdb:qing_56365",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "56365",
+      "name": "康瑞蘭",
+      "citation": "CBDB 中国历代人物传记资料库 person 56365",
+      "gender": "female"
+    },
+    {
+      "externalId": "133836",
+      "name": "孫某(康瑞蘭夫)",
+      "citation": "CBDB 中国历代人物传记资料库 person 133836",
+      "gender": "male"
+    },
+    {
+      "externalId": "56366",
+      "name": "康基田",
+      "citation": "CBDB 中国历代人物传记资料库 person 56366",
+      "gender": "male",
+      "birth": {
+        "year": 1734
+      },
+      "death": {
+        "year": 1813
+      }
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "56366",
+      "child": "56365"
+    },
+    {
+      "kind": "spouse",
+      "a": "133836",
+      "b": "56365"
+    }
+  ]
+}

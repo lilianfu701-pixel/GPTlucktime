@@ -1,0 +1,25 @@
+{
+  "key": "cbdb:qing_56402",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "56402",
+      "name": "鄧氏(梅國棟妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 56402",
+      "gender": "female"
+    },
+    {
+      "externalId": "56401",
+      "name": "梅國棟",
+      "citation": "CBDB 中国历代人物传记资料库 person 56401",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "spouse",
+      "a": "56401",
+      "b": "56402"
+    }
+  ]
+}

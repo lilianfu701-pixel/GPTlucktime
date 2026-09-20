@@ -1,0 +1,31 @@
+{
+  "key": "cbdb:tuhai",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "56326",
+      "name": "孔毓艮",
+      "citation": "CBDB 中国历代人物传记资料库 person 56326",
+      "gender": "male"
+    },
+    {
+      "externalId": "56325",
+      "name": "徐映玉",
+      "citation": "CBDB 中国历代人物传记资料库 person 56325",
+      "gender": "female",
+      "birth": {
+        "year": 1728
+      },
+      "death": {
+        "year": 1762
+      }
+    }
+  ],
+  "relations": [
+    {
+      "kind": "spouse",
+      "a": "56325",
+      "b": "56326"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "key": "cbdb:qing_56393",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "56393",
+      "name": "臧長源",
+      "citation": "CBDB 中国历代人物传记资料库 person 56393",
+      "gender": "male"
+    },
+    {
+      "externalId": "56392",
+      "name": "臧眉錫",
+      "citation": "CBDB 中国历代人物传记资料库 person 56392",
+      "gender": "male"
+    },
+    {
+      "externalId": "56391",
+      "name": "丁瑜",
+      "citation": "CBDB 中国历代人物传记资料库 person 56391",
+      "gender": "female",
+      "birth": {
+        "year": 1645
+      },
+      "death": {
+        "year": 1667
+      }
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "56392",
+      "child": "56393"
+    },
+    {
+      "kind": "parent",
+      "parent": "56391",
+      "child": "56393"
+    },
+    {
+      "kind": "spouse",
+      "a": "56391",
+      "b": "56392"
+    }
+  ]
+}

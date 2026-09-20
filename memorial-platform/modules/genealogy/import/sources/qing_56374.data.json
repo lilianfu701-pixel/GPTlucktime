@@ -1,0 +1,28 @@
+{
+  "key": "cbdb:qing_56374",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "56374",
+      "name": "李起鳳",
+      "citation": "CBDB 中国历代人物传记资料库 person 56374",
+      "gender": "male",
+      "death": {
+        "year": 1794
+      }
+    },
+    {
+      "externalId": "702050",
+      "name": "李鉅",
+      "citation": "CBDB 中国历代人物传记资料库 person 702050",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "702050",
+      "child": "56374"
+    }
+  ]
+}
