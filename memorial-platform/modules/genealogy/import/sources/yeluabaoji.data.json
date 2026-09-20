@@ -1,0 +1,609 @@
+{
+  "key": "cbdb:yeluabaoji",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "29261",
+      "name": "耶律阿保機",
+      "citation": "CBDB 中国历代人物传记资料库 person 29261",
+      "gender": "male",
+      "birth": {
+        "year": 872
+      },
+      "death": {
+        "year": 926
+      }
+    },
+    {
+      "externalId": "43868",
+      "name": "述律平(耶律阿保機妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 43868",
+      "gender": "female",
+      "birth": {
+        "year": 879
+      },
+      "death": {
+        "year": 953
+      }
+    },
+    {
+      "externalId": "43874",
+      "name": "蕭氏(耶律阿保機宮人)",
+      "citation": "CBDB 中国历代人物传记资料库 person 43874",
+      "gender": "female"
+    },
+    {
+      "externalId": "43506",
+      "name": "耶律撒剌的",
+      "citation": "CBDB 中国历代人物传记资料库 person 43506",
+      "gender": "male"
+    },
+    {
+      "externalId": "43514",
+      "name": "蕭氏(耶律撒剌的妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 43514",
+      "gender": "female"
+    },
+    {
+      "externalId": "43935",
+      "name": "耶律質古",
+      "citation": "CBDB 中国历代人物传记资料库 person 43935",
+      "gender": "female"
+    },
+    {
+      "externalId": "43941",
+      "name": "蕭室魯",
+      "citation": "CBDB 中国历代人物传记资料库 person 43941",
+      "gender": "male"
+    },
+    {
+      "externalId": "29262",
+      "name": "耶律倍",
+      "citation": "CBDB 中国历代人物传记资料库 person 29262",
+      "gender": "male",
+      "birth": {
+        "year": 899
+      },
+      "death": {
+        "year": 936
+      }
+    },
+    {
+      "externalId": "44380",
+      "name": "蕭氏(耶律倍妻端順后)",
+      "citation": "CBDB 中国历代人物传记资料库 person 44380",
+      "gender": "female",
+      "death": {
+        "year": 940
+      }
+    },
+    {
+      "externalId": "44381",
+      "name": "蕭氏(耶律倍妻柔貞后)",
+      "citation": "CBDB 中国历代人物传记资料库 person 44381",
+      "gender": "female",
+      "death": {
+        "year": 951
+      }
+    },
+    {
+      "externalId": "44385",
+      "name": "大氏(耶律倍妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 44385",
+      "gender": "female"
+    },
+    {
+      "externalId": "44386",
+      "name": "高氏(耶律倍妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 44386",
+      "gender": "female"
+    },
+    {
+      "externalId": "43077",
+      "name": "耶律德光",
+      "citation": "CBDB 中国历代人物传记资料库 person 43077",
+      "gender": "male",
+      "birth": {
+        "year": 902
+      },
+      "death": {
+        "year": 947
+      }
+    },
+    {
+      "externalId": "43537",
+      "name": "蕭溫(耶律德光妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 43537",
+      "gender": "female",
+      "death": {
+        "year": 935
+      }
+    },
+    {
+      "externalId": "43542",
+      "name": "蕭氏(耶律德光宮人)",
+      "citation": "CBDB 中国历代人物传记资料库 person 43542",
+      "gender": "female"
+    },
+    {
+      "externalId": "339682",
+      "name": "耶律李胡",
+      "citation": "CBDB 中国历代人物传记资料库 person 339682",
+      "gender": "male"
+    },
+    {
+      "externalId": "44387",
+      "name": "某氏(耶律李胡妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 44387",
+      "gender": "female"
+    },
+    {
+      "externalId": "43176",
+      "name": "耶律牙里果",
+      "citation": "CBDB 中国历代人物传记资料库 person 43176",
+      "gender": "male"
+    },
+    {
+      "externalId": "44010",
+      "name": "耶律勻德實",
+      "citation": "CBDB 中国历代人物传记资料库 person 44010",
+      "gender": "male"
+    },
+    {
+      "externalId": "136067",
+      "name": "蕭氏(耶律勻德實妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 136067",
+      "gender": "female"
+    },
+    {
+      "externalId": "29264",
+      "name": "耶律阮",
+      "citation": "CBDB 中国历代人物传记资料库 person 29264",
+      "gender": "male",
+      "birth": {
+        "year": 918
+      },
+      "death": {
+        "year": 951
+      }
+    },
+    {
+      "externalId": "43525",
+      "name": "蕭撒葛只(耶律阮妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 43525",
+      "gender": "female",
+      "death": {
+        "year": 951
+      }
+    },
+    {
+      "externalId": "43531",
+      "name": "甄氏(耶律阮妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 43531",
+      "gender": "female",
+      "death": {
+        "year": 951
+      }
+    },
+    {
+      "externalId": "29265",
+      "name": "耶律婁國",
+      "citation": "CBDB 中国历代人物传记资料库 person 29265",
+      "gender": "male",
+      "death": {
+        "year": 952
+      }
+    },
+    {
+      "externalId": "43455",
+      "name": "耶律稍",
+      "citation": "CBDB 中国历代人物传记资料库 person 43455",
+      "gender": "male"
+    },
+    {
+      "externalId": "43458",
+      "name": "耶律隆先",
+      "citation": "CBDB 中国历代人物传记资料库 person 43458",
+      "gender": "male",
+      "death": {
+        "year": 978
+      }
+    },
+    {
+      "externalId": "43463",
+      "name": "耶律道隱",
+      "citation": "CBDB 中国历代人物传记资料库 person 43463",
+      "gender": "male",
+      "death": {
+        "year": 983
+      }
+    },
+    {
+      "externalId": "43095",
+      "name": "耶律璟",
+      "citation": "CBDB 中国历代人物传记资料库 person 43095",
+      "gender": "male",
+      "birth": {
+        "year": 931
+      },
+      "death": {
+        "year": 969
+      }
+    },
+    {
+      "externalId": "43883",
+      "name": "蕭氏(耶律璟妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 43883",
+      "gender": "female"
+    },
+    {
+      "externalId": "43179",
+      "name": "耶律罨撒葛",
+      "citation": "CBDB 中国历代人物传记资料库 person 43179",
+      "gender": "male",
+      "death": {
+        "year": 972
+      }
+    },
+    {
+      "externalId": "43181",
+      "name": "耶律天德",
+      "citation": "CBDB 中国历代人物传记资料库 person 43181",
+      "gender": "male",
+      "death": {
+        "year": 948
+      }
+    },
+    {
+      "externalId": "43187",
+      "name": "耶律敵烈(德光子)",
+      "citation": "CBDB 中国历代人物传记资料库 person 43187",
+      "gender": "male",
+      "death": {
+        "year": 979
+      }
+    },
+    {
+      "externalId": "43192",
+      "name": "耶律必攝",
+      "citation": "CBDB 中国历代人物传记资料库 person 43192",
+      "gender": "male"
+    },
+    {
+      "externalId": "45505",
+      "name": "耶律嘲瑰",
+      "citation": "CBDB 中国历代人物传记资料库 person 45505",
+      "gender": "female"
+    },
+    {
+      "externalId": "45502",
+      "name": "蕭海瓈",
+      "citation": "CBDB 中国历代人物传记资料库 person 45502",
+      "gender": "male",
+      "birth": {
+        "year": 918
+      },
+      "death": {
+        "year": 967
+      }
+    },
+    {
+      "externalId": "43938",
+      "name": "耶律呂不古",
+      "citation": "CBDB 中国历代人物传记资料库 person 43938",
+      "gender": "female"
+    },
+    {
+      "externalId": "43940",
+      "name": "蕭思溫",
+      "citation": "CBDB 中国历代人物传记资料库 person 43940",
+      "gender": "male",
+      "death": {
+        "year": 970
+      }
+    },
+    {
+      "externalId": "43432",
+      "name": "耶律喜隱",
+      "citation": "CBDB 中国历代人物传记资料库 person 43432",
+      "gender": "male",
+      "death": {
+        "year": 982
+      }
+    },
+    {
+      "externalId": "43439",
+      "name": "耶律宛",
+      "citation": "CBDB 中国历代人物传记资料库 person 43439",
+      "gender": "male"
+    },
+    {
+      "externalId": "43417",
+      "name": "耶律敵烈(牙里果子)",
+      "citation": "CBDB 中国历代人物传记资料库 person 43417",
+      "gender": "male"
+    },
+    {
+      "externalId": "43422",
+      "name": "耶律奚底",
+      "citation": "CBDB 中国历代人物传记资料库 person 43422",
+      "gender": "male"
+    },
+    {
+      "externalId": "44000",
+      "name": "耶律薩剌德",
+      "citation": "CBDB 中国历代人物传记资料库 person 44000",
+      "gender": "male"
+    },
+    {
+      "externalId": "43196",
+      "name": "耶律吼阿不",
+      "citation": "CBDB 中国历代人物传记资料库 person 43196",
+      "gender": "male"
+    },
+    {
+      "externalId": "43105",
+      "name": "耶律賢",
+      "citation": "CBDB 中国历代人物传记资料库 person 43105",
+      "gender": "male",
+      "birth": {
+        "year": 948
+      },
+      "death": {
+        "year": 982
+      }
+    },
+    {
+      "externalId": "43666",
+      "name": "蕭綽(耶律賢妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 43666",
+      "gender": "female",
+      "death": {
+        "year": 999
+      }
+    },
+    {
+      "externalId": "45570",
+      "name": "某氏(耶律賢妃)",
+      "citation": "CBDB 中国历代人物传记资料库 person 45570",
+      "gender": "female"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "43506",
+      "child": "29261"
+    },
+    {
+      "kind": "parent",
+      "parent": "43514",
+      "child": "29261"
+    },
+    {
+      "kind": "spouse",
+      "a": "29261",
+      "b": "43868"
+    },
+    {
+      "kind": "spouse",
+      "a": "29261",
+      "b": "43874"
+    },
+    {
+      "kind": "parent",
+      "parent": "29261",
+      "child": "43935"
+    },
+    {
+      "kind": "parent",
+      "parent": "29261",
+      "child": "29262"
+    },
+    {
+      "kind": "parent",
+      "parent": "29261",
+      "child": "43077"
+    },
+    {
+      "kind": "parent",
+      "parent": "29261",
+      "child": "339682"
+    },
+    {
+      "kind": "parent",
+      "parent": "29261",
+      "child": "43176"
+    },
+    {
+      "kind": "parent",
+      "parent": "44010",
+      "child": "43506"
+    },
+    {
+      "kind": "spouse",
+      "a": "43506",
+      "b": "43514"
+    },
+    {
+      "kind": "spouse",
+      "a": "43935",
+      "b": "43941"
+    },
+    {
+      "kind": "parent",
+      "parent": "43935",
+      "child": "43537"
+    },
+    {
+      "kind": "spouse",
+      "a": "29262",
+      "b": "44380"
+    },
+    {
+      "kind": "spouse",
+      "a": "29262",
+      "b": "44381"
+    },
+    {
+      "kind": "spouse",
+      "a": "29262",
+      "b": "44385"
+    },
+    {
+      "kind": "spouse",
+      "a": "29262",
+      "b": "44386"
+    },
+    {
+      "kind": "parent",
+      "parent": "29262",
+      "child": "29264"
+    },
+    {
+      "kind": "parent",
+      "parent": "29262",
+      "child": "29265"
+    },
+    {
+      "kind": "parent",
+      "parent": "29262",
+      "child": "43455"
+    },
+    {
+      "kind": "parent",
+      "parent": "29262",
+      "child": "43458"
+    },
+    {
+      "kind": "parent",
+      "parent": "29262",
+      "child": "43463"
+    },
+    {
+      "kind": "spouse",
+      "a": "43077",
+      "b": "43537"
+    },
+    {
+      "kind": "spouse",
+      "a": "43077",
+      "b": "43542"
+    },
+    {
+      "kind": "parent",
+      "parent": "43077",
+      "child": "43095"
+    },
+    {
+      "kind": "parent",
+      "parent": "43077",
+      "child": "43179"
+    },
+    {
+      "kind": "parent",
+      "parent": "43077",
+      "child": "43181"
+    },
+    {
+      "kind": "parent",
+      "parent": "43077",
+      "child": "43187"
+    },
+    {
+      "kind": "parent",
+      "parent": "43077",
+      "child": "43192"
+    },
+    {
+      "kind": "parent",
+      "parent": "43077",
+      "child": "45505"
+    },
+    {
+      "kind": "parent",
+      "parent": "43077",
+      "child": "43938"
+    },
+    {
+      "kind": "spouse",
+      "a": "339682",
+      "b": "44387"
+    },
+    {
+      "kind": "parent",
+      "parent": "339682",
+      "child": "43432"
+    },
+    {
+      "kind": "parent",
+      "parent": "339682",
+      "child": "43439"
+    },
+    {
+      "kind": "parent",
+      "parent": "43176",
+      "child": "43417"
+    },
+    {
+      "kind": "parent",
+      "parent": "43176",
+      "child": "43422"
+    },
+    {
+      "kind": "parent",
+      "parent": "44000",
+      "child": "44010"
+    },
+    {
+      "kind": "spouse",
+      "a": "136067",
+      "b": "44010"
+    },
+    {
+      "kind": "spouse",
+      "a": "29264",
+      "b": "43525"
+    },
+    {
+      "kind": "spouse",
+      "a": "29264",
+      "b": "43531"
+    },
+    {
+      "kind": "parent",
+      "parent": "29264",
+      "child": "43196"
+    },
+    {
+      "kind": "parent",
+      "parent": "29264",
+      "child": "43105"
+    },
+    {
+      "kind": "spouse",
+      "a": "43095",
+      "b": "43883"
+    },
+    {
+      "kind": "spouse",
+      "a": "45502",
+      "b": "45505"
+    },
+    {
+      "kind": "spouse",
+      "a": "43938",
+      "b": "43940"
+    },
+    {
+      "kind": "spouse",
+      "a": "43105",
+      "b": "43666"
+    },
+    {
+      "kind": "spouse",
+      "a": "43105",
+      "b": "45570"
+    }
+  ]
+}

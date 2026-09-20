@@ -1,0 +1,37 @@
+{
+  "key": "cbdb:fengdao",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "92441",
+      "name": "馮道",
+      "citation": "CBDB 中国历代人物传记资料库 person 92441",
+      "gender": "male",
+      "birth": {
+        "year": 882
+      },
+      "death": {
+        "year": 954
+      }
+    },
+    {
+      "externalId": "48286",
+      "name": "馮吉",
+      "citation": "CBDB 中国历代人物传记资料库 person 48286",
+      "gender": "male",
+      "birth": {
+        "year": 919
+      },
+      "death": {
+        "year": 963
+      }
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "92441",
+      "child": "48286"
+    }
+  ]
+}

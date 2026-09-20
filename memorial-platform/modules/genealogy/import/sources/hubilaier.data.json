@@ -1,0 +1,552 @@
+{
+  "key": "cbdb:hubilaier",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "29244",
+      "name": "孛兒只斤忽必烈",
+      "citation": "CBDB 中国历代人物传记资料库 person 29244",
+      "gender": "male",
+      "birth": {
+        "year": 1215
+      },
+      "death": {
+        "year": 1294
+      }
+    },
+    {
+      "externalId": "29242",
+      "name": "拖雷",
+      "citation": "CBDB 中国历代人物传记资料库 person 29242",
+      "gender": "male",
+      "birth": {
+        "year": 1193
+      },
+      "death": {
+        "year": 1232
+      }
+    },
+    {
+      "externalId": "114094",
+      "name": "伯雅倫",
+      "citation": "CBDB 中国历代人物传记资料库 person 114094",
+      "gender": "female"
+    },
+    {
+      "externalId": "114434",
+      "name": "茶倫",
+      "citation": "CBDB 中国历代人物传记资料库 person 114434",
+      "gender": "female"
+    },
+    {
+      "externalId": "115651",
+      "name": "囊加真",
+      "citation": "CBDB 中国历代人物传记资料库 person 115651",
+      "gender": "female"
+    },
+    {
+      "externalId": "116375",
+      "name": "忽都魯堅迷失",
+      "citation": "CBDB 中国历代人物传记资料库 person 116375",
+      "gender": "female"
+    },
+    {
+      "externalId": "116678",
+      "name": "失林",
+      "citation": "CBDB 中国历代人物传记资料库 person 116678",
+      "gender": "female"
+    },
+    {
+      "externalId": "117349",
+      "name": "吾魯真",
+      "citation": "CBDB 中国历代人物传记资料库 person 117349",
+      "gender": "female"
+    },
+    {
+      "externalId": "117377",
+      "name": "月烈",
+      "citation": "CBDB 中国历代人物传记资料库 person 117377",
+      "gender": "female"
+    },
+    {
+      "externalId": "30348",
+      "name": "忙哥剌",
+      "citation": "CBDB 中国历代人物传记资料库 person 30348",
+      "gender": "male",
+      "death": {
+        "year": 1280
+      }
+    },
+    {
+      "externalId": "113819",
+      "name": "阿速歹",
+      "citation": "CBDB 中国历代人物传记资料库 person 113819",
+      "gender": "male"
+    },
+    {
+      "externalId": "113850",
+      "name": "奧魯赤",
+      "citation": "CBDB 中国历代人物传记资料库 person 113850",
+      "gender": "male"
+    },
+    {
+      "externalId": "113852",
+      "name": "愛牙赤",
+      "citation": "CBDB 中国历代人物传记资料库 person 113852",
+      "gender": "male"
+    },
+    {
+      "externalId": "113966",
+      "name": "班秃",
+      "citation": "CBDB 中国历代人物传记资料库 person 113966",
+      "gender": "male"
+    },
+    {
+      "externalId": "115091",
+      "name": "真金",
+      "citation": "CBDB 中国历代人物传记资料库 person 115091",
+      "gender": "male",
+      "birth": {
+        "year": 1243
+      },
+      "death": {
+        "year": 1285
+      }
+    },
+    {
+      "externalId": "134475",
+      "name": "弘吉剌伯藍也怯赤",
+      "citation": "CBDB 中国历代人物传记资料库 person 134475",
+      "gender": "female"
+    },
+    {
+      "externalId": "115234",
+      "name": "闊闊出",
+      "citation": "CBDB 中国历代人物传记资料库 person 115234",
+      "gender": "male"
+    },
+    {
+      "externalId": "116240",
+      "name": "忽哥赤",
+      "citation": "CBDB 中国历代人物传记资料库 person 116240",
+      "gender": "male"
+    },
+    {
+      "externalId": "116379",
+      "name": "忽都魯帖木兒",
+      "citation": "CBDB 中国历代人物传记资料库 person 116379",
+      "gender": "male"
+    },
+    {
+      "externalId": "116670",
+      "name": "昔里吉",
+      "citation": "CBDB 中国历代人物传记资料库 person 116670",
+      "gender": "male"
+    },
+    {
+      "externalId": "117085",
+      "name": "脫歡",
+      "citation": "CBDB 中国历代人物传记资料库 person 117085",
+      "gender": "male"
+    },
+    {
+      "externalId": "115647",
+      "name": "那木罕",
+      "citation": "CBDB 中国历代人物传记资料库 person 115647",
+      "gender": "male",
+      "death": {
+        "year": 1301
+      }
+    },
+    {
+      "externalId": "29239",
+      "name": "鐵木真",
+      "citation": "CBDB 中国历代人物传记资料库 person 29239",
+      "gender": "male",
+      "birth": {
+        "year": 1162
+      },
+      "death": {
+        "year": 1227
+      }
+    },
+    {
+      "externalId": "115718",
+      "name": "奴兀倫",
+      "citation": "CBDB 中国历代人物传记资料库 person 115718",
+      "gender": "female"
+    },
+    {
+      "externalId": "30349",
+      "name": "阿難答",
+      "citation": "CBDB 中国历代人物传记资料库 person 30349",
+      "gender": "male",
+      "death": {
+        "year": 1307
+      }
+    },
+    {
+      "externalId": "113690",
+      "name": "按檀不花",
+      "citation": "CBDB 中国历代人物传记资料库 person 113690",
+      "gender": "male"
+    },
+    {
+      "externalId": "114030",
+      "name": "八的麻的加",
+      "citation": "CBDB 中国历代人物传记资料库 person 114030",
+      "gender": "male"
+    },
+    {
+      "externalId": "115650",
+      "name": "喃哥不剌",
+      "citation": "CBDB 中国历代人物传记资料库 person 115650",
+      "gender": "female"
+    },
+    {
+      "externalId": "116237",
+      "name": "忽答的迷失",
+      "citation": "CBDB 中国历代人物传记资料库 person 116237",
+      "gender": "female"
+    },
+    {
+      "externalId": "134481",
+      "name": "孛兒只斤鐵穆耳",
+      "citation": "CBDB 中国历代人物传记资料库 person 134481",
+      "gender": "male"
+    },
+    {
+      "externalId": "114839",
+      "name": "甘麻剌",
+      "citation": "CBDB 中国历代人物传记资料库 person 114839",
+      "gender": "male",
+      "birth": {
+        "year": 1263
+      },
+      "death": {
+        "year": 1302
+      }
+    },
+    {
+      "externalId": "114549",
+      "name": "答剌麻八剌",
+      "citation": "CBDB 中国历代人物传记资料库 person 114549",
+      "gender": "male",
+      "birth": {
+        "year": 1264
+      },
+      "death": {
+        "year": 1292
+      }
+    },
+    {
+      "externalId": "114989",
+      "name": "也里干",
+      "citation": "CBDB 中国历代人物传记资料库 person 114989",
+      "gender": "male"
+    },
+    {
+      "externalId": "114812",
+      "name": "也先帖木兒",
+      "citation": "CBDB 中国历代人物传记资料库 person 114812",
+      "gender": "male",
+      "death": {
+        "year": 1332
+      }
+    },
+    {
+      "externalId": "116152",
+      "name": "晃火帖木兒",
+      "citation": "CBDB 中国历代人物传记资料库 person 116152",
+      "gender": "male"
+    },
+    {
+      "externalId": "117353",
+      "name": "兀魯思不花",
+      "citation": "CBDB 中国历代人物传记资料库 person 117353",
+      "gender": "male"
+    },
+    {
+      "externalId": "117338",
+      "name": "月倫",
+      "citation": "CBDB 中国历代人物传记资料库 person 117338",
+      "gender": "female"
+    },
+    {
+      "externalId": "30350",
+      "name": "兀剌真",
+      "citation": "CBDB 中国历代人物传记资料库 person 30350",
+      "gender": "female"
+    },
+    {
+      "externalId": "30345",
+      "name": "紐林的斤",
+      "citation": "CBDB 中国历代人物传记资料库 person 30345",
+      "gender": "male",
+      "death": {
+        "year": 1318
+      }
+    },
+    {
+      "externalId": "117397",
+      "name": "月魯帖木兒",
+      "citation": "CBDB 中国历代人物传记资料库 person 117397",
+      "gender": "male"
+    },
+    {
+      "externalId": "113856",
+      "name": "愛牙失里",
+      "citation": "CBDB 中国历代人物传记资料库 person 113856",
+      "gender": "female"
+    },
+    {
+      "externalId": "114909",
+      "name": "闊里吉思",
+      "citation": "CBDB 中国历代人物传记资料库 person 114909",
+      "gender": "male"
+    },
+    {
+      "externalId": "114273",
+      "name": "普納",
+      "citation": "CBDB 中国历代人物传记资料库 person 114273",
+      "gender": "female"
+    },
+    {
+      "externalId": "114995",
+      "name": "亦里哈牙",
+      "citation": "CBDB 中国历代人物传记资料库 person 114995",
+      "gender": "female"
+    },
+    {
+      "externalId": "114583",
+      "name": "德壽",
+      "citation": "CBDB 中国历代人物传记资料库 person 114583",
+      "gender": "male",
+      "death": {
+        "year": 1305
+      }
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "29242",
+      "child": "29244"
+    },
+    {
+      "kind": "parent",
+      "parent": "29244",
+      "child": "114094"
+    },
+    {
+      "kind": "parent",
+      "parent": "29244",
+      "child": "114434"
+    },
+    {
+      "kind": "parent",
+      "parent": "29244",
+      "child": "115651"
+    },
+    {
+      "kind": "parent",
+      "parent": "29244",
+      "child": "116375"
+    },
+    {
+      "kind": "parent",
+      "parent": "29244",
+      "child": "116678"
+    },
+    {
+      "kind": "parent",
+      "parent": "29244",
+      "child": "117349"
+    },
+    {
+      "kind": "parent",
+      "parent": "29244",
+      "child": "117377"
+    },
+    {
+      "kind": "parent",
+      "parent": "29244",
+      "child": "30348"
+    },
+    {
+      "kind": "parent",
+      "parent": "29244",
+      "child": "113819"
+    },
+    {
+      "kind": "parent",
+      "parent": "29244",
+      "child": "113850"
+    },
+    {
+      "kind": "parent",
+      "parent": "29244",
+      "child": "113852"
+    },
+    {
+      "kind": "parent",
+      "parent": "29244",
+      "child": "113966"
+    },
+    {
+      "kind": "parent",
+      "parent": "29244",
+      "child": "115091"
+    },
+    {
+      "kind": "parent",
+      "parent": "29244",
+      "child": "115234"
+    },
+    {
+      "kind": "parent",
+      "parent": "29244",
+      "child": "116240"
+    },
+    {
+      "kind": "parent",
+      "parent": "29244",
+      "child": "116379"
+    },
+    {
+      "kind": "parent",
+      "parent": "29244",
+      "child": "116670"
+    },
+    {
+      "kind": "parent",
+      "parent": "29244",
+      "child": "117085"
+    },
+    {
+      "kind": "parent",
+      "parent": "29244",
+      "child": "115647"
+    },
+    {
+      "kind": "parent",
+      "parent": "29239",
+      "child": "29242"
+    },
+    {
+      "kind": "parent",
+      "parent": "30348",
+      "child": "115718"
+    },
+    {
+      "kind": "parent",
+      "parent": "30348",
+      "child": "30349"
+    },
+    {
+      "kind": "parent",
+      "parent": "30348",
+      "child": "113690"
+    },
+    {
+      "kind": "parent",
+      "parent": "113850",
+      "child": "114030"
+    },
+    {
+      "kind": "spouse",
+      "a": "115091",
+      "b": "134475"
+    },
+    {
+      "kind": "parent",
+      "parent": "115091",
+      "child": "115650"
+    },
+    {
+      "kind": "parent",
+      "parent": "115091",
+      "child": "116237"
+    },
+    {
+      "kind": "parent",
+      "parent": "115091",
+      "child": "134481"
+    },
+    {
+      "kind": "parent",
+      "parent": "115091",
+      "child": "114839"
+    },
+    {
+      "kind": "parent",
+      "parent": "115091",
+      "child": "114549"
+    },
+    {
+      "kind": "parent",
+      "parent": "115234",
+      "child": "114989"
+    },
+    {
+      "kind": "parent",
+      "parent": "116240",
+      "child": "114812"
+    },
+    {
+      "kind": "parent",
+      "parent": "116670",
+      "child": "116152"
+    },
+    {
+      "kind": "parent",
+      "parent": "116670",
+      "child": "117353"
+    },
+    {
+      "kind": "parent",
+      "parent": "117338",
+      "child": "29239"
+    },
+    {
+      "kind": "parent",
+      "parent": "30349",
+      "child": "30350"
+    },
+    {
+      "kind": "parent",
+      "parent": "30349",
+      "child": "117397"
+    },
+    {
+      "kind": "parent",
+      "parent": "134481",
+      "child": "113856"
+    },
+    {
+      "kind": "parent",
+      "parent": "134481",
+      "child": "114273"
+    },
+    {
+      "kind": "parent",
+      "parent": "134481",
+      "child": "114995"
+    },
+    {
+      "kind": "parent",
+      "parent": "134481",
+      "child": "114583"
+    },
+    {
+      "kind": "spouse",
+      "a": "30345",
+      "b": "30350"
+    },
+    {
+      "kind": "spouse",
+      "a": "113856",
+      "b": "114909"
+    }
+  ]
+}
