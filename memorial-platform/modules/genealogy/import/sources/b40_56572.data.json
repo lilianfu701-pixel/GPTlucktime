@@ -1,0 +1,25 @@
+{
+  "key": "cbdb:b40_56572",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "56572",
+      "name": "汪聖清",
+      "citation": "CBDB 中国历代人物传记资料库 person 56572",
+      "gender": "male"
+    },
+    {
+      "externalId": "56570",
+      "name": "孔蘭英",
+      "citation": "CBDB 中国历代人物传记资料库 person 56570",
+      "gender": "female"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "spouse",
+      "a": "56570",
+      "b": "56572"
+    }
+  ]
+}

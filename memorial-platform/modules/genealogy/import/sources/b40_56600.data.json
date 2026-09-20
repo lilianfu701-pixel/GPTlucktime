@@ -1,0 +1,31 @@
+{
+  "key": "cbdb:b40_56600",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "56600",
+      "name": "韓巫雲",
+      "citation": "CBDB 中国历代人物传记资料库 person 56600",
+      "gender": "female"
+    },
+    {
+      "externalId": "56601",
+      "name": "岳鍾琪",
+      "citation": "CBDB 中国历代人物传记资料库 person 56601",
+      "gender": "male",
+      "birth": {
+        "year": 1686
+      },
+      "death": {
+        "year": 1754
+      }
+    }
+  ],
+  "relations": [
+    {
+      "kind": "spouse",
+      "a": "56600",
+      "b": "56601"
+    }
+  ]
+}

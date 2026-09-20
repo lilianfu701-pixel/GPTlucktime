@@ -1,0 +1,25 @@
+{
+  "key": "cbdb:b40_56604",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "56604",
+      "name": "乙意蘭",
+      "citation": "CBDB 中国历代人物传记资料库 person 56604",
+      "gender": "female"
+    },
+    {
+      "externalId": "56605",
+      "name": "袁潔",
+      "citation": "CBDB 中国历代人物传记资料库 person 56605",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "spouse",
+      "a": "56604",
+      "b": "56605"
+    }
+  ]
+}

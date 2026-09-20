@@ -1,0 +1,19 @@
+{
+  "key": "cbdb:b40_56580",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "56580",
+      "name": "茅元儀",
+      "citation": "CBDB 中国历代人物传记资料库 person 56580",
+      "gender": "male",
+      "birth": {
+        "year": 1594
+      },
+      "death": {
+        "year": 1644
+      }
+    }
+  ],
+  "relations": []
+}

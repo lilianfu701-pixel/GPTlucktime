@@ -1,0 +1,37 @@
+{
+  "key": "cbdb:b40_56588",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "56588",
+      "name": "李香",
+      "citation": "CBDB 中国历代人物传记资料库 person 56588",
+      "gender": "female",
+      "birth": {
+        "year": 1628
+      },
+      "death": {
+        "year": 1661
+      }
+    },
+    {
+      "externalId": "56589",
+      "name": "侯方域",
+      "citation": "CBDB 中国历代人物传记资料库 person 56589",
+      "gender": "male",
+      "birth": {
+        "year": 1618
+      },
+      "death": {
+        "year": 1654
+      }
+    }
+  ],
+  "relations": [
+    {
+      "kind": "spouse",
+      "a": "56588",
+      "b": "56589"
+    }
+  ]
+}

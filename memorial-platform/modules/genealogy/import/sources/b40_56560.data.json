@@ -1,0 +1,25 @@
+{
+  "key": "cbdb:b40_56560",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "56560",
+      "name": "許錫曾",
+      "citation": "CBDB 中国历代人物传记资料库 person 56560",
+      "gender": "male"
+    },
+    {
+      "externalId": "56559",
+      "name": "吳湘",
+      "citation": "CBDB 中国历代人物传记资料库 person 56559",
+      "gender": "female"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "spouse",
+      "a": "56559",
+      "b": "56560"
+    }
+  ]
+}

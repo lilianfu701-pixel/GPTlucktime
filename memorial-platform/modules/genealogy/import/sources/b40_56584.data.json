@@ -1,0 +1,19 @@
+{
+  "key": "cbdb:b40_56584",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "56584",
+      "name": "薛素素",
+      "citation": "CBDB 中国历代人物传记资料库 person 56584",
+      "gender": "female",
+      "birth": {
+        "year": 1564
+      },
+      "death": {
+        "year": 1637
+      }
+    }
+  ],
+  "relations": []
+}

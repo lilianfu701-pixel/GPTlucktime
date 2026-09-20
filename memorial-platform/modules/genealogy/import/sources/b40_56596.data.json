@@ -1,0 +1,25 @@
+{
+  "key": "cbdb:b40_56596",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "56596",
+      "name": "湘雲",
+      "citation": "CBDB 中国历代人物传记资料库 person 56596",
+      "gender": "female"
+    },
+    {
+      "externalId": "56597",
+      "name": "關敏",
+      "citation": "CBDB 中国历代人物传记资料库 person 56597",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "spouse",
+      "a": "56596",
+      "b": "56597"
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "key": "cbdb:b40_56612",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "56612",
+      "name": "金成立",
+      "citation": "CBDB 中国历代人物传记资料库 person 56612",
+      "gender": "male"
+    },
+    {
+      "externalId": "56611",
+      "name": "許景樊",
+      "citation": "CBDB 中国历代人物传记资料库 person 56611",
+      "gender": "female",
+      "birth": {
+        "year": 1563
+      },
+      "death": {
+        "year": 1589
+      }
+    }
+  ],
+  "relations": [
+    {
+      "kind": "spouse",
+      "a": "56611",
+      "b": "56612"
+    }
+  ]
+}
