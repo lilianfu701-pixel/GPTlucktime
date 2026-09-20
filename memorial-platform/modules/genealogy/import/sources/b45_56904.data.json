@@ -1,0 +1,60 @@
+{
+  "key": "cbdb:b45_56904",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "56904",
+      "name": "朱之弼",
+      "citation": "CBDB 中国历代人物传记资料库 person 56904",
+      "gender": "male",
+      "birth": {
+        "year": 1621
+      },
+      "death": {
+        "year": 1687
+      }
+    },
+    {
+      "externalId": "513711",
+      "name": "朱世才",
+      "citation": "CBDB 中国历代人物传记资料库 person 513711"
+    },
+    {
+      "externalId": "513712",
+      "name": "朱世奇",
+      "citation": "CBDB 中国历代人物传记资料库 person 513712"
+    },
+    {
+      "externalId": "513713",
+      "name": "朱价官",
+      "citation": "CBDB 中国历代人物传记资料库 person 513713"
+    },
+    {
+      "externalId": "513714",
+      "name": "朱侗",
+      "citation": "CBDB 中国历代人物传记资料库 person 513714"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "513711",
+      "child": "56904"
+    },
+    {
+      "kind": "parent",
+      "parent": "513712",
+      "child": "56904"
+    },
+    {
+      "kind": "parent",
+      "parent": "56904",
+      "child": "513713"
+    },
+    {
+      "kind": "parent",
+      "parent": "56904",
+      "child": "513714"
+    }
+  ]
+}

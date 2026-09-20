@@ -1,0 +1,19 @@
+{
+  "key": "cbdb:b46_57012",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57012",
+      "name": "岳濬",
+      "citation": "CBDB 中国历代人物传记资料库 person 57012",
+      "gender": "male",
+      "birth": {
+        "year": 1704
+      },
+      "death": {
+        "year": 1753
+      }
+    }
+  ],
+  "relations": []
+}

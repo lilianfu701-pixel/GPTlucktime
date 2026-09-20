@@ -1,0 +1,16 @@
+{
+  "key": "cbdb:b46_56976",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "56976",
+      "name": "王鰲永",
+      "citation": "CBDB 中国历代人物传记资料库 person 56976",
+      "gender": "male",
+      "death": {
+        "year": 1644
+      }
+    }
+  ],
+  "relations": []
+}

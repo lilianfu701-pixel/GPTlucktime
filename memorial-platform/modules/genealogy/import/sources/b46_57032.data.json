@@ -1,0 +1,16 @@
+{
+  "key": "cbdb:b46_57032",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57032",
+      "name": "于時躍",
+      "citation": "CBDB 中国历代人物传记资料库 person 57032",
+      "gender": "male",
+      "death": {
+        "year": 1663
+      }
+    }
+  ],
+  "relations": []
+}

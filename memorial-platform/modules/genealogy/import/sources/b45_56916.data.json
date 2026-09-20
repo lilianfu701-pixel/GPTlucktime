@@ -1,0 +1,40 @@
+{
+  "key": "cbdb:b45_56916",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "56916",
+      "name": "宋筠",
+      "citation": "CBDB 中国历代人物传记资料库 person 56916",
+      "gender": "male",
+      "birth": {
+        "year": 1681
+      },
+      "death": {
+        "year": 1760
+      }
+    },
+    {
+      "externalId": "513772",
+      "name": "宋珮金",
+      "citation": "CBDB 中国历代人物传记资料库 person 513772"
+    },
+    {
+      "externalId": "513773",
+      "name": "宋瑞金",
+      "citation": "CBDB 中国历代人物传记资料库 person 513773"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "56916",
+      "child": "513772"
+    },
+    {
+      "kind": "parent",
+      "parent": "56916",
+      "child": "513773"
+    }
+  ]
+}

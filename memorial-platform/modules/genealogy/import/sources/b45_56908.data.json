@@ -1,0 +1,16 @@
+{
+  "key": "cbdb:b45_56908",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "56908",
+      "name": "馮鈐",
+      "citation": "CBDB 中国历代人物传记资料库 person 56908",
+      "gender": "male",
+      "death": {
+        "year": 1770
+      }
+    }
+  ],
+  "relations": []
+}

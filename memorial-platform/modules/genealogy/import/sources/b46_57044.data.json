@@ -1,0 +1,30 @@
+{
+  "key": "cbdb:b46_57044",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57044",
+      "name": "舒舒覺羅介山",
+      "citation": "CBDB 中国历代人物传记资料库 person 57044",
+      "gender": "male",
+      "birth": {
+        "year": 1622
+      },
+      "death": {
+        "year": 1695
+      }
+    },
+    {
+      "externalId": "514069",
+      "name": "舒舒覺羅法都",
+      "citation": "CBDB 中国历代人物传记资料库 person 514069"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "514069",
+      "child": "57044"
+    }
+  ]
+}

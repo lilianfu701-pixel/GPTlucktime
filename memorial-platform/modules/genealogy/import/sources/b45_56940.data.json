@@ -1,0 +1,100 @@
+{
+  "key": "cbdb:b45_56940",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "56940",
+      "name": "趙班璽",
+      "citation": "CBDB 中国历代人物传记资料库 person 56940",
+      "gender": "male",
+      "birth": {
+        "year": 1618
+      },
+      "death": {
+        "year": 1687
+      }
+    },
+    {
+      "externalId": "513879",
+      "name": "趙世熠",
+      "citation": "CBDB 中国历代人物传记资料库 person 513879"
+    },
+    {
+      "externalId": "513883",
+      "name": "趙澤同",
+      "citation": "CBDB 中国历代人物传记资料库 person 513883"
+    },
+    {
+      "externalId": "513884",
+      "name": "趙澤旭",
+      "citation": "CBDB 中国历代人物传记资料库 person 513884"
+    },
+    {
+      "externalId": "513885",
+      "name": "趙澤壯",
+      "citation": "CBDB 中国历代人物传记资料库 person 513885"
+    },
+    {
+      "externalId": "513886",
+      "name": "趙澤普",
+      "citation": "CBDB 中国历代人物传记资料库 person 513886"
+    },
+    {
+      "externalId": "513887",
+      "name": "趙澤愚",
+      "citation": "CBDB 中国历代人物传记资料库 person 513887"
+    },
+    {
+      "externalId": "513888",
+      "name": "趙澤鼎",
+      "citation": "CBDB 中国历代人物传记资料库 person 513888"
+    },
+    {
+      "externalId": "513889",
+      "name": "趙澤漸",
+      "citation": "CBDB 中国历代人物传记资料库 person 513889"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "513879",
+      "child": "56940"
+    },
+    {
+      "kind": "parent",
+      "parent": "56940",
+      "child": "513883"
+    },
+    {
+      "kind": "parent",
+      "parent": "56940",
+      "child": "513884"
+    },
+    {
+      "kind": "parent",
+      "parent": "56940",
+      "child": "513885"
+    },
+    {
+      "kind": "parent",
+      "parent": "56940",
+      "child": "513886"
+    },
+    {
+      "kind": "parent",
+      "parent": "56940",
+      "child": "513887"
+    },
+    {
+      "kind": "parent",
+      "parent": "56940",
+      "child": "513888"
+    },
+    {
+      "kind": "parent",
+      "parent": "56940",
+      "child": "513889"
+    }
+  ]
+}

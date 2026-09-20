@@ -1,0 +1,70 @@
+{
+  "key": "cbdb:b45_56912",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "56912",
+      "name": "吳六奇",
+      "citation": "CBDB 中国历代人物传记资料库 person 56912",
+      "gender": "male",
+      "birth": {
+        "year": 1607
+      },
+      "death": {
+        "year": 1665
+      }
+    },
+    {
+      "externalId": "513762",
+      "name": "吳廷符",
+      "citation": "CBDB 中国历代人物传记资料库 person 513762"
+    },
+    {
+      "externalId": "513763",
+      "name": "吳啟相",
+      "citation": "CBDB 中国历代人物传记资料库 person 513763"
+    },
+    {
+      "externalId": "513764",
+      "name": "吳啟晉",
+      "citation": "CBDB 中国历代人物传记资料库 person 513764"
+    },
+    {
+      "externalId": "513765",
+      "name": "吳啟豐",
+      "citation": "CBDB 中国历代人物传记资料库 person 513765"
+    },
+    {
+      "externalId": "513766",
+      "name": "吳啟鎮",
+      "citation": "CBDB 中国历代人物传记资料库 person 513766"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "513762",
+      "child": "56912"
+    },
+    {
+      "kind": "parent",
+      "parent": "56912",
+      "child": "513763"
+    },
+    {
+      "kind": "parent",
+      "parent": "56912",
+      "child": "513764"
+    },
+    {
+      "kind": "parent",
+      "parent": "56912",
+      "child": "513765"
+    },
+    {
+      "kind": "parent",
+      "parent": "56912",
+      "child": "513766"
+    }
+  ]
+}

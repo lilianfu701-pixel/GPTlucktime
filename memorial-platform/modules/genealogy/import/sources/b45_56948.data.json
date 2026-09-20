@@ -1,0 +1,30 @@
+{
+  "key": "cbdb:b45_56948",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "56948",
+      "name": "劉慥",
+      "citation": "CBDB 中国历代人物传记资料库 person 56948",
+      "gender": "male",
+      "birth": {
+        "year": 1707
+      },
+      "death": {
+        "year": 1767
+      }
+    },
+    {
+      "externalId": "513918",
+      "name": "劉裔彥",
+      "citation": "CBDB 中国历代人物传记资料库 person 513918"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "56948",
+      "child": "513918"
+    }
+  ]
+}

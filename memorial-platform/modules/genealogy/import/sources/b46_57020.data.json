@@ -1,0 +1,50 @@
+{
+  "key": "cbdb:b46_57020",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57020",
+      "name": "管幹貞",
+      "citation": "CBDB 中国历代人物传记资料库 person 57020",
+      "gender": "male",
+      "birth": {
+        "year": 1734
+      },
+      "death": {
+        "year": 1798
+      }
+    },
+    {
+      "externalId": "514031",
+      "name": "管景賢",
+      "citation": "CBDB 中国历代人物传记资料库 person 514031"
+    },
+    {
+      "externalId": "514035",
+      "name": "管遹安",
+      "citation": "CBDB 中国历代人物传记资料库 person 514035"
+    },
+    {
+      "externalId": "514036",
+      "name": "管遹儀",
+      "citation": "CBDB 中国历代人物传记资料库 person 514036"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "514031",
+      "child": "57020"
+    },
+    {
+      "kind": "parent",
+      "parent": "57020",
+      "child": "514035"
+    },
+    {
+      "kind": "parent",
+      "parent": "57020",
+      "child": "514036"
+    }
+  ]
+}

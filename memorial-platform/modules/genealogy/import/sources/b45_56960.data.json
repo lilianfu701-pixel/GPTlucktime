@@ -1,0 +1,27 @@
+{
+  "key": "cbdb:b45_56960",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "56960",
+      "name": "瓜爾佳七十五",
+      "citation": "CBDB 中国历代人物传记资料库 person 56960",
+      "gender": "male",
+      "death": {
+        "year": 1803
+      }
+    },
+    {
+      "externalId": "513945",
+      "name": "瓜爾佳九格",
+      "citation": "CBDB 中国历代人物传记资料库 person 513945"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "513945",
+      "child": "56960"
+    }
+  ]
+}

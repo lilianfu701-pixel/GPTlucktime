@@ -1,0 +1,16 @@
+{
+  "key": "cbdb:b46_57040",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57040",
+      "name": "崔五十三",
+      "citation": "CBDB 中国历代人物传记资料库 person 57040",
+      "gender": "male",
+      "death": {
+        "year": 1807
+      }
+    }
+  ],
+  "relations": []
+}

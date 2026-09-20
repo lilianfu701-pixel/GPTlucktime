@@ -1,0 +1,16 @@
+{
+  "key": "cbdb:b46_56988",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "56988",
+      "name": "李鑑",
+      "citation": "CBDB 中国历代人物传记资料库 person 56988",
+      "gender": "male",
+      "death": {
+        "year": 1651
+      }
+    }
+  ],
+  "relations": []
+}

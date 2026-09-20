@@ -1,0 +1,19 @@
+{
+  "key": "cbdb:b46_57048",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57048",
+      "name": "愛新覺羅允祁",
+      "citation": "CBDB 中国历代人物传记资料库 person 57048",
+      "gender": "male",
+      "birth": {
+        "year": 1713
+      },
+      "death": {
+        "year": 1785
+      }
+    }
+  ],
+  "relations": []
+}

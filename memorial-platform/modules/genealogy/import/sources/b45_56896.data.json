@@ -1,0 +1,40 @@
+{
+  "key": "cbdb:b45_56896",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "56896",
+      "name": "楊芳",
+      "citation": "CBDB 中国历代人物传记资料库 person 56896",
+      "gender": "male",
+      "birth": {
+        "year": 1770
+      },
+      "death": {
+        "year": 1846
+      }
+    },
+    {
+      "externalId": "513661",
+      "name": "楊正秀",
+      "citation": "CBDB 中国历代人物传记资料库 person 513661"
+    },
+    {
+      "externalId": "513664",
+      "name": "楊承注",
+      "citation": "CBDB 中国历代人物传记资料库 person 513664"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "513661",
+      "child": "56896"
+    },
+    {
+      "kind": "parent",
+      "parent": "56896",
+      "child": "513664"
+    }
+  ]
+}

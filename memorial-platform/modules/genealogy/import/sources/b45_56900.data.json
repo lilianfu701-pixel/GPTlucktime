@@ -1,0 +1,19 @@
+{
+  "key": "cbdb:b45_56900",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "56900",
+      "name": "楊頀",
+      "citation": "CBDB 中国历代人物传记资料库 person 56900",
+      "gender": "male",
+      "birth": {
+        "year": 1744
+      },
+      "death": {
+        "year": 1828
+      }
+    }
+  ],
+  "relations": []
+}

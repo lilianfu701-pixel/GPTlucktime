@@ -1,0 +1,16 @@
+{
+  "key": "cbdb:b46_56992",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "56992",
+      "name": "劉鐶之",
+      "citation": "CBDB 中国历代人物传记资料库 person 56992",
+      "gender": "male",
+      "death": {
+        "year": 1821
+      }
+    }
+  ],
+  "relations": []
+}

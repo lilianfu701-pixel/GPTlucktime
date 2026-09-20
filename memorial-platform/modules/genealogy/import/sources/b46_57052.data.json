@@ -1,0 +1,19 @@
+{
+  "key": "cbdb:b46_57052",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57052",
+      "name": "愛新覺羅允祿",
+      "citation": "CBDB 中国历代人物传记资料库 person 57052",
+      "gender": "male",
+      "birth": {
+        "year": 1695
+      },
+      "death": {
+        "year": 1767
+      }
+    }
+  ],
+  "relations": []
+}

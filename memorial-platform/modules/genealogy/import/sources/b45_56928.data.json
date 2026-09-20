@@ -1,0 +1,74 @@
+{
+  "key": "cbdb:b45_56928",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "56928",
+      "name": "丁日昌",
+      "citation": "CBDB 中国历代人物传记资料库 person 56928",
+      "gender": "male",
+      "birth": {
+        "year": 1823
+      },
+      "death": {
+        "year": 1882
+      }
+    },
+    {
+      "externalId": "513828",
+      "name": "丁賢拔",
+      "citation": "CBDB 中国历代人物传记资料库 person 513828"
+    },
+    {
+      "externalId": "122399",
+      "name": "丁惠馨",
+      "citation": "CBDB 中国历代人物传记资料库 person 122399",
+      "gender": "male",
+      "birth": {
+        "year": 1865
+      }
+    },
+    {
+      "externalId": "513825",
+      "name": "丁惠吉",
+      "citation": "CBDB 中国历代人物传记资料库 person 513825"
+    },
+    {
+      "externalId": "513826",
+      "name": "丁惠宣",
+      "citation": "CBDB 中国历代人物传记资料库 person 513826"
+    },
+    {
+      "externalId": "513827",
+      "name": "丁惠衡",
+      "citation": "CBDB 中国历代人物传记资料库 person 513827"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "513828",
+      "child": "56928"
+    },
+    {
+      "kind": "parent",
+      "parent": "56928",
+      "child": "122399"
+    },
+    {
+      "kind": "parent",
+      "parent": "56928",
+      "child": "513825"
+    },
+    {
+      "kind": "parent",
+      "parent": "56928",
+      "child": "513826"
+    },
+    {
+      "kind": "parent",
+      "parent": "56928",
+      "child": "513827"
+    }
+  ]
+}

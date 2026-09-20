@@ -1,0 +1,93 @@
+{
+  "key": "cbdb:b45_56936",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "56936",
+      "name": "汪晉徵",
+      "citation": "CBDB 中国历代人物传记资料库 person 56936",
+      "gender": "male",
+      "birth": {
+        "year": 1639
+      },
+      "death": {
+        "year": 1709
+      }
+    },
+    {
+      "externalId": "555278",
+      "name": "汪鼎和",
+      "citation": "CBDB 中国历代人物传记资料库 person 555278",
+      "gender": "male"
+    },
+    {
+      "externalId": "513845",
+      "name": "汪文英",
+      "citation": "CBDB 中国历代人物传记资料库 person 513845"
+    },
+    {
+      "externalId": "513846",
+      "name": "汪世英",
+      "citation": "CBDB 中国历代人物传记资料库 person 513846"
+    },
+    {
+      "externalId": "513847",
+      "name": "汪啟英",
+      "citation": "CBDB 中国历代人物传记资料库 person 513847"
+    },
+    {
+      "externalId": "513848",
+      "name": "汪偀",
+      "citation": "CBDB 中国历代人物传记资料库 person 513848"
+    },
+    {
+      "externalId": "233160",
+      "name": "汪康謠",
+      "citation": "CBDB 中国历代人物传记资料库 person 233160",
+      "gender": "male"
+    },
+    {
+      "externalId": "684637",
+      "name": "汪鈆",
+      "citation": "CBDB 中国历代人物传记资料库 person 684637",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "555278",
+      "child": "56936"
+    },
+    {
+      "kind": "parent",
+      "parent": "56936",
+      "child": "513845"
+    },
+    {
+      "kind": "parent",
+      "parent": "56936",
+      "child": "513846"
+    },
+    {
+      "kind": "parent",
+      "parent": "56936",
+      "child": "513847"
+    },
+    {
+      "kind": "parent",
+      "parent": "56936",
+      "child": "513848"
+    },
+    {
+      "kind": "parent",
+      "parent": "233160",
+      "child": "555278"
+    },
+    {
+      "kind": "parent",
+      "parent": "684637",
+      "child": "233160"
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "key": "cbdb:b45_56944",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "56944",
+      "name": "劉峩",
+      "citation": "CBDB 中国历代人物传记资料库 person 56944",
+      "gender": "male",
+      "birth": {
+        "year": 1723
+      },
+      "death": {
+        "year": 1795
+      }
+    },
+    {
+      "externalId": "513903",
+      "name": "劉涪",
+      "citation": "CBDB 中国历代人物传记资料库 person 513903"
+    },
+    {
+      "externalId": "513904",
+      "name": "劉濚",
+      "citation": "CBDB 中国历代人物传记资料库 person 513904"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "56944",
+      "child": "513903"
+    },
+    {
+      "kind": "parent",
+      "parent": "56944",
+      "child": "513904"
+    }
+  ]
+}

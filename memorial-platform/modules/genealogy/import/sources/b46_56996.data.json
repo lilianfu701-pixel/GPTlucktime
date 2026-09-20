@@ -1,0 +1,16 @@
+{
+  "key": "cbdb:b46_56996",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "56996",
+      "name": "魯國男",
+      "citation": "CBDB 中国历代人物传记资料库 person 56996",
+      "gender": "male",
+      "death": {
+        "year": 1661
+      }
+    }
+  ],
+  "relations": []
+}

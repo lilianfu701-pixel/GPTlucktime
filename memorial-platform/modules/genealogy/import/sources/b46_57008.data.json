@@ -1,0 +1,16 @@
+{
+  "key": "cbdb:b46_57008",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57008",
+      "name": "馬寧",
+      "citation": "CBDB 中国历代人物传记资料库 person 57008",
+      "gender": "male",
+      "death": {
+        "year": 1680
+      }
+    }
+  ],
+  "relations": []
+}

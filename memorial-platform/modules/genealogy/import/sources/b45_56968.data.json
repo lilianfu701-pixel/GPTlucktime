@@ -1,0 +1,16 @@
+{
+  "key": "cbdb:b45_56968",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "56968",
+      "name": "方受疇",
+      "citation": "CBDB 中国历代人物传记资料库 person 56968",
+      "gender": "male",
+      "death": {
+        "year": 1822
+      }
+    }
+  ],
+  "relations": []
+}

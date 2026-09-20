@@ -1,0 +1,16 @@
+{
+  "key": "cbdb:b46_57028",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57028",
+      "name": "三泰",
+      "citation": "CBDB 中国历代人物传记资料库 person 57028",
+      "gender": "male",
+      "death": {
+        "year": 1759
+      }
+    }
+  ],
+  "relations": []
+}

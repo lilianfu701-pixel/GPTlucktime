@@ -1,0 +1,40 @@
+{
+  "key": "cbdb:b45_56956",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "56956",
+      "name": "喬世臣",
+      "citation": "CBDB 中国历代人物传记资料库 person 56956",
+      "gender": "male",
+      "birth": {
+        "year": 1686
+      },
+      "death": {
+        "year": 1735
+      }
+    },
+    {
+      "externalId": "513936",
+      "name": "喬發",
+      "citation": "CBDB 中国历代人物传记资料库 person 513936"
+    },
+    {
+      "externalId": "513933",
+      "name": "喬大愷",
+      "citation": "CBDB 中国历代人物传记资料库 person 513933"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "513936",
+      "child": "56956"
+    },
+    {
+      "kind": "parent",
+      "parent": "56956",
+      "child": "513933"
+    }
+  ]
+}

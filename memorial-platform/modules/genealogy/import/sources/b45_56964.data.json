@@ -1,0 +1,50 @@
+{
+  "key": "cbdb:b45_56964",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "56964",
+      "name": "杜漺",
+      "citation": "CBDB 中国历代人物传记资料库 person 56964",
+      "gender": "male",
+      "birth": {
+        "year": 1622
+      },
+      "death": {
+        "year": 1685
+      }
+    },
+    {
+      "externalId": "513966",
+      "name": "杜若昧",
+      "citation": "CBDB 中国历代人物传记资料库 person 513966"
+    },
+    {
+      "externalId": "513965",
+      "name": "杜亮曾",
+      "citation": "CBDB 中国历代人物传记资料库 person 513965"
+    },
+    {
+      "externalId": "513967",
+      "name": "杜章曾",
+      "citation": "CBDB 中国历代人物传记资料库 person 513967"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "513966",
+      "child": "56964"
+    },
+    {
+      "kind": "parent",
+      "parent": "56964",
+      "child": "513965"
+    },
+    {
+      "kind": "parent",
+      "parent": "56964",
+      "child": "513967"
+    }
+  ]
+}

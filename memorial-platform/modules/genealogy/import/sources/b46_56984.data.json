@@ -1,0 +1,19 @@
+{
+  "key": "cbdb:b46_56984",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "56984",
+      "name": "苗胙土",
+      "citation": "CBDB 中国历代人物传记资料库 person 56984",
+      "gender": "male",
+      "birth": {
+        "year": 1589
+      },
+      "death": {
+        "year": 1646
+      }
+    }
+  ],
+  "relations": []
+}

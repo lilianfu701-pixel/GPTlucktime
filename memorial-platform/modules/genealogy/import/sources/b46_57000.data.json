@@ -1,0 +1,16 @@
+{
+  "key": "cbdb:b46_57000",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57000",
+      "name": "吳雅薩穆哈",
+      "citation": "CBDB 中国历代人物传记资料库 person 57000",
+      "gender": "male",
+      "death": {
+        "year": 1704
+      }
+    }
+  ],
+  "relations": []
+}

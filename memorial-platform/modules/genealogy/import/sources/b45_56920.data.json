@@ -1,0 +1,70 @@
+{
+  "key": "cbdb:b45_56920",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "56920",
+      "name": "李國亮",
+      "citation": "CBDB 中国历代人物传记资料库 person 56920",
+      "gender": "male",
+      "birth": {
+        "year": 1641
+      },
+      "death": {
+        "year": 1706
+      }
+    },
+    {
+      "externalId": "513786",
+      "name": "李十七",
+      "citation": "CBDB 中国历代人物传记资料库 person 513786"
+    },
+    {
+      "externalId": "513787",
+      "name": "李元璉",
+      "citation": "CBDB 中国历代人物传记资料库 person 513787"
+    },
+    {
+      "externalId": "513788",
+      "name": "李元樽",
+      "citation": "CBDB 中国历代人物传记资料库 person 513788"
+    },
+    {
+      "externalId": "513789",
+      "name": "李元龍",
+      "citation": "CBDB 中国历代人物传记资料库 person 513789"
+    },
+    {
+      "externalId": "513790",
+      "name": "李元彝",
+      "citation": "CBDB 中国历代人物传记资料库 person 513790"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "56920",
+      "child": "513786"
+    },
+    {
+      "kind": "parent",
+      "parent": "56920",
+      "child": "513787"
+    },
+    {
+      "kind": "parent",
+      "parent": "56920",
+      "child": "513788"
+    },
+    {
+      "kind": "parent",
+      "parent": "56920",
+      "child": "513789"
+    },
+    {
+      "kind": "parent",
+      "parent": "56920",
+      "child": "513790"
+    }
+  ]
+}

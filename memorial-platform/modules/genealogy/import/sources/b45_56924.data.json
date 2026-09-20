@@ -1,0 +1,35 @@
+{
+  "key": "cbdb:b45_56924",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "56924",
+      "name": "程燾",
+      "citation": "CBDB 中国历代人物传记资料库 person 56924",
+      "gender": "male"
+    },
+    {
+      "externalId": "513810",
+      "name": "程承獻",
+      "citation": "CBDB 中国历代人物传记资料库 person 513810"
+    },
+    {
+      "externalId": "694115",
+      "name": "程楷",
+      "citation": "CBDB 中国历代人物传记资料库 person 694115",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "56924",
+      "child": "513810"
+    },
+    {
+      "kind": "parent",
+      "parent": "56924",
+      "child": "694115"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "key": "cbdb:b46_57036",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57036",
+      "name": "尹嘉銓",
+      "citation": "CBDB 中国历代人物传记资料库 person 57036",
+      "gender": "male",
+      "birth": {
+        "year": 1711
+      },
+      "death": {
+        "year": 1781
+      }
+    }
+  ],
+  "relations": []
+}

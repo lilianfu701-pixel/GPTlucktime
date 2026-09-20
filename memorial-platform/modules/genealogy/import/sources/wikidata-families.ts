@@ -212,6 +212,48 @@ import suweidao from "./suweidao.data.json";
 import liufen from "./liufen.data.json";
 import liugong from "./liugong.data.json";
 import xiaoying from "./xiaoying.data.json";
+// CBDB 第四十五批：Qing官员学者20人
+import b45_56896 from "./b45_56896.data.json";
+import b45_56900 from "./b45_56900.data.json";
+import b45_56904 from "./b45_56904.data.json";
+import b45_56908 from "./b45_56908.data.json";
+import b45_56912 from "./b45_56912.data.json";
+import b45_56916 from "./b45_56916.data.json";
+import b45_56920 from "./b45_56920.data.json";
+import b45_56924 from "./b45_56924.data.json";
+import b45_56928 from "./b45_56928.data.json";
+import b45_56932 from "./b45_56932.data.json";
+import b45_56936 from "./b45_56936.data.json";
+import b45_56940 from "./b45_56940.data.json";
+import b45_56944 from "./b45_56944.data.json";
+import b45_56948 from "./b45_56948.data.json";
+import b45_56952 from "./b45_56952.data.json";
+import b45_56956 from "./b45_56956.data.json";
+import b45_56960 from "./b45_56960.data.json";
+import b45_56964 from "./b45_56964.data.json";
+import b45_56968 from "./b45_56968.data.json";
+import b45_56972 from "./b45_56972.data.json";
+// CBDB 第四十六批：Qing官员学者20人
+import b46_56976 from "./b46_56976.data.json";
+import b46_56980 from "./b46_56980.data.json";
+import b46_56984 from "./b46_56984.data.json";
+import b46_56988 from "./b46_56988.data.json";
+import b46_56992 from "./b46_56992.data.json";
+import b46_56996 from "./b46_56996.data.json";
+import b46_57000 from "./b46_57000.data.json";
+import b46_57004 from "./b46_57004.data.json";
+import b46_57008 from "./b46_57008.data.json";
+import b46_57012 from "./b46_57012.data.json";
+import b46_57016 from "./b46_57016.data.json";
+import b46_57020 from "./b46_57020.data.json";
+import b46_57024 from "./b46_57024.data.json";
+import b46_57028 from "./b46_57028.data.json";
+import b46_57032 from "./b46_57032.data.json";
+import b46_57036 from "./b46_57036.data.json";
+import b46_57040 from "./b46_57040.data.json";
+import b46_57044 from "./b46_57044.data.json";
+import b46_57048 from "./b46_57048.data.json";
+import b46_57052 from "./b46_57052.data.json";
 // CBDB 第四十四批：Qing官员学者15人
 import b44_56836 from "./b44_56836.data.json";
 import b44_56840 from "./b44_56840.data.json";
@@ -898,6 +940,48 @@ const FAMILIES: { key: string; label: string; dataset: GenealogyDataset }[] = [
   { key: "liufen", label: "河东柳氏·柳芬支（柳懿·柳均·南北朝到唐）", dataset: liufen as GenealogyDataset },
   { key: "liugong", label: "河东柳氏·柳公权支（书法家·柳瑗·柳仲憲）", dataset: liugong as GenealogyDataset },
   { key: "xiaoying", label: "兰陵萧氏·萧颖士支（萧道赐·萧恢·南朝到唐）", dataset: xiaoying as GenealogyDataset },
+  // CBDB 第四十五批：Qing官员学者20人
+  { key: "b45_56896", label: "Qing官员集群132（清代官员·3人）", dataset: b45_56896 as GenealogyDataset },
+  { key: "b45_56900", label: "Qing官员集群133（清代官员·1人）", dataset: b45_56900 as GenealogyDataset },
+  { key: "b45_56904", label: "Qing官员集群134（清代官员·5人）", dataset: b45_56904 as GenealogyDataset },
+  { key: "b45_56908", label: "Qing官员集群135（清代官员·1人）", dataset: b45_56908 as GenealogyDataset },
+  { key: "b45_56912", label: "Qing官员集群136（清代官员·6人）", dataset: b45_56912 as GenealogyDataset },
+  { key: "b45_56916", label: "Qing官员集群137（清代官员·3人）", dataset: b45_56916 as GenealogyDataset },
+  { key: "b45_56920", label: "Qing官员集群138（清代官员·6人）", dataset: b45_56920 as GenealogyDataset },
+  { key: "b45_56924", label: "Qing官员集群139（清代官员·3人）", dataset: b45_56924 as GenealogyDataset },
+  { key: "b45_56928", label: "Qing官员集群140（清代官员·6人）", dataset: b45_56928 as GenealogyDataset },
+  { key: "b45_56932", label: "Qing官员集群141（清代官员·2人）", dataset: b45_56932 as GenealogyDataset },
+  { key: "b45_56936", label: "Qing官员集群142（清代官员·8人）", dataset: b45_56936 as GenealogyDataset },
+  { key: "b45_56940", label: "Qing官员集群143（清代官员·9人）", dataset: b45_56940 as GenealogyDataset },
+  { key: "b45_56944", label: "Qing官员集群144（清代官员·3人）", dataset: b45_56944 as GenealogyDataset },
+  { key: "b45_56948", label: "Qing官员集群145（清代官员·2人）", dataset: b45_56948 as GenealogyDataset },
+  { key: "b45_56952", label: "Qing官员集群146（清代官员·1人）", dataset: b45_56952 as GenealogyDataset },
+  { key: "b45_56956", label: "Qing官员集群147（清代官员·3人）", dataset: b45_56956 as GenealogyDataset },
+  { key: "b45_56960", label: "Qing官员集群148（清代官员·2人）", dataset: b45_56960 as GenealogyDataset },
+  { key: "b45_56964", label: "Qing官员集群149（清代官员·4人）", dataset: b45_56964 as GenealogyDataset },
+  { key: "b45_56968", label: "Qing官员集群150（清代官员·1人）", dataset: b45_56968 as GenealogyDataset },
+  { key: "b45_56972", label: "Qing官员集群151（清代官员·2人）", dataset: b45_56972 as GenealogyDataset },
+  // CBDB 第四十六批：Qing官员学者20人
+  { key: "b46_56976", label: "Qing官员集群152（清代官员·1人）", dataset: b46_56976 as GenealogyDataset },
+  { key: "b46_56980", label: "Qing官员集群153（清代官员·1人）", dataset: b46_56980 as GenealogyDataset },
+  { key: "b46_56984", label: "Qing官员集群154（清代官员·1人）", dataset: b46_56984 as GenealogyDataset },
+  { key: "b46_56988", label: "Qing官员集群155（清代官员·1人）", dataset: b46_56988 as GenealogyDataset },
+  { key: "b46_56992", label: "Qing官员集群156（清代官员·1人）", dataset: b46_56992 as GenealogyDataset },
+  { key: "b46_56996", label: "Qing官员集群157（清代官员·1人）", dataset: b46_56996 as GenealogyDataset },
+  { key: "b46_57000", label: "Qing官员集群158（清代官员·1人）", dataset: b46_57000 as GenealogyDataset },
+  { key: "b46_57004", label: "Qing官员集群159（清代官员·1人）", dataset: b46_57004 as GenealogyDataset },
+  { key: "b46_57008", label: "Qing官员集群160（清代官员·1人）", dataset: b46_57008 as GenealogyDataset },
+  { key: "b46_57012", label: "Qing官员集群161（清代官员·1人）", dataset: b46_57012 as GenealogyDataset },
+  { key: "b46_57016", label: "Qing官员集群162（清代官员·1人）", dataset: b46_57016 as GenealogyDataset },
+  { key: "b46_57020", label: "Qing官员集群163（清代官员·4人）", dataset: b46_57020 as GenealogyDataset },
+  { key: "b46_57024", label: "Qing官员集群164（清代官员·1人）", dataset: b46_57024 as GenealogyDataset },
+  { key: "b46_57028", label: "Qing官员集群165（清代官员·1人）", dataset: b46_57028 as GenealogyDataset },
+  { key: "b46_57032", label: "Qing官员集群166（清代官员·1人）", dataset: b46_57032 as GenealogyDataset },
+  { key: "b46_57036", label: "Qing官员集群167（清代官员·1人）", dataset: b46_57036 as GenealogyDataset },
+  { key: "b46_57040", label: "Qing官员集群168（清代官员·1人）", dataset: b46_57040 as GenealogyDataset },
+  { key: "b46_57044", label: "Qing官员集群169（清代官员·2人）", dataset: b46_57044 as GenealogyDataset },
+  { key: "b46_57048", label: "Qing官员集群170（清代官员·1人）", dataset: b46_57048 as GenealogyDataset },
+  { key: "b46_57052", label: "Qing官员集群171（清代官员·1人）", dataset: b46_57052 as GenealogyDataset },
   // CBDB 第四十四批：Qing官员学者15人
   { key: "b44_56836", label: "Qing官员集群117（清代官员·1人）", dataset: b44_56836 as GenealogyDataset },
   { key: "b44_56840", label: "Qing官员集群118（清代官员·2人）", dataset: b44_56840 as GenealogyDataset },
