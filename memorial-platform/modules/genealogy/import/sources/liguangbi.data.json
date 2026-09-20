@@ -1,0 +1,177 @@
+{
+  "key": "cbdb:liguangbi",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "146097",
+      "name": "李光弼",
+      "citation": "CBDB 中国历代人物传记资料库 person 146097",
+      "gender": "male",
+      "death": {
+        "year": 764
+      }
+    },
+    {
+      "externalId": "146098",
+      "name": "李楷洛",
+      "citation": "CBDB 中国历代人物传记资料库 person 146098",
+      "gender": "male",
+      "birth": {
+        "year": 676
+      },
+      "death": {
+        "year": 742
+      }
+    },
+    {
+      "externalId": "145987",
+      "name": "李彙",
+      "citation": "CBDB 中国历代人物传记资料库 person 145987",
+      "gender": "male",
+      "birth": {
+        "year": 757
+      },
+      "death": {
+        "year": 815
+      }
+    },
+    {
+      "externalId": "184856",
+      "name": "李義忠",
+      "citation": "CBDB 中国历代人物传记资料库 person 184856",
+      "gender": "male",
+      "death": {
+        "year": 801
+      }
+    },
+    {
+      "externalId": "184857",
+      "name": "李象",
+      "citation": "CBDB 中国历代人物传记资料库 person 184857",
+      "gender": "male",
+      "death": {
+        "year": 801
+      }
+    },
+    {
+      "externalId": "184858",
+      "name": "李某",
+      "citation": "CBDB 中国历代人物传记资料库 person 184858",
+      "gender": "male",
+      "death": {
+        "year": 801
+      }
+    },
+    {
+      "externalId": "194617",
+      "name": "李某",
+      "citation": "CBDB 中国历代人物传记资料库 person 194617",
+      "gender": "male",
+      "death": {
+        "year": 801
+      }
+    },
+    {
+      "externalId": "184853",
+      "name": "李重英",
+      "citation": "CBDB 中国历代人物传记资料库 person 184853",
+      "gender": "male",
+      "death": {
+        "year": 698
+      }
+    },
+    {
+      "externalId": "191375",
+      "name": "李罕",
+      "citation": "CBDB 中国历代人物传记资料库 person 191375",
+      "gender": "male",
+      "death": {
+        "year": 853
+      }
+    },
+    {
+      "externalId": "184859",
+      "name": "李黯",
+      "citation": "CBDB 中国历代人物传记资料库 person 184859",
+      "gender": "male",
+      "death": {
+        "year": 838
+      }
+    },
+    {
+      "externalId": "194616",
+      "name": "李承勛",
+      "citation": "CBDB 中国历代人物传记资料库 person 194616",
+      "gender": "male",
+      "death": {
+        "year": 838
+      }
+    },
+    {
+      "externalId": "184852",
+      "name": "李令節",
+      "citation": "CBDB 中国历代人物传记资料库 person 184852",
+      "gender": "male",
+      "death": {
+        "year": 661
+      }
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "146098",
+      "child": "146097"
+    },
+    {
+      "kind": "parent",
+      "parent": "146097",
+      "child": "145987"
+    },
+    {
+      "kind": "parent",
+      "parent": "146097",
+      "child": "184856"
+    },
+    {
+      "kind": "parent",
+      "parent": "146097",
+      "child": "184857"
+    },
+    {
+      "kind": "parent",
+      "parent": "146097",
+      "child": "184858"
+    },
+    {
+      "kind": "parent",
+      "parent": "146097",
+      "child": "194617"
+    },
+    {
+      "kind": "parent",
+      "parent": "184853",
+      "child": "146098"
+    },
+    {
+      "kind": "parent",
+      "parent": "145987",
+      "child": "191375"
+    },
+    {
+      "kind": "parent",
+      "parent": "184858",
+      "child": "184859"
+    },
+    {
+      "kind": "parent",
+      "parent": "194617",
+      "child": "194616"
+    },
+    {
+      "kind": "parent",
+      "parent": "184852",
+      "child": "184853"
+    }
+  ]
+}

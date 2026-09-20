@@ -1,0 +1,121 @@
+{
+  "key": "cbdb:lmaozhen",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "145345",
+      "name": "李茂貞",
+      "citation": "CBDB 中国历代人物传记资料库 person 145345",
+      "gender": "male",
+      "birth": {
+        "year": 856
+      },
+      "death": {
+        "year": 924
+      }
+    },
+    {
+      "externalId": "144911",
+      "name": "劉氏(李茂貞妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 144911",
+      "gender": "female",
+      "birth": {
+        "year": 877
+      },
+      "death": {
+        "year": 943
+      }
+    },
+    {
+      "externalId": "194728",
+      "name": "宋端",
+      "citation": "CBDB 中国历代人物传记资料库 person 194728",
+      "gender": "male",
+      "death": {
+        "year": 878
+      }
+    },
+    {
+      "externalId": "194881",
+      "name": "李繼密",
+      "citation": "CBDB 中国历代人物传记资料库 person 194881",
+      "gender": "male",
+      "death": {
+        "year": 952
+      }
+    },
+    {
+      "externalId": "196028",
+      "name": "宋侃",
+      "citation": "CBDB 中国历代人物传记资料库 person 196028",
+      "gender": "male",
+      "death": {
+        "year": 952
+      }
+    },
+    {
+      "externalId": "196027",
+      "name": "李氏(平原公主)",
+      "citation": "CBDB 中国历代人物传记资料库 person 196027",
+      "gender": "female",
+      "death": {
+        "year": 953
+      }
+    },
+    {
+      "externalId": "194729",
+      "name": "宋鐔",
+      "citation": "CBDB 中国历代人物传记资料库 person 194729",
+      "gender": "male",
+      "death": {
+        "year": 841
+      }
+    },
+    {
+      "externalId": "194730",
+      "name": "宋某",
+      "citation": "CBDB 中国历代人物传记资料库 person 194730",
+      "gender": "male",
+      "death": {
+        "year": 804
+      }
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "194728",
+      "child": "145345"
+    },
+    {
+      "kind": "spouse",
+      "a": "144911",
+      "b": "145345"
+    },
+    {
+      "kind": "parent",
+      "parent": "145345",
+      "child": "194881"
+    },
+    {
+      "kind": "parent",
+      "parent": "145345",
+      "child": "196028"
+    },
+    {
+      "kind": "parent",
+      "parent": "194729",
+      "child": "194728"
+    },
+    {
+      "kind": "spouse",
+      "a": "196027",
+      "b": "196028"
+    },
+    {
+      "kind": "parent",
+      "parent": "194730",
+      "child": "194729"
+    }
+  ]
+}

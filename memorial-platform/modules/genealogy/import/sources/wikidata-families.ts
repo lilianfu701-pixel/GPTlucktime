@@ -212,6 +212,14 @@ import suweidao from "./suweidao.data.json";
 import liufen from "./liufen.data.json";
 import liugong from "./liugong.data.json";
 import xiaoying from "./xiaoying.data.json";
+// CBDB 第三十五批（唐代将帅·五代沙陀·关陇长孙氏·安史战将）
+import likeyong from "./likeyong.data.json";
+import xuenengui from "./xuenengui.data.json";
+import weichigang from "./weichigang.data.json";
+import duruihui from "./duruihui.data.json";
+import lmaozhen from "./lmaozhen.data.json";
+import zhangsunwuji from "./zhangsunwuji.data.json";
+import liguangbi from "./liguangbi.data.json";
 // CBDB 第三十四批（五代十国·折家军·荆南·后蜀·楚国·后周）
 import mayin from "./mayin.data.json";
 import mengzhixiang from "./mengzhixiang.data.json";
@@ -737,6 +745,14 @@ const FAMILIES: { key: string; label: string; dataset: GenealogyDataset }[] = [
   { key: "liufen", label: "河东柳氏·柳芬支（柳懿·柳均·南北朝到唐）", dataset: liufen as GenealogyDataset },
   { key: "liugong", label: "河东柳氏·柳公权支（书法家·柳瑗·柳仲憲）", dataset: liugong as GenealogyDataset },
   { key: "xiaoying", label: "兰陵萧氏·萧颖士支（萧道赐·萧恢·南朝到唐）", dataset: xiaoying as GenealogyDataset },
+  // CBDB 第三十五批：唐代将帅·五代沙陀·关陇长孙氏·安史战将
+  { key: "likeyong", label: "沙陀李氏·李克用支（五代后唐开国·-908·李存勖等·13人）", dataset: likeyong as GenealogyDataset },
+  { key: "xuenengui", label: "河东薛氏·薛仁贵支（唐代将门·-682·薛嵩至薛平·45人）", dataset: xuenengui as GenealogyDataset },
+  { key: "weichigang", label: "鄯善尉迟氏·尉迟恭支（唐初凌烟阁·585-658·尉迟宝琳等·6人）", dataset: weichigang as GenealogyDataset },
+  { key: "duruihui", label: "京兆杜氏·杜如晦支（房谋杜断·585-630·杜构杜荷·5人）", dataset: duruihui as GenealogyDataset },
+  { key: "lmaozhen", label: "凤翔李氏·李茂贞支（五代岐王·856-924·李继密等·8人）", dataset: lmaozhen as GenealogyDataset },
+  { key: "zhangsunwuji", label: "洛阳长孙氏·长孙无忌支（唐初宰相·-659·长孙晟后裔·45人）", dataset: zhangsunwuji as GenealogyDataset },
+  { key: "liguangbi", label: "营州李氏·李光弼支（安史战将·-764·李楷洛后裔·12人）", dataset: liguangbi as GenealogyDataset },
   // CBDB 第三十四批：五代十国·折家军·荆南·后蜀·楚国·后周
   { key: "mayin", label: "楚国马氏·马殷支（五代楚王·851-930·马希范至·8人）", dataset: mayin as GenealogyDataset },
   { key: "mengzhixiang", label: "后蜀孟氏·孟知祥支（五代后蜀开国·-935·孟昶至·10人）", dataset: mengzhixiang as GenealogyDataset },

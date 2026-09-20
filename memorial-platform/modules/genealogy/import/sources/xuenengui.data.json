@@ -1,0 +1,633 @@
+{
+  "key": "cbdb:xuenengui",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "180093",
+      "name": "薛仁貴",
+      "citation": "CBDB 中国历代人物传记资料库 person 180093",
+      "gender": "male",
+      "death": {
+        "year": 682
+      }
+    },
+    {
+      "externalId": "180092",
+      "name": "薛軌",
+      "citation": "CBDB 中国历代人物传记资料库 person 180092",
+      "gender": "male",
+      "death": {
+        "year": 645
+      }
+    },
+    {
+      "externalId": "169079",
+      "name": "薛楚玉",
+      "citation": "CBDB 中国历代人物传记资料库 person 169079",
+      "gender": "male",
+      "death": {
+        "year": 733
+      }
+    },
+    {
+      "externalId": "180094",
+      "name": "薛訥",
+      "citation": "CBDB 中国历代人物传记资料库 person 180094",
+      "gender": "male",
+      "death": {
+        "year": 719
+      }
+    },
+    {
+      "externalId": "180103",
+      "name": "薛慎惑",
+      "citation": "CBDB 中国历代人物传记资料库 person 180103",
+      "gender": "male",
+      "death": {
+        "year": 719
+      }
+    },
+    {
+      "externalId": "180107",
+      "name": "薛楚卿",
+      "citation": "CBDB 中国历代人物传记资料库 person 180107",
+      "gender": "male",
+      "death": {
+        "year": 719
+      }
+    },
+    {
+      "externalId": "180108",
+      "name": "薛楚珍",
+      "citation": "CBDB 中国历代人物传记资料库 person 180108",
+      "gender": "male",
+      "death": {
+        "year": 719
+      }
+    },
+    {
+      "externalId": "180091",
+      "name": "薛衍",
+      "citation": "CBDB 中国历代人物传记资料库 person 180091",
+      "gender": "male",
+      "death": {
+        "year": 608
+      }
+    },
+    {
+      "externalId": "145300",
+      "name": "薛嵩",
+      "citation": "CBDB 中国历代人物传记资料库 person 145300",
+      "gender": "male",
+      "death": {
+        "year": 772
+      }
+    },
+    {
+      "externalId": "180109",
+      "name": "薛嶷",
+      "citation": "CBDB 中国历代人物传记资料库 person 180109",
+      "gender": "male",
+      "death": {
+        "year": 770
+      }
+    },
+    {
+      "externalId": "180110",
+      "name": "薛岌",
+      "citation": "CBDB 中国历代人物传记资料库 person 180110",
+      "gender": "male",
+      "death": {
+        "year": 770
+      }
+    },
+    {
+      "externalId": "180111",
+      "name": "薛㟧",
+      "citation": "CBDB 中国历代人物传记资料库 person 180111",
+      "gender": "male",
+      "death": {
+        "year": 770
+      }
+    },
+    {
+      "externalId": "180181",
+      "name": "薛岸",
+      "citation": "CBDB 中国历代人物传记资料库 person 180181",
+      "gender": "male",
+      "death": {
+        "year": 770
+      }
+    },
+    {
+      "externalId": "180095",
+      "name": "薛徽",
+      "citation": "CBDB 中国历代人物传记资料库 person 180095",
+      "gender": "male",
+      "death": {
+        "year": 756
+      }
+    },
+    {
+      "externalId": "180099",
+      "name": "薛直",
+      "citation": "CBDB 中国历代人物传记资料库 person 180099",
+      "gender": "male",
+      "death": {
+        "year": 756
+      }
+    },
+    {
+      "externalId": "180102",
+      "name": "薛暢",
+      "citation": "CBDB 中国历代人物传记资料库 person 180102",
+      "gender": "male",
+      "death": {
+        "year": 756
+      }
+    },
+    {
+      "externalId": "169016",
+      "name": "薛光",
+      "citation": "CBDB 中国历代人物传记资料库 person 169016",
+      "gender": "male"
+    },
+    {
+      "externalId": "180090",
+      "name": "薛仲孫",
+      "citation": "CBDB 中国历代人物传记资料库 person 180090",
+      "gender": "male",
+      "death": {
+        "year": 571
+      }
+    },
+    {
+      "externalId": "180112",
+      "name": "薛平",
+      "citation": "CBDB 中国历代人物传记资料库 person 180112",
+      "gender": "male",
+      "birth": {
+        "year": 756
+      },
+      "death": {
+        "year": 836
+      }
+    },
+    {
+      "externalId": "180121",
+      "name": "薛雲石",
+      "citation": "CBDB 中国历代人物传记资料库 person 180121",
+      "gender": "male",
+      "death": {
+        "year": 809
+      }
+    },
+    {
+      "externalId": "180128",
+      "name": "薛昌朝",
+      "citation": "CBDB 中国历代人物传记资料库 person 180128",
+      "gender": "male",
+      "death": {
+        "year": 809
+      }
+    },
+    {
+      "externalId": "180130",
+      "name": "薛貽謀",
+      "citation": "CBDB 中国历代人物传记资料库 person 180130",
+      "gender": "male",
+      "death": {
+        "year": 809
+      }
+    },
+    {
+      "externalId": "180137",
+      "name": "薛昌族",
+      "citation": "CBDB 中国历代人物传记资料库 person 180137",
+      "gender": "male",
+      "death": {
+        "year": 809
+      }
+    },
+    {
+      "externalId": "180140",
+      "name": "薛昌期",
+      "citation": "CBDB 中国历代人物传记资料库 person 180140",
+      "gender": "male",
+      "death": {
+        "year": 809
+      }
+    },
+    {
+      "externalId": "180146",
+      "name": "薛昌宗",
+      "citation": "CBDB 中国历代人物传记资料库 person 180146",
+      "gender": "male",
+      "death": {
+        "year": 809
+      }
+    },
+    {
+      "externalId": "180150",
+      "name": "薛昌運",
+      "citation": "CBDB 中国历代人物传记资料库 person 180150",
+      "gender": "male",
+      "death": {
+        "year": 809
+      }
+    },
+    {
+      "externalId": "180154",
+      "name": "薛臯",
+      "citation": "CBDB 中国历代人物传记资料库 person 180154",
+      "gender": "male",
+      "death": {
+        "year": 809
+      }
+    },
+    {
+      "externalId": "180155",
+      "name": "薛婺",
+      "citation": "CBDB 中国历代人物传记资料库 person 180155",
+      "gender": "male",
+      "death": {
+        "year": 809
+      }
+    },
+    {
+      "externalId": "180177",
+      "name": "薛聿",
+      "citation": "CBDB 中国历代人物传记资料库 person 180177",
+      "gender": "male",
+      "death": {
+        "year": 809
+      }
+    },
+    {
+      "externalId": "180096",
+      "name": "薛揖",
+      "citation": "CBDB 中国历代人物传记资料库 person 180096",
+      "gender": "male",
+      "death": {
+        "year": 793
+      }
+    },
+    {
+      "externalId": "180097",
+      "name": "薛振",
+      "citation": "CBDB 中国历代人物传记资料库 person 180097",
+      "gender": "male",
+      "death": {
+        "year": 793
+      }
+    },
+    {
+      "externalId": "180098",
+      "name": "薛抃",
+      "citation": "CBDB 中国历代人物传记资料库 person 180098",
+      "gender": "male",
+      "death": {
+        "year": 793
+      }
+    },
+    {
+      "externalId": "180100",
+      "name": "薛堅",
+      "citation": "CBDB 中国历代人物传记资料库 person 180100",
+      "gender": "male",
+      "death": {
+        "year": 793
+      }
+    },
+    {
+      "externalId": "180101",
+      "name": "薛幹",
+      "citation": "CBDB 中国历代人物传记资料库 person 180101",
+      "gender": "male",
+      "death": {
+        "year": 793
+      }
+    },
+    {
+      "externalId": "180105",
+      "name": "薛雄",
+      "citation": "CBDB 中国历代人物传记资料库 person 180105",
+      "gender": "male",
+      "death": {
+        "year": 793
+      }
+    },
+    {
+      "externalId": "180089",
+      "name": "薛榮",
+      "citation": "CBDB 中国历代人物传记资料库 person 180089",
+      "gender": "male",
+      "death": {
+        "year": 534
+      }
+    },
+    {
+      "externalId": "180113",
+      "name": "薛廣",
+      "citation": "CBDB 中国历代人物传记资料库 person 180113",
+      "gender": "male",
+      "death": {
+        "year": 853
+      }
+    },
+    {
+      "externalId": "180114",
+      "name": "薛文範",
+      "citation": "CBDB 中国历代人物传记资料库 person 180114",
+      "gender": "male",
+      "death": {
+        "year": 853
+      }
+    },
+    {
+      "externalId": "180115",
+      "name": "薛文度",
+      "citation": "CBDB 中国历代人物传记资料库 person 180115",
+      "gender": "male",
+      "death": {
+        "year": 853
+      }
+    },
+    {
+      "externalId": "180116",
+      "name": "薛湘",
+      "citation": "CBDB 中国历代人物传记资料库 person 180116",
+      "gender": "male",
+      "death": {
+        "year": 853
+      }
+    },
+    {
+      "externalId": "180117",
+      "name": "薛宜僚",
+      "citation": "CBDB 中国历代人物传记资料库 person 180117",
+      "gender": "male",
+      "death": {
+        "year": 853
+      }
+    },
+    {
+      "externalId": "180118",
+      "name": "薛從",
+      "citation": "CBDB 中国历代人物传记资料库 person 180118",
+      "gender": "male",
+      "death": {
+        "year": 853
+      }
+    },
+    {
+      "externalId": "180119",
+      "name": "薛廉",
+      "citation": "CBDB 中国历代人物传记资料库 person 180119",
+      "gender": "male",
+      "death": {
+        "year": 853
+      }
+    },
+    {
+      "externalId": "180120",
+      "name": "薛勤",
+      "citation": "CBDB 中国历代人物传记资料库 person 180120",
+      "gender": "male",
+      "death": {
+        "year": 853
+      }
+    },
+    {
+      "externalId": "180122",
+      "name": "薛文紹",
+      "citation": "CBDB 中国历代人物传记资料库 person 180122",
+      "gender": "male",
+      "death": {
+        "year": 846
+      }
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "180092",
+      "child": "180093"
+    },
+    {
+      "kind": "parent",
+      "parent": "180093",
+      "child": "169079"
+    },
+    {
+      "kind": "parent",
+      "parent": "180093",
+      "child": "180094"
+    },
+    {
+      "kind": "parent",
+      "parent": "180093",
+      "child": "180103"
+    },
+    {
+      "kind": "parent",
+      "parent": "180093",
+      "child": "180107"
+    },
+    {
+      "kind": "parent",
+      "parent": "180093",
+      "child": "180108"
+    },
+    {
+      "kind": "parent",
+      "parent": "180091",
+      "child": "180092"
+    },
+    {
+      "kind": "parent",
+      "parent": "169079",
+      "child": "145300"
+    },
+    {
+      "kind": "parent",
+      "parent": "169079",
+      "child": "180109"
+    },
+    {
+      "kind": "parent",
+      "parent": "169079",
+      "child": "180110"
+    },
+    {
+      "kind": "parent",
+      "parent": "169079",
+      "child": "180111"
+    },
+    {
+      "kind": "parent",
+      "parent": "169079",
+      "child": "180181"
+    },
+    {
+      "kind": "parent",
+      "parent": "180094",
+      "child": "180095"
+    },
+    {
+      "kind": "parent",
+      "parent": "180094",
+      "child": "180099"
+    },
+    {
+      "kind": "parent",
+      "parent": "180094",
+      "child": "180102"
+    },
+    {
+      "kind": "parent",
+      "parent": "180103",
+      "child": "169016"
+    },
+    {
+      "kind": "parent",
+      "parent": "180090",
+      "child": "180091"
+    },
+    {
+      "kind": "parent",
+      "parent": "145300",
+      "child": "180112"
+    },
+    {
+      "kind": "parent",
+      "parent": "145300",
+      "child": "180121"
+    },
+    {
+      "kind": "parent",
+      "parent": "145300",
+      "child": "180128"
+    },
+    {
+      "kind": "parent",
+      "parent": "145300",
+      "child": "180130"
+    },
+    {
+      "kind": "parent",
+      "parent": "145300",
+      "child": "180137"
+    },
+    {
+      "kind": "parent",
+      "parent": "145300",
+      "child": "180140"
+    },
+    {
+      "kind": "parent",
+      "parent": "145300",
+      "child": "180146"
+    },
+    {
+      "kind": "parent",
+      "parent": "145300",
+      "child": "180150"
+    },
+    {
+      "kind": "parent",
+      "parent": "145300",
+      "child": "180154"
+    },
+    {
+      "kind": "parent",
+      "parent": "145300",
+      "child": "180155"
+    },
+    {
+      "kind": "parent",
+      "parent": "145300",
+      "child": "180177"
+    },
+    {
+      "kind": "parent",
+      "parent": "180095",
+      "child": "180096"
+    },
+    {
+      "kind": "parent",
+      "parent": "180095",
+      "child": "180097"
+    },
+    {
+      "kind": "parent",
+      "parent": "180095",
+      "child": "180098"
+    },
+    {
+      "kind": "parent",
+      "parent": "180099",
+      "child": "180100"
+    },
+    {
+      "kind": "parent",
+      "parent": "180099",
+      "child": "180101"
+    },
+    {
+      "kind": "parent",
+      "parent": "169016",
+      "child": "180105"
+    },
+    {
+      "kind": "parent",
+      "parent": "180089",
+      "child": "180090"
+    },
+    {
+      "kind": "parent",
+      "parent": "180112",
+      "child": "180113"
+    },
+    {
+      "kind": "parent",
+      "parent": "180112",
+      "child": "180114"
+    },
+    {
+      "kind": "parent",
+      "parent": "180112",
+      "child": "180115"
+    },
+    {
+      "kind": "parent",
+      "parent": "180112",
+      "child": "180116"
+    },
+    {
+      "kind": "parent",
+      "parent": "180112",
+      "child": "180117"
+    },
+    {
+      "kind": "parent",
+      "parent": "180112",
+      "child": "180118"
+    },
+    {
+      "kind": "parent",
+      "parent": "180112",
+      "child": "180119"
+    },
+    {
+      "kind": "parent",
+      "parent": "180112",
+      "child": "180120"
+    },
+    {
+      "kind": "parent",
+      "parent": "180121",
+      "child": "180122"
+    }
+  ]
+}

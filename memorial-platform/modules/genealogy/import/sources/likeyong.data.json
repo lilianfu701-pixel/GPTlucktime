@@ -1,0 +1,185 @@
+{
+  "key": "cbdb:likeyong",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "18316",
+      "name": "李克用",
+      "citation": "CBDB 中国历代人物传记资料库 person 18316",
+      "gender": "male",
+      "death": {
+        "year": 908
+      }
+    },
+    {
+      "externalId": "134572",
+      "name": "劉氏(李克用妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 134572",
+      "gender": "female",
+      "death": {
+        "year": 925
+      }
+    },
+    {
+      "externalId": "134992",
+      "name": "曹氏(李存勗母)",
+      "citation": "CBDB 中国历代人物传记资料库 person 134992",
+      "gender": "female"
+    },
+    {
+      "externalId": "169074",
+      "name": "李國昌",
+      "citation": "CBDB 中国历代人物传记资料库 person 169074",
+      "gender": "male",
+      "death": {
+        "year": 883
+      }
+    },
+    {
+      "externalId": "184923",
+      "name": "李存勗",
+      "citation": "CBDB 中国历代人物传记资料库 person 184923",
+      "gender": "male",
+      "birth": {
+        "year": 885
+      },
+      "death": {
+        "year": 926
+      }
+    },
+    {
+      "externalId": "184924",
+      "name": "李存霸",
+      "citation": "CBDB 中国历代人物传记资料库 person 184924",
+      "gender": "male",
+      "death": {
+        "year": 952
+      }
+    },
+    {
+      "externalId": "184925",
+      "name": "李存渥",
+      "citation": "CBDB 中国历代人物传记资料库 person 184925",
+      "gender": "male",
+      "death": {
+        "year": 952
+      }
+    },
+    {
+      "externalId": "184926",
+      "name": "李存紀",
+      "citation": "CBDB 中国历代人物传记资料库 person 184926",
+      "gender": "male",
+      "death": {
+        "year": 952
+      }
+    },
+    {
+      "externalId": "184927",
+      "name": "李存乂",
+      "citation": "CBDB 中国历代人物传记资料库 person 184927",
+      "gender": "male",
+      "death": {
+        "year": 952
+      }
+    },
+    {
+      "externalId": "184928",
+      "name": "李存美",
+      "citation": "CBDB 中国历代人物传记资料库 person 184928",
+      "gender": "male",
+      "death": {
+        "year": 952
+      }
+    },
+    {
+      "externalId": "184929",
+      "name": "李存確",
+      "citation": "CBDB 中国历代人物传记资料库 person 184929",
+      "gender": "male",
+      "death": {
+        "year": 952
+      }
+    },
+    {
+      "externalId": "184930",
+      "name": "李存禮",
+      "citation": "CBDB 中国历代人物传记资料库 person 184930",
+      "gender": "male",
+      "death": {
+        "year": 952
+      }
+    },
+    {
+      "externalId": "184920",
+      "name": "李執宜",
+      "citation": "CBDB 中国历代人物传记资料库 person 184920",
+      "gender": "male",
+      "death": {
+        "year": 846
+      }
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "169074",
+      "child": "18316"
+    },
+    {
+      "kind": "spouse",
+      "a": "134572",
+      "b": "18316"
+    },
+    {
+      "kind": "spouse",
+      "a": "134992",
+      "b": "18316"
+    },
+    {
+      "kind": "parent",
+      "parent": "18316",
+      "child": "184923"
+    },
+    {
+      "kind": "parent",
+      "parent": "18316",
+      "child": "184924"
+    },
+    {
+      "kind": "parent",
+      "parent": "18316",
+      "child": "184925"
+    },
+    {
+      "kind": "parent",
+      "parent": "18316",
+      "child": "184926"
+    },
+    {
+      "kind": "parent",
+      "parent": "18316",
+      "child": "184927"
+    },
+    {
+      "kind": "parent",
+      "parent": "18316",
+      "child": "184928"
+    },
+    {
+      "kind": "parent",
+      "parent": "18316",
+      "child": "184929"
+    },
+    {
+      "kind": "parent",
+      "parent": "18316",
+      "child": "184930"
+    },
+    {
+      "kind": "parent",
+      "parent": "184920",
+      "child": "169074"
+    }
+  ]
+}

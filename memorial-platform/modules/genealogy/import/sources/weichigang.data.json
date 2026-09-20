@@ -1,0 +1,81 @@
+{
+  "key": "cbdb:weichigang",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "139166",
+      "name": "尉遲恭",
+      "citation": "CBDB 中国历代人物传记资料库 person 139166",
+      "gender": "male",
+      "birth": {
+        "year": 585
+      },
+      "death": {
+        "year": 658
+      }
+    },
+    {
+      "externalId": "139162",
+      "name": "蘇娬",
+      "citation": "CBDB 中国历代人物传记资料库 person 139162",
+      "gender": "female",
+      "birth": {
+        "year": 589
+      },
+      "death": {
+        "year": 613
+      }
+    },
+    {
+      "externalId": "30947",
+      "name": "尉遲伽",
+      "citation": "CBDB 中国历代人物传记资料库 person 30947",
+      "gender": "male"
+    },
+    {
+      "externalId": "30586",
+      "name": "尉遲寶琳",
+      "citation": "CBDB 中国历代人物传记资料库 person 30586",
+      "gender": "male"
+    },
+    {
+      "externalId": "30946",
+      "name": "尉遲益都",
+      "citation": "CBDB 中国历代人物传记资料库 person 30946",
+      "gender": "male"
+    },
+    {
+      "externalId": "30945",
+      "name": "尉遲本貞",
+      "citation": "CBDB 中国历代人物传记资料库 person 30945",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "30947",
+      "child": "139166"
+    },
+    {
+      "kind": "spouse",
+      "a": "139162",
+      "b": "139166"
+    },
+    {
+      "kind": "parent",
+      "parent": "139166",
+      "child": "30586"
+    },
+    {
+      "kind": "parent",
+      "parent": "30946",
+      "child": "30947"
+    },
+    {
+      "kind": "parent",
+      "parent": "30945",
+      "child": "30946"
+    }
+  ]
+}

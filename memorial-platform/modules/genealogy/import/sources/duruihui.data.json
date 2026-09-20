@@ -1,0 +1,70 @@
+{
+  "key": "cbdb:duruihui",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "30864",
+      "name": "杜如晦",
+      "citation": "CBDB 中国历代人物传记资料库 person 30864",
+      "gender": "male",
+      "birth": {
+        "year": 585
+      },
+      "death": {
+        "year": 630
+      }
+    },
+    {
+      "externalId": "30860",
+      "name": "杜吒",
+      "citation": "CBDB 中国历代人物传记资料库 person 30860",
+      "gender": "male"
+    },
+    {
+      "externalId": "173234",
+      "name": "杜構",
+      "citation": "CBDB 中国历代人物传记资料库 person 173234",
+      "gender": "male",
+      "death": {
+        "year": 681
+      }
+    },
+    {
+      "externalId": "173235",
+      "name": "杜荷",
+      "citation": "CBDB 中国历代人物传记资料库 person 173235",
+      "gender": "male",
+      "death": {
+        "year": 681
+      }
+    },
+    {
+      "externalId": "30859",
+      "name": "杜徽",
+      "citation": "CBDB 中国历代人物传记资料库 person 30859",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "30860",
+      "child": "30864"
+    },
+    {
+      "kind": "parent",
+      "parent": "30864",
+      "child": "173234"
+    },
+    {
+      "kind": "parent",
+      "parent": "30864",
+      "child": "173235"
+    },
+    {
+      "kind": "parent",
+      "parent": "30859",
+      "child": "30860"
+    }
+  ]
+}
