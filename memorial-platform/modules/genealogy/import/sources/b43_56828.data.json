@@ -1,0 +1,19 @@
+{
+  "key": "cbdb:b43_56828",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "56828",
+      "name": "凌如煥",
+      "citation": "CBDB 中国历代人物传记资料库 person 56828",
+      "gender": "male",
+      "birth": {
+        "year": 1681
+      },
+      "death": {
+        "year": 1748
+      }
+    }
+  ],
+  "relations": []
+}

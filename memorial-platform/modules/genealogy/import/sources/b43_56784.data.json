@@ -1,0 +1,25 @@
+{
+  "key": "cbdb:b43_56784",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "56784",
+      "name": "王祖慶",
+      "citation": "CBDB 中国历代人物传记资料库 person 56784",
+      "gender": "male"
+    },
+    {
+      "externalId": "56780",
+      "name": "吳茝春",
+      "citation": "CBDB 中国历代人物传记资料库 person 56780",
+      "gender": "female"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "spouse",
+      "a": "56780",
+      "b": "56784"
+    }
+  ]
+}

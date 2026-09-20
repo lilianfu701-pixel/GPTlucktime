@@ -1,0 +1,36 @@
+{
+  "key": "cbdb:b43_56768",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "56768",
+      "name": "鄭渾冰",
+      "citation": "CBDB 中国历代人物传记资料库 person 56768",
+      "gender": "female"
+    },
+    {
+      "externalId": "56770",
+      "name": "林楚麓",
+      "citation": "CBDB 中国历代人物传记资料库 person 56770",
+      "gender": "male"
+    },
+    {
+      "externalId": "118709",
+      "name": "林亮叔",
+      "citation": "CBDB 中国历代人物传记资料库 person 118709",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "spouse",
+      "a": "56768",
+      "b": "56770"
+    },
+    {
+      "kind": "parent",
+      "parent": "56768",
+      "child": "118709"
+    }
+  ]
+}

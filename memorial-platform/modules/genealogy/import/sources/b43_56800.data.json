@@ -1,0 +1,36 @@
+{
+  "key": "cbdb:b43_56800",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "56800",
+      "name": "黃夢鶴",
+      "citation": "CBDB 中国历代人物传记资料库 person 56800",
+      "gender": "male"
+    },
+    {
+      "externalId": "56799",
+      "name": "黃兆蘭",
+      "citation": "CBDB 中国历代人物传记资料库 person 56799",
+      "gender": "female"
+    },
+    {
+      "externalId": "56805",
+      "name": "清年",
+      "citation": "CBDB 中国历代人物传记资料库 person 56805",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "56800",
+      "child": "56799"
+    },
+    {
+      "kind": "spouse",
+      "a": "56799",
+      "b": "56805"
+    }
+  ]
+}

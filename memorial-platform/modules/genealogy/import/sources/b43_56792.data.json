@@ -1,0 +1,52 @@
+{
+  "key": "cbdb:b43_56792",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "56792",
+      "name": "許珠",
+      "citation": "CBDB 中国历代人物传记资料库 person 56792",
+      "gender": "female"
+    },
+    {
+      "externalId": "56793",
+      "name": "吳煥",
+      "citation": "CBDB 中国历代人物传记资料库 person 56793",
+      "gender": "male"
+    },
+    {
+      "externalId": "95329",
+      "name": "許簡",
+      "citation": "CBDB 中国历代人物传记资料库 person 95329",
+      "gender": "male"
+    },
+    {
+      "externalId": "95328",
+      "name": "丁月鄰",
+      "citation": "CBDB 中国历代人物传记资料库 person 95328",
+      "gender": "female"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "95329",
+      "child": "56792"
+    },
+    {
+      "kind": "parent",
+      "parent": "95328",
+      "child": "56792"
+    },
+    {
+      "kind": "spouse",
+      "a": "56792",
+      "b": "56793"
+    },
+    {
+      "kind": "spouse",
+      "a": "95328",
+      "b": "95329"
+    }
+  ]
+}

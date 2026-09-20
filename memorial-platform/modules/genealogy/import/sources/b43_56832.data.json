@@ -1,0 +1,40 @@
+{
+  "key": "cbdb:b43_56832",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "56832",
+      "name": "孫嘉淦",
+      "citation": "CBDB 中国历代人物传记资料库 person 56832",
+      "gender": "male",
+      "birth": {
+        "year": 1683
+      },
+      "death": {
+        "year": 1753
+      }
+    },
+    {
+      "externalId": "513432",
+      "name": "孫天繡",
+      "citation": "CBDB 中国历代人物传记资料库 person 513432"
+    },
+    {
+      "externalId": "513435",
+      "name": "孫孝懿",
+      "citation": "CBDB 中国历代人物传记资料库 person 513435"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "513432",
+      "child": "56832"
+    },
+    {
+      "kind": "parent",
+      "parent": "56832",
+      "child": "513435"
+    }
+  ]
+}

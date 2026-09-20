@@ -1,0 +1,50 @@
+{
+  "key": "cbdb:b43_56812",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "56812",
+      "name": "富察傅鼐",
+      "citation": "CBDB 中国历代人物传记资料库 person 56812",
+      "gender": "male",
+      "birth": {
+        "year": 1677
+      },
+      "death": {
+        "year": 1738
+      }
+    },
+    {
+      "externalId": "513361",
+      "name": "富察噶爾漢",
+      "citation": "CBDB 中国历代人物传记资料库 person 513361"
+    },
+    {
+      "externalId": "513359",
+      "name": "富察查納",
+      "citation": "CBDB 中国历代人物传记资料库 person 513359"
+    },
+    {
+      "externalId": "513360",
+      "name": "富察科占",
+      "citation": "CBDB 中国历代人物传记资料库 person 513360"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "513361",
+      "child": "56812"
+    },
+    {
+      "kind": "parent",
+      "parent": "56812",
+      "child": "513359"
+    },
+    {
+      "kind": "parent",
+      "parent": "56812",
+      "child": "513360"
+    }
+  ]
+}

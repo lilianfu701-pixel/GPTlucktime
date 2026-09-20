@@ -1,0 +1,60 @@
+{
+  "key": "cbdb:b43_56816",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "56816",
+      "name": "于成龍",
+      "citation": "CBDB 中国历代人物传记资料库 person 56816",
+      "gender": "male",
+      "birth": {
+        "year": 1617
+      },
+      "death": {
+        "year": 1684
+      }
+    },
+    {
+      "externalId": "513375",
+      "name": "于時煌",
+      "citation": "CBDB 中国历代人物传记资料库 person 513375"
+    },
+    {
+      "externalId": "513372",
+      "name": "于廷元",
+      "citation": "CBDB 中国历代人物传记资料库 person 513372"
+    },
+    {
+      "externalId": "513373",
+      "name": "于廷勱",
+      "citation": "CBDB 中国历代人物传记资料库 person 513373"
+    },
+    {
+      "externalId": "513374",
+      "name": "于廷翼",
+      "citation": "CBDB 中国历代人物传记资料库 person 513374"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "513375",
+      "child": "56816"
+    },
+    {
+      "kind": "parent",
+      "parent": "56816",
+      "child": "513372"
+    },
+    {
+      "kind": "parent",
+      "parent": "56816",
+      "child": "513373"
+    },
+    {
+      "kind": "parent",
+      "parent": "56816",
+      "child": "513374"
+    }
+  ]
+}

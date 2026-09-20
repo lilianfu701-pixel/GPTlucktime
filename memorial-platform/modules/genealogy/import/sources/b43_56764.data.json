@@ -1,0 +1,25 @@
+{
+  "key": "cbdb:b43_56764",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "56764",
+      "name": "朱辰應",
+      "citation": "CBDB 中国历代人物传记资料库 person 56764",
+      "gender": "male"
+    },
+    {
+      "externalId": "56761",
+      "name": "徐錦",
+      "citation": "CBDB 中国历代人物传记资料库 person 56761",
+      "gender": "female"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "spouse",
+      "a": "56761",
+      "b": "56764"
+    }
+  ]
+}

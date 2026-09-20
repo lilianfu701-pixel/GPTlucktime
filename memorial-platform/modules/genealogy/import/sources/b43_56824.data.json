@@ -1,0 +1,40 @@
+{
+  "key": "cbdb:b43_56824",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "56824",
+      "name": "施琅",
+      "citation": "CBDB 中国历代人物传记资料库 person 56824",
+      "gender": "male",
+      "birth": {
+        "year": 1621
+      },
+      "death": {
+        "year": 1696
+      }
+    },
+    {
+      "externalId": "513395",
+      "name": "施大宣",
+      "citation": "CBDB 中国历代人物传记资料库 person 513395"
+    },
+    {
+      "externalId": "513396",
+      "name": "施世范",
+      "citation": "CBDB 中国历代人物传记资料库 person 513396"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "513395",
+      "child": "56824"
+    },
+    {
+      "kind": "parent",
+      "parent": "56824",
+      "child": "513396"
+    }
+  ]
+}

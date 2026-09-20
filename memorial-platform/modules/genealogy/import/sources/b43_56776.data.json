@@ -1,0 +1,36 @@
+{
+  "key": "cbdb:b43_56776",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "56776",
+      "name": "愛新覺羅蘭軒",
+      "citation": "CBDB 中国历代人物传记资料库 person 56776",
+      "gender": "female"
+    },
+    {
+      "externalId": "56778",
+      "name": "棟鄂嵩山",
+      "citation": "CBDB 中国历代人物传记资料库 person 56778",
+      "gender": "male"
+    },
+    {
+      "externalId": "61421",
+      "name": "棟鄂能泰",
+      "citation": "CBDB 中国历代人物传记资料库 person 61421",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "spouse",
+      "a": "56776",
+      "b": "56778"
+    },
+    {
+      "kind": "parent",
+      "parent": "56776",
+      "child": "61421"
+    }
+  ]
+}

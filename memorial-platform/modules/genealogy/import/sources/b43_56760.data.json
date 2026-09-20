@@ -1,0 +1,64 @@
+{
+  "key": "cbdb:b43_56760",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "56760",
+      "name": "李宗袁",
+      "citation": "CBDB 中国历代人物传记资料库 person 56760",
+      "gender": "male"
+    },
+    {
+      "externalId": "56758",
+      "name": "李心敬",
+      "citation": "CBDB 中国历代人物传记资料库 person 56758",
+      "gender": "female"
+    },
+    {
+      "externalId": "56763",
+      "name": "歸朝煦",
+      "citation": "CBDB 中国历代人物传记资料库 person 56763",
+      "gender": "male"
+    },
+    {
+      "externalId": "54821",
+      "name": "歸懋儀",
+      "citation": "CBDB 中国历代人物传记资料库 person 54821",
+      "gender": "female",
+      "birth": {
+        "year": 1762
+      },
+      "death": {
+        "year": 1832
+      }
+    },
+    {
+      "externalId": "54824",
+      "name": "李學璜",
+      "citation": "CBDB 中国历代人物传记资料库 person 54824",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "56760",
+      "child": "56758"
+    },
+    {
+      "kind": "spouse",
+      "a": "56758",
+      "b": "56763"
+    },
+    {
+      "kind": "parent",
+      "parent": "56758",
+      "child": "54821"
+    },
+    {
+      "kind": "spouse",
+      "a": "54821",
+      "b": "54824"
+    }
+  ]
+}

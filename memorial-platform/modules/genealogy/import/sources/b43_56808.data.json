@@ -1,0 +1,31 @@
+{
+  "key": "cbdb:b43_56808",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "56808",
+      "name": "吳蕙",
+      "citation": "CBDB 中国历代人物传记资料库 person 56808",
+      "gender": "female"
+    },
+    {
+      "externalId": "54122",
+      "name": "袁樹",
+      "citation": "CBDB 中国历代人物传记资料库 person 54122",
+      "gender": "male",
+      "birth": {
+        "year": 1730
+      },
+      "death": {
+        "year": 1810
+      }
+    }
+  ],
+  "relations": [
+    {
+      "kind": "spouse",
+      "a": "54122",
+      "b": "56808"
+    }
+  ]
+}
