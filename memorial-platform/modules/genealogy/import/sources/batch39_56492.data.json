@@ -1,0 +1,42 @@
+{
+  "key": "cbdb:batch39_56492",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "56492",
+      "name": "嚴迢",
+      "citation": "CBDB 中国历代人物传记资料库 person 56492",
+      "gender": "female"
+    },
+    {
+      "externalId": "56495",
+      "name": "龔尹凎",
+      "citation": "CBDB 中国历代人物传记资料库 person 56495",
+      "gender": "male"
+    },
+    {
+      "externalId": "56493",
+      "name": "嚴烺",
+      "citation": "CBDB 中国历代人物传记资料库 person 56493",
+      "gender": "male",
+      "birth": {
+        "year": 1774
+      },
+      "death": {
+        "year": 1840
+      }
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "56493",
+      "child": "56492"
+    },
+    {
+      "kind": "spouse",
+      "a": "56492",
+      "b": "56495"
+    }
+  ]
+}

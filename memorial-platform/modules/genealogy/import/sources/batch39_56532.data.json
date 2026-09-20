@@ -1,0 +1,25 @@
+{
+  "key": "cbdb:batch39_56532",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "56532",
+      "name": "朱祖振",
+      "citation": "CBDB 中国历代人物传记资料库 person 56532",
+      "gender": "male"
+    },
+    {
+      "externalId": "56529",
+      "name": "龔自璋",
+      "citation": "CBDB 中国历代人物传记资料库 person 56529",
+      "gender": "female"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "spouse",
+      "a": "56529",
+      "b": "56532"
+    }
+  ]
+}

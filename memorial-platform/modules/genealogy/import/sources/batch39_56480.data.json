@@ -1,0 +1,47 @@
+{
+  "key": "cbdb:batch39_56480",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "56480",
+      "name": "王瑋慶",
+      "citation": "CBDB 中国历代人物传记资料库 person 56480",
+      "gender": "male",
+      "birth": {
+        "year": 1788
+      },
+      "death": {
+        "year": 1842
+      }
+    },
+    {
+      "externalId": "56478",
+      "name": "單氏(王瑋慶妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 56478",
+      "gender": "female",
+      "birth": {
+        "year": 1786
+      },
+      "death": {
+        "year": 1810
+      }
+    },
+    {
+      "externalId": "521514",
+      "name": "王錫棨",
+      "citation": "CBDB 中国历代人物传记资料库 person 521514"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "spouse",
+      "a": "56478",
+      "b": "56480"
+    },
+    {
+      "kind": "parent",
+      "parent": "56480",
+      "child": "521514"
+    }
+  ]
+}

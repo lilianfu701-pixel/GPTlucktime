@@ -1,0 +1,36 @@
+{
+  "key": "cbdb:batch39_56524",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "56524",
+      "name": "陸娟",
+      "citation": "CBDB 中国历代人物传记资料库 person 56524",
+      "gender": "female"
+    },
+    {
+      "externalId": "56526",
+      "name": "馬龍",
+      "citation": "CBDB 中国历代人物传记资料库 person 56526",
+      "gender": "male"
+    },
+    {
+      "externalId": "56525",
+      "name": "陸德蘊",
+      "citation": "CBDB 中国历代人物传记资料库 person 56525",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "56525",
+      "child": "56524"
+    },
+    {
+      "kind": "spouse",
+      "a": "56524",
+      "b": "56526"
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "key": "cbdb:batch39_56544",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "56544",
+      "name": "黃樹穀",
+      "citation": "CBDB 中国历代人物传记资料库 person 56544",
+      "gender": "male",
+      "birth": {
+        "year": 1701
+      },
+      "death": {
+        "year": 1751
+      }
+    },
+    {
+      "externalId": "56542",
+      "name": "梁瑛",
+      "citation": "CBDB 中国历代人物传记资料库 person 56542",
+      "gender": "female"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "spouse",
+      "a": "56542",
+      "b": "56544"
+    }
+  ]
+}

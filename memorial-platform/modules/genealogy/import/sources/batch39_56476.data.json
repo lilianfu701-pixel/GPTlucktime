@@ -1,0 +1,25 @@
+{
+  "key": "cbdb:batch39_56476",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "56476",
+      "name": "李清輝",
+      "citation": "CBDB 中国历代人物传记资料库 person 56476",
+      "gender": "female"
+    },
+    {
+      "externalId": "126250",
+      "name": "寧某(李清輝夫)",
+      "citation": "CBDB 中国历代人物传记资料库 person 126250",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "spouse",
+      "a": "126250",
+      "b": "56476"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "key": "cbdb:batch39_56508",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "56508",
+      "name": "李如蕙",
+      "citation": "CBDB 中国历代人物传记资料库 person 56508",
+      "gender": "female"
+    },
+    {
+      "externalId": "56509",
+      "name": "梁一峯",
+      "citation": "CBDB 中国历代人物传记资料库 person 56509",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "spouse",
+      "a": "56508",
+      "b": "56509"
+    }
+  ]
+}

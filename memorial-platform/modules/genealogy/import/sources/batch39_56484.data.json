@@ -1,0 +1,36 @@
+{
+  "key": "cbdb:batch39_56484",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "56484",
+      "name": "程鼎",
+      "citation": "CBDB 中国历代人物传记资料库 person 56484",
+      "gender": "male"
+    },
+    {
+      "externalId": "56483",
+      "name": "程啟",
+      "citation": "CBDB 中国历代人物传记资料库 person 56483",
+      "gender": "female"
+    },
+    {
+      "externalId": "56485",
+      "name": "史悠楨",
+      "citation": "CBDB 中国历代人物传记资料库 person 56485",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "56484",
+      "child": "56483"
+    },
+    {
+      "kind": "spouse",
+      "a": "56483",
+      "b": "56485"
+    }
+  ]
+}

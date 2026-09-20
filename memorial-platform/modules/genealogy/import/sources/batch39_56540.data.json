@@ -1,0 +1,92 @@
+{
+  "key": "cbdb:batch39_56540",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "56540",
+      "name": "侯瀞",
+      "citation": "CBDB 中国历代人物传记资料库 person 56540",
+      "gender": "male"
+    },
+    {
+      "externalId": "56538",
+      "name": "釋靜維",
+      "citation": "CBDB 中国历代人物传记资料库 person 56538",
+      "gender": "female"
+    },
+    {
+      "externalId": "55104",
+      "name": "侯峒曾",
+      "citation": "CBDB 中国历代人物传记资料库 person 55104",
+      "gender": "male",
+      "birth": {
+        "year": 1591
+      },
+      "death": {
+        "year": 1645
+      }
+    },
+    {
+      "externalId": "129271",
+      "name": "侯震暘",
+      "citation": "CBDB 中国历代人物传记资料库 person 129271",
+      "gender": "male",
+      "birth": {
+        "year": 1569
+      },
+      "death": {
+        "year": 1627
+      }
+    },
+    {
+      "externalId": "233619",
+      "name": "龔氏(侯震暘妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 233619",
+      "gender": "female"
+    },
+    {
+      "externalId": "233617",
+      "name": "侯孔詔",
+      "citation": "CBDB 中国历代人物传记资料库 person 233617",
+      "gender": "male"
+    },
+    {
+      "externalId": "233618",
+      "name": "陳氏(侯震暘母)",
+      "citation": "CBDB 中国历代人物传记资料库 person 233618",
+      "gender": "female"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "55104",
+      "child": "56540"
+    },
+    {
+      "kind": "spouse",
+      "a": "56538",
+      "b": "56540"
+    },
+    {
+      "kind": "parent",
+      "parent": "129271",
+      "child": "55104"
+    },
+    {
+      "kind": "parent",
+      "parent": "233617",
+      "child": "129271"
+    },
+    {
+      "kind": "parent",
+      "parent": "233618",
+      "child": "129271"
+    },
+    {
+      "kind": "spouse",
+      "a": "129271",
+      "b": "233619"
+    }
+  ]
+}

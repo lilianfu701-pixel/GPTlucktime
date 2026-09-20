@@ -1,0 +1,25 @@
+{
+  "key": "cbdb:batch39_56504",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "56504",
+      "name": "楊淑媛",
+      "citation": "CBDB 中国历代人物传记资料库 person 56504",
+      "gender": "female"
+    },
+    {
+      "externalId": "56505",
+      "name": "楊兆璜",
+      "citation": "CBDB 中国历代人物传记资料库 person 56505",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "56505",
+      "child": "56504"
+    }
+  ]
+}

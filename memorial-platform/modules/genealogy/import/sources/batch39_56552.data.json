@@ -1,0 +1,25 @@
+{
+  "key": "cbdb:batch39_56552",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "56552",
+      "name": "林馨",
+      "citation": "CBDB 中国历代人物传记资料库 person 56552",
+      "gender": "female"
+    },
+    {
+      "externalId": "56553",
+      "name": "孫瑜",
+      "citation": "CBDB 中国历代人物传记资料库 person 56553",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "spouse",
+      "a": "56552",
+      "b": "56553"
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "key": "cbdb:batch39_56500",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "56500",
+      "name": "張志鑑",
+      "citation": "CBDB 中国历代人物传记资料库 person 56500",
+      "gender": "male"
+    },
+    {
+      "externalId": "56499",
+      "name": "張藻",
+      "citation": "CBDB 中国历代人物传记资料库 person 56499",
+      "gender": "female"
+    },
+    {
+      "externalId": "56501",
+      "name": "沈本",
+      "citation": "CBDB 中国历代人物传记资料库 person 56501",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "56500",
+      "child": "56499"
+    },
+    {
+      "kind": "spouse",
+      "a": "56499",
+      "b": "56501"
+    }
+  ]
+}

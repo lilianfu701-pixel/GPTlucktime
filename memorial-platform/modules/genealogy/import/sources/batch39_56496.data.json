@@ -1,0 +1,25 @@
+{
+  "key": "cbdb:batch39_56496",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "56496",
+      "name": "汪增安",
+      "citation": "CBDB 中国历代人物传记资料库 person 56496",
+      "gender": "female"
+    },
+    {
+      "externalId": "56497",
+      "name": "汪應培",
+      "citation": "CBDB 中国历代人物传记资料库 person 56497",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "56497",
+      "child": "56496"
+    }
+  ]
+}

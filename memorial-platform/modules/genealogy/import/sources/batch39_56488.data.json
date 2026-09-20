@@ -1,0 +1,25 @@
+{
+  "key": "cbdb:batch39_56488",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "56488",
+      "name": "廖壽孫",
+      "citation": "CBDB 中国历代人物传记资料库 person 56488",
+      "gender": "male"
+    },
+    {
+      "externalId": "56486",
+      "name": "李靜華",
+      "citation": "CBDB 中国历代人物传记资料库 person 56486",
+      "gender": "female"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "spouse",
+      "a": "56486",
+      "b": "56488"
+    }
+  ]
+}

@@ -212,6 +212,27 @@ import suweidao from "./suweidao.data.json";
 import liufen from "./liufen.data.json";
 import liugong from "./liugong.data.json";
 import xiaoying from "./xiaoying.data.json";
+// CBDB 第三十九批：Qing官员学者20人
+import batch39_56476 from "./batch39_56476.data.json";
+import batch39_56480 from "./batch39_56480.data.json";
+import batch39_56484 from "./batch39_56484.data.json";
+import batch39_56488 from "./batch39_56488.data.json";
+import batch39_56492 from "./batch39_56492.data.json";
+import batch39_56496 from "./batch39_56496.data.json";
+import batch39_56500 from "./batch39_56500.data.json";
+import batch39_56504 from "./batch39_56504.data.json";
+import batch39_56508 from "./batch39_56508.data.json";
+import batch39_56512 from "./batch39_56512.data.json";
+import batch39_56516 from "./batch39_56516.data.json";
+import batch39_56520 from "./batch39_56520.data.json";
+import batch39_56524 from "./batch39_56524.data.json";
+import batch39_56528 from "./batch39_56528.data.json";
+import batch39_56532 from "./batch39_56532.data.json";
+import batch39_56536 from "./batch39_56536.data.json";
+import batch39_56540 from "./batch39_56540.data.json";
+import batch39_56544 from "./batch39_56544.data.json";
+import batch39_56548 from "./batch39_56548.data.json";
+import batch39_56552 from "./batch39_56552.data.json";
 // CBDB 第三十八批：Qing官员学者15人
 import batch38_56416 from "./batch38_56416.data.json";
 import batch38_56420 from "./batch38_56420.data.json";
@@ -787,6 +808,27 @@ const FAMILIES: { key: string; label: string; dataset: GenealogyDataset }[] = [
   { key: "liufen", label: "河东柳氏·柳芬支（柳懿·柳均·南北朝到唐）", dataset: liufen as GenealogyDataset },
   { key: "liugong", label: "河东柳氏·柳公权支（书法家·柳瑗·柳仲憲）", dataset: liugong as GenealogyDataset },
   { key: "xiaoying", label: "兰陵萧氏·萧颖士支（萧道赐·萧恢·南朝到唐）", dataset: xiaoying as GenealogyDataset },
+  // CBDB 第三十九批：Qing官员学者20人
+  { key: "batch39_56476", label: "Qing官员集群27（清代官员·2人）", dataset: batch39_56476 as GenealogyDataset },
+  { key: "batch39_56480", label: "Qing官员集群28（清代官员·3人）", dataset: batch39_56480 as GenealogyDataset },
+  { key: "batch39_56484", label: "Qing官员集群29（清代官员·3人）", dataset: batch39_56484 as GenealogyDataset },
+  { key: "batch39_56488", label: "Qing官员集群30（清代官员·2人）", dataset: batch39_56488 as GenealogyDataset },
+  { key: "batch39_56492", label: "Qing官员集群31（清代官员·3人）", dataset: batch39_56492 as GenealogyDataset },
+  { key: "batch39_56496", label: "Qing官员集群32（清代官员·2人）", dataset: batch39_56496 as GenealogyDataset },
+  { key: "batch39_56500", label: "Qing官员集群33（清代官员·3人）", dataset: batch39_56500 as GenealogyDataset },
+  { key: "batch39_56504", label: "Qing官员集群34（清代官员·2人）", dataset: batch39_56504 as GenealogyDataset },
+  { key: "batch39_56508", label: "Qing官员集群35（清代官员·2人）", dataset: batch39_56508 as GenealogyDataset },
+  { key: "batch39_56512", label: "Qing官员集群36（清代官员·1人）", dataset: batch39_56512 as GenealogyDataset },
+  { key: "batch39_56516", label: "Qing官员集群37（清代官员·1人）", dataset: batch39_56516 as GenealogyDataset },
+  { key: "batch39_56520", label: "Qing官员集群38（清代官员·1人）", dataset: batch39_56520 as GenealogyDataset },
+  { key: "batch39_56524", label: "Qing官员集群39（清代官员·3人）", dataset: batch39_56524 as GenealogyDataset },
+  { key: "batch39_56528", label: "Qing官员集群40（清代官员·1人）", dataset: batch39_56528 as GenealogyDataset },
+  { key: "batch39_56532", label: "Qing官员集群41（清代官员·2人）", dataset: batch39_56532 as GenealogyDataset },
+  { key: "batch39_56536", label: "Qing官员集群42（清代官员·0人）", dataset: batch39_56536 as GenealogyDataset },
+  { key: "batch39_56540", label: "Qing官员集群43（清代官员·7人）", dataset: batch39_56540 as GenealogyDataset },
+  { key: "batch39_56544", label: "Qing官员集群44（清代官员·2人）", dataset: batch39_56544 as GenealogyDataset },
+  { key: "batch39_56548", label: "Qing官员集群45（清代官员·1人）", dataset: batch39_56548 as GenealogyDataset },
+  { key: "batch39_56552", label: "Qing官员集群46（清代官员·2人）", dataset: batch39_56552 as GenealogyDataset },
   // CBDB 第三十八批：Qing官员学者15人
   { key: "batch38_56416", label: "Qing官员集群12（清代官员·2人）", dataset: batch38_56416 as GenealogyDataset },
   { key: "batch38_56420", label: "Qing官员集群13（清代官员·1人）", dataset: batch38_56420 as GenealogyDataset },
