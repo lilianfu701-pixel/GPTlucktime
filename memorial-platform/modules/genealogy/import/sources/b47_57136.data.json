@@ -1,0 +1,50 @@
+{
+  "key": "cbdb:b47_57136",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57136",
+      "name": "戴均元",
+      "citation": "CBDB 中国历代人物传记资料库 person 57136",
+      "gender": "male",
+      "birth": {
+        "year": 1746
+      },
+      "death": {
+        "year": 1840
+      }
+    },
+    {
+      "externalId": "514318",
+      "name": "戴珮",
+      "citation": "CBDB 中国历代人物传记资料库 person 514318"
+    },
+    {
+      "externalId": "514321",
+      "name": "戴詩亨",
+      "citation": "CBDB 中国历代人物传记资料库 person 514321"
+    },
+    {
+      "externalId": "514322",
+      "name": "戴誠亨",
+      "citation": "CBDB 中国历代人物传记资料库 person 514322"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "514318",
+      "child": "57136"
+    },
+    {
+      "kind": "parent",
+      "parent": "57136",
+      "child": "514321"
+    },
+    {
+      "kind": "parent",
+      "parent": "57136",
+      "child": "514322"
+    }
+  ]
+}

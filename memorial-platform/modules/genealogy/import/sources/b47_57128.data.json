@@ -1,0 +1,19 @@
+{
+  "key": "cbdb:b47_57128",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57128",
+      "name": "戴三錫",
+      "citation": "CBDB 中国历代人物传记资料库 person 57128",
+      "gender": "male",
+      "birth": {
+        "year": 1758
+      },
+      "death": {
+        "year": 1830
+      }
+    }
+  ],
+  "relations": []
+}

@@ -1,0 +1,50 @@
+{
+  "key": "cbdb:b47_57064",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57064",
+      "name": "孔毓珣",
+      "citation": "CBDB 中国历代人物传记资料库 person 57064",
+      "gender": "male",
+      "birth": {
+        "year": 1666
+      },
+      "death": {
+        "year": 1730
+      }
+    },
+    {
+      "externalId": "514095",
+      "name": "孔恩洪",
+      "citation": "CBDB 中国历代人物传记资料库 person 514095"
+    },
+    {
+      "externalId": "514096",
+      "name": "孔恩從",
+      "citation": "CBDB 中国历代人物传记资料库 person 514096"
+    },
+    {
+      "externalId": "514097",
+      "name": "孔傳熹",
+      "citation": "CBDB 中国历代人物传记资料库 person 514097"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "514095",
+      "child": "57064"
+    },
+    {
+      "kind": "parent",
+      "parent": "514096",
+      "child": "57064"
+    },
+    {
+      "kind": "parent",
+      "parent": "57064",
+      "child": "514097"
+    }
+  ]
+}

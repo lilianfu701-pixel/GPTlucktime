@@ -1,0 +1,50 @@
+{
+  "key": "cbdb:b47_57096",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57096",
+      "name": "愛新覺羅文彩",
+      "citation": "CBDB 中国历代人物传记资料库 person 57096",
+      "gender": "male",
+      "birth": {
+        "year": 1802
+      },
+      "death": {
+        "year": 1860
+      }
+    },
+    {
+      "externalId": "514170",
+      "name": "愛新覺羅祥然",
+      "citation": "CBDB 中国历代人物传记资料库 person 514170"
+    },
+    {
+      "externalId": "514171",
+      "name": "愛新覺羅祥華",
+      "citation": "CBDB 中国历代人物传记资料库 person 514171"
+    },
+    {
+      "externalId": "514172",
+      "name": "愛新覺羅祥焯",
+      "citation": "CBDB 中国历代人物传记资料库 person 514172"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "57096",
+      "child": "514170"
+    },
+    {
+      "kind": "parent",
+      "parent": "57096",
+      "child": "514171"
+    },
+    {
+      "kind": "parent",
+      "parent": "57096",
+      "child": "514172"
+    }
+  ]
+}

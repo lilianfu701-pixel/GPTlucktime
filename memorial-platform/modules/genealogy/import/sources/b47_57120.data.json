@@ -1,0 +1,19 @@
+{
+  "key": "cbdb:b47_57120",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57120",
+      "name": "王引之",
+      "citation": "CBDB 中国历代人物传记资料库 person 57120",
+      "gender": "male",
+      "birth": {
+        "year": 1766
+      },
+      "death": {
+        "year": 1834
+      }
+    }
+  ],
+  "relations": []
+}

@@ -1,0 +1,27 @@
+{
+  "key": "cbdb:b47_57160",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57160",
+      "name": "伊爾根覺羅阿爾泰",
+      "citation": "CBDB 中国历代人物传记资料库 person 57160",
+      "gender": "male",
+      "death": {
+        "year": 1773
+      }
+    },
+    {
+      "externalId": "514369",
+      "name": "伊爾根覺羅明德布",
+      "citation": "CBDB 中国历代人物传记资料库 person 514369"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "57160",
+      "child": "514369"
+    }
+  ]
+}

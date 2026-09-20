@@ -1,0 +1,40 @@
+{
+  "key": "cbdb:b47_57088",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57088",
+      "name": "劉長佑",
+      "citation": "CBDB 中国历代人物传记资料库 person 57088",
+      "gender": "male",
+      "birth": {
+        "year": 1818
+      },
+      "death": {
+        "year": 1887
+      }
+    },
+    {
+      "externalId": "514136",
+      "name": "劉思詣",
+      "citation": "CBDB 中国历代人物传记资料库 person 514136"
+    },
+    {
+      "externalId": "514137",
+      "name": "劉思謹",
+      "citation": "CBDB 中国历代人物传记资料库 person 514137"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "57088",
+      "child": "514136"
+    },
+    {
+      "kind": "parent",
+      "parent": "57088",
+      "child": "514137"
+    }
+  ]
+}

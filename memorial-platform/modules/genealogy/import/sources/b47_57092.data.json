@@ -1,0 +1,30 @@
+{
+  "key": "cbdb:b47_57092",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57092",
+      "name": "劉蓉",
+      "citation": "CBDB 中国历代人物传记资料库 person 57092",
+      "gender": "male",
+      "birth": {
+        "year": 1816
+      },
+      "death": {
+        "year": 1873
+      }
+    },
+    {
+      "externalId": "514159",
+      "name": "劉麒祥",
+      "citation": "CBDB 中国历代人物传记资料库 person 514159"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "57092",
+      "child": "514159"
+    }
+  ]
+}

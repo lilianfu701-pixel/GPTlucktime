@@ -1,0 +1,16 @@
+{
+  "key": "cbdb:b47_57084",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57084",
+      "name": "金聲桓",
+      "citation": "CBDB 中国历代人物传记资料库 person 57084",
+      "gender": "male",
+      "death": {
+        "year": 1649
+      }
+    }
+  ],
+  "relations": []
+}

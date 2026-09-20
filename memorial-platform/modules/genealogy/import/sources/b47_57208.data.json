@@ -1,0 +1,19 @@
+{
+  "key": "cbdb:b47_57208",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57208",
+      "name": "愛新覺羅奕經",
+      "citation": "CBDB 中国历代人物传记资料库 person 57208",
+      "gender": "male",
+      "birth": {
+        "year": 1791
+      },
+      "death": {
+        "year": 1853
+      }
+    }
+  ],
+  "relations": []
+}

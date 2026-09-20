@@ -1,0 +1,19 @@
+{
+  "key": "cbdb:b47_57144",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57144",
+      "name": "顏檢",
+      "citation": "CBDB 中国历代人物传记资料库 person 57144",
+      "gender": "male",
+      "birth": {
+        "year": 1757
+      },
+      "death": {
+        "year": 1833
+      }
+    }
+  ],
+  "relations": []
+}

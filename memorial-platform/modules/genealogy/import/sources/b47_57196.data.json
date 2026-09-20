@@ -1,0 +1,27 @@
+{
+  "key": "cbdb:b47_57196",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57196",
+      "name": "把岳忒哈當阿",
+      "citation": "CBDB 中国历代人物传记资料库 person 57196",
+      "gender": "male",
+      "death": {
+        "year": 1799
+      }
+    },
+    {
+      "externalId": "514412",
+      "name": "把岳忒賡音勒布",
+      "citation": "CBDB 中国历代人物传记资料库 person 514412"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "57196",
+      "child": "514412"
+    }
+  ]
+}

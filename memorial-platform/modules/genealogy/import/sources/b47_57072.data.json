@@ -1,0 +1,16 @@
+{
+  "key": "cbdb:b47_57072",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57072",
+      "name": "覺羅巴哈納",
+      "citation": "CBDB 中国历代人物传记资料库 person 57072",
+      "gender": "male",
+      "death": {
+        "year": 1666
+      }
+    }
+  ],
+  "relations": []
+}

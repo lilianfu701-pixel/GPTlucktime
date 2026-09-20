@@ -1,0 +1,30 @@
+{
+  "key": "cbdb:b47_57148",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57148",
+      "name": "棟鄂鐵保",
+      "citation": "CBDB 中国历代人物传记资料库 person 57148",
+      "gender": "male",
+      "birth": {
+        "year": 1752
+      },
+      "death": {
+        "year": 1824
+      }
+    },
+    {
+      "externalId": "514350",
+      "name": "棟鄂瑞恩",
+      "citation": "CBDB 中国历代人物传记资料库 person 514350"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "57148",
+      "child": "514350"
+    }
+  ]
+}

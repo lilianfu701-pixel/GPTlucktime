@@ -1,0 +1,57 @@
+{
+  "key": "cbdb:b47_57140",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57140",
+      "name": "戴聯奎",
+      "citation": "CBDB 中国历代人物传记资料库 person 57140",
+      "gender": "male",
+      "death": {
+        "year": 1822
+      }
+    },
+    {
+      "externalId": "514327",
+      "name": "戴蘧庵",
+      "citation": "CBDB 中国历代人物传记资料库 person 514327"
+    },
+    {
+      "externalId": "514324",
+      "name": "戴一芝",
+      "citation": "CBDB 中国历代人物传记资料库 person 514324"
+    },
+    {
+      "externalId": "514325",
+      "name": "戴一騏",
+      "citation": "CBDB 中国历代人物传记资料库 person 514325"
+    },
+    {
+      "externalId": "514326",
+      "name": "戴鳴皋",
+      "citation": "CBDB 中国历代人物传记资料库 person 514326"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "514327",
+      "child": "57140"
+    },
+    {
+      "kind": "parent",
+      "parent": "57140",
+      "child": "514324"
+    },
+    {
+      "kind": "parent",
+      "parent": "57140",
+      "child": "514325"
+    },
+    {
+      "kind": "parent",
+      "parent": "57140",
+      "child": "514326"
+    }
+  ]
+}

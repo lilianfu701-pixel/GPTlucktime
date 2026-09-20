@@ -1,0 +1,37 @@
+{
+  "key": "cbdb:b47_57188",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57188",
+      "name": "南一魁",
+      "citation": "CBDB 中国历代人物传记资料库 person 57188",
+      "gender": "male",
+      "death": {
+        "year": 1674
+      }
+    },
+    {
+      "externalId": "514406",
+      "name": "南秉綱",
+      "citation": "CBDB 中国历代人物传记资料库 person 514406"
+    },
+    {
+      "externalId": "514407",
+      "name": "南金璽",
+      "citation": "CBDB 中国历代人物传记资料库 person 514407"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "57188",
+      "child": "514406"
+    },
+    {
+      "kind": "parent",
+      "parent": "57188",
+      "child": "514407"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "key": "cbdb:b47_57056",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57056",
+      "name": "愛新覺羅允禮",
+      "citation": "CBDB 中国历代人物传记资料库 person 57056",
+      "gender": "male",
+      "birth": {
+        "year": 1697
+      },
+      "death": {
+        "year": 1738
+      }
+    }
+  ],
+  "relations": []
+}

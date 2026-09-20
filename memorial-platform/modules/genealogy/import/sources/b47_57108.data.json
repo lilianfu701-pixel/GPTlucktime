@@ -1,0 +1,47 @@
+{
+  "key": "cbdb:b47_57108",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57108",
+      "name": "董文豐",
+      "citation": "CBDB 中国历代人物传记资料库 person 57108",
+      "gender": "male",
+      "death": {
+        "year": 1860
+      }
+    },
+    {
+      "externalId": "514218",
+      "name": "董廣順",
+      "citation": "CBDB 中国历代人物传记资料库 person 514218"
+    },
+    {
+      "externalId": "514219",
+      "name": "董廣毓",
+      "citation": "CBDB 中国历代人物传记资料库 person 514219"
+    },
+    {
+      "externalId": "514220",
+      "name": "董廣麟",
+      "citation": "CBDB 中国历代人物传记资料库 person 514220"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "57108",
+      "child": "514218"
+    },
+    {
+      "kind": "parent",
+      "parent": "57108",
+      "child": "514219"
+    },
+    {
+      "kind": "parent",
+      "parent": "57108",
+      "child": "514220"
+    }
+  ]
+}

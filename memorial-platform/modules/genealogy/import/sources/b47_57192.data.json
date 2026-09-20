@@ -1,0 +1,69 @@
+{
+  "key": "cbdb:b47_57192",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57192",
+      "name": "王進泰",
+      "citation": "CBDB 中国历代人物传记资料库 person 57192",
+      "gender": "male",
+      "birth": {
+        "year": 1705
+      },
+      "death": {
+        "year": 1787
+      }
+    },
+    {
+      "externalId": "700241",
+      "name": "王治",
+      "citation": "CBDB 中国历代人物传记资料库 person 700241",
+      "gender": "male"
+    },
+    {
+      "externalId": "700242",
+      "name": "王炳",
+      "citation": "CBDB 中国历代人物传记资料库 person 700242"
+    },
+    {
+      "externalId": "69385",
+      "name": "王朝欽",
+      "citation": "CBDB 中国历代人物传记资料库 person 69385",
+      "gender": "male",
+      "death": {
+        "year": 1694
+      }
+    },
+    {
+      "externalId": "69137",
+      "name": "王可臣",
+      "citation": "CBDB 中国历代人物传记资料库 person 69137",
+      "gender": "male",
+      "death": {
+        "year": 1678
+      }
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "700241",
+      "child": "57192"
+    },
+    {
+      "kind": "parent",
+      "parent": "57192",
+      "child": "700242"
+    },
+    {
+      "kind": "parent",
+      "parent": "69385",
+      "child": "700241"
+    },
+    {
+      "kind": "parent",
+      "parent": "69137",
+      "child": "69385"
+    }
+  ]
+}

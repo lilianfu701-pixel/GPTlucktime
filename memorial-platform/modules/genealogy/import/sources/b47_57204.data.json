@@ -1,0 +1,34 @@
+{
+  "key": "cbdb:b47_57204",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57204",
+      "name": "王頊齡",
+      "citation": "CBDB 中国历代人物传记资料库 person 57204",
+      "gender": "male",
+      "birth": {
+        "year": 1642
+      },
+      "death": {
+        "year": 1725
+      }
+    },
+    {
+      "externalId": "61089",
+      "name": "王廣心",
+      "citation": "CBDB 中国历代人物传记资料库 person 61089",
+      "gender": "male",
+      "birth": {
+        "year": 1610
+      }
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "61089",
+      "child": "57204"
+    }
+  ]
+}

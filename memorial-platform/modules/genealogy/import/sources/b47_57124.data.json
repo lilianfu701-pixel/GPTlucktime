@@ -1,0 +1,19 @@
+{
+  "key": "cbdb:b47_57124",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57124",
+      "name": "章佳阿克敦",
+      "citation": "CBDB 中国历代人物传记资料库 person 57124",
+      "gender": "male",
+      "birth": {
+        "year": 1685
+      },
+      "death": {
+        "year": 1756
+      }
+    }
+  ],
+  "relations": []
+}

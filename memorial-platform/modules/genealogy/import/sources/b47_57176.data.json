@@ -1,0 +1,16 @@
+{
+  "key": "cbdb:b47_57176",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57176",
+      "name": "王得祿",
+      "citation": "CBDB 中国历代人物传记资料库 person 57176",
+      "gender": "male",
+      "death": {
+        "year": 1842
+      }
+    }
+  ],
+  "relations": []
+}

@@ -1,0 +1,19 @@
+{
+  "key": "cbdb:b47_57060",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57060",
+      "name": "卞三元",
+      "citation": "CBDB 中国历代人物传记资料库 person 57060",
+      "gender": "male",
+      "birth": {
+        "year": 1616
+      },
+      "death": {
+        "year": 1697
+      }
+    }
+  ],
+  "relations": []
+}

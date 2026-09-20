@@ -1,0 +1,16 @@
+{
+  "key": "cbdb:b47_57168",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57168",
+      "name": "王國光",
+      "citation": "CBDB 中国历代人物传记资料库 person 57168",
+      "gender": "male",
+      "death": {
+        "year": 1670
+      }
+    }
+  ],
+  "relations": []
+}

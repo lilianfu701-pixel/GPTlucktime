@@ -1,0 +1,37 @@
+{
+  "key": "cbdb:b47_57112",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57112",
+      "name": "牛天畀",
+      "citation": "CBDB 中国历代人物传记资料库 person 57112",
+      "gender": "male",
+      "death": {
+        "year": 1773
+      }
+    },
+    {
+      "externalId": "514227",
+      "name": "牛敬一",
+      "citation": "CBDB 中国历代人物传记资料库 person 514227"
+    },
+    {
+      "externalId": "514228",
+      "name": "牛敬憲",
+      "citation": "CBDB 中国历代人物传记资料库 person 514228"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "57112",
+      "child": "514227"
+    },
+    {
+      "kind": "parent",
+      "parent": "57112",
+      "child": "514228"
+    }
+  ]
+}

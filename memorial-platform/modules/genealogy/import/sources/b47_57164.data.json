@@ -1,0 +1,16 @@
+{
+  "key": "cbdb:b47_57164",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57164",
+      "name": "王荃可",
+      "citation": "CBDB 中国历代人物传记资料库 person 57164",
+      "gender": "male",
+      "death": {
+        "year": 1652
+      }
+    }
+  ],
+  "relations": []
+}

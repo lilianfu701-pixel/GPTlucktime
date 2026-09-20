@@ -1,0 +1,19 @@
+{
+  "key": "cbdb:b47_57104",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57104",
+      "name": "薩爾圖克長齡",
+      "citation": "CBDB 中国历代人物传记资料库 person 57104",
+      "gender": "male",
+      "birth": {
+        "year": 1758
+      },
+      "death": {
+        "year": 1838
+      }
+    }
+  ],
+  "relations": []
+}

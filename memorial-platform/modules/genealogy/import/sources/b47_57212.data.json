@@ -1,0 +1,19 @@
+{
+  "key": "cbdb:b47_57212",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57212",
+      "name": "王際華",
+      "citation": "CBDB 中国历代人物传记资料库 person 57212",
+      "gender": "male",
+      "birth": {
+        "year": 1717
+      },
+      "death": {
+        "year": 1776
+      }
+    }
+  ],
+  "relations": []
+}

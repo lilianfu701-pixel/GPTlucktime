@@ -1,0 +1,57 @@
+{
+  "key": "cbdb:b47_57080",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57080",
+      "name": "汪巴寧阿",
+      "citation": "CBDB 中国历代人物传记资料库 person 57080",
+      "gender": "male",
+      "death": {
+        "year": 1813
+      }
+    },
+    {
+      "externalId": "514121",
+      "name": "汪四格",
+      "citation": "CBDB 中国历代人物传记资料库 person 514121"
+    },
+    {
+      "externalId": "514122",
+      "name": "汪景旺",
+      "citation": "CBDB 中国历代人物传记资料库 person 514122"
+    },
+    {
+      "externalId": "514123",
+      "name": "汪景海",
+      "citation": "CBDB 中国历代人物传记资料库 person 514123"
+    },
+    {
+      "externalId": "514124",
+      "name": "汪景興",
+      "citation": "CBDB 中国历代人物传记资料库 person 514124"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "514121",
+      "child": "57080"
+    },
+    {
+      "kind": "parent",
+      "parent": "57080",
+      "child": "514122"
+    },
+    {
+      "kind": "parent",
+      "parent": "57080",
+      "child": "514123"
+    },
+    {
+      "kind": "parent",
+      "parent": "57080",
+      "child": "514124"
+    }
+  ]
+}
