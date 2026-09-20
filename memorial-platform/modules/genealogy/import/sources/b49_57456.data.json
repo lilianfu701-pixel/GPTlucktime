@@ -1,0 +1,16 @@
+{
+  "key": "cbdb:b49_57456",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57456",
+      "name": "吉慶",
+      "citation": "CBDB 中国历代人物传记资料库 person 57456",
+      "gender": "male",
+      "death": {
+        "year": 1802
+      }
+    }
+  ],
+  "relations": []
+}

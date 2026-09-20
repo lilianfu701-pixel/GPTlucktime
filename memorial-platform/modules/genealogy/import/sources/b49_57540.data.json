@@ -1,0 +1,16 @@
+{
+  "key": "cbdb:b49_57540",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57540",
+      "name": "西林覺羅鄂昌",
+      "citation": "CBDB 中国历代人物传记资料库 person 57540",
+      "gender": "male",
+      "death": {
+        "year": 1755
+      }
+    }
+  ],
+  "relations": []
+}

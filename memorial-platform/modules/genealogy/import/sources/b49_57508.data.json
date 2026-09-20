@@ -1,0 +1,16 @@
+{
+  "key": "cbdb:b49_57508",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57508",
+      "name": "博爾濟吉特善慶",
+      "citation": "CBDB 中国历代人物传记资料库 person 57508",
+      "gender": "male",
+      "death": {
+        "year": 1827
+      }
+    }
+  ],
+  "relations": []
+}

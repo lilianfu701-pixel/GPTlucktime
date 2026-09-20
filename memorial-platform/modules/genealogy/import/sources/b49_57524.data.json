@@ -1,0 +1,27 @@
+{
+  "key": "cbdb:b49_57524",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57524",
+      "name": "他塔喇舒輅",
+      "citation": "CBDB 中国历代人物传记资料库 person 57524",
+      "gender": "male",
+      "death": {
+        "year": 1752
+      }
+    },
+    {
+      "externalId": "515169",
+      "name": "他塔喇穆某林",
+      "citation": "CBDB 中国历代人物传记资料库 person 515169"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "515169",
+      "child": "57524"
+    }
+  ]
+}

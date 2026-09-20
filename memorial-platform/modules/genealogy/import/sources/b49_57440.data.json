@@ -1,0 +1,19 @@
+{
+  "key": "cbdb:b49_57440",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57440",
+      "name": "倪鴻範",
+      "citation": "CBDB 中国历代人物传记资料库 person 57440",
+      "gender": "male",
+      "birth": {
+        "year": 1683
+      },
+      "death": {
+        "year": 1759
+      }
+    }
+  ],
+  "relations": []
+}

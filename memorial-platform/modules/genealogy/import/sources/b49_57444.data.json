@@ -1,0 +1,19 @@
+{
+  "key": "cbdb:b49_57444",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57444",
+      "name": "唐英",
+      "citation": "CBDB 中国历代人物传记资料库 person 57444",
+      "gender": "male",
+      "birth": {
+        "year": 1682
+      },
+      "death": {
+        "year": 1756
+      }
+    }
+  ],
+  "relations": []
+}

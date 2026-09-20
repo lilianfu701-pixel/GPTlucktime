@@ -1,0 +1,19 @@
+{
+  "key": "cbdb:b49_57572",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57572",
+      "name": "徐澤醇",
+      "citation": "CBDB 中国历代人物传记资料库 person 57572",
+      "gender": "male",
+      "birth": {
+        "year": 1787
+      },
+      "death": {
+        "year": 1858
+      }
+    }
+  ],
+  "relations": []
+}

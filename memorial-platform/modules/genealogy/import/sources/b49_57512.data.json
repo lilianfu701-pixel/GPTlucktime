@@ -1,0 +1,16 @@
+{
+  "key": "cbdb:b49_57512",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57512",
+      "name": "愛新覺羅有鳳",
+      "citation": "CBDB 中国历代人物传记资料库 person 57512",
+      "gender": "male",
+      "death": {
+        "year": 1860
+      }
+    }
+  ],
+  "relations": []
+}

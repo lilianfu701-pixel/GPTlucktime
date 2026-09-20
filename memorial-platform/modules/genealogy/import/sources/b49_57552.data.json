@@ -1,0 +1,60 @@
+{
+  "key": "cbdb:b49_57552",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57552",
+      "name": "朱倫瀚",
+      "citation": "CBDB 中国历代人物传记资料库 person 57552",
+      "gender": "male",
+      "birth": {
+        "year": 1680
+      },
+      "death": {
+        "year": 1760
+      }
+    },
+    {
+      "externalId": "515207",
+      "name": "朱孝升",
+      "citation": "CBDB 中国历代人物传记资料库 person 515207"
+    },
+    {
+      "externalId": "515208",
+      "name": "朱孝先",
+      "citation": "CBDB 中国历代人物传记资料库 person 515208"
+    },
+    {
+      "externalId": "515209",
+      "name": "朱孝全",
+      "citation": "CBDB 中国历代人物传记资料库 person 515209"
+    },
+    {
+      "externalId": "515210",
+      "name": "朱孝揚",
+      "citation": "CBDB 中国历代人物传记资料库 person 515210"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "57552",
+      "child": "515207"
+    },
+    {
+      "kind": "parent",
+      "parent": "57552",
+      "child": "515208"
+    },
+    {
+      "kind": "parent",
+      "parent": "57552",
+      "child": "515209"
+    },
+    {
+      "kind": "parent",
+      "parent": "57552",
+      "child": "515210"
+    }
+  ]
+}

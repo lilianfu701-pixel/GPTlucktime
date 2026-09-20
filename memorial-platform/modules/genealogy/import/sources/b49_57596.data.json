@@ -1,0 +1,50 @@
+{
+  "key": "cbdb:b49_57596",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57596",
+      "name": "依爾根覺羅愛新保",
+      "citation": "CBDB 中国历代人物传记资料库 person 57596",
+      "gender": "male",
+      "birth": {
+        "year": 1763
+      },
+      "death": {
+        "year": 1832
+      }
+    },
+    {
+      "externalId": "515316",
+      "name": "依爾根覺羅順福祿",
+      "citation": "CBDB 中国历代人物传记资料库 person 515316"
+    },
+    {
+      "externalId": "515309",
+      "name": "依爾根覺羅文發",
+      "citation": "CBDB 中国历代人物传记资料库 person 515309"
+    },
+    {
+      "externalId": "515310",
+      "name": "依爾根覺羅文斌",
+      "citation": "CBDB 中国历代人物传记资料库 person 515310"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "515316",
+      "child": "57596"
+    },
+    {
+      "kind": "parent",
+      "parent": "57596",
+      "child": "515309"
+    },
+    {
+      "kind": "parent",
+      "parent": "57596",
+      "child": "515310"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "key": "cbdb:b49_57576",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57576",
+      "name": "黃鳴傑",
+      "citation": "CBDB 中国历代人物传记资料库 person 57576",
+      "gender": "male",
+      "death": {
+        "year": 1841
+      }
+    }
+  ],
+  "relations": []
+}

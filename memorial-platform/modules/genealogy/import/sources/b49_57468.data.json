@@ -1,0 +1,16 @@
+{
+  "key": "cbdb:b49_57468",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57468",
+      "name": "庫亞勒呢嗎奇多隆武",
+      "citation": "CBDB 中国历代人物传记资料库 person 57468",
+      "gender": "male",
+      "death": {
+        "year": 1831
+      }
+    }
+  ],
+  "relations": []
+}

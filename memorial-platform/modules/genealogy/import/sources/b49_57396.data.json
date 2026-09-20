@@ -1,0 +1,16 @@
+{
+  "key": "cbdb:b49_57396",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57396",
+      "name": "瓜爾佳英海",
+      "citation": "CBDB 中国历代人物传记资料库 person 57396",
+      "gender": "male",
+      "death": {
+        "year": 1811
+      }
+    }
+  ],
+  "relations": []
+}

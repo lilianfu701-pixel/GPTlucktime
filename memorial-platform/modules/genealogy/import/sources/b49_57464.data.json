@@ -1,0 +1,47 @@
+{
+  "key": "cbdb:b49_57464",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57464",
+      "name": "薩克達多永武",
+      "citation": "CBDB 中国历代人物传记资料库 person 57464",
+      "gender": "male",
+      "death": {
+        "year": 1806
+      }
+    },
+    {
+      "externalId": "515069",
+      "name": "薩克達祥祿",
+      "citation": "CBDB 中国历代人物传记资料库 person 515069"
+    },
+    {
+      "externalId": "515070",
+      "name": "薩克達祥寧",
+      "citation": "CBDB 中国历代人物传记资料库 person 515070"
+    },
+    {
+      "externalId": "515071",
+      "name": "薩克達祥福",
+      "citation": "CBDB 中国历代人物传记资料库 person 515071"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "57464",
+      "child": "515069"
+    },
+    {
+      "kind": "parent",
+      "parent": "57464",
+      "child": "515070"
+    },
+    {
+      "kind": "parent",
+      "parent": "57464",
+      "child": "515071"
+    }
+  ]
+}

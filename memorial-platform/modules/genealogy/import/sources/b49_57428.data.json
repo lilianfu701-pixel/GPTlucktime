@@ -1,0 +1,27 @@
+{
+  "key": "cbdb:b49_57428",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57428",
+      "name": "那木都魯先福",
+      "citation": "CBDB 中国历代人物传记资料库 person 57428",
+      "gender": "male",
+      "death": {
+        "year": 1821
+      }
+    },
+    {
+      "externalId": "514931",
+      "name": "那木都魯祥瑛",
+      "citation": "CBDB 中国历代人物传记资料库 person 514931"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "57428",
+      "child": "514931"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "key": "cbdb:b49_57556",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57556",
+      "name": "鄂濟鄂彌達",
+      "citation": "CBDB 中国历代人物传记资料库 person 57556",
+      "gender": "male",
+      "birth": {
+        "year": 1685
+      },
+      "death": {
+        "year": 1761
+      }
+    }
+  ],
+  "relations": []
+}

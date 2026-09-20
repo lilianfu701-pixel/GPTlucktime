@@ -1,0 +1,19 @@
+{
+  "key": "cbdb:b49_57488",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57488",
+      "name": "孫爾準",
+      "citation": "CBDB 中国历代人物传记资料库 person 57488",
+      "gender": "male",
+      "birth": {
+        "year": 1772
+      },
+      "death": {
+        "year": 1832
+      }
+    }
+  ],
+  "relations": []
+}

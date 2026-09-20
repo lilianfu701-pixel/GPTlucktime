@@ -1,0 +1,78 @@
+{
+  "key": "cbdb:b49_57500",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57500",
+      "name": "程祖洛",
+      "citation": "CBDB 中国历代人物传记资料库 person 57500",
+      "gender": "male",
+      "birth": {
+        "year": 1776
+      },
+      "death": {
+        "year": 1848
+      }
+    },
+    {
+      "externalId": "576743",
+      "name": "吳氏(程枚功母)",
+      "citation": "CBDB 中国历代人物传记资料库 person 576743",
+      "gender": "female",
+      "birth": {
+        "year": 1776
+      },
+      "death": {
+        "year": 1860
+      }
+    },
+    {
+      "externalId": "515125",
+      "name": "程枚功",
+      "citation": "CBDB 中国历代人物传记资料库 person 515125"
+    },
+    {
+      "externalId": "515126",
+      "name": "程校功",
+      "citation": "CBDB 中国历代人物传记资料库 person 515126"
+    },
+    {
+      "externalId": "515127",
+      "name": "程榮功",
+      "citation": "CBDB 中国历代人物传记资料库 person 515127"
+    },
+    {
+      "externalId": "576748",
+      "name": "梅氏(程榮功妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 576748",
+      "gender": "female"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "spouse",
+      "a": "57500",
+      "b": "576743"
+    },
+    {
+      "kind": "parent",
+      "parent": "57500",
+      "child": "515125"
+    },
+    {
+      "kind": "parent",
+      "parent": "57500",
+      "child": "515126"
+    },
+    {
+      "kind": "parent",
+      "parent": "57500",
+      "child": "515127"
+    },
+    {
+      "kind": "spouse",
+      "a": "515127",
+      "b": "576748"
+    }
+  ]
+}

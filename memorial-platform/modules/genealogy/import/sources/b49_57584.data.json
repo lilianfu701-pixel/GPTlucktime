@@ -1,0 +1,50 @@
+{
+  "key": "cbdb:b49_57584",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57584",
+      "name": "朱理",
+      "citation": "CBDB 中国历代人物传记资料库 person 57584",
+      "gender": "male",
+      "birth": {
+        "year": 1761
+      },
+      "death": {
+        "year": 1819
+      }
+    },
+    {
+      "externalId": "515282",
+      "name": "朱安沆",
+      "citation": "CBDB 中国历代人物传记资料库 person 515282"
+    },
+    {
+      "externalId": "515284",
+      "name": "朱廷烺",
+      "citation": "CBDB 中国历代人物传记资料库 person 515284"
+    },
+    {
+      "externalId": "515285",
+      "name": "朱菊齡",
+      "citation": "CBDB 中国历代人物传记资料库 person 515285"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "515282",
+      "child": "57584"
+    },
+    {
+      "kind": "parent",
+      "parent": "57584",
+      "child": "515284"
+    },
+    {
+      "kind": "parent",
+      "parent": "57584",
+      "child": "515285"
+    }
+  ]
+}

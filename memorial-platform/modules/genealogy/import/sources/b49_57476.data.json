@@ -1,0 +1,27 @@
+{
+  "key": "cbdb:b49_57476",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57476",
+      "name": "倭勒安興阿",
+      "citation": "CBDB 中国历代人物传记资料库 person 57476",
+      "gender": "male",
+      "death": {
+        "year": 1896
+      }
+    },
+    {
+      "externalId": "515088",
+      "name": "倭勒福森布",
+      "citation": "CBDB 中国历代人物传记资料库 person 515088"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "57476",
+      "child": "515088"
+    }
+  ]
+}

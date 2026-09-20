@@ -1,0 +1,16 @@
+{
+  "key": "cbdb:b49_57400",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57400",
+      "name": "蔡士英",
+      "citation": "CBDB 中国历代人物传记资料库 person 57400",
+      "gender": "male",
+      "death": {
+        "year": 1674
+      }
+    }
+  ],
+  "relations": []
+}

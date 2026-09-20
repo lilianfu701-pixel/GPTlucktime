@@ -1,0 +1,27 @@
+{
+  "key": "cbdb:b49_57432",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57432",
+      "name": "全節",
+      "citation": "CBDB 中国历代人物传记资料库 person 57432",
+      "gender": "male",
+      "death": {
+        "year": 1668
+      }
+    },
+    {
+      "externalId": "514940",
+      "name": "全成忠",
+      "citation": "CBDB 中国历代人物传记资料库 person 514940"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "57432",
+      "child": "514940"
+    }
+  ]
+}

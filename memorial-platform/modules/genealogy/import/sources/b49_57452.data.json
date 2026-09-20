@@ -1,0 +1,19 @@
+{
+  "key": "cbdb:b49_57452",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57452",
+      "name": "吉夢熊",
+      "citation": "CBDB 中国历代人物传记资料库 person 57452",
+      "gender": "male",
+      "birth": {
+        "year": 1721
+      },
+      "death": {
+        "year": 1794
+      }
+    }
+  ],
+  "relations": []
+}

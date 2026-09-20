@@ -1,0 +1,24 @@
+{
+  "key": "cbdb:b49_57424",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57424",
+      "name": "舒穆魯音登額",
+      "citation": "CBDB 中国历代人物传记资料库 person 57424",
+      "gender": "male"
+    },
+    {
+      "externalId": "514920",
+      "name": "舒穆魯哈當阿",
+      "citation": "CBDB 中国历代人物传记资料库 person 514920"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "57424",
+      "child": "514920"
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "key": "cbdb:b49_57412",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57412",
+      "name": "佟佳伊齡阿",
+      "citation": "CBDB 中国历代人物传记资料库 person 57412",
+      "gender": "male",
+      "death": {
+        "year": 1795
+      }
+    },
+    {
+      "externalId": "514898",
+      "name": "佟佳昌德",
+      "citation": "CBDB 中国历代人物传记资料库 person 514898"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "57412",
+      "child": "514898"
+    }
+  ]
+}

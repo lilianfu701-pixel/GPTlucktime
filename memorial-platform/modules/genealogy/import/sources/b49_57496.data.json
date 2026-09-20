@@ -1,0 +1,16 @@
+{
+  "key": "cbdb:b49_57496",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57496",
+      "name": "徐大貴",
+      "citation": "CBDB 中国历代人物传记资料库 person 57496",
+      "gender": "male",
+      "death": {
+        "year": 1679
+      }
+    }
+  ],
+  "relations": []
+}

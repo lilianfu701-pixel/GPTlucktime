@@ -1,0 +1,40 @@
+{
+  "key": "cbdb:b49_57580",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57580",
+      "name": "鈕祜祿恭阿拉",
+      "citation": "CBDB 中国历代人物传记资料库 person 57580",
+      "gender": "male",
+      "birth": {
+        "year": 1742
+      },
+      "death": {
+        "year": 1812
+      }
+    },
+    {
+      "externalId": "515277",
+      "name": "鈕祜祿吉惀泰",
+      "citation": "CBDB 中国历代人物传记资料库 person 515277"
+    },
+    {
+      "externalId": "515278",
+      "name": "鈕祜祿明善",
+      "citation": "CBDB 中国历代人物传记资料库 person 515278"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "57580",
+      "child": "515277"
+    },
+    {
+      "kind": "parent",
+      "parent": "57580",
+      "child": "515278"
+    }
+  ]
+}

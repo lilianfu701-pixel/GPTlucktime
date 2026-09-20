@@ -1,0 +1,40 @@
+{
+  "key": "cbdb:b49_57548",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57548",
+      "name": "鄂拖鄂順安",
+      "citation": "CBDB 中国历代人物传记资料库 person 57548",
+      "gender": "male",
+      "birth": {
+        "year": 1793
+      },
+      "death": {
+        "year": 1874
+      }
+    },
+    {
+      "externalId": "515205",
+      "name": "鄂拖官福",
+      "citation": "CBDB 中国历代人物传记资料库 person 515205"
+    },
+    {
+      "externalId": "515202",
+      "name": "鄂拖玉成",
+      "citation": "CBDB 中国历代人物传记资料库 person 515202"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "515205",
+      "child": "57548"
+    },
+    {
+      "kind": "parent",
+      "parent": "57548",
+      "child": "515202"
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "key": "cbdb:b49_57536",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57536",
+      "name": "徐昭德",
+      "citation": "CBDB 中国历代人物传记资料库 person 57536",
+      "gender": "male",
+      "death": {
+        "year": 1798
+      }
+    },
+    {
+      "externalId": "515188",
+      "name": "徐恩福",
+      "citation": "CBDB 中国历代人物传记资料库 person 515188"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "57536",
+      "child": "515188"
+    }
+  ]
+}

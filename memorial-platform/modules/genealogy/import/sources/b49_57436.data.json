@@ -1,0 +1,27 @@
+{
+  "key": "cbdb:b49_57436",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57436",
+      "name": "佟佳豐紳",
+      "citation": "CBDB 中国历代人物传记资料库 person 57436",
+      "gender": "male",
+      "death": {
+        "year": 1813
+      }
+    },
+    {
+      "externalId": "514949",
+      "name": "佟佳那興阿",
+      "citation": "CBDB 中国历代人物传记资料库 person 514949"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "57436",
+      "child": "514949"
+    }
+  ]
+}

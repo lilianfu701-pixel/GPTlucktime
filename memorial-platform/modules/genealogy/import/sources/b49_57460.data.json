@@ -1,0 +1,70 @@
+{
+  "key": "cbdb:b49_57460",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57460",
+      "name": "鈕祜錄同興",
+      "citation": "CBDB 中国历代人物传记资料库 person 57460",
+      "gender": "male",
+      "birth": {
+        "year": 1755
+      },
+      "death": {
+        "year": 1827
+      }
+    },
+    {
+      "externalId": "515051",
+      "name": "鈕祜錄達色",
+      "citation": "CBDB 中国历代人物传记资料库 person 515051"
+    },
+    {
+      "externalId": "515046",
+      "name": "鈕祜錄拉扎普",
+      "citation": "CBDB 中国历代人物传记资料库 person 515046"
+    },
+    {
+      "externalId": "515047",
+      "name": "鈕祜錄崇源",
+      "citation": "CBDB 中国历代人物传记资料库 person 515047"
+    },
+    {
+      "externalId": "515048",
+      "name": "鈕祜錄崇慧",
+      "citation": "CBDB 中国历代人物传记资料库 person 515048"
+    },
+    {
+      "externalId": "515049",
+      "name": "鈕祜錄崇齡",
+      "citation": "CBDB 中国历代人物传记资料库 person 515049"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "515051",
+      "child": "57460"
+    },
+    {
+      "kind": "parent",
+      "parent": "57460",
+      "child": "515046"
+    },
+    {
+      "kind": "parent",
+      "parent": "57460",
+      "child": "515047"
+    },
+    {
+      "kind": "parent",
+      "parent": "57460",
+      "child": "515048"
+    },
+    {
+      "kind": "parent",
+      "parent": "57460",
+      "child": "515049"
+    }
+  ]
+}

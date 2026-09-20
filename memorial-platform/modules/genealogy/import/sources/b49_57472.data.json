@@ -1,0 +1,27 @@
+{
+  "key": "cbdb:b49_57472",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57472",
+      "name": "佟佳安圖",
+      "citation": "CBDB 中国历代人物传记资料库 person 57472",
+      "gender": "male",
+      "death": {
+        "year": 1754
+      }
+    },
+    {
+      "externalId": "515078",
+      "name": "佟佳長青",
+      "citation": "CBDB 中国历代人物传记资料库 person 515078"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "57472",
+      "child": "515078"
+    }
+  ]
+}

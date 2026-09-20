@@ -1,0 +1,30 @@
+{
+  "key": "cbdb:b49_57588",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57588",
+      "name": "愛新覺羅恩桂",
+      "citation": "CBDB 中国历代人物传记资料库 person 57588",
+      "gender": "male",
+      "birth": {
+        "year": 1800
+      },
+      "death": {
+        "year": 1848
+      }
+    },
+    {
+      "externalId": "515286",
+      "name": "愛新覺羅常照",
+      "citation": "CBDB 中国历代人物传记资料库 person 515286"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "57588",
+      "child": "515286"
+    }
+  ]
+}

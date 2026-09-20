@@ -1,0 +1,16 @@
+{
+  "key": "cbdb:b49_57544",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57544",
+      "name": "溫都鄂海",
+      "citation": "CBDB 中国历代人物传记资料库 person 57544",
+      "gender": "male",
+      "death": {
+        "year": 1725
+      }
+    }
+  ],
+  "relations": []
+}

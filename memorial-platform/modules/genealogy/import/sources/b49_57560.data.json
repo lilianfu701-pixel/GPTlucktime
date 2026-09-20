@@ -1,0 +1,37 @@
+{
+  "key": "cbdb:b49_57560",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57560",
+      "name": "愛新覺羅雅朗阿",
+      "citation": "CBDB 中国历代人物传记资料库 person 57560",
+      "gender": "male",
+      "death": {
+        "year": 1794
+      }
+    },
+    {
+      "externalId": "515235",
+      "name": "愛新覺羅恒節",
+      "citation": "CBDB 中国历代人物传记资料库 person 515235"
+    },
+    {
+      "externalId": "515236",
+      "name": "愛新覺羅恒謹",
+      "citation": "CBDB 中国历代人物传记资料库 person 515236"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "57560",
+      "child": "515235"
+    },
+    {
+      "kind": "parent",
+      "parent": "57560",
+      "child": "515236"
+    }
+  ]
+}

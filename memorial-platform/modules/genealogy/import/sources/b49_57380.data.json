@@ -1,0 +1,19 @@
+{
+  "key": "cbdb:b49_57380",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57380",
+      "name": "伊里布",
+      "citation": "CBDB 中国历代人物传记资料库 person 57380",
+      "gender": "male",
+      "birth": {
+        "year": 1772
+      },
+      "death": {
+        "year": 1843
+      }
+    }
+  ],
+  "relations": []
+}

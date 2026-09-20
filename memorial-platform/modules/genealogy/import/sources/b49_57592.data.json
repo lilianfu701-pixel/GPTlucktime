@@ -1,0 +1,16 @@
+{
+  "key": "cbdb:b49_57592",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57592",
+      "name": "赫舍里嵩壽",
+      "citation": "CBDB 中国历代人物传记资料库 person 57592",
+      "gender": "male",
+      "death": {
+        "year": 1755
+      }
+    }
+  ],
+  "relations": []
+}

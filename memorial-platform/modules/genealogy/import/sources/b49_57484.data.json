@@ -1,0 +1,30 @@
+{
+  "key": "cbdb:b49_57484",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57484",
+      "name": "成克鞏",
+      "citation": "CBDB 中国历代人物传记资料库 person 57484",
+      "gender": "male",
+      "birth": {
+        "year": 1608
+      },
+      "death": {
+        "year": 1691
+      }
+    },
+    {
+      "externalId": "515093",
+      "name": "成光",
+      "citation": "CBDB 中国历代人物传记资料库 person 515093"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "57484",
+      "child": "515093"
+    }
+  ]
+}

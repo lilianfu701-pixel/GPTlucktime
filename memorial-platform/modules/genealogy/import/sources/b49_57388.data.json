@@ -1,0 +1,67 @@
+{
+  "key": "cbdb:b49_57388",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57388",
+      "name": "劉愈奇",
+      "citation": "CBDB 中国历代人物传记资料库 person 57388",
+      "gender": "male",
+      "death": {
+        "year": 1674
+      }
+    },
+    {
+      "externalId": "514819",
+      "name": "劉清炎",
+      "citation": "CBDB 中国历代人物传记资料库 person 514819"
+    },
+    {
+      "externalId": "514820",
+      "name": "劉清玫",
+      "citation": "CBDB 中国历代人物传记资料库 person 514820"
+    },
+    {
+      "externalId": "514821",
+      "name": "劉清琬",
+      "citation": "CBDB 中国历代人物传记资料库 person 514821"
+    },
+    {
+      "externalId": "514822",
+      "name": "劉清甯",
+      "citation": "CBDB 中国历代人物传记资料库 person 514822"
+    },
+    {
+      "externalId": "514823",
+      "name": "劉清珏",
+      "citation": "CBDB 中国历代人物传记资料库 person 514823"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "57388",
+      "child": "514819"
+    },
+    {
+      "kind": "parent",
+      "parent": "57388",
+      "child": "514820"
+    },
+    {
+      "kind": "parent",
+      "parent": "57388",
+      "child": "514821"
+    },
+    {
+      "kind": "parent",
+      "parent": "57388",
+      "child": "514822"
+    },
+    {
+      "kind": "parent",
+      "parent": "57388",
+      "child": "514823"
+    }
+  ]
+}

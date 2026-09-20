@@ -1,0 +1,19 @@
+{
+  "key": "cbdb:b49_57416",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57416",
+      "name": "伍長華",
+      "citation": "CBDB 中国历代人物传记资料库 person 57416",
+      "gender": "male",
+      "birth": {
+        "year": 1779
+      },
+      "death": {
+        "year": 1841
+      }
+    }
+  ],
+  "relations": []
+}

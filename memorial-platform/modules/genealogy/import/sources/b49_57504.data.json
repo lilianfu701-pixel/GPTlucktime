@@ -1,0 +1,27 @@
+{
+  "key": "cbdb:b49_57504",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57504",
+      "name": "佟佳托時",
+      "citation": "CBDB 中国历代人物传记资料库 person 57504",
+      "gender": "male",
+      "death": {
+        "year": 1760
+      }
+    },
+    {
+      "externalId": "515128",
+      "name": "佟佳佟起",
+      "citation": "CBDB 中国历代人物传记资料库 person 515128"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "57504",
+      "child": "515128"
+    }
+  ]
+}

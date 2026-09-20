@@ -1,0 +1,16 @@
+{
+  "key": "cbdb:b49_57528",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57528",
+      "name": "華封",
+      "citation": "CBDB 中国历代人物传记资料库 person 57528",
+      "gender": "male",
+      "death": {
+        "year": 1773
+      }
+    }
+  ],
+  "relations": []
+}

@@ -1,0 +1,50 @@
+{
+  "key": "cbdb:b49_57420",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57420",
+      "name": "錢樾",
+      "citation": "CBDB 中国历代人物传记资料库 person 57420",
+      "gender": "male",
+      "birth": {
+        "year": 1743
+      },
+      "death": {
+        "year": 1815
+      }
+    },
+    {
+      "externalId": "514909",
+      "name": "錢焯",
+      "citation": "CBDB 中国历代人物传记资料库 person 514909"
+    },
+    {
+      "externalId": "514910",
+      "name": "錢煟",
+      "citation": "CBDB 中国历代人物传记资料库 person 514910"
+    },
+    {
+      "externalId": "514912",
+      "name": "錢熙",
+      "citation": "CBDB 中国历代人物传记资料库 person 514912"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "57420",
+      "child": "514909"
+    },
+    {
+      "kind": "parent",
+      "parent": "57420",
+      "child": "514910"
+    },
+    {
+      "kind": "parent",
+      "parent": "57420",
+      "child": "514912"
+    }
+  ]
+}

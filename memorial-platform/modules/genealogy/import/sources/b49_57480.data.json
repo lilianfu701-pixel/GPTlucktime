@@ -1,0 +1,37 @@
+{
+  "key": "cbdb:b49_57480",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57480",
+      "name": "成元震",
+      "citation": "CBDB 中国历代人物传记资料库 person 57480",
+      "gender": "male",
+      "death": {
+        "year": 1763
+      }
+    },
+    {
+      "externalId": "515089",
+      "name": "成邦直",
+      "citation": "CBDB 中国历代人物传记资料库 person 515089"
+    },
+    {
+      "externalId": "515090",
+      "name": "成邦彥",
+      "citation": "CBDB 中国历代人物传记资料库 person 515090"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "57480",
+      "child": "515089"
+    },
+    {
+      "kind": "parent",
+      "parent": "57480",
+      "child": "515090"
+    }
+  ]
+}

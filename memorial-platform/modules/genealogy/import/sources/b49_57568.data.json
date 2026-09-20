@@ -1,0 +1,27 @@
+{
+  "key": "cbdb:b49_57568",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57568",
+      "name": "黃飛鵬",
+      "citation": "CBDB 中国历代人物传记资料库 person 57568",
+      "gender": "male",
+      "death": {
+        "year": 1811
+      }
+    },
+    {
+      "externalId": "515252",
+      "name": "黃泰鏳",
+      "citation": "CBDB 中国历代人物传记资料库 person 515252"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "57568",
+      "child": "515252"
+    }
+  ]
+}

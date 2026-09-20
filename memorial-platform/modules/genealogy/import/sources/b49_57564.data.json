@@ -1,0 +1,30 @@
+{
+  "key": "cbdb:b49_57564",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57564",
+      "name": "馮光熊",
+      "citation": "CBDB 中国历代人物传记资料库 person 57564",
+      "gender": "male",
+      "birth": {
+        "year": 1721
+      },
+      "death": {
+        "year": 1801
+      }
+    },
+    {
+      "externalId": "515247",
+      "name": "馮克鞶",
+      "citation": "CBDB 中国历代人物传记资料库 person 515247"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "57564",
+      "child": "515247"
+    }
+  ]
+}

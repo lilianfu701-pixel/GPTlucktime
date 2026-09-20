@@ -1,0 +1,30 @@
+{
+  "key": "cbdb:b49_57404",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57404",
+      "name": "衛周祚",
+      "citation": "CBDB 中国历代人物传记资料库 person 57404",
+      "gender": "male",
+      "birth": {
+        "year": 1612
+      },
+      "death": {
+        "year": 1675
+      }
+    },
+    {
+      "externalId": "514885",
+      "name": "衛台瑺",
+      "citation": "CBDB 中国历代人物传记资料库 person 514885"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "57404",
+      "child": "514885"
+    }
+  ]
+}

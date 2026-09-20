@@ -1,0 +1,42 @@
+{
+  "key": "cbdb:b49_57448",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "57448",
+      "name": "唐執玉",
+      "citation": "CBDB 中国历代人物传记资料库 person 57448",
+      "gender": "male",
+      "birth": {
+        "year": 1669
+      },
+      "death": {
+        "year": 1733
+      }
+    },
+    {
+      "externalId": "699945",
+      "name": "唐少游",
+      "citation": "CBDB 中国历代人物传记资料库 person 699945",
+      "gender": "male"
+    },
+    {
+      "externalId": "699944",
+      "name": "崔允嫻",
+      "citation": "CBDB 中国历代人物传记资料库 person 699944",
+      "gender": "female"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "57448",
+      "child": "699945"
+    },
+    {
+      "kind": "spouse",
+      "a": "699944",
+      "b": "699945"
+    }
+  ]
+}
