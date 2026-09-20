@@ -1,0 +1,92 @@
+{
+  "key": "cbdb:b41_56616",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "56616",
+      "name": "葉寶林",
+      "citation": "CBDB 中国历代人物传记资料库 person 56616",
+      "gender": "female"
+    },
+    {
+      "externalId": "30713",
+      "name": "黃宗羲",
+      "citation": "CBDB 中国历代人物传记资料库 person 30713",
+      "gender": "male",
+      "birth": {
+        "year": 1610
+      },
+      "death": {
+        "year": 1695
+      }
+    },
+    {
+      "externalId": "363519",
+      "name": "葉憲祖",
+      "citation": "CBDB 中国历代人物传记资料库 person 363519",
+      "gender": "male"
+    },
+    {
+      "externalId": "131967",
+      "name": "葉逢春",
+      "citation": "CBDB 中国历代人物传记资料库 person 131967",
+      "gender": "male",
+      "birth": {
+        "year": 1532
+      },
+      "death": {
+        "year": 1589
+      }
+    },
+    {
+      "externalId": "330537",
+      "name": "吳氏(葉逢春妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 330537",
+      "gender": "female"
+    },
+    {
+      "externalId": "330535",
+      "name": "葉選",
+      "citation": "CBDB 中国历代人物传记资料库 person 330535",
+      "gender": "male"
+    },
+    {
+      "externalId": "330536",
+      "name": "羅氏(葉逢春母)",
+      "citation": "CBDB 中国历代人物传记资料库 person 330536",
+      "gender": "female"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "363519",
+      "child": "56616"
+    },
+    {
+      "kind": "spouse",
+      "a": "30713",
+      "b": "56616"
+    },
+    {
+      "kind": "parent",
+      "parent": "131967",
+      "child": "363519"
+    },
+    {
+      "kind": "parent",
+      "parent": "330535",
+      "child": "131967"
+    },
+    {
+      "kind": "parent",
+      "parent": "330536",
+      "child": "131967"
+    },
+    {
+      "kind": "spouse",
+      "a": "131967",
+      "b": "330537"
+    }
+  ]
+}

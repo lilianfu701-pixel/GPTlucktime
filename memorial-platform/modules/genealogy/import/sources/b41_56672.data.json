@@ -1,0 +1,25 @@
+{
+  "key": "cbdb:b41_56672",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "56672",
+      "name": "林瑱",
+      "citation": "CBDB 中国历代人物传记资料库 person 56672",
+      "gender": "female"
+    },
+    {
+      "externalId": "56673",
+      "name": "謝廷詔",
+      "citation": "CBDB 中国历代人物传记资料库 person 56673",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "spouse",
+      "a": "56672",
+      "b": "56673"
+    }
+  ]
+}

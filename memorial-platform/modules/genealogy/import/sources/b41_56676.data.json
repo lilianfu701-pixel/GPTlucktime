@@ -1,0 +1,25 @@
+{
+  "key": "cbdb:b41_56676",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "56676",
+      "name": "姚文燕",
+      "citation": "CBDB 中国历代人物传记资料库 person 56676",
+      "gender": "male"
+    },
+    {
+      "externalId": "56674",
+      "name": "張似誼",
+      "citation": "CBDB 中国历代人物传记资料库 person 56674",
+      "gender": "female"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "spouse",
+      "a": "56674",
+      "b": "56676"
+    }
+  ]
+}

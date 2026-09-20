@@ -1,0 +1,25 @@
+{
+  "key": "cbdb:b41_56696",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "56696",
+      "name": "吳丹峰",
+      "citation": "CBDB 中国历代人物传记资料库 person 56696",
+      "gender": "male"
+    },
+    {
+      "externalId": "56695",
+      "name": "沈琳仙",
+      "citation": "CBDB 中国历代人物传记资料库 person 56695",
+      "gender": "female"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "spouse",
+      "a": "56695",
+      "b": "56696"
+    }
+  ]
+}

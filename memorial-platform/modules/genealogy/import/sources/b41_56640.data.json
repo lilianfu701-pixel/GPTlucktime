@@ -1,0 +1,36 @@
+{
+  "key": "cbdb:b41_56640",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "56640",
+      "name": "陳端敬",
+      "citation": "CBDB 中国历代人物传记资料库 person 56640",
+      "gender": "female"
+    },
+    {
+      "externalId": "56642",
+      "name": "韓騏",
+      "citation": "CBDB 中国历代人物传记资料库 person 56642",
+      "gender": "male"
+    },
+    {
+      "externalId": "56641",
+      "name": "陳汝楫",
+      "citation": "CBDB 中国历代人物传记资料库 person 56641",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "56641",
+      "child": "56640"
+    },
+    {
+      "kind": "spouse",
+      "a": "56640",
+      "b": "56642"
+    }
+  ]
+}

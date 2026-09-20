@@ -1,0 +1,16 @@
+{
+  "key": "cbdb:b41_56620",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "56620",
+      "name": "衛琴娘",
+      "citation": "CBDB 中国历代人物传记资料库 person 56620",
+      "gender": "female",
+      "death": {
+        "year": 1646
+      }
+    }
+  ],
+  "relations": []
+}

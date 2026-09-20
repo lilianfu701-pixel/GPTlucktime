@@ -1,0 +1,36 @@
+{
+  "key": "cbdb:b41_56664",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "56664",
+      "name": "郭瑛",
+      "citation": "CBDB 中国历代人物传记资料库 person 56664",
+      "gender": "female"
+    },
+    {
+      "externalId": "56666",
+      "name": "王磵松",
+      "citation": "CBDB 中国历代人物传记资料库 person 56666",
+      "gender": "male"
+    },
+    {
+      "externalId": "56665",
+      "name": "郭天一",
+      "citation": "CBDB 中国历代人物传记资料库 person 56665",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "56665",
+      "child": "56664"
+    },
+    {
+      "kind": "spouse",
+      "a": "56664",
+      "b": "56666"
+    }
+  ]
+}

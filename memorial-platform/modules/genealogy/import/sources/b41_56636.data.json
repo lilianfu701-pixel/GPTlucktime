@@ -1,0 +1,25 @@
+{
+  "key": "cbdb:b41_56636",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "56636",
+      "name": "謝玉娘",
+      "citation": "CBDB 中国历代人物传记资料库 person 56636",
+      "gender": "female"
+    },
+    {
+      "externalId": "56637",
+      "name": "陳藝衡",
+      "citation": "CBDB 中国历代人物传记资料库 person 56637",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "spouse",
+      "a": "56636",
+      "b": "56637"
+    }
+  ]
+}

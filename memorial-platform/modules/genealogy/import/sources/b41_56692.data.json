@@ -1,0 +1,36 @@
+{
+  "key": "cbdb:b41_56692",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "56692",
+      "name": "陸若筠",
+      "citation": "CBDB 中国历代人物传记资料库 person 56692",
+      "gender": "female"
+    },
+    {
+      "externalId": "56689",
+      "name": "吳淑",
+      "citation": "CBDB 中国历代人物传记资料库 person 56689",
+      "gender": "female"
+    },
+    {
+      "externalId": "56690",
+      "name": "汪碧園",
+      "citation": "CBDB 中国历代人物传记资料库 person 56690",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "56692",
+      "child": "56689"
+    },
+    {
+      "kind": "spouse",
+      "a": "56689",
+      "b": "56690"
+    }
+  ]
+}

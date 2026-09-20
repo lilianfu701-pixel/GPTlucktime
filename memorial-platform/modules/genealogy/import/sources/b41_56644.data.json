@@ -1,0 +1,36 @@
+{
+  "key": "cbdb:b41_56644",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "56644",
+      "name": "沈三曾",
+      "citation": "CBDB 中国历代人物传记资料库 person 56644",
+      "gender": "male"
+    },
+    {
+      "externalId": "56646",
+      "name": "吳氏(沈三曾妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 56646",
+      "gender": "female"
+    },
+    {
+      "externalId": "56645",
+      "name": "沈樹本",
+      "citation": "CBDB 中国历代人物传记资料库 person 56645",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "spouse",
+      "a": "56644",
+      "b": "56646"
+    },
+    {
+      "kind": "parent",
+      "parent": "56644",
+      "child": "56645"
+    }
+  ]
+}

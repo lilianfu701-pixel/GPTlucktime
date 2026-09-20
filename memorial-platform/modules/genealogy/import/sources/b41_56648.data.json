@@ -1,0 +1,40 @@
+{
+  "key": "cbdb:b41_56648",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "56648",
+      "name": "覺羅滿保",
+      "citation": "CBDB 中国历代人物传记资料库 person 56648",
+      "gender": "male",
+      "birth": {
+        "year": 1673
+      },
+      "death": {
+        "year": 1725
+      }
+    },
+    {
+      "externalId": "514749",
+      "name": "覺羅僧參",
+      "citation": "CBDB 中国历代人物传记资料库 person 514749"
+    },
+    {
+      "externalId": "514748",
+      "name": "覺羅吉善",
+      "citation": "CBDB 中国历代人物传记资料库 person 514748"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "514749",
+      "child": "56648"
+    },
+    {
+      "kind": "parent",
+      "parent": "56648",
+      "child": "514748"
+    }
+  ]
+}

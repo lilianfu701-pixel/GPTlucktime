@@ -1,0 +1,150 @@
+{
+  "key": "cbdb:b41_56660",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "56660",
+      "name": "楊芝",
+      "citation": "CBDB 中国历代人物传记资料库 person 56660",
+      "gender": "female"
+    },
+    {
+      "externalId": "56661",
+      "name": "汪粲",
+      "citation": "CBDB 中国历代人物传记资料库 person 56661",
+      "gender": "male"
+    },
+    {
+      "externalId": "55507",
+      "name": "楊無咎",
+      "citation": "CBDB 中国历代人物传记资料库 person 55507",
+      "gender": "male",
+      "birth": {
+        "year": 1634
+      },
+      "death": {
+        "year": 1712
+      }
+    },
+    {
+      "externalId": "55505",
+      "name": "張學典",
+      "citation": "CBDB 中国历代人物传记资料库 person 55505",
+      "gender": "female",
+      "birth": {
+        "year": 1649
+      }
+    },
+    {
+      "externalId": "55506",
+      "name": "楊廷樞",
+      "citation": "CBDB 中国历代人物传记资料库 person 55506",
+      "gender": "male",
+      "birth": {
+        "year": 1595
+      },
+      "death": {
+        "year": 1647
+      }
+    },
+    {
+      "externalId": "693763",
+      "name": "楊大濚",
+      "citation": "CBDB 中国历代人物传记资料库 person 693763",
+      "gender": "male"
+    },
+    {
+      "externalId": "122637",
+      "name": "楊成",
+      "citation": "CBDB 中国历代人物传记资料库 person 122637",
+      "gender": "male",
+      "birth": {
+        "year": 1521
+      },
+      "death": {
+        "year": 1600
+      }
+    },
+    {
+      "externalId": "319306",
+      "name": "周氏(楊成妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 319306",
+      "gender": "female"
+    },
+    {
+      "externalId": "319308",
+      "name": "呂氏(楊成繼妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 319308",
+      "gender": "female"
+    },
+    {
+      "externalId": "319304",
+      "name": "楊啟明",
+      "citation": "CBDB 中国历代人物传记资料库 person 319304",
+      "gender": "male"
+    },
+    {
+      "externalId": "319305",
+      "name": "朱氏(楊成母)",
+      "citation": "CBDB 中国历代人物传记资料库 person 319305",
+      "gender": "female"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "55507",
+      "child": "56660"
+    },
+    {
+      "kind": "parent",
+      "parent": "55505",
+      "child": "56660"
+    },
+    {
+      "kind": "spouse",
+      "a": "56660",
+      "b": "56661"
+    },
+    {
+      "kind": "parent",
+      "parent": "55506",
+      "child": "55507"
+    },
+    {
+      "kind": "spouse",
+      "a": "55505",
+      "b": "55507"
+    },
+    {
+      "kind": "parent",
+      "parent": "693763",
+      "child": "55506"
+    },
+    {
+      "kind": "parent",
+      "parent": "122637",
+      "child": "693763"
+    },
+    {
+      "kind": "parent",
+      "parent": "319304",
+      "child": "122637"
+    },
+    {
+      "kind": "parent",
+      "parent": "319305",
+      "child": "122637"
+    },
+    {
+      "kind": "spouse",
+      "a": "122637",
+      "b": "319306"
+    },
+    {
+      "kind": "spouse",
+      "a": "122637",
+      "b": "319308"
+    }
+  ]
+}

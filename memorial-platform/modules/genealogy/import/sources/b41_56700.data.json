@@ -1,0 +1,25 @@
+{
+  "key": "cbdb:b41_56700",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "56700",
+      "name": "吳興宗",
+      "citation": "CBDB 中国历代人物传记资料库 person 56700",
+      "gender": "male"
+    },
+    {
+      "externalId": "56699",
+      "name": "莫兆椿",
+      "citation": "CBDB 中国历代人物传记资料库 person 56699",
+      "gender": "female"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "spouse",
+      "a": "56699",
+      "b": "56700"
+    }
+  ]
+}

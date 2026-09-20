@@ -1,0 +1,25 @@
+{
+  "key": "cbdb:b41_56632",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "56632",
+      "name": "孟坤元",
+      "citation": "CBDB 中国历代人物传记资料库 person 56632",
+      "gender": "female"
+    },
+    {
+      "externalId": "56633",
+      "name": "何學海",
+      "citation": "CBDB 中国历代人物传记资料库 person 56633",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "spouse",
+      "a": "56632",
+      "b": "56633"
+    }
+  ]
+}

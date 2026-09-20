@@ -1,0 +1,25 @@
+{
+  "key": "cbdb:b41_56708",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "56708",
+      "name": "李臨皐",
+      "citation": "CBDB 中国历代人物传记资料库 person 56708",
+      "gender": "male"
+    },
+    {
+      "externalId": "56707",
+      "name": "王範",
+      "citation": "CBDB 中国历代人物传记资料库 person 56707",
+      "gender": "female"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "spouse",
+      "a": "56707",
+      "b": "56708"
+    }
+  ]
+}

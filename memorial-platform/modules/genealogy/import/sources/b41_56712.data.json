@@ -1,0 +1,47 @@
+{
+  "key": "cbdb:b41_56712",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "56712",
+      "name": "程慰良",
+      "citation": "CBDB 中国历代人物传记资料库 person 56712",
+      "gender": "female"
+    },
+    {
+      "externalId": "56715",
+      "name": "汪繩祖",
+      "citation": "CBDB 中国历代人物传记资料库 person 56715",
+      "gender": "male"
+    },
+    {
+      "externalId": "133839",
+      "name": "程宗傳",
+      "citation": "CBDB 中国历代人物传记资料库 person 133839",
+      "gender": "male"
+    },
+    {
+      "externalId": "100142",
+      "name": "汪妽",
+      "citation": "CBDB 中国历代人物传记资料库 person 100142",
+      "gender": "female"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "133839",
+      "child": "56712"
+    },
+    {
+      "kind": "spouse",
+      "a": "56712",
+      "b": "56715"
+    },
+    {
+      "kind": "parent",
+      "parent": "56712",
+      "child": "100142"
+    }
+  ]
+}

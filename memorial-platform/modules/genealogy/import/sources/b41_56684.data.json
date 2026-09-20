@@ -1,0 +1,25 @@
+{
+  "key": "cbdb:b41_56684",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "56684",
+      "name": "宋頷珍",
+      "citation": "CBDB 中国历代人物传记资料库 person 56684",
+      "gender": "female"
+    },
+    {
+      "externalId": "56686",
+      "name": "王樹芳",
+      "citation": "CBDB 中国历代人物传记资料库 person 56686",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "spouse",
+      "a": "56684",
+      "b": "56686"
+    }
+  ]
+}
