@@ -1,0 +1,52 @@
+{
+  "key": "cbdb:batch38_56428",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "56428",
+      "name": "林瓊玉",
+      "citation": "CBDB 中国历代人物传记资料库 person 56428",
+      "gender": "female"
+    },
+    {
+      "externalId": "56430",
+      "name": "陳灃",
+      "citation": "CBDB 中国历代人物传记资料库 person 56430",
+      "gender": "male"
+    },
+    {
+      "externalId": "56426",
+      "name": "林春起",
+      "citation": "CBDB 中国历代人物传记资料库 person 56426",
+      "gender": "male"
+    },
+    {
+      "externalId": "56424",
+      "name": "黃淑畹",
+      "citation": "CBDB 中国历代人物传记资料库 person 56424",
+      "gender": "female"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "56426",
+      "child": "56428"
+    },
+    {
+      "kind": "parent",
+      "parent": "56424",
+      "child": "56428"
+    },
+    {
+      "kind": "spouse",
+      "a": "56428",
+      "b": "56430"
+    },
+    {
+      "kind": "spouse",
+      "a": "56424",
+      "b": "56426"
+    }
+  ]
+}

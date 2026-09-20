@@ -1,0 +1,36 @@
+{
+  "key": "cbdb:batch38_56468",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "56468",
+      "name": "潘煥榮",
+      "citation": "CBDB 中国历代人物传记资料库 person 56468",
+      "gender": "female"
+    },
+    {
+      "externalId": "56469",
+      "name": "廖新",
+      "citation": "CBDB 中国历代人物传记资料库 person 56469",
+      "gender": "male"
+    },
+    {
+      "externalId": "56466",
+      "name": "潘光斗",
+      "citation": "CBDB 中国历代人物传记资料库 person 56466",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "56466",
+      "child": "56468"
+    },
+    {
+      "kind": "spouse",
+      "a": "56468",
+      "b": "56469"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "key": "cbdb:batch38_56440",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "56440",
+      "name": "允文",
+      "citation": "CBDB 中国历代人物传记资料库 person 56440",
+      "gender": "male"
+    },
+    {
+      "externalId": "56438",
+      "name": "孫馥",
+      "citation": "CBDB 中国历代人物传记资料库 person 56438",
+      "gender": "female"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "spouse",
+      "a": "56438",
+      "b": "56440"
+    }
+  ]
+}

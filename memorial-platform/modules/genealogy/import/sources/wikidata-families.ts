@@ -212,6 +212,22 @@ import suweidao from "./suweidao.data.json";
 import liufen from "./liufen.data.json";
 import liugong from "./liugong.data.json";
 import xiaoying from "./xiaoying.data.json";
+// CBDB 第三十八批：Qing官员学者15人
+import batch38_56416 from "./batch38_56416.data.json";
+import batch38_56420 from "./batch38_56420.data.json";
+import batch38_56424 from "./batch38_56424.data.json";
+import batch38_56428 from "./batch38_56428.data.json";
+import batch38_56432 from "./batch38_56432.data.json";
+import batch38_56436 from "./batch38_56436.data.json";
+import batch38_56440 from "./batch38_56440.data.json";
+import batch38_56444 from "./batch38_56444.data.json";
+import batch38_56448 from "./batch38_56448.data.json";
+import batch38_56452 from "./batch38_56452.data.json";
+import batch38_56456 from "./batch38_56456.data.json";
+import batch38_56460 from "./batch38_56460.data.json";
+import batch38_56464 from "./batch38_56464.data.json";
+import batch38_56468 from "./batch38_56468.data.json";
+import batch38_56472 from "./batch38_56472.data.json";
 // CBDB 第三十七批（Ming帝系·李自成·清初摄政·Qing官员）
 import jianwendi from "./jianwendi.data.json";
 import lizicheng from "./lizicheng.data.json";
@@ -771,6 +787,22 @@ const FAMILIES: { key: string; label: string; dataset: GenealogyDataset }[] = [
   { key: "liufen", label: "河东柳氏·柳芬支（柳懿·柳均·南北朝到唐）", dataset: liufen as GenealogyDataset },
   { key: "liugong", label: "河东柳氏·柳公权支（书法家·柳瑗·柳仲憲）", dataset: liugong as GenealogyDataset },
   { key: "xiaoying", label: "兰陵萧氏·萧颖士支（萧道赐·萧恢·南朝到唐）", dataset: xiaoying as GenealogyDataset },
+  // CBDB 第三十八批：Qing官员学者15人
+  { key: "batch38_56416", label: "Qing官员集群12（清代官员·2人）", dataset: batch38_56416 as GenealogyDataset },
+  { key: "batch38_56420", label: "Qing官员集群13（清代官员·1人）", dataset: batch38_56420 as GenealogyDataset },
+  { key: "batch38_56424", label: "Qing官员集群14（清代官员·6人）", dataset: batch38_56424 as GenealogyDataset },
+  { key: "batch38_56428", label: "Qing官员集群15（清代官员·4人）", dataset: batch38_56428 as GenealogyDataset },
+  { key: "batch38_56432", label: "Qing官员集群16（清代官员·1人）", dataset: batch38_56432 as GenealogyDataset },
+  { key: "batch38_56436", label: "Qing官员集群17（清代官员·2人）", dataset: batch38_56436 as GenealogyDataset },
+  { key: "batch38_56440", label: "Qing官员集群18（清代官员·2人）", dataset: batch38_56440 as GenealogyDataset },
+  { key: "batch38_56444", label: "Qing官员集群19（清代官员·1人）", dataset: batch38_56444 as GenealogyDataset },
+  { key: "batch38_56448", label: "Qing官员集群20（清代官员·2人）", dataset: batch38_56448 as GenealogyDataset },
+  { key: "batch38_56452", label: "Qing官员集群21（清代官员·1人）", dataset: batch38_56452 as GenealogyDataset },
+  { key: "batch38_56456", label: "Qing官员集群22（清代官员·2人）", dataset: batch38_56456 as GenealogyDataset },
+  { key: "batch38_56460", label: "Qing官员集群23（清代官员·2人）", dataset: batch38_56460 as GenealogyDataset },
+  { key: "batch38_56464", label: "Qing官员集群24（清代官员·2人）", dataset: batch38_56464 as GenealogyDataset },
+  { key: "batch38_56468", label: "Qing官员集群25（清代官员·3人）", dataset: batch38_56468 as GenealogyDataset },
+  { key: "batch38_56472", label: "Qing官员集群26（清代官员·3人）", dataset: batch38_56472 as GenealogyDataset },
   // CBDB 第三十七批：Ming帝系·李自成·清初摄政·Qing官员20人
   { key: "jianwendi", label: "朱氏·建文帝支（明皇帝·1377-1402·朱元璋後裔·9人）", dataset: jianwendi as GenealogyDataset },
   { key: "lizicheng", label: "李氏·李自成支（晚明农民起义·1606-1645·李守忠等·3人）", dataset: lizicheng as GenealogyDataset },

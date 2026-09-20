@@ -1,0 +1,25 @@
+{
+  "key": "cbdb:batch38_56460",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "56460",
+      "name": "沈福榮",
+      "citation": "CBDB 中国历代人物传记资料库 person 56460",
+      "gender": "male"
+    },
+    {
+      "externalId": "56459",
+      "name": "陸費思溫",
+      "citation": "CBDB 中国历代人物传记资料库 person 56459",
+      "gender": "female"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "spouse",
+      "a": "56459",
+      "b": "56460"
+    }
+  ]
+}

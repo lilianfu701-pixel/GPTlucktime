@@ -1,0 +1,25 @@
+{
+  "key": "cbdb:batch38_56448",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "56448",
+      "name": "馬福娥",
+      "citation": "CBDB 中国历代人物传记资料库 person 56448",
+      "gender": "female"
+    },
+    {
+      "externalId": "56450",
+      "name": "沈宏畧",
+      "citation": "CBDB 中国历代人物传记资料库 person 56450",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "spouse",
+      "a": "56448",
+      "b": "56450"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "key": "cbdb:batch38_56456",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "56456",
+      "name": "陸費湘于",
+      "citation": "CBDB 中国历代人物传记资料库 person 56456",
+      "gender": "female"
+    },
+    {
+      "externalId": "56458",
+      "name": "趙貞復",
+      "citation": "CBDB 中国历代人物传记资料库 person 56458",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "spouse",
+      "a": "56456",
+      "b": "56458"
+    }
+  ]
+}

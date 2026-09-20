@@ -1,0 +1,34 @@
+{
+  "key": "cbdb:batch38_56436",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "56436",
+      "name": "袁青",
+      "citation": "CBDB 中国历代人物传记资料库 person 56436",
+      "gender": "female",
+      "death": {
+        "year": 1853
+      }
+    },
+    {
+      "externalId": "56433",
+      "name": "車持謙",
+      "citation": "CBDB 中国历代人物传记资料库 person 56433",
+      "gender": "male",
+      "birth": {
+        "year": 1778
+      },
+      "death": {
+        "year": 1842
+      }
+    }
+  ],
+  "relations": [
+    {
+      "kind": "spouse",
+      "a": "56433",
+      "b": "56436"
+    }
+  ]
+}

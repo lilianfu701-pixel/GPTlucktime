@@ -1,0 +1,25 @@
+{
+  "key": "cbdb:batch38_56464",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "56464",
+      "name": "施澐",
+      "citation": "CBDB 中国历代人物传记资料库 person 56464",
+      "gender": "male"
+    },
+    {
+      "externalId": "56463",
+      "name": "陳筠湘",
+      "citation": "CBDB 中国历代人物传记资料库 person 56463",
+      "gender": "female"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "spouse",
+      "a": "56463",
+      "b": "56464"
+    }
+  ]
+}

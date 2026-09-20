@@ -1,0 +1,36 @@
+{
+  "key": "cbdb:batch38_56472",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "56472",
+      "name": "楊清材",
+      "citation": "CBDB 中国历代人物传记资料库 person 56472",
+      "gender": "female"
+    },
+    {
+      "externalId": "56473",
+      "name": "潘煥龍",
+      "citation": "CBDB 中国历代人物传记资料库 person 56473",
+      "gender": "male"
+    },
+    {
+      "externalId": "56474",
+      "name": "楊知新",
+      "citation": "CBDB 中国历代人物传记资料库 person 56474",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "56474",
+      "child": "56472"
+    },
+    {
+      "kind": "spouse",
+      "a": "56472",
+      "b": "56473"
+    }
+  ]
+}

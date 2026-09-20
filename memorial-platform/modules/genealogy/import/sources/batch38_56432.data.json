@@ -1,0 +1,19 @@
+{
+  "key": "cbdb:batch38_56432",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "56432",
+      "name": "方維甸",
+      "citation": "CBDB 中国历代人物传记资料库 person 56432",
+      "gender": "male",
+      "birth": {
+        "year": 1758
+      },
+      "death": {
+        "year": 1815
+      }
+    }
+  ],
+  "relations": []
+}

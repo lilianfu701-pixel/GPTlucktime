@@ -1,0 +1,25 @@
+{
+  "key": "cbdb:batch38_56416",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "56416",
+      "name": "徐七寶",
+      "citation": "CBDB 中国历代人物传记资料库 person 56416",
+      "gender": "female"
+    },
+    {
+      "externalId": "56417",
+      "name": "徐芳沅",
+      "citation": "CBDB 中国历代人物传记资料库 person 56417",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "56417",
+      "child": "56416"
+    }
+  ]
+}
