@@ -1,0 +1,80 @@
+{
+  "key": "cbdb:xieangde",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "27801",
+      "name": "謝枋得",
+      "citation": "CBDB 中国历代人物传记资料库 person 27801",
+      "gender": "male",
+      "birth": {
+        "year": 1225
+      }
+    },
+    {
+      "externalId": "52427",
+      "name": "李氏(謝枋得妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 52427",
+      "gender": "female",
+      "death": {
+        "year": 1278
+      }
+    },
+    {
+      "externalId": "27804",
+      "name": "謝應琇",
+      "citation": "CBDB 中国历代人物传记资料库 person 27804",
+      "gender": "male"
+    },
+    {
+      "externalId": "52426",
+      "name": "桂氏(謝應琇妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 52426",
+      "gender": "female"
+    },
+    {
+      "externalId": "27803",
+      "name": "謝一鶚",
+      "citation": "CBDB 中国历代人物传记资料库 person 27803",
+      "gender": "male"
+    },
+    {
+      "externalId": "27802",
+      "name": "謝彥安",
+      "citation": "CBDB 中国历代人物传记资料库 person 27802",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "27804",
+      "child": "27801"
+    },
+    {
+      "kind": "parent",
+      "parent": "52426",
+      "child": "27801"
+    },
+    {
+      "kind": "spouse",
+      "a": "27801",
+      "b": "52427"
+    },
+    {
+      "kind": "parent",
+      "parent": "27803",
+      "child": "27804"
+    },
+    {
+      "kind": "spouse",
+      "a": "27804",
+      "b": "52426"
+    },
+    {
+      "kind": "parent",
+      "parent": "27802",
+      "child": "27803"
+    }
+  ]
+}

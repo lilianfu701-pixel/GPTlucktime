@@ -1,0 +1,53 @@
+{
+  "key": "cbdb:zhengxia",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "15296",
+      "name": "鄭俠",
+      "citation": "CBDB 中国历代人物传记资料库 person 15296",
+      "gender": "male",
+      "birth": {
+        "year": 1041
+      },
+      "death": {
+        "year": 1119
+      }
+    },
+    {
+      "externalId": "15295",
+      "name": "鄭暈",
+      "citation": "CBDB 中国历代人物传记资料库 person 15295",
+      "gender": "male"
+    },
+    {
+      "externalId": "15297",
+      "name": "鄭汝石",
+      "citation": "CBDB 中国历代人物传记资料库 person 15297",
+      "gender": "male"
+    },
+    {
+      "externalId": "119540",
+      "name": "鄭雱",
+      "citation": "CBDB 中国历代人物传记资料库 person 119540",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "15295",
+      "child": "15296"
+    },
+    {
+      "kind": "parent",
+      "parent": "15296",
+      "child": "15297"
+    },
+    {
+      "kind": "parent",
+      "parent": "15296",
+      "child": "119540"
+    }
+  ]
+}

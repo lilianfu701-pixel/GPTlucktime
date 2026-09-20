@@ -212,6 +212,15 @@ import suweidao from "./suweidao.data.json";
 import liufen from "./liufen.data.json";
 import liugong from "./liugong.data.json";
 import xiaoying from "./xiaoying.data.json";
+// CBDB 第三十三批（五代吴越·金代双段·南唐宋初·宋元之际）
+import qianliu from "./qianliu.data.json";
+import duanjicheng from "./duanjicheng.data.json";
+import zhangjie from "./zhangjie.data.json";
+import xieangde from "./xieangde.data.json";
+import yangxingmi from "./yangxingmi.data.json";
+import guanyunshi from "./guanyunshi.data.json";
+import caisounian from "./caisounian.data.json";
+import zhengxia from "./zhengxia.data.json";
 // CBDB 第三十二批（唐代诗人·元代名士·北宋教育家·清代诗人）
 import huangjingren from "./huangjingren.data.json";
 import gongkui from "./gongkui.data.json";
@@ -721,6 +730,15 @@ const FAMILIES: { key: string; label: string; dataset: GenealogyDataset }[] = [
   { key: "liufen", label: "河东柳氏·柳芬支（柳懿·柳均·南北朝到唐）", dataset: liufen as GenealogyDataset },
   { key: "liugong", label: "河东柳氏·柳公权支（书法家·柳瑗·柳仲憲）", dataset: liugong as GenealogyDataset },
   { key: "xiaoying", label: "兰陵萧氏·萧颖士支（萧道赐·萧恢·南朝到唐）", dataset: xiaoying as GenealogyDataset },
+  // CBDB 第三十三批：五代吴越·金代双段·南唐宋初·宋元之际
+  { key: "qianliu", label: "吴越钱氏·钱镠支（五代吴越国王·852-932·钱惟演至·45人）", dataset: qianliu as GenealogyDataset },
+  { key: "duanjicheng", label: "稷山段氏·段克己段成己支（金代双段词人·1194-1279·15人）", dataset: duanjicheng as GenealogyDataset },
+  { key: "zhangjie", label: "淮南张氏·张洎支（南唐宋初官员·933-996·12人）", dataset: zhangjie as GenealogyDataset },
+  { key: "xieangde", label: "弋阳谢氏·谢枋得支（南宋遗民·信州先生·1225-·6人）", dataset: xieangde as GenealogyDataset },
+  { key: "yangxingmi", label: "庐江杨氏·杨行密支（五代吴国创建者·-907·6人）", dataset: yangxingmi as GenealogyDataset },
+  { key: "guanyunshi", label: "畏吾贯氏·贯云石支（元代回鹘诗人·1286-1324·4人）", dataset: guanyunshi as GenealogyDataset },
+  { key: "caisounian", label: "真定蔡氏·蔡松年支（金代初期词人·蔡靖子·1107-1159·4人）", dataset: caisounian as GenealogyDataset },
+  { key: "zhengxia", label: "福清郑氏·郑侠支（北宋流民图·改革派·1041-1119·4人）", dataset: zhengxia as GenealogyDataset },
   // CBDB 第三十二批：唐代诗人·元代名士·北宋教育家·清代诗人
   { key: "huangjingren", label: "常州黄氏·黄景仁支（清代诗人·乾嘉期·1749-1783·4人）", dataset: huangjingren as GenealogyDataset },
   { key: "gongkui", label: "无锡贡氏·贡奎支（元代官员·贡师泰祖·1269-1329·6人）", dataset: gongkui as GenealogyDataset },

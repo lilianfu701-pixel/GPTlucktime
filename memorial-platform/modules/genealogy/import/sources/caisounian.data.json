@@ -1,0 +1,56 @@
+{
+  "key": "cbdb:caisounian",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "10837",
+      "name": "蔡松年",
+      "citation": "CBDB 中国历代人物传记资料库 person 10837",
+      "gender": "male",
+      "birth": {
+        "year": 1107
+      },
+      "death": {
+        "year": 1159
+      }
+    },
+    {
+      "externalId": "34908",
+      "name": "蔡靖",
+      "citation": "CBDB 中国历代人物传记资料库 person 34908",
+      "gender": "male"
+    },
+    {
+      "externalId": "34909",
+      "name": "蔡珪",
+      "citation": "CBDB 中国历代人物传记资料库 person 34909",
+      "gender": "male",
+      "death": {
+        "year": 1174
+      }
+    },
+    {
+      "externalId": "34910",
+      "name": "蔡璋",
+      "citation": "CBDB 中国历代人物传记资料库 person 34910",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "10837",
+      "child": "34908"
+    },
+    {
+      "kind": "parent",
+      "parent": "10837",
+      "child": "34909"
+    },
+    {
+      "kind": "parent",
+      "parent": "10837",
+      "child": "34910"
+    }
+  ]
+}

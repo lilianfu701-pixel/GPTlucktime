@@ -1,0 +1,59 @@
+{
+  "key": "cbdb:guanyunshi",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "107703",
+      "name": "貫雲石",
+      "citation": "CBDB 中国历代人物传记资料库 person 107703",
+      "gender": "male",
+      "birth": {
+        "year": 1286
+      },
+      "death": {
+        "year": 1324
+      }
+    },
+    {
+      "externalId": "114888",
+      "name": "貫只哥",
+      "citation": "CBDB 中国历代人物传记资料库 person 114888",
+      "gender": "male"
+    },
+    {
+      "externalId": "113669",
+      "name": "阿禮海牙",
+      "citation": "CBDB 中国历代人物传记资料库 person 113669",
+      "gender": "male",
+      "birth": {
+        "year": 1226
+      },
+      "death": {
+        "year": 1286
+      }
+    },
+    {
+      "externalId": "117276",
+      "name": "脫列",
+      "citation": "CBDB 中国历代人物传记资料库 person 117276",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "114888",
+      "child": "107703"
+    },
+    {
+      "kind": "parent",
+      "parent": "113669",
+      "child": "114888"
+    },
+    {
+      "kind": "parent",
+      "parent": "117276",
+      "child": "113669"
+    }
+  ]
+}

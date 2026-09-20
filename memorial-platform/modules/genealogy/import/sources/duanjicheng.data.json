@@ -1,0 +1,192 @@
+{
+  "key": "cbdb:duanjicheng",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "34964",
+      "name": "段克己",
+      "citation": "CBDB 中国历代人物传记资料库 person 34964",
+      "gender": "male",
+      "birth": {
+        "year": 1194
+      },
+      "death": {
+        "year": 1252
+      }
+    },
+    {
+      "externalId": "34965",
+      "name": "段成己",
+      "citation": "CBDB 中国历代人物传记资料库 person 34965",
+      "gender": "male",
+      "birth": {
+        "year": 1199
+      },
+      "death": {
+        "year": 1279
+      }
+    },
+    {
+      "externalId": "34963",
+      "name": "段恆",
+      "citation": "CBDB 中国历代人物传记资料库 person 34963",
+      "gender": "male"
+    },
+    {
+      "externalId": "34996",
+      "name": "段思溫",
+      "citation": "CBDB 中国历代人物传记资料库 person 34996",
+      "gender": "male",
+      "birth": {
+        "year": 1240
+      },
+      "death": {
+        "year": 1288
+      }
+    },
+    {
+      "externalId": "34995",
+      "name": "段思永",
+      "citation": "CBDB 中国历代人物传记资料库 person 34995",
+      "gender": "male"
+    },
+    {
+      "externalId": "34997",
+      "name": "段思誠",
+      "citation": "CBDB 中国历代人物传记资料库 person 34997",
+      "gender": "male"
+    },
+    {
+      "externalId": "35000",
+      "name": "段思義",
+      "citation": "CBDB 中国历代人物传记资料库 person 35000",
+      "gender": "male",
+      "birth": {
+        "year": 1241
+      },
+      "death": {
+        "year": 1306
+      }
+    },
+    {
+      "externalId": "34962",
+      "name": "段汝舟",
+      "citation": "CBDB 中国历代人物传记资料库 person 34962",
+      "gender": "male"
+    },
+    {
+      "externalId": "34998",
+      "name": "段輔",
+      "citation": "CBDB 中国历代人物传记资料库 person 34998",
+      "gender": "male"
+    },
+    {
+      "externalId": "35001",
+      "name": "段循",
+      "citation": "CBDB 中国历代人物传记资料库 person 35001",
+      "gender": "male"
+    },
+    {
+      "externalId": "34951",
+      "name": "段鈞",
+      "citation": "CBDB 中国历代人物传记资料库 person 34951",
+      "gender": "male"
+    },
+    {
+      "externalId": "34999",
+      "name": "段德雄",
+      "citation": "CBDB 中国历代人物传记资料库 person 34999",
+      "gender": "male"
+    },
+    {
+      "externalId": "34950",
+      "name": "段矩",
+      "citation": "CBDB 中国历代人物传记资料库 person 34950",
+      "gender": "male"
+    },
+    {
+      "externalId": "34940",
+      "name": "段季良",
+      "citation": "CBDB 中国历代人物传记资料库 person 34940",
+      "gender": "male"
+    },
+    {
+      "externalId": "34936",
+      "name": "段B",
+      "citation": "CBDB 中国历代人物传记资料库 person 34936",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "34963",
+      "child": "34964"
+    },
+    {
+      "kind": "parent",
+      "parent": "34964",
+      "child": "34996"
+    },
+    {
+      "kind": "parent",
+      "parent": "34964",
+      "child": "34995"
+    },
+    {
+      "kind": "parent",
+      "parent": "34964",
+      "child": "34997"
+    },
+    {
+      "kind": "parent",
+      "parent": "34963",
+      "child": "34965"
+    },
+    {
+      "kind": "parent",
+      "parent": "34965",
+      "child": "35000"
+    },
+    {
+      "kind": "parent",
+      "parent": "34962",
+      "child": "34963"
+    },
+    {
+      "kind": "parent",
+      "parent": "34996",
+      "child": "34998"
+    },
+    {
+      "kind": "parent",
+      "parent": "35000",
+      "child": "35001"
+    },
+    {
+      "kind": "parent",
+      "parent": "34951",
+      "child": "34962"
+    },
+    {
+      "kind": "parent",
+      "parent": "34998",
+      "child": "34999"
+    },
+    {
+      "kind": "parent",
+      "parent": "34950",
+      "child": "34951"
+    },
+    {
+      "kind": "parent",
+      "parent": "34940",
+      "child": "34950"
+    },
+    {
+      "kind": "parent",
+      "parent": "34936",
+      "child": "34940"
+    }
+  ]
+}

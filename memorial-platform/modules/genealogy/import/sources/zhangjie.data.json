@@ -1,0 +1,150 @@
+{
+  "key": "cbdb:zhangjie",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "8012",
+      "name": "張洎",
+      "citation": "CBDB 中国历代人物传记资料库 person 8012",
+      "gender": "male",
+      "birth": {
+        "year": 933
+      },
+      "death": {
+        "year": 996
+      }
+    },
+    {
+      "externalId": "13572",
+      "name": "張煦",
+      "citation": "CBDB 中国历代人物传记资料库 person 13572",
+      "gender": "male"
+    },
+    {
+      "externalId": "13749",
+      "name": "張冉木",
+      "citation": "CBDB 中国历代人物传记资料库 person 13749",
+      "gender": "male"
+    },
+    {
+      "externalId": "7147",
+      "name": "張安期",
+      "citation": "CBDB 中国历代人物传记资料库 person 7147",
+      "gender": "male"
+    },
+    {
+      "externalId": "13573",
+      "name": "張方回",
+      "citation": "CBDB 中国历代人物传记资料库 person 13573",
+      "gender": "male"
+    },
+    {
+      "externalId": "13571",
+      "name": "張蘊",
+      "citation": "CBDB 中国历代人物传记资料库 person 13571",
+      "gender": "male"
+    },
+    {
+      "externalId": "7174",
+      "name": "張瑗",
+      "citation": "CBDB 中国历代人物传记资料库 person 7174",
+      "gender": "male",
+      "birth": {
+        "year": 1006
+      },
+      "death": {
+        "year": 1060
+      }
+    },
+    {
+      "externalId": "225",
+      "name": "張瓌",
+      "citation": "CBDB 中国历代人物传记资料库 person 225",
+      "gender": "male"
+    },
+    {
+      "externalId": "301",
+      "name": "張璪",
+      "citation": "CBDB 中国历代人物传记资料库 person 301",
+      "gender": "male",
+      "death": {
+        "year": 1093
+      }
+    },
+    {
+      "externalId": "13683",
+      "name": "張懷玉",
+      "citation": "CBDB 中国历代人物传记资料库 person 13683",
+      "gender": "male"
+    },
+    {
+      "externalId": "13570",
+      "name": "張旼",
+      "citation": "CBDB 中国历代人物传记资料库 person 13570",
+      "gender": "male"
+    },
+    {
+      "externalId": "13574",
+      "name": "張伯孫",
+      "citation": "CBDB 中国历代人物传记资料库 person 13574",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "13572",
+      "child": "8012"
+    },
+    {
+      "kind": "parent",
+      "parent": "8012",
+      "child": "13749"
+    },
+    {
+      "kind": "parent",
+      "parent": "8012",
+      "child": "7147"
+    },
+    {
+      "kind": "parent",
+      "parent": "8012",
+      "child": "13573"
+    },
+    {
+      "kind": "parent",
+      "parent": "13571",
+      "child": "13572"
+    },
+    {
+      "kind": "parent",
+      "parent": "7147",
+      "child": "7174"
+    },
+    {
+      "kind": "parent",
+      "parent": "13573",
+      "child": "225"
+    },
+    {
+      "kind": "parent",
+      "parent": "13573",
+      "child": "301"
+    },
+    {
+      "kind": "parent",
+      "parent": "13573",
+      "child": "13683"
+    },
+    {
+      "kind": "parent",
+      "parent": "13570",
+      "child": "13571"
+    },
+    {
+      "kind": "parent",
+      "parent": "7174",
+      "child": "13574"
+    }
+  ]
+}

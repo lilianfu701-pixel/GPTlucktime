@@ -1,0 +1,87 @@
+{
+  "key": "cbdb:yangxingmi",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "4044",
+      "name": "楊行密",
+      "citation": "CBDB 中国历代人物传记资料库 person 4044",
+      "gender": "male",
+      "death": {
+        "year": 907
+      }
+    },
+    {
+      "externalId": "144874",
+      "name": "楊氏(劉某妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 144874",
+      "gender": "female",
+      "birth": {
+        "year": 890
+      },
+      "death": {
+        "year": 927
+      }
+    },
+    {
+      "externalId": "185688",
+      "name": "劉某",
+      "citation": "CBDB 中国历代人物传记资料库 person 185688",
+      "gender": "male",
+      "death": {
+        "year": 943
+      }
+    },
+    {
+      "externalId": "19612",
+      "name": "楊渥",
+      "citation": "CBDB 中国历代人物传记资料库 person 19612",
+      "gender": "male",
+      "death": {
+        "year": 908
+      }
+    },
+    {
+      "externalId": "19613",
+      "name": "楊隆演",
+      "citation": "CBDB 中国历代人物传记资料库 person 19613",
+      "gender": "male",
+      "death": {
+        "year": 920
+      }
+    },
+    {
+      "externalId": "19614",
+      "name": "楊樸",
+      "citation": "CBDB 中国历代人物传记资料库 person 19614",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "4044",
+      "child": "144874"
+    },
+    {
+      "kind": "parent",
+      "parent": "4044",
+      "child": "19612"
+    },
+    {
+      "kind": "parent",
+      "parent": "4044",
+      "child": "19613"
+    },
+    {
+      "kind": "parent",
+      "parent": "4044",
+      "child": "19614"
+    },
+    {
+      "kind": "spouse",
+      "a": "144874",
+      "b": "185688"
+    }
+  ]
+}
