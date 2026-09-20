@@ -1,0 +1,19 @@
+{
+  "key": "cbdb:b44_56844",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "56844",
+      "name": "王命岳",
+      "citation": "CBDB 中国历代人物传记资料库 person 56844",
+      "gender": "male",
+      "birth": {
+        "year": 1609
+      },
+      "death": {
+        "year": 1667
+      }
+    }
+  ],
+  "relations": []
+}

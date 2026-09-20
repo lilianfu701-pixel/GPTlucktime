@@ -1,0 +1,47 @@
+{
+  "key": "cbdb:b44_56852",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "56852",
+      "name": "劉墉",
+      "citation": "CBDB 中国历代人物传记资料库 person 56852",
+      "gender": "male",
+      "birth": {
+        "year": 1720
+      },
+      "death": {
+        "year": 1804
+      }
+    },
+    {
+      "externalId": "56847",
+      "name": "劉統勳",
+      "citation": "CBDB 中国历代人物传记资料库 person 56847",
+      "gender": "male",
+      "birth": {
+        "year": 1700
+      },
+      "death": {
+        "year": 1773
+      }
+    },
+    {
+      "externalId": "513491",
+      "name": "劉錫朋",
+      "citation": "CBDB 中国历代人物传记资料库 person 513491"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "56847",
+      "child": "56852"
+    },
+    {
+      "kind": "parent",
+      "parent": "56852",
+      "child": "513491"
+    }
+  ]
+}

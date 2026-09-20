@@ -1,0 +1,60 @@
+{
+  "key": "cbdb:b44_56892",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "56892",
+      "name": "伊闢",
+      "citation": "CBDB 中国历代人物传记资料库 person 56892",
+      "gender": "male",
+      "birth": {
+        "year": 1623
+      },
+      "death": {
+        "year": 1681
+      }
+    },
+    {
+      "externalId": "513625",
+      "name": "伊光前",
+      "citation": "CBDB 中国历代人物传记资料库 person 513625"
+    },
+    {
+      "externalId": "513626",
+      "name": "伊作楫",
+      "citation": "CBDB 中国历代人物传记资料库 person 513626"
+    },
+    {
+      "externalId": "513627",
+      "name": "伊作德",
+      "citation": "CBDB 中国历代人物传记资料库 person 513627"
+    },
+    {
+      "externalId": "513628",
+      "name": "伊作霖",
+      "citation": "CBDB 中国历代人物传记资料库 person 513628"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "513625",
+      "child": "56892"
+    },
+    {
+      "kind": "parent",
+      "parent": "56892",
+      "child": "513626"
+    },
+    {
+      "kind": "parent",
+      "parent": "56892",
+      "child": "513627"
+    },
+    {
+      "kind": "parent",
+      "parent": "56892",
+      "child": "513628"
+    }
+  ]
+}

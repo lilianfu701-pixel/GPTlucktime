@@ -1,0 +1,19 @@
+{
+  "key": "cbdb:b44_56836",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "56836",
+      "name": "徐士林",
+      "citation": "CBDB 中国历代人物传记资料库 person 56836",
+      "gender": "male",
+      "birth": {
+        "year": 1684
+      },
+      "death": {
+        "year": 1741
+      }
+    }
+  ],
+  "relations": []
+}

@@ -1,0 +1,50 @@
+{
+  "key": "cbdb:b44_56880",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "56880",
+      "name": "司馬騊",
+      "citation": "CBDB 中国历代人物传记资料库 person 56880",
+      "gender": "male",
+      "birth": {
+        "year": 1729
+      },
+      "death": {
+        "year": 1799
+      }
+    },
+    {
+      "externalId": "513599",
+      "name": "司馬必售",
+      "citation": "CBDB 中国历代人物传记资料库 person 513599"
+    },
+    {
+      "externalId": "513600",
+      "name": "司馬淳",
+      "citation": "CBDB 中国历代人物传记资料库 person 513600"
+    },
+    {
+      "externalId": "513602",
+      "name": "司馬亶",
+      "citation": "CBDB 中国历代人物传记资料库 person 513602"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "513599",
+      "child": "56880"
+    },
+    {
+      "kind": "parent",
+      "parent": "56880",
+      "child": "513600"
+    },
+    {
+      "kind": "parent",
+      "parent": "56880",
+      "child": "513602"
+    }
+  ]
+}

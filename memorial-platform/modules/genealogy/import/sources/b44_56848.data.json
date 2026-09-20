@@ -1,0 +1,74 @@
+{
+  "key": "cbdb:b44_56848",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "56848",
+      "name": "曹文埴",
+      "citation": "CBDB 中国历代人物传记资料库 person 56848",
+      "gender": "male",
+      "birth": {
+        "year": 1735
+      },
+      "death": {
+        "year": 1798
+      }
+    },
+    {
+      "externalId": "88620",
+      "name": "曹景宸",
+      "citation": "CBDB 中国历代人物传记资料库 person 88620",
+      "gender": "male",
+      "birth": {
+        "year": 1707
+      },
+      "death": {
+        "year": 1775
+      }
+    },
+    {
+      "externalId": "56850",
+      "name": "曹振鏞",
+      "citation": "CBDB 中国历代人物传记资料库 person 56850",
+      "gender": "male",
+      "birth": {
+        "year": 1755
+      },
+      "death": {
+        "year": 1835
+      }
+    },
+    {
+      "externalId": "513485",
+      "name": "曹恩汴",
+      "citation": "CBDB 中国历代人物传记资料库 person 513485"
+    },
+    {
+      "externalId": "513486",
+      "name": "曹恩瀠",
+      "citation": "CBDB 中国历代人物传记资料库 person 513486"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "88620",
+      "child": "56848"
+    },
+    {
+      "kind": "parent",
+      "parent": "56848",
+      "child": "56850"
+    },
+    {
+      "kind": "parent",
+      "parent": "56850",
+      "child": "513485"
+    },
+    {
+      "kind": "parent",
+      "parent": "56850",
+      "child": "513486"
+    }
+  ]
+}

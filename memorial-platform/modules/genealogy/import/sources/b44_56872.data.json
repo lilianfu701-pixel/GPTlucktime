@@ -1,0 +1,40 @@
+{
+  "key": "cbdb:b44_56872",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "56872",
+      "name": "黎世序",
+      "citation": "CBDB 中国历代人物传记资料库 person 56872",
+      "gender": "male",
+      "birth": {
+        "year": 1773
+      },
+      "death": {
+        "year": 1824
+      }
+    },
+    {
+      "externalId": "513572",
+      "name": "黎學淳",
+      "citation": "CBDB 中国历代人物传记资料库 person 513572"
+    },
+    {
+      "externalId": "513573",
+      "name": "黎學澄",
+      "citation": "CBDB 中国历代人物传记资料库 person 513573"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "56872",
+      "child": "513572"
+    },
+    {
+      "kind": "parent",
+      "parent": "56872",
+      "child": "513573"
+    }
+  ]
+}

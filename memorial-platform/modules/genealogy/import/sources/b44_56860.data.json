@@ -1,0 +1,144 @@
+{
+  "key": "cbdb:b44_56860",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "56860",
+      "name": "彭啟豐",
+      "citation": "CBDB 中国历代人物传记资料库 person 56860",
+      "gender": "male",
+      "birth": {
+        "year": 1701
+      },
+      "death": {
+        "year": 1784
+      }
+    },
+    {
+      "externalId": "89271",
+      "name": "彭正乾",
+      "citation": "CBDB 中国历代人物传记资料库 person 89271",
+      "gender": "male",
+      "birth": {
+        "year": 1680
+      },
+      "death": {
+        "year": 1746
+      }
+    },
+    {
+      "externalId": "89311",
+      "name": "彭紹謙",
+      "citation": "CBDB 中国历代人物传记资料库 person 89311",
+      "gender": "male",
+      "birth": {
+        "year": 1725
+      },
+      "death": {
+        "year": 1775
+      }
+    },
+    {
+      "externalId": "65748",
+      "name": "彭紹升",
+      "citation": "CBDB 中国历代人物传记资料库 person 65748",
+      "gender": "male",
+      "birth": {
+        "year": 1740
+      },
+      "death": {
+        "year": 1796
+      }
+    },
+    {
+      "externalId": "700092",
+      "name": "費氏(彭紹升妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 700092",
+      "gender": "female"
+    },
+    {
+      "externalId": "33917",
+      "name": "彭定求",
+      "citation": "CBDB 中国历代人物传记资料库 person 33917",
+      "gender": "male",
+      "birth": {
+        "year": 1645
+      },
+      "death": {
+        "year": 1719
+      }
+    },
+    {
+      "externalId": "33916",
+      "name": "彭瓏",
+      "citation": "CBDB 中国历代人物传记资料库 person 33916",
+      "gender": "male",
+      "birth": {
+        "year": 1613
+      },
+      "death": {
+        "year": 1689
+      }
+    },
+    {
+      "externalId": "522118",
+      "name": "彭德先",
+      "citation": "CBDB 中国历代人物传记资料库 person 522118",
+      "gender": "male",
+      "birth": {
+        "year": 1590
+      },
+      "death": {
+        "year": 1665
+      }
+    },
+    {
+      "externalId": "359967",
+      "name": "彭汝諧",
+      "citation": "CBDB 中国历代人物传记资料库 person 359967",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "89271",
+      "child": "56860"
+    },
+    {
+      "kind": "parent",
+      "parent": "56860",
+      "child": "89311"
+    },
+    {
+      "kind": "parent",
+      "parent": "56860",
+      "child": "65748"
+    },
+    {
+      "kind": "parent",
+      "parent": "33917",
+      "child": "89271"
+    },
+    {
+      "kind": "spouse",
+      "a": "65748",
+      "b": "700092"
+    },
+    {
+      "kind": "parent",
+      "parent": "33916",
+      "child": "33917"
+    },
+    {
+      "kind": "parent",
+      "parent": "522118",
+      "child": "33916"
+    },
+    {
+      "kind": "parent",
+      "parent": "359967",
+      "child": "522118"
+    }
+  ]
+}

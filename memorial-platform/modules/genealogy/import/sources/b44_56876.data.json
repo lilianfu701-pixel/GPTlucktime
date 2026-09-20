@@ -1,0 +1,19 @@
+{
+  "key": "cbdb:b44_56876",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "56876",
+      "name": "賀長齡",
+      "citation": "CBDB 中国历代人物传记资料库 person 56876",
+      "gender": "male",
+      "birth": {
+        "year": 1785
+      },
+      "death": {
+        "year": 1848
+      }
+    }
+  ],
+  "relations": []
+}

@@ -1,0 +1,19 @@
+{
+  "key": "cbdb:b44_56884",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "56884",
+      "name": "甘文焜",
+      "citation": "CBDB 中国历代人物传记资料库 person 56884",
+      "gender": "male",
+      "birth": {
+        "year": 1632
+      },
+      "death": {
+        "year": 1673
+      }
+    }
+  ],
+  "relations": []
+}

@@ -1,0 +1,30 @@
+{
+  "key": "cbdb:b44_56840",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "56840",
+      "name": "王永吉",
+      "citation": "CBDB 中国历代人物传记资料库 person 56840",
+      "gender": "male",
+      "birth": {
+        "year": 1599
+      },
+      "death": {
+        "year": 1659
+      }
+    },
+    {
+      "externalId": "513457",
+      "name": "王自學",
+      "citation": "CBDB 中国历代人物传记资料库 person 513457"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "513457",
+      "child": "56840"
+    }
+  ]
+}

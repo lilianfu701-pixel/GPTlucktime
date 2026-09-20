@@ -1,0 +1,19 @@
+{
+  "key": "cbdb:b44_56868",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "56868",
+      "name": "王新命",
+      "citation": "CBDB 中国历代人物传记资料库 person 56868",
+      "gender": "male",
+      "birth": {
+        "year": 1633
+      },
+      "death": {
+        "year": 1708
+      }
+    }
+  ],
+  "relations": []
+}

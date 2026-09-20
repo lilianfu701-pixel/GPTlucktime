@@ -1,0 +1,19 @@
+{
+  "key": "cbdb:b44_56856",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "56856",
+      "name": "梁維樞",
+      "citation": "CBDB 中国历代人物传记资料库 person 56856",
+      "gender": "male",
+      "birth": {
+        "year": 1587
+      },
+      "death": {
+        "year": 1662
+      }
+    }
+  ],
+  "relations": []
+}

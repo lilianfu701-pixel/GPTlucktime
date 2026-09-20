@@ -1,0 +1,30 @@
+{
+  "key": "cbdb:b44_56888",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "56888",
+      "name": "張井",
+      "citation": "CBDB 中国历代人物传记资料库 person 56888",
+      "gender": "male",
+      "birth": {
+        "year": 1776
+      },
+      "death": {
+        "year": 1835
+      }
+    },
+    {
+      "externalId": "513622",
+      "name": "張元杰",
+      "citation": "CBDB 中国历代人物传记资料库 person 513622"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "513622",
+      "child": "56888"
+    }
+  ]
+}
