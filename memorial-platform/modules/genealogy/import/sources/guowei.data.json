@@ -1,0 +1,64 @@
+{
+  "key": "cbdb:guowei",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "22530",
+      "name": "郭威",
+      "citation": "CBDB 中国历代人物传记资料库 person 22530",
+      "gender": "male",
+      "birth": {
+        "year": 904
+      },
+      "death": {
+        "year": 953
+      }
+    },
+    {
+      "externalId": "22529",
+      "name": "郭簡",
+      "citation": "CBDB 中国历代人物传记资料库 person 22529",
+      "gender": "male"
+    },
+    {
+      "externalId": "22528",
+      "name": "郭蘊",
+      "citation": "CBDB 中国历代人物传记资料库 person 22528",
+      "gender": "male"
+    },
+    {
+      "externalId": "22527",
+      "name": "郭諶",
+      "citation": "CBDB 中国历代人物传记资料库 person 22527",
+      "gender": "male"
+    },
+    {
+      "externalId": "22526",
+      "name": "郭璟",
+      "citation": "CBDB 中国历代人物传记资料库 person 22526",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "22529",
+      "child": "22530"
+    },
+    {
+      "kind": "parent",
+      "parent": "22528",
+      "child": "22529"
+    },
+    {
+      "kind": "parent",
+      "parent": "22527",
+      "child": "22528"
+    },
+    {
+      "kind": "parent",
+      "parent": "22526",
+      "child": "22527"
+    }
+  ]
+}

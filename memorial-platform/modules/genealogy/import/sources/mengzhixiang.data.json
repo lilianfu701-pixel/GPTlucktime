@@ -1,0 +1,140 @@
+{
+  "key": "cbdb:mengzhixiang",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "18317",
+      "name": "孟知祥",
+      "citation": "CBDB 中国历代人物传记资料库 person 18317",
+      "gender": "male",
+      "death": {
+        "year": 935
+      }
+    },
+    {
+      "externalId": "18319",
+      "name": "孟仁贄",
+      "citation": "CBDB 中国历代人物传记资料库 person 18319",
+      "gender": "male",
+      "birth": {
+        "year": 928
+      },
+      "death": {
+        "year": 971
+      }
+    },
+    {
+      "externalId": "18320",
+      "name": "孟仁裕",
+      "citation": "CBDB 中国历代人物传记资料库 person 18320",
+      "gender": "male",
+      "birth": {
+        "year": 927
+      },
+      "death": {
+        "year": 970
+      }
+    },
+    {
+      "externalId": "18321",
+      "name": "孟仁操",
+      "citation": "CBDB 中国历代人物传记资料库 person 18321",
+      "gender": "male",
+      "death": {
+        "year": 986
+      }
+    },
+    {
+      "externalId": "18322",
+      "name": "孟仁祐",
+      "citation": "CBDB 中国历代人物传记资料库 person 18322",
+      "gender": "male"
+    },
+    {
+      "externalId": "18318",
+      "name": "孟昶",
+      "citation": "CBDB 中国历代人物传记资料库 person 18318",
+      "gender": "male",
+      "birth": {
+        "year": 919
+      },
+      "death": {
+        "year": 965
+      }
+    },
+    {
+      "externalId": "121647",
+      "name": "孟氏(毋克恭妻)",
+      "citation": "CBDB 中国历代人物传记资料库 person 121647",
+      "gender": "female"
+    },
+    {
+      "externalId": "121608",
+      "name": "毋克恭",
+      "citation": "CBDB 中国历代人物传记资料库 person 121608",
+      "gender": "male"
+    },
+    {
+      "externalId": "42451",
+      "name": "孟玄喆",
+      "citation": "CBDB 中国历代人物传记资料库 person 42451",
+      "gender": "male"
+    },
+    {
+      "externalId": "18323",
+      "name": "孟玄珏",
+      "citation": "CBDB 中国历代人物传记资料库 person 18323",
+      "gender": "male",
+      "death": {
+        "year": 992
+      }
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "18317",
+      "child": "18319"
+    },
+    {
+      "kind": "parent",
+      "parent": "18317",
+      "child": "18320"
+    },
+    {
+      "kind": "parent",
+      "parent": "18317",
+      "child": "18321"
+    },
+    {
+      "kind": "parent",
+      "parent": "18317",
+      "child": "18322"
+    },
+    {
+      "kind": "parent",
+      "parent": "18317",
+      "child": "18318"
+    },
+    {
+      "kind": "parent",
+      "parent": "18318",
+      "child": "121647"
+    },
+    {
+      "kind": "parent",
+      "parent": "18318",
+      "child": "42451"
+    },
+    {
+      "kind": "parent",
+      "parent": "18318",
+      "child": "18323"
+    },
+    {
+      "kind": "spouse",
+      "a": "121608",
+      "b": "121647"
+    }
+  ]
+}

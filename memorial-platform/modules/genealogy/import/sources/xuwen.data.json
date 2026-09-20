@@ -1,0 +1,119 @@
+{
+  "key": "cbdb:xuwen",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "19615",
+      "name": "徐溫",
+      "citation": "CBDB 中国历代人物传记资料库 person 19615",
+      "gender": "male"
+    },
+    {
+      "externalId": "19617",
+      "name": "徐知訓",
+      "citation": "CBDB 中国历代人物传记资料库 person 19617",
+      "gender": "male"
+    },
+    {
+      "externalId": "19618",
+      "name": "徐知詢",
+      "citation": "CBDB 中国历代人物传记资料库 person 19618",
+      "gender": "male"
+    },
+    {
+      "externalId": "19619",
+      "name": "徐知誨",
+      "citation": "CBDB 中国历代人物传记资料库 person 19619",
+      "gender": "male"
+    },
+    {
+      "externalId": "19616",
+      "name": "徐知諫",
+      "citation": "CBDB 中国历代人物传记资料库 person 19616",
+      "gender": "male"
+    },
+    {
+      "externalId": "19620",
+      "name": "徐知證",
+      "citation": "CBDB 中国历代人物传记资料库 person 19620",
+      "gender": "male"
+    },
+    {
+      "externalId": "19621",
+      "name": "徐知諤",
+      "citation": "CBDB 中国历代人物传记资料库 person 19621",
+      "gender": "male",
+      "birth": {
+        "year": 906
+      },
+      "death": {
+        "year": 940
+      }
+    },
+    {
+      "externalId": "19622",
+      "name": "徐遊",
+      "citation": "CBDB 中国历代人物传记资料库 person 19622",
+      "gender": "male"
+    },
+    {
+      "externalId": "19623",
+      "name": "徐遜",
+      "citation": "CBDB 中国历代人物传记资料库 person 19623",
+      "gender": "male"
+    },
+    {
+      "externalId": "19624",
+      "name": "徐元榆",
+      "citation": "CBDB 中国历代人物传记资料库 person 19624",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "19615",
+      "child": "19617"
+    },
+    {
+      "kind": "parent",
+      "parent": "19615",
+      "child": "19618"
+    },
+    {
+      "kind": "parent",
+      "parent": "19615",
+      "child": "19619"
+    },
+    {
+      "kind": "parent",
+      "parent": "19615",
+      "child": "19616"
+    },
+    {
+      "kind": "parent",
+      "parent": "19615",
+      "child": "19620"
+    },
+    {
+      "kind": "parent",
+      "parent": "19615",
+      "child": "19621"
+    },
+    {
+      "kind": "parent",
+      "parent": "19619",
+      "child": "19622"
+    },
+    {
+      "kind": "parent",
+      "parent": "19616",
+      "child": "19623"
+    },
+    {
+      "kind": "parent",
+      "parent": "19623",
+      "child": "19624"
+    }
+  ]
+}

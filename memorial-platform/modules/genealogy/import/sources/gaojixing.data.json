@@ -1,0 +1,87 @@
+{
+  "key": "cbdb:gaojixing",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "22187",
+      "name": "高季興",
+      "citation": "CBDB 中国历代人物传记资料库 person 22187",
+      "gender": "male",
+      "death": {
+        "year": 930
+      }
+    },
+    {
+      "externalId": "22188",
+      "name": "高從誨",
+      "citation": "CBDB 中国历代人物传记资料库 person 22188",
+      "gender": "male",
+      "death": {
+        "year": 949
+      }
+    },
+    {
+      "externalId": "22189",
+      "name": "高保融",
+      "citation": "CBDB 中国历代人物传记资料库 person 22189",
+      "gender": "male",
+      "birth": {
+        "year": 920
+      },
+      "death": {
+        "year": 960
+      }
+    },
+    {
+      "externalId": "22190",
+      "name": "高保勗",
+      "citation": "CBDB 中国历代人物传记资料库 person 22190",
+      "gender": "male"
+    },
+    {
+      "externalId": "22191",
+      "name": "高繼冲",
+      "citation": "CBDB 中国历代人物传记资料库 person 22191",
+      "gender": "male",
+      "birth": {
+        "year": 940
+      },
+      "death": {
+        "year": 970
+      }
+    },
+    {
+      "externalId": "22192",
+      "name": "高繼充",
+      "citation": "CBDB 中国历代人物传记资料库 person 22192",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "22187",
+      "child": "22188"
+    },
+    {
+      "kind": "parent",
+      "parent": "22188",
+      "child": "22189"
+    },
+    {
+      "kind": "parent",
+      "parent": "22188",
+      "child": "22190"
+    },
+    {
+      "kind": "parent",
+      "parent": "22189",
+      "child": "22191"
+    },
+    {
+      "kind": "parent",
+      "parent": "22189",
+      "child": "22192"
+    }
+  ]
+}

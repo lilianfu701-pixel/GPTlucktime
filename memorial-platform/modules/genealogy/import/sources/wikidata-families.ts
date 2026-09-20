@@ -212,6 +212,13 @@ import suweidao from "./suweidao.data.json";
 import liufen from "./liufen.data.json";
 import liugong from "./liugong.data.json";
 import xiaoying from "./xiaoying.data.json";
+// CBDB 第三十四批（五代十国·折家军·荆南·后蜀·楚国·后周）
+import mayin from "./mayin.data.json";
+import mengzhixiang from "./mengzhixiang.data.json";
+import gaojixing from "./gaojixing.data.json";
+import xuwen from "./xuwen.data.json";
+import zhejiazhun from "./zhejiazhun.data.json";
+import guowei from "./guowei.data.json";
 // CBDB 第三十三批（五代吴越·金代双段·南唐宋初·宋元之际）
 import qianliu from "./qianliu.data.json";
 import duanjicheng from "./duanjicheng.data.json";
@@ -730,6 +737,13 @@ const FAMILIES: { key: string; label: string; dataset: GenealogyDataset }[] = [
   { key: "liufen", label: "河东柳氏·柳芬支（柳懿·柳均·南北朝到唐）", dataset: liufen as GenealogyDataset },
   { key: "liugong", label: "河东柳氏·柳公权支（书法家·柳瑗·柳仲憲）", dataset: liugong as GenealogyDataset },
   { key: "xiaoying", label: "兰陵萧氏·萧颖士支（萧道赐·萧恢·南朝到唐）", dataset: xiaoying as GenealogyDataset },
+  // CBDB 第三十四批：五代十国·折家军·荆南·后蜀·楚国·后周
+  { key: "mayin", label: "楚国马氏·马殷支（五代楚王·851-930·马希范至·8人）", dataset: mayin as GenealogyDataset },
+  { key: "mengzhixiang", label: "后蜀孟氏·孟知祥支（五代后蜀开国·-935·孟昶至·10人）", dataset: mengzhixiang as GenealogyDataset },
+  { key: "gaojixing", label: "荆南高氏·高季兴支（五代荆南国·-930·高继冲至·6人）", dataset: gaojixing as GenealogyDataset },
+  { key: "xuwen", label: "淮南徐氏·徐温支（五代吴国权臣·徐知诰先祖·10人）", dataset: xuwen as GenealogyDataset },
+  { key: "zhejiazhun", label: "府州折氏·折家军（五代宋初北方边帅世家·折从阮-折彦质·22人）", dataset: zhejiazhun as GenealogyDataset },
+  { key: "guowei", label: "后周郭氏·郭威支（五代后周开国·904-953·5人）", dataset: guowei as GenealogyDataset },
   // CBDB 第三十三批：五代吴越·金代双段·南唐宋初·宋元之际
   { key: "qianliu", label: "吴越钱氏·钱镠支（五代吴越国王·852-932·钱惟演至·45人）", dataset: qianliu as GenealogyDataset },
   { key: "duanjicheng", label: "稷山段氏·段克己段成己支（金代双段词人·1194-1279·15人）", dataset: duanjicheng as GenealogyDataset },

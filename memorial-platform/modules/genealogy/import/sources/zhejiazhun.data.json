@@ -1,0 +1,284 @@
+{
+  "key": "cbdb:zhejiazhun",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "14230",
+      "name": "折從阮",
+      "citation": "CBDB 中国历代人物传记资料库 person 14230",
+      "gender": "male"
+    },
+    {
+      "externalId": "14231",
+      "name": "折德扆",
+      "citation": "CBDB 中国历代人物传记资料库 person 14231",
+      "gender": "male",
+      "birth": {
+        "year": 917
+      },
+      "death": {
+        "year": 964
+      }
+    },
+    {
+      "externalId": "14238",
+      "name": "折惟忠",
+      "citation": "CBDB 中国历代人物传记资料库 person 14238",
+      "gender": "male"
+    },
+    {
+      "externalId": "14242",
+      "name": "折繼閔",
+      "citation": "CBDB 中国历代人物传记资料库 person 14242",
+      "gender": "male",
+      "death": {
+        "year": 1050
+      }
+    },
+    {
+      "externalId": "14232",
+      "name": "折德源",
+      "citation": "CBDB 中国历代人物传记资料库 person 14232",
+      "gender": "male"
+    },
+    {
+      "externalId": "14234",
+      "name": "折御卿",
+      "citation": "CBDB 中国历代人物传记资料库 person 14234",
+      "gender": "male",
+      "death": {
+        "year": 995
+      }
+    },
+    {
+      "externalId": "14233",
+      "name": "折御勳",
+      "citation": "CBDB 中国历代人物传记资料库 person 14233",
+      "gender": "male",
+      "birth": {
+        "year": 938
+      },
+      "death": {
+        "year": 977
+      }
+    },
+    {
+      "externalId": "14241",
+      "name": "折繼宣",
+      "citation": "CBDB 中国历代人物传记资料库 person 14241",
+      "gender": "male"
+    },
+    {
+      "externalId": "14243",
+      "name": "折繼祖",
+      "citation": "CBDB 中国历代人物传记资料库 person 14243",
+      "gender": "male"
+    },
+    {
+      "externalId": "14244",
+      "name": "折繼世",
+      "citation": "CBDB 中国历代人物传记资料库 person 14244",
+      "gender": "male"
+    },
+    {
+      "externalId": "14246",
+      "name": "折克行",
+      "citation": "CBDB 中国历代人物传记资料库 person 14246",
+      "gender": "male",
+      "death": {
+        "year": 1108
+      }
+    },
+    {
+      "externalId": "14245",
+      "name": "折克柔",
+      "citation": "CBDB 中国历代人物传记资料库 person 14245",
+      "gender": "male",
+      "death": {
+        "year": 1078
+      }
+    },
+    {
+      "externalId": "14248",
+      "name": "折惟讓",
+      "citation": "CBDB 中国历代人物传记资料库 person 14248",
+      "gender": "male"
+    },
+    {
+      "externalId": "14237",
+      "name": "折惟昌",
+      "citation": "CBDB 中国历代人物传记资料库 person 14237",
+      "gender": "male",
+      "birth": {
+        "year": 978
+      },
+      "death": {
+        "year": 1014
+      }
+    },
+    {
+      "externalId": "14239",
+      "name": "折惟崇",
+      "citation": "CBDB 中国历代人物传记资料库 person 14239",
+      "gender": "male"
+    },
+    {
+      "externalId": "14236",
+      "name": "折惟正",
+      "citation": "CBDB 中国历代人物传记资料库 person 14236",
+      "gender": "male"
+    },
+    {
+      "externalId": "119910",
+      "name": "折惟信",
+      "citation": "CBDB 中国历代人物传记资料库 person 119910",
+      "gender": "male"
+    },
+    {
+      "externalId": "14247",
+      "name": "折可大",
+      "citation": "CBDB 中国历代人物传记资料库 person 14247",
+      "gender": "male"
+    },
+    {
+      "externalId": "14240",
+      "name": "折繼長",
+      "citation": "CBDB 中国历代人物传记资料库 person 14240",
+      "gender": "male"
+    },
+    {
+      "externalId": "14249",
+      "name": "折克俊",
+      "citation": "CBDB 中国历代人物传记资料库 person 14249",
+      "gender": "male"
+    },
+    {
+      "externalId": "14250",
+      "name": "折可適",
+      "citation": "CBDB 中国历代人物传记资料库 person 14250",
+      "gender": "male",
+      "birth": {
+        "year": 1050
+      },
+      "death": {
+        "year": 1110
+      }
+    },
+    {
+      "externalId": "405",
+      "name": "折彥質",
+      "citation": "CBDB 中国历代人物传记资料库 person 405",
+      "gender": "male",
+      "death": {
+        "year": 1160
+      }
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "14230",
+      "child": "14232"
+    },
+    {
+      "kind": "parent",
+      "parent": "14230",
+      "child": "14231"
+    },
+    {
+      "kind": "parent",
+      "parent": "14231",
+      "child": "14234"
+    },
+    {
+      "kind": "parent",
+      "parent": "14231",
+      "child": "14233"
+    },
+    {
+      "kind": "parent",
+      "parent": "14234",
+      "child": "14238"
+    },
+    {
+      "kind": "parent",
+      "parent": "14238",
+      "child": "14241"
+    },
+    {
+      "kind": "parent",
+      "parent": "14238",
+      "child": "14243"
+    },
+    {
+      "kind": "parent",
+      "parent": "14238",
+      "child": "14244"
+    },
+    {
+      "kind": "parent",
+      "parent": "14238",
+      "child": "14242"
+    },
+    {
+      "kind": "parent",
+      "parent": "14242",
+      "child": "14246"
+    },
+    {
+      "kind": "parent",
+      "parent": "14242",
+      "child": "14245"
+    },
+    {
+      "kind": "parent",
+      "parent": "14232",
+      "child": "14248"
+    },
+    {
+      "kind": "parent",
+      "parent": "14234",
+      "child": "14237"
+    },
+    {
+      "kind": "parent",
+      "parent": "14234",
+      "child": "14239"
+    },
+    {
+      "kind": "parent",
+      "parent": "14234",
+      "child": "14236"
+    },
+    {
+      "kind": "parent",
+      "parent": "14234",
+      "child": "119910"
+    },
+    {
+      "kind": "parent",
+      "parent": "14246",
+      "child": "14247"
+    },
+    {
+      "kind": "parent",
+      "parent": "14248",
+      "child": "14240"
+    },
+    {
+      "kind": "parent",
+      "parent": "14240",
+      "child": "14249"
+    },
+    {
+      "kind": "parent",
+      "parent": "14249",
+      "child": "14250"
+    },
+    {
+      "kind": "parent",
+      "parent": "14250",
+      "child": "405"
+    }
+  ]
+}

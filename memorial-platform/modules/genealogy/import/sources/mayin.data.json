@@ -1,0 +1,127 @@
+{
+  "key": "cbdb:mayin",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "169807",
+      "name": "馬殷",
+      "citation": "CBDB 中国历代人物传记资料库 person 169807",
+      "gender": "male",
+      "birth": {
+        "year": 851
+      },
+      "death": {
+        "year": 930
+      }
+    },
+    {
+      "externalId": "170280",
+      "name": "馬元豐",
+      "citation": "CBDB 中国历代人物传记资料库 person 170280",
+      "gender": "male",
+      "death": {
+        "year": 874
+      }
+    },
+    {
+      "externalId": "169239",
+      "name": "馬希萼",
+      "citation": "CBDB 中国历代人物传记资料库 person 169239",
+      "gender": "male",
+      "death": {
+        "year": 948
+      }
+    },
+    {
+      "externalId": "170040",
+      "name": "馬希范",
+      "citation": "CBDB 中国历代人物传记资料库 person 170040",
+      "gender": "male",
+      "birth": {
+        "year": 898
+      },
+      "death": {
+        "year": 947
+      }
+    },
+    {
+      "externalId": "195821",
+      "name": "馬希聲",
+      "citation": "CBDB 中国历代人物传记资料库 person 195821",
+      "gender": "male",
+      "birth": {
+        "year": 898
+      },
+      "death": {
+        "year": 932
+      }
+    },
+    {
+      "externalId": "195822",
+      "name": "馬希廣",
+      "citation": "CBDB 中国历代人物传记资料库 person 195822",
+      "gender": "male",
+      "death": {
+        "year": 948
+      }
+    },
+    {
+      "externalId": "170499",
+      "name": "馬禎",
+      "citation": "CBDB 中国历代人物传记资料库 person 170499",
+      "gender": "male",
+      "death": {
+        "year": 837
+      }
+    },
+    {
+      "externalId": "145270",
+      "name": "馬光贊",
+      "citation": "CBDB 中国历代人物传记资料库 person 145270",
+      "gender": "male",
+      "birth": {
+        "year": 920
+      },
+      "death": {
+        "year": 953
+      }
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "170280",
+      "child": "169807"
+    },
+    {
+      "kind": "parent",
+      "parent": "169807",
+      "child": "169239"
+    },
+    {
+      "kind": "parent",
+      "parent": "169807",
+      "child": "170040"
+    },
+    {
+      "kind": "parent",
+      "parent": "169807",
+      "child": "195821"
+    },
+    {
+      "kind": "parent",
+      "parent": "169807",
+      "child": "195822"
+    },
+    {
+      "kind": "parent",
+      "parent": "170499",
+      "child": "170280"
+    },
+    {
+      "kind": "parent",
+      "parent": "169239",
+      "child": "145270"
+    }
+  ]
+}
