@@ -1,0 +1,86 @@
+{
+  "key": "cbdb:b42_56748",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "56748",
+      "name": "鍾世鍠",
+      "citation": "CBDB 中国历代人物传记资料库 person 56748",
+      "gender": "male"
+    },
+    {
+      "externalId": "56757",
+      "name": "鍾文貞",
+      "citation": "CBDB 中国历代人物传记资料库 person 56757",
+      "gender": "female"
+    },
+    {
+      "externalId": "56759",
+      "name": "吳絅",
+      "citation": "CBDB 中国历代人物传记资料库 person 56759",
+      "gender": "male"
+    },
+    {
+      "externalId": "56746",
+      "name": "鍾文淑",
+      "citation": "CBDB 中国历代人物传记资料库 person 56746",
+      "gender": "female"
+    },
+    {
+      "externalId": "56750",
+      "name": "張同工",
+      "citation": "CBDB 中国历代人物传记资料库 person 56750",
+      "gender": "male"
+    },
+    {
+      "externalId": "56753",
+      "name": "張萬年",
+      "citation": "CBDB 中国历代人物传记资料库 person 56753",
+      "gender": "male",
+      "birth": {
+        "year": 1782
+      },
+      "death": {
+        "year": 1825
+      }
+    },
+    {
+      "externalId": "56754",
+      "name": "張慶昌",
+      "citation": "CBDB 中国历代人物传记资料库 person 56754",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "56748",
+      "child": "56757"
+    },
+    {
+      "kind": "parent",
+      "parent": "56748",
+      "child": "56746"
+    },
+    {
+      "kind": "spouse",
+      "a": "56757",
+      "b": "56759"
+    },
+    {
+      "kind": "spouse",
+      "a": "56746",
+      "b": "56750"
+    },
+    {
+      "kind": "parent",
+      "parent": "56746",
+      "child": "56753"
+    },
+    {
+      "kind": "parent",
+      "parent": "56746",
+      "child": "56754"
+    }
+  ]
+}

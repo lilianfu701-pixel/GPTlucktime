@@ -1,0 +1,19 @@
+{
+  "key": "cbdb:b42_56744",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "56744",
+      "name": "許雪棠",
+      "citation": "CBDB 中国历代人物传记资料库 person 56744",
+      "gender": "female",
+      "birth": {
+        "year": 1644
+      },
+      "death": {
+        "year": 1703
+      }
+    }
+  ],
+  "relations": []
+}

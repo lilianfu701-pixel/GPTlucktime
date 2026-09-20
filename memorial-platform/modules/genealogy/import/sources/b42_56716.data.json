@@ -1,0 +1,42 @@
+{
+  "key": "cbdb:b42_56716",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "56716",
+      "name": "汪煚",
+      "citation": "CBDB 中国历代人物传记资料库 person 56716",
+      "gender": "male"
+    },
+    {
+      "externalId": "56714",
+      "name": "汪璀",
+      "citation": "CBDB 中国历代人物传记资料库 person 56714",
+      "gender": "female"
+    },
+    {
+      "externalId": "56718",
+      "name": "徐以坤",
+      "citation": "CBDB 中国历代人物传记资料库 person 56718",
+      "gender": "male",
+      "birth": {
+        "year": 1722
+      },
+      "death": {
+        "year": 1792
+      }
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "56716",
+      "child": "56714"
+    },
+    {
+      "kind": "spouse",
+      "a": "56714",
+      "b": "56718"
+    }
+  ]
+}

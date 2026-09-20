@@ -1,0 +1,25 @@
+{
+  "key": "cbdb:b42_56740",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "56740",
+      "name": "孫宇奇",
+      "citation": "CBDB 中国历代人物传记资料库 person 56740",
+      "gender": "male"
+    },
+    {
+      "externalId": "56736",
+      "name": "柴源",
+      "citation": "CBDB 中国历代人物传记资料库 person 56736",
+      "gender": "female"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "spouse",
+      "a": "56736",
+      "b": "56740"
+    }
+  ]
+}

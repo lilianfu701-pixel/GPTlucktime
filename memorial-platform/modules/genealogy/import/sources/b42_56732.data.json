@@ -1,0 +1,25 @@
+{
+  "key": "cbdb:b42_56732",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "56732",
+      "name": "王某(蔣錦樓夫)",
+      "citation": "CBDB 中国历代人物传记资料库 person 56732",
+      "gender": "male"
+    },
+    {
+      "externalId": "56731",
+      "name": "蔣錦樓",
+      "citation": "CBDB 中国历代人物传记资料库 person 56731",
+      "gender": "female"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "spouse",
+      "a": "56731",
+      "b": "56732"
+    }
+  ]
+}

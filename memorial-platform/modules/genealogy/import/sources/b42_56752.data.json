@@ -1,0 +1,52 @@
+{
+  "key": "cbdb:b42_56752",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "56752",
+      "name": "徐賢",
+      "citation": "CBDB 中国历代人物传记资料库 person 56752",
+      "gender": "female"
+    },
+    {
+      "externalId": "56762",
+      "name": "沈迪德",
+      "citation": "CBDB 中国历代人物传记资料库 person 56762",
+      "gender": "male"
+    },
+    {
+      "externalId": "55759",
+      "name": "徐基",
+      "citation": "CBDB 中国历代人物传记资料库 person 55759",
+      "gender": "male"
+    },
+    {
+      "externalId": "55756",
+      "name": "張汝傳",
+      "citation": "CBDB 中国历代人物传记资料库 person 55756",
+      "gender": "female"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "55759",
+      "child": "56752"
+    },
+    {
+      "kind": "parent",
+      "parent": "55756",
+      "child": "56752"
+    },
+    {
+      "kind": "spouse",
+      "a": "56752",
+      "b": "56762"
+    },
+    {
+      "kind": "spouse",
+      "a": "55756",
+      "b": "55759"
+    }
+  ]
+}

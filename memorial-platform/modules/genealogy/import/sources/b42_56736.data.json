@@ -1,0 +1,36 @@
+{
+  "key": "cbdb:b42_56736",
+  "namespace": "cbdb",
+  "people": [
+    {
+      "externalId": "56736",
+      "name": "柴源",
+      "citation": "CBDB 中国历代人物传记资料库 person 56736",
+      "gender": "female"
+    },
+    {
+      "externalId": "56740",
+      "name": "孫宇奇",
+      "citation": "CBDB 中国历代人物传记资料库 person 56740",
+      "gender": "male"
+    },
+    {
+      "externalId": "56738",
+      "name": "柴禹門",
+      "citation": "CBDB 中国历代人物传记资料库 person 56738",
+      "gender": "male"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "parent",
+      "parent": "56738",
+      "child": "56736"
+    },
+    {
+      "kind": "spouse",
+      "a": "56736",
+      "b": "56740"
+    }
+  ]
+}
