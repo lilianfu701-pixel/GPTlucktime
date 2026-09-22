@@ -786,12 +786,6 @@ export function OfferingsAltar(props: {
         <p className="altarNotice">{t("ownerDisabledNotice")}</p>
       ) : null}
 
-      {/* The "proceeds go to the family" note makes no sense on a page with no
-       * family yet, so it yields to the stewardship notice. */}
-      {awaitingClaim ? null : (
-        <p className="altarFeeNote">{t("feeTransfer")}</p>
-      )}
-
       {/* Modal */}
       {modal ? (
         <div

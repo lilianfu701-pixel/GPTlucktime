@@ -66,7 +66,7 @@ export const OFFERING_CATALOG: Readonly<
   },
 };
 
-/** Platform fee retained before funds are transferred to the family. */
+/** Platform fee rate applied to paid offerings (all revenue is platform revenue). */
 export const PLATFORM_FEE_RATE = 0.2;
 
 export function isOfferingSlug(value: string): value is OfferingSlug {

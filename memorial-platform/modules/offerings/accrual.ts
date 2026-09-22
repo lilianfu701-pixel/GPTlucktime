@@ -21,12 +21,10 @@ export interface FamilyAccrual {
 }
 
 /**
- * The family "gift-out" accrual for a memorial — bookkeeping only.
+ * Bookkeeping summary for a memorial's paid offerings.
  *
- * Derived from the paid offerings on the memorial, not a custodial balance: the
- * money is the platform's revenue, and this figure is the amount the platform
- * will gift to the family (gross, less the 20% service fee) once they enrol and
- * request it. No funds are held on anyone's behalf here.
+ * All revenue is platform revenue. This function reports the gross and net
+ * figures for internal accounting; no funds are transferred to families.
  */
 export async function familyAccrual(memorialId: string): Promise<FamilyAccrual> {
   const [row] = await db()
